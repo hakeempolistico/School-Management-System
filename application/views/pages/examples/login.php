@@ -30,11 +30,11 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="<?php echo site_url('welcome/index2') ?>"><b>Araullo</b>High school</a>
+    <a href="<?php echo site_url('welcome/index2') ?>"><b>Araullo</b>High School</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg"><img src="../../images/logo.png" height="75" width="75"> </p>
+    <p class="login-box-msg"><img src="<?php echo base_url(); ?>images/logo.png" height="75" width="75"> </p>
 
     <form action="<?php echo site_url('welcome/index2') ?>" method="post">
       <div class="form-group has-feedback">
