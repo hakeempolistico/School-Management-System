@@ -3242,11 +3242,12 @@ table.text-center th {
 }
 .login-logo a,
 .register-logo a {
-  color: white;
+  color: black;
 }
 .login-page,
 .register-page {
-  background: maroon;
+  background: url("../../images/bg.jpg") no-repeat center center;
+   background-size:  cover;
 }
 .login-box,
 .register-box {
