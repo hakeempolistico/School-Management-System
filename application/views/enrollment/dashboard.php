@@ -48,9 +48,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Logo -->
     <a href="<?php echo site_url('welcome/index2') ?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><b>S</b>M</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-lg">School Management</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -402,7 +402,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <p>Students</p>
             </div>
             <div class="icon">
-              <i class="ion ion-bag"></i>
+              <i class="fa fa-pencil"></i>
             </div>
             <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -417,7 +417,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <p>Teachers</p>
             </div>
             <div class="icon">
-              <i class="ion ion-stats-bars"></i>
+              <i class="fa fa-mortar-board"></i>
             </div>
             <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -432,7 +432,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <p>Rooms</p>
             </div>
             <div class="icon">
-              <i class="ion ion-person-add"></i>
+              <i class="fa fa-home"></i>
             </div>
             <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -447,7 +447,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <p>Class</p>
             </div>
             <div class="icon">
-              <i class="ion ion-pie-graph"></i>
+              <i class="fa fa-star"></i>
             </div>
             <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -459,11 +459,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="row">
         <!-- Left col -->
         <section class="col-lg-6 connectedSortable">
-          
-          <!-- DONUT CHART -->
-          <div class="box box-danger">
+
+
+          <div class="box box-default">
             <div class="box-header with-border">
-              <h3 class="box-title">Overall Students</h3>
+              <h3 class="box-title">Overall Senior High Students Per Grade</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -471,10 +471,78 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
               </div>
             </div>
+            <!-- /.box-header -->
             <div class="box-body">
-              <canvas id="pieChart" style="height:250px"></canvas>
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="chart-responsive">
+                    <canvas id="pieChart" height="150"></canvas>
+                  </div>
+                  <!-- ./chart-responsive -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-4">
+                  <ul class="chart-legend clearfix">
+                    <li><i class="fa fa-circle-o text-aqua"></i> Grade 11</li>
+                    <li><i class="fa fa-circle-o text-light-blue"></i> Grade 12</li>
+                  </ul>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
             </div>
             <!-- /.box-body -->
+            <div class="box-footer no-padding">
+              <ul class="nav nav-pills nav-stacked">
+                <li><a href="#">Grade 11 Students
+                  <span class="pull-right text-red"><i class="fa fa-angle-down"></i> 12%</span></a></li>
+                <li><a href="#">Grade 12 Students <span class="pull-right text-green"><i class="fa fa-angle-up"></i> 4%</span></a>
+                </li>
+              </ul>
+            </div>
+            <!-- /.footer -->
+          </div>
+          <!-- /.box -->
+
+          <div class="box box-default">
+            <div class="box-header with-border">
+              <h3 class="box-title">Overall Grade 12 per Strands</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="chart-responsive">
+                    <canvas id="pieChart3" height="150"></canvas>
+                  </div>
+                  <!-- ./chart-responsive -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-4">
+                  <ul class="chart-legend clearfix">
+                    <li><i class="fa fa-circle-o text-red"></i> TVL Cookery</li>
+                    <li><i class="fa fa-circle-o " style="color: darkgrey;"></i>TVL Automative Servicing</li>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer no-padding">
+              <ul class="nav nav-pills nav-stacked">
+                <li><a href="#">TVL Cookery
+                  <span class="pull-right text-red"><i class="fa fa-angle-down"></i> 12%</span></a></li>
+                <li><a href="#">TVL Automative Servicing<span class="pull-right text-green"><i class="fa fa-angle-up"></i> 4%</span></a>
+                </li>
+              </ul>
+            </div>
+            <!-- /.footer -->
           </div>
           <!-- /.box -->
 
@@ -570,10 +638,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- right col (We are only adding the ID to make the widgets sortable)-->
         <section class="col-lg-6 connectedSortable">
 
-            <!-- DONUT CHART -->
-          <div class="box box-danger">
+            <div class="box box-default">
             <div class="box-header with-border">
-              <h3 class="box-title">Overall Student Per Strands</h3>
+              <h3 class="box-title">Overall Grade 11 per Strands</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -581,17 +648,43 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
               </div>
             </div>
+            <!-- /.box-header -->
             <div class="box-body">
-              <canvas id="pieChart2" style="height:250px"></canvas>
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="chart-responsive">
+                    <canvas id="pieChart2" height="150"></canvas>
+                  </div>
+                  <!-- ./chart-responsive -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-4">
+                  <ul class="chart-legend clearfix">
+                    <li><i class="fa fa-circle-o text-red"></i> TVL Cookery</li>
+                    <li><i class="fa fa-circle-o " style="color: darkgrey;"></i>TVL Automative Servicing</li>
+                  </ul>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
             </div>
             <!-- /.box-body -->
+            <div class="box-footer no-padding">
+              <ul class="nav nav-pills nav-stacked">
+                <li><a href="#">TVL Cookery
+                  <span class="pull-right text-red"><i class="fa fa-angle-down"></i> 12%</span></a></li>
+                <li><a href="#">TVL Automative Servicing<span class="pull-right text-green"><i class="fa fa-angle-up"></i> 4%</span></a>
+                </li>
+              </ul>
+            </div>
+            <!-- /.footer -->
           </div>
           <!-- /.box -->
           
           <!-- BAR CHART -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">Bar Chart</h3>
+              <h3 class="box-title">Overall Senior High School Students per Year</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -608,6 +701,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
           <!-- /.box -->
 
+          
         </section>
         <!-- right col -->
       </div>

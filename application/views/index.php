@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Dashboard</title>
+  <title>School Management | Dashboard</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -48,9 +48,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Logo -->
     <a href="<?php echo site_url('welcome/index2') ?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><b>S</b>M</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-lg">School Management</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -358,32 +358,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </a>
 
           <ul class="treeview-menu">
-            <li><a href="<?php echo site_url('welcome/topnav'); ?>"><i class="fa fa-circle-o text-red"></i>Dashboard</a></li>
-            <li><a href="<?php echo site_url('welcome/boxed'); ?>"><i class="fa fa-circle-o text-red"></i>Enroll Student</a></li>
-            <li><a href="<?php echo site_url('welcome/fixed'); ?>"><i class="fa fa-circle-o text-red"></i>Manage Student</a></li>
-            <li><a href="<?php echo site_url('welcome/colside'); ?>"><i class="fa fa-circle-o text-red"></i>Manage Schedule</a></li>
-          </ul>
-        </li>
-      
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-pie-chart"></i>
-            <span>Enrollment</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-
-          <ul class="treeview-menu">
-            <li><a href="<?php echo site_url('welcome/chartjs'); ?>"><i class="fa fa-circle-o text-aqua"></i>Dashboard</a></li>
-            <li><a href="<?php echo site_url('welcome/morris'); ?>"><i class="fa fa-circle-o text-aqua"></i>Enroll Student
-              <span class="pull-right-container">
-                  <span class="label label-primary pull-right">4</span>
-                </span>
-              </a>
-            </li>
-            <li><a href="<?php echo site_url('welcome/flot'); ?>"><i class="fa fa-circle-o text-aqua"></i>Manage Student</a></li>
-            <li><a href="<?php echo site_url('welcome/inline'); ?>"><i class="fa fa-circle-o text-aqua"></i>Manage Schedule</a></li>
+            <li><a href="<?php echo site_url('enrollment'); ?>"><i class="fa fa-circle-o text-aqua"></i>Dashboard</a></li>
+            <li><a href="<?php echo site_url('welcome/boxed'); ?>"><i class="fa fa-circle-o text-aqua"></i>Enroll Student</a></li>
+            <li><a href="<?php echo site_url('welcome/fixed'); ?>"><i class="fa fa-circle-o text-aqua"></i>Manage Student</a></li>
+            <li><a href="<?php echo site_url('welcome/colside'); ?>"><i class="fa fa-circle-o text-aqua"></i>Manage Schedule</a></li>
           </ul>
         </li>
         
