@@ -336,17 +336,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="active treeview">
-          <a href="#">
+        <li>
+          <a href="<?php echo site_url('/'); ?>">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
           </a>
-          <ul class="treeview-menu">
-            <li class="active"><a href="<?php echo current_url() ?>"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-            <li><a href="<?php echo site_url('welcome/index2') ?>"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
-          </ul>
         </li>
         <li class="treeview">
           <a href="#">
