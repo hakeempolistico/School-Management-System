@@ -450,10 +450,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <!-- /.row -->
       <!-- Main row -->
       <div class="row">
-        <!-- Left col -->
-        <section class="col-lg-6 connectedSortable">
-
-
+        <!-- Left col --> 
+        <section class="col-lg-4 connectedSortable">
           <div class="box box-default">
             <div class="box-header with-border">
               <h3 class="box-title">Overall Senior High Students Per Grade</h3>
@@ -476,8 +474,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <!-- /.col -->
                 <div class="col-md-4">
                   <ul class="chart-legend clearfix">
-                    <li><i class="fa fa-circle-o text-aqua"></i> Grade 11</li>
-                    <li><i class="fa fa-circle-o text-light-blue"></i> Grade 12</li>
+                    <li><i class="fa fa-circle-o text-aqua"></i>Grade 11</li>
+                    <li><i class="fa fa-circle-o text-light-blue"></i>Grade 12</li>
                   </ul>
                 </div>
                 <!-- /.col -->
@@ -496,7 +494,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <!-- /.footer -->
           </div>
           <!-- /.box -->
+        </section>
 
+        <section class="col-lg-4 connectedSortable">
           <div class="box box-default">
             <div class="box-header with-border">
               <h3 class="box-title">Overall Grade 12 per Strands</h3>
@@ -536,6 +536,238 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </ul>
             </div>
             <!-- /.footer -->
+          </div>
+          <!-- /.box -->
+
+        </section>
+
+        <section class="col-lg-4 connectedSortable">
+
+          <div class="box box-default">
+            <div class="box-header with-border">
+              <h3 class="box-title">Overall Grade 11 per Strands</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="chart-responsive">
+                    <canvas id="pieChart2" height="150"></canvas>
+                  </div>
+                  <!-- ./chart-responsive -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-4">
+                  <ul class="chart-legend clearfix">
+                    <li><i class="fa fa-circle-o text-red"></i> TVL Cookery</li>
+                    <li><i class="fa fa-circle-o " style="color: darkgrey;"></i>TVL Automative Servicing</li>
+                  </ul>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer no-padding">
+              <ul class="nav nav-pills nav-stacked">
+                <li><a href="#">TVL Cookery
+                  <span class="pull-right text-red"><i class="fa fa-angle-down"></i> 12%</span></a></li>
+                <li><a href="#">TVL Automative Servicing<span class="pull-right text-green"><i class="fa fa-angle-up"></i> 4%</span></a>
+                </li>
+              </ul>
+            </div>
+            <!-- /.footer -->
+          </div>
+          <!-- /.box -->
+
+        </section>
+      </div>
+
+      <div class="row">
+        <section class="col-lg-7 connectedSortable">
+
+          <!-- TABLE: LATEST STUDENTS ENROLLED -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">Latest Students Enrolled</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="table-responsive">
+                <table class="table no-margin">
+                  <thead>
+                  <tr>
+                    <th>LRN</th>
+                    <th>Full Name</th>
+                    <th>Status</th>
+                    <th>Strand</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td><a href="<?php echo base_url(); ?>pages/examples/invoice.html">14-038-014</a></td>
+                    <td>Hakeem A. Polistico</td>
+                    <td><span class="label label-success">ENROLLED</span></td>
+                    <td>
+                      <div class="sparkbar" data-color="#00a65a" data-height="20">TVL-Automotive Servicing</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="<?php echo base_url(); ?>pages/examples/invoice.html">14-038-027</a></td>
+                    <td>Adrielle Kristine Nicolette M. Escaro </td>
+                    <td><span class="label label-warning">PENDING</span></td>
+                    <td>
+                      <div class="sparkbar" data-color="#f39c12" data-height="20">TVL-Cookery</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="<?php echo base_url(); ?>pages/examples/invoice.html">14-038-016</a></td>
+                    <td>Jasver Salva</td>
+                    <td><span class="label label-danger">DROP</span></td>
+                    <td>
+                      <div class="sparkbar" data-color="#f56954" data-height="20">TVL-Cookery</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="<?php echo base_url(); ?>pages/examples/invoice.html">14-038-015</a></td>
+                    <td>Marc Dominic I. Terrobias</td>
+                    <td><span class="label label-success">ENROLLED</span></td>
+                    <td>
+                      <div class="sparkbar" data-color="#f56954" data-height="20">TVL-Automotive Servicing</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="<?php echo base_url(); ?>pages/examples/invoice.html">14-038-069</a></td>
+                    <td>Patrick Guzman</td>
+                    <td><span class="label label-success">ENROLLED</span></td>
+                    <td>
+                      <div class="sparkbar" data-color="#f56954" data-height="20">TVL-Automotive Servicing</div>
+                    </td>
+                  </tr>
+
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.table-responsive -->
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer clearfix">
+              <a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left">Add Student</a>
+              <a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">View All Students</a>
+            </div>
+            <!-- /.box-footer -->
+          </div>
+          <!-- /.box -->
+
+           <!-- TABLE: LATEST STUDENTS ENROLLED -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">Latest Teachers Hired</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="table-responsive">
+                <table class="table no-margin">
+                  <thead>
+                  <tr>
+                    <th>LRN</th>
+                    <th>Full Name</th>
+                    <th>Status</th>
+                    <th>Strand</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td><a href="<?php echo base_url(); ?>pages/examples/invoice.html">14-038-014</a></td>
+                    <td>Hakeem A. Polistico</td>
+                    <td><span class="label label-success">TEACHER 1</span></td>
+                    <td>
+                      <div class="sparkbar" data-color="#00a65a" data-height="20">TVL-Automotive Servicing</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="<?php echo base_url(); ?>pages/examples/invoice.html">14-038-027</a></td>
+                    <td>Adrielle Kristine Nicolette M. Escaro </td>
+                    <td><span class="label label-warning">TEACHER 3</span></td>
+                    <td>
+                      <div class="sparkbar" data-color="#f39c12" data-height="20">TVL-Cookery</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="<?php echo base_url(); ?>pages/examples/invoice.html">14-038-016</a></td>
+                    <td>Jasver Salva</td>
+                    <td><span class="label label-danger">TEACHER 2</span></td>
+                    <td>
+                      <div class="sparkbar" data-color="#f56954" data-height="20">TVL-Cookery</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="<?php echo base_url(); ?>pages/examples/invoice.html">14-038-015</a></td>
+                    <td>Marc Dominic I. Terrobias</td>
+                    <td><span class="label label-success">TEACHER 1</span></td>
+                    <td>
+                      <div class="sparkbar" data-color="#f56954" data-height="20">TVL-Automotive Servicing</div>
+                    </td>
+                  </tr>
+                  
+
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.table-responsive -->
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer clearfix">
+              <a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left">Add Teacher</a>
+              <a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">View All Teachers</a>
+            </div>
+            <!-- /.box-footer -->
+          </div>
+          <!-- /.box -->
+
+
+          
+
+        </section>
+        <!-- /.Left col -->
+        <!-- right col (We are only adding the ID to make the widgets sortable)-->
+        <section class="col-lg-5 connectedSortable">
+          
+          <!-- BAR CHART -->
+          <div class="box box-success">
+            <div class="box-header with-border">
+              <h3 class="box-title">Overall Senior High School Students per Year</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <div class="box-body">
+              <div class="chart">
+                <canvas id="barChart" style="height:230px"></canvas>
+              </div>
+            </div>
+            <!-- /.box-body -->
           </div>
           <!-- /.box -->
 
@@ -625,74 +857,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
           </div>
           <!-- /.box (chat box) -->
-
-        </section>
-        <!-- /.Left col -->
-        <!-- right col (We are only adding the ID to make the widgets sortable)-->
-        <section class="col-lg-6 connectedSortable">
-
-            <div class="box box-default">
-            <div class="box-header with-border">
-              <h3 class="box-title">Overall Grade 11 per Strands</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <div class="row">
-                <div class="col-md-8">
-                  <div class="chart-responsive">
-                    <canvas id="pieChart2" height="150"></canvas>
-                  </div>
-                  <!-- ./chart-responsive -->
-                </div>
-                <!-- /.col -->
-                <div class="col-md-4">
-                  <ul class="chart-legend clearfix">
-                    <li><i class="fa fa-circle-o text-red"></i> TVL Cookery</li>
-                    <li><i class="fa fa-circle-o " style="color: darkgrey;"></i>TVL Automative Servicing</li>
-                  </ul>
-                </div>
-                <!-- /.col -->
-              </div>
-              <!-- /.row -->
-            </div>
-            <!-- /.box-body -->
-            <div class="box-footer no-padding">
-              <ul class="nav nav-pills nav-stacked">
-                <li><a href="#">TVL Cookery
-                  <span class="pull-right text-red"><i class="fa fa-angle-down"></i> 12%</span></a></li>
-                <li><a href="#">TVL Automative Servicing<span class="pull-right text-green"><i class="fa fa-angle-up"></i> 4%</span></a>
-                </li>
-              </ul>
-            </div>
-            <!-- /.footer -->
-          </div>
-          <!-- /.box -->
-          
-          <!-- BAR CHART -->
-          <div class="box box-success">
-            <div class="box-header with-border">
-              <h3 class="box-title">Overall Senior High School Students per Year</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
-            </div>
-            <div class="box-body">
-              <div class="chart">
-                <canvas id="barChart" style="height:230px"></canvas>
-              </div>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
 
           
         </section>

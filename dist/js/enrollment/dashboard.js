@@ -175,7 +175,7 @@ $(function () {
           label               : 'Digital Goods',
           fillColor           : 'rgba(60,141,188,0.9)',
           strokeColor         : 'rgba(60,141,188,0.8)',
-          pointColor          : '#3b8bba',
+          pointColor          : 'darkgrey',
           pointStrokeColor    : 'rgba(60,141,188,1)',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(60,141,188,1)',
@@ -186,9 +186,9 @@ $(function () {
     var barChartCanvas                   = $('#barChart').get(0).getContext('2d')
     var barChart                         = new Chart(barChartCanvas)
     var barChartData                     = areaChartData
-    barChartData.datasets[1].fillColor   = '#00a65a'
-    barChartData.datasets[1].strokeColor = '#00a65a'
-    barChartData.datasets[1].pointColor  = '#00a65a'
+    barChartData.datasets[1].fillColor   = 'darkred'
+    barChartData.datasets[1].strokeColor = 'darkred'
+    barChartData.datasets[1].pointColor  = 'darkred'
     var barChartOptions                  = {
       //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
       scaleBeginAtZero        : true,
