@@ -353,7 +353,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <ul class="treeview-menu">
             <li><a href="<?php echo site_url('enrollment'); ?>"><i class="fa fa-circle-o text-aqua"></i>Dashboard</a></li>
             <li><a href="<?php echo site_url('welcome/boxed'); ?>"><i class="fa fa-circle-o text-aqua"></i>Enroll Student</a></li>
-            <li><a href="<?php echo site_url('welcome/fixed'); ?>"><i class="fa fa-circle-o text-aqua"></i>Manage Student</a></li>
+            <li><a href="<?php echo site_url('manage_student'); ?>"><i class="fa fa-circle-o text-aqua"></i>Manage Student</a></li>
             <li><a href="<?php echo site_url('welcome/colside'); ?>"><i class="fa fa-circle-o text-aqua"></i>Manage Schedule</a></li>
           </ul>
         </li>
