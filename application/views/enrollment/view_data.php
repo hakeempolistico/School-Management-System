@@ -380,7 +380,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <small>sort by:</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#">Enrollment</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i>Enrollment</a></li>
         <li class="active">View Table</li>
       </ol>
     </section>
