@@ -351,7 +351,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </a>
 
           <ul class="treeview-menu">
-            <li class="active"><a href="<?php echo site_url('enrollment'); ?>"><i class="fa fa-circle-o text-aqua"></i>Dashboard</a></li>
+            <li class="active"><a href="<?php echo site_url('dashboard'); ?>"><i class="fa fa-circle-o text-aqua"></i>Dashboard</a></li>
+            <li class="active"><a href="<?php echo site_url('view_data'); ?>"><i class="fa fa-circle-o text-aqua"></i>View Data</a></li>
             <li><a href="<?php echo site_url('enrollstudent'); ?>"><i class="fa fa-circle-o text-aqua"></i>Enroll Student</a></li>
             <li><a href="<?php echo site_url('welcome/fixed'); ?>"><i class="fa fa-circle-o text-aqua"></i>Manage Student</a></li>
             <li><a href="<?php echo site_url('welcome/colside'); ?>"><i class="fa fa-circle-o text-aqua"></i>Manage Schedule</a></li>
@@ -474,8 +475,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <!-- /.col -->
                 <div class="col-md-4">
                   <ul class="chart-legend clearfix">
-                    <li><i class="fa fa-circle-o text-aqua"></i>Grade 11</li>
-                    <li><i class="fa fa-circle-o text-light-blue"></i>Grade 12</li>
+                    <li><i class="fa fa-circle-o text-aqua"></i> Grade 11</li>
+                    <li><i class="fa fa-circle-o text-light-blue"></i> Grade 12</li>
                   </ul>
                 </div>
                 <!-- /.col -->
@@ -519,8 +520,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <!-- /.col -->
                 <div class="col-md-4">
                   <ul class="chart-legend clearfix">
-                    <li><i class="fa fa-circle-o text-red"></i> TVL Cookery</li>
-                    <li><i class="fa fa-circle-o " style="color: darkgrey;"></i>TVL Automative Servicing</li>
+                    <li><i class="fa fa-circle-o text-navy"></i> STEM</li>
+                    <li><i class="fa fa-circle-o text-yellow"></i> GAS</li>
+                    <li><i class="fa fa-circle-o text-red"></i> ABM</li>
+                    <li><i class="fa fa-circle-o text-green"></i> HUMSS</li>
+                    <li><i class="fa fa-circle-o text-aqua"></i> TVL Cookery</li>
+                    <li><i class="fa fa-circle-o text-maroon"></i> TVL AS</li>
                 </div>
                 <!-- /.col -->
               </div>
@@ -565,9 +570,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <!-- /.col -->
                 <div class="col-md-4">
                   <ul class="chart-legend clearfix">
-                    <li><i class="fa fa-circle-o text-red"></i> TVL Cookery</li>
-                    <li><i class="fa fa-circle-o " style="color: darkgrey;"></i>TVL Automative Servicing</li>
-                  </ul>
+                    <li><i class="fa fa-circle-o text-navy"></i> STEM</li>
+                    <li><i class="fa fa-circle-o text-yellow"></i> GAS</li>
+                    <li><i class="fa fa-circle-o text-red"></i> ABM</li>
+                    <li><i class="fa fa-circle-o text-green"></i> HUMSS</li>
+                    <li><i class="fa fa-circle-o text-aqua"></i> TVL Cookery</li>
+                    <li><i class="fa fa-circle-o text-maroon"></i> TVL AS</li>
                 </div>
                 <!-- /.col -->
               </div>
@@ -635,7 +643,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <tr>
                     <td><a href="<?php echo base_url(); ?>pages/examples/invoice.html">14-038-016</a></td>
                     <td>Jasver Salva</td>
-                    <td><span class="label label-danger">DROP</span></td>
+                    <td><span class="label label-danger">PENDING</span></td>
                     <td>
                       <div class="sparkbar" data-color="#f56954" data-height="20">TVL-Cookery</div>
                     </td>
