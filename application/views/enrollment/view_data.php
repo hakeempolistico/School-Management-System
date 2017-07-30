@@ -48,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="<?php echo site_url('welcome/index2') ?>" class="logo">
+    <a href="<?php echo site_url('/') ?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>S</b>M</span>
       <!-- logo for regular state and mobile devices -->
@@ -353,11 +353,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </a>
 
           <ul class="treeview-menu">
-            <li class="active"><a href="<?php echo site_url('dashboard'); ?>"><i class="fa fa-circle-o text-aqua"></i>Dashboard</a></li>
-            <li class="active"><a href="<?php echo site_url('view_data'); ?>"><i class="fa fa-circle-o text-aqua"></i>View Data</a></li>
-            <li><a href="<?php echo site_url('enrollstudent'); ?>"><i class="fa fa-circle-o text-aqua"></i>Enroll Student</a></li>
-            <li><a href="<?php echo site_url('welcome/fixed'); ?>"><i class="fa fa-circle-o text-aqua"></i>Manage Student</a></li>
-            <li><a href="<?php echo site_url('welcome/colside'); ?>"><i class="fa fa-circle-o text-aqua"></i>Manage Schedule</a></li>
+            <li class="active"><a href="<?php echo site_url('enrollment/dashboard'); ?>"><i class="fa fa-circle-o text-aqua"></i>Dashboard</a></li>
+            <li><a href="<?php echo site_url('enrollment/view_data'); ?>"><i class="fa fa-circle-o text-aqua"></i>View Data</a></li>
+            <li><a href="<?php echo site_url('enrollment/enrollstudent'); ?>"><i class="fa fa-circle-o text-aqua"></i>Enroll Student</a></li>
+            <li><a href="<?php echo site_url('enrollment/manage_student'); ?>"><i class="fa fa-circle-o text-aqua"></i>Manage Student</a></li>
+            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i>Manage Schedule</a></li>
           </ul>
         </li>
       
@@ -400,7 +400,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="icon">
               <i class="fa fa-pencil"></i>
             </div>
-            <a href="#" class="small-box-footer">View table <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer" id="viewStudents">View table <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -459,7 +459,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Hover Data Table</h3>
+              <h3 class="box-title" id = "tableTitle" >Hover Data Table</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -1119,17 +1119,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <!-- page script -->
 <script>
-  $(function () {
-    $('#example1').DataTable()
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
-    })
-  })
+  $(document).ready(function(){
+    $("#viewStudents").click(function(){
+        $('#tableTitle').text('Students Table');
+    });
+});
 </script> 
 </body>
 </html>

@@ -51,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="<?php echo site_url('welcome/index2') ?>" class="logo">
+    <a href="<?php echo site_url('/') ?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>S</b>M</span>
       <!-- logo for regular state and mobile devices -->
@@ -356,10 +356,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </a>
 
           <ul class="treeview-menu">
-            <li><a href="<?php echo site_url('enrollment'); ?>"><i class="fa fa-circle-o text-aqua"></i>Dashboard</a></li>
-            <li><a href="<?php echo site_url('welcome/boxed'); ?>"><i class="fa fa-circle-o text-aqua"></i>Enroll Student</a></li>
-            <li><a href="<?php echo site_url('manage_student'); ?>"><i class="fa fa-circle-o text-aqua"></i>Manage Student</a></li>
-            <li><a href="<?php echo site_url('welcome/colside'); ?>"><i class="fa fa-circle-o text-aqua"></i>Manage Schedule</a></li>
+            <li class="active"><a href="<?php echo site_url('enrollment/dashboard'); ?>"><i class="fa fa-circle-o text-aqua"></i>Dashboard</a></li>
+            <li><a href="<?php echo site_url('enrollment/view_data'); ?>"><i class="fa fa-circle-o text-aqua"></i>View Data</a></li>
+            <li><a href="<?php echo site_url('enrollment/enrollstudent'); ?>"><i class="fa fa-circle-o text-aqua"></i>Enroll Student</a></li>
+            <li><a href="<?php echo site_url('enrollment/manage_student'); ?>"><i class="fa fa-circle-o text-aqua"></i>Manage Student</a></li>
+            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i>Manage Schedule</a></li>
           </ul>
         </li>
       
