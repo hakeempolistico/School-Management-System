@@ -30,7 +30,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/bootstrap-daterangepicker/daterangepicker.css">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-  <script src="../../plugins/iCheck/icheck.min.js"></script>
+  <!-- DataTables -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  
+  <!-- iCheck for checkboxes and radio inputs -->
+  <link rel="stylesheet" href="../../plugins/iCheck/all.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -448,9 +452,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <!-- /.box-footer-->
           </div>
 
-          <!--BOX FOR STEM ENROLLED STUDENTS-->
+          <!--MAIN BOX-->
           <div class="box">
-              <!--FRIGGIN HEADER NG BOX-->
+              <!--FRIGGIN HEADER NG BOX START-->
               <div class="box-header with-border">
                 <h3 class="box-title">STEM</h3>
                 <div class="box-tools pull-right">
@@ -460,201 +464,120 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <i class="fa fa-times"></i></button>
                 </div>
               </div>
-
-              <!--FRIGGIN BODY NG BOX-->
+              <!--FRIGGIN HEADER NG BOX END-->
+              <!--FRIGGIN BODY NG MAIN BOX-->
               <div class="box-body">
+                        <!--tabs start-->
+                        <div class="nav-tabs-custom">
+                          <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab_1" data-toggle="tab">Student List</a></li>
+                            <li> <a href="#tab_2" data-toggle="tab">Section</a></li>                                
+                          </ul>
+                          <div class="tab-content">
 
-                <!--ETO YUNG MGA TABS-->
-                <div class="nav-tabs-custom">
-                  <ul class="nav nav-tabs">
-                    <li class="active"><a href="#tab_1" data-toggle="tab">Students</a></li>
-                    <li><a href="#tab_2" data-toggle="tab">Sections</a></li>
-                    <li><a href="#tab_3" data-toggle="tab">Rooms</a></li>
-                  </ul>
+                            <!--student list tab start-->
+                            <div class="tab-pane active" id="tab_1">
+                              <!--table start-->              
+                              <table id="example1" class="table table-hover table-bordered">
+                                <thead>
+                                <tr>
+                                  <th><input type="checkbox" class="minimal" checked></th>
+                                  <th>#</th>
+                                  <th>LRN</th>
+                                  <th>Full Name</th>
+                                  <th>Sex</th>
+                                </tr>
+                                </thead>
+                                <tr>
+                                  <td><input type="checkbox" class="minimal" checked></td>
+                                  <td>1.</td>
+                                  <td>000000000008</td>
+                                  <td>Escaro, Adrielle Kristine Nicolette</td>
+                                  <td>Female</td>
+                                </tr>
+                                <tr>
+                                  <td><input type="checkbox" class="minimal" checked></td>
+                                  <td>2.</td>
+                                  <td>000000000007</td>
+                                  <td>Polistico, Hakeem</td>
+                                  <td>Male</td>
+                                </tr>
+                                <tr>
+                                  <td><input type="checkbox" class="minimal" checked></td>
+                                  <td>3.</td>
+                                  <td>000000000009</td>
+                                  <td>Salva, Jasver Anlouise</td>
+                                  <td>Female</td>
+                                </tr>
+                              </table>
+                              <!--table end-->
+                              <a href="#tab_2" data-toggle="tab">
+                              <button type="button" class="btn btn-block btn-default pull-right" style="width: 15%; margin-top: 20px">Add</button> 
+                              </a> 
+                            </div>
+                            <!--student list tab end-->
 
-                  <!--ETO YUNG CONTENT NG TABS-->
-                  <div class="tab-content">
-                    <!--start of tab1-->
-                    <div class="tab-pane active" id="tab_1">
-
-                      <!--ETO YUNG SEARCH-->
-                      <div class="box-tools">
-                        <div class="input-group input-group-sm" style="width: 150px;">
-                          <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-                          <div class="input-group-btn">
-                            <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                          </div>
+                            <!--sections tab start-->
+                            <div class="tab-pane" id="tab_2">
+                              <!--table start-->              
+                              <table id="example2" class="table table-hover table-bordered">
+                                <thead>
+                                <tr>                                  
+                                  <th>#</th>
+                                  <th>Section Name</th>
+                                  <th>Count</th>
+                                  <th>Status</th>
+                                </tr>
+                                </thead>
+                                <tr>
+                                  
+                                  <td>1.</td>
+                                  <td>STEM-1</td>
+                                  <td>31/40</td>
+                                  <td><span class="label label-success">Open</span></td>
+                                </tr>
+                                <tr>
+                                  
+                                  <td>2.</td>
+                                  <td>STEM-2</td>
+                                  <td>40/40</td>
+                                  <td><span class="label label-danger">Closed</span></td>
+                                </tr>
+                                <tr>
+                                  
+                                  <td>3.</td>
+                                  <td>STEM-3</td>
+                                  <td>0/40</td>
+                                  <td><span class="label label-success">Open</span></td>
+                                </tr>
+                              </table>
+                              <!--table end-->                              
+                              <button type="button" class="btn btn-block btn-default pull-right" data-toggle="modal" data-target="#modal-default" style="width: 15%; margin-top: 20px">Save</button>  
+                            </div>
+                            <!--sections tab end-->
+                          </div>  
+                          <!--tab content end-->
+                          </div>                            
+                                                       
                         </div>
-                      </div>
+                        <!--tabs end-->
 
-                      <!--SA TAB NA ITO MERONG TABLE SO ETO YON-->
-                      <div class="box-body table-responsive">
-                        <table class="table table-hover">
-                          <tr>
-                            <th><input type="checkbox" class="minimal" checked></th>
-                            <th>#</th>
-                            <th>LRN</th>
-                            <th>Full Name</th>
-                            <th>Sex</th>
-                          </tr>
-                          <tr>
-                            <td><input type="checkbox" class="minimal" checked></td>
-                            <td>1</td>
-                            <td>000000000008</td>
-                            <td>Escaro, Adrielle Kristine Nicolette</td>
-                            <td>Female</td>
-                          </tr>
-                          <tr>
-                            <td><input type="checkbox" class="minimal" checked></td>
-                            <td>2</td>
-                            <td>000000000007</td>
-                            <td>Polistico, Hakeem</td>
-                            <td>Male</td>
-                          </tr>
-                          <tr>
-                            <td><input type="checkbox" class="minimal" checked></td>
-                            <td>3</td>
-                            <td>000000000009</td>
-                            <td>Salva, Jasver Anlouise</td>
-                            <td>Female</td>
-                          </tr>
-                        </table>
-                      </div>
-                      <!--table end-->
-                      <button type="button" class="btn btn-block btn-default" style="width: 150px;">Add to Section</button>
-                    </div>
-                    <!--end ng tab 1-->
-
-                    <!--start ni tab 2-->
-                    <div class="tab-pane" id="tab_2">
-
-                      <!--ETO YUNG SEARCH-->
-                      <div class="box-tools">
-                        <div class="input-group input-group-sm" style="width: 150px;">
-                          <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-                          <div class="input-group-btn">
-                            <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                          </div>
-                        </div>
-                      </div>
-
-                      <!--SA TAB NA ITO MERONG TABLE SO ETO YON-->
-                      <div class="box-body table-responsive">
-                        <table class="table table-hover">
-                          <tr>
-                            <th>ID</th>
-                            <th>Section Name</th>
-                            <th>Count</th>
-                            <th>Status</th>
-                            
-                          </tr>
-                          <tr>
-                            <td>1</td>
-                            <td>STEM-1</td>
-                            <td>30/40</td>
-                            <td><span class="label label-success">Open</span></td>
-                            
-                          </tr>
-                          <tr>
-                            <td>2</td>
-                            <td>STEM-2</td>
-                            <td>40/40</td>
-                            <td><span class="label label-danger">Closed</span></td>
-                            
-                          </tr> 
-                        </table>
-                      </div>
-                      <!--table end-->
-
-
-                      <button type="button" class="btn btn-block btn-default" style="width: 150px;">Assign To Room</button>                  
-                    </div>
-                    <!--end ng tab 2--> 
-
-                    <!--start ni tab 3-->
-                    <div class="tab-pane" id="tab_3">
-
-                      <!--ETO YUNG SEARCH-->
-                      <div class="box-tools">
-                        <div class="input-group input-group-sm" style="width: 150px;">
-                          <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-                          <div class="input-group-btn">
-                            <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                          </div>
-                        </div>
-                      </div>
-
-                      <!--SA TAB NA ITO MERONG TABLE SO ETO YON-->
-                      <div class="box-body table-responsive">
-                        <table class="table table-hover">
-                          <tr>
-                            <th>#</th>
-                            <th>Room #</th>
-                            <th>Status</th>
-                            
-                          </tr>
-                          <tr>
-                            <td>1.</td>
-                            <td>101</td>
-                            <td><span class="label label-success">Open</span></td>
-                            
-                          </tr>
-                          <tr>
-                            <td>2.</td>
-                            <td>102</td>
-                            <td><span class="label label-success">Open</span></td>
-                            
-                          </tr>
-                          <tr>
-                            <td>3.</td>
-                            <td>103</td>
-                            <td><span class="label label-success">Open</span></td>
-                            
-                          </tr>
-                          <tr>
-                            <td>4.</td>
-                            <td>104</td>
-                            <td><span class="label label-success">Open</span></td>
-                            
-                          </tr>
-                          <tr>
-                            <td>5.</td>
-                            <td>201</td>
-                            <td><span class="label label-success">Open</span></td>
-                            
-                          </tr>
-                        </table>
-                      </div>
-                      <!--table end-->
-
-
-                      <button type="button" class="btn btn-block btn-default" data-toggle="modal" data-target="#modal-default2" style="width: 150px;">Save</button>                  
-                    </div>
-                    <!--end ng tab 2--> 
-                  </div>
-                  <!--ENDING NG CONTENT NG TABS-->
-                </div>
-              <!-- /.box-body -->
-
-              <!--FRIGGIN FOOTER NG BOX-->
+              <!--FOOTER NG MAIN BOX START-->
               <div class="box-footer">
-                Footer
+                
               </div>
-              <!-- /.box-footer-->
-          </div>
-      <!-- /.box -->
+              <!--FOOTER NG MAIN BOX END-->
+            </div>
+          <!-- /.box -->
           <!-- /.box END -->
                 <!--modal start-->
-                <div class="modal fade" id="modal-default2">
+                <div class="modal fade" id="modal-default">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header bg-green">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">ADD TO <b>STEM-1</b> in <b>ROOM 103</b></h4>
+                        <h4 class="modal-title">ADD TO <b>STEM-1</b></h4>
                       </div>
                       <div class="modal-body">
                         <div class="box-body table-responsive no-padding">
@@ -706,6 +629,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.0
@@ -922,6 +846,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
 <!-- page script -->
-<script src="<?php echo base_url(); ?>dist/js/enrollment/dashboard.js"></script>
+<script src="<?php echo base_url(); ?>dist/js/enrollment/manage_student.js"></script>
+<!-- DataTables -->
+<script src="<?php echo base_url(); ?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<!-- iCheck 1.0.1 -->
+<script src="../../plugins/iCheck/icheck.min.js"></script>
+<!--page script-->
+<script>
+$(function (){
+      //iCheck for checkbox and radio inputs
+      $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+      checkboxClass: 'icheckbox_minimal-blue',
+      radioClass   : 'iradio_minimal-blue'
+})
+</script>
 </body>
 </html>
