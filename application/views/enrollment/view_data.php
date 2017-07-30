@@ -737,9 +737,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <!-- page script -->
 <script>
-    $(function () {
-      $('table').DataTable()
-    })
 
   var arrofobject = [{"lrn":"14-038-027","name":"Adrii", "year":"12"}];
   var arrofobject2 = [{"lrn":"14-038-014","name":"Hakeem", "year":"12"}];
@@ -747,7 +744,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   var arrofobject4 = [{"lrn":"14-038-015","name":"Marc", "year":"12"}]; //JSON
 
   $(document).ready(function(){ //line 1
+
     $("#viewStudents").click(function(){ //line 2
+        $('table').DataTable().destroy();
         $('#box').removeAttr('hidden'); //line 3
         $('#tableTitle').text('List of Students'); //line 4
         $('table th').remove(); //line 5
@@ -759,8 +758,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $.each(arrofobject, function(index, val) { //line 10
             $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td></tr>');
         });
+
+        $(function () {
+          $('table').DataTable()
+        })
     });
     $("#viewTeachers").click(function(){
+       $('table').DataTable().destroy();
        $('#box').removeAttr('hidden');
         $('#tableTitle').text('List of Students');
         $('table th').remove();
@@ -772,8 +776,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $.each(arrofobject2, function(index, val) {
             $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td></tr>');
         });
+
+        $(function () {
+          $('table').DataTable()
+        })
     });
     $("#viewRooms").click(function(){
+        $('table').DataTable().destroy();
         $('#box').removeAttr('hidden');
         $('#tableTitle').text('List of Students');
         $('table th').remove();
@@ -785,8 +794,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $.each(arrofobject3, function(index, val) {
             $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td></tr>');
         });
+
+        $(function () {
+          $('table').DataTable()
+        })
     });
     $("#viewClass").click(function(){
+        $('table').DataTable().destroy();
         $('#box').removeAttr('hidden');
         $('#tableTitle').text('List of Students');
         $('table th').remove();
@@ -798,6 +812,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $.each(arrofobject4, function(index, val) {
             $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td></tr>');
         });
+
+        $(function () {
+          $('table').DataTable()
+        })
     });
 }); 
 </script> 
