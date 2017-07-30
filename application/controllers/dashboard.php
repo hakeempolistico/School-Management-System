@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class enrollment extends CI_Controller {
+class dashboard extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.

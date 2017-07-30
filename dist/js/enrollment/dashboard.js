@@ -67,14 +67,38 @@ $(function () {
     var PieData2        = [
       {
         value    : 1500,
+        color    : 'navy',
+        highlight: 'navy',
+        label    : 'STEM'
+      },
+      {
+        value    : 1500,
+        color    : 'yellow',
+        highlight: 'yellow',
+        label    : 'GAS'
+      },
+      {
+        value    : 1500,
         color    : 'darkred',
         highlight: 'darkred',
+        label    : 'ABM'
+      },
+      {
+        value    : 1500,
+        color    : 'green',
+        highlight: 'green',
+        label    : 'HUMSS'
+      },
+      {
+        value    : 1500,
+        color    : 'aqua',
+        highlight: 'aqua',
         label    : 'TVL Cookery'
       },
       {
-        value    : 900,
-        color    : 'darkgrey',
-        highlight: 'darkgrey',
+        value    : 1500,
+        color    : 'maroon',
+        highlight: 'maroon',
         label    : 'TVL Automotive Servicing'
       }
     ]
@@ -115,14 +139,38 @@ $(function () {
     var PieData3       = [
       {
         value    : 1500,
+        color    : 'navy',
+        highlight: 'navy',
+        label    : 'STEM'
+      },
+      {
+        value    : 1500,
+        color    : 'yellow',
+        highlight: 'yellow',
+        label    : 'GAS'
+      },
+      {
+        value    : 1500,
         color    : 'darkred',
         highlight: 'darkred',
+        label    : 'ABM'
+      },
+      {
+        value    : 1500,
+        color    : 'green',
+        highlight: 'green',
+        label    : 'HUMSS'
+      },
+      {
+        value    : 1500,
+        color    : 'aqua',
+        highlight: 'aqua',
         label    : 'TVL Cookery'
       },
       {
-        value    : 700,
-        color    : 'darkgrey',
-        highlight: 'darkgrey',
+        value    : 1500,
+        color    : 'maroon',
+        highlight: 'maroon',
         label    : 'TVL Automotive Servicing'
       }
     ]
