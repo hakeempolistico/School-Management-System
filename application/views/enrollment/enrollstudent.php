@@ -387,11 +387,16 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
+      <div class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h4><i class="icon fa fa-bullhorn"></i> Enroll Student here!</h4>
+        Tistimonial reveled with gluta 462. After 18 years of hoping to have a baby and now has come because of miracle of gluta. She is one of my client, 3 months old pregnant soon to become a mama.
+      </div>
       <h1>
         Enroll Student
         <small>(IDK what to put here)</small>
       </h1>
-      <ol class="breadcrumb">
+      <ol class="breadcrumb" style="margin-top: 120px;">
         <li><a href="#"><i class="fa fa-dashboard"></i> Enrollment</a></li>
         <li class="active">Enroll Student</li>
       </ol>
@@ -400,6 +405,8 @@
     <!-- Main content -->
     <section class="content">
           <!-- general form elements -->
+      <div class="row">
+        <div class="col-md-6">
           <div class="box box-info">
             <div class="box-header with-border">
               <h3 class="box-title">Senior High School Profile</h3>
@@ -407,7 +414,7 @@
             <!-- /.box-header -->
             <!-- form start -->
             <form name= "studentprofile" id="studentprofile" role="form">
-              <div class="box-body">
+              <div class="box-body" style="padding-bottom: 20px;">
                 <div class="form-group">
                   <label for="exampleInputEmail1">LRN</label>
                   <input type="text" class="form-control" id="lrn" placeholder="Learner Reference Number">
@@ -552,23 +559,14 @@
                 </div>
               </div>
               <!-- /.box-body -->
-
-              <div class="box-footer">
-                <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#modal-default" onclick="preview()">Submit</button>
-              </div>
             </form>
           </div>
+        </div>
 
-          
-          <div class="modal modal-default fade" id="modal-default" onload="preview()">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header bg-aqua">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Is this correct?</h4>
-              </div>
-              <div class="modal-body">
+        <div class="col-md-6">  
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">Senior High School Profile</h3>
               <div class="box-body">
                 <div class="form-group">
                   <label>LRN</label>
@@ -694,20 +692,20 @@
                 </div>
                 </div>
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-primary pull-left" data-dismiss="modal">Go back</button>
+              <!-- /.box-body -->
+              <div class="box-footer">
                 <a href="<?php echo site_url('enrollment/enrollstudent/strands') ?>">
-                <button type="button" class="btn btn-primary">Confirm</button>
+                <button type="button" class="btn btn-primary pull-right">Submit</button>
                 </a>
               </div>
             </div>
-            <!-- /.modal-body -->
+            <!-- /.box-header -->
           </div>
-          <!-- /.modal-content -->
+          <!-- /.box -->
         </div>
-        <!-- /.modal-dialog --> 
+        <!-- /.col-md-6 --> 
       </div>
-      <!-- /.modal -->
+      <!-- /.row -->
     </section>
     <!-- /.content -->
   </div>
