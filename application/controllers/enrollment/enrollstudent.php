@@ -21,7 +21,17 @@ class enrollstudent extends CI_Controller {
 
 	public function index()
 	{
+		$this->load->view('enrollment/picking');
+	}
+
+	public function enroll()
+	{
 		$this->load->view('enrollment/enrollstudent');
+	}
+
+	public function strands()
+	{
+		$this->load->view('enrollment/strandselection');
 	}
 
 }
