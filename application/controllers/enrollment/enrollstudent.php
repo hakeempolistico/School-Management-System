@@ -34,4 +34,9 @@ class enrollstudent extends CI_Controller {
 		$this->load->view('enrollment/strandselection');
 	}
 
+	public function enrolled()
+	{
+		$this->load->view('enrollment/enrolled');
+	}
+
 }
