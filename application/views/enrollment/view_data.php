@@ -480,6 +480,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <!-- Main content -->
     <section class="content">
+    <div class="row">
+      <div class="col-xs-12">
+          <div id="lapa">
+            <div class="alert bg-gray" style="height: 234px;">
+                <div>
+                <center>
+                <i class="icon fa fa-exclamation-triangle fa-4x" style="margin-top: 25px;"></i>
+                <h3>No table selected!</h3>
+                <h4> Please choose from the above tables to view data</h4>
+                </center>
+                </div>
+            </div>
+          </div>
+      </div>
+    </div>
       <div class="row">
         <div class="col-xs-12">
           <div hidden id = "box" class="box">
@@ -721,6 +736,60 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 <!-- ./wrapper -->
 
+
+<!--Modal-->
+<div class="modal fade" id="modal-default">
+
+          <div class="modal-dialog" style="align-self: center; max-width: 400px">
+          <!-- Profile Image -->
+          <div class="box box-primary" >
+            <div class="box-body box-profile">
+              <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url(); ?>dist/img/user4-128x128.jpg" alt="User profile picture">
+
+              <h3 class="profile-username text-center">Hakeem A. Polistico</h3>
+
+              <p class="text-muted text-center">Grade 12 Student</p>
+
+              <ul class="list-group list-group-unbordered">
+                <li class="list-group-item">
+                  <b>LRN</b> <a class="pull-right">123456789121</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Sex</b> <a class="pull-right">Male</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Contact No.</b> <a class="pull-right">0997-586-4782</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Birthdate</b> <a class="pull-right">July 22, 1994</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Birthplace</b> <a class="pull-right">Mandaluyong City</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Age</b> <a class="pull-right">23</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Mother Tongue</b> <a class="pull-right">Filipino</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Religion</b> <a class="pull-right">Roman Catholic</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Address</b> <a class="pull-right">226-B Evangelista St., Talaba I, Bacoor City, Cavite</a>
+                </li>
+              </ul>
+              <a href="#" class="btn btn-primary btn-block pull-left" style="max-width: 100px"><b>Close</b></a>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
 <script src="<?php echo base_url(); ?>bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo base_url(); ?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -744,31 +813,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   var arrofobject4 = [{"lrn":"14-038-015","name":"Marc", "year":"12"}]; //JSON
 
   $(document).ready(function(){ //line 1
-
-    $("#viewStudents").click(function(){ //line 2
+    
+    function changeTable(){
         $('table').DataTable().destroy();
-        $('#box').removeAttr('hidden'); //line 3
-        $('#tableTitle').text('List of Students'); //line 4
-        $('table th').remove(); //line 5
-        $('#record').remove(); //line 6
-        $('thead tr').append( $('<th />', {text : 'LRN'}) ); //line 7
-        $('thead tr').append( $('<th />', {text : 'Name'}) ); //line 8
-        $('thead tr').append( $('<th />', {text : 'Grade'}) ); //line 9
+        $('#box').removeAttr('hidden'); 
+        $('table th').remove(); 
+        $('#record').remove();
+        $('#lapa').remove();
+    };
+    $("#viewStudents").click(function(){ 
+        changeTable();
+        $('#tableTitle').text('List of Students');
+        $('thead tr').append( $('<th />', {text : 'LRN'}) );
+        $('thead tr').append( $('<th />', {text : 'Name'}) ); 
+        $('thead tr').append( $('<th />', {text : 'Grade'}) ); 
+        $('thead tr').append( $('<th />', {text : 'Action'}) ); 
 
-        $.each(arrofobject, function(index, val) { //line 10
-            $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td></tr>');
+        $.each(arrofobject, function(index, val) {
+            $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><button type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
         });
 
-        $(function () {
           $('table').DataTable()
-        })
+
     });
     $("#viewTeachers").click(function(){
-       $('table').DataTable().destroy();
-       $('#box').removeAttr('hidden');
-        $('#tableTitle').text('List of Students');
-        $('table th').remove();
-        $('#record').remove();
+        changeTable();
+        $('#tableTitle').text('List of Teachers');
         $('thead tr').append( $('<th />', {text : 'LRN'}) );
         $('thead tr').append( $('<th />', {text : 'Name'}) );
         $('thead tr').append( $('<th />', {text : 'Grade'}) );
@@ -776,17 +846,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $.each(arrofobject2, function(index, val) {
             $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td></tr>');
         });
-
-        $(function () {
-          $('table').DataTable()
-        })
+        $('table').DataTable()
     });
+
     $("#viewRooms").click(function(){
-        $('table').DataTable().destroy();
-        $('#box').removeAttr('hidden');
-        $('#tableTitle').text('List of Students');
-        $('table th').remove();
-        $('#record').remove();
+        changeTable();
+        $('#tableTitle').text('List of Rooms');
         $('thead tr').append( $('<th />', {text : 'LRN'}) );
         $('thead tr').append( $('<th />', {text : 'Name'}) );
         $('thead tr').append( $('<th />', {text : 'Grade'}) );
@@ -794,17 +859,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $.each(arrofobject3, function(index, val) {
             $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td></tr>');
         });
-
-        $(function () {
-          $('table').DataTable()
-        })
+       $('table').DataTable()
     });
+
     $("#viewClass").click(function(){
-        $('table').DataTable().destroy();
-        $('#box').removeAttr('hidden');
-        $('#tableTitle').text('List of Students');
-        $('table th').remove();
-        $('#record').remove();
+        changeTable();
+        $('#tableTitle').text('List of Sections');
         $('thead tr').append( $('<th />', {text : 'LRN'}) );
         $('thead tr').append( $('<th />', {text : 'Name'}) );
         $('thead tr').append( $('<th />', {text : 'Grade'}) );
@@ -812,10 +872,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $.each(arrofobject4, function(index, val) {
             $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td></tr>');
         });
+       $('table').DataTable()
 
-        $(function () {
-          $('table').DataTable()
-        })
     });
 }); 
 </script> 
