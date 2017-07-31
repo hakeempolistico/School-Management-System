@@ -416,7 +416,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="row">
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-aqua"  id="viewStudents">
+          <div class="small-box bg-aqua" id="viewStudents" style="cursor: pointer;">
             <div class="inner">
               <h3>1200</h3>
 
@@ -431,7 +431,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-green"  id="viewTeachers">
+          <div class="small-box bg-green" id="viewTeachers" style="cursor: pointer;">
             <div class="inner">
               <h3>169</h3>
 
@@ -446,7 +446,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-yellow" id="viewRooms">
+          <div class="small-box bg-yellow" id="viewRooms" style="cursor: pointer;">
             <div class="inner">
               <h3>44</h3>
 
@@ -461,7 +461,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-red" id="viewClass">
+          <div class="small-box bg-red" id="viewClass" style="cursor: pointer;">
             <div class="inner">
               <h3>65</h3>
 
