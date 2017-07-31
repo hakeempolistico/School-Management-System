@@ -37,9 +37,9 @@
     <!-- Logo -->
     <a href="<?php echo site_url('/') ?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><b>S</b>M</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-lg"><b>School</b>Management</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -403,8 +403,7 @@
       <!-- Default box -->
       <div class="row" style="margin-top: 20px;">
             <div class="col-md-4">
-              <div class="alert alert-warning alert-dismissible" style="height:366px;">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              <div class="alert alert-warning" style="height:383px; padding: 25px 50px 20px 30px;">
                 <h4><i class="icon fa fa-check"></i> Remember!</h4>
                 <ul style="font-size: 16px;">
                   <li>Don't be distracted by your surroundings</li>
@@ -443,10 +442,22 @@
                   <p>Online Applications</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-pie-graph"></i>
+                  <i class="fa fa-search"></i>
                 </div>
                 <a href="#" class="small-box-footer" style="height: 26px;">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
+            </div>
+          </div>
+
+          <div id="lapa">
+            <div class="alert bg-gray" style="height: 234px;">
+                <div>
+                <center>
+                <i class="icon fa fa-exclamation-triangle fa-4x" style="margin-top: 25px;"></i>
+                <h3>No button selected!</h3>
+                <h4> Please choose from the two buttons above</h4>
+                </center>
+                </div>
             </div>
           </div>
 
@@ -457,12 +468,13 @@
                 <h4><i class="icon fa fa-check"></i> Apply for enrollment!</h4>
                 <ol type= "1" style="font-size: 16px;">
                   <li>Fill up a personal information form</li>
+                  <li>Submit necessary requirements</li>
                   <li>Input grades to determine available strands</li>
                   <li>Select desired strand</li>
                   <li>Sumbit requirements</li>
                   <li>Finish Enrollment</li>
                   <a href="<?php echo site_url('enrollment/enrollstudent/enroll')?>">
-                  <button type="button" class="btn pull-right" style="background-color: rgba(0,0,0,0.25); color: white;">Proceed</button>
+                  <button type="button" class="btn pull-right" style="background-color: rgba(0,0,0,0.25); color: white; margin-top: 10px;">Proceed</button>
                   </a>
                 </ol>
                 </div>
@@ -474,13 +486,14 @@
                 <div>
                 <h4><i class="icon fa fa-check"></i> Search for Applications Online!</h4>
                 <ol type= "1" style="font-size: 16px;">
-                  <li>Fill up a personal information form</li>
+                  <li>Search for applications filed by the students from the Araullo website</li>
+                  <li>Submit necessary requirements</li>
                   <li>Input grades to determine available strands</li>
                   <li>Select desired strand</li>
                   <li>Sumbit requirements</li>
                   <li>Finish Enrollment</li>
-                  <a href="<?php echo site_url('enrollment/enrollstudent/enroll')?>">
-                  <button type="button" class="btn pull-right" style="background-color: rgba(0,0,0,0.25); color: white;">Proceed</button>
+                  <a href="#">
+                  <button type="button" class="btn pull-right" style="background-color: rgba(0,0,0,0.25); color: white; margin-top: 10px;">Proceed</button>
                   </a>
                 </ol>
                 </div>
@@ -718,11 +731,13 @@
 
 <script>
 $(document).ready(function(){
-    $("#show").click(function(){      
+    $("#show").click(function(){ 
+      $("#lapa").hide();     
       $("#apply").show();
       $("#search").hide();
     });
     $("#change").click(function(){
+      $("#lapa").hide();
       $("#apply").hide();
       $("#search").show();
     });

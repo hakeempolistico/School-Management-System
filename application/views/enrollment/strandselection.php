@@ -37,9 +37,9 @@
     <!-- Logo -->
     <a href="<?php echo site_url('/') ?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><b>S</b>M</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-lg"><b>School</b>Management</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -458,7 +458,7 @@
       <div class="row">
 
         <div class="col-md-6">
-          <div class="small-box bg-green" data-toggle="modal" data-target="#stem">
+          <div class="small-box bg-green" data-toggle="modal" data-target="#stem" style="cursor: pointer;">
             <div class="inner">
               <h3>STEM</h3>
 
@@ -473,7 +473,7 @@
         <!-- ./col -->
 
         <div class="col-md-6">
-          <div class="small-box bg-maroon" data-toggle="modal" data-target="#gas">
+          <div class="small-box bg-maroon" data-toggle="modal" data-target="#gas" style="cursor: pointer;">
             <div class="inner">
               <h3>GAS</h3>
 
@@ -493,7 +493,7 @@
       <div class="row">
 
         <div class="col-md-6">
-          <div class="small-box bg-yellow" data-toggle="modal" data-target="#humss">
+          <div class="small-box bg-yellow" data-toggle="modal" data-target="#humss" style="cursor: pointer;">
             <div class="inner">
               <h3>HUMSS</h3>
 
@@ -508,7 +508,7 @@
         <!-- ./col -->
 
         <div class="col-md-6">
-          <div class="small-box bg-purple" data-toggle="modal" data-target="#abm">
+          <div class="small-box bg-purple" data-toggle="modal" data-target="#abm" style="cursor: pointer;">
             <div class="inner">
               <h3>ABM</h3>
 
@@ -528,7 +528,7 @@
       <div class="row">
 
         <div class="col-md-6">
-          <div class="small-box bg-blue" data-toggle="modal" data-target="#tvlhe">
+          <div class="small-box bg-blue" data-toggle="modal" data-target="#tvlhe" style="cursor: pointer;">
             <div class="inner">
               <h3>TVL-HE</h3>
 
@@ -543,7 +543,7 @@
         <!-- ./col -->
 
         <div class="col-md-6">
-          <div class="small-box bg-navy" data-toggle="modal" data-target="#tvla">
+          <div class="small-box bg-navy" data-toggle="modal" data-target="#tvla" style="cursor: pointer;">
             <div class="inner">
               <h3>TVL-AS</h3>
 
@@ -727,7 +727,7 @@
   <!-- /.content-wrapper -->
 
 
-  
+
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.0
