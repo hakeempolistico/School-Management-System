@@ -383,13 +383,25 @@
     <!-- /.sidebar -->
   </aside>
 
+
+
+
+
+
+
+
+
+
+
+
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Enroll Student
-        <small>(IDK what to put here)</small>
+        Finished Enrolling
+        <small>Enter the chill zone~</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Enrollment</a></li>
@@ -399,319 +411,47 @@
 
     <!-- Main content -->
     <section class="content">
-          <!-- general form elements -->
-          <div class="box box-info">
-            <div class="box-header with-border">
-              <h3 class="box-title">Senior High School Profile</h3>
-            </div>
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form name= "studentprofile" id="studentprofile" role="form">
-              <div class="box-body">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">LRN</label>
-                  <input type="text" class="form-control" id="lrn" placeholder="Learner Reference Number">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Name</label>
-                    <div class="row">
-                      <div class="col-md-4">
-                        <input type="text" class="form-control" id="firstname" placeholder="First Name" sty>
-                      </div>
-                      <div class="col-md-4">
-                        <input type="text" class="form-control" id="middlename" placeholder="Middle Name">
-                      </div>
-                      <div class="col-md-4">
-                        <input type="text" class="form-control" id="lastname" placeholder="Last Name">
-                      </div>
-                    </div>
-                </div>
-                <div class="row">
-                <div class="col-md-6">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Sex</label>
-                  <select class="form-control" id="sex">
-                    <option>Female</option>
-                    <option>Male</option>
-                  </select>
-                </div>
-                </div>
-                <div class="col-md-6">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Contact Number</label>
-                  <input type="text" class="form-control" id="contact" placeholder="Contact Number">
-                </div>
-                </div>
-                </div>
-                <hr>
-                <div class="row">
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Birth Date</label>
-                  <div class="input-group date">
-                    <div class="input-group-addon">
-                      <i class="fa fa-calendar"></i>
-                    </div>
-                    <input type="text" class="form-control" id="datepicker" placeholder="mm/dd/yyyy">
-                  </div>
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Birth Place</label>
-                  <input type="text" class="form-control" id="birthplace" placeholder="Birth Place">
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Age <small>(as of last birthday)</small></label>
-                  <input type="text" class="form-control" id="age" placeholder="Age">
-                </div>
-                </div>
-                </div>
-                <div class="row">
-                <div class="col-md-6">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Mother Tongue</label>
-                  <input type="text" class="form-control" id="mothertongue" placeholder="Mother Tongue">
-                </div>
-                </div>
-                <div class="col-md-6">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Religion</label>
-                  <input type="text" class="form-control" id="religion" placeholder="Religion">
-                </div>
-                </div>
-                </div>
-                <hr>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Address</label>
-                  <div class="row">
-                      <div class="col-md-3">
-                        <input type="text" class="form-control" id="address" placeholder="House #, Street" sty>
-                      </div>
-                      <div class="col-md-3">
-                        <input type="text" class="form-control" id="barangay" placeholder="Barangay">
-                      </div>
-                      <div class="col-md-3">
-                        <input type="text" class="form-control" id="city" placeholder="City">
-                      </div>
-                      <div class="col-md-3">
-                        <input type="text" class="form-control" id="province" placeholder="Province">
-                      </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                <div class="col-md-6">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Father's Name</label>
-                  <input type="text" class="form-control" id="father" placeholder="Father's Name">
-                </div>
-                </div>
-                <div class="col-md-6">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Mother's Maiden Name</label>
-                  <input type="text" class="form-control" id="mother" placeholder="Mother's Maiden Name">
-                </div>
-                </div>
-                </div>
-                <div class="row">
-                <div class="col-md-6">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Father's Contact No.</label>
-                  <input type="text" class="form-control" id="fathercontact" placeholder="Father's Contact No.">
-                </div>
-                </div>
-                <div class="col-md-6">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Mother's Contact No.</label>
-                  <input type="text" class="form-control" id="mothercontact" placeholder="Mother's Contact No.">
-                </div>
-                </div>
-                </div>
-                <div class="row">
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Guardian's Name</label>
-                  <input type="text" class="form-control" id="guardian" placeholder="Guardian's Name">
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Relationship</label>
-                  <input type="text" class="form-control" id="relationship" placeholder="Relationship with Guardian">
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Guardian's Contact No.</label>
-                  <input type="text" class="form-control" id="guardiancontact" placeholder="Guradian's Contact No.">
-                </div>
-                </div>
-                </div>
-              </div>
-              <!-- /.box-body -->
+      <div class="callout callout-success">
+        <h4>Enrollment Complete!</h4>
 
-              <div class="box-footer">
-                <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#modal-default" onclick="preview()">Submit</button>
-              </div>
-            </form>
-          </div>
-
-          
-          <div class="modal modal-default fade" id="modal-default" onload="preview()">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header bg-aqua">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Is this correct?</h4>
-              </div>
-              <div class="modal-body">
-              <div class="box-body">
-                <div class="form-group">
-                  <label>LRN</label>
-                  <div id="lrn">34567890</div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                      <div class="col-md-4">
-                        <label>First Name</label>
-                        <div id="firstname">Adrielle</div>
-                      </div>
-                      <div class="col-md-4">
-                        <label>Middle Name</label>
-                        <div id="middlename">Mestiola</div>
-                      </div>
-                      <div class="col-md-4">
-                        <label>Last Name</label>
-                        <div id="lastname"">Escaro</div>
-                      </div>
-                    </div>
-                </div>
-                <div class="row">
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Sex</label>
-                  <div id="sex">Female</div>
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Contact Number</label>
-                  <div id="contact">09355156653</div>
-                </div>
-                </div>
-                </div>
-                <hr>
-                <div class="row">
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Birth Date</label>
-                  <div id="datepicker">06/24/1998</div>
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Birth Place</label>
-                  <div id="birthplace">Quezon City</div>
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Age <small>(as of last birthday)</small></label>
-                  <div id="age">19</div>
-                </div>
-                </div>
-                </div>
-                <div class="row">
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Mother Tongue</label>
-                  <div id="mothertongue">Japanese</div>
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Religion</label>
-                  <div id="religion">Agnostic</div>
-                </div>
-                </div>
-                </div>
-                <hr>
-                <div class="form-group">
-                  <label>Address</label>
-                    <div id="address">#211 Ph9 Barietto st., Bahayang Pag-asa Subd., Imus, Cavite</div>
-                </div>
-                <hr>
-                <div class="row">
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Father's Name</label>
-                  <div id="father">Wilson A. Escaro</div>
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Mother's Maiden Name</label>
-                  <div id="mother">Gema B. Mestiola</div>
-                </div>
-                </div>
-                </div>
-                <div class="row">
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Father's Contact No.</label>
-                  <div id="fathercontact">09179430720</div>
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Mother's Contact No.</label>
-                  <div id="mothercontact">09204260692</div>
-                </div>
-                </div>
-                </div>
-                <div class="row">
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Guardian's Name</label>
-                  <div id="guardian">Guardian Angel</div>
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Relationship</label>
-                  <div id="relationship">Guardian</div>
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Guardian's Contact No.</label>
-                  <div id="guardiancontact">424-5744</div>
-                </div>
-                </div>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-primary pull-left" data-dismiss="modal">Go back</button>
-                <a href="<?php echo site_url('enrollment/enrollstudent/strands') ?>">
-                <button type="button" class="btn btn-primary">Confirm</button>
-                </a>
-              </div>
-            </div>
-            <!-- /.modal-body -->
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog --> 
+        <p>You have successfully enrolled <bold>Adrielle Kristine Nicolette M. Escaro</bold> to <bold>STEM</bold>. Would you like to enroll another student?</p>
       </div>
-      <!-- /.modal -->
+
+      <div class="row">
+        <div class="col-md-5">
+          <center>
+          <h3>Current number of STEM students:</h3>
+          </center>
+          <div class="chart-responsive">
+            <canvas id="pieChart" style="height:250px"></canvas>
+          </div>
+          <center>
+          <h3>700 Students</h3>
+          </center>
+        </div>
+
+        <div class="col-md-7">
+        <h2>Would you like to enroll another student?</h2>
+        <button>Yes</button>
+        <button>No</button>
+        </div>
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -925,6 +665,8 @@
 <script src="<?php echo base_url(); ?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
+<!-- ChartJS -->
+<script src="<?php echo base_url(); ?>bower_components/Chart.js/Chart.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
@@ -937,10 +679,77 @@
 <script src="<?php echo base_url(); ?>plugins/input-mask/jquery.inputmask.extensions.js"></script>
 
 <script>
-//Date picker
-    $('#datepicker').datepicker({
-      autoclose: true
-    })
+    //-------------
+    //- PIE CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+    var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+    var pieChart       = new Chart(pieChartCanvas)
+    var PieData        = [
+      {
+        value    : 700,
+        color    : '#f56954',
+        highlight: '#f56954',
+        label    : 'STEM'
+      },
+      {
+        value    : 500,
+        color    : '#686868',
+        highlight: '#686868',
+        label    : 'ABM'
+      },
+      {
+        value    : 400,
+        color    : '#686868',
+        highlight: '#686868',
+        label    : 'HUMSS'
+      },
+      {
+        value    : 600,
+        color    : '#686868',
+        highlight: '#686868',
+        label    : 'GAS'
+      },
+      {
+        value    : 300,
+        color    : '#686868',
+        highlight: '#686868',
+        label    : 'TVL-HE'
+      },
+      {
+        value    : 100,
+        color    : '#686868',
+        highlight: '#686868',
+        label    : 'TVL-AS'
+      }
+    ]
+    var pieOptions     = {
+      //Boolean - Whether we should show a stroke on each segment
+      segmentShowStroke    : true,
+      //String - The colour of each segment stroke
+      segmentStrokeColor   : '#fff',
+      //Number - The width of each segment stroke
+      segmentStrokeWidth   : 2,
+      //Number - The percentage of the chart that we cut out of the middle
+      percentageInnerCutout: 50, // This is 0 for Pie charts
+      //Number - Amount of animation steps
+      animationSteps       : 100,
+      //String - Animation easing effect
+      animationEasing      : 'easeOutBounce',
+      //Boolean - Whether we animate the rotation of the Doughnut
+      animateRotate        : true,
+      //Boolean - Whether we animate scaling the Doughnut from the centre
+      animateScale         : false,
+      //Boolean - whether to make the chart responsive to window resizing
+      responsive           : true,
+      // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
+      maintainAspectRatio  : true,
+      //String - A legend template
+      legendTemplate       : '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<segments.length; i++){%><li><span style="background-color:<%=segments[i].fillColor%>"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>'
+    }
+    //Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    pieChart.Doughnut(PieData, pieOptions)
 </script>
 
 </body>
