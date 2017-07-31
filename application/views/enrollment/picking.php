@@ -462,8 +462,7 @@
           </div>
 
           <div hidden id="apply">
-            <div class="alert bg-purple alert-dismissible" style="padding-bottom: 45px;">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <div class="alert bg-purple" style="padding-bottom: 45px;">
                 <div>
                 <h4><i class="icon fa fa-check"></i> Apply for enrollment!</h4>
                 <ol type= "1" style="font-size: 16px;">
@@ -481,8 +480,7 @@
             </div>
           </div>
           <div hidden id="search">
-            <div class="alert bg-maroon alert-dismissible" style="padding-bottom: 45px;">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <div class="alert bg-maroon" style="padding-bottom: 45px;">
                 <div>
                 <h4><i class="icon fa fa-check"></i> Search for Applications Online!</h4>
                 <ol type= "1" style="font-size: 16px;">
