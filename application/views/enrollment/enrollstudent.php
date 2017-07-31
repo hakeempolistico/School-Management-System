@@ -400,7 +400,7 @@
     <!-- Main content -->
     <section class="content">
           <!-- general form elements -->
-          <div class="box box-danger">
+          <div class="box box-info">
             <div class="box-header with-border">
               <h3 class="box-title">Senior High School Profile</h3>
             </div>
@@ -554,7 +554,7 @@
               <!-- /.box-body -->
 
               <div class="box-footer">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-default" onclick="preview()" style="background-color: #800000; color: white;">Submit</button>
+                <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#modal-default" onclick="preview()">Submit</button>
               </div>
             </form>
           </div>
@@ -563,7 +563,7 @@
           <div class="modal modal-default fade" id="modal-default" onload="preview()">
           <div class="modal-dialog">
             <div class="modal-content">
-              <div class="modal-header" style="background-color: #800000; color: white;">
+              <div class="modal-header bg-aqua">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title">Is this correct?</h4>
@@ -695,24 +695,26 @@
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal" style="background-color: #800000;">Go back</button>
-                <button type="button" class="btn btn-outline" style="background-color: #800000;">Submit</button>
+                <button type="button" class="btn btn-primary pull-left" data-dismiss="modal">Go back</button>
+                <a href="<?php echo site_url('enrollment/enrollstudent/strands') ?>">
+                <button type="button" class="btn btn-primary">Confirm</button>
+                </a>
               </div>
             </div>
-            <!-- /.modal-content -->
+            <!-- /.modal-body -->
           </div>
-          <!-- /.modal-dialog -->
-      </div>
-        <!-- /.modal -->
+          <!-- /.modal-content -->
         </div>
-
-      
-
-
+        <!-- /.modal-dialog --> 
+      </div>
+      <!-- /.modal -->
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
+
+  
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.0

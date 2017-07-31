@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Strand Selection</title>
+  <title>Enroll Student</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -384,342 +384,90 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="padding-bottom: 50px;">
+  <div class="content-wrapper" style="padding-bottom: 385px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Strand Selection
-        <small>Grade Inputing</small>
+        Enroll Student
+        <small>Choose one</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Enrollment</a></li>
-        <li><a href="#">Enroll Students</a></li>
-        <li class="active">Strand Selection</li>
+        <li class="active"><a href="#">Enroll Student</a></li>
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
-    <div class="row">
-    <div class="col-md-4">
+
       <!-- Default box -->
-      <div class="box">
-        <div class="box-header with-border">
-          <h3 class="box-title">Please enter the ff. grades: </h3>
-        </div>
-        <div class="box-body">
-          <div class="form-group">
-                <label>English</label>
-                  <input type="text" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Mathematics</label>
-                  <input type="text" class="form-control" id="lrn">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Science</label>
-                  <input type="text" class="form-control" id="lrn">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Filipino</label>
-                  <input type="text" class="form-control" id="lrn">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Araling Panlipunan</label>
-                  <input type="text" class="form-control" id="lrn">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">T.L.E.</label>
-                  <input type="text" class="form-control" id="lrn">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Computer Education</label>
-                  <input type="text" class="form-control" id="lrn">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">MAPEH</label>
-                  <input type="text" class="form-control" id="lrn">
-                </div>        </div>
-        <!-- /.box-body -->
-        <div class="box-footer">
-          <button type="submit" name="search" class="btn btn-primary btn-flat">Submit</button>
-        </div>
-        <!-- /.box-footer-->
-      </div>
-      <!-- /.box -->
-      </div>
-      <!-- /.col-md-3 -->
-
-      <div class="col-md-8">
-        <div style="margin-bottom: 20px;">
-        <h3>Available Strands:</h3>
-        </div>
-
-      <div class="row">
-
-        <div class="col-md-6">
-          <div class="small-box bg-green" data-toggle="modal" data-target="#stem">
-            <div class="inner">
-              <h3>STEM</h3>
-
-              <p>Science, Technology,<br> Engineering, and Mathematics</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-flask"></i>
-            </div>
-            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-
-        <div class="col-md-6">
-          <div class="small-box bg-maroon" data-toggle="modal" data-target="#gas">
-            <div class="inner">
-              <h3>GAS</h3>
-
-              <p>General<br>Academic Strand</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-book"></i>
-            </div>
-            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-
-      </div>
-      <!-- /.row -->
-
-      <div class="row">
-
-        <div class="col-md-6">
-          <div class="small-box bg-yellow" data-toggle="modal" data-target="#humss">
-            <div class="inner">
-              <h3>HUMSS</h3>
-
-              <p>Humanities<br>and Social Sciences</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-users"></i>
-            </div>
-            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-
-        <div class="col-md-6">
-          <div class="small-box bg-purple" data-toggle="modal" data-target="#abm">
-            <div class="inner">
-              <h3>ABM</h3>
-
-              <p>Accountancy<br>and Business Management</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-briefcase"></i>
-            </div>
-            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-
-      </div>
-      <!-- /.row -->
-
-      <div class="row">
-
-        <div class="col-md-6">
-          <div class="small-box bg-blue" data-toggle="modal" data-target="#tvlhe">
-            <div class="inner">
-              <h3>TVL-HE</h3>
-
-              <p>Technology-Vocational<br>Livelihood: Home Economics</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-home"></i>
-            </div>
-            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-
-        <div class="col-md-6">
-          <div class="small-box bg-navy" data-toggle="modal" data-target="#tvla">
-            <div class="inner">
-              <h3>TVL-AS</h3>
-
-              <p>Technogy-Vocational<br>Livelihood: Automotive Services</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-cogs"></i>
-            </div>
-            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-
-      </div>
-      <!-- /.row -->
-      </div>
-      <!-- /.col-md-8 -->
-      </div>
-      <!-- /.row -->
-
-      <div class="modal fade" id="stem">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header bg-green">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">Are you sure?</h4>
-            </div>
-            <div class="modal-body">
-              <div class="box-body">
-                <p>This action cannot be changed once the profile is sent to the database of the selected strand (STEM).</p>
-                <br>
-                <center>
-                  <button type="button" class="btn bg-green" data-toggle="modal" data-target="#stem" style="width: 60%; height: 50px;">Enroll to STEM</button>
-                </center>
+      <div class="row" style="margin-top: 20px;">
+            <div class="col-md-4">
+              <div class="alert alert-warning alert-dismissible" style="height:366px;">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h4><i class="icon fa fa-check"></i> Remember!</h4>
+                <ul style="font-size: 16px;">
+                  <li>Don't be distracted by your surroundings</li>
+                  <li>Make sure you input the correct data!</li>
+                  <li>Explain thoroughly the process of enrollment to the applicant</li>
+                  <li>Answer any question being asked</li>
+                  <li>Be approachable!</li>
+                  <li>Smile!</li>
+                </ul>
               </div>
-              <!-- /.box-body -->
             </div>
-            <!-- /.modal-body -->
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-      <!-- /.modal -->
 
-      <div class="modal fade" id="gas">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header bg-maroon">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">Are you sure?</h4>
-            </div>
-            <div class="modal-body">
-              <div class="box-body">
-                <p>This action cannot be changed once the profile is sent to the database of the selected strand (GAS).</p>
-                <br>
-                <center>
-                  <button type="button" class="btn bg-maroon" data-toggle="modal" data-target="#stem" style="width: 60%; height: 50px;">Enroll to GAS</button>
-                </center>
+            <div class="col-md-8">
+              <div class="row">
+              <div class="col-md-6">
+              <div class="small-box bg-purple">
+                <div class="inner">
+                  <h3>Apply</h3>
+
+                  <p>For Enrollment</p>
+                </div>
+                <div class="icon">
+                  <i class="fa  fa-files-o"></i>
+                </div>
+                <a href="#" class="small-box-footer" style="height: 26px;">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
-              <!-- /.box-body -->
-            </div>
-            <!-- /.modal-body -->
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-      <!-- /.modal -->
 
-      <div class="modal fade" id="humss">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header bg-yellow">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">Are you sure?</h4>
+              
             </div>
-            <div class="modal-body">
-              <div class="box-body">
-                <p>This action cannot be changed once the profile is sent to the database of the selected strand (HUMSS).</p>
-                <br>
-                <center>
-                  <button type="button" class="btn bg-yellow" data-toggle="modal" data-target="#stem" style="width: 60%; height: 50px;">Enroll to HUMSS</button>
-                </center>
+
+            <div class="col-md-6">
+              <div class="small-box bg-maroon">
+                <div class="inner">
+                  <h3>Search</h3>
+
+                  <p>Online Applications</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-pie-graph"></i>
+                </div>
+                <a href="#" class="small-box-footer" style="height: 26px;">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
-              <!-- /.box-body -->
             </div>
-            <!-- /.modal-body -->
           </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-      <!-- /.modal -->
 
-      <div class="modal fade" id="abm">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header bg-purple">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">Are you sure?</h4>
+          <div>
+            <div class="alert bg-maroon alert-dismissible" style="padding-bottom: 45px;">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h4><i class="icon fa fa-check"></i> Apply for enrollment!</h4>
+                <ol type= "1" style="font-size: 16px;">
+                  <li>Fill up a personal information form</li>
+                  <li>Input grades to determine available strands</li>
+                  <li>Select desired strand</li>
+                  <li>Sumbit requirements</li>
+                  <li>Finish Enrollment</li>
+                  <a href="<?php echo site_url('enrollment/enrollstudent/enroll')?>">
+                  <button type="button" class="btn pull-right" style="background-color: rgba(0,0,0,0.25); color: white;">Proceed</button>
+                </ol>
             </div>
-            <div class="modal-body">
-              <div class="box-body">
-                <p>This action cannot be changed once the profile is sent to the database of the selected strand (ABM).</p>
-                <br>
-                <center>
-                  <button type="button" class="btn bg-purple" data-toggle="modal" data-target="#stem" style="width: 60%; height: 50px;">Enroll to ABM</button>
-                </center>
-              </div>
-              <!-- /.box-body -->
-            </div>
-            <!-- /.modal-body -->
           </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-      <!-- /.modal -->
-
-      <div class="modal fade" id="tvlhe">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header bg-blue">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">Are you sure?</h4>
-            </div>
-            <div class="modal-body">
-              <div class="box-body">
-                <p>This action cannot be changed once the profile is sent to the database of the selected strand (TVL-HE).</p>
-                <br>
-                <center>
-                  <button type="button" class="btn bg-blue" data-toggle="modal" data-target="#stem" style="width: 60%; height: 50px;">Enroll to TVL-HE</button>
-                </center>
-              </div>
-              <!-- /.box-body -->
-            </div>
-            <!-- /.modal-body -->
           </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-      <!-- /.modal -->
-
-      <div class="modal fade" id="tvla">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header bg-navy">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">Are you sure?</h4>
-            </div>
-            <div class="modal-body">
-              <div class="box-body">
-                <p>This action cannot be changed once the profile is sent to the database of the selected strand (TVL-Automative).</p>
-                <br>
-                <center>
-                  <button type="button" class="btn bg-navy" data-toggle="modal" data-target="#stem" style="width: 60%; height: 50px;">Enroll to TVL-Automative</button>
-                </center>
-              </div>
-              <!-- /.box-body -->
-            </div>
-            <!-- /.modal-body -->
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-      <!-- /.modal -->
-
+          <!-- /.row-->
+    </div>
 
     </section>
     <!-- /.content -->
