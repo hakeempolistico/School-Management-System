@@ -416,7 +416,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="row">
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-aqua">
+          <div class="small-box bg-aqua"  id="viewStudents">
             <div class="inner">
               <h3>1200</h3>
 
@@ -425,13 +425,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="icon">
               <i class="fa fa-pencil"></i>
             </div>
-            <a href="#" class="small-box-footer" id="viewStudents">View table <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer">View table <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-green">
+          <div class="small-box bg-green"  id="viewTeachers">
             <div class="inner">
               <h3>169</h3>
 
@@ -440,13 +440,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="icon">
               <i class="fa fa-mortar-board"></i>
             </div>
-            <a href="#" class="small-box-footer" id="viewTeachers">View table  <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer">View table  <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-yellow">
+          <div class="small-box bg-yellow" id="viewRooms">
             <div class="inner">
               <h3>44</h3>
 
@@ -455,13 +455,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="icon">
               <i class="fa fa-home"></i>
             </div>
-            <a href="#" class="small-box-footer" id="viewRooms">View table <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer">View table <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-red">
+          <div class="small-box bg-red" id="viewClass">
             <div class="inner">
               <h3>65</h3>
 
@@ -470,7 +470,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="icon">
               <i class="fa fa-star"></i>
             </div>
-            <a href="#" class="small-box-footer" id="viewClass">View table <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer">View table <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->

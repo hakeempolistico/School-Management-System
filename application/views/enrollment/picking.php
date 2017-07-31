@@ -420,7 +420,7 @@
             <div class="col-md-8">
               <div class="row">
               <div class="col-md-6">
-              <div class="small-box bg-purple">
+              <div class="small-box bg-purple" id="show">
                 <div class="inner">
                   <h3>Apply</h3>
 
@@ -436,7 +436,7 @@
             </div>
 
             <div class="col-md-6">
-              <div class="small-box bg-maroon">
+              <div class="small-box bg-maroon" id="change">
                 <div class="inner">
                   <h3>Search</h3>
 
@@ -450,9 +450,10 @@
             </div>
           </div>
 
-          <div>
-            <div class="alert bg-maroon alert-dismissible" style="padding-bottom: 45px;">
+          <div hidden id="apply">
+            <div class="alert bg-purple alert-dismissible" style="padding-bottom: 45px;">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <div>
                 <h4><i class="icon fa fa-check"></i> Apply for enrollment!</h4>
                 <ol type= "1" style="font-size: 16px;">
                   <li>Fill up a personal information form</li>
@@ -462,7 +463,27 @@
                   <li>Finish Enrollment</li>
                   <a href="<?php echo site_url('enrollment/enrollstudent/enroll')?>">
                   <button type="button" class="btn pull-right" style="background-color: rgba(0,0,0,0.25); color: white;">Proceed</button>
+                  </a>
                 </ol>
+                </div>
+            </div>
+          </div>
+          <div hidden id="search">
+            <div class="alert bg-maroon alert-dismissible" style="padding-bottom: 45px;">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <div>
+                <h4><i class="icon fa fa-check"></i> Search for Applications Online!</h4>
+                <ol type= "1" style="font-size: 16px;">
+                  <li>Fill up a personal information form</li>
+                  <li>Input grades to determine available strands</li>
+                  <li>Select desired strand</li>
+                  <li>Sumbit requirements</li>
+                  <li>Finish Enrollment</li>
+                  <a href="<?php echo site_url('enrollment/enrollstudent/enroll')?>">
+                  <button type="button" class="btn pull-right" style="background-color: rgba(0,0,0,0.25); color: white;">Proceed</button>
+                  </a>
+                </ol>
+                </div>
             </div>
           </div>
           </div>
@@ -690,18 +711,23 @@
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
-<!-- bootstrap datepicker -->
-<script src="<?php echo base_url(); ?>bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <!-- InputMask -->
 <script src="<?php echo base_url(); ?>plugins/input-mask/jquery.inputmask.js"></script>
 <script src="<?php echo base_url(); ?>plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
 <script src="<?php echo base_url(); ?>plugins/input-mask/jquery.inputmask.extensions.js"></script>
 
 <script>
-//Date picker
-    $('#datepicker').datepicker({
-      autoclose: true
-    })
+$(document).ready(function(){
+    $("#show").click(function(){      
+      $("#apply").show();
+      $("#search").hide();
+    });
+    $("#change").click(function(){
+      $("#apply").hide();
+      $("#search").show();
+    });
+});
+
 </script>
 
 </body>
