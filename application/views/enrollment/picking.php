@@ -383,20 +383,21 @@
     <!-- /.sidebar -->
   </aside>
 
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" style="padding-bottom: 385px;">
+    <div class="alert bg-blue alert-dismissible flat">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <h4><i class="icon fa fa-bullhorn"></i> Reminder!</h4>
+        Always ask for a clear copy of the student's signature!
+     </div>
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <div class="alert alert-success alert-dismissible">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <h4><i class="icon fa fa-bullhorn"></i> Picking here!</h4>
-        Tistimonial reveled with gluta 462. After 18 years of hoping to have a baby and now has come because of miracle of gluta. She is one of my client, 3 months old pregnant soon to become a mama.
-      </div>
       <h1>
         Enroll Student
         <small>Choose one</small>
       </h1>
-      <ol class="breadcrumb" style="margin-top: 120px;">
+      <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Enrollment</a></li>
         <li class="active"><a href="#">Enroll Student</a></li>
       </ol>

@@ -396,19 +396,19 @@
 
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper" style="padding-bottom: 206px;">
+    <div class="alert alert-warning alert-dismissible flat">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <h4><i class="icon fa fa-bullhorn"></i> Warning!</h4>
+        Enrollee still has no confirmed schedule, class and subjects! Manage student schedule on the Manage Schedule tab in the sidebar. Deadline is 3 hrs from now.
+     </div>
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <div class="alert alert-success alert-dismissible">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <h4><i class="icon fa fa-bullhorn"></i> Enrolled here!</h4>
-        Tistimonial reveled with gluta 462. After 18 years of hoping to have a baby and now has come because of miracle of gluta. She is one of my client, 3 months old pregnant soon to become a mama.
-      </div>
       <h1>
         Finished Enrolling
         <small>Enter the chill zone~</small>
       </h1>
-      <ol class="breadcrumb" style="margin-top: 120px;">
+      <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Enrollment</a></li>
         <li class="active">Enroll Student</li>
       </ol>
@@ -436,9 +436,19 @@
         </div>
 
         <div class="col-md-7">
-        <h2>Would you like to enroll another student?</h2>
-        <button>Yes</button>
-        <button>No</button>
+        <center>
+        <h2 style="padding-bottom: 30px;">Would you like to enroll another student?</h2>
+        <button type="button" id="yes" class="btn bg-navy btn-flat margin" style="width: 200px; height: 70px;">Yes</button>
+        <button type="button" id="no" class="btn bg-navy btn-flat margin" style="width: 200px; height: 70px;">No</button>
+
+        <div hidden class="container well well-main" id="enro" style="width: 55%; height: 200px; margin-top: 10px;">
+          <h3 class="text-center" style="font-size: 30px; line-height: 3em;">Go back to enroll students</h3>
+        </div>
+
+        <div hidden class="container well well-main" id="dash" style="width: 55%; height: 200px; margin-top: 10px;">
+          <h3 class="text-center" style="font-size: 30px; line-height: 3em;">Go to dashboard</h3>
+        </div>
+        </center>
         </div>
     </section>
     <!-- /.content -->
@@ -682,6 +692,22 @@
 <script src="<?php echo base_url(); ?>plugins/input-mask/jquery.inputmask.js"></script>
 <script src="<?php echo base_url(); ?>plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
 <script src="<?php echo base_url(); ?>plugins/input-mask/jquery.inputmask.extensions.js"></script>
+
+<script>
+$(document).ready(function(){
+    $("#yes").hover(function(){     
+      $("#enro").show();
+    }, function(){
+        $("#enro").hide();
+    });
+    $("#no").hover(function(){     
+      $("#dash").show();
+    }, function(){
+        $("#dash").hide();
+    });
+});
+
+</script>
 
 <script>
     //-------------
