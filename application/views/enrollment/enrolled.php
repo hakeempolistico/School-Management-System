@@ -384,19 +384,8 @@
   </aside>
 
 
-
-
-
-
-
-
-
-
-
-
-
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="padding-bottom: 206px;">
+  <div class="content-wrapper" style="padding-bottom: 146px;">
     <div class="alert alert-warning alert-dismissible flat">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <h4><i class="icon fa fa-bullhorn"></i> Warning!</h4>
@@ -422,34 +411,46 @@
         <p>You have successfully enrolled <bold>Adrielle Kristine Nicolette M. Escaro</bold> to <bold>STEM</bold>. Would you like to enroll another student?</p>
       </div>
 
-      <div class="row">
-        <div class="col-md-5">
-          <center>
-          <h3>Current number of STEM students:</h3>
-          </center>
-          <div class="chart-responsive">
-            <canvas id="pieChart" style="height:250px"></canvas>
+      <div class="box box-default">
+        <div class="box-body">
+        <div class="row">
+          <div class="col-md-5">
+            <center>
+              <h3 style="padding-bottom: 22px;">Current number of STEM students:</h3>
+            </center>
+            <div class="chart-responsive">
+              <canvas id="pieChart" style="height:250px"></canvas>
+            </div>
+            <center>
+              <h3>700 Students</h3>
+            </center>
           </div>
-          <center>
-          <h3>700 Students</h3>
-          </center>
-        </div>
 
         <div class="col-md-7">
         <center>
         <h2 style="padding-bottom: 30px;">Would you like to enroll another student?</h2>
+        <a href="<?php echo site_url('enrollment/enrollstudent') ?>">
         <button type="button" id="yes" class="btn bg-navy btn-flat margin" style="width: 200px; height: 70px;">Yes</button>
+        </a>
+        <a href="<?php echo site_url('enrollment/dashboard') ?>">
         <button type="button" id="no" class="btn bg-navy btn-flat margin" style="width: 200px; height: 70px;">No</button>
 
-        <div hidden class="container well well-main" id="enro" style="width: 55%; height: 200px; margin-top: 10px;">
-          <h3 class="text-center" style="font-size: 30px; line-height: 3em;">Go back to enroll students</h3>
+
+        <div hidden class="container well well-main" id="enro" style="width: 55%; margin-top: 10px;">
+          <h3 class="text-center" style="font-size: 20px; line-height: 2em;">Go back to enroll students</h3>
         </div>
 
-        <div hidden class="container well well-main" id="dash" style="width: 55%; height: 200px; margin-top: 10px;">
-          <h3 class="text-center" style="font-size: 30px; line-height: 3em;">Go to dashboard</h3>
+        <div hidden class="container well well-main" id="dash" style="width: 55%; margin-top: 10px;">
+          <h3 class="text-center" style="font-size: 20px; line-height: 2em;">Go to dashboard</h3>
         </div>
         </center>
         </div>
+
+
+        </div>
+        </div>
+      </div>
+
     </section>
     <!-- /.content -->
   </div>

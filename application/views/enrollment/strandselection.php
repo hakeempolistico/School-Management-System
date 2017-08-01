@@ -589,7 +589,9 @@
                 <p>This action cannot be changed once the profile is sent to the database of the selected strand (STEM).</p>
                 <br>
                 <center>
+                  <a href="<?php echo site_url('enrollment/enrollstudent/enrolled') ?>">
                   <button type="button" class="btn bg-green" data-toggle="modal" data-target="#stem" style="width: 60%; height: 50px;">Enroll to STEM</button>
+                  </a>
                 </center>
               </div>
               <!-- /.box-body -->
@@ -615,7 +617,9 @@
                 <p>This action cannot be changed once the profile is sent to the database of the selected strand (GAS).</p>
                 <br>
                 <center>
+                  <a href="<?php echo site_url('enrollment/enrollstudent/enrolled') ?>">
                   <button type="button" class="btn bg-maroon" data-toggle="modal" data-target="#stem" style="width: 60%; height: 50px;">Enroll to GAS</button>
+                  </a>
                 </center>
               </div>
               <!-- /.box-body -->
@@ -641,7 +645,9 @@
                 <p>This action cannot be changed once the profile is sent to the database of the selected strand (HUMSS).</p>
                 <br>
                 <center>
+                  <a href="<?php echo site_url('enrollment/enrollstudent/enrolled') ?>">
                   <button type="button" class="btn bg-yellow" data-toggle="modal" data-target="#stem" style="width: 60%; height: 50px;">Enroll to HUMSS</button>
+                  </a>
                 </center>
               </div>
               <!-- /.box-body -->
@@ -667,7 +673,9 @@
                 <p>This action cannot be changed once the profile is sent to the database of the selected strand (ABM).</p>
                 <br>
                 <center>
+                  <a href="<?php echo site_url('enrollment/enrollstudent/enrolled') ?>">
                   <button type="button" class="btn bg-purple" data-toggle="modal" data-target="#stem" style="width: 60%; height: 50px;">Enroll to ABM</button>
+                  </a>
                 </center>
               </div>
               <!-- /.box-body -->
@@ -693,7 +701,9 @@
                 <p>This action cannot be changed once the profile is sent to the database of the selected strand (TVL-HE).</p>
                 <br>
                 <center>
+                  <a href="<?php echo site_url('enrollment/enrollstudent/enrolled') ?>">
                   <button type="button" class="btn bg-blue" data-toggle="modal" data-target="#stem" style="width: 60%; height: 50px;">Enroll to TVL-HE</button>
+                  </a>
                 </center>
               </div>
               <!-- /.box-body -->
@@ -719,7 +729,9 @@
                 <p>This action cannot be changed once the profile is sent to the database of the selected strand (TVL-Automative).</p>
                 <br>
                 <center>
+                  <a href="<?php echo site_url('enrollment/enrollstudent/enrolled') ?>">
                   <button type="button" class="btn bg-navy" data-toggle="modal" data-target="#stem" style="width: 60%; height: 50px;">Enroll to TVL-Automative</button>
+                  </a>
                 </center>
               </div>
               <!-- /.box-body -->
