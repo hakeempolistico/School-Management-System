@@ -745,7 +745,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!--Modal-->
 <div class="modal fade" id="modal-default">
 
-          <div class="modal-dialog" style="align-self: center; max-width: 400px">
+          <div class="modal-dialog" style="align-self: center; max-width: 500px">
           <!-- Profile Image -->
           <div class="box box-primary" >
             <div class="box-body box-profile">
@@ -849,7 +849,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- page script -->
 <script>
 
-  var arrofobject = [{"lrn":"14-038-027","name":"Adrii", "year":"12"}];
+  var arrofobject = [{"lrn":"14-038-027","name":"Adrii", "year":"12", "status": "ENROLLED"}];
   var arrofobject2 = [{"lrn":"14-038-014","name":"Hakeem", "year":"12"}];
   var arrofobject3 = [{"lrn":"14-038-013","name":"Jasver", "year":"12"}];
   var arrofobject4 = [{"lrn":"14-038-015","name":"Marc", "year":"12"}]; //JSON
@@ -869,10 +869,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$('thead tr').append( $('<th />', {text : 'LRN'}) );
 			$('thead tr').append( $('<th />', {text : 'Name'}) ); 
 			$('thead tr').append( $('<th />', {text : 'Grade'}) ); 
+			$('thead tr').append( $('<th />', {text : 'Status'}) ); 
 			$('thead tr').append( $('<th />', {text : 'Action'}) ); 
 
 			$.each(arrofobject, function(index, val) {
-				$('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><button id="buttonView" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
+				$('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><span class="label label-success">'+val.status+'</span></td> <td><button id="buttonView" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
 				});
 				
 				$("#buttonView").click(function(){
@@ -895,7 +896,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$('thead tr').append( $('<th />', {text : 'Grade'}) ); 
 			$('thead tr').append( $('<th />', {text : 'Action'}) ); 
 
-			$.each(arrofobject, function(index, val) {
+			$.each(arrofobject2, function(index, val) {
 				$('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><button id="buttonView" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
 				});
 					
@@ -910,7 +911,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$('thead tr').append( $('<th />', {text : 'Grade'}) ); 
 			$('thead tr').append( $('<th />', {text : 'Action'}) ); 
 
-			$.each(arrofobject, function(index, val) {
+			$.each(arrofobject3, function(index, val) {
 				$('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><button id="buttonView" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
 				});
 					
@@ -925,7 +926,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$('thead tr').append( $('<th />', {text : 'Grade'}) ); 
 			$('thead tr').append( $('<th />', {text : 'Action'}) ); 
 
-			$.each(arrofobject, function(index, val) {
+			$.each(arrofobject4, function(index, val) {
 				$('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><button id="buttonView" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
 				});
 					
