@@ -420,28 +420,28 @@
             <form name= "studentprofile" id="studentprofile" role="form">
               <div class="box-body" style="padding-bottom: 20px;">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">LRN</label>
-                  <input type="text" class="form-control" id="lrn" placeholder="Learner Reference Number">
+                  <label>LRN</label>
+                  <input type="text" class="form-control" id="inputLRN" placeholder="Learner Reference Number">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Name</label>
                     <div class="row">
                       <div class="col-md-4">
-                        <input type="text" class="form-control" id="firstname" placeholder="First Name" sty>
+                        <input type="text" class="form-control" id="inputFNAME" placeholder="First Name" sty>
                       </div>
                       <div class="col-md-4">
-                        <input type="text" class="form-control" id="middlename" placeholder="Middle Name">
+                        <input type="text" class="form-control" id="inputMNAME" placeholder="Middle Name">
                       </div>
                       <div class="col-md-4">
-                        <input type="text" class="form-control" id="lastname" placeholder="Last Name">
+                        <input type="text" class="form-control" id="inputLNAME" placeholder="Last Name">
                       </div>
                     </div>
                 </div>
                 <div class="row">
                 <div class="col-md-6">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Sex</label>
-                  <select class="form-control" id="sex">
+                  <label>Sex</label>
+                  <select class="form-control" id="inputSEX">
                     <option>Female</option>
                     <option>Male</option>
                   </select>
@@ -450,7 +450,7 @@
                 <div class="col-md-6">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Contact Number</label>
-                  <input type="text" class="form-control" id="contact" placeholder="Contact Number">
+                  <input type="text" class="form-control" id="inputCONTACT" placeholder="Contact Number">
                 </div>
                 </div>
                 </div>
@@ -470,13 +470,13 @@
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Birth Place</label>
-                  <input type="text" class="form-control" id="birthplace" placeholder="Birth Place">
+                  <input type="text" class="form-control" id="inputBIRTHPLACE" placeholder="Birth Place">
                 </div>
                 </div>
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Age <small>(as of last birthday)</small></label>
-                  <input type="text" class="form-control" id="age" placeholder="Age">
+                  <input type="text" class="form-control" id="inputAGE" placeholder="Age">
                 </div>
                 </div>
                 </div>
@@ -484,13 +484,13 @@
                 <div class="col-md-6">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Mother Tongue</label>
-                  <input type="text" class="form-control" id="mothertongue" placeholder="Mother Tongue">
+                  <input type="text" class="form-control" id="inputMOTHERTONGUE" placeholder="Mother Tongue">
                 </div>
                 </div>
                 <div class="col-md-6">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Religion</label>
-                  <input type="text" class="form-control" id="religion" placeholder="Religion">
+                  <input type="text" class="form-control" id="inputRELIGION" placeholder="Religion">
                 </div>
                 </div>
                 </div>
@@ -499,16 +499,16 @@
                   <label for="exampleInputEmail1">Address</label>
                   <div class="row">
                       <div class="col-md-3">
-                        <input type="text" class="form-control" id="address" placeholder="House #, Street" sty>
+                        <input type="text" class="form-control" id="inputSTREET" placeholder="House #, Street" sty>
                       </div>
                       <div class="col-md-3">
-                        <input type="text" class="form-control" id="barangay" placeholder="Barangay">
+                        <input type="text" class="form-control" id="inputBARANGAY" placeholder="Barangay">
                       </div>
                       <div class="col-md-3">
-                        <input type="text" class="form-control" id="city" placeholder="City">
+                        <input type="text" class="form-control" id="inputCITY" placeholder="City">
                       </div>
                       <div class="col-md-3">
-                        <input type="text" class="form-control" id="province" placeholder="Province">
+                        <input type="text" class="form-control" id="inputPROVINCE" placeholder="Province">
                       </div>
                     </div>
                 </div>
@@ -517,13 +517,13 @@
                 <div class="col-md-6">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Father's Name</label>
-                  <input type="text" class="form-control" id="father" placeholder="Father's Name">
+                  <input type="text" class="form-control" id="inputFATHER" placeholder="Father's Name">
                 </div>
                 </div>
                 <div class="col-md-6">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Mother's Maiden Name</label>
-                  <input type="text" class="form-control" id="mother" placeholder="Mother's Maiden Name">
+                  <input type="text" class="form-control" id="inputMOTHER" placeholder="Mother's Maiden Name">
                 </div>
                 </div>
                 </div>
@@ -531,13 +531,13 @@
                 <div class="col-md-6">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Father's Contact No.</label>
-                  <input type="text" class="form-control" id="fathercontact" placeholder="Father's Contact No.">
+                  <input type="text" class="form-control" id="inputFATHERCONTACT" placeholder="Father's Contact No.">
                 </div>
                 </div>
                 <div class="col-md-6">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Mother's Contact No.</label>
-                  <input type="text" class="form-control" id="mothercontact" placeholder="Mother's Contact No.">
+                  <input type="text" class="form-control" id="inputMOTHERCONTACT" placeholder="Mother's Contact No.">
                 </div>
                 </div>
                 </div>
@@ -545,19 +545,19 @@
                 <div class="col-md-4">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Guardian's Name</label>
-                  <input type="text" class="form-control" id="guardian" placeholder="Guardian's Name">
+                  <input type="text" class="form-control" id="inputGUARDIAN" placeholder="Guardian's Name">
                 </div>
                 </div>
                 <div class="col-md-4">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Relationship</label>
-                  <input type="text" class="form-control" id="relationship" placeholder="Relationship with Guardian">
+                  <input type="text" class="form-control" id="inputRELATIONSHIP" placeholder="Relationship with Guardian">
                 </div>
                 </div>
                 <div class="col-md-4">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Guardian's Contact No.</label>
-                  <input type="text" class="form-control" id="guardiancontact" placeholder="Guradian's Contact No.">
+                  <input type="text" class="form-control" id="inputGUARDIANCONTACT" placeholder="Guradian's Contact No.">
                 </div>
                 </div>
                 </div>
@@ -584,21 +584,21 @@
               <div class="box-body">
                 <div class="form-group">
                   <label>LRN</label>
-                  <div id="lrn">34567890</div>
+                  <div id="textLRN"></div>
                 </div>
                 <div class="form-group">
                     <div class="row">
                       <div class="col-md-4">
                         <label>First Name</label>
-                        <div id="firstname">Adrielle</div>
+                        <div id="textFNAME"></div>
                       </div>
                       <div class="col-md-4">
                         <label>Middle Name</label>
-                        <div id="middlename">Mestiola</div>
+                        <div id="textMNAME"></div>
                       </div>
                       <div class="col-md-4">
                         <label>Last Name</label>
-                        <div id="lastname"">Escaro</div>
+                        <div id="textLNAME"></div>
                       </div>
                     </div>
                 </div>
@@ -606,13 +606,13 @@
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Sex</label>
-                  <div id="sex">Female</div>
+                  <div id="textSEX"></div>
                 </div>
                 </div>
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Contact Number</label>
-                  <div id="contact">09355156653</div>
+                  <div id="textCONTACT"></div>
                 </div>
                 </div>
                 </div>
@@ -621,19 +621,19 @@
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Birth Date</label>
-                  <div id="datepicker">06/24/1998</div>
+                  <div id="textDATEPICKER"></div>
                 </div>
                 </div>
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Birth Place</label>
-                  <div id="birthplace">Quezon City</div>
+                  <div id="textBIRTHPLACE"></div>
                 </div>
                 </div>
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Age <small>(as of last birthday)</small></label>
-                  <div id="age">19</div>
+                  <div id="textAGE"></div>
                 </div>
                 </div>
                 </div>
@@ -641,33 +641,33 @@
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Mother Tongue</label>
-                  <div id="mothertongue">Japanese</div>
+                  <div id="textMOTHERTONGUE"></div>
                 </div>
                 </div>
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Religion</label>
-                  <div id="religion">Agnostic</div>
+                  <div id="textRELIGION"></div>
                 </div>
                 </div>
                 </div>
                 <hr>
                 <div class="form-group">
                   <label>Address</label>
-                    <div id="address">#211 Ph9 Barietto st., Bahayang Pag-asa Subd., Imus, Cavite</div>
+                    <div id="textADDRESS"></div>
                 </div>
                 <hr>
                 <div class="row">
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Father's Name</label>
-                  <div id="father">Wilson A. Escaro</div>
+                  <div id="textFATHER"></div>
                 </div>
                 </div>
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Mother's Maiden Name</label>
-                  <div id="mother">Gema B. Mestiola</div>
+                  <div id="textMOTHER"></div>
                 </div>
                 </div>
                 </div>
@@ -675,13 +675,13 @@
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Father's Contact No.</label>
-                  <div id="fathercontact">09179430720</div>
+                  <div id="textFATHERCONTACT"></div>
                 </div>
                 </div>
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Mother's Contact No.</label>
-                  <div id="mothercontact">09204260692</div>
+                  <div id="textMOTHERCONTACT"></div>
                 </div>
                 </div>
                 </div>
@@ -689,19 +689,19 @@
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Guardian's Name</label>
-                  <div id="guardian">Guardian Angel</div>
+                  <div id="textGUARDIAN"></div>
                 </div>
                 </div>
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Relationship</label>
-                  <div id="relationship">Guardian</div>
+                  <div id="textRELATIONSHIP"></div>
                 </div>
                 </div>
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Guardian's Contact No.</label>
-                  <div id="guardiancontact">424-5744</div>
+                  <div id="textGUARDIANCONTACT"></div>
                 </div>
                 </div>
                 </div>
@@ -948,6 +948,8 @@
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
+<!-- js ni adrii -->
+<script src="<?php echo base_url(); ?>js/forminput.js"></script>
 <!-- bootstrap datepicker -->
 <script src="<?php echo base_url(); ?>bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <!-- InputMask -->
