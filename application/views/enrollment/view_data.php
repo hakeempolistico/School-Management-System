@@ -820,6 +820,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						B.S. in Information System in Technological University of the Philippines
 					 </p>
 				</li>
+				
+				<li class="list-group-item">
+					<strong><i class="fa fa-book margin-r-5"></i> Requirements</strong>
+	
+					 <p class="text-muted"> 
+					 &emsp;
+						<label>
+						  <input type="checkbox" class="minimal" checked>
+								Permanent Record (Form 137)
+						</label> <br>
+					&emsp;
+						<label>
+						  <input type="checkbox" class="minimal">
+								Student Report Card (Form 138)
+						</label><br>
+					&emsp;
+						<label>
+						  <input type="checkbox" class="minimal">
+								NSO Birth Certificate
+						</label><br>
+					&emsp;
+						<label>
+						  <input type="checkbox" class="minimal">
+								Learners Reference Number (LRN)
+						</label>
+					 </p>
+				</li>
               </ul>
               <a href="#" class="btn btn-primary btn-block pull-left" data-dismiss="modal" style="max-width: 100px"><b>Close</b></a>
             </div>
