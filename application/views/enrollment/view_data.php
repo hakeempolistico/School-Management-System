@@ -751,40 +751,77 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="box-body box-profile">
               <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url(); ?>dist/img/user4-128x128.jpg" alt="User profile picture">
 
-              <h3 class="profile-username text-center">Hakeem A. Polistico</h3>
+              <h3 class="profile-username text-center">Adrielle Kristine Nicolette M. Escaro</h3>
 
               <p class="text-muted text-center">Grade 12 Student</p>
-
+		<div class="row">
+        <div class="col-md-6">
               <ul class="list-group list-group-unbordered">
                 <li class="list-group-item">
-                  <b>LRN</b> <a class="pull-right">123456789121</a>
+                  <b>LRN</b><br> <a>123456789121</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Sex</b> <a class="pull-right">Male</a>
+                  <b>Contact No.</b><br> <a>0997-586-4782</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Contact No.</b> <a class="pull-right">0997-586-4782</a>
+                  <b>Birthdate</b><br> <a >July 22, 1994</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Birthdate</b> <a class="pull-right">July 22, 1994</a>
+                  <b>Birthplace</b> <br><a>Mandaluyong City</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Birthplace</b> <a class="pull-right">Mandaluyong City</a>
+                  <b>Age</b><br> <a>23</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Age</b> <a class="pull-right">23</a>
+                  <b>Mother Tongue</b><br> <a>Filipino</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Mother Tongue</b> <a class="pull-right">Filipino</a>
+                  <b>Religion</b> <br><a>Roman Catholic</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Religion</b> <a class="pull-right">Roman Catholic</a>
+                  <b>Address</b> <br><a>226-B Evangelista St.,</a><br><a>Talaba I, Bacoor City</a><br><a>Cavite</a><br>
                 </li>
+				</ul>
+			</div>
+			<div class="col-md-6">
+			<ul class="list-group list-group-unbordered">
                 <li class="list-group-item">
-                  <b>Address</b> <a class="pull-right">226-B Evangelista St., Talaba I, Bacoor City, Cavite</a>
+                  <b>Sex</b> <br><a>Male</a>
                 </li>
+				<li class="list-group-item">
+                  <b>Father's Name</b> <br><a >Tom Cruise</a>
+                </li>
+				<li class="list-group-item">
+                  <b>Father's Contact No</b> <br><a>0997-555-5555</a>
+                </li>
+				<li class="list-group-item">
+                  <b>Mother's Maiden Name</b> <br><a>Marissa Tomei</a>
+                </li>
+				<li class="list-group-item">
+                  <b>Mother's Contact No</b> <br><a>0997-555-5555</a>
+                </li>
+				<li class="list-group-item">
+                  <b>Guardian's Name</b><br> <a>Michael</a>
+                </li>
+				<li class="list-group-item">
+                  <b>Guardian's Relationship</b> <br><a>Guardian Angel</a>
+                </li>
+				<li class="list-group-item">
+                  <b>Guardian's Contact No</b> <br><a>0997-555-5555</a>
+                </li>
+				</ul>
+			</div>
+			</div>
+				<ul class="list-group list-group-unbordered">
+				<li class="list-group-item">
+					<strong><i class="fa fa-book margin-r-5"></i> Note</strong>
+	
+					 <p class="text-muted">
+						B.S. in Information System in Technological University of the Philippines
+					 </p>
+				</li>
               </ul>
-              <a href="#" class="btn btn-primary btn-block pull-left" style="max-width: 100px"><b>Close</b></a>
+              <a href="#" class="btn btn-primary btn-block pull-left" data-dismiss="modal" style="max-width: 100px"><b>Close</b></a>
             </div>
             <!-- /.box-body -->
           </div>
@@ -817,7 +854,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   var arrofobject3 = [{"lrn":"14-038-013","name":"Jasver", "year":"12"}];
   var arrofobject4 = [{"lrn":"14-038-015","name":"Marc", "year":"12"}]; //JSON
 
-  $(document).ready(function(){ //line 1
+  $(document).ready(function(){ 
     
 		function changeTable(){
 			$('table').DataTable().destroy();
@@ -836,61 +873,63 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 			$.each(arrofobject, function(index, val) {
 				$('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><button id="buttonView" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
+				});
 				
-					$("#buttonView").click(function(){
+				$("#buttonView").click(function(){
 					$.ajax({
 					url: "<?php echo base_url("enrollment/view_data/ajax"); ?>", 
-					success: function(result){
-						alert(result);
-					}});
-			});
-
-			  $('table').DataTable()
-			  
-			  
-
+						success: function(result){
+							alert(result);
+						}
+					});
+				});
+					
+		 $('table').DataTable();
 		});
-		$("#viewTeachers").click(function(){
+		
+		$("#viewTeachers").click(function(){ 
 			changeTable();
 			$('#tableTitle').text('List of Teachers');
 			$('thead tr').append( $('<th />', {text : 'LRN'}) );
-			$('thead tr').append( $('<th />', {text : 'Name'}) );
-			$('thead tr').append( $('<th />', {text : 'Grade'}) );
+			$('thead tr').append( $('<th />', {text : 'Name'}) ); 
+			$('thead tr').append( $('<th />', {text : 'Grade'}) ); 
+			$('thead tr').append( $('<th />', {text : 'Action'}) ); 
 
-			$.each(arrofobject2, function(index, val) {
-				$('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td></tr>');
-			});
-			$('table').DataTable()
+			$.each(arrofobject, function(index, val) {
+				$('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><button id="buttonView" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
+				});
+					
+		 $('table').DataTable();
 		});
-
-		$("#viewRooms").click(function(){
+		
+		$("#viewRooms").click(function(){ 
 			changeTable();
 			$('#tableTitle').text('List of Rooms');
 			$('thead tr').append( $('<th />', {text : 'LRN'}) );
-			$('thead tr').append( $('<th />', {text : 'Name'}) );
-			$('thead tr').append( $('<th />', {text : 'Grade'}) );
+			$('thead tr').append( $('<th />', {text : 'Name'}) ); 
+			$('thead tr').append( $('<th />', {text : 'Grade'}) ); 
+			$('thead tr').append( $('<th />', {text : 'Action'}) ); 
 
-			$.each(arrofobject3, function(index, val) {
-				$('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td></tr>');
-			});	
-		   $('table').DataTable()
-		});
-
-		$("#viewClass").click(function(){
-			changeTable();
-			$('#tableTitle').text('List of Sections');
-			$('thead tr').append( $('<th />', {text : 'LRN'}) );
-			$('thead tr').append( $('<th />', {text : 'Name'}) );
-			$('thead tr').append( $('<th />', {text : 'Grade'}) );
-
-			$.each(arrofobject4, function(index, val) {
-				$('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td></tr>');
-			});
-		   $('table').DataTable()
-
+			$.each(arrofobject, function(index, val) {
+				$('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><button id="buttonView" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
+				});
+					
+		 $('table').DataTable();
 		});
 		
-	
+		$("#viewClass").click(function(){ 
+			changeTable();
+			$('#tableTitle').text('List of Classes');
+			$('thead tr').append( $('<th />', {text : 'LRN'}) );
+			$('thead tr').append( $('<th />', {text : 'Name'}) ); 
+			$('thead tr').append( $('<th />', {text : 'Grade'}) ); 
+			$('thead tr').append( $('<th />', {text : 'Action'}) ); 
+
+			$.each(arrofobject, function(index, val) {
+				$('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><button id="buttonView" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
+				});
+					
+		 $('table').DataTable();
 		});
 		
 }); 
