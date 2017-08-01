@@ -399,17 +399,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" style="padding-bottom: 400px;">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="alert alert-success alert-dismissible">
+	<div class="alert alert-success alert-dismissible flat">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <h4><i class="icon fa fa-bullhorn"></i> Alert!</h4>
         Tistimonial reveled with gluta 462. After 18 years of hoping to have a baby and now has come because of miracle of gluta. She is one of my client, 3 months old pregnant soon to become a mama.
       </div>
+    <section class="content-header">
       <h1>
         View Data
         <small>Select table to view</small>
       </h1>
-      <ol class="breadcrumb"  style="margin-top: 120px;">
+      <ol class="breadcrumb" >
         <li><a href="#"><i class="fa fa-dashboard"></i>Enrollment</a></li>
         <li class="active">View Table</li>
       </ol>
