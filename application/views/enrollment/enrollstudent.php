@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/Ionicons/css/ionicons.min.css">
+    <!-- Select2 -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/select2/dist/css/select2.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -559,6 +561,16 @@
                 </div>
                 </div>
                 </div>
+                <hr>
+                <div class="form-group">
+                <label>Requirements</label>
+                <select class="form-control select2" multiple="multiple" data-placeholder="Select Requirement"
+                        style="width: 100%;">
+                  <option>Form 137</option>
+                  <option>Form 138</option>
+                  <option>NSO Birth Certificate</option>
+                </select>
+              </div>
               </div>
               <!-- /.box-body -->
             </form>
@@ -692,6 +704,11 @@
                   <div id="guardiancontact">424-5744</div>
                 </div>
                 </div>
+                </div>
+                <hr>
+                <div class="form-group">
+                  <label>Requirements</label>
+                  <div id="requirements"><span class="label label-success">Complete</span></div>
                 </div>
               </div>
               <!-- /.box-body -->
@@ -923,6 +940,8 @@
 <script src="<?php echo base_url(); ?>bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo base_url(); ?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Select2 -->
+<script src="<?php echo base_url(); ?>bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
@@ -941,6 +960,10 @@
     $('#datepicker').datepicker({
       autoclose: true
     })
+</script>
+<script type="text/javascript">
+  //Initialize Select2 Elements
+    $('.select2').select2()
 </script>
 
 </body>
