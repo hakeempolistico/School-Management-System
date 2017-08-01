@@ -23,4 +23,10 @@ class view_data extends CI_Controller {
 	{
 		$this->load->view('enrollment/view_data');
 	}
+	
+	public function ajax()
+	{
+		$info = array("lrn"=>"1231231231", "name"=>"hakeem", "sex"=>"male");
+		echo json_encode($info);
+	}
 }

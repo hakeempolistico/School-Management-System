@@ -819,68 +819,83 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   $(document).ready(function(){ //line 1
     
-    function changeTable(){
-        $('table').DataTable().destroy();
-        $('#box').removeAttr('hidden'); 
-        $('table th').remove(); 
-        $('#record').remove();
-        $('#lapa').remove();
-    };
-    $("#viewStudents").click(function(){ 
-        changeTable();
-        $('#tableTitle').text('List of Students');
-        $('thead tr').append( $('<th />', {text : 'LRN'}) );
-        $('thead tr').append( $('<th />', {text : 'Name'}) ); 
-        $('thead tr').append( $('<th />', {text : 'Grade'}) ); 
-        $('thead tr').append( $('<th />', {text : 'Action'}) ); 
+		function changeTable(){
+			$('table').DataTable().destroy();
+			$('#box').removeAttr('hidden'); 
+			$('table th').remove(); 
+			$('#record').remove();
+			$('#lapa').remove();
+		};
+		$("#viewStudents").click(function(){ 
+			changeTable();
+			$('#tableTitle').text('List of Students');
+			$('thead tr').append( $('<th />', {text : 'LRN'}) );
+			$('thead tr').append( $('<th />', {text : 'Name'}) ); 
+			$('thead tr').append( $('<th />', {text : 'Grade'}) ); 
+			$('thead tr').append( $('<th />', {text : 'Action'}) ); 
 
-        $.each(arrofobject, function(index, val) {
-            $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><button type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
-        });
+			$.each(arrofobject, function(index, val) {
+				$('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><button id="buttonView" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
+				
+					$("#buttonView").click(function(){
+					$.ajax({
+					url: "<?php echo base_url("enrollment/view_data/ajax"); ?>", 
+					success: function(result){
+						alert(result);
+					}});
+			});
 
-          $('table').DataTable()
+			  $('table').DataTable()
+			  
+			  
 
-    });
-    $("#viewTeachers").click(function(){
-        changeTable();
-        $('#tableTitle').text('List of Teachers');
-        $('thead tr').append( $('<th />', {text : 'LRN'}) );
-        $('thead tr').append( $('<th />', {text : 'Name'}) );
-        $('thead tr').append( $('<th />', {text : 'Grade'}) );
+		});
+		$("#viewTeachers").click(function(){
+			changeTable();
+			$('#tableTitle').text('List of Teachers');
+			$('thead tr').append( $('<th />', {text : 'LRN'}) );
+			$('thead tr').append( $('<th />', {text : 'Name'}) );
+			$('thead tr').append( $('<th />', {text : 'Grade'}) );
 
-        $.each(arrofobject2, function(index, val) {
-            $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td></tr>');
-        });
-        $('table').DataTable()
-    });
+			$.each(arrofobject2, function(index, val) {
+				$('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td></tr>');
+			});
+			$('table').DataTable()
+		});
 
-    $("#viewRooms").click(function(){
-        changeTable();
-        $('#tableTitle').text('List of Rooms');
-        $('thead tr').append( $('<th />', {text : 'LRN'}) );
-        $('thead tr').append( $('<th />', {text : 'Name'}) );
-        $('thead tr').append( $('<th />', {text : 'Grade'}) );
+		$("#viewRooms").click(function(){
+			changeTable();
+			$('#tableTitle').text('List of Rooms');
+			$('thead tr').append( $('<th />', {text : 'LRN'}) );
+			$('thead tr').append( $('<th />', {text : 'Name'}) );
+			$('thead tr').append( $('<th />', {text : 'Grade'}) );
 
-        $.each(arrofobject3, function(index, val) {
-            $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td></tr>');
-        });
-       $('table').DataTable()
-    });
+			$.each(arrofobject3, function(index, val) {
+				$('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td></tr>');
+			});	
+		   $('table').DataTable()
+		});
 
-    $("#viewClass").click(function(){
-        changeTable();
-        $('#tableTitle').text('List of Sections');
-        $('thead tr').append( $('<th />', {text : 'LRN'}) );
-        $('thead tr').append( $('<th />', {text : 'Name'}) );
-        $('thead tr').append( $('<th />', {text : 'Grade'}) );
+		$("#viewClass").click(function(){
+			changeTable();
+			$('#tableTitle').text('List of Sections');
+			$('thead tr').append( $('<th />', {text : 'LRN'}) );
+			$('thead tr').append( $('<th />', {text : 'Name'}) );
+			$('thead tr').append( $('<th />', {text : 'Grade'}) );
 
-        $.each(arrofobject4, function(index, val) {
-            $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td></tr>');
-        });
-       $('table').DataTable()
+			$.each(arrofobject4, function(index, val) {
+				$('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td></tr>');
+			});
+		   $('table').DataTable()
 
-    });
+		});
+		
+	
+		});
+		
 }); 
+
+
 </script> 
 </body>
 </html>
