@@ -399,17 +399,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" style="padding-bottom: 400px;">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="alert alert-success alert-dismissible">
+	<div class="alert alert-success alert-dismissible flat">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <h4><i class="icon fa fa-bullhorn"></i> Alert!</h4>
         Tistimonial reveled with gluta 462. After 18 years of hoping to have a baby and now has come because of miracle of gluta. She is one of my client, 3 months old pregnant soon to become a mama.
       </div>
+    <section class="content-header">
       <h1>
         View Data
         <small>Select table to view</small>
       </h1>
-      <ol class="breadcrumb"  style="margin-top: 120px;">
+      <ol class="breadcrumb" >
         <li><a href="#"><i class="fa fa-dashboard"></i>Enrollment</a></li>
         <li class="active">View Table</li>
       </ol>
@@ -819,68 +819,83 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   $(document).ready(function(){ //line 1
     
-    function changeTable(){
-        $('table').DataTable().destroy();
-        $('#box').removeAttr('hidden'); 
-        $('table th').remove(); 
-        $('#record').remove();
-        $('#lapa').remove();
-    };
-    $("#viewStudents").click(function(){ 
-        changeTable();
-        $('#tableTitle').text('List of Students');
-        $('thead tr').append( $('<th />', {text : 'LRN'}) );
-        $('thead tr').append( $('<th />', {text : 'Name'}) ); 
-        $('thead tr').append( $('<th />', {text : 'Grade'}) ); 
-        $('thead tr').append( $('<th />', {text : 'Action'}) ); 
+		function changeTable(){
+			$('table').DataTable().destroy();
+			$('#box').removeAttr('hidden'); 
+			$('table th').remove(); 
+			$('#record').remove();
+			$('#lapa').remove();
+		};
+		$("#viewStudents").click(function(){ 
+			changeTable();
+			$('#tableTitle').text('List of Students');
+			$('thead tr').append( $('<th />', {text : 'LRN'}) );
+			$('thead tr').append( $('<th />', {text : 'Name'}) ); 
+			$('thead tr').append( $('<th />', {text : 'Grade'}) ); 
+			$('thead tr').append( $('<th />', {text : 'Action'}) ); 
 
-        $.each(arrofobject, function(index, val) {
-            $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><button type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
-        });
+			$.each(arrofobject, function(index, val) {
+				$('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><button id="buttonView" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
+				
+					$("#buttonView").click(function(){
+					$.ajax({
+					url: "<?php echo base_url("enrollment/view_data/ajax"); ?>", 
+					success: function(result){
+						alert(result);
+					}});
+			});
 
-          $('table').DataTable()
+			  $('table').DataTable()
+			  
+			  
 
-    });
-    $("#viewTeachers").click(function(){
-        changeTable();
-        $('#tableTitle').text('List of Teachers');
-        $('thead tr').append( $('<th />', {text : 'LRN'}) );
-        $('thead tr').append( $('<th />', {text : 'Name'}) );
-        $('thead tr').append( $('<th />', {text : 'Grade'}) );
+		});
+		$("#viewTeachers").click(function(){
+			changeTable();
+			$('#tableTitle').text('List of Teachers');
+			$('thead tr').append( $('<th />', {text : 'LRN'}) );
+			$('thead tr').append( $('<th />', {text : 'Name'}) );
+			$('thead tr').append( $('<th />', {text : 'Grade'}) );
 
-        $.each(arrofobject2, function(index, val) {
-            $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td></tr>');
-        });
-        $('table').DataTable()
-    });
+			$.each(arrofobject2, function(index, val) {
+				$('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td></tr>');
+			});
+			$('table').DataTable()
+		});
 
-    $("#viewRooms").click(function(){
-        changeTable();
-        $('#tableTitle').text('List of Rooms');
-        $('thead tr').append( $('<th />', {text : 'LRN'}) );
-        $('thead tr').append( $('<th />', {text : 'Name'}) );
-        $('thead tr').append( $('<th />', {text : 'Grade'}) );
+		$("#viewRooms").click(function(){
+			changeTable();
+			$('#tableTitle').text('List of Rooms');
+			$('thead tr').append( $('<th />', {text : 'LRN'}) );
+			$('thead tr').append( $('<th />', {text : 'Name'}) );
+			$('thead tr').append( $('<th />', {text : 'Grade'}) );
 
-        $.each(arrofobject3, function(index, val) {
-            $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td></tr>');
-        });
-       $('table').DataTable()
-    });
+			$.each(arrofobject3, function(index, val) {
+				$('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td></tr>');
+			});	
+		   $('table').DataTable()
+		});
 
-    $("#viewClass").click(function(){
-        changeTable();
-        $('#tableTitle').text('List of Sections');
-        $('thead tr').append( $('<th />', {text : 'LRN'}) );
-        $('thead tr').append( $('<th />', {text : 'Name'}) );
-        $('thead tr').append( $('<th />', {text : 'Grade'}) );
+		$("#viewClass").click(function(){
+			changeTable();
+			$('#tableTitle').text('List of Sections');
+			$('thead tr').append( $('<th />', {text : 'LRN'}) );
+			$('thead tr').append( $('<th />', {text : 'Name'}) );
+			$('thead tr').append( $('<th />', {text : 'Grade'}) );
 
-        $.each(arrofobject4, function(index, val) {
-            $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td></tr>');
-        });
-       $('table').DataTable()
+			$.each(arrofobject4, function(index, val) {
+				$('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td></tr>');
+			});
+		   $('table').DataTable()
 
-    });
+		});
+		
+	
+		});
+		
 }); 
+
+
 </script> 
 </body>
 </html>
