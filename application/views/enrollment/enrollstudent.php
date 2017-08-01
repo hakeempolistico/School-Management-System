@@ -385,21 +385,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <div class="alert bg-navy alert-dismissible flat">

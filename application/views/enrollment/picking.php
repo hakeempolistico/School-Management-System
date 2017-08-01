@@ -384,12 +384,6 @@
   </aside>
 
 
-
-
-
-
-
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" style="padding-bottom: 385px;">
     <div class="alert bg-blue alert-dismissible flat">
