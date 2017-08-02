@@ -74,9 +74,18 @@ $(document).ready(function(){
           var value = $('#inputGUARDIANCONTACT').val();
           $('#textGUARDIANCONTACT').text(value);
       });
-      $("#inputSEX").change(function(){
-          var value = $('#inputSEX').val();
-          $('#textSEX').text(value);
+      $("#inputCONTACT").change(function(){
+          var value = $('#inputCONTACT').val();
+          $('#textCONTACT').text(value);
+      });
+      $("#inputREQUIREMENTS").on("change", function (e) {
+          var a = "Form 137,Form 138,NSO Birth Certificate"
+
+          if ($(this).val() == a) {
+            document.getElementById("textREQUIREMENTS").innerHTML ='<span class="label label-success">Complete</span>';
+            } else {
+            document.getElementById("textREQUIREMENTS").innerHTML = '<span class="label label-warning">Incomplete</span>';
+            }
       });
 
     });
