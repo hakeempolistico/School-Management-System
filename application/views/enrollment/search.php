@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Enroll Student</title>
+  <title>Search for Online Applications</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/Ionicons/css/ionicons.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -384,136 +386,474 @@
   </aside>
 
 
+
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="padding-bottom: 385px;">
-    <div class="alert bg-blue alert-dismissible flat">
+  <div class="content-wrapper">
+    <div class="alert bg-navy alert-dismissible flat">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <h4><i class="icon fa fa-bullhorn"></i> Reminder!</h4>
-        Always ask for a clear copy of the student's signature!
+        Make sure to receive the necessary requirements for enrollment, otherwise the student won't be enrolled!
      </div>
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Enroll Student
-        <small>Choose one</small>
+        Search for Online Applications
+        <small>(IDK what to put here)</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Enrollment</a></li>
-        <li class="active"><a href="#">Enroll Student</a></li>
+        <li class="active">Enroll Student</li>
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
-
-      <!-- Default box -->
-      <div class="row" style="margin-top: 20px;">
-            <div class="col-md-4">
-              <div class="alert alert-warning" style="padding: 25px 50px 20px 30px;">
-                <h4><i class="icon fa fa-check"></i> Remember!</h4>
-                <ul style="font-size: 16px; line-height: 2.4em;">
-                  <li>Don't be distracted by your surroundings</li>
-                  <li>Make sure you input the correct data!</li>
-                  <li>Explain thoroughly the process of enrollment to the applicant</li>
-                  <li>Answer any question being asked</li>
-                  <li>Be approachable!</li>
-                  <li>Smile!</li>
-                </ul>
-              </div>
+      <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Data Table With Full Features</h3>
             </div>
-
-            <div class="col-md-8">
-              <div class="row">
-              <div class="col-md-6">
-              <div class="small-box bg-purple" id="show">
-                <div class="inner">
-                  <h3>Apply</h3>
-
-                  <p>For Enrollment</p>
-                </div>
-                <div class="icon">
-                  <i class="fa  fa-files-o"></i>
-                </div>
-                <a href="#" class="small-box-footer" style="height: 26px;">More info <i class="fa fa-arrow-circle-right"></i></a>
-              </div>
-
-              
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Rendering engine</th>
+                  <th>Browser</th>
+                  <th>Platform(s)</th>
+                  <th>Engine version</th>
+                  <th>CSS grade</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>Trident</td>
+                  <td>Internet
+                    Explorer 4.0
+                  </td>
+                  <td>Win 95+</td>
+                  <td> 4</td>
+                  <td>X</td>
+                </tr>
+                <tr>
+                  <td>Trident</td>
+                  <td>Internet
+                    Explorer 5.0
+                  </td>
+                  <td>Win 95+</td>
+                  <td>5</td>
+                  <td>C</td>
+                </tr>
+                <tr>
+                  <td>Trident</td>
+                  <td>Internet
+                    Explorer 5.5
+                  </td>
+                  <td>Win 95+</td>
+                  <td>5.5</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Trident</td>
+                  <td>Internet
+                    Explorer 6
+                  </td>
+                  <td>Win 98+</td>
+                  <td>6</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Trident</td>
+                  <td>Internet Explorer 7</td>
+                  <td>Win XP SP2+</td>
+                  <td>7</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Trident</td>
+                  <td>AOL browser (AOL desktop)</td>
+                  <td>Win XP</td>
+                  <td>6</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Firefox 1.0</td>
+                  <td>Win 98+ / OSX.2+</td>
+                  <td>1.7</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Firefox 1.5</td>
+                  <td>Win 98+ / OSX.2+</td>
+                  <td>1.8</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Firefox 2.0</td>
+                  <td>Win 98+ / OSX.2+</td>
+                  <td>1.8</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Firefox 3.0</td>
+                  <td>Win 2k+ / OSX.3+</td>
+                  <td>1.9</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Camino 1.0</td>
+                  <td>OSX.2+</td>
+                  <td>1.8</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Camino 1.5</td>
+                  <td>OSX.3+</td>
+                  <td>1.8</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Netscape 7.2</td>
+                  <td>Win 95+ / Mac OS 8.6-9.2</td>
+                  <td>1.7</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Netscape Browser 8</td>
+                  <td>Win 98SE+</td>
+                  <td>1.7</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Netscape Navigator 9</td>
+                  <td>Win 98+ / OSX.2+</td>
+                  <td>1.8</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Mozilla 1.0</td>
+                  <td>Win 95+ / OSX.1+</td>
+                  <td>1</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Mozilla 1.1</td>
+                  <td>Win 95+ / OSX.1+</td>
+                  <td>1.1</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Mozilla 1.2</td>
+                  <td>Win 95+ / OSX.1+</td>
+                  <td>1.2</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Mozilla 1.3</td>
+                  <td>Win 95+ / OSX.1+</td>
+                  <td>1.3</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Mozilla 1.4</td>
+                  <td>Win 95+ / OSX.1+</td>
+                  <td>1.4</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Mozilla 1.5</td>
+                  <td>Win 95+ / OSX.1+</td>
+                  <td>1.5</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Mozilla 1.6</td>
+                  <td>Win 95+ / OSX.1+</td>
+                  <td>1.6</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Mozilla 1.7</td>
+                  <td>Win 98+ / OSX.1+</td>
+                  <td>1.7</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Mozilla 1.8</td>
+                  <td>Win 98+ / OSX.1+</td>
+                  <td>1.8</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Seamonkey 1.1</td>
+                  <td>Win 98+ / OSX.2+</td>
+                  <td>1.8</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Epiphany 2.20</td>
+                  <td>Gnome</td>
+                  <td>1.8</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Webkit</td>
+                  <td>Safari 1.2</td>
+                  <td>OSX.3</td>
+                  <td>125.5</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Webkit</td>
+                  <td>Safari 1.3</td>
+                  <td>OSX.3</td>
+                  <td>312.8</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Webkit</td>
+                  <td>Safari 2.0</td>
+                  <td>OSX.4+</td>
+                  <td>419.3</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Webkit</td>
+                  <td>Safari 3.0</td>
+                  <td>OSX.4+</td>
+                  <td>522.1</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Webkit</td>
+                  <td>OmniWeb 5.5</td>
+                  <td>OSX.4+</td>
+                  <td>420</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Webkit</td>
+                  <td>iPod Touch / iPhone</td>
+                  <td>iPod</td>
+                  <td>420.1</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Webkit</td>
+                  <td>S60</td>
+                  <td>S60</td>
+                  <td>413</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Presto</td>
+                  <td>Opera 7.0</td>
+                  <td>Win 95+ / OSX.1+</td>
+                  <td>-</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Presto</td>
+                  <td>Opera 7.5</td>
+                  <td>Win 95+ / OSX.2+</td>
+                  <td>-</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Presto</td>
+                  <td>Opera 8.0</td>
+                  <td>Win 95+ / OSX.2+</td>
+                  <td>-</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Presto</td>
+                  <td>Opera 8.5</td>
+                  <td>Win 95+ / OSX.2+</td>
+                  <td>-</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Presto</td>
+                  <td>Opera 9.0</td>
+                  <td>Win 95+ / OSX.3+</td>
+                  <td>-</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Presto</td>
+                  <td>Opera 9.2</td>
+                  <td>Win 88+ / OSX.3+</td>
+                  <td>-</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Presto</td>
+                  <td>Opera 9.5</td>
+                  <td>Win 88+ / OSX.3+</td>
+                  <td>-</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Presto</td>
+                  <td>Opera for Wii</td>
+                  <td>Wii</td>
+                  <td>-</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Presto</td>
+                  <td>Nokia N800</td>
+                  <td>N800</td>
+                  <td>-</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Presto</td>
+                  <td>Nintendo DS browser</td>
+                  <td>Nintendo DS</td>
+                  <td>8.5</td>
+                  <td>C/A<sup>1</sup></td>
+                </tr>
+                <tr>
+                  <td>KHTML</td>
+                  <td>Konqureror 3.1</td>
+                  <td>KDE 3.1</td>
+                  <td>3.1</td>
+                  <td>C</td>
+                </tr>
+                <tr>
+                  <td>KHTML</td>
+                  <td>Konqureror 3.3</td>
+                  <td>KDE 3.3</td>
+                  <td>3.3</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>KHTML</td>
+                  <td>Konqureror 3.5</td>
+                  <td>KDE 3.5</td>
+                  <td>3.5</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Tasman</td>
+                  <td>Internet Explorer 4.5</td>
+                  <td>Mac OS 8-9</td>
+                  <td>-</td>
+                  <td>X</td>
+                </tr>
+                <tr>
+                  <td>Tasman</td>
+                  <td>Internet Explorer 5.1</td>
+                  <td>Mac OS 7.6-9</td>
+                  <td>1</td>
+                  <td>C</td>
+                </tr>
+                <tr>
+                  <td>Tasman</td>
+                  <td>Internet Explorer 5.2</td>
+                  <td>Mac OS 8-X</td>
+                  <td>1</td>
+                  <td>C</td>
+                </tr>
+                <tr>
+                  <td>Misc</td>
+                  <td>NetFront 3.1</td>
+                  <td>Embedded devices</td>
+                  <td>-</td>
+                  <td>C</td>
+                </tr>
+                <tr>
+                  <td>Misc</td>
+                  <td>NetFront 3.4</td>
+                  <td>Embedded devices</td>
+                  <td>-</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Misc</td>
+                  <td>Dillo 0.8</td>
+                  <td>Embedded devices</td>
+                  <td>-</td>
+                  <td>X</td>
+                </tr>
+                <tr>
+                  <td>Misc</td>
+                  <td>Links</td>
+                  <td>Text only</td>
+                  <td>-</td>
+                  <td>X</td>
+                </tr>
+                <tr>
+                  <td>Misc</td>
+                  <td>Lynx</td>
+                  <td>Text only</td>
+                  <td>-</td>
+                  <td>X</td>
+                </tr>
+                <tr>
+                  <td>Misc</td>
+                  <td>IE Mobile</td>
+                  <td>Windows Mobile 6</td>
+                  <td>-</td>
+                  <td>C</td>
+                </tr>
+                <tr>
+                  <td>Misc</td>
+                  <td>PSP browser</td>
+                  <td>PSP</td>
+                  <td>-</td>
+                  <td>C</td>
+                </tr>
+                <tr>
+                  <td>Other browsers</td>
+                  <td>All others</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>U</td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>Rendering engine</th>
+                  <th>Browser</th>
+                  <th>Platform(s)</th>
+                  <th>Engine version</th>
+                  <th>CSS grade</th>
+                </tr>
+                </tfoot>
+              </table>
             </div>
-
-            <div class="col-md-6">
-              <div class="small-box bg-maroon" id="change">
-                <div class="inner">
-                  <h3>Search</h3>
-
-                  <p>Online Applications</p>
-                </div>
-                <div class="icon">
-                  <i class="fa fa-search"></i>
-                </div>
-                <a href="#" class="small-box-footer" style="height: 26px;">More info <i class="fa fa-arrow-circle-right"></i></a>
-              </div>
-            </div>
+            <!-- /.box-body -->
           </div>
-
-          <div id="lapa">
-            <div class="alert bg-gray" style="height: 234px;">
-                <div>
-                <center>
-                <i class="icon fa fa-exclamation-triangle fa-4x" style="margin-top: 25px;"></i>
-                <h3>No button selected!</h3>
-                <h4> Please choose from the two buttons above</h4>
-                </center>
-                </div>
-            </div>
-          </div>
-
-          <div hidden id="apply">
-            <div class="alert bg-purple" style="padding-bottom: 45px;">
-                <div>
-                <h4><i class="icon fa fa-check"></i> Apply for enrollment!</h4>
-                <ol type= "1" style="font-size: 16px;">
-                  <li>Fill up a personal information form</li>
-                  <li>Submit necessary requirements</li>
-                  <li>Input grades to determine available strands</li>
-                  <li>Select desired strand</li>
-                  <li>Sumbit requirements</li>
-                  <li>Finish Enrollment</li>
-                  <a href="<?php echo site_url('enrollment/enrollstudent/enroll')?>">
-                  <button type="button" class="btn pull-right" style="background-color: rgba(0,0,0,0.25); color: white; margin-top: 10px;">Proceed</button>
-                  </a>
-                </ol>
-                </div>
-            </div>
-          </div>
-          <div hidden id="search">
-            <div class="alert bg-maroon" style="padding-bottom: 45px;">
-                <div>
-                <h4><i class="icon fa fa-check"></i> Search for Applications Online!</h4>
-                <ol type= "1" style="font-size: 16px;">
-                  <li>Search for applications filed by the students from the Araullo website</li>
-                  <li>Submit necessary requirements</li>
-                  <li>Input grades to determine available strands</li>
-                  <li>Select desired strand</li>
-                  <li>Sumbit requirements</li>
-                  <li>Finish Enrollment</li>
-                  <a href="<?php echo site_url('enrollment/enrollstudent/search') ?>">
-                  <button type="button" class="btn pull-right" style="background-color: rgba(0,0,0,0.25); color: white; margin-top: 10px;">Proceed</button>
-                  </a>
-                </ol>
-                </div>
-            </div>
-          </div>
-          </div>
-          <!-- /.row-->
-    </div>
-
+          <!-- /.box -->
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
 
 
-  
+
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.0
@@ -722,31 +1062,29 @@
 <script src="<?php echo base_url(); ?>bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo base_url(); ?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- DataTables -->
+<script src="<?php echo base_url(); ?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
-<!-- InputMask -->
-<script src="<?php echo base_url(); ?>plugins/input-mask/jquery.inputmask.js"></script>
-<script src="<?php echo base_url(); ?>plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
-<script src="<?php echo base_url(); ?>plugins/input-mask/jquery.inputmask.extensions.js"></script>
-
+<!-- SlimScroll -->
+<script src="<?php echo base_url(); ?>bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <script>
-$(document).ready(function(){
-    $("#show").click(function(){ 
-      $("#lapa").hide();     
-      $("#apply").show();
-      $("#search").hide();
-    });
-    $("#change").click(function(){
-      $("#lapa").hide();
-      $("#apply").hide();
-      $("#search").show();
-    });
-});
-
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
 </script>
 
 </body>

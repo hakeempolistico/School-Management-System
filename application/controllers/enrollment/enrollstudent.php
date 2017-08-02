@@ -39,4 +39,9 @@ class enrollstudent extends CI_Controller {
 		$this->load->view('enrollment/enrolled');
 	}
 
+	public function search()
+	{
+		$this->load->view('enrollment/search');
+	}
+
 }

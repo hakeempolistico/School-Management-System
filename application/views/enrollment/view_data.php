@@ -15,6 +15,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/Ionicons/css/ionicons.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/select2/dist/css/select2.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -824,28 +826,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<li class="list-group-item">
 					<strong><i class="fa fa-book margin-r-5"></i> Requirements</strong>
 	
-					 <p class="text-muted"> 
-					 &emsp;
-						<label>
-						  <input type="checkbox" class="minimal" checked>
-								Permanent Record (Form 137)
-						</label> <br>
-					&emsp;
-						<label>
-						  <input type="checkbox" class="minimal">
-								Student Report Card (Form 138)
-						</label><br>
-					&emsp;
-						<label>
-						  <input type="checkbox" class="minimal">
-								NSO Birth Certificate
-						</label><br>
-					&emsp;
-						<label>
-						  <input type="checkbox" class="minimal">
-								Learners Reference Number (LRN)
-						</label>
-					 </p>
+					  <select class="form-control select2" multiple="multiple" id="inputREQUIREMENTS" data-placeholder="Select Requirement" style="width: 100%;">
+              <option id="f137">Form 137</option>
+              <option id="f138">Form 138</option>
+              <option id="nso">NSO Birth Certificate</option>
+            </select>
+
 				</li>
               </ul>
               <a href="#" class="btn btn-primary btn-block pull-left" data-dismiss="modal" style="max-width: 100px"><b>Close</b></a>
@@ -870,6 +856,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
+<!-- Select2 -->
+<script src="<?php echo base_url(); ?>bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- DataTables -->
 <script src="<?php echo base_url(); ?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
@@ -964,5 +952,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 </script> 
+
+<script type="text/javascript">
+  //Initialize Select2 Elements
+    $('.select2').select2()
+</script>
+
 </body>
 </html>
