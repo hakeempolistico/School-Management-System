@@ -20,21 +20,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/skins/_all-skins.min.css">
-  <!-- Morris chart -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/morris.js/morris.css">
-  <!-- jvectormap -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/jvectormap/jquery-jvectormap.css">
-  <!-- Date Picker -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
-  <!-- Daterange picker -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/bootstrap-daterangepicker/daterangepicker.css">
-  <!-- bootstrap wysihtml5 - text editor -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
-  
-  <!-- iCheck for checkboxes and radio inputs -->
-  <link rel="stylesheet" href="../../plugins/iCheck/all.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -423,184 +410,589 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
       <div class="row">
         <div class="col-md-12">
-            <!-- Default box -->
+
+
           <div class="box">
             <div class="box-header with-border">
               <h3 class="box-title"><b>Strands</b></h3>
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                   <i class="fa fa-minus"></i></button>
+              </div>          
+            </div>
+
+            <div class="box-body">
+              <div class="box-body table-responsive no-padding with-border">
+                <table class="table table-hover">
+                  <tr>
+                    <th>ID</th>
+                    <th>Strand</th>
+                    <th>Description</th>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>STEM</td>
+                    <td>Science, Technology, Engineering and Mathematics</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>GAS</td>
+                    <td>General Academic Strand</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>ABM</td>
+                    <td>Accountancy, Business and Management</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>HUMSS</td>
+                    <td>Humanities and Social Sciences </td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>TVL-COOKERY</td>
+                    <td>Technical, Vocational and Livelihood</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>TVL-AUTOMOTIVE</td>
+                    <td>Technical, Vocational and Livelihood</td>
+                  </tr>
+                </table>
               </div>
             </div>
-            <div class="box-body">
-            <div class="box-body table-responsive no-padding with-border">
-              <table class="table table-hover">
-                <tr>
-                  <th>ID</th>
-                  <th>Strand</th>
-                  <th>Description</th>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>STEM</td>
-                  <td>Science, Technology, Engineering and Mathematics</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>GAS</td>
-                  <td>General Academic Strand</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>ABM</td>
-                  <td>Accountancy, Business and Management</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>HUMSS</td>
-                  <td>Humanities and Social Sciences </td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>TVL-COOKERY</td>
-                  <td>Technical, Vocational and Livelihood</td>
-                </tr>
-                <tr>
-                  <td>6</td>
-                  <td>TVL-AUTOMOTIVE</td>
-                  <td>Technical, Vocational and Livelihood</td>
-                </tr>
-              </table>
-            </div>           
-            </div>
-
-            <!-- /.box-body -->
-            <div class="box-footer">
-              <td>
-                <button type="button" class="btn btn-block btn-default pull-right" style="width: 15%;">View</button>
-              </td>
-            </div>
-            <!-- /.box-footer-->
+            <!-- /.box body-->
           </div>
+          <!-- /.first box-->
 
-          <!--MAIN BOX-->
           <div class="box">
-              <!--FRIGGIN HEADER NG BOX START-->
-              <div class="box-header with-border">
-                <h3 class="box-title">STEM</h3>
-                <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+            <div class="box-header with-border">
+              <h3 class="box-title">STEM</h3>
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                     <i class="fa fa-minus"></i></button>
                   <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
                     <i class="fa fa-times"></i></button>
+              </div>
+            </div>
+
+            <div class="box-body">
+              <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                  <li class="active"><a href="#tab_1" data-toggle="tab">Student List</a></li>
+                  <li> <a href="#tab_2" data-toggle="tab">Section</a></li>
+                </ul>
+                <div class="tab-content">
+                  <div class="tab-pane active" id="tab_1">
+                    <table id="example3" class="table table-hover table-bordered">
+                      <thead>
+                          <tr>
+                          <th><input type="checkbox" class="minimal" checked></th>
+                          <th>#</th>
+                          <th>LRN</th>
+                          <th>Full Name</th>
+                          <th>Sex</th>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="minimal" checked></td>
+                          <td>1.</td>
+                          <td>000000000008</td>
+                          <td>Escaro, Adrielle Kristine Nicolette</td>
+                          <td>Female</td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="minimal" checked></td>
+                          <td>2.</td>
+                          <td>000000000007</td>
+                          <td>Polistico, Hakeem</td>
+                          <td>Male</td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="minimal" checked></td>
+                          <td>3.</td>
+                          <td>000000000009</td>
+                          <td>Salva, Jasver Anlouise</td>
+                          <td>Female</td>
+                        </tr>
+                      </thead>
+                    </table>
+                  </div>
+
+                  <div class="tab-pane" id="tab_2">
+                    <table id="example3" class="table table-hover table-bordered">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Section Name</th>
+                          <th>Count</th>
+                          <th>Status</th>
+                        </tr>
+                        <tr>
+                          <td>1.</td>
+                          <td>STEM-1</td>
+                          <td>31/40</td>
+                          <td><span class="label label-success">Open</span></td>
+                        </tr>
+                        <tr>
+                          <td>2.</td>
+                          <td>STEM-2</td>
+                          <td>40/40</td>
+                          <td><span class="label label-danger">Closed</span></td>
+                        </tr>
+                        <tr>
+                          <td>3.</td>
+                          <td>STEM-3</td>
+                          <td>0/40</td>
+                          <td><span class="label label-success">Open</span></td>
+                        </tr>
+                      </thead>
+                    </table>
+                  </div>
                 </div>
               </div>
-              <!--FRIGGIN HEADER NG BOX END-->
-              <!--FRIGGIN BODY NG MAIN BOX-->
-              <div class="box-body">
-                        <!--tabs start-->
-                        <div class="nav-tabs-custom">
-                          <ul class="nav nav-tabs">
-                            <li class="active"><a href="#tab_1" data-toggle="tab">Student List</a></li>
-                            <li> <a href="#tab_2" data-toggle="tab">Section</a></li>                                
-                          </ul>
-                          <div class="tab-content">
-
-                            <!--student list tab start-->
-                            <div class="tab-pane active" id="tab_1">
-                              <!--table start-->              
-                              <table id="example1" class="table table-hover table-bordered">
-                                <thead>
-                                <tr>
-                                  <th><input type="checkbox" class="minimal" checked></th>
-                                  <th>#</th>
-                                  <th>LRN</th>
-                                  <th>Full Name</th>
-                                  <th>Sex</th>
-                                </tr>
-                                </thead>
-                                <tr>
-                                  <td><input type="checkbox" class="minimal" checked></td>
-                                  <td>1.</td>
-                                  <td>000000000008</td>
-                                  <td>Escaro, Adrielle Kristine Nicolette</td>
-                                  <td>Female</td>
-                                </tr>
-                                <tr>
-                                  <td><input type="checkbox" class="minimal" checked></td>
-                                  <td>2.</td>
-                                  <td>000000000007</td>
-                                  <td>Polistico, Hakeem</td>
-                                  <td>Male</td>
-                                </tr>
-                                <tr>
-                                  <td><input type="checkbox" class="minimal" checked></td>
-                                  <td>3.</td>
-                                  <td>000000000009</td>
-                                  <td>Salva, Jasver Anlouise</td>
-                                  <td>Female</td>
-                                </tr>
-                              </table>
-                              <!--table end-->
-                              <a href="#tab_2" data-toggle="tab">
-                              <button type="button" class="btn btn-block btn-default pull-right" style="width: 15%; margin-top: 20px">Add</button> 
-                              </a> 
-                            </div>
-                            <!--student list tab end-->
-
-                            <!--sections tab start-->
-                            <div class="tab-pane" id="tab_2">
-                              <!--table start-->              
-                              <table id="example2" class="table table-hover table-bordered">
-                                <thead>
-                                <tr>                                  
-                                  <th>#</th>
-                                  <th>Section Name</th>
-                                  <th>Count</th>
-                                  <th>Status</th>
-                                </tr>
-                                </thead>
-                                <tr>
-                                  
-                                  <td>1.</td>
-                                  <td>STEM-1</td>
-                                  <td>31/40</td>
-                                  <td><span class="label label-success">Open</span></td>
-                                </tr>
-                                <tr>
-                                  
-                                  <td>2.</td>
-                                  <td>STEM-2</td>
-                                  <td>40/40</td>
-                                  <td><span class="label label-danger">Closed</span></td>
-                                </tr>
-                                <tr>
-                                  
-                                  <td>3.</td>
-                                  <td>STEM-3</td>
-                                  <td>0/40</td>
-                                  <td><span class="label label-success">Open</span></td>
-                                </tr>
-                              </table>
-                              <!--table end-->                              
-                              <button type="button" class="btn btn-block btn-default pull-right" data-toggle="modal" data-target="#modal-default" style="width: 15%; margin-top: 20px">Save</button>  
-                            </div>
-                            <!--sections tab end-->
-                          </div>  
-                          <!--tab content end-->
-                          </div>                            
-                                                       
-                        </div>
-                        <!--tabs end-->
-
-              <!--FOOTER NG MAIN BOX START-->
-              <div class="box-footer">
-                
-              </div>
-              <!--FOOTER NG MAIN BOX END-->
             </div>
-          <!-- /.box -->
-          <!-- /.box END -->
+          </div>
+
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">STEM</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Rendering engine</th>
+                  <th>Browser</th>
+                  <th>Platform(s)</th>
+                  <th>Engine version</th>
+                  <th>CSS grade</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>Trident</td>
+                  <td>Internet
+                    Explorer 4.0
+                  </td>
+                  <td>Win 95+</td>
+                  <td> 4</td>
+                  <td>X</td>
+                </tr>
+                <tr>
+                  <td>Trident</td>
+                  <td>Internet
+                    Explorer 5.0
+                  </td>
+                  <td>Win 95+</td>
+                  <td>5</td>
+                  <td>C</td>
+                </tr>
+                <tr>
+                  <td>Trident</td>
+                  <td>Internet
+                    Explorer 5.5
+                  </td>
+                  <td>Win 95+</td>
+                  <td>5.5</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Trident</td>
+                  <td>Internet
+                    Explorer 6
+                  </td>
+                  <td>Win 98+</td>
+                  <td>6</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Trident</td>
+                  <td>Internet Explorer 7</td>
+                  <td>Win XP SP2+</td>
+                  <td>7</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Trident</td>
+                  <td>AOL browser (AOL desktop)</td>
+                  <td>Win XP</td>
+                  <td>6</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Firefox 1.0</td>
+                  <td>Win 98+ / OSX.2+</td>
+                  <td>1.7</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Firefox 1.5</td>
+                  <td>Win 98+ / OSX.2+</td>
+                  <td>1.8</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Firefox 2.0</td>
+                  <td>Win 98+ / OSX.2+</td>
+                  <td>1.8</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Firefox 3.0</td>
+                  <td>Win 2k+ / OSX.3+</td>
+                  <td>1.9</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Camino 1.0</td>
+                  <td>OSX.2+</td>
+                  <td>1.8</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Camino 1.5</td>
+                  <td>OSX.3+</td>
+                  <td>1.8</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Netscape 7.2</td>
+                  <td>Win 95+ / Mac OS 8.6-9.2</td>
+                  <td>1.7</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Netscape Browser 8</td>
+                  <td>Win 98SE+</td>
+                  <td>1.7</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Netscape Navigator 9</td>
+                  <td>Win 98+ / OSX.2+</td>
+                  <td>1.8</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Mozilla 1.0</td>
+                  <td>Win 95+ / OSX.1+</td>
+                  <td>1</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Mozilla 1.1</td>
+                  <td>Win 95+ / OSX.1+</td>
+                  <td>1.1</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Mozilla 1.2</td>
+                  <td>Win 95+ / OSX.1+</td>
+                  <td>1.2</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Mozilla 1.3</td>
+                  <td>Win 95+ / OSX.1+</td>
+                  <td>1.3</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Mozilla 1.4</td>
+                  <td>Win 95+ / OSX.1+</td>
+                  <td>1.4</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Mozilla 1.5</td>
+                  <td>Win 95+ / OSX.1+</td>
+                  <td>1.5</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Mozilla 1.6</td>
+                  <td>Win 95+ / OSX.1+</td>
+                  <td>1.6</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Mozilla 1.7</td>
+                  <td>Win 98+ / OSX.1+</td>
+                  <td>1.7</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Mozilla 1.8</td>
+                  <td>Win 98+ / OSX.1+</td>
+                  <td>1.8</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Seamonkey 1.1</td>
+                  <td>Win 98+ / OSX.2+</td>
+                  <td>1.8</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Epiphany 2.20</td>
+                  <td>Gnome</td>
+                  <td>1.8</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Webkit</td>
+                  <td>Safari 1.2</td>
+                  <td>OSX.3</td>
+                  <td>125.5</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Webkit</td>
+                  <td>Safari 1.3</td>
+                  <td>OSX.3</td>
+                  <td>312.8</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Webkit</td>
+                  <td>Safari 2.0</td>
+                  <td>OSX.4+</td>
+                  <td>419.3</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Webkit</td>
+                  <td>Safari 3.0</td>
+                  <td>OSX.4+</td>
+                  <td>522.1</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Webkit</td>
+                  <td>OmniWeb 5.5</td>
+                  <td>OSX.4+</td>
+                  <td>420</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Webkit</td>
+                  <td>iPod Touch / iPhone</td>
+                  <td>iPod</td>
+                  <td>420.1</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Webkit</td>
+                  <td>S60</td>
+                  <td>S60</td>
+                  <td>413</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Presto</td>
+                  <td>Opera 7.0</td>
+                  <td>Win 95+ / OSX.1+</td>
+                  <td>-</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Presto</td>
+                  <td>Opera 7.5</td>
+                  <td>Win 95+ / OSX.2+</td>
+                  <td>-</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Presto</td>
+                  <td>Opera 8.0</td>
+                  <td>Win 95+ / OSX.2+</td>
+                  <td>-</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Presto</td>
+                  <td>Opera 8.5</td>
+                  <td>Win 95+ / OSX.2+</td>
+                  <td>-</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Presto</td>
+                  <td>Opera 9.0</td>
+                  <td>Win 95+ / OSX.3+</td>
+                  <td>-</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Presto</td>
+                  <td>Opera 9.2</td>
+                  <td>Win 88+ / OSX.3+</td>
+                  <td>-</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Presto</td>
+                  <td>Opera 9.5</td>
+                  <td>Win 88+ / OSX.3+</td>
+                  <td>-</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Presto</td>
+                  <td>Opera for Wii</td>
+                  <td>Wii</td>
+                  <td>-</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Presto</td>
+                  <td>Nokia N800</td>
+                  <td>N800</td>
+                  <td>-</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Presto</td>
+                  <td>Nintendo DS browser</td>
+                  <td>Nintendo DS</td>
+                  <td>8.5</td>
+                  <td>C/A<sup>1</sup></td>
+                </tr>
+                <tr>
+                  <td>KHTML</td>
+                  <td>Konqureror 3.1</td>
+                  <td>KDE 3.1</td>
+                  <td>3.1</td>
+                  <td>C</td>
+                </tr>
+                <tr>
+                  <td>KHTML</td>
+                  <td>Konqureror 3.3</td>
+                  <td>KDE 3.3</td>
+                  <td>3.3</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>KHTML</td>
+                  <td>Konqureror 3.5</td>
+                  <td>KDE 3.5</td>
+                  <td>3.5</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Tasman</td>
+                  <td>Internet Explorer 4.5</td>
+                  <td>Mac OS 8-9</td>
+                  <td>-</td>
+                  <td>X</td>
+                </tr>
+                <tr>
+                  <td>Tasman</td>
+                  <td>Internet Explorer 5.1</td>
+                  <td>Mac OS 7.6-9</td>
+                  <td>1</td>
+                  <td>C</td>
+                </tr>
+                <tr>
+                  <td>Tasman</td>
+                  <td>Internet Explorer 5.2</td>
+                  <td>Mac OS 8-X</td>
+                  <td>1</td>
+                  <td>C</td>
+                </tr>
+                <tr>
+                  <td>Misc</td>
+                  <td>NetFront 3.1</td>
+                  <td>Embedded devices</td>
+                  <td>-</td>
+                  <td>C</td>
+                </tr>
+                <tr>
+                  <td>Misc</td>
+                  <td>NetFront 3.4</td>
+                  <td>Embedded devices</td>
+                  <td>-</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Misc</td>
+                  <td>Dillo 0.8</td>
+                  <td>Embedded devices</td>
+                  <td>-</td>
+                  <td>X</td>
+                </tr>
+                <tr>
+                  <td>Misc</td>
+                  <td>Links</td>
+                  <td>Text only</td>
+                  <td>-</td>
+                  <td>X</td>
+                </tr>
+                <tr>
+                  <td>Misc</td>
+                  <td>Lynx</td>
+                  <td>Text only</td>
+                  <td>-</td>
+                  <td>X</td>
+                </tr>
+                <tr>
+                  <td>Misc</td>
+                  <td>IE Mobile</td>
+                  <td>Windows Mobile 6</td>
+                  <td>-</td>
+                  <td>C</td>
+                </tr>
+                <tr>
+                  <td>Misc</td>
+                  <td>PSP browser</td>
+                  <td>PSP</td>
+                  <td>-</td>
+                  <td>C</td>
+                </tr>
+                <tr>
+                  <td>Other browsers</td>
+                  <td>All others</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>U</td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>Rendering engine</th>
+                  <th>Browser</th>
+                  <th>Platform(s)</th>
+                  <th>Engine version</th>
+                  <th>CSS grade</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>    
+          
                 <!--modal start-->
                 <div class="modal fade" id="modal-default">
                   <div class="modal-dialog">
@@ -652,7 +1044,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   </div>
                 </div>
                 <!--end of modal-->
-    </section>
         <!-- right col -->
       </div>
       <!-- /.row (main row) -->
@@ -876,21 +1267,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
-<!-- page script -->
-<script src="<?php echo base_url(); ?>dist/js/enrollment/manage_student.js"></script>
+
 <!-- DataTables -->
 <script src="<?php echo base_url(); ?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<!-- iCheck 1.0.1 -->
-<script src="../../plugins/iCheck/icheck.min.js"></script>
-<!--page script-->
+
 <script>
-$(function (){
-      //iCheck for checkbox and radio inputs
-      $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
-      checkboxClass: 'icheckbox_minimal-blue',
-      radioClass   : 'iradio_minimal-blue'
-})
+$(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
 </script>
 </body>
 </html>
