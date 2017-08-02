@@ -427,7 +427,7 @@
                   <label for="exampleInputEmail1">Name</label>
                     <div class="row">
                       <div class="col-md-4">
-                        <input type="text" class="form-control" id="inputFNAME" placeholder="First Name" sty>
+                        <input type="text" class="form-control" id="inputFNAME" placeholder="First Name">
                       </div>
                       <div class="col-md-4">
                         <input type="text" class="form-control" id="inputMNAME" placeholder="Middle Name">
@@ -564,11 +564,11 @@
                 <hr>
                 <div class="form-group">
                 <label>Requirements</label>
-                <select class="form-control select2" multiple="multiple" data-placeholder="Select Requirement"
+                <select class="form-control select2" multiple="multiple" id="inputREQUIREMENTS" data-placeholder="Select Requirement"
                         style="width: 100%;">
-                  <option>Form 137</option>
-                  <option>Form 138</option>
-                  <option>NSO Birth Certificate</option>
+                  <option id="f137">Form 137</option>
+                  <option id="f138">Form 138</option>
+                  <option id="nso">NSO Birth Certificate</option>
                 </select>
               </div>
               </div>
@@ -584,21 +584,21 @@
               <div class="box-body">
                 <div class="form-group">
                   <label>LRN</label>
-                  <div id="textLRN"></div>
+                  <div id="textLRN" class="well" style="padding:12px; line-height: 1em;"></div>
                 </div>
                 <div class="form-group">
                     <div class="row">
                       <div class="col-md-4">
                         <label>First Name</label>
-                        <div id="textFNAME"></div>
+                        <div id="textFNAME" class="well" style="padding:12px; line-height: 1em;"></div>
                       </div>
                       <div class="col-md-4">
                         <label>Middle Name</label>
-                        <div id="textMNAME"></div>
+                        <div id="textMNAME" class="well" style="padding:12px; line-height: 1em;"></div>
                       </div>
                       <div class="col-md-4">
                         <label>Last Name</label>
-                        <div id="textLNAME"></div>
+                        <div id="textLNAME" class="well" style="padding:12px; line-height: 1em;"></div>
                       </div>
                     </div>
                 </div>
@@ -606,13 +606,13 @@
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Sex</label>
-                  <div id="textSEX"></div>
+                  <div id="textSEX" class="well" style="padding:12px; line-height: 1em;"></div>
                 </div>
                 </div>
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Contact Number</label>
-                  <div id="textCONTACT"></div>
+                  <div id="textCONTACT" class="well" style="padding:12px; line-height: 1em;"></div>
                 </div>
                 </div>
                 </div>
@@ -621,19 +621,19 @@
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Birth Date</label>
-                  <div id="textDATEPICKER"></div>
+                  <div id="textDATEPICKER" class="well" style="padding:12px; line-height: 1em;"></div>
                 </div>
                 </div>
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Birth Place</label>
-                  <div id="textBIRTHPLACE"></div>
+                  <div id="textBIRTHPLACE" class="well" style="padding:12px; line-height: 1em;"></div>
                 </div>
                 </div>
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Age <small>(as of last birthday)</small></label>
-                  <div id="textAGE"></div>
+                  <div id="textAGE" class="well" style="padding:12px; line-height: 1em;"></div>
                 </div>
                 </div>
                 </div>
@@ -641,33 +641,33 @@
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Mother Tongue</label>
-                  <div id="textMOTHERTONGUE"></div>
+                  <div id="textMOTHERTONGUE" class="well" style="padding:12px; line-height: 1em;"></div>
                 </div>
                 </div>
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Religion</label>
-                  <div id="textRELIGION"></div>
+                  <div id="textRELIGION" class="well" style="padding:12px; line-height: 1em;"></div>
                 </div>
                 </div>
                 </div>
                 <hr>
                 <div class="form-group">
                   <label>Address</label>
-                    <div id="textADDRESS"></div>
+                    <div id="textADDRESS" class="well" style="padding:12px; line-height: 1em;"></div>
                 </div>
                 <hr>
                 <div class="row">
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Father's Name</label>
-                  <div id="textFATHER"></div>
+                  <div id="textFATHER" class="well" style="padding:12px; line-height: 1em;"></div>
                 </div>
                 </div>
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Mother's Maiden Name</label>
-                  <div id="textMOTHER"></div>
+                  <div id="textMOTHER" class="well" style="padding:12px; line-height: 1em;"></div>
                 </div>
                 </div>
                 </div>
@@ -675,13 +675,13 @@
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Father's Contact No.</label>
-                  <div id="textFATHERCONTACT"></div>
+                  <div id="textFATHERCONTACT" class="well" style="padding:12px; line-height: 1em;"></div>
                 </div>
                 </div>
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Mother's Contact No.</label>
-                  <div id="textMOTHERCONTACT"></div>
+                  <div id="textMOTHERCONTACT" class="well" style="padding:12px; line-height: 1em;"></div>
                 </div>
                 </div>
                 </div>
@@ -689,26 +689,26 @@
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Guardian's Name</label>
-                  <div id="textGUARDIAN"></div>
+                  <div id="textGUARDIAN" class="well" style="padding:12px; line-height: 1em;"></div>
                 </div>
                 </div>
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Relationship</label>
-                  <div id="textRELATIONSHIP"></div>
+                  <div id="textRELATIONSHIP" class="well" style="padding:12px; line-height: 1em;"></div>
                 </div>
                 </div>
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Guardian's Contact No.</label>
-                  <div id="textGUARDIANCONTACT"></div>
+                  <div id="textGUARDIANCONTACT" class="well" style="padding:12px; line-height: 1em;"></div>
                 </div>
                 </div>
                 </div>
                 <hr>
                 <div class="form-group">
                   <label>Requirements</label>
-                  <div id="requirements"><span class="label label-success">Complete</span></div>
+                  <div id="textREQUIREMENTS"></div>
                 </div>
               </div>
               <!-- /.box-body -->
