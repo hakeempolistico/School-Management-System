@@ -756,7 +756,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <p class="text-muted text-center">Grade 12 Student</p>
 		<div class="row">
         <div class="col-md-6">
-              <ul class="list-group list-group-unbordered">
+              <ul class="list-group list-group-unbordered" style= "text-align: center">
                 <li class="list-group-item">
                   <b>LRN</b><br> <a>123456789121</a>
                 </li>
@@ -784,7 +784,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</ul>
 			</div>
 			<div class="col-md-6">
-			<ul class="list-group list-group-unbordered">
+			<ul class="list-group list-group-unbordered" style= "text-align: center">
                 <li class="list-group-item">
                   <b>Sex</b> <br><a>Male</a>
                 </li>
