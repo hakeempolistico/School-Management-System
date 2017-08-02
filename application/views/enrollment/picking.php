@@ -496,7 +496,7 @@
                   <li>Select desired strand</li>
                   <li>Sumbit requirements</li>
                   <li>Finish Enrollment</li>
-                  <a href="#">
+                  <a href="<?php echo site_url('enrollment/enrollstudent/search') ?>">
                   <button type="button" class="btn pull-right" style="background-color: rgba(0,0,0,0.25); color: white; margin-top: 10px;">Proceed</button>
                   </a>
                 </ol>

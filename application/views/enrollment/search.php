@@ -1,12 +1,9 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | View Data</title>
+  <title>Search for Online Applications</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -15,25 +12,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/Ionicons/css/ionicons.min.css">
-  <!-- Select2 -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/select2/dist/css/select2.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/skins/_all-skins.min.css">
-  <!-- Morris chart -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/morris.js/morris.css">
-  <!-- jvectormap -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/jvectormap/jquery-jvectormap.css">
-  <!-- Date Picker -->
+  <!-- bootstrap datepicker -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
-  <!-- Daterange picker -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/bootstrap-daterangepicker/daterangepicker.css">
-  <!-- bootstrap wysihtml5 - text editor -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -54,13 +41,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>S</b>M</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg">School Management</span>
+      <span class="logo-lg"><b>School</b>Management</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
       <!-- Sidebar toggle button-->
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
       </a>
 
       <div class="navbar-custom-menu">
@@ -169,6 +159,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       <i class="fa fa-users text-red"></i> 5 new members joined
                     </a>
                   </li>
+
                   <li>
                     <a href="#">
                       <i class="fa fa-shopping-cart text-green"></i> 25 sales made
@@ -202,8 +193,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <small class="pull-right">20%</small>
                       </h3>
                       <div class="progress xs">
-                        <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar"
-                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                           <span class="sr-only">20% Complete</span>
                         </div>
                       </div>
@@ -217,8 +207,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <small class="pull-right">40%</small>
                       </h3>
                       <div class="progress xs">
-                        <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar"
-                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                           <span class="sr-only">40% Complete</span>
                         </div>
                       </div>
@@ -232,8 +221,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <small class="pull-right">60%</small>
                       </h3>
                       <div class="progress xs">
-                        <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar"
-                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                           <span class="sr-only">60% Complete</span>
                         </div>
                       </div>
@@ -247,8 +235,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <small class="pull-right">80%</small>
                       </h3>
                       <div class="progress xs">
-                        <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar"
-                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                           <span class="sr-only">80% Complete</span>
                         </div>
                       </div>
@@ -330,7 +317,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <form action="#" method="get" class="sidebar-form">
         <div class="input-group">
           <input type="text" name="q" class="form-control" placeholder="Search...">
-          <span class="input-group-btn">
+              <span class="input-group-btn">
                 <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
                 </button>
               </span>
@@ -361,13 +348,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 Dashboard
               </a>
             </li>
-            <li  class="active">
+            <li>
               <a href="<?php echo site_url('enrollment/view_data'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   View Data
               </a>
             </li>
-            <li>
+            <li class="active">
               <a href="<?php echo site_url('enrollment/enrollstudent'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   Enroll Student
@@ -390,7 +377,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       
         
         <li class="header">LABELS</li>
-        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
+        <li><a href="<?php echo site_url('enrollstudent/strands'); ?>"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
         <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
         <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
       </ul>
@@ -398,132 +385,461 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- /.sidebar -->
   </aside>
 
+
+
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="padding-bottom: 400px;">
+  <div class="content-wrapper">
+    <div class="alert bg-navy alert-dismissible flat">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <h4><i class="icon fa fa-bullhorn"></i> Reminder!</h4>
+        Make sure to receive the necessary requirements for enrollment, otherwise the student won't be enrolled!
+     </div>
     <!-- Content Header (Page header) -->
-	<div class="alert bg-orange alert-dismissible flat">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <h4><i class="icon fa fa-bullhorn"></i> View Data!</h4>
-        Practice information discretion at all times to avoid identity thefts and such.
-      </div>
     <section class="content-header">
       <h1>
-        View Data
-        <small>Select table to view</small>
+        Search for Online Applications
+        <small>(IDK what to put here)</small>
       </h1>
-      <ol class="breadcrumb" >
-        <li><a href="#"><i class="fa fa-dashboard"></i>Enrollment</a></li>
-        <li class="active">View Table</li>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Enrollment</a></li>
+        <li class="active">Enroll Student</li>
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
-      <!-- Small boxes (Stat box) -->
-      <div class="row">
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-aqua" id="viewStudents" style="cursor: pointer;">
-            <div class="inner">
-              <h3>1200</h3>
-
-              <p>Students</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-pencil"></i>
-            </div>
-            <a href="#" class="small-box-footer">View table <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-green" id="viewTeachers" style="cursor: pointer;">
-            <div class="inner">
-              <h3>169</h3>
-
-              <p>Teachers</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-mortar-board"></i>
-            </div>
-            <a href="#" class="small-box-footer">View table  <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-yellow" id="viewRooms" style="cursor: pointer;">
-            <div class="inner">
-              <h3>44</h3>
-
-              <p>Rooms</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-home"></i>
-            </div>
-            <a href="#" class="small-box-footer">View table <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-red" id="viewClass" style="cursor: pointer;">
-            <div class="inner">
-              <h3>65</h3>
-
-              <p>Sections</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-star"></i>
-            </div>
-            <a href="#" class="small-box-footer">View table <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-      </div>
-      <!-- /.row -->
-      <!-- Main row -->
-
-    <!-- Main content -->
-    <section class="content">
-    <div class="row">
-      <div class="col-xs-12">
-          <div id="lapa">
-            <div class="alert bg-gray" style="height: 234px;">
-                <div>
-                <center>
-                <i class="icon fa fa-exclamation-triangle fa-4x" style="margin-top: 25px;"></i>
-                <h3>No table selected!</h3>
-                <h4> Please choose from the above tables to view data</h4>
-                </center>
-                </div>
-            </div>
-          </div>
-      </div>
-    </div>
-      <div class="row">
-        <div class="col-xs-12">
-          <div hidden id = "box" class="box">
+      <div class="box">
             <div class="box-header">
-              <h3 class="box-title" id = "tableTitle" >Hover Data Table</h3>
+              <h3 class="box-title">Data Table With Full Features</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example1" class="table table-bordered table-hover">
+              <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>LRN</th>
-                  <th>Name</th>
-                  <th>Grade</th>
+                  <th>Rendering engine</th>
+                  <th>Browser</th>
+                  <th>Platform(s)</th>
+                  <th>Engine version</th>
+                  <th>CSS grade</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr id = "record">
-                  <td>14-038-014</td>
-                  <td>Hakeem Polistico
+                <tr>
+                  <td>Trident</td>
+                  <td>Internet
+                    Explorer 4.0
                   </td>
-                  <td>12</td>
+                  <td>Win 95+</td>
+                  <td> 4</td>
+                  <td>X</td>
+                </tr>
+                <tr>
+                  <td>Trident</td>
+                  <td>Internet
+                    Explorer 5.0
+                  </td>
+                  <td>Win 95+</td>
+                  <td>5</td>
+                  <td>C</td>
+                </tr>
+                <tr>
+                  <td>Trident</td>
+                  <td>Internet
+                    Explorer 5.5
+                  </td>
+                  <td>Win 95+</td>
+                  <td>5.5</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Trident</td>
+                  <td>Internet
+                    Explorer 6
+                  </td>
+                  <td>Win 98+</td>
+                  <td>6</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Trident</td>
+                  <td>Internet Explorer 7</td>
+                  <td>Win XP SP2+</td>
+                  <td>7</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Trident</td>
+                  <td>AOL browser (AOL desktop)</td>
+                  <td>Win XP</td>
+                  <td>6</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Firefox 1.0</td>
+                  <td>Win 98+ / OSX.2+</td>
+                  <td>1.7</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Firefox 1.5</td>
+                  <td>Win 98+ / OSX.2+</td>
+                  <td>1.8</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Firefox 2.0</td>
+                  <td>Win 98+ / OSX.2+</td>
+                  <td>1.8</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Firefox 3.0</td>
+                  <td>Win 2k+ / OSX.3+</td>
+                  <td>1.9</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Camino 1.0</td>
+                  <td>OSX.2+</td>
+                  <td>1.8</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Camino 1.5</td>
+                  <td>OSX.3+</td>
+                  <td>1.8</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Netscape 7.2</td>
+                  <td>Win 95+ / Mac OS 8.6-9.2</td>
+                  <td>1.7</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Netscape Browser 8</td>
+                  <td>Win 98SE+</td>
+                  <td>1.7</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Netscape Navigator 9</td>
+                  <td>Win 98+ / OSX.2+</td>
+                  <td>1.8</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Mozilla 1.0</td>
+                  <td>Win 95+ / OSX.1+</td>
+                  <td>1</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Mozilla 1.1</td>
+                  <td>Win 95+ / OSX.1+</td>
+                  <td>1.1</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Mozilla 1.2</td>
+                  <td>Win 95+ / OSX.1+</td>
+                  <td>1.2</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Mozilla 1.3</td>
+                  <td>Win 95+ / OSX.1+</td>
+                  <td>1.3</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Mozilla 1.4</td>
+                  <td>Win 95+ / OSX.1+</td>
+                  <td>1.4</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Mozilla 1.5</td>
+                  <td>Win 95+ / OSX.1+</td>
+                  <td>1.5</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Mozilla 1.6</td>
+                  <td>Win 95+ / OSX.1+</td>
+                  <td>1.6</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Mozilla 1.7</td>
+                  <td>Win 98+ / OSX.1+</td>
+                  <td>1.7</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Mozilla 1.8</td>
+                  <td>Win 98+ / OSX.1+</td>
+                  <td>1.8</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Seamonkey 1.1</td>
+                  <td>Win 98+ / OSX.2+</td>
+                  <td>1.8</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Gecko</td>
+                  <td>Epiphany 2.20</td>
+                  <td>Gnome</td>
+                  <td>1.8</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Webkit</td>
+                  <td>Safari 1.2</td>
+                  <td>OSX.3</td>
+                  <td>125.5</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Webkit</td>
+                  <td>Safari 1.3</td>
+                  <td>OSX.3</td>
+                  <td>312.8</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Webkit</td>
+                  <td>Safari 2.0</td>
+                  <td>OSX.4+</td>
+                  <td>419.3</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Webkit</td>
+                  <td>Safari 3.0</td>
+                  <td>OSX.4+</td>
+                  <td>522.1</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Webkit</td>
+                  <td>OmniWeb 5.5</td>
+                  <td>OSX.4+</td>
+                  <td>420</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Webkit</td>
+                  <td>iPod Touch / iPhone</td>
+                  <td>iPod</td>
+                  <td>420.1</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Webkit</td>
+                  <td>S60</td>
+                  <td>S60</td>
+                  <td>413</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Presto</td>
+                  <td>Opera 7.0</td>
+                  <td>Win 95+ / OSX.1+</td>
+                  <td>-</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Presto</td>
+                  <td>Opera 7.5</td>
+                  <td>Win 95+ / OSX.2+</td>
+                  <td>-</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Presto</td>
+                  <td>Opera 8.0</td>
+                  <td>Win 95+ / OSX.2+</td>
+                  <td>-</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Presto</td>
+                  <td>Opera 8.5</td>
+                  <td>Win 95+ / OSX.2+</td>
+                  <td>-</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Presto</td>
+                  <td>Opera 9.0</td>
+                  <td>Win 95+ / OSX.3+</td>
+                  <td>-</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Presto</td>
+                  <td>Opera 9.2</td>
+                  <td>Win 88+ / OSX.3+</td>
+                  <td>-</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Presto</td>
+                  <td>Opera 9.5</td>
+                  <td>Win 88+ / OSX.3+</td>
+                  <td>-</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Presto</td>
+                  <td>Opera for Wii</td>
+                  <td>Wii</td>
+                  <td>-</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Presto</td>
+                  <td>Nokia N800</td>
+                  <td>N800</td>
+                  <td>-</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Presto</td>
+                  <td>Nintendo DS browser</td>
+                  <td>Nintendo DS</td>
+                  <td>8.5</td>
+                  <td>C/A<sup>1</sup></td>
+                </tr>
+                <tr>
+                  <td>KHTML</td>
+                  <td>Konqureror 3.1</td>
+                  <td>KDE 3.1</td>
+                  <td>3.1</td>
+                  <td>C</td>
+                </tr>
+                <tr>
+                  <td>KHTML</td>
+                  <td>Konqureror 3.3</td>
+                  <td>KDE 3.3</td>
+                  <td>3.3</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>KHTML</td>
+                  <td>Konqureror 3.5</td>
+                  <td>KDE 3.5</td>
+                  <td>3.5</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Tasman</td>
+                  <td>Internet Explorer 4.5</td>
+                  <td>Mac OS 8-9</td>
+                  <td>-</td>
+                  <td>X</td>
+                </tr>
+                <tr>
+                  <td>Tasman</td>
+                  <td>Internet Explorer 5.1</td>
+                  <td>Mac OS 7.6-9</td>
+                  <td>1</td>
+                  <td>C</td>
+                </tr>
+                <tr>
+                  <td>Tasman</td>
+                  <td>Internet Explorer 5.2</td>
+                  <td>Mac OS 8-X</td>
+                  <td>1</td>
+                  <td>C</td>
+                </tr>
+                <tr>
+                  <td>Misc</td>
+                  <td>NetFront 3.1</td>
+                  <td>Embedded devices</td>
+                  <td>-</td>
+                  <td>C</td>
+                </tr>
+                <tr>
+                  <td>Misc</td>
+                  <td>NetFront 3.4</td>
+                  <td>Embedded devices</td>
+                  <td>-</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Misc</td>
+                  <td>Dillo 0.8</td>
+                  <td>Embedded devices</td>
+                  <td>-</td>
+                  <td>X</td>
+                </tr>
+                <tr>
+                  <td>Misc</td>
+                  <td>Links</td>
+                  <td>Text only</td>
+                  <td>-</td>
+                  <td>X</td>
+                </tr>
+                <tr>
+                  <td>Misc</td>
+                  <td>Lynx</td>
+                  <td>Text only</td>
+                  <td>-</td>
+                  <td>X</td>
+                </tr>
+                <tr>
+                  <td>Misc</td>
+                  <td>IE Mobile</td>
+                  <td>Windows Mobile 6</td>
+                  <td>-</td>
+                  <td>C</td>
+                </tr>
+                <tr>
+                  <td>Misc</td>
+                  <td>PSP browser</td>
+                  <td>PSP</td>
+                  <td>-</td>
+                  <td>C</td>
+                </tr>
+                <tr>
+                  <td>Other browsers</td>
+                  <td>All others</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>U</td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>Rendering engine</th>
+                  <th>Browser</th>
+                  <th>Platform(s)</th>
+                  <th>Engine version</th>
+                  <th>CSS grade</th>
                 </tr>
                 </tfoot>
               </table>
@@ -531,14 +847,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
-        </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
+
+
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.0
@@ -743,219 +1058,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 <!-- ./wrapper -->
 
-
-<!--Modal-->
-<div class="modal fade" id="modal-default">
-
-          <div class="modal-dialog" style="align-self: center; max-width: 500px">
-          <!-- Profile Image -->
-          <div class="box box-primary" >
-            <div class="box-body box-profile">
-              <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url(); ?>dist/img/user4-128x128.jpg" alt="User profile picture">
-
-              <h3 class="profile-username text-center">Adrielle Kristine Nicolette M. Escaro</h3>
-
-              <p class="text-muted text-center">Grade 12 Student</p>
-		<div class="row">
-        <div class="col-md-6">
-              <ul class="list-group list-group-unbordered" style= "text-align: center">
-                <li class="list-group-item">
-                  <b>LRN</b><br> <a>123456789121</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Contact No.</b><br> <a>0997-586-4782</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Birthdate</b><br> <a >July 22, 1994</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Birthplace</b> <br><a>Mandaluyong City</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Age</b><br> <a>23</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Mother Tongue</b><br> <a>Filipino</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Religion</b> <br><a>Roman Catholic</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Address</b> <br><a>226-B Evangelista St.,</a><br><a>Talaba I, Bacoor City</a><br><a>Cavite</a><br>
-                </li>
-				</ul>
-			</div>
-			<div class="col-md-6">
-			<ul class="list-group list-group-unbordered" style= "text-align: center">
-                <li class="list-group-item">
-                  <b>Sex</b> <br><a>Male</a>
-                </li>
-				<li class="list-group-item">
-                  <b>Father's Name</b> <br><a >Tom Cruise</a>
-                </li>
-				<li class="list-group-item">
-                  <b>Father's Contact No</b> <br><a>0997-555-5555</a>
-                </li>
-				<li class="list-group-item">
-                  <b>Mother's Maiden Name</b> <br><a>Marissa Tomei</a>
-                </li>
-				<li class="list-group-item">
-                  <b>Mother's Contact No</b> <br><a>0997-555-5555</a>
-                </li>
-				<li class="list-group-item">
-                  <b>Guardian's Name</b><br> <a>Michael</a>
-                </li>
-				<li class="list-group-item">
-                  <b>Guardian's Relationship</b> <br><a>Guardian Angel</a>
-                </li>
-				<li class="list-group-item">
-                  <b>Guardian's Contact No</b> <br><a>0997-555-5555</a>
-                </li>
-				</ul>
-			</div>
-			</div>
-				<ul class="list-group list-group-unbordered">
-				<li class="list-group-item">
-					<strong><i class="fa fa-book margin-r-5"></i> Note</strong>
-	
-					 <p class="text-muted">
-						B.S. in Information System in Technological University of the Philippines
-					 </p>
-				</li>
-				
-				<li class="list-group-item">
-					<strong><i class="fa fa-book margin-r-5"></i> Requirements</strong>
-	
-					  <select class="form-control select2" multiple="multiple" id="inputREQUIREMENTS" data-placeholder="Select Requirement" style="width: 100%;">
-              <option id="f137">Form 137</option>
-              <option id="f138">Form 138</option>
-              <option id="nso">NSO Birth Certificate</option>
-            </select>
-
-				</li>
-              </ul>
-              <a href="#" class="btn btn-primary btn-block pull-left" data-dismiss="modal" style="max-width: 100px"><b>Close</b></a>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-
-          </div>
-          <!-- /.modal-dialog -->
-        </div>
-        <!-- /.modal -->
-
+<!-- jQuery 3 -->
 <script src="<?php echo base_url(); ?>bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo base_url(); ?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- ChartJS -->
-<script src="<?php echo base_url(); ?>bower_components/Chart.js/Chart.js"></script>
+<!-- DataTables -->
+<script src="<?php echo base_url(); ?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
-<!-- Select2 -->
-<script src="<?php echo base_url(); ?>bower_components/select2/dist/js/select2.full.min.js"></script>
-<!-- DataTables -->
-<script src="<?php echo base_url(); ?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<!-- page script -->
+<!-- SlimScroll -->
+<script src="<?php echo base_url(); ?>bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <script>
-
-  var arrofobject = [{"lrn":"14-038-027","name":"Adrii", "year":"12", "status": "ENROLLED"}];
-  var arrofobject2 = [{"lrn":"14-038-014","name":"Hakeem", "year":"12"}];
-  var arrofobject3 = [{"lrn":"14-038-013","name":"Jasver", "year":"12"}];
-  var arrofobject4 = [{"lrn":"14-038-015","name":"Marc", "year":"12"}]; //JSON
-
-  $(document).ready(function(){ 
-    
-		function changeTable(){
-			$('table').DataTable().destroy();
-			$('#box').removeAttr('hidden'); 
-			$('table th').remove(); 
-			$('#record').remove();
-			$('#lapa').remove();
-		};
-		$("#viewStudents").click(function(){ 
-			changeTable();
-			$('#tableTitle').text('List of Students');
-			$('thead tr').append( $('<th />', {text : 'LRN'}) );
-			$('thead tr').append( $('<th />', {text : 'Name'}) ); 
-			$('thead tr').append( $('<th />', {text : 'Grade'}) ); 
-			$('thead tr').append( $('<th />', {text : 'Status'}) ); 
-			$('thead tr').append( $('<th />', {text : 'Action'}) ); 
-
-			$.each(arrofobject, function(index, val) {
-				$('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><span class="label label-success">'+val.status+'</span></td> <td><button id="buttonView" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
-				});
-				
-				$("#buttonView").click(function(){
-					$.ajax({
-					url: "<?php echo base_url("enrollment/view_data/ajax"); ?>", 
-						success: function(result){
-							alert(result);
-						}
-					});
-				});
-					
-		 $('table').DataTable();
-		});
-		
-		$("#viewTeachers").click(function(){ 
-			changeTable();
-			$('#tableTitle').text('List of Teachers');
-			$('thead tr').append( $('<th />', {text : 'LRN'}) );
-			$('thead tr').append( $('<th />', {text : 'Name'}) ); 
-			$('thead tr').append( $('<th />', {text : 'Grade'}) ); 
-			$('thead tr').append( $('<th />', {text : 'Action'}) ); 
-
-			$.each(arrofobject2, function(index, val) {
-				$('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><button id="buttonView" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
-				});
-					
-		 $('table').DataTable();
-		});
-		
-		$("#viewRooms").click(function(){ 
-			changeTable();
-			$('#tableTitle').text('List of Rooms');
-			$('thead tr').append( $('<th />', {text : 'LRN'}) );
-			$('thead tr').append( $('<th />', {text : 'Name'}) ); 
-			$('thead tr').append( $('<th />', {text : 'Grade'}) ); 
-			$('thead tr').append( $('<th />', {text : 'Action'}) ); 
-
-			$.each(arrofobject3, function(index, val) {
-				$('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><button id="buttonView" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
-				});
-					
-		 $('table').DataTable();
-		});
-		
-		$("#viewClass").click(function(){ 
-			changeTable();
-			$('#tableTitle').text('List of Classes');
-			$('thead tr').append( $('<th />', {text : 'LRN'}) );
-			$('thead tr').append( $('<th />', {text : 'Name'}) ); 
-			$('thead tr').append( $('<th />', {text : 'Grade'}) ); 
-			$('thead tr').append( $('<th />', {text : 'Action'}) ); 
-
-			$.each(arrofobject4, function(index, val) {
-				$('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><button id="buttonView" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
-				});
-					
-		 $('table').DataTable();
-		});
-		
-}); 
-
-
-</script> 
-
-<script type="text/javascript">
-  //Initialize Select2 Elements
-    $('.select2').select2()
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
 </script>
 
 </body>
