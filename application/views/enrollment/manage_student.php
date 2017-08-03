@@ -22,6 +22,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/skins/_all-skins.min.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <!-- iCheck for checkboxes and radio inputs -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/iCheck/all.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -466,17 +468,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
           <!-- /.first box-->
 
-          <div class="box">
-            <div class="box-header with-border">
-              <h3 class="box-title">STEM</h3>
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                    <i class="fa fa-minus"></i></button>
-                  <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                    <i class="fa fa-times"></i></button>
-              </div>
-            </div>
+          
 
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">STEM</h3>
+            </div>
+            <!-- /.box-header -->
             <div class="box-body">
               <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
@@ -484,43 +482,93 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <li> <a href="#tab_2" data-toggle="tab">Section</a></li>
                 </ul>
                 <div class="tab-content">
-                  <div class="tab-pane active" id="tab_1">
-                    <table id="example3" class="table table-hover table-bordered">
+                  <div class="tab-pane active" id="tab_1">  
+                    <table id="example1" class="table table-bordered table-striped">
                       <thead>
-                          <tr>
-                          <th><input type="checkbox" class="minimal" checked></th>
+                        <tr>
+                          <th><input type="checkbox" class="minimal check" id="checkAll"></th>
                           <th>#</th>
                           <th>LRN</th>
                           <th>Full Name</th>
                           <th>Sex</th>
+                          <th>Section</th>
                         </tr>
+                      </thead>
+                      <tbody>
                         <tr>
-                          <td><input type="checkbox" class="minimal" checked></td>
+                          <td><input type="checkbox" class="check"></td>
                           <td>1.</td>
                           <td>000000000008</td>
                           <td>Escaro, Adrielle Kristine Nicolette</td>
                           <td>Female</td>
+                          <td>STEM-2</td>
                         </tr>
                         <tr>
-                          <td><input type="checkbox" class="minimal" checked></td>
+                          <td><input type="checkbox" class="check"></td>
                           <td>2.</td>
                           <td>000000000007</td>
                           <td>Polistico, Hakeem</td>
                           <td>Male</td>
+                          <td>STEM-1</td>
                         </tr>
                         <tr>
-                          <td><input type="checkbox" class="minimal" checked></td>
+                          <td><input type="checkbox" class="check"></td>
                           <td>3.</td>
                           <td>000000000009</td>
                           <td>Salva, Jasver Anlouise</td>
                           <td>Female</td>
+                          <td></td>
                         </tr>
-                      </thead>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>4.</td>
+                          <td>000000000010</td>
+                          <td>Morales, Shiela May</td>
+                          <td>Female</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>5.</td>
+                          <td>000000000021</td>
+                          <td>Zulueta, Shanai Hazel</td>
+                          <td>Female</td>
+                          <td>STEM-3</td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>6.</td>
+                          <td>000000000005</td>
+                          <td>Francia, Jan Diether</td>
+                          <td>Male</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>7.</td>
+                          <td>000000000001</td>
+                          <td>Terrobias, Marc Inzon</td>
+                          <td>Male</td>
+                          <td>STEM-3</td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>8.</td>
+                          <td>000000000003</td>
+                          <td>Alcantara, Aaron James</td>
+                          <td>Male</td>
+                          <td></td>
+                        </tr>
+                      </tbody>
                     </table>
+                    <hr style="margin-bottom: 10px;">
+                      <button type="button" class="btn btn-default" style="width: 15%;">Add</button>
+                      <button type="button" class="btn btn-default" style="width: 15%;">Transfer</button>
                   </div>
+                  <!-- /.end student tab-->
 
-                  <div class="tab-pane" id="tab_2">
-                    <table id="example3" class="table table-hover table-bordered">
+                  <div class="tab-pane" id="tab_2">  
+                    <table id="example2" class="table table-bordered table-striped">
                       <thead>
                         <tr>
                           <th>#</th>
@@ -528,6 +576,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                           <th>Count</th>
                           <th>Status</th>
                         </tr>
+                      </thead>
+                      <tbody>
                         <tr>
                           <td>1.</td>
                           <td>STEM-1</td>
@@ -546,452 +596,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                           <td>0/40</td>
                           <td><span class="label label-success">Open</span></td>
                         </tr>
-                      </thead>
+                      </tbody>                      
                     </table>
+                      <hr style="margin-bottom: 10px;">
+                      <button type="button" class="btn btn-default" style="width: 15%;">Save</button>                      
                   </div>
+                  <!--end section_tab-->
                 </div>
+                <!-- /. end tab contents-->
               </div>
-            </div>
-          </div>
-
-          <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">STEM</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>Rendering engine</th>
-                  <th>Browser</th>
-                  <th>Platform(s)</th>
-                  <th>Engine version</th>
-                  <th>CSS grade</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 4.0
-                  </td>
-                  <td>Win 95+</td>
-                  <td> 4</td>
-                  <td>X</td>
-                </tr>
-                <tr>
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 5.0
-                  </td>
-                  <td>Win 95+</td>
-                  <td>5</td>
-                  <td>C</td>
-                </tr>
-                <tr>
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 5.5
-                  </td>
-                  <td>Win 95+</td>
-                  <td>5.5</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 6
-                  </td>
-                  <td>Win 98+</td>
-                  <td>6</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Trident</td>
-                  <td>Internet Explorer 7</td>
-                  <td>Win XP SP2+</td>
-                  <td>7</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Trident</td>
-                  <td>AOL browser (AOL desktop)</td>
-                  <td>Win XP</td>
-                  <td>6</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Firefox 1.0</td>
-                  <td>Win 98+ / OSX.2+</td>
-                  <td>1.7</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Firefox 1.5</td>
-                  <td>Win 98+ / OSX.2+</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Firefox 2.0</td>
-                  <td>Win 98+ / OSX.2+</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Firefox 3.0</td>
-                  <td>Win 2k+ / OSX.3+</td>
-                  <td>1.9</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Camino 1.0</td>
-                  <td>OSX.2+</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Camino 1.5</td>
-                  <td>OSX.3+</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Netscape 7.2</td>
-                  <td>Win 95+ / Mac OS 8.6-9.2</td>
-                  <td>1.7</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Netscape Browser 8</td>
-                  <td>Win 98SE+</td>
-                  <td>1.7</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Netscape Navigator 9</td>
-                  <td>Win 98+ / OSX.2+</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Mozilla 1.0</td>
-                  <td>Win 95+ / OSX.1+</td>
-                  <td>1</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Mozilla 1.1</td>
-                  <td>Win 95+ / OSX.1+</td>
-                  <td>1.1</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Mozilla 1.2</td>
-                  <td>Win 95+ / OSX.1+</td>
-                  <td>1.2</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Mozilla 1.3</td>
-                  <td>Win 95+ / OSX.1+</td>
-                  <td>1.3</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Mozilla 1.4</td>
-                  <td>Win 95+ / OSX.1+</td>
-                  <td>1.4</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Mozilla 1.5</td>
-                  <td>Win 95+ / OSX.1+</td>
-                  <td>1.5</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Mozilla 1.6</td>
-                  <td>Win 95+ / OSX.1+</td>
-                  <td>1.6</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Mozilla 1.7</td>
-                  <td>Win 98+ / OSX.1+</td>
-                  <td>1.7</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Mozilla 1.8</td>
-                  <td>Win 98+ / OSX.1+</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Seamonkey 1.1</td>
-                  <td>Win 98+ / OSX.2+</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Epiphany 2.20</td>
-                  <td>Gnome</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Webkit</td>
-                  <td>Safari 1.2</td>
-                  <td>OSX.3</td>
-                  <td>125.5</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Webkit</td>
-                  <td>Safari 1.3</td>
-                  <td>OSX.3</td>
-                  <td>312.8</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Webkit</td>
-                  <td>Safari 2.0</td>
-                  <td>OSX.4+</td>
-                  <td>419.3</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Webkit</td>
-                  <td>Safari 3.0</td>
-                  <td>OSX.4+</td>
-                  <td>522.1</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Webkit</td>
-                  <td>OmniWeb 5.5</td>
-                  <td>OSX.4+</td>
-                  <td>420</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Webkit</td>
-                  <td>iPod Touch / iPhone</td>
-                  <td>iPod</td>
-                  <td>420.1</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Webkit</td>
-                  <td>S60</td>
-                  <td>S60</td>
-                  <td>413</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Presto</td>
-                  <td>Opera 7.0</td>
-                  <td>Win 95+ / OSX.1+</td>
-                  <td>-</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Presto</td>
-                  <td>Opera 7.5</td>
-                  <td>Win 95+ / OSX.2+</td>
-                  <td>-</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Presto</td>
-                  <td>Opera 8.0</td>
-                  <td>Win 95+ / OSX.2+</td>
-                  <td>-</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Presto</td>
-                  <td>Opera 8.5</td>
-                  <td>Win 95+ / OSX.2+</td>
-                  <td>-</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Presto</td>
-                  <td>Opera 9.0</td>
-                  <td>Win 95+ / OSX.3+</td>
-                  <td>-</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Presto</td>
-                  <td>Opera 9.2</td>
-                  <td>Win 88+ / OSX.3+</td>
-                  <td>-</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Presto</td>
-                  <td>Opera 9.5</td>
-                  <td>Win 88+ / OSX.3+</td>
-                  <td>-</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Presto</td>
-                  <td>Opera for Wii</td>
-                  <td>Wii</td>
-                  <td>-</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Presto</td>
-                  <td>Nokia N800</td>
-                  <td>N800</td>
-                  <td>-</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Presto</td>
-                  <td>Nintendo DS browser</td>
-                  <td>Nintendo DS</td>
-                  <td>8.5</td>
-                  <td>C/A<sup>1</sup></td>
-                </tr>
-                <tr>
-                  <td>KHTML</td>
-                  <td>Konqureror 3.1</td>
-                  <td>KDE 3.1</td>
-                  <td>3.1</td>
-                  <td>C</td>
-                </tr>
-                <tr>
-                  <td>KHTML</td>
-                  <td>Konqureror 3.3</td>
-                  <td>KDE 3.3</td>
-                  <td>3.3</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>KHTML</td>
-                  <td>Konqureror 3.5</td>
-                  <td>KDE 3.5</td>
-                  <td>3.5</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Tasman</td>
-                  <td>Internet Explorer 4.5</td>
-                  <td>Mac OS 8-9</td>
-                  <td>-</td>
-                  <td>X</td>
-                </tr>
-                <tr>
-                  <td>Tasman</td>
-                  <td>Internet Explorer 5.1</td>
-                  <td>Mac OS 7.6-9</td>
-                  <td>1</td>
-                  <td>C</td>
-                </tr>
-                <tr>
-                  <td>Tasman</td>
-                  <td>Internet Explorer 5.2</td>
-                  <td>Mac OS 8-X</td>
-                  <td>1</td>
-                  <td>C</td>
-                </tr>
-                <tr>
-                  <td>Misc</td>
-                  <td>NetFront 3.1</td>
-                  <td>Embedded devices</td>
-                  <td>-</td>
-                  <td>C</td>
-                </tr>
-                <tr>
-                  <td>Misc</td>
-                  <td>NetFront 3.4</td>
-                  <td>Embedded devices</td>
-                  <td>-</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Misc</td>
-                  <td>Dillo 0.8</td>
-                  <td>Embedded devices</td>
-                  <td>-</td>
-                  <td>X</td>
-                </tr>
-                <tr>
-                  <td>Misc</td>
-                  <td>Links</td>
-                  <td>Text only</td>
-                  <td>-</td>
-                  <td>X</td>
-                </tr>
-                <tr>
-                  <td>Misc</td>
-                  <td>Lynx</td>
-                  <td>Text only</td>
-                  <td>-</td>
-                  <td>X</td>
-                </tr>
-                <tr>
-                  <td>Misc</td>
-                  <td>IE Mobile</td>
-                  <td>Windows Mobile 6</td>
-                  <td>-</td>
-                  <td>C</td>
-                </tr>
-                <tr>
-                  <td>Misc</td>
-                  <td>PSP browser</td>
-                  <td>PSP</td>
-                  <td>-</td>
-                  <td>C</td>
-                </tr>
-                <tr>
-                  <td>Other browsers</td>
-                  <td>All others</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>U</td>
-                </tr>
-                </tbody>
-                <tfoot>
-                <tr>
-                  <th>Rendering engine</th>
-                  <th>Browser</th>
-                  <th>Platform(s)</th>
-                  <th>Engine version</th>
-                  <th>CSS grade</th>
-                </tr>
-                </tfoot>
-              </table>
+              <!-- /.nav-tabs-custom-->
             </div>
             <!-- /.box-body -->
-          </div>    
+          </div>
+          <!--/.box (box ng STEM)-->    
           
                 <!--modal start-->
                 <div class="modal fade" id="modal-default">
@@ -1272,18 +890,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url(); ?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
+<!-- iCheck 1.0.1 -->
+<script src="<?php echo base_url(); ?>plugins/iCheck/icheck.js"></script>
+
 <script>
 $(function () {
     $('#example1').DataTable()
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
-    })
+    $('#example2').DataTable()
   })
+$("#checkAll").click(function () {
+    $(".check").prop('checked', $(this).prop('checked'));
+});
+//iCheck for checkbox
+$('input.check').iCheck({
+  checkboxClass: 'icheckbox_minimal-blue'
+})
+
 </script>
 </body>
 </html>
