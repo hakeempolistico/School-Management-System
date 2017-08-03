@@ -525,8 +525,8 @@
             <div class="box-body">
               <!-- the events -->
               <div id="external-events">
-                <div id="drag1" src="img_logo.gif" draggable="true" ondragstart="drag(event)" class="bg-green" style="padding: 5px; text-align: center; font-weight: bold">English</div>
-                <div id="drag2" src="img_logo.gif" draggable="true" ondragstart="drag(event)" class="bg-yellow" style="padding: 5px; text-align: center; font-weight: bold">Mathematics - Teacher Hakeem Polistico</div>
+                <div id="1" draggable="true" ondragstart="drag(event)" class="bg-green" style="padding: 8px 5px 8px 5px; text-align: center; font-weight: bold">English</div>
+                <div id="2" draggable="true" ondragstart="drag(event)" class="bg-yellow" style="padding: 5px; text-align: center; font-weight: bold">Mathematics - Teacher Hakeem Polistico</div>
                 <div class="checkbox">
                   <label for="drop-remove">
                     <input type="checkbox" id="drop-remove">
@@ -592,7 +592,7 @@
                 </thead>
                 <tbody>
                 <tr style="height: 25px">
-                  <td >6:00-7:00</td>
+                  <td contenteditable='true'>6:00-7:00</td>
                   <td style = "padding: 0px;" ondrop="drop(event)" ondragover="allowDrop(event)">
                   </td>
                   <td></td>
@@ -600,8 +600,8 @@
                   <td></td>
                   <td></td>
                 </tr>
-                <tr style="height: 100px">
-                  <td >7:00-7:00</td>
+                <tr style="height: 25px">
+                  <td contenteditable='true'>7:00-7:00</td>
                   <td style = "padding: 0px;" ondrop="drop(event)" ondragover="allowDrop(event)">
                   </td>
                   <td ></td>
@@ -609,8 +609,8 @@
                   <td></td>
                   <td></td>
                 </tr>
-                <tr style="height: 100px">
-                  <td >8:00-9:00</td>
+                <tr style="height: 25px">
+                  <td contenteditable='true'>8:00-9:00</td>
                   <td style = "padding: 0px;" ondrop="drop(event)" ondragover="allowDrop(event)">
                   </td>
                   <td></td>
@@ -618,8 +618,8 @@
                   <td></td>
                   <td></td>
                 </tr>
-                <tr style="height: 100px">
-                  <td >9:00-10:00</td>
+                <tr style="height: 25px">
+                  <td contenteditable='true'>9:00-10:00</td>
                   <td style = "padding: 0px;" ondrop="drop(event)" ondragover="allowDrop(event)">
                   </td>
                   <td></td>
@@ -627,8 +627,8 @@
                   <td></td>
                   <td></td>
                 </tr>
-                <tr style="height: 100px">
-                  <td >10:00-11:00</td>
+                <tr style="height: 25px">
+                  <td contenteditable='true'>10:00-11:00</td>
                   <td style = "padding: 0px;" ondrop="drop(event)" ondragover="allowDrop(event)">
                   </td>
                   <td></td>
@@ -636,8 +636,8 @@
                   <td></td>
                   <td></td>
                 </tr>
-                <tr style="height: 100px">
-                  <td >11:00-12:00</td>
+                <tr style="height: 25px">
+                  <td contenteditable='true'>11:00-12:00</td>
                   <td style = "padding: 0px;" ondrop="drop(event)" ondragover="allowDrop(event)">
                   </td>
                   <td></td>
@@ -645,8 +645,8 @@
                   <td></td>
                   <td></td>
                 </tr>
-                <tr style="height: 100px">
-                  <td >12:00-1:00</td>
+                <tr style="height: 25px">
+                  <td contenteditable='true'>12:00-1:00</td>
                   <td style = "padding: 0px;" ondrop="drop(event)" ondragover="allowDrop(event)">
                   </td>
                   <td></td>
@@ -654,8 +654,8 @@
                   <td></td>
                   <td></td>
                 </tr>
-                <tr style="height: 100px">
-                  <td >1:00-2:00</td>
+                <tr style="height: 25px">
+                  <td contenteditable='true'>1:00-2:00</td>
                   <td style = "padding: 0px;" ondrop="drop(event)" ondragover="allowDrop(event)">
                   </td>
                   <td></td>
@@ -663,8 +663,8 @@
                   <td></td>
                   <td></td>
                 </tr>
-                <tr style="height: 100px">
-                  <td >2:00-3:00</td>
+                <tr style="height: 25px">
+                  <td contenteditable='true'>2:00-3:00</td>
                   <td style = "padding: 0px;" ondrop="drop(event)" ondragover="allowDrop(event)">
                   </td>
                   <td></td>
@@ -970,19 +970,16 @@
 
       //Create events
       var event = $('<div />')
-      event.css({
-        'background-color': currColor,
-        'border-color'    : currColor,
-        'color'           : '#fff'
-      }).addClass('external-event')
+      event.addClass('external-event flat')
       event.html(val)
 
-
+      event.attr('id','3')
+      event.attr('draggable','true')
+      event.attr('ondragstart','drag(event)')
+      event.attr('style','padding: 8px; text-align: center; font-weight: bold; margin: 0px; color: white; background-color:'+currColor)
 
       $('#external-events').prepend(event)
 
-      //Add draggable funtionality
-      init_events(event)
 
       //Remove event from text input
       $('#new-event').val('')
