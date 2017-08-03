@@ -525,11 +525,8 @@
             <div class="box-body">
               <!-- the events -->
               <div id="external-events">
-                <div id="drag1" src="img_logo.gif" draggable="true" ondragstart="drag(event)" class="external-event bg-green">Lunch</div>
-                <div id="drag1" src="img_logo.gif" draggable="true" ondragstart="drag(event)" class="external-event bg-yellow">Go home</div>
-                <div id="drag1" src="img_logo.gif" draggable="true" ondragstart="drag(event)" class="external-event bg-aqua">Do homework</div>
-                <div id="drag1" src="img_logo.gif" draggable="true" ondragstart="drag(event)" class="external-event bg-light-blue">Work on UI design</div>
-                <div id="drag1" src="img_logo.gif" draggable="true" ondragstart="drag(event)" class="external-event bg-red">Sleep tight</div>
+                <div id="drag1" src="img_logo.gif" draggable="true" ondragstart="drag(event)" class="bg-green" style="padding: 5px; text-align: center; font-weight: bold">English</div>
+                <div id="drag2" src="img_logo.gif" draggable="true" ondragstart="drag(event)" class="bg-yellow" style="padding: 5px; text-align: center; font-weight: bold">Mathematics - Teacher Hakeem Polistico</div>
                 <div class="checkbox">
                   <label for="drop-remove">
                     <input type="checkbox" id="drop-remove">
@@ -980,10 +977,7 @@
       }).addClass('external-event')
       event.html(val)
 
-      
-      event.attr("id","drag1")
-      event.attr("draggable","true")
-      event.attr("ondragstart","drag(event)")
+
 
       $('#external-events').prepend(event)
 
