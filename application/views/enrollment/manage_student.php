@@ -410,66 +410,154 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Main content -->
     <section class="content">
 
+    <div class="row">
+        <div class="col-lg-4 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green" id="stem_list" style="cursor: pointer;">
+            <div class="inner">
+              <h3>STEM</h3>
+
+              <p>Science, Technology,<br> Engineering, and Mathematics</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-flask"></i>
+            </div>
+            <a href="#" class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-4 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-maroon" id="gas_list" style="cursor: pointer;">
+            <div class="inner">
+              <h3>GAS</h3>
+
+              <p>General<br>Academic Strand</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-book"></i>
+            </div>
+            <a href="#" class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-4 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-yellow" id="humss_list" style="cursor: pointer;">
+            <div class="inner">
+              <h3>HUMSS</h3>
+
+              <p>Humanities<br>and Social Sciences</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-users"></i>
+            </div>
+            <a href="#" class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-4 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-purple" id="abm_list" style="cursor: pointer;">
+            <div class="inner">
+              <h3>ABM</h3>
+
+              <p>Accountancy<br>and Business Management</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-briefcase"></i>
+            </div>
+            <a href="#" class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-blue" id="tvlhe_list" style="cursor: pointer;">
+            <div class="inner">
+              <h3>TVL-HE</h3>
+
+              <p>Technology-Vocational<br>Livelihood: Home Economics</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-home"></i>
+            </div>
+            <a href="#" class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-navy" id="tvlas-list" style="cursor: pointer;">
+            <div class="inner">
+              <h3>TVL-AS</h3>
+
+              <p>Technogy-Vocational<br>Livelihood: Automotive Services</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-cogs"></i>
+            </div>
+            <a href="#" class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+      </div>
+
+
+      <section class="content">
+      <div class="row">
+      <div class="col-xs-12">
+          <div id="lapa">
+            <div class="alert bg-gray" style="height: 234px;">
+                <div>
+                <center>
+                <i class="icon fa fa-exclamation-triangle fa-4x" style="margin-top: 25px;"></i>
+                <h3>No table selected!</h3>
+                <h4> Please choose from the above tables to view data</h4>
+                </center>
+                </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+          <div hidden id = "box" class="box">
+            <div class="box-header">
+              <h3 class="box-title" id = "tableTitle" >Hover Data Table</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example1" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>LRN</th>
+                  <th>Name</th>
+                  <th>Grade</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr id = "record">
+                  <td>14-038-014</td>
+                  <td>Hakeem Polistico
+                  </td>
+                  <td>12</td>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+      </section>
+
       <div class="row">
         <div class="col-md-12">
-
-
-          <div class="box">
-            <div class="box-header with-border">
-              <h3 class="box-title"><b>Strands</b></h3>
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                  <i class="fa fa-minus"></i></button>
-              </div>          
-            </div>
-
-            <div class="box-body">
-              <div class="box-body table-responsive no-padding with-border">
-                <table class="table table-hover">
-                  <tr>
-                    <th>ID</th>
-                    <th>Strand</th>
-                    <th>Description</th>
-                  </tr>
-                  <tr>
-                    <td>1</td>
-                    <td>STEM</td>
-                    <td>Science, Technology, Engineering and Mathematics</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>GAS</td>
-                    <td>General Academic Strand</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>ABM</td>
-                    <td>Accountancy, Business and Management</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>HUMSS</td>
-                    <td>Humanities and Social Sciences </td>
-                  </tr>
-                  <tr>
-                    <td>5</td>
-                    <td>TVL-COOKERY</td>
-                    <td>Technical, Vocational and Livelihood</td>
-                  </tr>
-                  <tr>
-                    <td>6</td>
-                    <td>TVL-AUTOMOTIVE</td>
-                    <td>Technical, Vocational and Livelihood</td>
-                  </tr>
-                </table>
-              </div>
-            </div>
-            <!-- /.box body-->
-          </div>
-          <!-- /.first box-->
-
-          
-
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">STEM</h3>
@@ -894,10 +982,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url(); ?>plugins/iCheck/icheck.js"></script>
 
 <script>
-$(function () {
+/*$(function () {
     $('#example1').DataTable()
     $('#example2').DataTable()
-  })
+  })*/
 $("#checkAll").click(function () {
     $(".check").prop('checked', $(this).prop('checked'));
 });
@@ -905,6 +993,84 @@ $("#checkAll").click(function () {
 $('input.check').iCheck({
   checkboxClass: 'icheckbox_minimal-blue'
 })
+
+var arrofobject = [{"lrn":"14-038-027","name":"Adrii", "year":"12", "status": "ENROLLED"}];
+  var arrofobject2 = [{"lrn":"14-038-014","name":"Hakeem", "year":"12"}];
+  var arrofobject3 = [{"lrn":"14-038-013","name":"Jasver", "year":"12"}];
+  var arrofobject4 = [{"lrn":"14-038-015","name":"Marc", "year":"12"}]; //JSON
+
+$(document).ready(function(){ 
+    
+    function changeTable(){
+      $('table').DataTable().destroy();
+      $('#box').removeAttr('hidden'); 
+      $('table th').remove(); 
+      $('#record').remove();
+      $('#lapa').remove();
+    };
+    $("#stem_list").click(function(){ 
+      changeTable();
+      $('#tableTitle').text('List of Students');
+      $('thead tr').append( $('<th />', {text : 'LRN'}) );
+      $('thead tr').append( $('<th />', {text : 'Name'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Grade'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Status'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Action'}) ); 
+
+      $.ea
+      ch(arrofobject, function(index, val) {
+        $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><span class="label label-success">'+val.status+'</span></td> <td><button id="buttonView" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
+        });
+          
+     $('table').DataTable();
+    });
+    
+    $("#gas_list").click(function(){ 
+      changeTable();
+      $('#tableTitle').text('List of Teachers');
+      $('thead tr').append( $('<th />', {text : 'LRN'}) );
+      $('thead tr').append( $('<th />', {text : 'Name'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Grade'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Action'}) ); 
+
+      $.each(arrofobject2, function(index, val) {
+        $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><button id="buttonView" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
+        });
+          
+     $('table').DataTable();
+    });
+    
+    $("#humss_list").click(function(){ 
+      changeTable();
+      $('#tableTitle').text('List of Rooms');
+      $('thead tr').append( $('<th />', {text : 'LRN'}) );
+      $('thead tr').append( $('<th />', {text : 'Name'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Grade'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Action'}) ); 
+
+      $.each(arrofobject3, function(index, val) {
+        $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><button id="buttonView" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
+        });
+          
+     $('table').DataTable();
+    });
+    
+    $("#abm_list").click(function(){ 
+      changeTable();
+      $('#tableTitle').text('List of Classes');
+      $('thead tr').append( $('<th />', {text : 'LRN'}) );
+      $('thead tr').append( $('<th />', {text : 'Name'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Grade'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Action'}) ); 
+
+      $.each(arrofobject4, function(index, val) {
+        $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><button id="buttonView" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
+        });
+          
+     $('table').DataTable();
+    });
+    
+}); 
 
 </script>
 </body>
