@@ -397,9 +397,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="padding-bottom: 400px;">
-    <!-- Content Header (Page header) -->
-  <div class="alert bg-red alert-dismissible flat">
+  <div class="content-wrapper" style="padding-bottom: 200px;">
+    <div class="alert bg-red alert-dismissible flat">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <h4><i class="icon fa fa-bullhorn"></i> Danger!</h4>
         There are no schedules, subjects, and classes! Create one below.
@@ -418,12 +417,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <!-- Main content -->
     <section class="content">
-      <!-- Small boxes (Stat box) -->
-      <!-- Main content -->
-    <section class="content">
-
-    <div class="row">
-        <div class="col-lg-4 col-xs-6">
+      
+      <div class="row">
+        <div class="col-lg-4 col-xs-4">
           <!-- small box -->
           <div class="small-box bg-green" id="stem_list" style="cursor: pointer;">
             <div class="inner">
@@ -438,7 +434,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-4 col-xs-6">
+        <div class="col-lg-4 col-xs-4">
           <!-- small box -->
           <div class="small-box bg-maroon" id="gas_list" style="cursor: pointer;">
             <div class="inner">
@@ -453,7 +449,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-4 col-xs-6">
+        <div class="col-lg-4 col-xs-4">
           <!-- small box -->
           <div class="small-box bg-yellow" id="humss_list" style="cursor: pointer;">
             <div class="inner">
@@ -468,7 +464,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-4 col-xs-6">
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-xs-4">
           <!-- small box -->
           <div class="small-box bg-purple" id="abm_list" style="cursor: pointer;">
             <div class="inner">
@@ -483,7 +481,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
         </div>
 
-        <div class="col-lg-4 col-xs-6">
+        <div class="col-lg-4 col-xs-4">
           <!-- small box -->
           <div class="small-box bg-blue" id="tvlhe_list" style="cursor: pointer;">
             <div class="inner">
@@ -514,10 +512,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
         <!-- ./col -->
       </div>
-      <!-- Main row -->
+      <!-- /.row -->
 
-    <!-- Main content -->
-    <section class="content">
     <div class="row">
       <div class="col-xs-12">
           <div id="lapa">
@@ -533,43 +529,101 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
       </div>
     </div>
-      <div class="row">
-        <div class="col-xs-12">
-          <div hidden id = "box" class="box">
-            <div class="box-header">
-              <h3 class="box-title" id = "tableTitle" >Hover Data Table</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <table id="example1" class="table table-bordered table-hover">
-                <thead>
-                <tr>
-                  <th>LRN</th>
-                  <th>Name</th>
-                  <th>Grade</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr id = "record">
-                  <td>14-038-014</td>
-                  <td>Hakeem Polistico
-                  </td>
-                  <td>12</td>
-                </tr>
-                </tfoot>
-              </table>
-            </div>
-            <!-- /.box-body -->
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div hidden id = "box" class="box">
+          <div class="box-header">
+            <h3 class="box-title" id="tableTitle">STEM</h3>
           </div>
-          <!-- /.box -->
+          <!-- /.box-header -->
+    
+          <div class="box-body">
+            <div class="nav-tabs-custom">
+              <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab_1" data-toggle="tab">Student List</a></li>
+                <li> <a href="#tab_2" data-toggle="tab">Section</a></li>
+              </ul>
+                <div class="tab-content">
+                  <div class="tab-pane active" id="tab_1">
+                    <table id="studentTable"class="table table-bordered table-hover">
+                      <thead>
+                        <tr>
+                          <th><input type="checkbox" class="minimal check" id="checkAll"></th>
+                          <th>#</th>
+                          <th>LRN</th>
+                          <th>Full Name</th>
+                          <th>Sex</th>
+                          <th>Section</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr id="record">
+                          <td><input type="checkbox" class="check"></td>
+                          <td>1.</td>
+                          <td>000000000008</td>
+                          <td>Escaro, Adrielle Kristine Nicolette</td>
+                          <td>Female</td>
+                          <td>STEM-2</td>                
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <hr style="margin-bottom: 10px;">
+                    <button type="button" class="btn btn-default" style="width: 15%;">Add</button>
+                    <button type="button" class="btn btn-default" style="width: 15%;">Transfer</button>
+
+                  </div>
+                  <!-- /.tab-pane -->
+                  <div class="tab-pane" id="tab_2">  
+                    <table id="sectionTable" class="table table-bordered table-striped">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Section Name</th>
+                          <th>Count</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr id="record2">
+                          <td>1.</td>
+                          <td>STEM-1</td>
+                          <td>31/40</td>
+                          <td><span class="label label-success">Open</span></td>
+                        </tr>
+                      </tbody>                      
+                    </table>
+
+                    <hr style="margin-bottom: 10px;">
+                    <button type="button" class="btn btn-default" style="width: 15%;">Save</button>   
+
+                  </div>
+                  <!-- /.tab-pane -->
+                </div>
+                <!-- /.tab-content -->
+            </div>
+            <!-- /.nav-tabs-custom -->
+          </div>
+          <!-- /.box-body -->
         </div>
-        <!-- /.col -->
+        <!-- /.box -->
       </div>
-      <!-- /.row -->
+      <!-- /.col -->
+    </div>
+    <!-- /.row -->
+
+
+      
+      
+
+
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+  <!-- /.pag nawala to masisira footer -->
+
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.0
@@ -775,122 +829,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- ./wrapper -->
 
 
-<!--Modal-->
-<div class="modal fade" id="modal-default">
 
-          <div class="modal-dialog" style="align-self: center; max-width: 500px">
-          <!-- Profile Image -->
-          <div class="box box-primary" >
-            <div class="box-body box-profile">
-              <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url(); ?>dist/img/user4-128x128.jpg" alt="User profile picture">
-
-              <h3 class="profile-username text-center">Adrielle Kristine Nicolette M. Escaro</h3>
-
-              <p class="text-muted text-center">Grade 12 Student</p>
-    <div class="row">
-        <div class="col-md-6">
-              <ul class="list-group list-group-unbordered" style= "text-align: center">
-                <li class="list-group-item">
-                  <b>LRN</b><br> <a>123456789121</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Contact No.</b><br> <a>0997-586-4782</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Birthdate</b><br> <a >July 22, 1994</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Birthplace</b> <br><a>Mandaluyong City</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Age</b><br> <a>23</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Mother Tongue</b><br> <a>Filipino</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Religion</b> <br><a>Roman Catholic</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Address</b> <br><a>226-B Evangelista St.,</a><br><a>Talaba I, Bacoor City</a><br><a>Cavite</a><br>
-                </li>
-        </ul>
-      </div>
-      <div class="col-md-6">
-      <ul class="list-group list-group-unbordered" style= "text-align: center">
-                <li class="list-group-item">
-                  <b>Sex</b> <br><a>Male</a>
-                </li>
-        <li class="list-group-item">
-                  <b>Father's Name</b> <br><a >Tom Cruise</a>
-                </li>
-        <li class="list-group-item">
-                  <b>Father's Contact No</b> <br><a>0997-555-5555</a>
-                </li>
-        <li class="list-group-item">
-                  <b>Mother's Maiden Name</b> <br><a>Marissa Tomei</a>
-                </li>
-        <li class="list-group-item">
-                  <b>Mother's Contact No</b> <br><a>0997-555-5555</a>
-                </li>
-        <li class="list-group-item">
-                  <b>Guardian's Name</b><br> <a>Michael</a>
-                </li>
-        <li class="list-group-item">
-                  <b>Guardian's Relationship</b> <br><a>Guardian Angel</a>
-                </li>
-        <li class="list-group-item">
-                  <b>Guardian's Contact No</b> <br><a>0997-555-5555</a>
-                </li>
-        </ul>
-      </div>
-      </div>
-        <ul class="list-group list-group-unbordered">
-        <li class="list-group-item">
-          <strong><i class="fa fa-book margin-r-5"></i> Note</strong>
-  
-           <p class="text-muted">
-            B.S. in Information System in Technological University of the Philippines
-           </p>
-        </li>
-        
-        <li class="list-group-item">
-          <strong><i class="fa fa-book margin-r-5"></i> Requirements</strong>
-  
-           <p class="text-muted"> 
-           &emsp;
-            <label>
-              <input type="checkbox" class="minimal" checked>
-                Permanent Record (Form 137)
-            </label> <br>
-          &emsp;
-            <label>
-              <input type="checkbox" class="minimal">
-                Student Report Card (Form 138)
-            </label><br>
-          &emsp;
-            <label>
-              <input type="checkbox" class="minimal">
-                NSO Birth Certificate
-            </label><br>
-          &emsp;
-            <label>
-              <input type="checkbox" class="minimal">
-                Learners Reference Number (LRN)
-            </label>
-           </p>
-        </li>
-              </ul>
-              <a href="#" class="btn btn-primary btn-block pull-left" data-dismiss="modal" style="max-width: 100px"><b>Close</b></a>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-
-          </div>
-          <!-- /.modal-dialog -->
-        </div>
-        <!-- /.modal -->
 
 <script src="<?php echo base_url(); ?>bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
@@ -909,10 +848,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- page script -->
 <script>
 
-  var arrofobject = [{"lrn":"14-038-027","name":"Adrii", "year":"12", "status": "ENROLLED"}];
-  var arrofobject2 = [{"lrn":"14-038-014","name":"Hakeem", "year":"12"}];
-  var arrofobject3 = [{"lrn":"14-038-013","name":"Jasver", "year":"12"}];
-  var arrofobject4 = [{"lrn":"14-038-015","name":"Marc", "year":"12"}]; //JSON
+  var arrofobject = [{"No":"1","lrn":"14-038-027","FullName":"Adrii Escaro", "Sex":"Female", "Section": "STEM-69"}];
+  var arrofobject2 = [{"No":"2","lrn":"14-038-014","FullName":"Hakeem Polistico", "Sex":"Male", "Section": "STEM-68"}];
+  var arrofobject3 = [{"No":"3","lrn":"14-038-089","FullName":"Jasver Salva", "Sex":"Female", "Section": "STEM-67"}];
+  var arrofobject4 = [{"No":"4","lrn":"14-038-069","FullName":"Marc Terrobias", "Sex":"Male", "Section": "STEM-66"}]; //JSON
 
   $(document).ready(function(){ 
     
@@ -921,20 +860,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       $('#box').removeAttr('hidden'); 
       $('table th').remove(); 
       $('#record').remove();
+      $('#record2').remove();
       $('#lapa').remove();
     };
     $("#stem_list").click(function(){ 
       changeTable();
-      $('#tableTitle').text('List of Students');
+      $('#tableTitle').text('List of Students in STEM');
+      $('thead tr').append( $('<th />', {text : '#'}) );
       $('thead tr').append( $('<th />', {text : 'LRN'}) );
-      $('thead tr').append( $('<th />', {text : 'Name'}) ); 
-      $('thead tr').append( $('<th />', {text : 'Grade'}) ); 
-      $('thead tr').append( $('<th />', {text : 'Status'}) ); 
-      $('thead tr').append( $('<th />', {text : 'Action'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Full Name'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Sex'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Section'}) ); 
 
       $.each(arrofobject, function(index, val) {
-        $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><span class="label label-success">'+val.status+'</span></td> <td><button id="buttonView" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
+        $('tbody').append('<tr id="record"><td>'+val.No+'</td><td>'+val.lrn+'</td><td>'+val.FullName+'</td> <td><span class="label label-success">'+val.Sex+'</span></td><td>'+val.Section+'</td></div> </tr>');
         });
+
+
         
         $("#buttonView").click(function(){
           $.ajax({
@@ -947,6 +889,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           
      $('table').DataTable();
     });
+
     
     $("#gas_list").click(function(){ 
       changeTable();
@@ -995,13 +938,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     $("#tvlhe_list").click(function(){ 
       changeTable();
-      $('#tableTitle').text('List of Teachers');
+      $('#tableTitle').text('List of Rooms');
       $('thead tr').append( $('<th />', {text : 'LRN'}) );
       $('thead tr').append( $('<th />', {text : 'Name'}) ); 
       $('thead tr').append( $('<th />', {text : 'Grade'}) ); 
       $('thead tr').append( $('<th />', {text : 'Action'}) ); 
 
-      $.each(arrofobject2, function(index, val) {
+      $.each(arrofobject3, function(index, val) {
         $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><button id="buttonView" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
         });
           
@@ -1010,13 +953,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     
     $("#tvlas-list").click(function(){ 
       changeTable();
-      $('#tableTitle').text('List of Rooms');
+      $('#tableTitle').text('List of Classes');
       $('thead tr').append( $('<th />', {text : 'LRN'}) );
       $('thead tr').append( $('<th />', {text : 'Name'}) ); 
       $('thead tr').append( $('<th />', {text : 'Grade'}) ); 
       $('thead tr').append( $('<th />', {text : 'Action'}) ); 
 
-      $.each(arrofobject3, function(index, val) {
+      $.each(arrofobject4, function(index, val) {
         $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><button id="buttonView" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
         });
           
