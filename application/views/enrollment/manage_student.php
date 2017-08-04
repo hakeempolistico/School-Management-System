@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Manage Student</title>
+  <title>AdminLTE 2 | View Data</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -20,10 +20,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/skins/_all-skins.min.css">
+  <!-- Morris chart -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/morris.js/morris.css">
+  <!-- jvectormap -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/jvectormap/jquery-jvectormap.css">
+  <!-- Date Picker -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/bootstrap-daterangepicker/daterangepicker.css">
+  <!-- bootstrap wysihtml5 - text editor -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
-  <!-- iCheck for checkboxes and radio inputs -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/iCheck/all.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -351,7 +359,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 Dashboard
               </a>
             </li>
-            <li>
+            <li  class="active">
               <a href="<?php echo site_url('enrollment/view_data'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   View Data
@@ -363,7 +371,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   Enroll Student
               </a>
             </li>
-            <li  class="active">
+            <li>
               <a href="<?php echo site_url('enrollment/manage_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   Manage Student
@@ -389,8 +397,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <div class="alert bg-red alert-dismissible flat">
+  <div class="content-wrapper" style="padding-bottom: 400px;">
+    <!-- Content Header (Page header) -->
+  <div class="alert bg-red alert-dismissible flat">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <h4><i class="icon fa fa-bullhorn"></i> Danger!</h4>
         There are no schedules, subjects, and classes! Create one below.
@@ -408,6 +417,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </section>
 
     <!-- Main content -->
+    <section class="content">
+      <!-- Small boxes (Stat box) -->
+      <!-- Main content -->
     <section class="content">
 
     <div class="row">
@@ -502,10 +514,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
         <!-- ./col -->
       </div>
+      <!-- Main row -->
 
-
-      <section class="content">
-      <div class="row">
+    <!-- Main content -->
+    <section class="content">
+    <div class="row">
       <div class="col-xs-12">
           <div id="lapa">
             <div class="alert bg-gray" style="height: 234px;">
@@ -520,8 +533,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
       </div>
     </div>
-
-    <div class="row">
+      <div class="row">
         <div class="col-xs-12">
           <div hidden id = "box" class="box">
             <div class="box-header">
@@ -554,210 +566,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- /.col -->
       </div>
       <!-- /.row -->
-      </section>
-
-      <div class="row">
-        <div class="col-md-12">
-          <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">STEM</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <div class="nav-tabs-custom">
-                <ul class="nav nav-tabs">
-                  <li class="active"><a href="#tab_1" data-toggle="tab">Student List</a></li>
-                  <li> <a href="#tab_2" data-toggle="tab">Section</a></li>
-                </ul>
-                <div class="tab-content">
-                  <div class="tab-pane active" id="tab_1">  
-                    <table id="example1" class="table table-bordered table-striped">
-                      <thead>
-                        <tr>
-                          <th><input type="checkbox" class="minimal check" id="checkAll"></th>
-                          <th>#</th>
-                          <th>LRN</th>
-                          <th>Full Name</th>
-                          <th>Sex</th>
-                          <th>Section</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><input type="checkbox" class="check"></td>
-                          <td>1.</td>
-                          <td>000000000008</td>
-                          <td>Escaro, Adrielle Kristine Nicolette</td>
-                          <td>Female</td>
-                          <td>STEM-2</td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox" class="check"></td>
-                          <td>2.</td>
-                          <td>000000000007</td>
-                          <td>Polistico, Hakeem</td>
-                          <td>Male</td>
-                          <td>STEM-1</td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox" class="check"></td>
-                          <td>3.</td>
-                          <td>000000000009</td>
-                          <td>Salva, Jasver Anlouise</td>
-                          <td>Female</td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox" class="check"></td>
-                          <td>4.</td>
-                          <td>000000000010</td>
-                          <td>Morales, Shiela May</td>
-                          <td>Female</td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox" class="check"></td>
-                          <td>5.</td>
-                          <td>000000000021</td>
-                          <td>Zulueta, Shanai Hazel</td>
-                          <td>Female</td>
-                          <td>STEM-3</td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox" class="check"></td>
-                          <td>6.</td>
-                          <td>000000000005</td>
-                          <td>Francia, Jan Diether</td>
-                          <td>Male</td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox" class="check"></td>
-                          <td>7.</td>
-                          <td>000000000001</td>
-                          <td>Terrobias, Marc Inzon</td>
-                          <td>Male</td>
-                          <td>STEM-3</td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox" class="check"></td>
-                          <td>8.</td>
-                          <td>000000000003</td>
-                          <td>Alcantara, Aaron James</td>
-                          <td>Male</td>
-                          <td></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <hr style="margin-bottom: 10px;">
-                      <button type="button" class="btn btn-default" style="width: 15%;">Add</button>
-                      <button type="button" class="btn btn-default" style="width: 15%;">Transfer</button>
-                  </div>
-                  <!-- /.end student tab-->
-
-                  <div class="tab-pane" id="tab_2">  
-                    <table id="example2" class="table table-bordered table-striped">
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>Section Name</th>
-                          <th>Count</th>
-                          <th>Status</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>1.</td>
-                          <td>STEM-1</td>
-                          <td>31/40</td>
-                          <td><span class="label label-success">Open</span></td>
-                        </tr>
-                        <tr>
-                          <td>2.</td>
-                          <td>STEM-2</td>
-                          <td>40/40</td>
-                          <td><span class="label label-danger">Closed</span></td>
-                        </tr>
-                        <tr>
-                          <td>3.</td>
-                          <td>STEM-3</td>
-                          <td>0/40</td>
-                          <td><span class="label label-success">Open</span></td>
-                        </tr>
-                      </tbody>                      
-                    </table>
-                      <hr style="margin-bottom: 10px;">
-                      <button type="button" class="btn btn-default" style="width: 15%;">Save</button>                      
-                  </div>
-                  <!--end section_tab-->
-                </div>
-                <!-- /. end tab contents-->
-              </div>
-              <!-- /.nav-tabs-custom-->
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!--/.box (box ng STEM)-->    
-          
-                <!--modal start-->
-                <div class="modal fade" id="modal-default">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header bg-green">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">ADD TO <b>STEM-1</b></h4>
-                      </div>
-                      <div class="modal-body">
-                        <div class="box-body table-responsive no-padding">
-                          <table class="table">
-                            <tr>
-                              <th>#</th>
-                              <th>LRN</th>
-                              <th>Full Name</th>
-                              <th>Sex</th>
-                              
-                            </tr>
-                            <tr>
-                              <td>1.</td>
-                              <td>00000000008</td>
-                              <td>Escaro, Adrielle Kristine Nicolette</td>
-                              <td>Female</td>
-                              
-                            </tr>
-                            <tr>
-                              <td>2.</td>
-                              <td>00000000009</td>
-                              <td>Polistico, Hakeem</td>
-                              <td>Male</td>
-                              
-                            </tr>  
-                            <tr>
-                              <td>3.</td>
-                              <td>00000000007</td>
-                              <td>Salva, Jasver Anlouise</td>
-                              <td>Female</td>
-                              
-                            </tr>                
-                          </table>
-                        </div>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-success">Confirm</button>
-                      </div>
-                    </div>   
-                  </div>
-                </div>
-                <!--end of modal-->
-        <!-- right col -->
-      </div>
-      <!-- /.row (main row) -->
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.0
@@ -962,6 +774,124 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 <!-- ./wrapper -->
 
+
+<!--Modal-->
+<div class="modal fade" id="modal-default">
+
+          <div class="modal-dialog" style="align-self: center; max-width: 500px">
+          <!-- Profile Image -->
+          <div class="box box-primary" >
+            <div class="box-body box-profile">
+              <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url(); ?>dist/img/user4-128x128.jpg" alt="User profile picture">
+
+              <h3 class="profile-username text-center">Adrielle Kristine Nicolette M. Escaro</h3>
+
+              <p class="text-muted text-center">Grade 12 Student</p>
+    <div class="row">
+        <div class="col-md-6">
+              <ul class="list-group list-group-unbordered" style= "text-align: center">
+                <li class="list-group-item">
+                  <b>LRN</b><br> <a>123456789121</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Contact No.</b><br> <a>0997-586-4782</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Birthdate</b><br> <a >July 22, 1994</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Birthplace</b> <br><a>Mandaluyong City</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Age</b><br> <a>23</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Mother Tongue</b><br> <a>Filipino</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Religion</b> <br><a>Roman Catholic</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Address</b> <br><a>226-B Evangelista St.,</a><br><a>Talaba I, Bacoor City</a><br><a>Cavite</a><br>
+                </li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+      <ul class="list-group list-group-unbordered" style= "text-align: center">
+                <li class="list-group-item">
+                  <b>Sex</b> <br><a>Male</a>
+                </li>
+        <li class="list-group-item">
+                  <b>Father's Name</b> <br><a >Tom Cruise</a>
+                </li>
+        <li class="list-group-item">
+                  <b>Father's Contact No</b> <br><a>0997-555-5555</a>
+                </li>
+        <li class="list-group-item">
+                  <b>Mother's Maiden Name</b> <br><a>Marissa Tomei</a>
+                </li>
+        <li class="list-group-item">
+                  <b>Mother's Contact No</b> <br><a>0997-555-5555</a>
+                </li>
+        <li class="list-group-item">
+                  <b>Guardian's Name</b><br> <a>Michael</a>
+                </li>
+        <li class="list-group-item">
+                  <b>Guardian's Relationship</b> <br><a>Guardian Angel</a>
+                </li>
+        <li class="list-group-item">
+                  <b>Guardian's Contact No</b> <br><a>0997-555-5555</a>
+                </li>
+        </ul>
+      </div>
+      </div>
+        <ul class="list-group list-group-unbordered">
+        <li class="list-group-item">
+          <strong><i class="fa fa-book margin-r-5"></i> Note</strong>
+  
+           <p class="text-muted">
+            B.S. in Information System in Technological University of the Philippines
+           </p>
+        </li>
+        
+        <li class="list-group-item">
+          <strong><i class="fa fa-book margin-r-5"></i> Requirements</strong>
+  
+           <p class="text-muted"> 
+           &emsp;
+            <label>
+              <input type="checkbox" class="minimal" checked>
+                Permanent Record (Form 137)
+            </label> <br>
+          &emsp;
+            <label>
+              <input type="checkbox" class="minimal">
+                Student Report Card (Form 138)
+            </label><br>
+          &emsp;
+            <label>
+              <input type="checkbox" class="minimal">
+                NSO Birth Certificate
+            </label><br>
+          &emsp;
+            <label>
+              <input type="checkbox" class="minimal">
+                Learners Reference Number (LRN)
+            </label>
+           </p>
+        </li>
+              </ul>
+              <a href="#" class="btn btn-primary btn-block pull-left" data-dismiss="modal" style="max-width: 100px"><b>Close</b></a>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
 <script src="<?php echo base_url(); ?>bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo base_url(); ?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -973,33 +903,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
-
 <!-- DataTables -->
 <script src="<?php echo base_url(); ?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-
-<!-- iCheck 1.0.1 -->
-<script src="<?php echo base_url(); ?>plugins/iCheck/icheck.js"></script>
-
+<!-- page script -->
 <script>
-/*$(function () {
-    $('#example1').DataTable()
-    $('#example2').DataTable()
-  })*/
-$("#checkAll").click(function () {
-    $(".check").prop('checked', $(this).prop('checked'));
-});
-//iCheck for checkbox
-$('input.check').iCheck({
-  checkboxClass: 'icheckbox_minimal-blue'
-})
 
-var arrofobject = [{"lrn":"14-038-027","name":"Adrii", "year":"12", "status": "ENROLLED"}];
+  var arrofobject = [{"lrn":"14-038-027","name":"Adrii", "year":"12", "status": "ENROLLED"}];
   var arrofobject2 = [{"lrn":"14-038-014","name":"Hakeem", "year":"12"}];
   var arrofobject3 = [{"lrn":"14-038-013","name":"Jasver", "year":"12"}];
   var arrofobject4 = [{"lrn":"14-038-015","name":"Marc", "year":"12"}]; //JSON
 
-$(document).ready(function(){ 
+  $(document).ready(function(){ 
     
     function changeTable(){
       $('table').DataTable().destroy();
@@ -1017,9 +932,17 @@ $(document).ready(function(){
       $('thead tr').append( $('<th />', {text : 'Status'}) ); 
       $('thead tr').append( $('<th />', {text : 'Action'}) ); 
 
-      $.ea
-      ch(arrofobject, function(index, val) {
+      $.each(arrofobject, function(index, val) {
         $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><span class="label label-success">'+val.status+'</span></td> <td><button id="buttonView" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
+        });
+        
+        $("#buttonView").click(function(){
+          $.ajax({
+          url: "<?php echo base_url("enrollment/view_data/ajax"); ?>", 
+            success: function(result){
+              alert(result);
+            }
+          });
         });
           
      $('table').DataTable();
@@ -1069,9 +992,40 @@ $(document).ready(function(){
           
      $('table').DataTable();
     });
+
+    $("#tvlhe_list").click(function(){ 
+      changeTable();
+      $('#tableTitle').text('List of Teachers');
+      $('thead tr').append( $('<th />', {text : 'LRN'}) );
+      $('thead tr').append( $('<th />', {text : 'Name'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Grade'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Action'}) ); 
+
+      $.each(arrofobject2, function(index, val) {
+        $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><button id="buttonView" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
+        });
+          
+     $('table').DataTable();
+    });
+    
+    $("#tvlas-list").click(function(){ 
+      changeTable();
+      $('#tableTitle').text('List of Rooms');
+      $('thead tr').append( $('<th />', {text : 'LRN'}) );
+      $('thead tr').append( $('<th />', {text : 'Name'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Grade'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Action'}) ); 
+
+      $.each(arrofobject3, function(index, val) {
+        $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><button id="buttonView" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
+        });
+          
+     $('table').DataTable();
+    });
     
 }); 
 
-</script>
+
+</script> 
 </body>
 </html>
