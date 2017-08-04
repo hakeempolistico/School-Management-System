@@ -873,96 +873,96 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       $('thead tr').append( $('<th />', {text : 'Section'}) ); 
 
       $.each(arrofobject, function(index, val) {
-        $('tbody').append('<tr id="record"><td>'+val.No+'</td><td>'+val.lrn+'</td><td>'+val.FullName+'</td> <td><span class="label label-success">'+val.Sex+'</span></td><td>'+val.Section+'</td></div> </tr>');
+        $('tbody').append('<tr id="record"><td>'+val.No+'</td><td>'+val.lrn+'</td><td>'+val.FullName+'</td> <td>'+val.Sex+'</td><td>'+val.Section+'</td></div> </tr>');
         });
 
 
-        
-        $("#buttonView").click(function(){
-          $.ajax({
-          url: "<?php echo base_url("enrollment/view_data/ajax"); ?>", 
-            success: function(result){
-              alert(result);
-            }
-          });
-        });
-          
      $('table').DataTable();
     });
 
     
     $("#gas_list").click(function(){ 
       changeTable();
-      $('#tableTitle').text('List of Teachers');
+      $('#tableTitle').text('List of Students in GAS');
+      $('thead tr').append( $('<th />', {text : '#'}) );
       $('thead tr').append( $('<th />', {text : 'LRN'}) );
-      $('thead tr').append( $('<th />', {text : 'Name'}) ); 
-      $('thead tr').append( $('<th />', {text : 'Grade'}) ); 
-      $('thead tr').append( $('<th />', {text : 'Action'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Full Name'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Sex'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Section'}) ); 
 
       $.each(arrofobject2, function(index, val) {
-        $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><button id="buttonView" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
+        $('tbody').append('<tr id="record"><td>'+val.No+'</td><td>'+val.lrn+'</td><td>'+val.FullName+'</td> <td>'+val.Sex+'</td><td>'+val.Section+'</td></div> </tr>');
         });
-          
+
+
      $('table').DataTable();
     });
     
     $("#humss_list").click(function(){ 
       changeTable();
-      $('#tableTitle').text('List of Rooms');
+      $('#tableTitle').text('List of Students in HUMSS');
+      $('thead tr').append( $('<th />', {text : '#'}) );
       $('thead tr').append( $('<th />', {text : 'LRN'}) );
-      $('thead tr').append( $('<th />', {text : 'Name'}) ); 
-      $('thead tr').append( $('<th />', {text : 'Grade'}) ); 
-      $('thead tr').append( $('<th />', {text : 'Action'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Full Name'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Sex'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Section'}) ); 
 
       $.each(arrofobject3, function(index, val) {
-        $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><button id="buttonView" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
+        $('tbody').append('<tr id="record"><td>'+val.No+'</td><td>'+val.lrn+'</td><td>'+val.FullName+'</td> <td>'+val.Sex+'</td><td>'+val.Section+'</td></div> </tr>');
         });
-          
+
+
      $('table').DataTable();
     });
     
     $("#abm_list").click(function(){ 
       changeTable();
-      $('#tableTitle').text('List of Classes');
+      $('#tableTitle').text('List of Students in ABM');
+      $('thead tr').append( $('<th />', {text : '#'}) );
       $('thead tr').append( $('<th />', {text : 'LRN'}) );
-      $('thead tr').append( $('<th />', {text : 'Name'}) ); 
-      $('thead tr').append( $('<th />', {text : 'Grade'}) ); 
-      $('thead tr').append( $('<th />', {text : 'Action'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Full Name'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Sex'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Section'}) ); 
 
       $.each(arrofobject4, function(index, val) {
-        $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><button id="buttonView" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
+        $('tbody').append('<tr id="record"><td>'+val.No+'</td><td>'+val.lrn+'</td><td>'+val.FullName+'</td> <td>'+val.Sex+'</td><td>'+val.Section+'</td></div> </tr>');
         });
-          
+
+
      $('table').DataTable();
     });
 
     $("#tvlhe_list").click(function(){ 
       changeTable();
-      $('#tableTitle').text('List of Rooms');
+      $('#tableTitle').text('List of Students in TVL-HE');
+      $('thead tr').append( $('<th />', {text : '#'}) );
       $('thead tr').append( $('<th />', {text : 'LRN'}) );
-      $('thead tr').append( $('<th />', {text : 'Name'}) ); 
-      $('thead tr').append( $('<th />', {text : 'Grade'}) ); 
-      $('thead tr').append( $('<th />', {text : 'Action'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Full Name'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Sex'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Section'}) ); 
 
-      $.each(arrofobject3, function(index, val) {
-        $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><button id="buttonView" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
+      $.each(arrofobject2, function(index, val) {
+        $('tbody').append('<tr id="record"><td>'+val.No+'</td><td>'+val.lrn+'</td><td>'+val.FullName+'</td> <td>'+val.Sex+'</td><td>'+val.Section+'</td></div> </tr>');
         });
-          
+
+
      $('table').DataTable();
     });
     
     $("#tvlas-list").click(function(){ 
       changeTable();
-      $('#tableTitle').text('List of Classes');
+      $('#tableTitle').text('List of Students in TVL-AS');
+      $('thead tr').append( $('<th />', {text : '#'}) );
       $('thead tr').append( $('<th />', {text : 'LRN'}) );
-      $('thead tr').append( $('<th />', {text : 'Name'}) ); 
-      $('thead tr').append( $('<th />', {text : 'Grade'}) ); 
-      $('thead tr').append( $('<th />', {text : 'Action'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Full Name'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Sex'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Section'}) ); 
 
-      $.each(arrofobject4, function(index, val) {
-        $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><button id="buttonView" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
+      $.each(arrofobject3, function(index, val) {
+        $('tbody').append('<tr id="record"><td>'+val.No+'</td><td>'+val.lrn+'</td><td>'+val.FullName+'</td> <td>'+val.Sex+'</td><td>'+val.Section+'</td></div> </tr>');
         });
-          
+
+
      $('table').DataTable();
     });
     
