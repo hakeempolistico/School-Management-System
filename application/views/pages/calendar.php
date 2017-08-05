@@ -819,6 +819,7 @@
 <script src="<?php echo base_url(); ?>bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
 <!-- Page specific script -->
 <script>
+  
   $(function () {
 
     /* initialize the external events
@@ -941,6 +942,8 @@
 
       }
     })
+
+    
 
     /* ADDING EVENTS */
     var currColor = '#3c8dbc' //Red by default

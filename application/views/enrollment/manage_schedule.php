@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Calendar</title>
+  <title>School Management | Manage Schedule</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -20,6 +20,8 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/skins/_all-skins.min.css">
+  <!-- Page style -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/enrollment/manage_schedule.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,9 +41,9 @@
     <!-- Logo -->
     <a href="<?php echo site_url('welcome/index2') ?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><b>S</b>M</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-lg">School Management</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -300,9 +302,9 @@
     </nav>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
-  <aside class="main-sidebar">
+  <aside class="main-sidebar" >
     <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
+    <section class="sidebar" >
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
@@ -325,177 +327,64 @@
       </form>
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
-      <ul class="sidebar-menu" data-widget="tree">
+      <ul style="margin-bottom: 285px; " class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="treeview">
-          <a href="#">
+        <li>
+          <a href="<?php echo site_url('/'); ?>">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
           </a>
-          <ul class="treeview-menu">
-            <li><a href="<?php echo site_url('welcome/index') ?>"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-            <li><a href="<?php echo site_url('welcome/index2') ?>"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
-          </ul>
         </li>
-        <li class="treeview">
+        <li class="active treeview">
           <a href="#">
             <i class="fa fa-files-o"></i>
-            <span>Layout Options</span>
+            <span>Enrollment</span>
             <span class="pull-right-container">
               <span class="label label-primary pull-right">4</span>
             </span>
           </a>
+
           <ul class="treeview-menu">
-            <li><a href="<?php echo site_url('welcome/topnav'); ?>"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-            <li><a href="<?php echo site_url('welcome/boxed'); ?>"><i class="fa fa-circle-o"></i> Boxed</a></li>
-            <li><a href="<?php echo site_url('welcome/fixed'); ?>"><i class="fa fa-circle-o"></i> Fixed</a></li>
-            <li><a href="<?php echo site_url('welcome/colside'); ?>"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="<?php echo site_url('welcome/widgets'); ?>">
-            <i class="fa fa-th"></i> <span>Widgets</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-green">new</small>
-            </span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-pie-chart"></i>
-            <span>Charts</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="<?php echo site_url('welcome/chartjs'); ?>"><i class="fa fa-circle-o"></i> ChartJS</a></li>
-            <li><a href="<?php echo site_url('welcome/morris'); ?>"><i class="fa fa-circle-o"></i> Morris</a></li>
-            <li><a href="<?php echo site_url('welcome/flot'); ?>"><i class="fa fa-circle-o"></i> Flot</a></li>
-            <li><a href="<?php echo site_url('welcome/inline'); ?>"><i class="fa fa-circle-o"></i> Inline charts</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-laptop"></i>
-            <span>UI Elements</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="<?php echo site_url('welcome/uigeneral'); ?>"><i class="fa fa-circle-o"></i> General</a></li>
-            <li><a href="<?php echo site_url('welcome/icons'); ?>"><i class="fa fa-circle-o"></i> Icons</a></li>
-            <li><a href="<?php echo site_url('welcome/buttons'); ?>"><i class="fa fa-circle-o"></i> Buttons</a></li>
-            <li><a href="<?php echo site_url('welcome/sliders'); ?>"><i class="fa fa-circle-o"></i> Sliders</a></li>
-            <li><a href="<?php echo site_url('welcome/timeline'); ?>"><i class="fa fa-circle-o"></i> Timeline</a></li>
-            <li><a href="<?php echo site_url('welcome/modals'); ?>"><i class="fa fa-circle-o"></i> Modals</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-edit"></i> <span>Forms</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="<?php echo site_url('welcome/general'); ?>"><i class="fa fa-circle-o"></i> General Elements</a></li>
-            <li><a href="<?php echo site_url('welcome/advanced'); ?>"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
-            <li><a href="<?php echo site_url('welcome/editors'); ?>"><i class="fa fa-circle-o"></i> Editors</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-table"></i> <span>Tables</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="<?php echo site_url('welcome/simple'); ?>"><i class="fa fa-circle-o"></i> Simple tables</a></li>
-            <li><a href="<?php echo site_url('welcome/data'); ?>"><i class="fa fa-circle-o"></i> Data tables</a></li>
-          </ul>
-        </li>
-        <li class="active">
-          <a href="<?php echo site_url('welcome/calendar'); ?>">
-            <i class="fa fa-calendar"></i> <span>Calendar</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-red">3</small>
-              <small class="label pull-right bg-blue">17</small>
-            </span>
-          </a>
-        </li>
-        <li>
-          <a href="<?php echo site_url('welcome/mailbox'); ?>">
-            <i class="fa fa-envelope"></i> <span>Mailbox</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-yellow">12</small>
-              <small class="label pull-right bg-green">16</small>
-              <small class="label pull-right bg-red">5</small>
-            </span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-folder"></i> <span>Examples</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="<?php echo site_url('welcome/invoice'); ?>"><i class="fa fa-circle-o"></i> Invoice</a></li>
-            <li><a href="<?php echo site_url('welcome/profile'); ?>"><i class="fa fa-circle-o"></i> Profile</a></li>
-            <li><a href="<?php echo site_url('welcome/login'); ?>"><i class="fa fa-circle-o"></i> Login</a></li>
-            <li><a href="<?php echo site_url('welcome/register'); ?>"><i class="fa fa-circle-o"></i> Register</a></li>
-            <li><a href="<?php echo site_url('welcome/lockscreen'); ?>"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
-            <li><a href="<?php echo site_url('welcome/por'); ?>"><i class="fa fa-circle-o"></i> 404 Error</a></li>
-            <li><a href="<?php echo site_url('welcome/payb'); ?>"><i class="fa fa-circle-o"></i> 500 Error</a></li>
-            <li><a href="<?php echo site_url('welcome/blank'); ?>"><i class="fa fa-circle-o"></i> Blank Page</a></li>
-            <li><a href="<?php echo site_url('welcome/pace'); ?>"><i class="fa fa-circle-o"></i> Pace Page</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-share"></i> <span>Multilevel</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-            <li class="treeview">
-              <a href="#"><i class="fa fa-circle-o"></i> Level One
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
+            <li>
+              <a href="<?php echo site_url('enrollment/dashboard'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Dashboard
               </a>
-              <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
-                <li class="treeview">
-                  <a href="#"><i class="fa fa-circle-o"></i> Level Two
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                  </a>
-                  <ul class="treeview-menu">
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                  </ul>
-                </li>
-              </ul>
             </li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
+            <li>
+              <a href="<?php echo site_url('enrollment/view_data'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                  View Data
+              </a>
+            </li>
+            <li>
+              <a href="<?php echo site_url('enrollment/enrollstudent'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                  Enroll Student
+              </a>
+            </li>
+            <li>
+              <a href="<?php echo site_url('enrollment/manage_student'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                  Manage Student
+              </a>
+            </li>
+            <li class="active">
+              <a href="<?php echo site_url('enrollment/manage_schedule'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                  Manage Schedule
+              </a>
+            </li>
           </ul>
         </li>
-        <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
+      
+        
         <li class="header">LABELS</li>
         <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
         <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
         <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
       </ul>
+
+        
     </section>
     <!-- /.sidebar -->
   </aside>
@@ -505,12 +394,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Calendar
-        <small>Control panel</small>
+        Manage Schedule
+        <small>Temporary idle</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Calendar</li>
+        <li><a href="enrollment/dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li class="active">Manage Schedule</li>
       </ol>
     </section>
 
@@ -523,16 +412,8 @@
               <h4 class="box-title">Draggable Events</h4>
             </div>
             <div class="box-body">
-              <!-- the events -->
+               <div class="count object" id="1" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div></div>
               <div id="external-events">
-                <div id="1" draggable="true" ondragstart="drag(event)" class="bg-green" style="padding: 8px 5px 8px 5px; text-align: center; font-weight: bold">English</div>
-                <div id="2" draggable="true" ondragstart="drag(event)" class="bg-yellow" style="padding: 5px; text-align: center; font-weight: bold">Mathematics - Teacher Hakeem Polistico</div>
-                <div class="checkbox">
-                  <label for="drop-remove">
-                    <input type="checkbox" id="drop-remove">
-                    remove after drop
-                  </label>
-                </div>
               </div>
             </div>
             <!-- /.box-body -->
@@ -563,115 +444,175 @@
               </div>
               <!-- /btn-group -->
               <div class="input-group">
-                <input id="new-event" type="text" class="form-control" placeholder="Event Title">
+                <input style="height:34px;" id="new-event-subject" type="text" class="form-control" placeholder="Event">
+                <input style="height:34px;" id="new-event-teacher" type="text" class="form-control" placeholder="Teacher">
 
-                <div class="input-group-btn">
-                  <button id="add-new-event" type="button" class="btn btn-primary btn-flat">Add</button>
+                <div class="input-group-btn ">
+                  <button id="add-new-event" type="button" class="btn btn-primary btn-flat" style="height:68px;">Add</button>
                 </div>
                 <!-- /btn-group -->
               </div>
               <!-- /input-group -->
             </div>
           </div>
+
+          <div class="box box-solid">
+            <div class="box-header with-border">
+              <h4 id="trash" class="box-title">Drag Here To Trash</h4>
+            </div>
+            <div class="box-body">
+              <!-- the events -->
+              <div ondrop="dropTrash(event)" ondragover="allowDrop(event)" >
+                  <h5 class="box-title text-center"><icon id = "icon" class="fa fa-trash-o fa-4x"/></h5>
+              </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /. box -->
+
+          <div class="box box-solid">
+            <div class="box-header with-border">
+              <h4 class="box-title">Actions Row</h4>
+            </div>
+            <div class="box-body">
+              <center>
+                <button id="remove" class="btn btn-danger">Remove</button>
+                <button id="removeAll" class="btn btn-warning">Remove All</button>
+                <button id="add"class="btn btn-success">Add</button>
+              </center>
+                
+              <div id="external-events">
+
+              </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
         </div>
         <!-- /.col -->
         <div class="col-md-9">
           <div class="box box-primary">
             <div class="box-body no-padding">
-              <!-- THE CALENDAR -->
-              <table style = "table-layout: fixed;" id="example2" class="table table-bordered table-hover">
+              <!-- THE TABLE SCHEDULE -->
+              <table  id="example2" class="table table-bordered table-hover table-schedule">
                 <thead>
                 <tr>
                   <th>Time</th>
                   <th>Monday</th>
                   <th>Tuesday</th>
                   <th>Wednesday</th>
-                  <th>Thursday</th>
+                  <th>Thursday</th> 
                   <th>Friday</th>
                 </tr>
                 </thead>
+
                 <tbody>
-                <tr style="height: 25px">
+                <div id="tbody">
+                <tr class="tr-height">
                   <td contenteditable='true'>6:00-7:00</td>
-                  <td style = "padding: 0px;" ondrop="drop(event)" ondragover="allowDrop(event)">
-                  </td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                 </tr>
-                <tr style="height: 25px">
-                  <td contenteditable='true'>7:00-7:00</td>
-                  <td style = "padding: 0px;" ondrop="drop(event)" ondragover="allowDrop(event)">
-                  </td>
-                  <td ></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                <tr class="tr-height">
+                  <td contenteditable='true'>7:00-8:00</td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                 </tr>
-                <tr style="height: 25px">
+                <tr class="tr-height">
                   <td contenteditable='true'>8:00-9:00</td>
-                  <td style = "padding: 0px;" ondrop="drop(event)" ondragover="allowDrop(event)">
-                  </td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                 </tr>
-                <tr style="height: 25px">
+                <tr class="tr-height">
                   <td contenteditable='true'>9:00-10:00</td>
-                  <td style = "padding: 0px;" ondrop="drop(event)" ondragover="allowDrop(event)">
-                  </td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                 </tr>
-                <tr style="height: 25px">
+                <tr class="tr-height">
                   <td contenteditable='true'>10:00-11:00</td>
-                  <td style = "padding: 0px;" ondrop="drop(event)" ondragover="allowDrop(event)">
-                  </td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                 </tr>
-                <tr style="height: 25px">
+                <tr class="tr-height">
                   <td contenteditable='true'>11:00-12:00</td>
-                  <td style = "padding: 0px;" ondrop="drop(event)" ondragover="allowDrop(event)">
-                  </td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                 </tr>
-                <tr style="height: 25px">
+                <tr class="tr-height">
                   <td contenteditable='true'>12:00-1:00</td>
-                  <td style = "padding: 0px;" ondrop="drop(event)" ondragover="allowDrop(event)">
-                  </td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                 </tr>
-                <tr style="height: 25px">
+                <tr class="tr-height">
                   <td contenteditable='true'>1:00-2:00</td>
-                  <td style = "padding: 0px;" ondrop="drop(event)" ondragover="allowDrop(event)">
-                  </td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                 </tr>
-                <tr style="height: 25px">
+                <tr class="tr-height">
                   <td contenteditable='true'>2:00-3:00</td>
-                  <td style = "padding: 0px;" ondrop="drop(event)" ondragover="allowDrop(event)">
-                  </td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                 </tr>
+                <tr class="tr-height">
+                  <td contenteditable='true'>3:00-4:00</td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                </tr>
+                <tr class="tr-height">
+                  <td contenteditable='true'>4:00-5:00</td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                </tr>
+                <tr class="tr-height">
+                  <td contenteditable='true'>5:00-6:00</td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                </tr>
+                <tr class="tr-height">
+                  <td contenteditable='true'>6:00-7:00</td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                </tr>
+              </div>
+              </tbody>
                 <tfoot>
                 <tr>
                   <th>Time</th>
@@ -918,87 +859,6 @@
 <script src="<?php echo base_url(); ?>bower_components/moment/moment.js"></script>
 <script src="<?php echo base_url(); ?>bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
 <!-- Page specific script -->
-<script>
-  
-  $(function () {
-
-    /* initialize the external events
-     -----------------------------------------------------------------*/
-    function init_events(ele) {
-      ele.each(function () {
-
-        // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
-        // it doesn't need to have a start or end
-        var eventObject = {
-          title: $.trim($(this).text()) // use the element's text as the event title
-        }
-
-        // store the Event Object in the DOM element so we can get to it later
-        $(this).data('eventObject', eventObject)
-
-        // make the event draggable using jQuery UI
-        $(this).draggable({
-          zIndex        : 1070,
-          revert        : true, // will cause the event to go back to its
-          revertDuration: 0  //  original position after the drag
-        })
-
-      })
-    }
-
-    init_events($('#external-events div.external-event'))
-
-
-    /* ADDING EVENTS */
-    var currColor = '#3c8dbc' //Red by default
-    //Color chooser button
-    var colorChooser = $('#color-chooser-btn')
-    $('#color-chooser > li > a').click(function (e) {
-      e.preventDefault()
-      //Save color
-      currColor = $(this).css('color')
-      //Add color effect to button
-      $('#add-new-event').css({ 'background-color': currColor, 'border-color': currColor })
-    })
-    $('#add-new-event').click(function (e) {
-      e.preventDefault()
-      //Get value and make sure it is not null
-      var val = $('#new-event').val()
-      if (val.length == 0) {
-        return
-      }
-
-      //Create events
-      var event = $('<div />')
-      event.addClass('external-event flat')
-      event.html(val)
-
-      event.attr('id','3')
-      event.attr('draggable','true')
-      event.attr('ondragstart','drag(event)')
-      event.attr('style','padding: 8px; text-align: center; font-weight: bold; margin: 0px; color: white; background-color:'+currColor)
-
-      $('#external-events').prepend(event)
-
-
-      //Remove event from text input
-      $('#new-event').val('')
-    })
-  })
-
-function allowDrop(ev) {
-    ev.preventDefault();
-}
-
-function drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
-}
-
-function drop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
-}
-</script>
+<script src="<?php echo base_url(); ?>dist/js/enrollment/manage_schedule.js"></script>
 </body>
 </html>

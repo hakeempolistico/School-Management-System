@@ -365,7 +365,7 @@
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="<?php echo site_url('enrollment/manage_schedule'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   Manage Schedule
               </a>
@@ -409,9 +409,9 @@
       <!-- Default box -->
       <div class="row" style="margin-top: 20px;">
             <div class="col-md-4">
-              <div class="alert alert-warning" style="padding: 25px 50px 20px 30px;">
+              <div class="alert alert-warning" style="height: 382px; padding: 25px 50px 20px 30px;">
                 <h4><i class="icon fa fa-check"></i> Remember!</h4>
-                <ul style="font-size: 16px; line-height: 2.4em;">
+                <ul style="font-size: 16px;">
                   <li>Don't be distracted by your surroundings</li>
                   <li>Make sure you input the correct data!</li>
                   <li>Explain thoroughly the process of enrollment to the applicant</li>
