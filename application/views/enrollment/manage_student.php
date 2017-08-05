@@ -359,7 +359,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 Dashboard
               </a>
             </li>
-            <li  class="active">
+            <li>
               <a href="<?php echo site_url('enrollment/view_data'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   View Data
@@ -371,7 +371,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   Enroll Student
               </a>
             </li>
-            <li>
+            <li class="active">
               <a href="<?php echo site_url('enrollment/manage_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   Manage Student
@@ -546,7 +546,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </ul>
                 <div class="tab-content">
                   <div class="tab-pane active" id="tab_1">
-                    <table id="studentTable"class="table table-bordered table-hover">
+                    <table id="studentTable" class="table table-bordered table-hover">
                       <thead>
                         <tr>
                           <th><input type="checkbox" class="minimal check" id="checkAll"></th>
