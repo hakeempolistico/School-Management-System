@@ -376,7 +376,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="<?php echo site_url('enrollment/manage_schedule'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   Manage Schedule
               </a>

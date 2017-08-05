@@ -21,7 +21,7 @@ class manage_schedule extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('enrollment/calendar');
+		$this->load->view('enrollment/manage_schedule');
 	}
 
 }
