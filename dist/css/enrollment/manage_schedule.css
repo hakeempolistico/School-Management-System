@@ -16,3 +16,9 @@
 .selectedRow{
 	background:#f6f6f6;
 }
+
+@media print { 
+    .print { 
+        color: red !important; 
+    } 
+}

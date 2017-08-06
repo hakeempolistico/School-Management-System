@@ -137,3 +137,11 @@ function dropTrash(ev) {
    
   });
 
+function printData()
+{
+   window.print();
+}
+
+$('#printBtn').on('click',function(){
+printData();
+})
