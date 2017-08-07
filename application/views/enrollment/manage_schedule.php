@@ -390,7 +390,7 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div  class=" content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -405,7 +405,7 @@
 
     <!-- Main content -->
     <section class="content">
-      <div class="row">
+      <div class="row hidden-print">
         <div class="col-md-12">
           <div class="box box-danger">
             <div class="box-header with-border">
@@ -421,7 +421,7 @@
             <div class="box-body">
               <div class="col-md-4">
           <!-- Widget: user widget style 1 -->
-          <div style = "border-width: 1px; border-style: solid; border-color: lightgrey;" class="box box-widget widget-user">
+          <div style = "border-width: 1px; border-style: solid; border-color: #f1f1f1;" class="box box-widget widget-user">
             <!-- Add the bg color to the header using any of the bg-* classes -->
             <div class="widget-user-header bg-maroon-active">
               <h3 class="widget-user-username">Adrielle Nicolette Escaro</h3>
@@ -464,7 +464,7 @@
         </div>
         <div class="col-md-4">
           <!-- Widget: user widget style 1 -->
-           <div style = "border-width: 1px; border-style: solid; border-color: lightgrey;" class="box box-widget widget-user-2">
+           <div style = "border-width: 1px; border-style: solid; border-color: #f1f1f1;" class="box box-widget widget-user-2">
               <div class="box-footer" style="padding: 6px">
               <ul class="nav nav-stacked">
                 <li><a href="#">Status <span class="pull-right badge bg-blue">Active</span></a></li>
@@ -480,7 +480,7 @@
         <!-- /.col -->
         <div class="col-md-4">
             <!-- /.box-header -->
-            <div style = "border-width: 1px; border-style: solid; border-color: lightgrey;  height: 218px; max-height: 218;" class="box-body">
+            <div style = "border-width: 1px; border-style: solid; border-color: #f1f1f1;  height: 218px; max-height: 218;" class="box-body">
               <strong><i class="fa fa-file-text-o margin-r-5"></i> Notes</strong>
               <p>Max of 250 characters only.</p>
             </div>
@@ -496,7 +496,7 @@
       </div>
 
       <div class="row">
-        <div class="col-md-3">
+        <div class="hidden-print col-md-3">
           <div class="box box-solid">
             <div class="box-header with-border">
               <h4 class="box-title">Draggable Events</h4>
@@ -509,7 +509,7 @@
             <!-- /.box-body -->
           </div>
           <!-- /. box -->
-          <div class="box box-solid">
+          <div class="hidden-print box box-solid">
             <div class="box-header with-border">
               <h3 class="box-title">Create Event</h3>
             </div>
@@ -546,7 +546,7 @@
             </div>
           </div>
 
-          <div class="box box-solid">
+          <div class="hidden-print box box-solid">
             <div class="box-header with-border">
               <h4 id="trash" class="box-title">Drag Here To Trash</h4>
             </div>
@@ -560,17 +560,17 @@
           </div>
           <!-- /. box -->
 
-          <div class="box box-solid">
+          <div class="hidden-print box box-solid">
             <div class="box-header with-border">
               <h4 class="box-title">Actions Row</h4>
             </div>
             <div class="box-body">
               <center>
-                <button id="remove" class="btn btn-danger">Remove</button>
-                <button id="removeAll" class="btn btn-warning">Remove All</button>
-                <button id="add"class="btn btn-success">Add</button>
-              </center>
-                
+                <button style="width: 100px" id="remove" class="btn btn-danger">Remove</button>
+                <button style="width: 100px" id="removeAll" class="btn btn-warning">Remove All</button><br>
+                <button style="width: 100px; margin-top: 3px" id="add"class="btn btn-success">Add</button>
+                <button style="width: 100px; margin-top: 3px" id="printBtn"class="btn btn-primary">Print</button>
+              </center>                
               <div id="external-events">
 
               </div>
@@ -584,7 +584,7 @@
           <div class="box box-primary">
             <div class="box-body no-padding">
               <!-- THE TABLE SCHEDULE -->
-              <table  id="example2" class="table table-bordered table-hover table-schedule">
+              <table  id="schedule" class="table table-bordered table-hover table-schedule">
                 <thead>
                 <tr>
                   <th>Time</th>
@@ -600,7 +600,7 @@
                 <div id="tbody">
                 <tr class="tr-height">
                   <td contenteditable='true'>6:00-7:00</td>
-                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                  <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"><div class="count text-maroon object bg-blue" id="1" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto;">Example Subject<br><div class="text-gray">Example Teacher</div></div></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
@@ -728,7 +728,7 @@
   </div>
   <!-- /.content-wrapper -->
 
-  <footer class="main-footer">
+  <footer class="hidden-print main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.0
     </div>
