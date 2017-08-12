@@ -145,3 +145,4 @@ function printData()
 $('#printBtn').on('click',function(){
 printData();
 })
+

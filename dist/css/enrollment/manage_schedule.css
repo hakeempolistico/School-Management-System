@@ -18,7 +18,5 @@
 }
 
 @media print { 
-    .print { 
-        color: red !important; 
-    } 
+    html, body { overflow:hidden !important; }
 }
