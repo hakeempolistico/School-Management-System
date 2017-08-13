@@ -36,23 +36,17 @@
   <div class="login-box-body">
     <p class="login-box-msg"><img src="<?php echo base_url(); ?>images/logo.png" height="75" width="75"> </p>
 
-      <div id = "username_validation" class="text-danger" style="margin-bottom: -5px"><h6>*Username not found</h6></div> 
+      <div class="text-danger" style="margin-bottom: -5px"><h6 id ="validation"></h6></div> 
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Username" required>
+        <input id="input_username" type="text" class="form-control" placeholder="Username" required>
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
-      <div id = "username_validation" class="text-danger" style="margin-bottom: -5px"> <h6>*Wrong Password</h6></div> 
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password" required>
+        <input id="input_password" type="password" class="form-control" placeholder="Password" required>
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
         <div class="col-xs-8">
-          <div class="checkbox icheck">
-            <label>
-              <input type="checkbox"> Remember Me
-            </label>
-          </div>
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
@@ -77,20 +71,39 @@
 <script>
   $( document ).ready(function() {
     $( "#btn_signIn" ).click(function() {
-      var json = { "username":"John", "password":31};
+      /*var json = { "username":"John", "password":31};
       var myJSON = JSON.stringify(json); //CONVERT TO STRING
       var obj = JSON.parse(myJSON); //CONVERT TO OBJECT
-      alert(obj.username);
+      alert(obj.username);*/
+
+      var username = $('#input_username').val();
+      var password = $('#input_password').val();
+
+      var data = {
+          username: username,
+          password: password
+      }
+      //alert("Username: "+username+", Password: "+password);
+
+      $.ajax({
+          url: "<?php echo base_url('login/validation')?>", 
+          type:'post',
+          data: data,
+          success: function(result){
+            //alert(result);
+
+            if (result==2){
+              $('#validation').text('*No username found!');
+            }
+            else if(result==3){
+               $('#validation').text('*Incorrect password!');
+            }
+            else if(result==1){
+              window.location.replace("<?php echo base_url('enrollment/dashboard')?>");
+            }
+        }});
     });
   });
-
-  $(function () {
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' // optional
-    });
-  }); 
 </script>
 </body>
 </html>

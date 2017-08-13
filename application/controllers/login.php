@@ -8,7 +8,24 @@ class login extends CI_Controller {
 		$this->load->view('login/login');
 	}
 	public function validation(){
-		
-	}
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
+		$table = "users";
+
+		$result = $this->users_model->checkRecord($username, $password, $table);
+		if($result ==true){
+			//echo "Username found!";
+			$result = $this->users_model->checkPassword($username, $password, $table);
+
+			if($result==true){
+				echo true;
+			}
+			else{
+				echo 3;
+			}
+		}
+		else
+			echo 2;
+	}	
 
 }
