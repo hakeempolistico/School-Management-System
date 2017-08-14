@@ -15,6 +15,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/Ionicons/css/ionicons.min.css">
+  <!-- Loading -->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/loading.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -37,6 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
+<div hidden class="loading">Loading&#8230;</div>
 
   <header class="main-header">
     <!-- Logo -->
@@ -278,7 +281,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </a>
             </li>
             <li>
-              <a href="<?php echo site_url('enrollment/enrollstudent'); ?>">
+              <a href="<?php echo site_url('enrollment/enroll_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   Enroll Student
               </a>

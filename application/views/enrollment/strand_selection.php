@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Enroll Student</title>
+  <title>Strand Selection</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -12,10 +12,10 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/Ionicons/css/ionicons.min.css">
-  <!-- Select2 -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/select2/dist/css/select2.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/AdminLTE.min.css">
+
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/loading.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/skins/_all-skins.css">
@@ -34,6 +34,7 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
+<div hidden class="loading">Loading&#8230;</div>
 
   <header class="main-header">
     <!-- Logo -->
@@ -175,7 +176,7 @@
               <li class="footer"><a href="#">View all</a></li>
             </ul>
           </li>
-                
+          
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -218,6 +219,8 @@
               </li>
             </ul>
           </li>
+          <!-- Control Sidebar Toggle Button -->
+          
         </ul>
       </div>
     </nav>
@@ -255,6 +258,7 @@
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
+
         <li class="active treeview">
           <a href="#">
             <i class="fa fa-files-o"></i>
@@ -278,7 +282,7 @@
               </a>
             </li>
             <li class="active">
-              <a href="<?php echo site_url('enrollment/enrollstudent'); ?>">
+              <a href="<?php echo site_url('enrollment/enroll_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   Enroll Student
               </a>
@@ -299,7 +303,8 @@
         </li>
       
         
-        <li class="header">LABELS</li>  
+        <li class="header">LABELS</li>
+        
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -307,344 +312,366 @@
 
 
 
+
+
+
+
+
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <div class="alert bg-navy alert-dismissible flat">
+  <div class="content-wrapper" style="padding-bottom: 50px;">
+    <div class="alert bg-maroon alert-dismissible flat">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <h4><i class="icon fa fa-bullhorn"></i> Reminder!</h4>
-        Make sure to receive the necessary requirements for enrollment, otherwise the student won't be enrolled!
+      <h4><i class="icon fa fa-bullhorn"></i> Choose Carefully!</h4>
+        Once a strand has been picked, the student co no longer change his or her strand.
      </div>
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Enroll Student
-        <small>(IDK what to put here)</small>
+        Strand Selection
+        <small>Grade Inputing</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Enrollment</a></li>
-        <li class="active">Enroll Student</li>
+        <li><a href="#">Enroll Students</a></li>
+        <li class="active">Strand Selection</li>
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
-          <!-- general form elements -->
-      <div class="row">
-        <div class="col-md-6">
-          <div class="box box-info">
-            <div class="box-header with-border">
-              <h3 class="box-title">Senior High School Profile</h3>
-            </div>
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form name= "studentprofile" id="studentprofile" role="form">
-              <div class="box-body" style="padding-bottom: 20px;">
-                <div class="form-group">
-                  <label>LRN</label>
-                  <input type="text" class="form-control" id="inputLRN" placeholder="Learner Reference Number">
+    <div class="row">
+    <div class="col-md-4">
+      <!-- Default box -->
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Please enter the ff. grades: </h3>
+        </div>
+        <div class="box-body">
+          <div class="form-group">
+                <label>English</label>
+                  <input type="text" class="form-control">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Name</label>
-                    <div class="row">
-                      <div class="col-md-4">
-                        <input type="text" class="form-control" id="inputFNAME" placeholder="First Name">
-                      </div>
-                      <div class="col-md-4">
-                        <input type="text" class="form-control" id="inputMNAME" placeholder="Middle Name">
-                      </div>
-                      <div class="col-md-4">
-                        <input type="text" class="form-control" id="inputLNAME" placeholder="Last Name">
-                      </div>
-                    </div>
+                  <label for="exampleInputEmail1">Mathematics</label>
+                  <input type="text" class="form-control" id="lrn">
                 </div>
-                <div class="row">
-                <div class="col-md-6">
                 <div class="form-group">
-                  <label>Sex</label>
-                  <select class="form-control" id="inputSEX">
-                    <option>Female</option>
-                    <option>Male</option>
-                  </select>
+                  <label for="exampleInputEmail1">Science</label>
+                  <input type="text" class="form-control" id="lrn">
                 </div>
-                </div>
-                <div class="col-md-6">
                 <div class="form-group">
-                  <label>Contact Number</label>
-                  <input type="text" class="form-control" id="inputCONTACT" placeholder="Contact Number">
+                  <label for="exampleInputEmail1">Filipino</label>
+                  <input type="text" class="form-control" id="lrn">
                 </div>
-                </div>
-                </div>
-                <hr>
-                <div class="row">
-                <div class="col-md-4">
                 <div class="form-group">
-                  <label>Birth Date</label>
-                  <div class="input-group date">
-                    <div class="input-group-addon">
-                      <i class="fa fa-calendar"></i>
-                    </div>
-                    <input type="text" class="form-control" id="datepicker" placeholder="mm/dd/yyyy">
-                  </div>
+                  <label for="exampleInputEmail1">Araling Panlipunan</label>
+                  <input type="text" class="form-control" id="lrn">
                 </div>
-                </div>
-                <div class="col-md-4">
                 <div class="form-group">
-                  <label>Birth Place</label>
-                  <input type="text" class="form-control" id="inputBIRTHPLACE" placeholder="Birth Place">
+                  <label for="exampleInputEmail1">T.L.E.</label>
+                  <input type="text" class="form-control" id="lrn">
                 </div>
-                </div>
-                <div class="col-md-4">
                 <div class="form-group">
-                  <label>Age <small>(as of last birthday)</small></label>
-                  <input type="text" class="form-control" id="inputAGE" placeholder="Age">
+                  <label for="exampleInputEmail1">Computer Education</label>
+                  <input type="text" class="form-control" id="lrn">
                 </div>
-                </div>
-                </div>
-                <div class="row">
-                <div class="col-md-6">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Mother Tongue</label>
-                  <input type="text" class="form-control" id="inputMOTHERTONGUE" placeholder="Mother Tongue">
-                </div>
-                </div>
-                <div class="col-md-6">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Religion</label>
-                  <input type="text" class="form-control" id="inputRELIGION" placeholder="Religion">
-                </div>
-                </div>
-                </div>
-                <hr>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Address</label>
-                  <div class="row">
-                      <div class="col-md-3">
-                        <input type="text" class="form-control" id="inputSTREET" placeholder="House #, Street" sty>
-                      </div>
-                      <div class="col-md-3">
-                        <input type="text" class="form-control" id="inputBARANGAY" placeholder="Barangay">
-                      </div>
-                      <div class="col-md-3">
-                        <input type="text" class="form-control" id="inputCITY" placeholder="City">
-                      </div>
-                      <div class="col-md-3">
-                        <input type="text" class="form-control" id="inputPROVINCE" placeholder="Province">
-                      </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                <div class="col-md-6">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Father's Name</label>
-                  <input type="text" class="form-control" id="inputFATHER" placeholder="Father's Name">
-                </div>
-                </div>
-                <div class="col-md-6">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Mother's Maiden Name</label>
-                  <input type="text" class="form-control" id="inputMOTHER" placeholder="Mother's Maiden Name">
-                </div>
-                </div>
-                </div>
-                <div class="row">
-                <div class="col-md-6">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Father's Contact No.</label>
-                  <input type="text" class="form-control" id="inputFATHERCONTACT" placeholder="Father's Contact No.">
-                </div>
-                </div>
-                <div class="col-md-6">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Mother's Contact No.</label>
-                  <input type="text" class="form-control" id="inputMOTHERCONTACT" placeholder="Mother's Contact No.">
-                </div>
-                </div>
-                </div>
-                <div class="row">
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Guardian's Name</label>
-                  <input type="text" class="form-control" id="inputGUARDIAN" placeholder="Guardian's Name">
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Relationship</label>
-                  <input type="text" class="form-control" id="inputRELATIONSHIP" placeholder="Relationship with Guardian">
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Guardian's Contact No.</label>
-                  <input type="text" class="form-control" id="inputGUARDIANCONTACT" placeholder="Guradian's Contact No.">
-                </div>
-                </div>
-                </div>
-                <hr>
-                <div class="form-group">
-                <label>Requirements</label>
-                <select class="form-control select2" multiple="multiple" id="inputREQUIREMENTS" data-placeholder="Select Requirement"
-                        style="width: 100%;">
-                  <option id="f137">Form 137</option>
-                  <option id="f138">Form 138</option>
-                  <option id="nso">NSO Birth Certificate</option>
-                </select>
-              </div>
-              </div>
-              <!-- /.box-body -->
-            </form>
-          </div>
+                  <label for="exampleInputEmail1">MAPEH</label>
+                  <input type="text" class="form-control" id="lrn">
+                </div>        </div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+          <button type="submit" name="search" class="btn btn-primary btn-flat">Submit</button>
+        </div>
+        <!-- /.box-footer-->
+      </div>
+      <!-- /.box -->
+      </div>
+      <!-- /.col-md-3 -->
+
+      <div class="col-md-8">
+        <div style="margin-bottom: 20px;">
+        <h3>Available Strands:</h3>
         </div>
 
-        <div class="col-md-6">  
-          <div class="box box-info">
-            <div class="box-header with-border">
-              <h3 class="box-title">Senior High School Profile</h3>
-              <div class="box-body">
-                <div class="form-group">
-                  <label>LRN</label>
-                  <div id="textLRN"><i class="text-red">Please input</i></div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                      <div class="col-md-4">
-                        <label>First Name</label>
-                        <div id="textFNAME"><i class="text-red">Please input</i></div>
-                      </div>
-                      <div class="col-md-4">
-                        <label>Middle Name</label>
-                        <div id="textMNAME""><i class="text-red">Please input</i></div>
-                      </div>
-                      <div class="col-md-4">
-                        <label>Last Name</label>
-                        <div id="textLNAME""><i class="text-red">Please input</i></div>
-                      </div>
-                    </div>
-                </div>
-                <div class="row">
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Sex</label>
-                  <div id="textSEX"><i class="text-red">Please input</i></div>
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Contact Number</label>
-                  <div id="textCONTACT"><i class="text-red">Please input</i></div>
-                </div>
-                </div>
-                </div>
-                <hr>
-                <div class="row">
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Birth Date</label>
-                  <div id="textDATEPICKER"><i class="text-red">Please input</i></div>
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Birth Place</label>
-                  <div id="textBIRTHPLACE"><i class="text-red">Please input</i></div>
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Age <small>(as of last birthday)</small></label>
-                  <div id="textAGE"><i class="text-red">Please input</i></div>
-                </div>
-                </div>
-                </div>
-                <div class="row">
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Mother Tongue</label>
-                  <div id="textMOTHERTONGUE"><i class="text-red">Please input</i></div>
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Religion</label>
-                  <div id="textRELIGION"><i class="text-red">Please input</i></div>
-                </div>
-                </div>
-                </div>
-                <hr>
-                <div class="form-group">
-                  <label>Address</label>
-                    <div id="textADDRESS"><i class="text-red">Please input</i></div>
-                </div>
-                <hr>
-                <div class="row">
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Father's Name</label>
-                  <div id="textFATHER"><i class="text-red">Please input</i></div>
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Mother's Maiden Name</label>
-                  <div id="textMOTHER"><i class="text-red">Please input</i></div>
-                </div>
-                </div>
-                </div>
-                <div class="row">
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Father's Contact No.</label>
-                  <div id="textFATHERCONTACT"><i class="text-red">Please input</i></div>
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Mother's Contact No.</label>
-                  <div id="textMOTHERCONTACT"><i class="text-red">Please input</i></div>
-                </div>
-                </div>
-                </div>
-                <div class="row">
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Guardian's Name</label>
-                  <div id="textGUARDIAN"><i class="text-red">Please input</i></div>
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Relationship</label>
-                  <div id="textRELATIONSHIP"><i class="text-red">Please input</i></div>
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Guardian's Contact No.</label>
-                  <div id="textGUARDIANCONTACT"><i class="text-red">Please input</i></div>
-                </div>
-                </div>
-                </div>
-                <hr>
-                <div class="form-group">
-                  <label>Requirements</label>
-                  <div id="textREQUIREMENTS"><i class="text-red">Please pass</i></div>
-                </div>
-              </div>
-              <!-- /.box-body -->
-              <div class="box-footer">
-                <a href="<?php echo site_url('enrollment/enrollstudent/strands') ?>">
-                <button type="button" class="btn btn-primary pull-right">Submit</button>
-                </a>
-              </div>
+      <div class="row">
+
+        <div class="col-md-6">
+          <div class="small-box bg-green" data-toggle="modal" data-target="#stem" style="cursor: pointer;">
+            <div class="inner">
+              <h3>STEM</h3>
+
+              <p>Science, Technology,<br> Engineering, and Mathematics</p>
             </div>
-            <!-- /.box-header -->
+            <div class="icon">
+              <i class="fa fa-flask"></i>
+            </div>
+            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
           </div>
-          <!-- /.box -->
         </div>
-        <!-- /.col-md-6 --> 
+        <!-- ./col -->
+
+        <div class="col-md-6">
+          <div class="small-box bg-maroon" data-toggle="modal" data-target="#gas" style="cursor: pointer;">
+            <div class="inner">
+              <h3>GAS</h3>
+
+              <p>General<br>Academic Strand</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-book"></i>
+            </div>
+            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+
       </div>
       <!-- /.row -->
+
+      <div class="row">
+
+        <div class="col-md-6">
+          <div class="small-box bg-yellow" data-toggle="modal" data-target="#humss" style="cursor: pointer;">
+            <div class="inner">
+              <h3>HUMSS</h3>
+
+              <p>Humanities<br>and Social Sciences</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-users"></i>
+            </div>
+            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+
+        <div class="col-md-6">
+          <div class="small-box bg-purple" data-toggle="modal" data-target="#abm" style="cursor: pointer;">
+            <div class="inner">
+              <h3>ABM</h3>
+
+              <p>Accountancy<br>and Business Management</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-briefcase"></i>
+            </div>
+            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+
+      </div>
+      <!-- /.row -->
+
+      <div class="row">
+
+        <div class="col-md-6">
+          <div class="small-box bg-blue" data-toggle="modal" data-target="#tvlhe" style="cursor: pointer;">
+            <div class="inner">
+              <h3>TVL-HE</h3>
+
+              <p>Technology-Vocational<br>Livelihood: Home Economics</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-home"></i>
+            </div>
+            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+
+        <div class="col-md-6">
+          <div class="small-box bg-navy" data-toggle="modal" data-target="#tvla" style="cursor: pointer;">
+            <div class="inner">
+              <h3>TVL-AS</h3>
+
+              <p>Technogy-Vocational<br>Livelihood: Automotive Services</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-cogs"></i>
+            </div>
+            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+
+      </div>
+      <!-- /.row -->
+      </div>
+      <!-- /.col-md-8 -->
+      </div>
+      <!-- /.row -->
+
+      <div class="modal fade" id="stem">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-green">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Are you sure?</h4>
+            </div>
+            <div class="modal-body">
+              <div class="box-body">
+                <p>This action cannot be changed once the profile is sent to the database of the selected strand (STEM).</p>
+                <br>
+                <center>
+                  <a href="<?php echo site_url('enrollment/enroll_student/enrolled') ?>">
+                  <button type="button" class="btn bg-green" data-toggle="modal" data-target="#stem" style="width: 60%; height: 50px;">Enroll to STEM</button>
+                  </a>
+                </center>
+              </div>
+              <!-- /.box-body -->
+            </div>
+            <!-- /.modal-body -->
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+
+      <div class="modal fade" id="gas">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-maroon">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Are you sure?</h4>
+            </div>
+            <div class="modal-body">
+              <div class="box-body">
+                <p>This action cannot be changed once the profile is sent to the database of the selected strand (GAS).</p>
+                <br>
+                <center>
+                  <a href="<?php echo site_url('enrollment/enroll_student/enrolled') ?>">
+                  <button type="button" class="btn bg-maroon" data-toggle="modal" data-target="#stem" style="width: 60%; height: 50px;">Enroll to GAS</button>
+                  </a>
+                </center>
+              </div>
+              <!-- /.box-body -->
+            </div>
+            <!-- /.modal-body -->
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+
+      <div class="modal fade" id="humss">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-yellow">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Are you sure?</h4>
+            </div>
+            <div class="modal-body">
+              <div class="box-body">
+                <p>This action cannot be changed once the profile is sent to the database of the selected strand (HUMSS).</p>
+                <br>
+                <center>
+                  <a href="<?php echo site_url('enrollment/enroll_student/enrolled') ?>">
+                  <button type="button" class="btn bg-yellow" data-toggle="modal" data-target="#stem" style="width: 60%; height: 50px;">Enroll to HUMSS</button>
+                  </a>
+                </center>
+              </div>
+              <!-- /.box-body -->
+            </div>
+            <!-- /.modal-body -->
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+
+      <div class="modal fade" id="abm">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-purple">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Are you sure?</h4>
+            </div>
+            <div class="modal-body">
+              <div class="box-body">
+                <p>This action cannot be changed once the profile is sent to the database of the selected strand (ABM).</p>
+                <br>
+                <center>
+                  <a href="<?php echo site_url('enrollment/enroll_student/enrolled') ?>">
+                  <button type="button" class="btn bg-purple" data-toggle="modal" data-target="#stem" style="width: 60%; height: 50px;">Enroll to ABM</button>
+                  </a>
+                </center>
+              </div>
+              <!-- /.box-body -->
+            </div>
+            <!-- /.modal-body -->
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+
+      <div class="modal fade" id="tvlhe">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-blue">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Are you sure?</h4>
+            </div>
+            <div class="modal-body">
+              <div class="box-body">
+                <p>This action cannot be changed once the profile is sent to the database of the selected strand (TVL-HE).</p>
+                <br>
+                <center>
+                  <a href="<?php echo site_url('enrollment/enroll_student/enrolled') ?>">
+                  <button type="button" class="btn bg-blue" data-toggle="modal" data-target="#stem" style="width: 60%; height: 50px;">Enroll to TVL-HE</button>
+                  </a>
+                </center>
+              </div>
+              <!-- /.box-body -->
+            </div>
+            <!-- /.modal-body -->
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+
+      <div class="modal fade" id="tvla">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-navy">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Are you sure?</h4>
+            </div>
+            <div class="modal-body">
+              <div class="box-body">
+                <p>This action cannot be changed once the profile is sent to the database of the selected strand (TVL-Automative).</p>
+                <br>
+                <center>
+                  <a href="<?php echo site_url('enrollment/enroll_student/enrolled') ?>">
+                  <button type="button" class="btn bg-navy" data-toggle="modal" data-target="#stem" style="width: 60%; height: 50px;">Enroll to TVL-Automative</button>
+                  </a>
+                </center>
+              </div>
+              <!-- /.box-body -->
+            </div>
+            <!-- /.modal-body -->
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+
+
     </section>
     <!-- /.content -->
   </div>
@@ -654,13 +681,15 @@
 
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 1.0.0
+      <b>Version</b> 2.4.0
     </div>
-    <strong>Copyright &copy; 2017-2018 <a href="https://adminlte.io">Araullo School Management System</a>.</strong> All rights
+    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
     reserved.
   </footer>
 
-
+  <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
 
@@ -668,16 +697,12 @@
 <script src="<?php echo base_url(); ?>bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo base_url(); ?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- Select2 -->
-<script src="<?php echo base_url(); ?>bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
-<!-- js ni adrii -->
-<script src="<?php echo base_url(); ?>js/forminput.js"></script>
 <!-- bootstrap datepicker -->
 <script src="<?php echo base_url(); ?>bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <!-- InputMask -->
@@ -690,10 +715,6 @@
     $('#datepicker').datepicker({
       autoclose: true
     })
-</script>
-<script type="text/javascript">
-  //Initialize Select2 Elements
-    $('.select2').select2()
 </script>
 
 </body>

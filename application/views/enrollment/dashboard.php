@@ -274,7 +274,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </a>
             </li>
             <li>
-              <a href="<?php echo site_url('enrollment/enrollstudent'); ?>">
+              <a href="<?php echo site_url('enrollment/enroll_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   Enroll Student
               </a>

@@ -22,6 +22,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/skins/_all-skins.css">
+  <!-- Loading -->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/loading.css">
   <!-- Morris chart -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/morris.js/morris.css">
   <!-- jvectormap -->
@@ -47,6 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
+<div hidden class="loading">Loading&#8230;</div>
 
   <header class="main-header">
     <!-- Logo -->
@@ -276,7 +279,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </a>
             </li>
             <li>
-              <a href="<?php echo site_url('enrollment/enrollstudent'); ?>">
+              <a href="<?php echo site_url('enrollment/enroll_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   Enroll Student
               </a>

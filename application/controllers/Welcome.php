@@ -74,6 +74,11 @@ class Welcome extends CI_Controller {
 		$this->load->view('pages/charts/inline');
 	}
 
+	public function loading()
+	{
+		$this->load->view('enrollment/loading');
+	}
+
 	public function por()
 	{
 		$this->load->view('pages/examples/404');

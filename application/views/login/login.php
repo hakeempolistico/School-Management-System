@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/Ionicons/css/ionicons.min.css">
+  <!-- Loading -->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/loading.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/AdminLTE.css">
   <!-- iCheck -->
@@ -28,6 +30,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition login-page">
+<div hidden class="loading">Loading&#8230;</div>
 <div class="login-box">
   <div class="login-logo">
     <a href="<?php echo site_url('welcome/index2') ?>"><b>Araullo</b>High School</a>
