@@ -424,8 +424,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- ./col -->
       </div>
       <!-- /.row -->
+
+      <!--container ng mga ic-click na box-->
+      <div class="row">
+      <div class="col-xs-12">
+          <div id="container">
+            <div class="alert bg-gray" style="height: 234px;">
+                <div>
+                <center>
+                <i class="icon fa fa-exclamation-triangle fa-4x" style="margin-top: 25px;"></i>
+                <h3>No table selected!</h3>
+                <h4> Please choose from the above tables to view data</h4>
+                </center>
+                </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
       <!-- BOX OF STEM-->
-          <div class="box" id="stem_box">
+          <div class="box box-success" id="stem_box">
             <div class="box-header">
               <h3 class="box-title">STEM</h3>
             </div>
@@ -576,11 +594,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="box-body">
               <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
-                  <li class="active"><a href="#tab_1" data-toggle="tab">Student List</a></li>
-                  <li> <a href="#tab_2" data-toggle="tab">Section</a></li>
+                  <li class="active"><a href="#gas_student_tab" data-toggle="tab">Student List</a></li>
+                  <li> <a href="#gas_section_tab" data-toggle="tab">Section</a></li>
                 </ul>
                 <div class="tab-content">
-                  <div class="tab-pane active" id="tab_1">  
+                  <div class="tab-pane active" id="gas_student_tab">  
                     <table id="example1" class="table table-bordered table-striped">
                       <thead>
                         <tr>
@@ -660,13 +678,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       </tbody>
                     </table>
                     <hr style="margin-bottom: 10px;">
-                      <a href="#tab_2" data-toggle="tab">
+                      <a href="#gas_section_tab" data-toggle="tab">
                       <button type="button" class="btn btn-default" style="width: 15%;">Add</button></a>
                       <button type="button" class="btn btn-default" style="width: 15%;">Transfer</button>
                   </div>
                   <!-- /.end student tab-->
 
-                  <div class="tab-pane" id="tab_2">  
+                  <div class="tab-pane" id="gas_section_tab">  
                     <table id="example2" class="table table-bordered table-striped">
                       <thead>
                         <tr>
@@ -698,7 +716,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       </tbody>                      
                     </table>
                       <hr style="margin-bottom: 10px;">
-                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" style="width: 15%;">Save</button>                      
+                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#gas_modal" style="width: 15%;">Save</button>                      
                   </div>
                   <!--end section_tab-->
                 </div>
@@ -711,13 +729,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!--/.box (box ng GAS)-->    
           
                 <!--modal start-->
-                <div class="modal fade" id="modal-default">
+                <div class="modal fade" id="gas_modal">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header bg-green">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">ADD TO <b>STEM-1</b></h4>
+                        <h4 class="modal-title">ADD TO <b>GAS-1</b></h4>
                       </div>
                       <div class="modal-body">
                         <div class="box-body table-responsive no-padding">
