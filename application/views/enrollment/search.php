@@ -339,11 +339,11 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Rendering engine</th>
-                  <th>Browser</th>
-                  <th>Platform(s)</th>
-                  <th>Engine version</th>
-                  <th>CSS grade</th>
+                  <th>LRN</th>
+                  <th>Name</th>
+                  <th>Strand</th>
+                  <th>Reference Number</th>
+                  <th>Gen Ave</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -757,11 +757,11 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>Rendering engine</th>
-                  <th>Browser</th>
-                  <th>Platform(s)</th>
-                  <th>Engine version</th>
-                  <th>CSS grade</th>
+                  <th>LRN</th>
+                  <th>Name</th>
+                  <th>Strand</th>
+                  <th>Reference Number</th>
+                  <th>Gen Ave</th>
                 </tr>
                 </tfoot>
               </table>
