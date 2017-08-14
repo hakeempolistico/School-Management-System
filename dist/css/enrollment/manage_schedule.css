@@ -1,0 +1,22 @@
+.table-schedule{
+	table-layout: fixed;	
+}
+.tr-height{
+	height: 25px;
+}
+#td-padding{
+	padding: 0px;
+}
+.object{
+	padding: 8px; text-align: center; font-weight: bold; margin: 0px;
+}
+.close-button{
+	font-size: 13px; color: black;
+}
+.selectedRow{
+	background:#f6f6f6;
+}
+
+@media print { 
+    html, body { overflow:hidden !important; }
+}

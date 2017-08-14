@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/skins/_all-skins.css">
   <!-- bootstrap datepicker -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
 
@@ -365,7 +365,7 @@
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="<?php echo site_url('enrollment/manage_schedule'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   Manage Schedule
               </a>
@@ -409,9 +409,9 @@
       <!-- Default box -->
       <div class="row" style="margin-top: 20px;">
             <div class="col-md-4">
-              <div class="alert alert-warning" style="padding: 25px 50px 20px 30px;">
+              <div class="alert alert-warning" style="height: 382px; padding: 25px 50px 20px 30px;">
                 <h4><i class="icon fa fa-check"></i> Remember!</h4>
-                <ul style="font-size: 16px; line-height: 2.4em;">
+                <ul style="font-size: 16px;">
                   <li>Don't be distracted by your surroundings</li>
                   <li>Make sure you input the correct data!</li>
                   <li>Explain thoroughly the process of enrollment to the applicant</li>
@@ -496,7 +496,7 @@
                   <li>Select desired strand</li>
                   <li>Sumbit requirements</li>
                   <li>Finish Enrollment</li>
-                  <a href="#">
+                  <a href="<?php echo site_url('enrollment/enrollstudent/search') ?>">
                   <button type="button" class="btn pull-right" style="background-color: rgba(0,0,0,0.25); color: white; margin-top: 10px;">Proceed</button>
                   </a>
                 </ol>

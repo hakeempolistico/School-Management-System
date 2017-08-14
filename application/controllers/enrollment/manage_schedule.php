@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class enrollstudent extends CI_Controller {
+class manage_schedule extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -21,27 +21,7 @@ class enrollstudent extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('enrollment/picking');
-	}
-
-	public function enroll()
-	{
-		$this->load->view('enrollment/enrollstudent');
-	}
-
-	public function strands()
-	{
-		$this->load->view('enrollment/strandselection');
-	}
-
-	public function enrolled()
-	{
-		$this->load->view('enrollment/enrolled');
-	}
-
-	public function search()
-	{
-		$this->load->view('enrollment/search');
+		$this->load->view('enrollment/manage_schedule');
 	}
 
 }

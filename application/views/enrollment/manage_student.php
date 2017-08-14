@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | View Data</title>
+  <title>AdminLTE 2 | Manage Student</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -19,19 +19,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/skins/_all-skins.min.css">
-  <!-- Morris chart -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/morris.js/morris.css">
-  <!-- jvectormap -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/jvectormap/jquery-jvectormap.css">
-  <!-- Date Picker -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
-  <!-- Daterange picker -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/bootstrap-daterangepicker/daterangepicker.css">
-  <!-- bootstrap wysihtml5 - text editor -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/skins/_all-skins.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <!-- iCheck for checkboxes and radio inputs -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/iCheck/all.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -182,84 +174,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <li class="footer"><a href="#">View all</a></li>
             </ul>
           </li>
-          <!-- Tasks: style can be found in dropdown.less -->
-          <li class="dropdown tasks-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-flag-o"></i>
-              <span class="label label-danger">9</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 9 tasks</li>
-              <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                  <li><!-- Task item -->
-                    <a href="#">
-                      <h3>
-                        Design some buttons
-                        <small class="pull-right">20%</small>
-                      </h3>
-                      <div class="progress xs">
-                        <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar"
-                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                          <span class="sr-only">20% Complete</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <!-- end task item -->
-                  <li><!-- Task item -->
-                    <a href="#">
-                      <h3>
-                        Create a nice theme
-                        <small class="pull-right">40%</small>
-                      </h3>
-                      <div class="progress xs">
-                        <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar"
-                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                          <span class="sr-only">40% Complete</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <!-- end task item -->
-                  <li><!-- Task item -->
-                    <a href="#">
-                      <h3>
-                        Some task I need to do
-                        <small class="pull-right">60%</small>
-                      </h3>
-                      <div class="progress xs">
-                        <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar"
-                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                          <span class="sr-only">60% Complete</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <!-- end task item -->
-                  <li><!-- Task item -->
-                    <a href="#">
-                      <h3>
-                        Make beautiful transitions
-                        <small class="pull-right">80%</small>
-                      </h3>
-                      <div class="progress xs">
-                        <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar"
-                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                          <span class="sr-only">80% Complete</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <!-- end task item -->
-                </ul>
-              </li>
-              <li class="footer">
-                <a href="#">View all tasks</a>
-              </li>
-            </ul>
-          </li>
+         
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -303,9 +218,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </ul>
           </li>
           <!-- Control Sidebar Toggle Button -->
-          <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-          </li>
         </ul>
       </div>
     </nav>
@@ -371,14 +283,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   Enroll Student
               </a>
             </li>
-            <li class="active">
+            <li  class="active">
               <a href="<?php echo site_url('enrollment/manage_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   Manage Student
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="<?php echo site_url('enrollment/manage_schedule'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   Manage Schedule
               </a>
@@ -388,16 +300,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       
         
         <li class="header">LABELS</li>
-        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="padding-bottom: 200px;">
+  <div class="content-wrapper">
     <div class="alert bg-red alert-dismissible flat">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <h4><i class="icon fa fa-bullhorn"></i> Danger!</h4>
@@ -417,136 +326,81 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <!-- Main content -->
     <section class="content">
-      
+
       <div class="row">
-        <div class="col-lg-4 col-xs-4">
-          <!-- small box -->
-          <div class="small-box bg-green" id="stem_list" style="cursor: pointer;">
-            <div class="inner">
-              <h3>STEM</h3>
+        <div class="col-md-12">
 
-              <p>Science, Technology,<br> Engineering, and Mathematics</p>
+
+          <div class="box">
+            <div class="box-header with-border">
+              <h3 class="box-title"><b>Strands</b></h3>
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                  <i class="fa fa-minus"></i></button>
+              </div>          
             </div>
-            <div class="icon">
-              <i class="fa fa-flask"></i>
+
+            <div class="box-body">
+              <div class="box-body table-responsive no-padding with-border">
+                <table class="table table-hover">
+                  <tr>
+                    <th>ID</th>
+                    <th>Strand</th>
+                    <th>Description</th>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>STEM</td>
+                    <td>Science, Technology, Engineering and Mathematics</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>GAS</td>
+                    <td>General Academic Strand</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>ABM</td>
+                    <td>Accountancy, Business and Management</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>HUMSS</td>
+                    <td>Humanities and Social Sciences </td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>TVL-COOKERY</td>
+                    <td>Technical, Vocational and Livelihood</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>TVL-AUTOMOTIVE</td>
+                    <td>Technical, Vocational and Livelihood</td>
+                  </tr>
+                </table>
+              </div>
             </div>
-            <a href="#" class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></a>
+            <!-- /.box body-->
           </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-4 col-xs-4">
-          <!-- small box -->
-          <div class="small-box bg-maroon" id="gas_list" style="cursor: pointer;">
-            <div class="inner">
-              <h3>GAS</h3>
+          <!-- /.first box-->
 
-              <p>General<br>Academic Strand</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-book"></i>
-            </div>
-            <a href="#" class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-4 col-xs-4">
-          <!-- small box -->
-          <div class="small-box bg-yellow" id="humss_list" style="cursor: pointer;">
-            <div class="inner">
-              <h3>HUMSS</h3>
+          
 
-              <p>Humanities<br>and Social Sciences</p>
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">STEM</h3>
             </div>
-            <div class="icon">
-              <i class="fa fa-users"></i>
-            </div>
-            <a href="#" class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-      </div>
-      <div class="row">
-        <div class="col-lg-4 col-xs-4">
-          <!-- small box -->
-          <div class="small-box bg-purple" id="abm_list" style="cursor: pointer;">
-            <div class="inner">
-              <h3>ABM</h3>
-
-              <p>Accountancy<br>and Business Management</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-briefcase"></i>
-            </div>
-            <a href="#" class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-xs-4">
-          <!-- small box -->
-          <div class="small-box bg-blue" id="tvlhe_list" style="cursor: pointer;">
-            <div class="inner">
-              <h3>TVL-HE</h3>
-
-              <p>Technology-Vocational<br>Livelihood: Home Economics</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-home"></i>
-            </div>
-            <a href="#" class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-navy" id="tvlas-list" style="cursor: pointer;">
-            <div class="inner">
-              <h3>TVL-AS</h3>
-
-              <p>Technogy-Vocational<br>Livelihood: Automotive Services</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-cogs"></i>
-            </div>
-            <a href="#" class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-      </div>
-      <!-- /.row -->
-
-    <div class="row">
-      <div class="col-xs-12">
-          <div id="lapa">
-            <div class="alert bg-gray" style="height: 234px;">
-                <div>
-                <center>
-                <i class="icon fa fa-exclamation-triangle fa-4x" style="margin-top: 25px;"></i>
-                <h3>No table selected!</h3>
-                <h4> Please choose from the above tables to view data</h4>
-                </center>
-                </div>
-            </div>
-          </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-xs-12">
-        <div hidden id = "box" class="box">
-          <div class="box-header">
-            <h3 class="box-title" id="tableTitle">STEM</h3>
-          </div>
-          <!-- /.box-header -->
-    
-          <div class="box-body">
-            <div class="nav-tabs-custom">
-              <ul class="nav nav-tabs">
-                <li class="active"><a href="#tab_1" data-toggle="tab">Student List</a></li>
-                <li> <a href="#tab_2" data-toggle="tab">Section</a></li>
-              </ul>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                  <li class="active"><a href="#tab_1" data-toggle="tab">Student List</a></li>
+                  <li> <a href="#tab_2" data-toggle="tab">Section</a></li>
+                </ul>
                 <div class="tab-content">
-                  <div class="tab-pane active" id="tab_1">
-                    <table id="studentTable" class="table table-bordered table-hover">
+                  <div class="tab-pane active" id="tab_1">  
+                    <table id="example1" class="table table-bordered table-striped">
                       <thead>
                         <tr>
                           <th><input type="checkbox" class="minimal check" id="checkAll"></th>
@@ -558,29 +412,80 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </tr>
                       </thead>
                       <tbody>
-                        <tr id="record">
+                        <tr>
                           <td><input type="checkbox" class="check"></td>
                           <td>1.</td>
                           <td>000000000008</td>
                           <td>Escaro, Adrielle Kristine Nicolette</td>
                           <td>Female</td>
-                          <td>STEM-2</td>                
+                          <td>STEM-2</td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>2.</td>
+                          <td>000000000007</td>
+                          <td>Polistico, Hakeem</td>
+                          <td>Male</td>
+                          <td>STEM-1</td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>3.</td>
+                          <td>000000000009</td>
+                          <td>Salva, Jasver Anlouise</td>
+                          <td>Female</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>4.</td>
+                          <td>000000000010</td>
+                          <td>Morales, Shiela May</td>
+                          <td>Female</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>5.</td>
+                          <td>000000000021</td>
+                          <td>Zulueta, Shanai Hazel</td>
+                          <td>Female</td>
+                          <td>STEM-3</td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>6.</td>
+                          <td>000000000005</td>
+                          <td>Francia, Jan Diether</td>
+                          <td>Male</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>7.</td>
+                          <td>000000000001</td>
+                          <td>Terrobias, Marc Inzon</td>
+                          <td>Male</td>
+                          <td>STEM-3</td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>8.</td>
+                          <td>000000000003</td>
+                          <td>Alcantara, Aaron James</td>
+                          <td>Male</td>
+                          <td></td>
                         </tr>
                       </tbody>
                     </table>
-
                     <hr style="margin-bottom: 10px;">
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" style="width: 15%;">
-                    Add
-                    </button>
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" style="width: 15%;">
-                    Transfer
-                    </button>
-
+                      <button type="button" class="btn btn-default" style="width: 15%;">Add</button>
+                      <button type="button" class="btn btn-default" style="width: 15%;">Transfer</button>
                   </div>
-                  <!-- /.tab-pane -->
+                  <!-- /.end student tab-->
+
                   <div class="tab-pane" id="tab_2">  
-                    <table id="sectionTable" class="table table-bordered table-striped">
+                    <table id="example2" class="table table-bordered table-striped">
                       <thead>
                         <tr>
                           <th>#</th>
@@ -590,265 +495,108 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </tr>
                       </thead>
                       <tbody>
-                        <tr id="record2">
+                        <tr>
                           <td>1.</td>
                           <td>STEM-1</td>
                           <td>31/40</td>
                           <td><span class="label label-success">Open</span></td>
                         </tr>
+                        <tr>
+                          <td>2.</td>
+                          <td>STEM-2</td>
+                          <td>40/40</td>
+                          <td><span class="label label-danger">Closed</span></td>
+                        </tr>
+                        <tr>
+                          <td>3.</td>
+                          <td>STEM-3</td>
+                          <td>0/40</td>
+                          <td><span class="label label-success">Open</span></td>
+                        </tr>
                       </tbody>                      
                     </table>
-
-                    <hr style="margin-bottom: 10px;">
-                    <button type="button" class="btn btn-default" style="width: 15%;">Save</button>   
-
+                      <hr style="margin-bottom: 10px;">
+                      <button type="button" class="btn btn-default" style="width: 15%;">Save</button>                      
                   </div>
-                  <!-- /.tab-pane -->
+                  <!--end section_tab-->
                 </div>
-                <!-- /.tab-content -->
+                <!-- /. end tab contents-->
+              </div>
+              <!-- /.nav-tabs-custom-->
             </div>
-            <!-- /.nav-tabs-custom -->
+            <!-- /.box-body -->
           </div>
-          <!-- /.box-body -->
-        </div>
-        <!-- /.box -->
+          <!--/.box (box ng STEM)-->    
+          
+                <!--modal start-->
+                <div class="modal fade" id="modal-default">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header bg-green">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">ADD TO <b>STEM-1</b></h4>
+                      </div>
+                      <div class="modal-body">
+                        <div class="box-body table-responsive no-padding">
+                          <table class="table">
+                            <tr>
+                              <th>#</th>
+                              <th>LRN</th>
+                              <th>Full Name</th>
+                              <th>Sex</th>
+                              
+                            </tr>
+                            <tr>
+                              <td>1.</td>
+                              <td>00000000008</td>
+                              <td>Escaro, Adrielle Kristine Nicolette</td>
+                              <td>Female</td>
+                              
+                            </tr>
+                            <tr>
+                              <td>2.</td>
+                              <td>00000000009</td>
+                              <td>Polistico, Hakeem</td>
+                              <td>Male</td>
+                              
+                            </tr>  
+                            <tr>
+                              <td>3.</td>
+                              <td>00000000007</td>
+                              <td>Salva, Jasver Anlouise</td>
+                              <td>Female</td>
+                              
+                            </tr>                
+                          </table>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success">Confirm</button>
+                      </div>
+                    </div>   
+                  </div>
+                </div>
+                <!--end of modal-->
+        <!-- right col -->
       </div>
-      <!-- /.col -->
-    </div>
-    <!-- /.row -->
+      <!-- /.row (main row) -->
     </section>
     <!-- /.content -->
-    <div class="modal fade" id="modal-default">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Add Students</h4>
-              </div>
-              <div class="modal-body">
-                <p>One fine body</p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Confirm</button>
-              </div>
-            </div>
-            <!-- /.modal-content -->
-          </div>
-          <!-- /.modal-dialog -->
-        </div>
-        <!-- /.modal -->
   </div>
   <!-- /.content-wrapper -->
-  <!-- /.pag nawala to masisira footer -->
 
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 2.4.0
+      <b>Version</b> 1.0.0
     </div>
-    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
+    <strong>Copyright &copy; 2017-2018 <a href="https://adminlte.io">Araullo School Management System</a>.</strong> All rights
     reserved.
   </footer>
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Create the tabs -->
-    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-      <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-      <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-    </ul>
-    <!-- Tab panes -->
-    <div class="tab-content">
-      <!-- Home tab content -->
-      <div class="tab-pane" id="control-sidebar-home-tab">
-        <h3 class="control-sidebar-heading">Recent Activity</h3>
-        <ul class="control-sidebar-menu">
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
-                <p>Will be 23 on April 24th</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-user bg-yellow"></i>
-
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
-
-                <p>New phone +1(800)555-1234</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
-
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
-
-                <p>nora@example.com</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-file-code-o bg-green"></i>
-
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
-
-                <p>Execution time 5 seconds</p>
-              </div>
-            </a>
-          </li>
-        </ul>
-        <!-- /.control-sidebar-menu -->
-
-        <h3 class="control-sidebar-heading">Tasks Progress</h3>
-        <ul class="control-sidebar-menu">
-          <li>
-            <a href="javascript:void(0)">
-              <h4 class="control-sidebar-subheading">
-                Custom Template Design
-                <span class="label label-danger pull-right">70%</span>
-              </h4>
-
-              <div class="progress progress-xxs">
-                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <h4 class="control-sidebar-subheading">
-                Update Resume
-                <span class="label label-success pull-right">95%</span>
-              </h4>
-
-              <div class="progress progress-xxs">
-                <div class="progress-bar progress-bar-success" style="width: 95%"></div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <h4 class="control-sidebar-subheading">
-                Laravel Integration
-                <span class="label label-warning pull-right">50%</span>
-              </h4>
-
-              <div class="progress progress-xxs">
-                <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <h4 class="control-sidebar-subheading">
-                Back End Framework
-                <span class="label label-primary pull-right">68%</span>
-              </h4>
-
-              <div class="progress progress-xxs">
-                <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
-              </div>
-            </a>
-          </li>
-        </ul>
-        <!-- /.control-sidebar-menu -->
-
-      </div>
-      <!-- /.tab-pane -->
-      <!-- Stats tab content -->
-      <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-      <!-- /.tab-pane -->
-      <!-- Settings tab content -->
-      <div class="tab-pane" id="control-sidebar-settings-tab">
-        <form method="post">
-          <h3 class="control-sidebar-heading">General Settings</h3>
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Report panel usage
-              <input type="checkbox" class="pull-right" checked>
-            </label>
-
-            <p>
-              Some information about this general settings option
-            </p>
-          </div>
-          <!-- /.form-group -->
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Allow mail redirect
-              <input type="checkbox" class="pull-right" checked>
-            </label>
-
-            <p>
-              Other sets of options are available
-            </p>
-          </div>
-          <!-- /.form-group -->
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Expose author name in posts
-              <input type="checkbox" class="pull-right" checked>
-            </label>
-
-            <p>
-              Allow the user to show his name in blog posts
-            </p>
-          </div>
-          <!-- /.form-group -->
-
-          <h3 class="control-sidebar-heading">Chat Settings</h3>
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Show me as online
-              <input type="checkbox" class="pull-right" checked>
-            </label>
-          </div>
-          <!-- /.form-group -->
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Turn off notifications
-              <input type="checkbox" class="pull-right">
-            </label>
-          </div>
-          <!-- /.form-group -->
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Delete chat history
-              <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
-            </label>
-          </div>
-          <!-- /.form-group -->
-        </form>
-      </div>
-      <!-- /.tab-pane -->
-    </div>
-  </aside>
-  <!-- /.control-sidebar -->
-  <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
-  <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
-
-
-
 
 <script src="<?php echo base_url(); ?>bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
@@ -861,136 +609,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
+
 <!-- DataTables -->
 <script src="<?php echo base_url(); ?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<!-- page script -->
+
+<!-- iCheck 1.0.1 -->
+<script src="<?php echo base_url(); ?>plugins/iCheck/icheck.js"></script>
+
 <script>
-
-  var arrofobject = [{"No":"1","lrn":"14-038-027","FullName":"Adrii Escaro", "Sex":"Female", "Section": "STEM-69"}];
-  var arrofobject2 = [{"No":"2","lrn":"14-038-014","FullName":"Hakeem Polistico", "Sex":"Male", "Section": "STEM-68"}];
-  var arrofobject3 = [{"No":"3","lrn":"14-038-089","FullName":"Jasver Salva", "Sex":"Female", "Section": "STEM-67"}];
-  var arrofobject4 = [{"No":"4","lrn":"14-038-069","FullName":"Marc Terrobias", "Sex":"Male", "Section": "STEM-66"}]; //JSON
-
-  $(document).ready(function(){ 
-    
-    function changeTable(){
-      $('table').DataTable().destroy();
-      $('#box').removeAttr('hidden'); 
-      $('table th').remove(); 
-      $('#record').remove();
-      $('#record2').remove();
-      $('#lapa').remove();
-    };
-    $("#stem_list").click(function(){ 
-      changeTable();
-      $('#tableTitle').text('List of Students in STEM');
-      $('thead tr').append( $('<th />', {text : '#'}) );
-      $('thead tr').append( $('<th />', {text : 'LRN'}) );
-      $('thead tr').append( $('<th />', {text : 'Full Name'}) ); 
-      $('thead tr').append( $('<th />', {text : 'Sex'}) ); 
-      $('thead tr').append( $('<th />', {text : 'Section'}) ); 
-
-      $.each(arrofobject, function(index, val) {
-        $('tbody').append('<tr id="record"><td>'+val.No+'</td><td>'+val.lrn+'</td><td>'+val.FullName+'</td> <td>'+val.Sex+'</td><td>'+val.Section+'</td></div> </tr>');
-        });
-
-
-     $('table').DataTable();
-    });
-
-    
-    $("#gas_list").click(function(){ 
-      changeTable();
-      $('#tableTitle').text('List of Students in GAS');
-      $('thead tr').append( $('<th />', {text : '#'}) );
-      $('thead tr').append( $('<th />', {text : 'LRN'}) );
-      $('thead tr').append( $('<th />', {text : 'Full Name'}) ); 
-      $('thead tr').append( $('<th />', {text : 'Sex'}) ); 
-      $('thead tr').append( $('<th />', {text : 'Section'}) ); 
-
-      $.each(arrofobject2, function(index, val) {
-        $('tbody').append('<tr id="record"><td>'+val.No+'</td><td>'+val.lrn+'</td><td>'+val.FullName+'</td> <td>'+val.Sex+'</td><td>'+val.Section+'</td></div> </tr>');
-        });
-
-
-     $('table').DataTable();
-    });
-    
-    $("#humss_list").click(function(){ 
-      changeTable();
-      $('#tableTitle').text('List of Students in HUMSS');
-      $('thead tr').append( $('<th />', {text : '#'}) );
-      $('thead tr').append( $('<th />', {text : 'LRN'}) );
-      $('thead tr').append( $('<th />', {text : 'Full Name'}) ); 
-      $('thead tr').append( $('<th />', {text : 'Sex'}) ); 
-      $('thead tr').append( $('<th />', {text : 'Section'}) ); 
-
-      $.each(arrofobject3, function(index, val) {
-        $('tbody').append('<tr id="record"><td>'+val.No+'</td><td>'+val.lrn+'</td><td>'+val.FullName+'</td> <td>'+val.Sex+'</td><td>'+val.Section+'</td></div> </tr>');
-        });
-
-
-     $('table').DataTable();
-    });
-    
-    $("#abm_list").click(function(){ 
-      changeTable();
-      $('#tableTitle').text('List of Students in ABM');
-      $('thead tr').append( $('<th />', {text : '#'}) );
-      $('thead tr').append( $('<th />', {text : 'LRN'}) );
-      $('thead tr').append( $('<th />', {text : 'Full Name'}) ); 
-      $('thead tr').append( $('<th />', {text : 'Sex'}) ); 
-      $('thead tr').append( $('<th />', {text : 'Section'}) ); 
-
-      $.each(arrofobject4, function(index, val) {
-        $('tbody').append('<tr id="record"><td>'+val.No+'</td><td>'+val.lrn+'</td><td>'+val.FullName+'</td> <td>'+val.Sex+'</td><td>'+val.Section+'</td></div> </tr>');
-        });
-
-
-     $('table').DataTable();
-    });
-
-    $("#tvlhe_list").click(function(){ 
-      changeTable();
-      $('#tableTitle').text('List of Students in TVL-HE');
-      $('thead tr').append( $('<th />', {text : '#'}) );
-      $('thead tr').append( $('<th />', {text : 'LRN'}) );
-      $('thead tr').append( $('<th />', {text : 'Full Name'}) ); 
-      $('thead tr').append( $('<th />', {text : 'Sex'}) ); 
-      $('thead tr').append( $('<th />', {text : 'Section'}) ); 
-
-      $.each(arrofobject2, function(index, val) {
-        $('tbody').append('<tr id="record"><td>'+val.No+'</td><td>'+val.lrn+'</td><td>'+val.FullName+'</td> <td>'+val.Sex+'</td><td>'+val.Section+'</td></div> </tr>');
-        });
-
-
-     $('table').DataTable();
-    });
-    
-    $("#tvlas-list").click(function(){ 
-      changeTable();
-      $('#tableTitle').text('List of Students in TVL-AS');
-      $('thead tr').append( $('<th />', {text : '#'}) );
-      $('thead tr').append( $('<th />', {text : 'LRN'}) );
-      $('thead tr').append( $('<th />', {text : 'Full Name'}) ); 
-      $('thead tr').append( $('<th />', {text : 'Sex'}) ); 
-      $('thead tr').append( $('<th />', {text : 'Section'}) ); 
-
-      $.each(arrofobject3, function(index, val) {
-        $('tbody').append('<tr id="record"><td>'+val.No+'</td><td>'+val.lrn+'</td><td>'+val.FullName+'</td> <td>'+val.Sex+'</td><td>'+val.Section+'</td></div> </tr>');
-        });
-
-
-     $('table').DataTable();
-    });
-    
-}); 
 $(function () {
-    $('#sectionTable').DataTable()
-    
+    $('#example1').DataTable()
+    $('#example2').DataTable()
   })
+$("#checkAll").click(function () {
+    $(".check").prop('checked', $(this).prop('checked'));
+});
+//iCheck for checkbox
+$('input.check').iCheck({
+  checkboxClass: 'icheckbox_minimal-blue'
+})
 
-</script> 
+</script>
 </body>
 </html>
