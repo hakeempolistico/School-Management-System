@@ -332,65 +332,121 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
       <div class="row">
         <div class="col-md-12">
+          <div class="row">
+        <div class="col-lg-4 col-xs-12">
+          <!-- small box -->
+          <div class="small-box bg-green" id="stem_list" style="cursor: pointer;">
+            <div class="inner">
+              <h3>STEM</h3>
 
-
-          <div class="box">
-            <div class="box-header with-border">
-              <h3 class="box-title"><b>Strands</b></h3>
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                  <i class="fa fa-minus"></i></button>
-              </div>          
+              <p>Science, Technology,<br> Engineering, and Mathematics</p>
             </div>
-
-            <div class="box-body">
-              <div class="box-body table-responsive no-padding with-border">
-                <table class="table table-hover">
-                  <tr>
-                    <th>ID</th>
-                    <th>Strand</th>
-                    <th>Description</th>
-                  </tr>
-                  <tr>
-                    <td>1</td>
-                    <td>STEM</td>
-                    <td>Science, Technology, Engineering and Mathematics</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>GAS</td>
-                    <td>General Academic Strand</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>ABM</td>
-                    <td>Accountancy, Business and Management</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>HUMSS</td>
-                    <td>Humanities and Social Sciences </td>
-                  </tr>
-                  <tr>
-                    <td>5</td>
-                    <td>TVL-COOKERY</td>
-                    <td>Technical, Vocational and Livelihood</td>
-                  </tr>
-                  <tr>
-                    <td>6</td>
-                    <td>TVL-AUTOMOTIVE</td>
-                    <td>Technical, Vocational and Livelihood</td>
-                  </tr>
-                </table>
-              </div>
+            <div class="icon">
+              <i class="fa fa-flask"></i>
             </div>
-            <!-- /.box body-->
+            <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
           </div>
-          <!-- /.first box-->
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-4 col-xs-12">
+          <!-- small box -->
+          <div class="small-box bg-maroon" id="gas_list" style="cursor: pointer;">
+            <div class="inner">
+              <h3>GAS</h3>
 
-          
+              <p>General<br>Academic Strand</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-book"></i>
+            </div>
+            <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-4 col-xs-12">
+          <!-- small box -->
+          <div class="small-box bg-yellow" id="humss_list" style="cursor: pointer;">
+            <div class="inner">
+              <h3>HUMSS</h3>
 
-          <div class="box">
+              <p>Humanities<br>and Social Sciences</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-users"></i>
+            </div>
+            <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
+          </div>
+        </div>
+        <!-- ./col -->
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-xs-12">
+          <!-- small box -->
+          <div class="small-box bg-purple" id="abm_list" style="cursor: pointer;">
+            <div class="inner">
+              <h3>ABM</h3>
+
+              <p>Accountancy<br>and Business Management</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-briefcase"></i>
+            </div>
+            <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-xs-12">
+          <!-- small box -->
+          <div class="small-box bg-blue" id="tvlhe_list" style="cursor: pointer;">
+            <div class="inner">
+              <h3>TVL-HE</h3>
+
+              <p>Technology-Vocational<br>Livelihood: Home Economics</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-home"></i>
+            </div>
+            <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-xs-12">
+          <!-- small box -->
+          <div class="small-box bg-navy" id="tvlas_list" style="cursor: pointer;">
+            <div class="inner">
+              <h3>TVL-AS</h3>
+
+              <p>Technogy-Vocational<br>Livelihood: Automotive Services</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-cogs"></i>
+            </div>
+            <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
+          </div>
+        </div>
+        <!-- ./col -->
+      </div>
+      <!-- /.row -->
+
+      <!--container ng mga ic-click na box-->
+      <div class="row">
+      <div class="col-xs-12">
+          <div id="lapa">
+            <div class="alert bg-gray" style="height: 234px;">
+                <div>
+                <center>
+                <i class="icon fa fa-exclamation-triangle fa-4x" style="margin-top: 25px;"></i>
+                <h3>No table selected!</h3>
+                <h4> Please choose from the above tables to view data</h4>
+                </center>
+                </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+      <!-- BOX OF STEM-->
+          <div class="box box-success" hidden id="stem_box">
             <div class="box-header">
               <h3 class="box-title">STEM</h3>
             </div>
@@ -406,7 +462,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <table id="example1" class="table table-bordered table-striped">
                       <thead>
                         <tr>
-                          <th><input type="checkbox" class="minimal check" id="checkAll"></th>
+                          <th><input type="checkbox" class="check" id="checkAll"></th>
                           <th>#</th>
                           <th>LRN</th>
                           <th>Full Name</th>
@@ -482,7 +538,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       </tbody>
                     </table>
                     <hr style="margin-bottom: 10px;">
-                      <button type="button" class="btn btn-default" style="width: 15%;">Add</button>
+                      <a href="#tab_2" data-toggle="tab">
+                      <button type="button" class="btn btn-default" style="width: 15%;">Add</button></a>
                       <button type="button" class="btn btn-default" style="width: 15%;">Transfer</button>
                   </div>
                   <!-- /.end student tab-->
@@ -519,7 +576,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       </tbody>                      
                     </table>
                       <hr style="margin-bottom: 10px;">
-                      <button type="button" class="btn btn-default" style="width: 15%;">Save</button>                      
+                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" style="width: 15%;">Save</button>                      
                   </div>
                   <!--end section_tab-->
                 </div>
@@ -529,7 +586,562 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <!-- /.box-body -->
           </div>
-          <!--/.box (box ng STEM)-->    
+          <!--/.box (box ng STEM)-->
+
+          <!-- BOX OF GAS START-->
+          <div class="box" hidden id="gas_box">
+            <div class="box-header">
+              <h3 class="box-title">GAS</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                  <li class="active"><a href="#gas_student_tab" data-toggle="tab">Student List</a></li>
+                  <li> <a href="#gas_section_tab" data-toggle="tab">Section</a></li>
+                </ul>
+                <div class="tab-content">
+                  <div class="tab-pane active" id="gas_student_tab">  
+                    <table id="gas_student_table" class="table table-bordered table-striped">
+                      <thead>
+                        <tr>
+                          <th><input type="checkbox" class="check" id="checkAll"></th>
+                          <th>#</th>
+                          <th>LRN</th>
+                          <th>Full Name</th>
+                          <th>Sex</th>
+                          <th>Section</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>1.</td>
+                          <td>000000000008</td>
+                          <td>Escaro, Adrielle Kristine Nicolette</td>
+                          <td>Female</td>
+                          <td>GAS-2</td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>2.</td>
+                          <td>000000000007</td>
+                          <td>Polistico, Hakeem</td>
+                          <td>Male</td>
+                          <td>GAS-1</td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>3.</td>
+                          <td>000000000009</td>
+                          <td>Salva, Jasver Anlouise</td>
+                          <td>Female</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>4.</td>
+                          <td>000000000010</td>
+                          <td>Morales, Shiela May</td>
+                          <td>Female</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>5.</td>
+                          <td>000000000021</td>
+                          <td>Zulueta, Shanai Hazel</td>
+                          <td>Female</td>
+                          <td>STEM-3</td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>6.</td>
+                          <td>000000000005</td>
+                          <td>Francia, Jan Diether</td>
+                          <td>Male</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>7.</td>
+                          <td>000000000001</td>
+                          <td>Terrobias, Marc Inzon</td>
+                          <td>Male</td>
+                          <td>STEM-3</td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>8.</td>
+                          <td>000000000003</td>
+                          <td>Alcantara, Aaron James</td>
+                          <td>Male</td>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <hr style="margin-bottom: 10px;">
+                      <a href="#gas_section_tab" data-toggle="tab">
+                      <button type="button" class="btn btn-default" style="width: 15%;">Add</button></a>
+                      <button type="button" class="btn btn-default" style="width: 15%;">Transfer</button>
+                  </div>
+                  <!-- /.end student tab-->
+
+                  <div class="tab-pane" id="gas_section_tab">  
+                    <table id="gas_section_table" class="table table-bordered table-striped">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Section Name</th>
+                          <th>Count</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1.</td>
+                          <td>GAS-1</td>
+                          <td>31/40</td>
+                          <td><span class="label label-success">Open</span></td>
+                        </tr>
+                        <tr>
+                          <td>2.</td>
+                          <td>GAS-2</td>
+                          <td>40/40</td>
+                          <td><span class="label label-danger">Closed</span></td>
+                        </tr>
+                        <tr>
+                          <td>3.</td>
+                          <td>GAS-3</td>
+                          <td>0/40</td>
+                          <td><span class="label label-success">Open</span></td>
+                        </tr>
+                      </tbody>                      
+                    </table>
+                      <hr style="margin-bottom: 10px;">
+                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#gas_modal" style="width: 15%;">Save</button>                      
+                  </div>
+                  <!--end section_tab-->
+                </div>
+                <!-- /. end tab contents-->
+              </div>
+              <!-- /.nav-tabs-custom-->
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!--/.box (box ng GAS)-->
+
+          <!-- BOX OF HUMSS start-->
+          <div class="box box-warning" hidden id="humss_box">
+            <div class="box-header">
+              <h3 class="box-title">HUMSS</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                  <li class="active"><a href="#humms_student_tab" data-toggle="tab">Student List</a></li>
+                  <li> <a href="#humss_section_tab" data-toggle="tab">Section</a></li>
+                </ul>
+                <div class="tab-content">
+                  <div class="tab-pane active" id="humms_student_tab">  
+                    <table id="humss_student_table" class="table table-bordered table-striped">
+                      <thead>
+                        <tr>
+                          <th><input type="checkbox" class="check" id="checkAll"></th>
+                          <th>#</th>
+                          <th>LRN</th>
+                          <th>Full Name</th>
+                          <th>Sex</th>
+                          <th>Section</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>1.</td>
+                          <td>000000000008</td>
+                          <td>Escaro, Adrielle Kristine Nicolette</td>
+                          <td>Female</td>
+                          <td>HUMSS-2</td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>2.</td>
+                          <td>000000000007</td>
+                          <td>Polistico, Hakeem</td>
+                          <td>Male</td>
+                          <td>HUMSS-1</td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>3.</td>
+                          <td>000000000009</td>
+                          <td>Salva, Jasver Anlouise</td>
+                          <td>Female</td>
+                          <td></td>
+                        </tr>                        
+                      </tbody>
+                    </table>
+                    <hr style="margin-bottom: 10px;">
+                      <a href="#humss_section_tab" data-toggle="tab">
+                      <button type="button" class="btn btn-default" style="width: 15%;">Add</button></a>
+                      <button type="button" class="btn btn-default" style="width: 15%;">Transfer</button>
+                  </div>
+                  <!-- /.end student tab-->
+
+                  <div class="tab-pane" id="humss_section_tab">  
+                    <table id="humss_section_table" class="table table-bordered table-striped">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Section Name</th>
+                          <th>Count</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1.</td>
+                          <td>HUMSS-1</td>
+                          <td>31/40</td>
+                          <td><span class="label label-success">Open</span></td>
+                        </tr>
+                        <tr>
+                          <td>2.</td>
+                          <td>HUMSS-2</td>
+                          <td>40/40</td>
+                          <td><span class="label label-danger">Closed</span></td>
+                        </tr>
+                        <tr>
+                          <td>3.</td>
+                          <td>HUMSS-3</td>
+                          <td>0/40</td>
+                          <td><span class="label label-success">Open</span></td>
+                        </tr>
+                      </tbody>                      
+                    </table>
+                      <hr style="margin-bottom: 10px;">
+                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" style="width: 15%;">Save</button>                      
+                  </div>
+                  <!--end section_tab-->
+                </div>
+                <!-- /. end tab contents-->
+              </div>
+              <!-- /.nav-tabs-custom-->
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!--/.box (box ng HUMSS)-->
+
+          <!-- BOX OF ABM start-->
+          <div class="box box-warning" hidden id="abm_box">
+            <div class="box-header">
+              <h3 class="box-title">ABM</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                  <li class="active"><a href="#abm_student_tab" data-toggle="tab">Student List</a></li>
+                  <li> <a href="#abm_section_tab" data-toggle="tab">Section</a></li>
+                </ul>
+                <div class="tab-content">
+                  <div class="tab-pane active" id="abm_student_tab">  
+                    <table id="abm_student_table" class="table table-bordered table-striped">
+                      <thead>
+                        <tr>
+                          <th><input type="checkbox" class="check" id="checkAll"></th>
+                          <th>#</th>
+                          <th>LRN</th>
+                          <th>Full Name</th>
+                          <th>Sex</th>
+                          <th>Section</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>1.</td>
+                          <td>000000000008</td>
+                          <td>Escaro, Adrielle Kristine Nicolette</td>
+                          <td>Female</td>
+                          <td>ABM-2</td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>2.</td>
+                          <td>000000000007</td>
+                          <td>Polistico, Hakeem</td>
+                          <td>Male</td>
+                          <td>ABM-1</td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>3.</td>
+                          <td>000000000009</td>
+                          <td>Salva, Jasver Anlouise</td>
+                          <td>Female</td>
+                          <td></td>
+                        </tr>                        
+                      </tbody>
+                    </table>
+                    <hr style="margin-bottom: 10px;">
+                      <a href="#abm_section_tab" data-toggle="tab">
+                      <button type="button" class="btn btn-default" style="width: 15%;">Add</button></a>
+                      <button type="button" class="btn btn-default" style="width: 15%;">Transfer</button>
+                  </div>
+                  <!-- /.end student tab-->
+
+                  <div class="tab-pane" id="abm_section_tab">  
+                    <table id="abm_section_table" class="table table-bordered table-striped">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Section Name</th>
+                          <th>Count</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1.</td>
+                          <td>ABM-1</td>
+                          <td>31/40</td>
+                          <td><span class="label label-success">Open</span></td>
+                        </tr>
+                        <tr>
+                          <td>2.</td>
+                          <td>ABM-2</td>
+                          <td>40/40</td>
+                          <td><span class="label label-danger">Closed</span></td>
+                        </tr>
+                        <tr>
+                          <td>3.</td>
+                          <td>ABM-3</td>
+                          <td>0/40</td>
+                          <td><span class="label label-success">Open</span></td>
+                        </tr>
+                      </tbody>                      
+                    </table>
+                      <hr style="margin-bottom: 10px;">
+                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" style="width: 15%;">Save</button>                      
+                  </div>
+                  <!--end section_tab-->
+                </div>
+                <!-- /. end tab contents-->
+              </div>
+              <!-- /.nav-tabs-custom-->
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!--/.box (box ng ABM)-->
+
+          <!-- BOX OF TVL-HE start-->
+          <div class="box box-primary" hidden id="tvlhe_box">
+            <div class="box-header">
+              <h3 class="box-title">TVL-HE</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                  <li class="active"><a href="#tvlhe_student_tab" data-toggle="tab">Student List</a></li>
+                  <li> <a href="#tvlhe_section_tab" data-toggle="tab">Section</a></li>
+                </ul>
+                <div class="tab-content">
+                  <div class="tab-pane active" id="tvlhe_student_tab">  
+                    <table id="tvlhe_student_table" class="table table-bordered table-striped">
+                      <thead>
+                        <tr>
+                          <th><input type="checkbox" class="check" id="checkAll"></th>
+                          <th>#</th>
+                          <th>LRN</th>
+                          <th>Full Name</th>
+                          <th>Sex</th>
+                          <th>Section</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>1.</td>
+                          <td>000000000008</td>
+                          <td>Escaro, Adrielle Kristine Nicolette</td>
+                          <td>Female</td>
+                          <td>TVL-HE-2</td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>2.</td>
+                          <td>000000000007</td>
+                          <td>Polistico, Hakeem</td>
+                          <td>Male</td>
+                          <td>TVL-HE-1</td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>3.</td>
+                          <td>000000000009</td>
+                          <td>Salva, Jasver Anlouise</td>
+                          <td>Female</td>
+                          <td></td>
+                        </tr>                        
+                      </tbody>
+                    </table>
+                    <hr style="margin-bottom: 10px;">
+                      <a href="#abm_section_tab" data-toggle="tab">
+                      <button type="button" class="btn btn-default" style="width: 15%;">Add</button></a>
+                      <button type="button" class="btn btn-default" style="width: 15%;">Transfer</button>
+                  </div>
+                  <!-- /.end student tab-->
+
+                  <div class="tab-pane" id="tvlhe_section_tab">  
+                    <table id="tvlhe_section_table" class="table table-bordered table-striped">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Section Name</th>
+                          <th>Count</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1.</td>
+                          <td>TVL-HE-1</td>
+                          <td>31/40</td>
+                          <td><span class="label label-success">Open</span></td>
+                        </tr>
+                        <tr>
+                          <td>2.</td>
+                          <td>TVL-HE-2</td>
+                          <td>40/40</td>
+                          <td><span class="label label-danger">Closed</span></td>
+                        </tr>
+                        <tr>
+                          <td>3.</td>
+                          <td>TVL-HE-3</td>
+                          <td>0/40</td>
+                          <td><span class="label label-success">Open</span></td>
+                        </tr>
+                      </tbody>                      
+                    </table>
+                      <hr style="margin-bottom: 10px;">
+                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" style="width: 15%;">Save</button>                      
+                  </div>
+                  <!--end section_tab-->
+                </div>
+                <!-- /. end tab contents-->
+              </div>
+              <!-- /.nav-tabs-custom-->
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!--/.box (box ng TVL-HE end)--> 
+
+          <!-- BOX OF TVL-AS start-->
+          <div class="box box-primary" hidden id="tvlas_box">
+            <div class="box-header">
+              <h3 class="box-title">TVL-AS</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                  <li class="active"><a href="#tvlas_student_tab" data-toggle="tab">Student List</a></li>
+                  <li> <a href="#tvlas_section_tab" data-toggle="tab">Section</a></li>
+                </ul>
+                <div class="tab-content">
+                  <div class="tab-pane active" id="tvlas_student_tab">  
+                    <table id="tvlas_student_table" class="table table-bordered table-striped">
+                      <thead>
+                        <tr>
+                          <th><input type="checkbox" class="check" id="checkAll"></th>
+                          <th>#</th>
+                          <th>LRN</th>
+                          <th>Full Name</th>
+                          <th>Sex</th>
+                          <th>Section</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>1.</td>
+                          <td>000000000008</td>
+                          <td>Escaro, Adrielle Kristine Nicolette</td>
+                          <td>Female</td>
+                          <td>TVL-HE-2</td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>2.</td>
+                          <td>000000000007</td>
+                          <td>Polistico, Hakeem</td>
+                          <td>Male</td>
+                          <td>TVL-HE-1</td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>3.</td>
+                          <td>000000000009</td>
+                          <td>Salva, Jasver Anlouise</td>
+                          <td>Female</td>
+                          <td></td>
+                        </tr>                        
+                      </tbody>
+                    </table>
+                    <hr style="margin-bottom: 10px;">
+                      <a href="#tvlas_section_tab" data-toggle="tab">
+                      <button type="button" class="btn btn-default" style="width: 15%;">Add</button></a>
+                      <button type="button" class="btn btn-default" style="width: 15%;">Transfer</button>
+                  </div>
+                  <!-- /.end student tab-->
+
+                  <div class="tab-pane" id="tvlas_section_tab">  
+                    <table id="tvlas_section_table" class="table table-bordered table-striped">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Section Name</th>
+                          <th>Count</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1.</td>
+                          <td>TVL-AS-1</td>
+                          <td>31/40</td>
+                          <td><span class="label label-success">Open</span></td>
+                        </tr>
+                        <tr>
+                          <td>2.</td>
+                          <td>TVL-AS-2</td>
+                          <td>40/40</td>
+                          <td><span class="label label-danger">Closed</span></td>
+                        </tr>
+                        <tr>
+                          <td>3.</td>
+                          <td>TVL-AS-3</td>
+                          <td>0/40</td>
+                          <td><span class="label label-success">Open</span></td>
+                        </tr>
+                      </tbody>                      
+                    </table>
+                      <hr style="margin-bottom: 10px;">
+                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" style="width: 15%;">Save</button>                      
+                  </div>
+                  <!--end section_tab-->
+                </div>
+                <!-- /. end tab contents-->
+              </div>
+              <!-- /.nav-tabs-custom-->
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!--/.box (box ng TVL-HE end)-->     
           
                 <!--modal start-->
                 <div class="modal fade" id="modal-default">
@@ -539,6 +1151,58 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title">ADD TO <b>STEM-1</b></h4>
+                      </div>
+                      <div class="modal-body">
+                        <div class="box-body table-responsive no-padding">
+                          <table class="table">
+                            <tr>
+                              <th>#</th>
+                              <th>LRN</th>
+                              <th>Full Name</th>
+                              <th>Sex</th>
+                              
+                            </tr>
+                            <tr>
+                              <td>1.</td>
+                              <td>00000000008</td>
+                              <td>Escaro, Adrielle Kristine Nicolette</td>
+                              <td>Female</td>
+                              
+                            </tr>
+                            <tr>
+                              <td>2.</td>
+                              <td>00000000009</td>
+                              <td>Polistico, Hakeem</td>
+                              <td>Male</td>
+                              
+                            </tr>  
+                            <tr>
+                              <td>3.</td>
+                              <td>00000000007</td>
+                              <td>Salva, Jasver Anlouise</td>
+                              <td>Female</td>
+                              
+                            </tr>                
+                          </table>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success">Confirm</button>
+                      </div>
+                    </div>   
+                  </div>
+                </div>
+                <!--end of modal-->
+
+                <!--modal start-->
+                <div class="modal fade" id="gas_modal">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header bg-green">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">ADD TO <b>GAS-1</b></h4>
                       </div>
                       <div class="modal-body">
                         <div class="box-body table-responsive no-padding">
@@ -624,14 +1288,88 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $(function () {
     $('#example1').DataTable()
     $('#example2').DataTable()
+    $('#gas_student_table').DataTable()
+    $('#gas_section_table').DataTable()
+    $('#humss_student_table').DataTable()
+    $('#humss_section_table').DataTable()
+    $('#abm_student_table').DataTable()
+    $('#abm_section_table').DataTable()
+    $('#tvlhe_student_table').DataTable()
+    $('#tvlhe_section_table').DataTable()
+    $('#tvlas_student_table').DataTable()
+    $('#tvlas_section_table').DataTable()
   })
+//selectAll
 $("#checkAll").click(function () {
     $(".check").prop('checked', $(this).prop('checked'));
 });
-//iCheck for checkbox
+$('.check').change(function(){ //".checkbox" change 
+    //uncheck "select all", if one of the listed checkbox item is unchecked
+    if(this.checked == false){ //if this item is unchecked
+        $("#checkAll")[0].checked = false; //change "select all" checked status to false
+    }
+        
+});
+$(document).ready(function(){
+    $("#stem_list").click(function(){ 
+      $("#lapa").hide();     
+      $("#stem_box").show();
+      $("#gas_box").hide();
+      $("#humss_box").hide();
+      $("#abm_box").hide();
+      $("#tvlhe_box").hide();
+      $("#tvlas_box").hide();
+    });
+    $("#gas_list").click(function(){
+      $("#lapa").hide();
+      $("#stem_box").hide();
+      $("#humss_box").hide();
+      $("#gas_box").show();
+      $("#abm_box").hide();
+      $("#tvlhe_box").hide();
+      $("#tvlas_box").hide();
+    });
+    $("#humss_list").click(function(){
+      $("#lapa").hide();
+      $("#humss_box").show();
+      $("#stem_box").hide();
+      $("#gas_box").hide();      
+      $("#abm_box").hide();
+      $("#tvlhe_box").hide();
+      $("#tvlas_box").hide();
+    });
+    $("#abm_list").click(function(){
+      $("#lapa").hide();
+      $("#abm_box").show();
+      $("#gas_box").hide();
+      $("#stem_box").hide();      
+      $("#humss_box").hide();
+      $("#tvlhe_box").hide();
+      $("#tvlas_box").hide();      
+    });
+    $("#tvlhe_list").click(function(){
+      $("#lapa").hide();
+      $("#stem_box").hide();
+      $("#gas_box").hide();
+      $("#abm_box").hide();
+      $("#humss_box").hide();
+      $("#tvlas_box").hide();
+      $("#tvlhe_box").show();
+    });
+    $("#tvlas_list").click(function(){
+      $("#lapa").hide();
+      $("#stem_box").hide();
+      $("#gas_box").hide();
+      $("#abm_box").hide();
+      $("#humss_box").hide();
+      $("#tvlhe_box").hide(); 
+      $("#tvlas_box").show(); 
+    });
+});
+/*//iCheck for checkbox
 $('input.check').iCheck({
   checkboxClass: 'icheckbox_minimal-blue'
-})
+})*/
 
 </script>
 </body>
