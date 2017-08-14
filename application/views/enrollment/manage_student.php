@@ -341,7 +341,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="icon">
               <i class="fa fa-flask"></i>
             </div>
-            <a href="#" class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></a>
+            <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
           </div>
         </div>
         <!-- ./col -->
@@ -356,7 +356,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="icon">
               <i class="fa fa-book"></i>
             </div>
-            <a href="#" class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></a>
+            <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
           </div>
         </div>
         <!-- ./col -->
@@ -371,7 +371,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="icon">
               <i class="fa fa-users"></i>
             </div>
-            <a href="#" class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></a>
+            <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
           </div>
         </div>
         <!-- ./col -->
@@ -388,7 +388,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="icon">
               <i class="fa fa-briefcase"></i>
             </div>
-            <a href="#" class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></a>
+            <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
           </div>
         </div>
 
@@ -403,11 +403,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="icon">
               <i class="fa fa-home"></i>
             </div>
-            <a href="#" class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></a>
+            <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
           </div>
         </div>
 
-        <div class="col-lg-4 col-xs-6">
+        <div class="col-lg-4 col-xs-4">
           <!-- small box -->
           <div class="small-box bg-navy" id="tvlas_list" style="cursor: pointer;">
             <div class="inner">
@@ -418,7 +418,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="icon">
               <i class="fa fa-cogs"></i>
             </div>
-            <a href="#" class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></a>
+            <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
           </div>
         </div>
         <!-- ./col -->
@@ -697,19 +697,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       <tbody>
                         <tr>
                           <td>1.</td>
-                          <td>STEM-1</td>
+                          <td>GAS-1</td>
                           <td>31/40</td>
                           <td><span class="label label-success">Open</span></td>
                         </tr>
                         <tr>
                           <td>2.</td>
-                          <td>STEM-2</td>
+                          <td>GAS-2</td>
                           <td>40/40</td>
                           <td><span class="label label-danger">Closed</span></td>
                         </tr>
                         <tr>
                           <td>3.</td>
-                          <td>STEM-3</td>
+                          <td>GAS-3</td>
                           <td>0/40</td>
                           <td><span class="label label-success">Open</span></td>
                         </tr>
@@ -1109,19 +1109,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       <tbody>
                         <tr>
                           <td>1.</td>
-                          <td>TVL-HE-1</td>
+                          <td>TVL-AS-1</td>
                           <td>31/40</td>
                           <td><span class="label label-success">Open</span></td>
                         </tr>
                         <tr>
                           <td>2.</td>
-                          <td>TVL-HE-2</td>
+                          <td>TVL-AS-2</td>
                           <td>40/40</td>
                           <td><span class="label label-danger">Closed</span></td>
                         </tr>
                         <tr>
                           <td>3.</td>
-                          <td>TVL-HE-3</td>
+                          <td>TVL-AS-3</td>
                           <td>0/40</td>
                           <td><span class="label label-success">Open</span></td>
                         </tr>
