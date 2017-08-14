@@ -330,7 +330,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="row">
         <div class="col-md-12">
           <div class="row">
-        <div class="col-lg-4 col-xs-4">
+        <div class="col-lg-4 col-xs-12">
           <!-- small box -->
           <div class="small-box bg-green" id="stem_list" style="cursor: pointer;">
             <div class="inner">
@@ -345,7 +345,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-4 col-xs-4">
+        <div class="col-lg-4 col-xs-12">
           <!-- small box -->
           <div class="small-box bg-maroon" id="gas_list" style="cursor: pointer;">
             <div class="inner">
@@ -360,7 +360,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-4 col-xs-4">
+        <div class="col-lg-4 col-xs-12">
           <!-- small box -->
           <div class="small-box bg-yellow" id="humss_list" style="cursor: pointer;">
             <div class="inner">
@@ -377,7 +377,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- ./col -->
       </div>
       <div class="row">
-        <div class="col-lg-4 col-xs-4">
+        <div class="col-lg-4 col-xs-12">
           <!-- small box -->
           <div class="small-box bg-purple" id="abm_list" style="cursor: pointer;">
             <div class="inner">
@@ -392,7 +392,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
         </div>
 
-        <div class="col-lg-4 col-xs-4">
+        <div class="col-lg-4 col-xs-12">
           <!-- small box -->
           <div class="small-box bg-blue" id="tvlhe_list" style="cursor: pointer;">
             <div class="inner">
@@ -407,7 +407,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
         </div>
 
-        <div class="col-lg-4 col-xs-4">
+        <div class="col-lg-4 col-xs-12">
           <!-- small box -->
           <div class="small-box bg-navy" id="tvlas_list" style="cursor: pointer;">
             <div class="inner">
