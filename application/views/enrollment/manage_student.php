@@ -329,65 +329,103 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
       <div class="row">
         <div class="col-md-12">
+          <div class="row">
+        <div class="col-lg-4 col-xs-4">
+          <!-- small box -->
+          <div class="small-box bg-green" id="stem_list" style="cursor: pointer;">
+            <div class="inner">
+              <h3>STEM</h3>
 
-
-          <div class="box">
-            <div class="box-header with-border">
-              <h3 class="box-title"><b>Strands</b></h3>
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                  <i class="fa fa-minus"></i></button>
-              </div>          
+              <p>Science, Technology,<br> Engineering, and Mathematics</p>
             </div>
-
-            <div class="box-body">
-              <div class="box-body table-responsive no-padding with-border">
-                <table class="table table-hover">
-                  <tr>
-                    <th>ID</th>
-                    <th>Strand</th>
-                    <th>Description</th>
-                  </tr>
-                  <tr>
-                    <td>1</td>
-                    <td>STEM</td>
-                    <td>Science, Technology, Engineering and Mathematics</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>GAS</td>
-                    <td>General Academic Strand</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>ABM</td>
-                    <td>Accountancy, Business and Management</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>HUMSS</td>
-                    <td>Humanities and Social Sciences </td>
-                  </tr>
-                  <tr>
-                    <td>5</td>
-                    <td>TVL-COOKERY</td>
-                    <td>Technical, Vocational and Livelihood</td>
-                  </tr>
-                  <tr>
-                    <td>6</td>
-                    <td>TVL-AUTOMOTIVE</td>
-                    <td>Technical, Vocational and Livelihood</td>
-                  </tr>
-                </table>
-              </div>
+            <div class="icon">
+              <i class="fa fa-flask"></i>
             </div>
-            <!-- /.box body-->
+            <a href="#" class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></a>
           </div>
-          <!-- /.first box-->
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-4 col-xs-4">
+          <!-- small box -->
+          <div class="small-box bg-maroon" id="gas_list" style="cursor: pointer;">
+            <div class="inner">
+              <h3>GAS</h3>
 
-          
+              <p>General<br>Academic Strand</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-book"></i>
+            </div>
+            <a href="#" class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-4 col-xs-4">
+          <!-- small box -->
+          <div class="small-box bg-yellow" id="humss_list" style="cursor: pointer;">
+            <div class="inner">
+              <h3>HUMSS</h3>
 
-          <div class="box">
+              <p>Humanities<br>and Social Sciences</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-users"></i>
+            </div>
+            <a href="#" class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-xs-4">
+          <!-- small box -->
+          <div class="small-box bg-purple" id="abm_list" style="cursor: pointer;">
+            <div class="inner">
+              <h3>ABM</h3>
+
+              <p>Accountancy<br>and Business Management</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-briefcase"></i>
+            </div>
+            <a href="#" class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-xs-4">
+          <!-- small box -->
+          <div class="small-box bg-blue" id="tvlhe_list" style="cursor: pointer;">
+            <div class="inner">
+              <h3>TVL-HE</h3>
+
+              <p>Technology-Vocational<br>Livelihood: Home Economics</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-home"></i>
+            </div>
+            <a href="#" class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-navy" id="tvlas-list" style="cursor: pointer;">
+            <div class="inner">
+              <h3>TVL-AS</h3>
+
+              <p>Technogy-Vocational<br>Livelihood: Automotive Services</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-cogs"></i>
+            </div>
+            <a href="#" class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+      </div>
+      <!-- /.row -->
+      <!-- BOX OF STEM-->
+          <div class="box" id="stem_box">
             <div class="box-header">
               <h3 class="box-title">STEM</h3>
             </div>
@@ -403,7 +441,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <table id="example1" class="table table-bordered table-striped">
                       <thead>
                         <tr>
-                          <th><input type="checkbox" class="minimal check" id="checkAll"></th>
+                          <th><input type="checkbox" class="check" id="checkAll"></th>
                           <th>#</th>
                           <th>LRN</th>
                           <th>Full Name</th>
@@ -479,7 +517,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       </tbody>
                     </table>
                     <hr style="margin-bottom: 10px;">
-                      <button type="button" class="btn btn-default" style="width: 15%;">Add</button>
+                      <a href="#tab_2" data-toggle="tab">
+                      <button type="button" class="btn btn-default" style="width: 15%;">Add</button></a>
                       <button type="button" class="btn btn-default" style="width: 15%;">Transfer</button>
                   </div>
                   <!-- /.end student tab-->
@@ -516,7 +555,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       </tbody>                      
                     </table>
                       <hr style="margin-bottom: 10px;">
-                      <button type="button" class="btn btn-default" style="width: 15%;">Save</button>                      
+                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" style="width: 15%;">Save</button>                      
                   </div>
                   <!--end section_tab-->
                 </div>
@@ -526,7 +565,150 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <!-- /.box-body -->
           </div>
-          <!--/.box (box ng STEM)-->    
+          <!--/.box (box ng STEM)-->
+
+          <!-- BOX OF GAS START-->
+          <div class="box" id="gas_box">
+            <div class="box-header">
+              <h3 class="box-title">GAS</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                  <li class="active"><a href="#tab_1" data-toggle="tab">Student List</a></li>
+                  <li> <a href="#tab_2" data-toggle="tab">Section</a></li>
+                </ul>
+                <div class="tab-content">
+                  <div class="tab-pane active" id="tab_1">  
+                    <table id="example1" class="table table-bordered table-striped">
+                      <thead>
+                        <tr>
+                          <th><input type="checkbox" class="check" id="checkAll"></th>
+                          <th>#</th>
+                          <th>LRN</th>
+                          <th>Full Name</th>
+                          <th>Sex</th>
+                          <th>Section</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>1.</td>
+                          <td>000000000008</td>
+                          <td>Escaro, Adrielle Kristine Nicolette</td>
+                          <td>Female</td>
+                          <td>GAS-2</td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>2.</td>
+                          <td>000000000007</td>
+                          <td>Polistico, Hakeem</td>
+                          <td>Male</td>
+                          <td>GAS-1</td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>3.</td>
+                          <td>000000000009</td>
+                          <td>Salva, Jasver Anlouise</td>
+                          <td>Female</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>4.</td>
+                          <td>000000000010</td>
+                          <td>Morales, Shiela May</td>
+                          <td>Female</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>5.</td>
+                          <td>000000000021</td>
+                          <td>Zulueta, Shanai Hazel</td>
+                          <td>Female</td>
+                          <td>STEM-3</td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>6.</td>
+                          <td>000000000005</td>
+                          <td>Francia, Jan Diether</td>
+                          <td>Male</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>7.</td>
+                          <td>000000000001</td>
+                          <td>Terrobias, Marc Inzon</td>
+                          <td>Male</td>
+                          <td>STEM-3</td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" class="check"></td>
+                          <td>8.</td>
+                          <td>000000000003</td>
+                          <td>Alcantara, Aaron James</td>
+                          <td>Male</td>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <hr style="margin-bottom: 10px;">
+                      <a href="#tab_2" data-toggle="tab">
+                      <button type="button" class="btn btn-default" style="width: 15%;">Add</button></a>
+                      <button type="button" class="btn btn-default" style="width: 15%;">Transfer</button>
+                  </div>
+                  <!-- /.end student tab-->
+
+                  <div class="tab-pane" id="tab_2">  
+                    <table id="example2" class="table table-bordered table-striped">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Section Name</th>
+                          <th>Count</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1.</td>
+                          <td>STEM-1</td>
+                          <td>31/40</td>
+                          <td><span class="label label-success">Open</span></td>
+                        </tr>
+                        <tr>
+                          <td>2.</td>
+                          <td>STEM-2</td>
+                          <td>40/40</td>
+                          <td><span class="label label-danger">Closed</span></td>
+                        </tr>
+                        <tr>
+                          <td>3.</td>
+                          <td>STEM-3</td>
+                          <td>0/40</td>
+                          <td><span class="label label-success">Open</span></td>
+                        </tr>
+                      </tbody>                      
+                    </table>
+                      <hr style="margin-bottom: 10px;">
+                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" style="width: 15%;">Save</button>                      
+                  </div>
+                  <!--end section_tab-->
+                </div>
+                <!-- /. end tab contents-->
+              </div>
+              <!-- /.nav-tabs-custom-->
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!--/.box (box ng GAS)-->    
           
                 <!--modal start-->
                 <div class="modal fade" id="modal-default">
@@ -622,13 +804,29 @@ $(function () {
     $('#example1').DataTable()
     $('#example2').DataTable()
   })
+//selectAll
 $("#checkAll").click(function () {
     $(".check").prop('checked', $(this).prop('checked'));
 });
-//iCheck for checkbox
+$('.check').change(function(){ //".checkbox" change 
+    //uncheck "select all", if one of the listed checkbox item is unchecked
+    if(this.checked == false){ //if this item is unchecked
+        $("#checkAll")[0].checked = false; //change "select all" checked status to false
+    }
+        
+});
+$(function() {
+        $("#stem_list").click(function() {
+            $("#stem_box").toggle();
+        });
+        $("#gas_list").click(function() {
+            $("#gas_box").toggle();
+        });
+    });
+/*//iCheck for checkbox
 $('input.check').iCheck({
   checkboxClass: 'icheckbox_minimal-blue'
-})
+})*/
 
 </script>
 </body>
