@@ -1350,7 +1350,7 @@ $(document).ready(function(){
       $("#gas_box").hide();
       $("#abm_box").hide();
       $("#humss_box").hide();
-      $("#tvlhas_box").hide();
+      $("#tvlas_box").hide();
       $("#tvlhe_box").show();
     });
     $("#tvlas_list").click(function(){
