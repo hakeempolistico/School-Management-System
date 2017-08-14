@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class enrollstudent extends CI_Controller {
+class enroll_student extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -26,12 +26,12 @@ class enrollstudent extends CI_Controller {
 
 	public function enroll()
 	{
-		$this->load->view('enrollment/enrollstudent');
+		$this->load->view('enrollment/enroll_student');
 	}
 
 	public function strands()
 	{
-		$this->load->view('enrollment/strandselection');
+		$this->load->view('enrollment/strand_selection');
 	}
 
 	public function enrolled()

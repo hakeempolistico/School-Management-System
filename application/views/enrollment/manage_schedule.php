@@ -8,6 +8,10 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/select2/dist/css/select2.min.css">
+  <!-- Loading -->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/loading.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
@@ -22,8 +26,6 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/skins/_all-skins.css">
   <!-- Page style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/enrollment/manage_schedule.css">
-  <!-- Select2 -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/select2/dist/css/select2.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,6 +40,7 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
+<div hidden class="loading">Loading&#8230;</div>
 
   <header class="main-header">
     <!-- Logo -->
@@ -282,7 +285,7 @@
               </a>
             </li>
             <li>
-              <a href="<?php echo site_url('enrollment/enrollstudent'); ?>">
+              <a href="<?php echo site_url('enrollment/enroll_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   Enroll Student
               </a>
@@ -397,9 +400,8 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <label>Student</label>
-                <select class="form-control select2 flat">
-                  <option></option>
+                <label>Students</label>
+                <select class="form-control select2" multiple="multiple" data-placeholder="Select Students" style="width: 100%;">
                   <option>Hakeem Polistico</option>
                   <option>Diether Francia</option>
                   <option>Marc Terrobias</option>
@@ -437,7 +439,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label>Teachers</label>
-                <select class="form-control select2">
+                <select class="form-control select2" multiple="multiple" data-placeholder="Select Teachers" style="width: 100%;">
                   <option></option>
                   <option>Alaska</option>
                   <option>California</option>
@@ -475,7 +477,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label>Rooms</label>
-                <select class="form-control select2">
+                <select class="form-control select2" multiple="multiple" data-placeholder="Select Rooms" style="width: 100%;">
                   <option></option>
                   <option>Alaska</option>
                   <option>California</option>
@@ -837,6 +839,8 @@
 <script src="<?php echo base_url(); ?>bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo base_url(); ?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Select2 -->
+<script src="<?php echo base_url(); ?>bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="<?php echo base_url(); ?>bower_components/jquery-ui/jquery-ui.min.js"></script>
 <!-- Slimscroll -->
@@ -852,14 +856,10 @@
 <script src="<?php echo base_url(); ?>bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
 <!-- Page specific script -->
 <script src="<?php echo base_url(); ?>dist/js/enrollment/manage_schedule.js"></script>
-<!-- Select2 -->
-<script src="<?php echo base_url(); ?>bower_components/select2/dist/js/select2.full.min.js"></script>
-<script>
-  $(document).ready(function() {
-  $(".select2").select2({
-    placeholder: "Select Option",
-  });
-});
+
+<script type="text/javascript">
+  //Initialize Select2 Elements
+    $('.select2').select2()
 </script>
 </body>
 </html>
