@@ -1315,6 +1315,7 @@ $(document).ready(function(){
       $("#humss_box").hide();
       $("#abm_box").hide();
       $("#tvlhe_box").hide();
+      $("#tvlas_box").hide();
     });
     $("#gas_list").click(function(){
       $("#lapa").hide();
@@ -1323,6 +1324,7 @@ $(document).ready(function(){
       $("#gas_box").show();
       $("#abm_box").hide();
       $("#tvlhe_box").hide();
+      $("#tvlas_box").hide();
     });
     $("#humss_list").click(function(){
       $("#lapa").hide();
@@ -1331,6 +1333,7 @@ $(document).ready(function(){
       $("#gas_box").hide();      
       $("#abm_box").hide();
       $("#tvlhe_box").hide();
+      $("#tvlas_box").hide();
     });
     $("#abm_list").click(function(){
       $("#lapa").hide();
@@ -1338,7 +1341,8 @@ $(document).ready(function(){
       $("#gas_box").hide();
       $("#stem_box").hide();      
       $("#humss_box").hide();
-      $("#tvlhe_box").hide();      
+      $("#tvlhe_box").hide();
+      $("#tvlas_box").hide();      
     });
     $("#tvlhe_list").click(function(){
       $("#lapa").hide();
@@ -1346,6 +1350,7 @@ $(document).ready(function(){
       $("#gas_box").hide();
       $("#abm_box").hide();
       $("#humss_box").hide();
+      $("#tvlhas_box").hide();
       $("#tvlhe_box").show();
     });
     $("#tvlas_list").click(function(){
