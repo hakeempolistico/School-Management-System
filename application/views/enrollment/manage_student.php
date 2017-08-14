@@ -599,7 +599,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </ul>
                 <div class="tab-content">
                   <div class="tab-pane active" id="gas_student_tab">  
-                    <table id="example1" class="table table-bordered table-striped">
+                    <table id="gas_student_table" class="table table-bordered table-striped">
                       <thead>
                         <tr>
                           <th><input type="checkbox" class="check" id="checkAll"></th>
@@ -685,7 +685,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <!-- /.end student tab-->
 
                   <div class="tab-pane" id="gas_section_tab">  
-                    <table id="example2" class="table table-bordered table-striped">
+                    <table id="gas_section_table" class="table table-bordered table-striped">
                       <thead>
                         <tr>
                           <th>#</th>
@@ -742,7 +742,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </ul>
                 <div class="tab-content">
                   <div class="tab-pane active" id="humms_student_tab">  
-                    <table id="example1" class="table table-bordered table-striped">
+                    <table id="humss_student_table" class="table table-bordered table-striped">
                       <thead>
                         <tr>
                           <th><input type="checkbox" class="check" id="checkAll"></th>
@@ -788,7 +788,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <!-- /.end student tab-->
 
                   <div class="tab-pane" id="humss_section_tab">  
-                    <table id="example2" class="table table-bordered table-striped">
+                    <table id="humss_section_table" class="table table-bordered table-striped">
                       <thead>
                         <tr>
                           <th>#</th>
@@ -845,7 +845,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </ul>
                 <div class="tab-content">
                   <div class="tab-pane active" id="abm_student_tab">  
-                    <table id="example1" class="table table-bordered table-striped">
+                    <table id="abm_student_table" class="table table-bordered table-striped">
                       <thead>
                         <tr>
                           <th><input type="checkbox" class="check" id="checkAll"></th>
@@ -891,7 +891,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <!-- /.end student tab-->
 
                   <div class="tab-pane" id="abm_section_tab">  
-                    <table id="example2" class="table table-bordered table-striped">
+                    <table id="abm_section_table" class="table table-bordered table-striped">
                       <thead>
                         <tr>
                           <th>#</th>
@@ -948,7 +948,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </ul>
                 <div class="tab-content">
                   <div class="tab-pane active" id="tvlhe_student_tab">  
-                    <table id="example1" class="table table-bordered table-striped">
+                    <table id="tvlhe_student_table" class="table table-bordered table-striped">
                       <thead>
                         <tr>
                           <th><input type="checkbox" class="check" id="checkAll"></th>
@@ -994,7 +994,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <!-- /.end student tab-->
 
                   <div class="tab-pane" id="tvlhe_section_tab">  
-                    <table id="example2" class="table table-bordered table-striped">
+                    <table id="tvlhe_section_table" class="table table-bordered table-striped">
                       <thead>
                         <tr>
                           <th>#</th>
@@ -1051,7 +1051,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </ul>
                 <div class="tab-content">
                   <div class="tab-pane active" id="tvlas_student_tab">  
-                    <table id="example1" class="table table-bordered table-striped">
+                    <table id="tvlas_student_table" class="table table-bordered table-striped">
                       <thead>
                         <tr>
                           <th><input type="checkbox" class="check" id="checkAll"></th>
@@ -1097,7 +1097,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <!-- /.end student tab-->
 
                   <div class="tab-pane" id="tvlas_section_tab">  
-                    <table id="example2" class="table table-bordered table-striped">
+                    <table id="tvlas_section_table" class="table table-bordered table-striped">
                       <thead>
                         <tr>
                           <th>#</th>
@@ -1285,6 +1285,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $(function () {
     $('#example1').DataTable()
     $('#example2').DataTable()
+    $('#gas_student_table').DataTable()
+    $('#gas_section_table').DataTable()
+    $('#humss_student_table').DataTable()
+    $('#humss_section_table').DataTable()
+    $('#abm_student_table').DataTable()
+    $('#abm_section_table').DataTable()
+    $('#tvlhe_student_table').DataTable()
+    $('#tvlhe_section_table').DataTable()
+    $('#tvlas_student_table').DataTable()
+    $('#tvlas_section_table').DataTable()
   })
 //selectAll
 $("#checkAll").click(function () {
