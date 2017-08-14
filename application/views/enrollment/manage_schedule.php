@@ -401,7 +401,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label>Students</label>
-                <select class="form-control select2" multiple="multiple" data-placeholder="Select Students" style="width: 100%;">
+                <select class="form-control select2" data-placeholder="Select Students" style="width: 100%;">
                   <option>Hakeem Polistico</option>
                   <option>Diether Francia</option>
                   <option>Marc Terrobias</option>
@@ -439,7 +439,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label>Teachers</label>
-                <select class="form-control select2" multiple="multiple" data-placeholder="Select Teachers" style="width: 100%;">
+                <select class="form-control select2" data-placeholder="Select Teachers" style="width: 100%;">
                   <option></option>
                   <option>Alaska</option>
                   <option>California</option>
@@ -477,7 +477,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label>Rooms</label>
-                <select class="form-control select2" multiple="multiple" data-placeholder="Select Rooms" style="width: 100%;">
+                <select class="form-control select2" data-placeholder="Select Rooms" style="width: 100%;">
                   <option></option>
                   <option>Alaska</option>
                   <option>California</option>
