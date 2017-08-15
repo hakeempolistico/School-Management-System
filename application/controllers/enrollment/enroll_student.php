@@ -44,4 +44,10 @@ class enroll_student extends CI_Controller {
 		$this->load->view('enrollment/search');
 	}
 
+	public function insert_to_db()
+	{
+	$this->load->model('enroll_student');
+	$this->enroll_student->insert_to_db();
+	}
+
 }

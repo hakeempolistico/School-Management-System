@@ -337,23 +337,23 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form name= "studentprofile" id="studentprofile" role="form">
+            <form action="<?php echo site_url('enrollment/enroll_student/insert_into_db'); ?>" method="POST" name= "studentprofile" id="studentprofile" role="form">
               <div class="box-body" style="padding-bottom: 20px;">
                 <div class="form-group">
                   <label>LRN</label>
-                  <input type="text" class="form-control" id="inputLRN" placeholder="Learner Reference Number">
+                  <input type="text" class="form-control" name="lrn" id="inputLRN" placeholder="Learner Reference Number">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Name</label>
                     <div class="row">
                       <div class="col-md-4">
-                        <input type="text" class="form-control" id="inputFNAME" placeholder="First Name">
+                        <input type="text" class="form-control" name="fname" id="inputFNAME" placeholder="First Name">
                       </div>
                       <div class="col-md-4">
-                        <input type="text" class="form-control" id="inputMNAME" placeholder="Middle Name">
+                        <input type="text" class="form-control" name="mname" id="inputMNAME" placeholder="Middle Name">
                       </div>
                       <div class="col-md-4">
-                        <input type="text" class="form-control" id="inputLNAME" placeholder="Last Name">
+                        <input type="text" class="form-control" name="lname" id="inputLNAME" placeholder="Last Name">
                       </div>
                     </div>
                 </div>
@@ -361,7 +361,7 @@
                 <div class="col-md-6">
                 <div class="form-group">
                   <label>Sex</label>
-                  <select class="form-control" id="inputSEX">
+                  <select class="form-control" id="inputSEX" name="sex">
                     <option>Female</option>
                     <option>Male</option>
                   </select>
@@ -370,7 +370,7 @@
                 <div class="col-md-6">
                 <div class="form-group">
                   <label>Contact Number</label>
-                  <input type="text" class="form-control" id="inputCONTACT" placeholder="Contact Number">
+                  <input type="text" class="form-control" name="contact" id="inputCONTACT" placeholder="Contact Number">
                 </div>
                 </div>
                 </div>
@@ -383,52 +383,52 @@
                     <div class="input-group-addon">
                       <i class="fa fa-calendar"></i>
                     </div>
-                    <input type="text" class="form-control" id="datepicker" placeholder="mm/dd/yyyy">
+                    <input type="text" class="form-control" id="datepicker" name="birthdate" placeholder="mm/dd/yyyy">
                   </div>
                 </div>
                 </div>
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Birth Place</label>
-                  <input type="text" class="form-control" id="inputBIRTHPLACE" placeholder="Birth Place">
+                  <input type="text" class="form-control" id="inputBIRTHPLACE" name="birthplace" placeholder="Birth Place">
                 </div>
                 </div>
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Age <small>(as of last birthday)</small></label>
-                  <input type="text" class="form-control" id="inputAGE" placeholder="Age">
+                  <input type="text" class="form-control" id="inputAGE" placeholder="Age" name="age">
                 </div>
                 </div>
                 </div>
                 <div class="row">
                 <div class="col-md-6">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Mother Tongue</label>
-                  <input type="text" class="form-control" id="inputMOTHERTONGUE" placeholder="Mother Tongue">
+                  <label>Mother Tongue</label>
+                  <input type="text" class="form-control" id="inputMOTHERTONGUE" placeholder="Mother Tongue" name="mothertongue">
                 </div>
                 </div>
                 <div class="col-md-6">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Religion</label>
-                  <input type="text" class="form-control" id="inputRELIGION" placeholder="Religion">
+                  <label>Religion</label>
+                  <input type="text" class="form-control" id="inputRELIGION" placeholder="Religion" name="religion">
                 </div>
                 </div>
                 </div>
                 <hr>
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Address</label>
+                  <label>Address</label>
                   <div class="row">
                       <div class="col-md-3">
-                        <input type="text" class="form-control" id="inputSTREET" placeholder="House #, Street" sty>
+                        <input type="text" class="form-control" id="inputSTREET" placeholder="House #, Street" name="street">
                       </div>
                       <div class="col-md-3">
-                        <input type="text" class="form-control" id="inputBARANGAY" placeholder="Barangay">
+                        <input type="text" class="form-control" id="inputBARANGAY" placeholder="Barangay" name="barangay">
                       </div>
                       <div class="col-md-3">
-                        <input type="text" class="form-control" id="inputCITY" placeholder="City">
+                        <input type="text" class="form-control" id="inputCITY" placeholder="City" name="city">
                       </div>
                       <div class="col-md-3">
-                        <input type="text" class="form-control" id="inputPROVINCE" placeholder="Province">
+                        <input type="text" class="form-control" id="inputPROVINCE" placeholder="Province" name="province">
                       </div>
                     </div>
                 </div>
@@ -436,48 +436,48 @@
                 <div class="row">
                 <div class="col-md-6">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Father's Name</label>
-                  <input type="text" class="form-control" id="inputFATHER" placeholder="Father's Name">
+                  <label>Father's Name</label>
+                  <input type="text" class="form-control" id="inputFATHER" placeholder="Father's Name" name="fathername">
                 </div>
                 </div>
                 <div class="col-md-6">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Mother's Maiden Name</label>
-                  <input type="text" class="form-control" id="inputMOTHER" placeholder="Mother's Maiden Name">
+                  <label>Mother's Maiden Name</label>
+                  <input type="text" class="form-control" id="inputMOTHER" placeholder="Mother's Maiden Name" name="mothername">
                 </div>
                 </div>
                 </div>
                 <div class="row">
                 <div class="col-md-6">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Father's Contact No.</label>
-                  <input type="text" class="form-control" id="inputFATHERCONTACT" placeholder="Father's Contact No.">
+                  <label>Father's Contact No.</label>
+                  <input type="text" class="form-control" id="inputFATHERCONTACT" placeholder="Father's Contact No." name="fathercontact">
                 </div>
                 </div>
                 <div class="col-md-6">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Mother's Contact No.</label>
-                  <input type="text" class="form-control" id="inputMOTHERCONTACT" placeholder="Mother's Contact No.">
+                  <label>Mother's Contact No.</label>
+                  <input type="text" class="form-control" id="inputMOTHERCONTACT" placeholder="Mother's Contact No." name="mothercontact">
                 </div>
                 </div>
                 </div>
                 <div class="row">
                 <div class="col-md-4">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Guardian's Name</label>
-                  <input type="text" class="form-control" id="inputGUARDIAN" placeholder="Guardian's Name">
+                  <label">Guardian's Name</label>
+                  <input type="text" class="form-control" id="inputGUARDIAN" placeholder="Guardian's Name" name="guardian">
                 </div>
                 </div>
                 <div class="col-md-4">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Relationship</label>
-                  <input type="text" class="form-control" id="inputRELATIONSHIP" placeholder="Relationship with Guardian">
+                  <input type="text" class="form-control" id="inputRELATIONSHIP" placeholder="Relationship with Guardian" name="relationship">
                 </div>
                 </div>
                 <div class="col-md-4">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Guardian's Contact No.</label>
-                  <input type="text" class="form-control" id="inputGUARDIANCONTACT" placeholder="Guradian's Contact No.">
+                  <label>Guardian's Contact No.</label>
+                  <input type="text" class="form-control" id="inputGUARDIANCONTACT" placeholder="Guradian's Contact No." name="guardiancontact">
                 </div>
                 </div>
                 </div>
