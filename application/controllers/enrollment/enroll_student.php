@@ -18,7 +18,6 @@ class enroll_student extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-
 	public function index()
 	{
 		$this->load->view('enrollment/picking');
@@ -44,10 +43,16 @@ class enroll_student extends CI_Controller {
 		$this->load->view('enrollment/search');
 	}
 
-	public function insert_to_db()
+	public function register()
 	{
-	$this->load->model('enroll_student');
-	$this->enroll_student->insert_to_db();
+
+	$this->load->model('enroll_model');
+			
+	if($this->input->post()) {
+	$data = $this->input->post();
+	$result = $this->enroll_model->add($data);
+	print_r($data);
 	}
+}
 
 }

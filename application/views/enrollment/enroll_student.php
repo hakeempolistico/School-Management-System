@@ -337,7 +337,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form action="<?php echo site_url('enrollment/enroll_student/insert_into_db'); ?>" method="POST" name= "studentprofile" id="studentprofile" role="form">
+            <form method="POST" action="/sms/enrollment/enroll_student/register/">
               <div class="box-body" style="padding-bottom: 20px;">
                 <div class="form-group">
                   <label>LRN</label>
@@ -493,7 +493,7 @@
               </div>
               </div>
               <!-- /.box-body -->
-            </form>
+           
           </div>
         </div>
 
@@ -633,12 +633,12 @@
               </div>
               <!-- /.box-body -->
               <div class="box-footer">
-                <a href="<?php echo site_url('enrollment/enroll_student/strands') ?>">
-                <button type="button" class="btn btn-primary pull-right">Submit</button>
+                <input type="submit" class="btn btn-primary pull-right">Submit</button>
                 </a>
               </div>
             </div>
             <!-- /.box-header -->
+             </form>
           </div>
           <!-- /.box -->
         </div>
