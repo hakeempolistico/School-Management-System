@@ -49,6 +49,7 @@
       <div class="form-group has-feedback">
         <input id="input_password" name="password" type="password" class="form-control" placeholder="Password" required>
         <?php echo form_error('password'); ?>
+        <font color = "red"> *Incorrect Username or Password</font>
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">

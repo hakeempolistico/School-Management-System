@@ -28,7 +28,12 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-
+<style type="text/css">
+  .error {
+  color: red;
+  font-size: 14px;
+  }
+</style>
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
@@ -337,23 +342,27 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form name= "studentprofile" id="studentprofile" role="form">
+            <form method="POST" action="/sms/enrollment/enroll_student/register/">
               <div class="box-body" style="padding-bottom: 20px;">
                 <div class="form-group">
                   <label>LRN</label>
-                  <input type="text" class="form-control" id="inputLRN" placeholder="Learner Reference Number">
+                  <input type="text" class="form-control" name="lrn" id="inputLRN" placeholder="Learner Reference Number">
+                  <?php echo form_error('lrn'); ?>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Name</label>
                     <div class="row">
                       <div class="col-md-4">
-                        <input type="text" class="form-control" id="inputFNAME" placeholder="First Name">
+                        <input type="text" class="form-control" name="fname" id="inputFNAME" placeholder="First Name">
+                        <?php echo form_error('fname'); ?>
                       </div>
                       <div class="col-md-4">
-                        <input type="text" class="form-control" id="inputMNAME" placeholder="Middle Name">
+                        <input type="text" class="form-control" name="mname" id="inputMNAME" placeholder="Middle Name">
+                        <?php echo form_error('mname'); ?>
                       </div>
                       <div class="col-md-4">
-                        <input type="text" class="form-control" id="inputLNAME" placeholder="Last Name">
+                        <input type="text" class="form-control" name="lname" id="inputLNAME" placeholder="Last Name">
+                        <?php echo form_error('lname'); ?>
                       </div>
                     </div>
                 </div>
@@ -361,16 +370,19 @@
                 <div class="col-md-6">
                 <div class="form-group">
                   <label>Sex</label>
-                  <select class="form-control" id="inputSEX">
-                    <option>Female</option>
-                    <option>Male</option>
+                  <select class="form-control" id="inputSEX" name="sex" placeholder="Sex">
+                    <option value="" disabled selected>Sex</option>
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
                   </select>
+                  <?php echo form_error('sex'); ?>
                 </div>
                 </div>
                 <div class="col-md-6">
                 <div class="form-group">
                   <label>Contact Number</label>
-                  <input type="text" class="form-control" id="inputCONTACT" placeholder="Contact Number">
+                  <input type="text" class="form-control" name="contact" id="inputCONTACT" placeholder="Contact Number">
+                  <?php echo form_error('contact'); ?>
                 </div>
                 </div>
                 </div>
@@ -383,52 +395,61 @@
                     <div class="input-group-addon">
                       <i class="fa fa-calendar"></i>
                     </div>
-                    <input type="text" class="form-control" id="datepicker" placeholder="mm/dd/yyyy">
+                    <input type="text" class="form-control" id="datepicker" name="birthdate" placeholder="mm/dd/yyyy">
                   </div>
+                    <?php echo form_error('birthdate'); ?>
                 </div>
                 </div>
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Birth Place</label>
-                  <input type="text" class="form-control" id="inputBIRTHPLACE" placeholder="Birth Place">
+                  <input type="text" class="form-control" id="inputBIRTHPLACE" name="birthplace" placeholder="Birth Place">
+                  <?php echo form_error('birthplace'); ?>
                 </div>
                 </div>
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Age <small>(as of last birthday)</small></label>
-                  <input type="text" class="form-control" id="inputAGE" placeholder="Age">
+                  <input type="text" class="form-control" id="inputAGE" placeholder="Age" name="age">
+                  <?php echo form_error('age'); ?>
                 </div>
                 </div>
                 </div>
                 <div class="row">
                 <div class="col-md-6">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Mother Tongue</label>
-                  <input type="text" class="form-control" id="inputMOTHERTONGUE" placeholder="Mother Tongue">
+                  <label>Mother Tongue</label>
+                  <input type="text" class="form-control" id="inputMOTHERTONGUE" placeholder="Mother Tongue" name="mothertongue">
+                  <?php echo form_error('mothertongue'); ?>
                 </div>
                 </div>
                 <div class="col-md-6">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Religion</label>
-                  <input type="text" class="form-control" id="inputRELIGION" placeholder="Religion">
+                  <label>Religion</label>
+                  <input type="text" class="form-control" id="inputRELIGION" placeholder="Religion" name="religion">
+                  <?php echo form_error('religion'); ?>
                 </div>
                 </div>
                 </div>
                 <hr>
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Address</label>
+                  <label>Address</label>
                   <div class="row">
                       <div class="col-md-3">
-                        <input type="text" class="form-control" id="inputSTREET" placeholder="House #, Street" sty>
+                        <input type="text" class="form-control" id="inputSTREET" placeholder="House #, Street" name="street">
+                        <?php echo form_error('street'); ?>
                       </div>
                       <div class="col-md-3">
-                        <input type="text" class="form-control" id="inputBARANGAY" placeholder="Barangay">
+                        <input type="text" class="form-control" id="inputBARANGAY" placeholder="Barangay" name="barangay">
+                        <?php echo form_error('barangay'); ?>
                       </div>
                       <div class="col-md-3">
-                        <input type="text" class="form-control" id="inputCITY" placeholder="City">
+                        <input type="text" class="form-control" id="inputCITY" placeholder="City" name="city">
+                        <?php echo form_error('city'); ?>
                       </div>
                       <div class="col-md-3">
-                        <input type="text" class="form-control" id="inputPROVINCE" placeholder="Province">
+                        <input type="text" class="form-control" id="inputPROVINCE" placeholder="Province" name="province">
+                        <?php echo form_error('province'); ?>
                       </div>
                     </div>
                 </div>
@@ -436,48 +457,55 @@
                 <div class="row">
                 <div class="col-md-6">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Father's Name</label>
-                  <input type="text" class="form-control" id="inputFATHER" placeholder="Father's Name">
+                  <label>Father's Name</label>
+                  <input type="text" class="form-control" id="inputFATHER" placeholder="Father's Name" name="fathername">
+                  <?php echo form_error('fathername'); ?>
                 </div>
                 </div>
                 <div class="col-md-6">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Mother's Maiden Name</label>
-                  <input type="text" class="form-control" id="inputMOTHER" placeholder="Mother's Maiden Name">
+                  <label>Mother's Maiden Name</label>
+                  <input type="text" class="form-control" id="inputMOTHER" placeholder="Mother's Maiden Name" name="mothername">
+                  <?php echo form_error('mothername'); ?>
                 </div>
                 </div>
                 </div>
                 <div class="row">
                 <div class="col-md-6">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Father's Contact No.</label>
-                  <input type="text" class="form-control" id="inputFATHERCONTACT" placeholder="Father's Contact No.">
+                  <label>Father's Contact No.</label>
+                  <input type="text" class="form-control" id="inputFATHERCONTACT" placeholder="Father's Contact No." name="fathercontact">
+                  <?php echo form_error('fathercontact'); ?>
                 </div>
                 </div>
                 <div class="col-md-6">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Mother's Contact No.</label>
-                  <input type="text" class="form-control" id="inputMOTHERCONTACT" placeholder="Mother's Contact No.">
+                  <label>Mother's Contact No.</label>
+                  <input type="text" class="form-control" id="inputMOTHERCONTACT" placeholder="Mother's Contact No." name="mothercontact">
+                  <?php echo form_error('mothercontact'); ?>
                 </div>
                 </div>
                 </div>
                 <div class="row">
                 <div class="col-md-4">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Guardian's Name</label>
-                  <input type="text" class="form-control" id="inputGUARDIAN" placeholder="Guardian's Name">
+                  <label>Guardian's Name</label>
+                  <input type="text" class="form-control" id="inputGUARDIAN" placeholder="Guardian's Name" name="guardian">
+                  <?php echo form_error('guardian'); ?>
                 </div>
                 </div>
                 <div class="col-md-4">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Relationship</label>
-                  <input type="text" class="form-control" id="inputRELATIONSHIP" placeholder="Relationship with Guardian">
+                  <input type="text" class="form-control" id="inputRELATIONSHIP" placeholder="Relationship with Guardian" name="relationship">
+                  <?php echo form_error('relationship'); ?>
                 </div>
                 </div>
                 <div class="col-md-4">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Guardian's Contact No.</label>
-                  <input type="text" class="form-control" id="inputGUARDIANCONTACT" placeholder="Guradian's Contact No.">
+                  <label>Guardian's Contact No.</label>
+                  <input type="text" class="form-control" id="inputGUARDIANCONTACT" placeholder="Guradian's Contact No." name="guardiancontact">
+                  <?php echo form_error('guardiancontact'); ?>
                 </div>
                 </div>
                 </div>
@@ -493,7 +521,7 @@
               </div>
               </div>
               <!-- /.box-body -->
-            </form>
+           
           </div>
         </div>
 
@@ -633,12 +661,12 @@
               </div>
               <!-- /.box-body -->
               <div class="box-footer">
-                <a href="<?php echo site_url('enrollment/enroll_student/strands') ?>">
-                <button type="button" class="btn btn-primary pull-right">Submit</button>
+                <input type="submit" class="btn btn-primary pull-right"></button>
                 </a>
               </div>
             </div>
             <!-- /.box-header -->
+             </form>
           </div>
           <!-- /.box -->
         </div>
