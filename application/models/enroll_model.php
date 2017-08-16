@@ -31,7 +31,7 @@ $studentInfo = array(
 	'guardiancontact' => $data['guardiancontact']
 	);
 	
-$this->db->insert('enroll', $studentInfo);
+$this->db->insert('enroll', $data);
 
 }
 
