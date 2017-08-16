@@ -4,28 +4,62 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class login extends CI_Controller {
 
 	public function index()
-	{
+	{	
+		$this->load->helper(array('form', 'url'));
+		$this->load->library('form_validation');
+		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 		$this->load->view('login/login');
 	}
-	public function validation(){
-		$username = $this->input->post('username');
-		$password = $this->input->post('password');
-		$table = "users";
 
-		$result = $this->users_model->checkRecord($username, $password, $table);
-		if($result ==true){
-			//echo "Username found!";
-			$result = $this->users_model->checkPassword($username, $password, $table);
+	public function index2()
+	{	
+		$this->load->helper(array('form', 'url'));
+		$this->load->library('form_validation');
+		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+		$this->load->view('login/login_2');
+	}
 
-			if($result==true){
-				echo true;
+	public function Login2()
+	{
+		$this->load->helper(array('form', 'url'));
+		$this->load->library('form_validation');
+		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+		$this->form_validation->set_rules('username', 'Username', 'required');
+		$this->form_validation->set_rules('password', 'Password', 'required');
+			
+		if ($this->form_validation->run() == FALSE)
+			{
+				$this->load->view('login/login');
 			}
-			else{
-				echo 3;
+		
+		
+		else
+		{
+			if ($this->input->post())
+			{
+				$this->load->model('users_model');				
+				$data = $this->input->post();
+				$this->users_model->login($data['username'], $data['password']);
+		
+				$result=$this->users_model->login($data['username'], $data['password']);
+				
+				if(!$result) {
+					redirect('/login/index2');
+				}
+				
+				else {
+					redirect ('/enrollment/dashboard/');
+				}
+				
+				echo $result;
+				exit();
 			}
 		}
-		else
-			echo 2;
-	}	
+		
+	}
+
+	
 
 }
+
+?>
