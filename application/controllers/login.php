@@ -5,25 +5,15 @@ class login extends CI_Controller {
 
 	public function index()
 	{	
-		$this->load->helper(array('form', 'url'));
-		$this->load->library('form_validation');
-		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 		$this->load->view('login/login');
 	}
 
-	public function index2()
-	{	
-		$this->load->helper(array('form', 'url'));
-		$this->load->library('form_validation');
-		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
-		$this->load->view('login/login_2');
-	}
 
 	public function Login2()
 	{
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
-		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+		$admin = "admin";
 		$this->form_validation->set_rules('username', 'Username', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
 			
@@ -32,27 +22,22 @@ class login extends CI_Controller {
 				$this->load->view('login/login');
 			}
 		
-		
 		else
 		{
-			if ($this->input->post())
-			{
-				$this->load->model('users_model');				
-				$data = $this->input->post();
-				$this->users_model->login($data['username'], $data['password']);
-		
-				$result=$this->users_model->login($data['username'], $data['password']);
-				
-				if(!$result) {
-					redirect('/login/index2');
-				}
-				
-				else {
-					redirect ('/enrollment/dashboard/');
-				}
-				
-				echo $result;
-				exit();
+			$username = $this->input->post('username');
+			$password = $this->input->post('password');
+			$result = $this->users_model->checkUserPassword($username, $password);
+
+			if($result==3){
+				redirect('enrollment/dashboard');
+			}
+			else if($result==1){
+				$data['userError'] = "Username does not exist!";
+				$this->load->view('login/login', $data);
+			}
+			else if($result==2){
+				$data['passError'] = "Incorrect password!";
+				$this->load->view('login/login', $data);
 			}
 		}
 		
