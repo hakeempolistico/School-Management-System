@@ -39,16 +39,17 @@
   <div class="login-box-body">
     <p class="login-box-msg"><img src="<?php echo base_url(); ?>images/logo.png" height="75" width="75"> </p>
 
-      <form method="POST" action="/sms/login/Login2">
-      <div class="text-danger" style="margin-bottom: -5px"><h6 id ="validation"></h6></div> 
+      <?php echo form_open('login/Login2'); ?>
       <div class="form-group has-feedback">
-        <input id="input_username" name="username" type="text" class="form-control" placeholder="Username" required>
-        <?php echo form_error('username'); ?>
+        <input id="input_username" name="username" type="text" class="form-control" placeholder="Username">
+        <div class="text-danger" style="margin-top: -5px; margin-left: 5px;"><h6 id ="validation"><?php echo form_error('username'); ?></h6></div> 
+        <div class="text-danger" style="margin-top: -5px; margin-left: 5px;"><h6 id ="validation"><?php if(isset($userError)) echo $userError; ?></h6></div> 
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input id="input_password" name="password" type="password" class="form-control" placeholder="Password" required>
-        <?php echo form_error('password'); ?>
+        <input id="input_password" name="password" type="password" class="form-control" placeholder="Password"  >
+        <div class="text-danger" style="margin-top: -5px; margin-left: 5px;"><h6 id ="validation"><?php echo form_error('password'); ?></h6></div> 
+        <div class="text-danger" style="margin-top: -5px; margin-left: 5px;"><h6 id ="validation"><?php if(isset($passError)) echo $passError; ?></h6>
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
