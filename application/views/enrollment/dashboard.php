@@ -186,7 +186,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="<?php echo base_url(); ?>dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span class="hidden-xs"><?php echo $this->session->first_name." ".$this->session->last_name ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -194,8 +194,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <img src="<?php echo base_url(); ?>dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
+                 <?php echo $this->session->first_name." ".$this->session->last_name." - ".$this->session->position ?>
+                  <small>Member since <?php echo $this->session->date_created ?></small>
                 </p>
               </li>
               <!-- Menu Body -->
@@ -239,7 +239,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <img src="<?php echo base_url(); ?>dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p><?php echo $this->session->first_name." ".$this->session->last_name ?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
