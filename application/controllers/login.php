@@ -13,7 +13,6 @@ class login extends CI_Controller {
 	{
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
-		$admin = "admin";
 		$this->form_validation->set_rules('username', 'Username', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
 			
@@ -28,7 +27,18 @@ class login extends CI_Controller {
 			$password = $this->input->post('password');
 			$result = $this->users_model->checkUserPassword($username, $password);
 
-			if($result==3){
+			if(is_object($result)){
+				//print_r($result);
+				$userdata = array(
+				        'username'  => $result->username,
+				        'first_name'     =>  $result->first_name,
+				        'last_name'     =>  $result->last_name,
+				        'position'     =>  $result->position,
+				        'date_created' => $result->date_created,
+				        'logged_in' => TRUE
+				);
+
+				$this->session->set_userdata($userdata);
 				redirect('enrollment/dashboard');
 			}
 			else if($result==1){
