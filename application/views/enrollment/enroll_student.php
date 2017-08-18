@@ -353,16 +353,16 @@
                   <label for="exampleInputEmail1">Name</label>
                     <div class="row">
                       <div class="col-md-4">
-                        <input type="text" class="form-control" name="fname" id="inputFNAME" placeholder="First Name">
-                        <?php echo form_error('fname'); ?>
+                        <input type="text" class="form-control" name="firstname" id="inputFNAME" placeholder="First Name">
+                        <?php echo form_error('firstname'); ?>
                       </div>
                       <div class="col-md-4">
-                        <input type="text" class="form-control" name="mname" id="inputMNAME" placeholder="Middle Name">
-                        <?php echo form_error('mname'); ?>
+                        <input type="text" class="form-control" name="middlename" id="inputMNAME" placeholder="Middle Name">
+                        <?php echo form_error('middlename'); ?>
                       </div>
                       <div class="col-md-4">
-                        <input type="text" class="form-control" name="lname" id="inputLNAME" placeholder="Last Name">
-                        <?php echo form_error('lname'); ?>
+                        <input type="text" class="form-control" name="lastname" id="inputLNAME" placeholder="Last Name">
+                        <?php echo form_error('lastname'); ?>
                       </div>
                     </div>
                 </div>
