@@ -39,7 +39,7 @@
   <div class="login-box-body">
     <p class="login-box-msg"><img src="<?php echo base_url(); ?>images/logo.png" height="75" width="75"> </p>
 
-      <?php echo form_open('login/Login2'); ?>
+      <?php echo form_open('login/'); ?>
       <div class="form-group has-feedback">
         <input id="input_username" name="username" type="text" class="form-control" placeholder="Username">
         <div class="text-danger" style="margin-top: -5px; margin-left: 5px;"><h6 id ="validation"><?php echo form_error('username'); ?></h6></div> 
