@@ -185,13 +185,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="<?php echo base_url(); ?>dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <img src="<?php echo base_url('images/alt_picture.jpg');?>" class="user-image" alt="<?php echo base_url('images/alt_picture.jpg');?>">
               <span class="hidden-xs"><?php echo $this->session->first_name." ".$this->session->last_name ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="<?php echo base_url(); ?>dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="<?php echo base_url('images/alt_picture.jpg');?>" class="img-circle" alt="<?php echo base_url('images/alt_picture.jpg');?>">
 
                 <p>
                  <?php echo $this->session->first_name." ".$this->session->last_name." - ".$this->session->position ?>
@@ -236,7 +236,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="<?php echo base_url(); ?>dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="<?php echo base_url('images/alt_picture.jpg');?>" class="img-circle" alt="<?php echo base_url('images/alt_picture.jpg');?>">
         </div>
         <div class="pull-left info">
           <p><?php echo $this->session->first_name." ".$this->session->last_name ?></p>
@@ -319,7 +319,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Enrollment</a></li>
+        <li><a href="enrollment/dashboard"><i class="fa fa-dashboard"></i> Enrollment</a></li>
         <li class="active">Dashboard</li>
       </ol>
     </section>
