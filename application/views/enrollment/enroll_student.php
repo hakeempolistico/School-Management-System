@@ -342,7 +342,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form method="POST" action="/sms/enrollment/enroll_student/register/">
+            <form method="POST" action="/enrollment/enroll_student/register/">
               <div class="box-body" style="padding-bottom: 20px;">
                 <div class="form-group">
                   <label>LRN</label>

@@ -45,13 +45,14 @@
   }
 }
 .skin-blue .main-header .logo {
-  background-color: maroon;
+  background: maroon;
   color: #ffffff;
-  border-bottom: 0 solid transparent;
+  background: #730000;
 }
 .skin-blue .main-header .logo:hover {
   background-color: maroon;
   background: #730000;
+  background: rgba(115, 0, 0, 0.9);
 }
 .skin-blue .main-header li.user-header {
   background-color: maroon;
