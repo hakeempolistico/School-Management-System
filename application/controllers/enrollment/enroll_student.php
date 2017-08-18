@@ -44,10 +44,10 @@ class enroll_student extends CI_Controller {
 	{
 		$required_message = array('required' => 'Field is required!');
 		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
-		$this->form_validation->set_rules('lrn', 'LRN', 'trim|required|min_length[3]|max_length[20]|is_unique[enroll.lrn]', $required_message);
-		$this->form_validation->set_rules('fname', 'First Name', 'trim|required|min_length[3]|max_length[40]', $required_message);
-		$this->form_validation->set_rules('mname', 'Middle Name', 'trim|required|min_length[3]|max_length[20]', $required_message);
-		$this->form_validation->set_rules('lname', 'Last Name', 'trim|required|min_length[3]|max_length[20]', $required_message);
+		$this->form_validation->set_rules('lrn', 'LRN', 'trim|required|min_length[3]|max_length[20]|is_unique[students.lrn]', $required_message);
+		$this->form_validation->set_rules('firstname', 'First Name', 'trim|required|min_length[3]|max_length[40]', $required_message);
+		$this->form_validation->set_rules('middlename', 'Middle Name', 'trim|required|min_length[3]|max_length[20]', $required_message);
+		$this->form_validation->set_rules('lastname', 'Last Name', 'trim|required|min_length[3]|max_length[20]', $required_message);
 		$this->form_validation->set_rules('sex', 'Sex', 'trim|required|min_length[3]|max_length[20]', $required_message);
 		$this->form_validation->set_rules('contact', 'Contact No', 'trim|required|min_length[3]|max_length[20]', $required_message);
 		$this->form_validation->set_rules('birthdate', 'Birthdate', 'trim|required|min_length[3]|max_length[20]', $required_message);
@@ -76,10 +76,10 @@ class enroll_student extends CI_Controller {
 			$this->load->model('enroll_model');
 			
 			if($this->input->post()) {
-			$data = $this->input->post();
-			$table = 'students'; echo $table; exit;
-			$result = $this->enroll_model->add($table, $data);
-			redirect('enrollment/enroll_student/strands');
+				$data = $this->input->post();
+				$table = 'students';
+				$result = $this->enroll_model->add($table, $data);
+				redirect('enrollment/enroll_student/strands');
 			}
 		}
 	}
