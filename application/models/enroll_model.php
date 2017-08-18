@@ -2,12 +2,10 @@
 
 class enroll_model extends CI_Model{
 
-public function add($data)
-{
-
-$this->db->insert('enroll', $data);
-
-}
+	public function add($table,$data)
+	{
+		$this->db->insert($table, $data);
+	}
 
 }
 
