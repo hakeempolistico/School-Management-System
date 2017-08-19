@@ -342,7 +342,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form method="POST" action="/enrollment/enroll_student/register/">
+            <form method="POST" action="/sms/enrollment/enroll_student/register/">
               <div class="box-body" style="padding-bottom: 20px;">
                 <div class="form-group">
                   <label>LRN</label>
@@ -381,7 +381,7 @@
                 <div class="col-md-6">
                 <div class="form-group">
                   <label>Contact Number</label>
-                  <input type="text" class="form-control" name="contact" id="inputCONTACT" placeholder="Contact Number">
+                  <input type="text" class="form-control" name="contact_no" id="inputCONTACT" placeholder="Contact Number">
                   <?php echo form_error('contact'); ?>
                 </div>
                 </div>
