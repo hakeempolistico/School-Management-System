@@ -49,7 +49,7 @@ class enroll_student extends CI_Controller {
 		$this->form_validation->set_rules('middle_name', 'Middle Name', 'trim|required|min_length[3]|max_length[20]', $required_message);
 		$this->form_validation->set_rules('last_name', 'Last Name', 'trim|required|min_length[3]|max_length[20]', $required_message);
 		$this->form_validation->set_rules('sex', 'Sex', 'trim|required|min_length[3]|max_length[20]', $required_message);
-		$this->form_validation->set_rules('contact_no', 'Contact No', 'trim|required|min_length[3]|max_length[20]', $required_message);
+		$this->form_validation->set_rules('contact', 'Contact No', 'trim|required|min_length[3]|max_length[20]', $required_message);
 		$this->form_validation->set_rules('birth_date', 'Birthdate', 'trim|required|min_length[3]|max_length[20]', $required_message);
 		$this->form_validation->set_rules('birth_place', 'Birthplace', 'trim|required|min_length[3]|max_length[40]', $required_message);
 		$this->form_validation->set_rules('age', 'Age', 'trim|required|min_length[1]|max_length[5]', $required_message);

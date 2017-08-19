@@ -342,26 +342,26 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form method="POST" action="enrollment/enroll_student/register/">
+            <form method="POST" action="/enrollment/enroll_student/register/">
               <div class="box-body" style="padding-bottom: 20px;">
                 <div class="form-group">
                   <label>LRN</label>
-                  <input type="text" class="form-control" name="lrn" id="inputLRN" placeholder="Learner Reference Number">
+                  <input type="text" class="form-control" name="lrn" id="inputLRN" value="<?php echo set_value('lrn'); ?>" placeholder="Learner Reference Number">
                   <?php echo form_error('lrn'); ?>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Name</label>
                     <div class="row">
                       <div class="col-md-4">
-                        <input type="text" class="form-control" name="first_name" id="inputFNAME" placeholder="First Name">
+                        <input type="text" class="form-control" name="first_name" id="inputFNAME" value="<?php echo set_value('first_name'); ?>" placeholder="First Name">
                         <?php echo form_error('first_name'); ?>
                       </div>
                       <div class="col-md-4">
-                        <input type="text" class="form-control" name="middle_name" id="inputMNAME" placeholder="Middle Name">
+                        <input type="text" class="form-control" name="middle_name" id="inputMNAME" value="<?php echo set_value('middle_name'); ?>" placeholder="Middle Name">
                         <?php echo form_error('middle_name'); ?>
                       </div>
                       <div class="col-md-4">
-                        <input type="text" class="form-control" name="last_name" id="inputLNAME" placeholder="Last Name">
+                        <input type="text" class="form-control" name="last_name" id="inputLNAME" value="<?php echo set_value('last_name'); ?>" placeholder="Last Name">
                         <?php echo form_error('last_name'); ?>
                       </div>
                     </div>
@@ -370,7 +370,7 @@
                 <div class="col-md-6">
                 <div class="form-group">
                   <label>Sex</label>
-                  <select class="form-control" id="inputSEX" name="sex" placeholder="Sex">
+                  <select class="form-control" id="inputSEX" name="sex" value="<?php echo set_value('sex'); ?>" placeholder="Sex">
                     <option value="" disabled selected>Sex</option>
                     <option value="Female">Female</option>
                     <option value="Male">Male</option>
@@ -381,7 +381,7 @@
                 <div class="col-md-6">
                 <div class="form-group">
                   <label>Contact Number</label>
-                  <input type="text" class="form-control" name="contact_no" id="inputCONTACT" placeholder="Contact Number">
+                  <input type="text" class="form-control" name="contact" id="inputCONTACT" value="<?php echo set_value('contact'); ?>" placeholder="Contact Number">
                   <?php echo form_error('contact'); ?>
                 </div>
                 </div>
@@ -395,7 +395,7 @@
                     <div class="input-group-addon">
                       <i class="fa fa-calendar"></i>
                     </div>
-                    <input type="text" class="form-control" id="datepicker" name="birth_date" placeholder="mm/dd/yyyy">
+                    <input type="text" class="form-control" id="datepicker" name="birth_date" value="<?php echo set_value('birth_date'); ?>" placeholder="mm/dd/yyyy">
                   </div>
                     <?php echo form_error('birth_date'); ?>
                 </div>
@@ -403,14 +403,14 @@
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Birth Place</label>
-                  <input type="text" class="form-control" id="inputBIRTHPLACE" name="birth_place" placeholder="Birth Place">
+                  <input type="text" class="form-control" id="inputBIRTHPLACE" name="birth_place" value="<?php echo set_value('birth_place'); ?>" placeholder="Birth Place">
                   <?php echo form_error('birth_place'); ?>
                 </div>
                 </div>
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Age <small>(as of last birthday)</small></label>
-                  <input type="text" class="form-control" id="inputAGE" placeholder="Age" name="age">
+                  <input type="text" class="form-control" id="inputAGE" value="<?php echo set_value('age'); ?>" placeholder="Age" name="age">
                   <?php echo form_error('age'); ?>
                 </div>
                 </div>
@@ -419,14 +419,14 @@
                 <div class="col-md-6">
                 <div class="form-group">
                   <label>Mother Tongue</label>
-                  <input type="text" class="form-control" id="inputMOTHERTONGUE" placeholder="Mother Tongue" name="mother_tongue">
+                  <input type="text" class="form-control" id="inputMOTHERTONGUE" value="<?php echo set_value('mother_tongue'); ?>" placeholder="Mother Tongue" name="mother_tongue">
                   <?php echo form_error('mother_tongue'); ?>
                 </div>
                 </div>
                 <div class="col-md-6">
                 <div class="form-group">
                   <label>Religion</label>
-                  <input type="text" class="form-control" id="inputRELIGION" placeholder="Religion" name="religion">
+                  <input type="text" class="form-control" id="inputRELIGION" value="<?php echo set_value('religion'); ?>" placeholder="Religion" name="religion">
                   <?php echo form_error('religion'); ?>
                 </div>
                 </div>
@@ -436,19 +436,19 @@
                   <label>Address</label>
                   <div class="row">
                       <div class="col-md-3">
-                        <input type="text" class="form-control" id="inputSTREET" placeholder="House #, Street" name="street">
+                        <input type="text" class="form-control" id="inputSTREET" value="<?php echo set_value('street'); ?>" placeholder="House #, Street" name="street">
                         <?php echo form_error('street'); ?>
                       </div>
                       <div class="col-md-3">
-                        <input type="text" class="form-control" id="inputBARANGAY" placeholder="Barangay" name="barangay">
+                        <input type="text" class="form-control" id="inputBARANGAY" value="<?php echo set_value('barangay'); ?>" placeholder="Barangay" name="barangay">
                         <?php echo form_error('barangay'); ?>
                       </div>
                       <div class="col-md-3">
-                        <input type="text" class="form-control" id="inputCITY" placeholder="City" name="city">
+                        <input type="text" class="form-control" id="inputCITY" value="<?php echo set_value('city'); ?>" placeholder="City" name="city">
                         <?php echo form_error('city'); ?>
                       </div>
                       <div class="col-md-3">
-                        <input type="text" class="form-control" id="inputPROVINCE" placeholder="Province" name="province">
+                        <input type="text" class="form-control" id="inputPROVINCE" value="<?php echo set_value('province'); ?>" placeholder="Province" name="province">
                         <?php echo form_error('province'); ?>
                       </div>
                     </div>
@@ -458,14 +458,14 @@
                 <div class="col-md-6">
                 <div class="form-group">
                   <label>Father's Name</label>
-                  <input type="text" class="form-control" id="inputFATHER" placeholder="Father's Name" name="father_name">
+                  <input type="text" class="form-control" id="inputFATHER" value="<?php echo set_value('father_name'); ?>" placeholder="Father's Name" name="father_name">
                   <?php echo form_error('father_name'); ?>
                 </div>
                 </div>
                 <div class="col-md-6">
                 <div class="form-group">
                   <label>Mother's Maiden Name</label>
-                  <input type="text" class="form-control" id="inputMOTHER" placeholder="Mother's Maiden Name" name="mother_name">
+                  <input type="text" class="form-control" id="inputMOTHER" value="<?php echo set_value('mother_name'); ?>" placeholder="Mother's Maiden Name" name="mother_name">
                   <?php echo form_error('mother_name'); ?>
                 </div>
                 </div>
@@ -474,14 +474,14 @@
                 <div class="col-md-6">
                 <div class="form-group">
                   <label>Father's Contact No.</label>
-                  <input type="text" class="form-control" id="inputFATHERCONTACT" placeholder="Father's Contact No." name="father_contact">
+                  <input type="text" class="form-control" id="inputFATHERCONTACT" value="<?php echo set_value('father_contact'); ?>" placeholder="Father's Contact No." name="father_contact">
                   <?php echo form_error('father_contact'); ?>
                 </div>
                 </div>
                 <div class="col-md-6">
                 <div class="form-group">
                   <label>Mother's Contact No.</label>
-                  <input type="text" class="form-control" id="inputMOTHERCONTACT" placeholder="Mother's Contact No." name="mother_contact">
+                  <input type="text" class="form-control" id="inputMOTHERCONTACT" value="<?php echo set_value('mother_contact'); ?>" placeholder="Mother's Contact No." name="mother_contact">
                   <?php echo form_error('mother_contact'); ?>
                 </div>
                 </div>
@@ -490,21 +490,21 @@
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Guardian's Name</label>
-                  <input type="text" class="form-control" id="inputGUARDIAN" placeholder="Guardian's Name" name="guardian">
+                  <input type="text" class="form-control" id="inputGUARDIAN" value="<?php echo set_value('guardian'); ?>" placeholder="Guardian's Name" name="guardian">
                   <?php echo form_error('guardian'); ?>
                 </div>
                 </div>
                 <div class="col-md-4">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Relationship</label>
-                  <input type="text" class="form-control" id="inputRELATIONSHIP" placeholder="Relationship with Guardian" name="relationship">
+                  <input type="text" class="form-control" id="inputRELATIONSHIP" value="<?php echo set_value('relationship'); ?>" placeholder="Relationship with Guardian" name="relationship">
                   <?php echo form_error('relationship'); ?>
                 </div>
                 </div>
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Guardian's Contact No.</label>
-                  <input type="text" class="form-control" id="inputGUARDIANCONTACT" placeholder="Guradian's Contact No." name="guardian_contact">
+                  <input type="text" class="form-control" id="inputGUARDIANCONTACT" value="<?php echo set_value('guardian_contact'); ?>" placeholder="Guradian's Contact No." name="guardian_contact">
                   <?php echo form_error('guardian_contact'); ?>
                 </div>
                 </div>
