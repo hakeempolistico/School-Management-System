@@ -370,10 +370,10 @@
                 <div class="col-md-6">
                 <div class="form-group">
                   <label>Sex</label>
-                  <select class="form-control" id="inputSEX" name="sex" value="<?php echo set_value('sex'); ?>" placeholder="Sex">
+                  <select class="form-control" id="inputSEX" name="sex" value="<?php echo set_select('sex'); ?>" placeholder="Sex">
                     <option value="" disabled selected>Sex</option>
-                    <option value="Female">Female</option>
-                    <option value="Male">Male</option>
+                    <option value="Female" <?php echo  set_select('sex', 'Female'); ?> >Female</option>
+                    <option value="Male" <?php echo  set_select('sex', 'Male'); ?> >Male</option>
                   </select>
                   <?php echo form_error('sex'); ?>
                 </div>
@@ -716,7 +716,8 @@
 <script>
 //Date picker
     $('#datepicker').datepicker({
-      autoclose: true
+      autoclose: true,
+      format: 'yyyy/mm/dd'
     })
 </script>
 <script type="text/javascript">
