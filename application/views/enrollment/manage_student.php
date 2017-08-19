@@ -539,7 +539,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </table>
                     <hr style="margin-bottom: 10px;">
                       
-                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#stem_section_modal" style="width: 15%; ">Add</button>
+                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#section_modal" style="width: 15%; ">Add</button>
                       <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" style="width: 15%;">Transfer</button>
                   </div>
                   <!-- /.end student tab-->
@@ -1249,7 +1249,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <!--end of modal-->
 
                 <!--second modal start-->
-        <div class="modal fade" id="stem_section_modal">
+        <div class="modal fade" id="section_modal">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
