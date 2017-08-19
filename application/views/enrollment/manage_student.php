@@ -36,7 +36,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>dist/css/enrollment/manage_student.css"">
 </head>
+
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 <div hidden class="loading">Loading&#8230;</div>
@@ -435,7 +437,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
 
       <!-- BOX OF STEM-->
-          <div class="box box-success" hidden id="stem_box">
+          <div class="box" hidden id="stem_box">
             <div class="box-header">
               <h3 class="box-title">STEM</h3>
             </div>
@@ -443,8 +445,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="box-body">
               <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
-                  <li class="active"><a href="#tab_1" data-toggle="tab">Student List</a></li>
-                  <!--<li> <a href="#tab_2" data-toggle="tab">Section</a></li>-->
+                  <li class="completed"><a href="#tab_1" data-toggle="tab">Select Students</a></li>
+                  <li> <a href="#tab_2" data-toggle="tab">Add Section</a></li>
+                  <li> <a href="#tab_2" data-toggle="tab">Summary</a></li>
                 </ul>
                 <div class="tab-content">
                   <div class="tab-pane active" id="tab_1">  
@@ -721,7 +724,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!--/.box (box ng GAS)-->
 
           <!-- BOX OF HUMSS start-->
-          <div class="box box-warning" hidden id="humss_box">
+          <div class="box" hidden id="humss_box">
             <div class="box-header">
               <h3 class="box-title">HUMSS</h3>
             </div>
@@ -824,7 +827,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!--/.box (box ng HUMSS)-->
 
           <!-- BOX OF ABM start-->
-          <div class="box box-warning" hidden id="abm_box">
+          <div class="box" hidden id="abm_box">
             <div class="box-header">
               <h3 class="box-title">ABM</h3>
             </div>
@@ -927,7 +930,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!--/.box (box ng ABM)-->
 
           <!-- BOX OF TVL-HE start-->
-          <div class="box box-primary" hidden id="tvlhe_box">
+          <div class="box" hidden id="tvlhe_box">
             <div class="box-header">
               <h3 class="box-title">TVL-HE</h3>
             </div>
@@ -1030,7 +1033,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!--/.box (box ng TVL-HE end)--> 
 
           <!-- BOX OF TVL-AS start-->
-          <div class="box box-primary" hidden id="tvlas_box">
+          <div class="box" hidden id="tvlas_box">
             <div class="box-header">
               <h3 class="box-title">TVL-AS</h3>
             </div>
@@ -1132,58 +1135,69 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
           <!--/.box (box ng TVL-HE end)-->     
           
-                <!--modal start-->
-                <div class="modal fade" id="modal-default">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header bg-green">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">SUMMARY</b></h4>
-                      </div>
-                      <div class="modal-body">
-                        <div class="box-body table-responsive no-padding">
-                        <h3>ADD TO <b> STEM-1</b></h3>
-                          <table class="table">
-                            <tr>
-                              <th>#</th>
-                              <th>LRN</th>
-                              <th>Full Name</th>
-                              <th>Sex</th>
+          <!--modal start-->
+          <div class="modal fade" id="modal-default">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header bg-green">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">SUMMARY</b></h4>
+                </div>
+                <div class="modal-body">
+                   <div class="box-body table-responsive no-padding">
+                     <h3>ADD TO <b> STEM-1</b></h3>
+                        <table class="table">
+                          <tr>
+                            <th>#</th>
+                            <th>LRN</th>
+                            <th>Full Name</th>
+                            <th>Sex</th>
+                             
+                          </tr>
+                           <tr>
+                            <td>1.</td>
+                            <td>00000000008</td>
+                            <td>Escaro, Adrielle Kristine Nicolette</td>
+                            <td>Female</td>
                               
-                            </tr>
-                            <tr>
-                              <td>1.</td>
-                              <td>00000000008</td>
-                              <td>Escaro, Adrielle Kristine Nicolette</td>
-                              <td>Female</td>
+                          </tr>
+                          <tr>
+                            <td>2.</td>
+                            <td>00000000009</td>
+                            <td>Polistico, Hakeem</td>
+                            <td>Male</td>
                               
-                            </tr>
-                            <tr>
-                              <td>2.</td>
-                              <td>00000000009</td>
-                              <td>Polistico, Hakeem</td>
-                              <td>Male</td>
-                              
-                            </tr>  
-                            <tr>
-                              <td>3.</td>
-                              <td>00000000007</td>
-                              <td>Salva, Jasver Anlouise</td>
-                              <td>Female</td>
-                              
-                            </tr>                
-                          </table>
-                        </div>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal" data-toggle="modal" data-target="#section_modal">Back</button>
-                        <button type="button" class="btn btn-success">Confirm</button>
-                      </div>
-                    </div>   
+                          </tr>  
+                           <tr>
+                            <td>3.</td>
+                            <td>00000000007</td>
+                            <td>Salva, Jasver Anlouise</td>
+                            <td>Female</td>
+                            
+                          </tr>                
+                        </table>
                   </div>
                 </div>
-                <!--end of modal-->
+                <div class="modal-footer">
+                  <button 
+                  type="button" 
+                  class="btn btn-default pull-left" 
+                  data-dismiss="modal" 
+                  data-toggle="modal" 
+                  data-target="#section_modal">
+                  Back
+                  </button>
+                  <button 
+                  type="button" 
+                  class="btn btn-success">
+                  Confirm
+                  </button>
+                </div>
+              </div>   
+            </div>
+          </div>
+          <!--end of SUMMARY modal-->
 
                 <!--modal start-->
                 <div class="modal fade" id="gas_modal">
@@ -1237,58 +1251,58 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
                 <!--end of modal-->
 
-                <!--second modal start-->
-        <div class="modal fade" id="section_modal">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <!--SECTION modal start-->
+          <div class="modal fade" id="section_modal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Select a Section</h4>
+                  <h4 class="modal-title">Select a Section</h4>
+                </div>
+                <div class="modal-body">
+                  <table id="example2" class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Section Name</th>
+                        <th>Count</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1.</td>
+                        <td>STEM-1</td>
+                        <td>31/40</td>
+                        <td><span class="label label-success">Open</span></td>
+                       </tr>
+                      <tr>
+                        <td>2.</td>
+                        <td>STEM-2</td>
+                        <td>40/40</td>
+                        <td><span class="label label-danger">Closed</span></td>
+                      </tr>
+                      <tr>
+                        <td>3.</td>
+                        <td>STEM-3</td>
+                        <td>0/40</td>
+                        <td><span class="label label-success">Open</span></td>
+                      </tr>
+                    </tbody>                      
+                  </table>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#modal-default">Next</button>
+                </div>
               </div>
-              <div class="modal-body">
-                <table id="example2" class="table table-bordered table-striped">
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>Section Name</th>
-                          <th>Count</th>
-                          <th>Status</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>1.</td>
-                          <td>STEM-1</td>
-                          <td>31/40</td>
-                          <td><span class="label label-success">Open</span></td>
-                        </tr>
-                        <tr>
-                          <td>2.</td>
-                          <td>STEM-2</td>
-                          <td>40/40</td>
-                          <td><span class="label label-danger">Closed</span></td>
-                        </tr>
-                        <tr>
-                          <td>3.</td>
-                          <td>STEM-3</td>
-                          <td>0/40</td>
-                          <td><span class="label label-success">Open</span></td>
-                        </tr>
-                      </tbody>                      
-                    </table>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#modal-default">Next</button>
-              </div>
+              <!-- /.modal-content -->
             </div>
-            <!-- /.modal-content -->
+            <!-- /.modal-dialog -->
           </div>
-          <!-- /.modal-dialog -->
-        </div>
-        <!-- /.modal -->
-                <!--second modal end-->
+          <!-- /.modal -->
+          <!--section modal end-->
         <!-- right col -->
       </div>
       <!-- /.row (main row) -->
