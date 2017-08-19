@@ -11,13 +11,18 @@ class view_data extends CI_Controller {
 
 	public function index()
 	{	
-		
-		$this->load->view('enrollment/view_data');
+		$table = "students";
+		$records = json_encode($this->global_model->getRecords($table));
+		$data['studentRecords'] = $records;
+		$this->load->view('enrollment/view_data', $data);
 	}
 	
 	public function ajax()
 	{
-		$info = array("lrn"=>"1231231231", "name"=>"hakeem", "sex"=>"male");
-		echo json_encode($info);
+		$table = "students";
+		$set = "lrn";
+		$value = $this->input->post('lrn');
+		$records = json_encode($this->global_model->getRow($table, $set, $value));
+		echo $records;
 	}
 }
