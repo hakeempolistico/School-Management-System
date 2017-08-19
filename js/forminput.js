@@ -81,6 +81,8 @@ $(document).ready(function(){
       $("#inputREQUIREMENTS").on("change", function (e) {
           var a = "Form 137,Form 138,NSO Birth Certificate"
 
+          //alert($('.select2').val());
+
           if ($(this).val() == a) {
             document.getElementById("textREQUIREMENTS").innerHTML ='<span class="label label-success">Complete</span>';
             } else {
