@@ -353,16 +353,16 @@
                   <label for="exampleInputEmail1">Name</label>
                     <div class="row">
                       <div class="col-md-4">
-                        <input type="text" class="form-control" name="firstname" id="inputFNAME" placeholder="First Name">
-                        <?php echo form_error('firstname'); ?>
+                        <input type="text" class="form-control" name="first_name" id="inputFNAME" placeholder="First Name">
+                        <?php echo form_error('first_name'); ?>
                       </div>
                       <div class="col-md-4">
-                        <input type="text" class="form-control" name="middlename" id="inputMNAME" placeholder="Middle Name">
-                        <?php echo form_error('middlename'); ?>
+                        <input type="text" class="form-control" name="middle_name" id="inputMNAME" placeholder="Middle Name">
+                        <?php echo form_error('middle_name'); ?>
                       </div>
                       <div class="col-md-4">
-                        <input type="text" class="form-control" name="lastname" id="inputLNAME" placeholder="Last Name">
-                        <?php echo form_error('lastname'); ?>
+                        <input type="text" class="form-control" name="last_name" id="inputLNAME" placeholder="Last Name">
+                        <?php echo form_error('last_name'); ?>
                       </div>
                     </div>
                 </div>
@@ -395,16 +395,16 @@
                     <div class="input-group-addon">
                       <i class="fa fa-calendar"></i>
                     </div>
-                    <input type="text" class="form-control" id="datepicker" name="birthdate" placeholder="mm/dd/yyyy">
+                    <input type="text" class="form-control" id="datepicker" name="birth_date" placeholder="mm/dd/yyyy">
                   </div>
-                    <?php echo form_error('birthdate'); ?>
+                    <?php echo form_error('birth_date'); ?>
                 </div>
                 </div>
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Birth Place</label>
-                  <input type="text" class="form-control" id="inputBIRTHPLACE" name="birthplace" placeholder="Birth Place">
-                  <?php echo form_error('birthplace'); ?>
+                  <input type="text" class="form-control" id="inputBIRTHPLACE" name="birth_place" placeholder="Birth Place">
+                  <?php echo form_error('birth_place'); ?>
                 </div>
                 </div>
                 <div class="col-md-4">
@@ -419,8 +419,8 @@
                 <div class="col-md-6">
                 <div class="form-group">
                   <label>Mother Tongue</label>
-                  <input type="text" class="form-control" id="inputMOTHERTONGUE" placeholder="Mother Tongue" name="mothertongue">
-                  <?php echo form_error('mothertongue'); ?>
+                  <input type="text" class="form-control" id="inputMOTHERTONGUE" placeholder="Mother Tongue" name="mother_tongue">
+                  <?php echo form_error('mother_tongue'); ?>
                 </div>
                 </div>
                 <div class="col-md-6">
@@ -458,15 +458,15 @@
                 <div class="col-md-6">
                 <div class="form-group">
                   <label>Father's Name</label>
-                  <input type="text" class="form-control" id="inputFATHER" placeholder="Father's Name" name="fathername">
-                  <?php echo form_error('fathername'); ?>
+                  <input type="text" class="form-control" id="inputFATHER" placeholder="Father's Name" name="father_name">
+                  <?php echo form_error('father_name'); ?>
                 </div>
                 </div>
                 <div class="col-md-6">
                 <div class="form-group">
                   <label>Mother's Maiden Name</label>
-                  <input type="text" class="form-control" id="inputMOTHER" placeholder="Mother's Maiden Name" name="mothername">
-                  <?php echo form_error('mothername'); ?>
+                  <input type="text" class="form-control" id="inputMOTHER" placeholder="Mother's Maiden Name" name="mother_name">
+                  <?php echo form_error('mother_name'); ?>
                 </div>
                 </div>
                 </div>
@@ -474,15 +474,15 @@
                 <div class="col-md-6">
                 <div class="form-group">
                   <label>Father's Contact No.</label>
-                  <input type="text" class="form-control" id="inputFATHERCONTACT" placeholder="Father's Contact No." name="fathercontact">
-                  <?php echo form_error('fathercontact'); ?>
+                  <input type="text" class="form-control" id="inputFATHERCONTACT" placeholder="Father's Contact No." name="father_contact">
+                  <?php echo form_error('father_contact'); ?>
                 </div>
                 </div>
                 <div class="col-md-6">
                 <div class="form-group">
                   <label>Mother's Contact No.</label>
-                  <input type="text" class="form-control" id="inputMOTHERCONTACT" placeholder="Mother's Contact No." name="mothercontact">
-                  <?php echo form_error('mothercontact'); ?>
+                  <input type="text" class="form-control" id="inputMOTHERCONTACT" placeholder="Mother's Contact No." name="mother_contact">
+                  <?php echo form_error('mother_contact'); ?>
                 </div>
                 </div>
                 </div>
@@ -504,8 +504,8 @@
                 <div class="col-md-4">
                 <div class="form-group">
                   <label>Guardian's Contact No.</label>
-                  <input type="text" class="form-control" id="inputGUARDIANCONTACT" placeholder="Guradian's Contact No." name="guardiancontact">
-                  <?php echo form_error('guardiancontact'); ?>
+                  <input type="text" class="form-control" id="inputGUARDIANCONTACT" placeholder="Guradian's Contact No." name="guardian_contact">
+                  <?php echo form_error('guardian_contact'); ?>
                 </div>
                 </div>
                 </div>
