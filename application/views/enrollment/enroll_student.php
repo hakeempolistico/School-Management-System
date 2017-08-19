@@ -342,7 +342,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form method="POST" action="/enrollment/enroll_student/register/">
+            <form method="POST" action="/sms/enrollment/enroll_student/register/">
               <div class="box-body" style="padding-bottom: 20px;">
                 <div class="form-group">
                   <label>LRN</label>
@@ -512,7 +512,7 @@
                 <hr>
                 <div class="form-group">
                 <label>Requirements</label>
-                <select class="form-control select2" multiple="multiple" id="inputREQUIREMENTS" data-placeholder="Select Requirement"
+                <select class="form-control select2" multiple="multiple" id="inputREQUIREMENTS" value="<?php echo set_select('requirements'); ?>" name="requirements[]" data-placeholder="Select Requirement"
                         style="width: 100%;">
                   <option id="f137">Form 137</option>
                   <option id="f138">Form 138</option>
@@ -722,8 +722,10 @@
 </script>
 <script type="text/javascript">
   //Initialize Select2 Elements
-    $('.select2').select2()
+    $('.select2').select2();
+    
 </script>
+
 
 </body>
 </html>

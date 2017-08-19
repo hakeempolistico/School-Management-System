@@ -4,7 +4,8 @@ class global_model extends CI_Model{
 
 	public function insert($table,$data)
 	{
-		$this->db->insert($table, $data);
+		$query = $this->db->insert($table, $data);
+		return $query;
 	}
 
 	public function getRecords($table)
