@@ -469,30 +469,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
               <h3 id="name" class="profile-username text-center" ></h3>
 
-              <p class="text-muted text-center">Grade 12 Student</p>
+              <p class="text-muted text-center" id="position"></p>
 		<div class="row">
         <div class="col-md-6">
               <ul class="list-group list-group-unbordered" style= "text-align: center">
                 <li class="list-group-item">
-                  <b>LRN</b><br> <a id="lrn">123456789121</a>
+                  <b>LRN</b><br> <a id="lrn"></a>
                 </li>
                 <li class="list-group-item">
-                  <b>Contact No.</b><br> <a id="contact">0997-586-4782</a>
+                  <b>Contact No.</b><br> <a id="contact"></a>
                 </li>
                 <li class="list-group-item">
-                  <b>Birthdate</b><br> <a id="birth_date" >July 22, 1994</a>
+                  <b>Birthdate</b><br> <a id="birth_date" ></a>
                 </li>
                 <li class="list-group-item">
-                  <b>Birthplace</b> <br><a id="birth_place">Mandaluyong City</a>
+                  <b>Birthplace</b> <br><a id="birth_place"></a>
                 </li>
                 <li class="list-group-item">
-                  <b>Age</b><br> <a id="age">23</a>
+                  <b>Age</b><br> <a id="age"></a>
                 </li>
                 <li class="list-group-item">
-                  <b>Mother Tongue</b><br> <a id="mother_tongue">Filipino</a>
+                  <b>Mother Tongue</b><br> <a id="mother_tongue"></a>
                 </li>
                 <li class="list-group-item">
-                  <b>Religion</b> <br><a id="religion">Roman Catholic</a>
+                  <b>Religion</b> <br><a id="religion">c</a>
                 </li>
                 <li class="list-group-item">
                   <b>Address</b> <br><a id="street"></a><br><a id="barangay"></a><a id="city"></a><br><a id="province"></a><br>
@@ -502,28 +502,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="col-md-6">
 			<ul class="list-group list-group-unbordered" style= "text-align: center">
                 <li class="list-group-item">
-                  <b>Sex</b> <br><a id="sex">Male</a>
+                  <b>Sex</b> <br><a id="sex"></a>
                 </li>
 				<li class="list-group-item">
-                  <b>Father's Name</b> <br><a id="father_name">Tom Cruise</a>
+                  <b>Father's Name</b> <br><a id="father_name">asd</a>
                 </li>
 				<li class="list-group-item">
-                  <b>Father's Contact No</b> <br><a id="father_contact">0997-555-5555</a>
+                  <b>Father's Contact No</b> <br><a id="father_contact">asd</a>
                 </li>
 				<li class="list-group-item">
-                  <b>Mother's Maiden Name</b> <br><a id="mother_name">Marissa Tomei</a>
+                  <b>Mother's Maiden Name</b> <br><a id="mother_name">asd</a>
                 </li>
 				<li class="list-group-item">
-                  <b>Mother's Contact No</b> <br><a id="mother_contact">0997-555-5555</a>
+                  <b>Mother's Contact No</b> <br><a id="mother_contact">asd</a>
                 </li>
 				<li class="list-group-item">
-                  <b>Guardian's Name</b><br> <a id="guardian">Michael</a>
+                  <b>Guardian's Name</b><br> <a id="guardian">asd</a>
                 </li>
 				<li class="list-group-item">
-                  <b>Guardian's Relationship</b> <br><a id="relationship">Guardian Angel</a>
+                  <b>Guardian's Relationship</b> <br><a id="relationship">asd</a>
                 </li>
 				<li class="list-group-item">
-                  <b>Guardian's Contact No</b> <br><a id="guardian_contact">0997-555-5555</a>
+                  <b>Guardian's Contact No</b> <br><a id="guardian_contact">asd</a>
                 </li>
 				</ul>
 			</div>
@@ -537,8 +537,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					 </p>
 				</li>
 				
-				<li class="list-group-item">
-					<strong><i class="fa fa-book margin-r-5"></i> Requirements</strong>
+				<li class="list-group-item requirements-section">
+					<strong><i class="fa fa-book margin-r-5"></i>Requirements</strong>
 	
 					  <select class="form-control select2" multiple="multiple" id="inputREQUIREMENTS" data-placeholder="Select Requirement" style="width: 100%;">
               <option id="f137">Form 137</option>
@@ -579,7 +579,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script>
 
   var arrofobject = <?php echo $studentRecords;?>;
-  var arrofobject2 = [{"lrn":"14-038-014","name":"Hakeem", "year":"12"}];
+  var arrofobject2 = <?php echo $teacherRecords;?>;
   var arrofobject3 = [{"lrn":"14-038-013","name":"Jasver", "year":"12"}];
   var arrofobject4 = [{"lrn":"14-038-015","name":"Marc", "year":"12"}]; //JSON
 
@@ -592,17 +592,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$('#record').remove();
 			$('#lapa').remove();
 		};
+
+    //-------------------------------------------------------------------------------------------------
 		$("#viewStudents").click(function(){ 
 			changeTable();
 			$('#tableTitle').text('List of Students');
 			$('thead tr').append( $('<th />', {text : 'LRN'}) );
 			$('thead tr').append( $('<th />', {text : 'Name'}) ); 
 			$('thead tr').append( $('<th />', {text : 'Grade'}) ); 
-			$('thead tr').append( $('<th />', {text : 'Status'}) ); 
+			$('thead tr').append( $('<th />', {text : 'Requirements'}) ); 
 			$('thead tr').append( $('<th />', {text : 'Action'}) ); 
 
 			$.each(arrofobject, function(index, val) {
-				$('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td><td>'+'STATIC'+'</td> <td><span class="label label-success">'+'ENROLLED'+'</span></td> <td><button type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs buttonView" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
+				$('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td><td>'+'STATIC'+'</td> <td><span class="label label-success">'+'COMPLETE'+'</span></td> <td><button type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs buttonView" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
 				});
 				
 				$(".buttonView").click(function(){
@@ -610,10 +612,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					$.ajax({
 					  url: "<?php echo base_url("enrollment/view_data/ajax"); ?>",
             type: 'post',
-            data: {'lrn' : lrn }, 
+            dataType: 'json', 
+            data: {'lrn' : lrn, 'table': 'students', 'set': 'lrn' }, 
 						success: function(result){
 							//alert(result);
-              $.each(arrofobject, function(index, val) {
+              $.each(result, function(index, val) {
                 $('#name').html(val.first_name +" "+ val.middle_name + " " + val.last_name);
                 $('#lrn').html(val.lrn);
                 $('#contact').html(val.contact);
@@ -633,9 +636,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $('#mother_contact').html(val.mother_contact);
                 $('#guardian').html(val.guardian);
                 $('#relationship').html(val.relationship);
-                $('#guardian_contact').html(val.guardian_contact);
-
-						  
+                $('#guardian_contact').html(val.guardian_contact);	
+                $('#position').html('Grade 12 Student');   
+                $('.requirements-section').show();  
               })
             }
 					});
@@ -643,51 +646,62 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					
 		 $('table').DataTable();
 		});
-		
-		$("#viewTeachers").click(function(){ 
-			changeTable();
-			$('#tableTitle').text('List of Teachers');
-			$('thead tr').append( $('<th />', {text : 'LRN'}) );
-			$('thead tr').append( $('<th />', {text : 'Name'}) ); 
-			$('thead tr').append( $('<th />', {text : 'Grade'}) ); 
-			$('thead tr').append( $('<th />', {text : 'Action'}) ); 
+    //-------------------------------------------------------------------------------------------------
+    $("#viewTeachers").click(function(){ 
+      changeTable();
+      $('#tableTitle').text('List of Students');
+      $('thead tr').append( $('<th />', {text : 'Employee ID'}) );
+      $('thead tr').append( $('<th />', {text : 'Name'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Position'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Major'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Status'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Action'}) ); 
 
-			$.each(arrofobject2, function(index, val) {
-				$('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><button id="buttonView" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
-				});
-					
-		 $('table').DataTable();
-		});
+      $.each(arrofobject2, function(index, val) {
+        $('tbody').append('<tr id="record"><td>'+val.employee_id+'</td><td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td><td>'+val.position+'</td> <td>'+val.major+'</td> <td><span class="label label-success">'+val.status+'</span></td> <td><button type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs buttonView" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
+        });
+        
+        $(".buttonView").click(function(){
+          var lrn = $(this).closest('tr').find('td:eq(0)').html(); 
+          $.ajax({
+            url: "<?php echo base_url("enrollment/view_data/ajax"); ?>",
+            type: 'post',
+            dataType: 'json',
+            data: {'lrn' : lrn, 'table': 'teachers', 'set': 'employee_id' }, 
+            success: function(result){
+              //alert(result);
+              $.each(result, function(index, val) {
+                $('#name').html(val.first_name +" "+ val.middle_name + " " + val.last_name);
+                $('#lrn').html(val.employee_id);
+                $('#contact').html(val.contact);
+                $('#birth_date').html(val.birth_date);
+                $('#birth_place').html(val.birth_place);
+                $('#age').html(val.age);
+                $('#mother_tongue').html(val.mother_tongue);
+                $('#religion').html(val.religion);
+                $('#street').html(val.street);
+                $('#barangay').html(val.barangay+", ");
+                $('#city').html(val.city);
+                $('#province').html(val.province);
+                $('#sex').html(val.sex);
+                $('#father_name').html('NOT AVAILABLE');
+                $('#father_contact').html('NOT AVAILABLE');
+                $('#mother_name').html('NOT AVAILABLE');
+                $('#mother_contact').html('NOT AVAILABLE');
+                $('#guardian').html('NOT AVAILABLE');
+                $('#relationship').html('NOT AVAILABLE');
+                $('#guardian_contact').html('NOT AVAILABLE');
+                $('#position').html(val.position); 
+                $('.requirements-section').hide();     
+              })
+            }
+          });
+        });
+          
+     $('table').DataTable();
+    });
 		
-		$("#viewRooms").click(function(){ 
-			changeTable();
-			$('#tableTitle').text('List of Rooms');
-			$('thead tr').append( $('<th />', {text : 'LRN'}) );
-			$('thead tr').append( $('<th />', {text : 'Name'}) ); 
-			$('thead tr').append( $('<th />', {text : 'Grade'}) ); 
-			$('thead tr').append( $('<th />', {text : 'Action'}) ); 
-
-			$.each(arrofobject3, function(index, val) {
-				$('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><button id="buttonView" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
-				});
-					
-		 $('table').DataTable();
-		});
 		
-		$("#viewClass").click(function(){ 
-			changeTable();
-			$('#tableTitle').text('List of Classes');
-			$('thead tr').append( $('<th />', {text : 'LRN'}) );
-			$('thead tr').append( $('<th />', {text : 'Name'}) ); 
-			$('thead tr').append( $('<th />', {text : 'Grade'}) ); 
-			$('thead tr').append( $('<th />', {text : 'Action'}) ); 
-
-			$.each(arrofobject4, function(index, val) {
-				$('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><button id="buttonView" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
-				});
-					
-		 $('table').DataTable();
-		});
 		
 }); 
 
