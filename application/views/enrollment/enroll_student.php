@@ -342,8 +342,12 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
+<<<<<<< HEAD
 
              <form method="POST" action="/enrollment/enroll_student/register/">
+=======
+            <form method="POST" action="/enrollment/enroll_student/register/">
+>>>>>>> 400d3641b1f2fbf630abf02289cbe044d442c507
               <div class="box-body" style="padding-bottom: 20px;">
                 <div class="form-group">
                   <label>LRN</label>
