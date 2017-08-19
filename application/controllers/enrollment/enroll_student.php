@@ -78,7 +78,7 @@ class enroll_student extends CI_Controller {
 			if($this->input->post()) {
 				$data = $this->input->post();
 				$table = 'students';
-				$result = $this->enroll_model->add($table, $data);
+				$result = $this->global_model->insert($table, $data);
 				redirect('enrollment/enroll_student/strands');
 			}
 		}
