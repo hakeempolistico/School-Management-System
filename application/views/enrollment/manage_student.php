@@ -455,7 +455,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
                   <li class="active"><a href="#tab_1" data-toggle="tab">Student List</a></li>
-                  <li> <a href="#tab_2" data-toggle="tab">Section</a></li>
+                  <!--<li> <a href="#tab_2" data-toggle="tab">Section</a></li>-->
                 </ul>
                 <div class="tab-content">
                   <div class="tab-pane active" id="tab_1">  
@@ -538,9 +538,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       </tbody>
                     </table>
                     <hr style="margin-bottom: 10px;">
-                      <a href="#tab_2" data-toggle="tab">
-                      <button type="button" class="btn btn-default" style="width: 15%;">Add</button></a>
-                      <button type="button" class="btn btn-default" style="width: 15%;">Transfer</button>
+                      
+                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#section_modal" style="width: 15%; ">Add</button>
+                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" style="width: 15%;">Transfer</button>
                   </div>
                   <!-- /.end student tab-->
 
@@ -1150,10 +1150,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       <div class="modal-header bg-green">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">ADD TO <b>STEM-1</b></h4>
+                        <h4 class="modal-title">SUMMARY</b></h4>
                       </div>
                       <div class="modal-body">
                         <div class="box-body table-responsive no-padding">
+                        <h3>ADD TO <b> STEM-1</b></h3>
                           <table class="table">
                             <tr>
                               <th>#</th>
@@ -1187,7 +1188,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal" data-toggle="modal" data-target="#section_modal">Back</button>
                         <button type="button" class="btn btn-success">Confirm</button>
                       </div>
                     </div>   
@@ -1246,6 +1247,59 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   </div>
                 </div>
                 <!--end of modal-->
+
+                <!--second modal start-->
+        <div class="modal fade" id="section_modal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Select a Section</h4>
+              </div>
+              <div class="modal-body">
+                <table id="example2" class="table table-bordered table-striped">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Section Name</th>
+                          <th>Count</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1.</td>
+                          <td>STEM-1</td>
+                          <td>31/40</td>
+                          <td><span class="label label-success">Open</span></td>
+                        </tr>
+                        <tr>
+                          <td>2.</td>
+                          <td>STEM-2</td>
+                          <td>40/40</td>
+                          <td><span class="label label-danger">Closed</span></td>
+                        </tr>
+                        <tr>
+                          <td>3.</td>
+                          <td>STEM-3</td>
+                          <td>0/40</td>
+                          <td><span class="label label-success">Open</span></td>
+                        </tr>
+                      </tbody>                      
+                    </table>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#modal-default">Next</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+                <!--second modal end-->
         <!-- right col -->
       </div>
       <!-- /.row (main row) -->
