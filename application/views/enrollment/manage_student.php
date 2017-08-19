@@ -539,7 +539,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </table>
                     <hr style="margin-bottom: 10px;">
                       
-                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#section_modal" style="width: 15%; ">Add</button>
+                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#stem_section_modal" style="width: 15%; ">Add</button>
                       <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" style="width: 15%;">Transfer</button>
                   </div>
                   <!-- /.end student tab-->
@@ -598,7 +598,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
                   <li class="active"><a href="#gas_student_tab" data-toggle="tab">Student List</a></li>
-                  <li> <a href="#gas_section_tab" data-toggle="tab">Section</a></li>
+                  <!--<li> <a href="#gas_section_tab" data-toggle="tab">Section</a></li>-->
                 </ul>
                 <div class="tab-content">
                   <div class="tab-pane active" id="gas_student_tab">  
@@ -681,8 +681,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       </tbody>
                     </table>
                     <hr style="margin-bottom: 10px;">
-                      <a href="#gas_section_tab" data-toggle="tab">
-                      <button type="button" class="btn btn-default" style="width: 15%;">Add</button></a>
+                      
+                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#section_modal" style="width: 15%; ">Add</button>
                       <button type="button" class="btn btn-default" style="width: 15%;">Transfer</button>
                   </div>
                   <!-- /.end student tab-->
@@ -741,7 +741,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
                   <li class="active"><a href="#humms_student_tab" data-toggle="tab">Student List</a></li>
-                  <li> <a href="#humss_section_tab" data-toggle="tab">Section</a></li>
+                  <!--<li> <a href="#humss_section_tab" data-toggle="tab">Section</a></li>-->
                 </ul>
                 <div class="tab-content">
                   <div class="tab-pane active" id="humms_student_tab">  
@@ -784,8 +784,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       </tbody>
                     </table>
                     <hr style="margin-bottom: 10px;">
-                      <a href="#humss_section_tab" data-toggle="tab">
-                      <button type="button" class="btn btn-default" style="width: 15%;">Add</button></a>
+                      
+                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#section_modal" style="width: 15%;">Add</button>
                       <button type="button" class="btn btn-default" style="width: 15%;">Transfer</button>
                   </div>
                   <!-- /.end student tab-->
@@ -844,7 +844,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
                   <li class="active"><a href="#abm_student_tab" data-toggle="tab">Student List</a></li>
-                  <li> <a href="#abm_section_tab" data-toggle="tab">Section</a></li>
+                  <!--<li> <a href="#abm_section_tab" data-toggle="tab">Section</a></li>-->
                 </ul>
                 <div class="tab-content">
                   <div class="tab-pane active" id="abm_student_tab">  
@@ -887,8 +887,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       </tbody>
                     </table>
                     <hr style="margin-bottom: 10px;">
-                      <a href="#abm_section_tab" data-toggle="tab">
-                      <button type="button" class="btn btn-default" style="width: 15%;">Add</button></a>
+                      
+                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#section_modal" style="width: 15%; ">Add</button>
                       <button type="button" class="btn btn-default" style="width: 15%;">Transfer</button>
                   </div>
                   <!-- /.end student tab-->
@@ -947,7 +947,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
                   <li class="active"><a href="#tvlhe_student_tab" data-toggle="tab">Student List</a></li>
-                  <li> <a href="#tvlhe_section_tab" data-toggle="tab">Section</a></li>
+                  <!--<li> <a href="#tvlhe_section_tab" data-toggle="tab">Section</a></li>-->
                 </ul>
                 <div class="tab-content">
                   <div class="tab-pane active" id="tvlhe_student_tab">  
@@ -990,8 +990,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       </tbody>
                     </table>
                     <hr style="margin-bottom: 10px;">
-                      <a href="#abm_section_tab" data-toggle="tab">
-                      <button type="button" class="btn btn-default" style="width: 15%;">Add</button></a>
+                      
+                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#section_modal" style="width: 15%;">Add</button>
                       <button type="button" class="btn btn-default" style="width: 15%;">Transfer</button>
                   </div>
                   <!-- /.end student tab-->
@@ -1050,7 +1050,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
                   <li class="active"><a href="#tvlas_student_tab" data-toggle="tab">Student List</a></li>
-                  <li> <a href="#tvlas_section_tab" data-toggle="tab">Section</a></li>
+                  <!--<li> <a href="#tvlas_section_tab" data-toggle="tab">Section</a></li>-->
                 </ul>
                 <div class="tab-content">
                   <div class="tab-pane active" id="tvlas_student_tab">  
@@ -1093,8 +1093,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       </tbody>
                     </table>
                     <hr style="margin-bottom: 10px;">
-                      <a href="#tvlas_section_tab" data-toggle="tab">
-                      <button type="button" class="btn btn-default" style="width: 15%;">Add</button></a>
+                      
+                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#section_modal" style="width: 15%;">Add</button>
                       <button type="button" class="btn btn-default" style="width: 15%;">Transfer</button>
                   </div>
                   <!-- /.end student tab-->
@@ -1249,7 +1249,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <!--end of modal-->
 
                 <!--second modal start-->
-        <div class="modal fade" id="section_modal">
+        <div class="modal fade" id="stem_section_modal">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
