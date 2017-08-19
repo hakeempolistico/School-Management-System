@@ -467,63 +467,63 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="box-body box-profile">
               <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url(); ?>dist/img/user4-128x128.jpg" alt="User profile picture">
 
-              <h3 class="profile-username text-center">Adrielle Kristine Nicolette M. Escaro</h3>
+              <h3 id="name" class="profile-username text-center" ></h3>
 
               <p class="text-muted text-center">Grade 12 Student</p>
 		<div class="row">
         <div class="col-md-6">
               <ul class="list-group list-group-unbordered" style= "text-align: center">
                 <li class="list-group-item">
-                  <b>LRN</b><br> <a>123456789121</a>
+                  <b>LRN</b><br> <a id="lrn">123456789121</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Contact No.</b><br> <a>0997-586-4782</a>
+                  <b>Contact No.</b><br> <a id="contact">0997-586-4782</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Birthdate</b><br> <a >July 22, 1994</a>
+                  <b>Birthdate</b><br> <a id="birth_date" >July 22, 1994</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Birthplace</b> <br><a>Mandaluyong City</a>
+                  <b>Birthplace</b> <br><a id="birth_place">Mandaluyong City</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Age</b><br> <a>23</a>
+                  <b>Age</b><br> <a id="age">23</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Mother Tongue</b><br> <a>Filipino</a>
+                  <b>Mother Tongue</b><br> <a id="mother_tongue">Filipino</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Religion</b> <br><a>Roman Catholic</a>
+                  <b>Religion</b> <br><a id="religion">Roman Catholic</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Address</b> <br><a>226-B Evangelista St.,</a><br><a>Talaba I, Bacoor City</a><br><a>Cavite</a><br>
+                  <b>Address</b> <br><a id="street"></a><br><a id="barangay"></a><a id="city"></a><br><a id="province"></a><br>
                 </li>
 				</ul>
 			</div>
 			<div class="col-md-6">
 			<ul class="list-group list-group-unbordered" style= "text-align: center">
                 <li class="list-group-item">
-                  <b>Sex</b> <br><a>Male</a>
+                  <b>Sex</b> <br><a id="sex">Male</a>
                 </li>
 				<li class="list-group-item">
-                  <b>Father's Name</b> <br><a >Tom Cruise</a>
+                  <b>Father's Name</b> <br><a id="father_name">Tom Cruise</a>
                 </li>
 				<li class="list-group-item">
-                  <b>Father's Contact No</b> <br><a>0997-555-5555</a>
+                  <b>Father's Contact No</b> <br><a id="father_contact">0997-555-5555</a>
                 </li>
 				<li class="list-group-item">
-                  <b>Mother's Maiden Name</b> <br><a>Marissa Tomei</a>
+                  <b>Mother's Maiden Name</b> <br><a id="mother_name">Marissa Tomei</a>
                 </li>
 				<li class="list-group-item">
-                  <b>Mother's Contact No</b> <br><a>0997-555-5555</a>
+                  <b>Mother's Contact No</b> <br><a id="mother_contact">0997-555-5555</a>
                 </li>
 				<li class="list-group-item">
-                  <b>Guardian's Name</b><br> <a>Michael</a>
+                  <b>Guardian's Name</b><br> <a id="guardian">Michael</a>
                 </li>
 				<li class="list-group-item">
-                  <b>Guardian's Relationship</b> <br><a>Guardian Angel</a>
+                  <b>Guardian's Relationship</b> <br><a id="relationship">Guardian Angel</a>
                 </li>
 				<li class="list-group-item">
-                  <b>Guardian's Contact No</b> <br><a>0997-555-5555</a>
+                  <b>Guardian's Contact No</b> <br><a id="guardian_contact">0997-555-5555</a>
                 </li>
 				</ul>
 			</div>
@@ -578,7 +578,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- page script -->
 <script>
 
-  var arrofobject = [{"lrn":"14-038-027","name":"Adrii", "year":"12", "status": "ENROLLED"}];
+  var arrofobject = <?php echo $studentRecords;?>;
   var arrofobject2 = [{"lrn":"14-038-014","name":"Hakeem", "year":"12"}];
   var arrofobject3 = [{"lrn":"14-038-013","name":"Jasver", "year":"12"}];
   var arrofobject4 = [{"lrn":"14-038-015","name":"Marc", "year":"12"}]; //JSON
@@ -602,15 +602,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$('thead tr').append( $('<th />', {text : 'Action'}) ); 
 
 			$.each(arrofobject, function(index, val) {
-				$('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.name+'</td><td>'+val.year+'</td> <td><span class="label label-success">'+val.status+'</span></td> <td><button id="buttonView" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
+				$('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td><td>'+'STATIC'+'</td> <td><span class="label label-success">'+'ENROLLED'+'</span></td> <td><button type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs buttonView" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
 				});
 				
-				$("#buttonView").click(function(){
+				$(".buttonView").click(function(){
+          var lrn = $(this).closest('tr').find('td:eq(0)').html(); 
 					$.ajax({
-					url: "<?php echo base_url("enrollment/view_data/ajax"); ?>", 
+					  url: "<?php echo base_url("enrollment/view_data/ajax"); ?>",
+            type: 'post',
+            data: {'lrn' : lrn }, 
 						success: function(result){
-							alert(result);
-						}
+							//alert(result);
+              $.each(arrofobject, function(index, val) {
+                $('#name').html(val.first_name +" "+ val.middle_name + " " + val.last_name);
+                $('#lrn').html(val.lrn);
+                $('#contact').html(val.contact);
+                $('#birth_date').html(val.birth_date);
+                $('#birth_place').html(val.birth_place);
+                $('#age').html(val.age);
+                $('#mother_tongue').html(val.mother_tongue);
+                $('#religion').html(val.religion);
+                $('#street').html(val.street);
+                $('#barangay').html(val.barangay+", ");
+                $('#city').html(val.city);
+                $('#province').html(val.province);
+                $('#sex').html(val.sex);
+                $('#father_name').html(val.father_name);
+                $('#father_contact').html(val.father_contact);
+                $('#mother_name').html(val.mother_name);
+                $('#mother_contact').html(val.mother_contact);
+                $('#guardian').html(val.guardian);
+                $('#relationship').html(val.relationship);
+                $('#guardian_contact').html(val.guardian_contact);
+
+						  
+              })
+            }
 					});
 				});
 					
