@@ -342,12 +342,27 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form method="POST" action="/enrollment/enroll_student/register/">
+            <form method="POST" action="/sms/enrollment/enroll_student/register/">
               <div class="box-body" style="padding-bottom: 20px;">
-                <div class="form-group">
-                  <label>LRN</label>
-                  <input type="text" class="form-control" name="lrn" id="inputLRN" value="<?php echo set_value('lrn'); ?>" placeholder="Learner Reference Number">
-                  <?php echo form_error('lrn'); ?>
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="form-group">
+                        <label>LRN</label>
+                        <input type="text" class="form-control" name="lrn" id="inputLRN" value="<?php echo set_value('lrn'); ?>" placeholder="Learner Reference Number">
+                        <?php echo form_error('lrn'); ?>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Grade</label>
+                      <select class="form-control" id="inputGRADE" name="grade" value="<?php echo set_select('grade'); ?>" placeholder="Grade">
+                      <option value="" disabled selected>Grade</option>
+                      <option value="Grade 11" <?php echo  set_select('grade', 'Grade 11'); ?> >Grade 11</option>
+                      <option value="Grade 12" <?php echo  set_select('grade', 'Grade 12'); ?> >Grade 12</option>
+                      </select>
+                      <?php echo form_error('sex'); ?>
+                    </div>
+                  </div>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Name</label>
@@ -512,12 +527,17 @@
                 <hr>
                 <div class="form-group">
                 <label>Requirements</label>
-                <select class="form-control select2" multiple="multiple" id="inputREQUIREMENTS" data-placeholder="Select Requirement"
+                <select class="form-control select2" multiple="multiple" id="inputREQUIREMENTS" value="<?php echo set_select('requirement'); ?>" name="requirement[]" data-placeholder="Select Requirement"
                         style="width: 100%;">
                   <option id="f137">Form 137</option>
                   <option id="f138">Form 138</option>
                   <option id="nso">NSO Birth Certificate</option>
                 </select>
+                <input type="hidden" name="requirements" value="<?php echo set_value('requirements'); ?>" id="requirements">
+              </div>
+              <div class="form-group">
+                <label>Note</label>
+                <textarea class="form-control" id="inputNOTE" value="<?php echo set_value('note'); ?>" placeholder="Note" name="note"></textarea>
               </div>
               </div>
               <!-- /.box-body -->
@@ -530,9 +550,19 @@
             <div class="box-header with-border">
               <h3 class="box-title">Senior High School Profile</h3>
               <div class="box-body">
-                <div class="form-group">
-                  <label>LRN</label>
-                  <div id="textLRN"><i class="text-red">Please input</i></div>
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="form-group">
+                        <label>LRN</label>
+                        <div id="textLRN"><i class="text-red">Please input</i></div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Grade</label>
+                        <div id="textGRADE"><i class="text-red">Please input</i></div>
+                    </div>
+                  </div>
                 </div>
                 <div class="form-group">
                     <div class="row">
@@ -658,6 +688,10 @@
                   <label>Requirements</label>
                   <div id="textREQUIREMENTS"><i class="text-red">Please pass</i></div>
                 </div>
+                <div class="form-group">
+                  <label>Note</label>
+                  <div id="textNOTE"></div>
+                </div>
               </div>
               <!-- /.box-body -->
               <div class="box-footer">
@@ -722,8 +756,10 @@
 </script>
 <script type="text/javascript">
   //Initialize Select2 Elements
-    $('.select2').select2()
+    $('.select2').select2();
+    
 </script>
+
 
 </body>
 </html>
