@@ -446,7 +446,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
 
       <!-- BOX OF STEM-->
-          <div class="box box-success" hidden id="stem_box">
+          <div class="box" hidden id="stem_box">
             <div class="box-header">
               <h3 class="box-title">STEM</h3>
             </div>
@@ -732,7 +732,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!--/.box (box ng GAS)-->
 
           <!-- BOX OF HUMSS start-->
-          <div class="box box-warning" hidden id="humss_box">
+          <div class="box" hidden id="humss_box">
             <div class="box-header">
               <h3 class="box-title">HUMSS</h3>
             </div>
@@ -835,7 +835,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!--/.box (box ng HUMSS)-->
 
           <!-- BOX OF ABM start-->
-          <div class="box box-warning" hidden id="abm_box">
+          <div class="box" hidden id="abm_box">
             <div class="box-header">
               <h3 class="box-title">ABM</h3>
             </div>
@@ -938,7 +938,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!--/.box (box ng ABM)-->
 
           <!-- BOX OF TVL-HE start-->
-          <div class="box box-primary" hidden id="tvlhe_box">
+          <div class="box" hidden id="tvlhe_box">
             <div class="box-header">
               <h3 class="box-title">TVL-HE</h3>
             </div>
@@ -1041,7 +1041,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!--/.box (box ng TVL-HE end)--> 
 
           <!-- BOX OF TVL-AS start-->
-          <div class="box box-primary" hidden id="tvlas_box">
+          <div class="box" hidden id="tvlas_box">
             <div class="box-header">
               <h3 class="box-title">TVL-AS</h3>
             </div>
