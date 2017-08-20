@@ -388,6 +388,7 @@
           <!-- Profile Image -->
           <div class="box box-primary" >
             <div class="box-body box-profile">
+              <form>
               <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url(); ?>dist/img/user4-128x128.jpg" alt="User profile picture">
 
               <h3 id="name" class="profile-username text-center" ></h3>
@@ -470,9 +471,34 @@
             </select>
 
         </li>
+        <input type="hidden" name="grade" value="<?php echo set_value('grade'); ?>" id="grade">
+        <input type="hidden" name="first_name" value="<?php echo set_value('first_name'); ?>" id="fname">
+        <input type="hidden" name="middle_name" value="<?php echo set_value('middle_name'); ?>" id="mname">
+        <input type="hidden" name="last_name" value="<?php echo set_value('last_name'); ?>" id="lname">
+        <input type="hidden" name="sex" value="<?php echo set_value('sex'); ?>" id="gender">
+        <input type="hidden" name="contact" value="<?php echo set_value('contact'); ?>" id="contactno">
+        <input type="hidden" name="birth_date" value="<?php echo set_value('birth_date'); ?>" id="birthdate">
+        <input type="hidden" name="birth_place" value="<?php echo set_value('birth_place'); ?>" id="birthplace">
+        <input type="hidden" name="age" value="<?php echo set_value('age'); ?>" id="edad">
+        <input type="hidden" name="mother_tongue" value="<?php echo set_value('mother_tongue'); ?>" id="mothertongue">
+        <input type="hidden" name="religion" value="<?php echo set_value('religion'); ?>" id="reli">
+        <input type="hidden" name="street" value="<?php echo set_value('street'); ?>" id="house">
+        <input type="hidden" name="barangay" value="<?php echo set_value('barangay'); ?>" id="baranggay">
+        <input type="hidden" name="city" value="<?php echo set_value('city'); ?>" id="cityy">
+        <input type="hidden" name="province" value="<?php echo set_value('province'); ?>" id="prov">
+        <input type="hidden" name="father_name" value="<?php echo set_value('father_name'); ?>" id="fathername">
+        <input type="hidden" name="mother_name" value="<?php echo set_value('mother_name'); ?>" id="mothername">
+        <input type="hidden" name="father_contact" value="<?php echo set_value('father_contact'); ?>" id="fathercontact">
+        <input type="hidden" name="mother_contact" value="<?php echo set_value('mother_contact'); ?>" id="mothercontact">
+        <input type="hidden" name="guardian" value="<?php echo set_value('guardian'); ?>" id="guard">
+        <input type="hidden" name="relationship" value="<?php echo set_value('relationship'); ?>" id="relation">
+        <input type="hidden" name="guardian_contact" value="<?php echo set_value('guardian_contact'); ?>" id="guardcontact">
+        <input type="hidden" name="note" value="<?php echo set_value('note'); ?>" id="noto">
+        </form>
+
               </ul>
               <a href="#" class="btn btn-primary btn-block pull-left" data-dismiss="modal" style="max-width: 100px"><b>Close</b></a>
-              <a href="#" class="btn btn-primary btn-block pull-right" data-dismiss="modal" style="max-width: 150px"><b>Enroll Student</b></a>
+              <a href="#" class="btn btn-primary btn-block pull-right" id="enrollStudent" style="max-width: 150px"><b>Enroll Student</b></a>
             </div>
             <!-- /.box-body -->
           </div>
@@ -543,7 +569,45 @@
                 $('#relationship').html(val.relationship);
                 $('#guardian_contact').html(val.guardian_contact);  
                 $('#position').html('Grade 12 Student');   
-                $('.requirements-section').show();  
+                $('.requirements-section').show();
+              })
+            }
+          });
+        });
+
+  $("#enrollStudent").click(function(){
+          var lrn = $(this).closest('tr').find('td:eq(0)').html(); 
+          $.ajax({
+            url: "<?php echo base_url("enrollment/enroll_student/kek"); ?>",
+            type: 'post',
+            dataType: 'json', 
+            data: {'lrn' : lrn, 'table': 'online_applicants', 'set': 'lrn' }, 
+            success: function(result2){
+              alert(result2); 
+              $.each(result2, function(index, val) {
+                $('#grade').attr('value', val.grade);
+                $('#fname').attr('value', val.first_name);
+                $('#mname').attr('value', val.middle_name);
+                $('#lname').attr('value', val.last_name);
+                $('#gender').attr('value', val.sex);
+                $('#contactno').attr('value', val.contact);
+                $('#birthdate').attr('value', val.birth_date);
+                $('#birthplace').attr('value', val.birth_place);
+                $('#edad').attr('value', val.age);
+                $('#mothertongue').attr('value', val.mother_tongue);
+                $('#reli').attr('value', val.religion);
+                $('#house').attr('value', val.street);
+                $('#baranggay').attr('value', val.barangay);
+                $('#cityy').attr('value', val.city);
+                $('#prov').attr('value', val.province);
+                $('#fathername').attr('value', val.father_name);
+                $('#mothername').attr('value', val.mother_name);
+                $('#fathercontact').attr('value', val.father_contact);
+                $('#mothercontact').attr('value', val.mother_contact);
+                $('#guard').attr('value', val.guardian);
+                $('#rel').attr('value', val.relationship);
+                $('#guardcontact').html(val.guardian_contact);
+                $('#noto').attr('value', val.note);
               })
             }
           });
