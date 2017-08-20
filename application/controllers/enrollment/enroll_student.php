@@ -44,17 +44,6 @@ class enroll_student extends CI_Controller {
 
 	public function register()
 	{	
-		$data = $this->input->post();
-		$data2 = $this->input->post('requirement[]');
-
-				foreach($data2 as $val){
-					$dataReq = array(
-						'lrn' =>  $this->input->post('lrn'),
-						'requirement' => $val
-						);
-					$this->global_model->insert('requirements', $dataReq);
-				}
-				exit;
 		$required_message = array('required' => 'Field is required!');
 		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 		$this->form_validation->set_rules('lrn', 'LRN', 'trim|required|min_length[3]|max_length[15]|is_unique[students.lrn]', $required_message);
