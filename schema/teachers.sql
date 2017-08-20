@@ -22,6 +22,7 @@ CREATE TABLE `teachers` (
   `date_modified` timestamp NULL DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+
 INSERT INTO `teachers` (`id`, `employee_id`, `first_name`, `middle_name`, `last_name`, `major`, `position`, `status`, `sex`, `age`, `birth_date`, `birth_place`, `mother_tongue`, `contact`, `street`, `barangay`, `city`, `province`, `religion`, `note`, `date_modified`) VALUES
 (1, '14-038-014', 'Hakeem', 'Andaya', 'Polistico', 'Sex Education', 'Teacher 1', 'ACTIVE', 'male', 23, '1994-07-22', 'Mandaluyong City', 'Filipino', '0955-887-4822', '226B Evangelista St.', 'Talaba I', 'Bacoor City', 'Cavite', 'Roman Catholic', 'Graduate of Technological University of the Philippines', NULL);
 
