@@ -354,6 +354,7 @@
                   <td>12</td>
                   <td>123</td>
                 </tr>
+                </tbody>
               </table>
             </div>
             <!-- /.box-body -->
@@ -471,6 +472,7 @@
         </li>
               </ul>
               <a href="#" class="btn btn-primary btn-block pull-left" data-dismiss="modal" style="max-width: 100px"><b>Close</b></a>
+              <a href="#" class="btn btn-primary btn-block pull-right" data-dismiss="modal" style="max-width: 150px"><b>Enroll Student</b></a>
             </div>
             <!-- /.box-body -->
           </div>
