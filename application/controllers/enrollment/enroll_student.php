@@ -31,7 +31,9 @@ class enroll_student extends CI_Controller {
 
 	public function search()
 	{
-		$this->load->view('enrollment/search');
+		$data['onlineRecords']  = json_encode($this->global_model->getRecords('online_applicants'));
+		$this->load->view('enrollment/search', $data);
+
 	}
 
 	public function register_error()
@@ -42,9 +44,21 @@ class enroll_student extends CI_Controller {
 
 	public function register()
 	{	
+		$data = $this->input->post();
+		$data2 = $this->input->post('requirement[]');
+
+				foreach($data2 as $val){
+					$dataReq = array(
+						'lrn' =>  $this->input->post('lrn'),
+						'requirement' => $val
+						);
+					$this->global_model->insert('requirements', $dataReq);
+				}
+				exit;
 		$required_message = array('required' => 'Field is required!');
 		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 		$this->form_validation->set_rules('lrn', 'LRN', 'trim|required|min_length[3]|max_length[15]|is_unique[students.lrn]', $required_message);
+		$this->form_validation->set_rules('grade', 'Grade', 'trim|required|min_length[3]|max_length[15]', $required_message);
 		$this->form_validation->set_rules('first_name', 'First Name', 'trim|required|min_length[3]|max_length[40]', $required_message);
 		$this->form_validation->set_rules('middle_name', 'Middle Name', 'trim|required|min_length[3]|max_length[20]', $required_message);
 		$this->form_validation->set_rules('last_name', 'Last Name', 'trim|required|min_length[3]|max_length[20]', $required_message);
@@ -66,6 +80,7 @@ class enroll_student extends CI_Controller {
 		$this->form_validation->set_rules('guardian', 'Guardian Name', 'trim|required|min_length[3]|max_length[40]', $required_message);
 		$this->form_validation->set_rules('relationship', 'Relationship', 'trim|required|min_length[3]|max_length[40]', $required_message);
 		$this->form_validation->set_rules('guardian_contact', 'Guardian\'s Contact', 'trim|required|min_length[3]|max_length[20]', $required_message	);
+		$this->form_validation->set_rules('note', 'Note', 'trim|min_length[2]|max_length[200]', $required_message);
 				
 		if ($this->form_validation->run() == FALSE)
 		{
@@ -77,8 +92,7 @@ class enroll_student extends CI_Controller {
 			
 			if($this->input->post()) {
 				$data = $this->input->post();
-				$data2 = $this->input->post('requirements[]');
-
+				$data2 = $this->input->post('requirement[]');
 
 				foreach($data2 as $val){
 					$dataReq = array(
@@ -88,7 +102,7 @@ class enroll_student extends CI_Controller {
 					$result = $this->global_model->insert('requirements', $dataReq);
 				}
 
-				unset($data['requirements']);
+				unset($data['requirement']);
 				$result = $this->global_model->insert('students', $data);
 
 				redirect('enrollment/enroll_student/strands');

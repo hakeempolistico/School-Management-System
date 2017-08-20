@@ -3,6 +3,10 @@ $(document).ready(function(){
           var value = $('#inputLRN').val();
           $('#textLRN').text(value);
       });
+      $("#inputGRADE").change(function(){
+          var value = $('#inputGRADE').val();
+          $('#textGRADE').text(value);
+      });
       $("#inputFNAME").change(function(){
           var value = $('#inputFNAME').val();
           $('#textFNAME').text(value);
@@ -85,9 +89,15 @@ $(document).ready(function(){
 
           if ($(this).val() == a) {
             document.getElementById("textREQUIREMENTS").innerHTML ='<span class="label label-success">Complete</span>';
+            $("#requirements").val('complete');
             } else {
             document.getElementById("textREQUIREMENTS").innerHTML = '<span class="label label-warning">Incomplete</span>';
+            $("#requirements").val('incomplete');
             }
+      });
+      $("#inputNOTE").change(function(){
+          var value = $('#inputNOTE').val();
+          $('#textNOTE').text(value);
       });
 
     });

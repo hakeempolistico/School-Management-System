@@ -5,6 +5,8 @@ class global_model extends CI_Model{
 	public function insert($table,$data)
 	{
 		$query = $this->db->insert($table, $data);
+		echo $this->db->last_query();
+		exit;
 		return $query;
 	}
 
