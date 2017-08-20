@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/Ionicons/css/ionicons.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/select2/dist/css/select2.min.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- Theme style -->
@@ -352,6 +354,7 @@
                   <td>12</td>
                   <td>123</td>
                 </tr>
+                </tbody>
               </table>
             </div>
             <!-- /.box-body -->
@@ -469,6 +472,7 @@
         </li>
               </ul>
               <a href="#" class="btn btn-primary btn-block pull-left" data-dismiss="modal" style="max-width: 100px"><b>Close</b></a>
+              <a href="#" class="btn btn-primary btn-block pull-right" data-dismiss="modal" style="max-width: 150px"><b>Enroll Student</b></a>
             </div>
             <!-- /.box-body -->
           </div>
@@ -491,6 +495,8 @@
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
+<!-- Select2 -->
+<script src="<?php echo base_url(); ?>bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
 <!-- SlimScroll -->
@@ -501,10 +507,52 @@
   var arrofobject = <?php echo $onlineRecords ?>;
 
   $('#record').hide();
+
   $.each(arrofobject, function(index, val) {
     $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td><td>'+val.grade+'</td> <td><button type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs buttonView" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
-      });
+  });
 
+  $(".buttonView").click(function(){
+          var lrn = $(this).closest('tr').find('td:eq(0)').html(); 
+          $.ajax({
+            url: "<?php echo base_url("enrollment/enroll_student/ajax"); ?>",
+            type: 'post',
+            dataType: 'json', 
+            data: {'lrn' : lrn, 'table': 'online_applicants', 'set': 'lrn' }, 
+            success: function(result){
+              //alert(result);
+              $.each(result, function(index, val) {
+                $('#name').html(val.first_name +" "+ val.middle_name + " " + val.last_name);
+                $('#lrn').html(val.lrn);
+                $('#contact').html(val.contact);
+                $('#birth_date').html(val.birth_date);
+                $('#birth_place').html(val.birth_place);
+                $('#age').html(val.age);
+                $('#mother_tongue').html(val.mother_tongue);
+                $('#religion').html(val.religion);
+                $('#street').html(val.street);
+                $('#barangay').html(val.barangay+", ");
+                $('#city').html(val.city);
+                $('#province').html(val.province);
+                $('#sex').html(val.sex);
+                $('#father_name').html(val.father_name);
+                $('#father_contact').html(val.father_contact);
+                $('#mother_name').html(val.mother_name);
+                $('#mother_contact').html(val.mother_contact);
+                $('#guardian').html(val.guardian);
+                $('#relationship').html(val.relationship);
+                $('#guardian_contact').html(val.guardian_contact);  
+                $('#position').html('Grade 12 Student');   
+                $('.requirements-section').show();  
+              })
+            }
+          });
+        });
+
+</script>
+<script type="text/javascript">
+  //Initialize Select2 Elements
+    $('.select2').select2()
 </script>
 
 </body>

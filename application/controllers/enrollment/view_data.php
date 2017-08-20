@@ -18,8 +18,8 @@ class view_data extends CI_Controller {
 	
 	public function ajax()
 	{
-		$table = $this->input->post('table');;
-		$set = $this->input->post('set');;
+		$table = $this->input->post('table');
+		$set = $this->input->post('set');
 		$value = $this->input->post('lrn');
 		$records = json_encode($this->global_model->getRow($table, $set, $value));
 		echo $records;
