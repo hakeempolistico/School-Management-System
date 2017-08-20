@@ -26,6 +26,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- iCheck for checkboxes and radio inputs -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/iCheck/all.css">
+  <!-- manage_student.css -->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>dist/css/enrollment/manage_student.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -36,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>dist/css/enrollment/manage_student.css"">
+  
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -443,14 +445,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <div class="nav-tabs-custom">
-                <ul class="nav nav-tabs">
-                  <li class="completed"><a href="#tab_1" data-toggle="tab">Select Students</a></li>
-                  <li> <a href="#tab_2" data-toggle="tab">Add Section</a></li>
-                  <li> <a href="#tab_2" data-toggle="tab">Summary</a></li>
-                </ul>
+              <!--<div class="nav-tabs-custom">-->
+              <div class="wizard">
+                <ul class="nav nav-wizard">
+
+                    <li class="active">
+                        <a href="#step1" data-toggle="tab">Select Students</a>
+                    </li>
+
+                    <li class="disabled">
+                        <a href="#step2" data-toggle="tab">Add Section</a>
+                    </li>
+
+                    <li class="disabled">
+                        <a href="#step3" data-toggle="tab">Summary</a>
+                    </li>
+                  
+                </ul><br>
                 <div class="tab-content">
-                  <div class="tab-pane active" id="tab_1">  
+                  <div class="tab-pane active" id="step1">  
                     <table id="example1" class="table table-bordered table-striped">
                       <thead>
                         <tr>
@@ -531,12 +544,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </table>
                     <hr style="margin-bottom: 10px;">
                       
-                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#section_modal" style="width: 15%; ">Add</button>
+                      <ul class="list-inline pull-right">
+                        <li><button type="button" class="btn btn-primary">Add</button></li>
+                      </ul>
                       <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" style="width: 15%;">Transfer</button>
                   </div>
                   <!-- /.end student tab-->
 
-                  <div class="tab-pane" id="tab_2">  
+                  <div class="tab-pane" id="step2">  
                     <table id="example2" class="table table-bordered table-striped">
                       <thead>
                         <tr>
@@ -568,12 +583,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       </tbody>                      
                     </table>
                       <hr style="margin-bottom: 10px;">
+                      <ul class="list-inline pull-right">
+                        <li><button type="button" class="btn btn-primary">Next</button></li>
+                      </ul>
                       <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" style="width: 15%;">Save</button>                      
                   </div>
                   <!--end section_tab-->
+                  <div class="tab-pane" id="step3">
+                    <p style="font-size: 100px">SUMMARY XD</p>
+                    <ul class="list-inline pull-right">
+                      <li><button type="button" class="btn btn-primary">Next</button></li>
+                    </ul>
+                  </div>
                 </div>
                 <!-- /. end tab contents-->
-              </div>
+              <!--</div>-->
               <!-- /.nav-tabs-custom-->
             </div>
             <!-- /.box-body -->
@@ -1315,8 +1339,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="pull-right hidden-xs">
       <b>Version</b> 1.0.0
     </div>
-    <strong>Copyright &copy; 2017-2018 <a href="https://adminlte.io">Araullo School Management System</a>.</strong> All rights
-    reserved.
+    <strong>Copyright &copy; 2017-2018 <a href="https://adminlte.io">Araullo School Management System</a>.</strong> All rights reserved.
   </footer>
 
 </div>
@@ -1325,12 +1348,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url(); ?>bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo base_url(); ?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- ChartJS -->
-<script src="<?php echo base_url(); ?>bower_components/Chart.js/Chart.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
+<!-- Step Wizard js -->
+<script src="<?php echo base_url(); ?>dist/js/enrollment/step_wizard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
 
@@ -1427,7 +1450,6 @@ $(document).ready(function(){
 $('input.check').iCheck({
   checkboxClass: 'icheckbox_minimal-blue'
 })*/
-
 </script>
 </body>
 </html>
