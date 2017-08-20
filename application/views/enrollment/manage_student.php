@@ -37,6 +37,78 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
+<style type="text/css">
+  .nav {
+  padding: 0;
+  background: #D4D4D4;
+  list-style: none; 
+  overflow: hidden; 
+  margin: 20px;
+}
+.nav>li+li:before {
+  padding: 0;
+}
+.nav li { 
+  float: left; 
+}
+.nav li.active a {
+  background: brown;                   /* fallback color */
+  background: #ffc107 ; 
+}
+.nav li.completed a {
+  background: brown;                   /* fallback color */
+  background: hsla(195, 81%, 51%, 1); 
+}
+.nav li.active a:after {
+  border-left: 30px solid #ffc107 ;
+}
+.nav li.completed a:after {
+  border-left: 30px solid hsla(195, 81%, 51%, 1);
+} 
+
+.nav li a {
+  color: white;
+  text-decoration: none; 
+  padding: 10px 0 10px 45px;
+  position: relative; 
+  display: block;
+  float: left;
+}
+.nav li a:after { 
+  content: " "; 
+  display: block; 
+  width: 0; 
+  height: 0;
+  border-top: 50px solid transparent;           /* Go big on the size, and let overflow hide */
+  border-bottom: 50px solid transparent;
+  border-left: 30px solid hsla(0, 0%, 83%, 1);
+  position: absolute;
+  top: 50%;
+  margin-top: -50px; 
+  left: 100%;
+  z-index: 2; 
+} 
+.nav li a:before { 
+  content: " "; 
+  display: block; 
+  width: 0; 
+  height: 0;
+  border-top: 50px solid transparent;           /* Go big on the size, and let overflow hide */
+  border-bottom: 50px solid transparent;
+  border-left: 30px solid white;
+  position: absolute;
+  top: 50%;
+  margin-top: -50px; 
+  margin-left: 1px;
+  left: 100%;
+  z-index: 1; 
+} 
+.nav li:first-child a {
+  padding-left: 15px;
+}
+.nav li a:hover { background: #ffc107  ; }
+.nav li a:hover:after { border-left-color: #ffc107   !important; }
+</style>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 <div hidden class="loading">Loading&#8230;</div>
@@ -454,8 +526,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="box-body">
               <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
-                  <li class="active"><a href="#tab_1" data-toggle="tab">Student List</a></li>
-                  <!--<li> <a href="#tab_2" data-toggle="tab">Section</a></li>-->
+                  <li class="completed"><a href="#tab_1" data-toggle="tab">Select Students</a></li>
+                  <li> <a href="#tab_2" data-toggle="tab">Add Section</a></li>
+                  <li> <a href="#tab_2" data-toggle="tab">Summary</a></li>
                 </ul>
                 <div class="tab-content">
                   <div class="tab-pane active" id="tab_1">  
@@ -1143,58 +1216,69 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
           <!--/.box (box ng TVL-HE end)-->     
           
-                <!--modal start-->
-                <div class="modal fade" id="modal-default">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header bg-green">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">SUMMARY</b></h4>
-                      </div>
-                      <div class="modal-body">
-                        <div class="box-body table-responsive no-padding">
-                        <h3>ADD TO <b> STEM-1</b></h3>
-                          <table class="table">
-                            <tr>
-                              <th>#</th>
-                              <th>LRN</th>
-                              <th>Full Name</th>
-                              <th>Sex</th>
+          <!--modal start-->
+          <div class="modal fade" id="modal-default">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header bg-green">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">SUMMARY</b></h4>
+                </div>
+                <div class="modal-body">
+                   <div class="box-body table-responsive no-padding">
+                     <h3>ADD TO <b> STEM-1</b></h3>
+                        <table class="table">
+                          <tr>
+                            <th>#</th>
+                            <th>LRN</th>
+                            <th>Full Name</th>
+                            <th>Sex</th>
+                             
+                          </tr>
+                           <tr>
+                            <td>1.</td>
+                            <td>00000000008</td>
+                            <td>Escaro, Adrielle Kristine Nicolette</td>
+                            <td>Female</td>
                               
-                            </tr>
-                            <tr>
-                              <td>1.</td>
-                              <td>00000000008</td>
-                              <td>Escaro, Adrielle Kristine Nicolette</td>
-                              <td>Female</td>
+                          </tr>
+                          <tr>
+                            <td>2.</td>
+                            <td>00000000009</td>
+                            <td>Polistico, Hakeem</td>
+                            <td>Male</td>
                               
-                            </tr>
-                            <tr>
-                              <td>2.</td>
-                              <td>00000000009</td>
-                              <td>Polistico, Hakeem</td>
-                              <td>Male</td>
-                              
-                            </tr>  
-                            <tr>
-                              <td>3.</td>
-                              <td>00000000007</td>
-                              <td>Salva, Jasver Anlouise</td>
-                              <td>Female</td>
-                              
-                            </tr>                
-                          </table>
-                        </div>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal" data-toggle="modal" data-target="#section_modal">Back</button>
-                        <button type="button" class="btn btn-success">Confirm</button>
-                      </div>
-                    </div>   
+                          </tr>  
+                           <tr>
+                            <td>3.</td>
+                            <td>00000000007</td>
+                            <td>Salva, Jasver Anlouise</td>
+                            <td>Female</td>
+                            
+                          </tr>                
+                        </table>
                   </div>
                 </div>
-                <!--end of modal-->
+                <div class="modal-footer">
+                  <button 
+                  type="button" 
+                  class="btn btn-default pull-left" 
+                  data-dismiss="modal" 
+                  data-toggle="modal" 
+                  data-target="#section_modal">
+                  Back
+                  </button>
+                  <button 
+                  type="button" 
+                  class="btn btn-success">
+                  Confirm
+                  </button>
+                </div>
+              </div>   
+            </div>
+          </div>
+          <!--end of SUMMARY modal-->
 
                 <!--modal start-->
                 <div class="modal fade" id="gas_modal">
@@ -1248,58 +1332,58 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
                 <!--end of modal-->
 
-                <!--second modal start-->
-        <div class="modal fade" id="section_modal">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <!--SECTION modal start-->
+          <div class="modal fade" id="section_modal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Select a Section</h4>
+                  <h4 class="modal-title">Select a Section</h4>
+                </div>
+                <div class="modal-body">
+                  <table id="example2" class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Section Name</th>
+                        <th>Count</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1.</td>
+                        <td>STEM-1</td>
+                        <td>31/40</td>
+                        <td><span class="label label-success">Open</span></td>
+                       </tr>
+                      <tr>
+                        <td>2.</td>
+                        <td>STEM-2</td>
+                        <td>40/40</td>
+                        <td><span class="label label-danger">Closed</span></td>
+                      </tr>
+                      <tr>
+                        <td>3.</td>
+                        <td>STEM-3</td>
+                        <td>0/40</td>
+                        <td><span class="label label-success">Open</span></td>
+                      </tr>
+                    </tbody>                      
+                  </table>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#modal-default">Next</button>
+                </div>
               </div>
-              <div class="modal-body">
-                <table id="example2" class="table table-bordered table-striped">
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>Section Name</th>
-                          <th>Count</th>
-                          <th>Status</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>1.</td>
-                          <td>STEM-1</td>
-                          <td>31/40</td>
-                          <td><span class="label label-success">Open</span></td>
-                        </tr>
-                        <tr>
-                          <td>2.</td>
-                          <td>STEM-2</td>
-                          <td>40/40</td>
-                          <td><span class="label label-danger">Closed</span></td>
-                        </tr>
-                        <tr>
-                          <td>3.</td>
-                          <td>STEM-3</td>
-                          <td>0/40</td>
-                          <td><span class="label label-success">Open</span></td>
-                        </tr>
-                      </tbody>                      
-                    </table>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#modal-default">Next</button>
-              </div>
+              <!-- /.modal-content -->
             </div>
-            <!-- /.modal-content -->
+            <!-- /.modal-dialog -->
           </div>
-          <!-- /.modal-dialog -->
-        </div>
-        <!-- /.modal -->
-                <!--second modal end-->
+          <!-- /.modal -->
+          <!--section modal end-->
         <!-- right col -->
       </div>
       <!-- /.row (main row) -->
