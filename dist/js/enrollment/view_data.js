@@ -128,6 +128,7 @@
                 $('#relationship').html('NOT AVAILABLE');
                 $('#guardian_contact').html('NOT AVAILABLE');
                 $('#position').html(val.position); 
+                $('#modal-note').html(val.note);      
                 $('.requirements-section').hide(); 
                 $('#input-submit').hide();     
               })
