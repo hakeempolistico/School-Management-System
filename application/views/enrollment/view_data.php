@@ -529,26 +529,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 			</div>
 				<ul class="list-group list-group-unbordered">
-				<li class="list-group-item">
-					<strong><i class="fa fa-book margin-r-5"></i> Note</strong>
-	
-					 <p class="text-muted" id="modal-note">
-						
-					 </p>
-				</li>
-				
-				<li class="list-group-item requirements-section">
-					<strong><i class="fa fa-book margin-r-5"></i>Requirements</strong>
-	
-					  <select class="form-control select2" multiple="multiple" id="modal-requirements" data-placeholder="Select Requirement" style="width: 100%;">
-              <option id="f137">Form 137</option>
-              <option id="f138">Form 138</option>
-              <option id="nso">NSO Birth Certificate</option>
-            </select>
+  				<li class="list-group-item">
+  					<strong><i class="fa fa-book margin-r-5"></i> Note</strong>
+  					 <p class="text-muted" id="modal-note"></p>
+  				</li>
 
-				</li>
+			<form action="/enrollment/view_data/updateRequirements" method="post">
+  				<li class="list-group-item requirements-section">
+  					<strong><i class="fa fa-book margin-r-5"></i>Requirements</strong>
+  	
+  					  <select class="form-control select2" multiple="multiple" name="requirement[]" id="modal-requirements" data-placeholder="Select Requirement" style="width: 100%;">
+                <option id="f137">Form 137</option>
+                <option id="f138">Form 138</option>
+                <option id="nso">NSO Birth Certificate</option>
+              </select>
+              <input id="input-lrn" name="lrn" type="hidden" />
+
+  				</li>
               </ul>
               <a href="#" class="btn btn-primary btn-block pull-left" data-dismiss="modal" style="max-width: 100px"><b>Close</b></a>
+              <input id="input-submit" type="submit" href="#" class="btn btn-primary btn-block pull-right" style="max-width: 100px" />
+      </form>
             </div>
             <!-- /.box-body -->
           </div>

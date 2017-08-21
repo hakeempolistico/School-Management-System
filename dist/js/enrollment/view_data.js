@@ -54,7 +54,9 @@
                 $('#guardian_contact').html(val.guardian_contact);  
                 $('#position').html('Grade '+val.grade+' Student');  
                 $('#modal-note').html(val.note);                   
-                $('.requirements-section').show();  
+                $('.requirements-section').show();                     
+                $('#input-submit').show();                
+                $('#input-lrn').val(val.lrn);  
               })
             }
           });
@@ -126,7 +128,8 @@
                 $('#relationship').html('NOT AVAILABLE');
                 $('#guardian_contact').html('NOT AVAILABLE');
                 $('#position').html(val.position); 
-                $('.requirements-section').hide();     
+                $('.requirements-section').hide(); 
+                $('#input-submit').hide();     
               })
             }
           });
