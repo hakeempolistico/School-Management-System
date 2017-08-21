@@ -11,6 +11,21 @@ class view_model extends CI_Model{
 		return $query;
 	}
 
+	public function insertRequirement($table, $dataReq){
+		$this->db->select('requirement');
+		$this->db->where('lrn', $dataReq['lrn']);
+		$this->db->where('requirement', $dataReq['requirement']);
+		$rows = $this->db->get($table)->num_rows();
+		if($rows==0){
+			$this->db->insert($table, $dataReq);
+		}
+	}
+	public function updateStudent($lrn){;
+		$this->db->where('lrn', $lrn);
+		$this->db->set('requirements', 'complete');
+		$this->db->update('students');
+	}
+
 }
 
 ?>

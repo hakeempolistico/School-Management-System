@@ -33,4 +33,20 @@ class view_data extends CI_Controller {
 		$records = json_encode($this->global_model->getRow($table, $set, $value));
 		echo $records;
 	}
+	public function updateRequirements()
+	{
+		$data2 = $this->input->post('requirement[]');
+				foreach($data2 as $val){
+					$dataReq = array(
+						'lrn' =>  $this->input->post('lrn'),
+						'requirement' => $val
+						);
+					$result = $this->view_model->insertRequirement('requirements', $dataReq);
+				}
+		if(count($data2)==3){
+			$lrn = $this->input->post('lrn');
+			$this->view_model->updateStudent($lrn);
+		}
+		redirect('enrollment/view_data');
+	}
 }
