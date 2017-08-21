@@ -24,13 +24,13 @@
 				
 				$(".buttonView").click(function(){
           var lrn = $(this).closest('tr').find('td:eq(0)').html(); 
-					$.ajax({
-					  url: ajaxUrl,
+          $.ajax({
+            url: ajaxUrl,
             type: 'post',
             dataType: 'json', 
             data: {'lrn' : lrn, 'table': 'students', 'set': 'lrn' }, 
-						success: function(result){
-							//alert(result);
+            success: function(result){
+              //alert(result);
               $.each(result, function(index, val) {
                 $('#name').html(val.first_name +" "+ val.middle_name + " " + val.last_name);
                 $('#lrn').html(val.lrn);
@@ -51,10 +51,29 @@
                 $('#mother_contact').html(val.mother_contact);
                 $('#guardian').html(val.guardian);
                 $('#relationship').html(val.relationship);
-                $('#guardian_contact').html(val.guardian_contact);	
-                $('#position').html('Grade 12 Student');   
+                $('#guardian_contact').html(val.guardian_contact);  
+                $('#position').html('Grade '+val.grade+' Student');  
+                $('#modal-note').html(val.note);                   
                 $('.requirements-section').show();  
               })
+            }
+          });
+
+					$.ajax({
+					  url: ajaxReqUrl,
+            type: 'post',
+            dataType: 'json', 
+            data: {'lrn' : lrn, 'table': 'requirements', 'set': 'lrn' }, 
+						success: function(result){
+							//alert(result);
+              var requirements = [];
+              $.each(result, function(index, val) {
+               //alert(val.requirement);
+               requirements.push(val.requirement);
+
+              });
+              $('#modal-requirements').val(requirements);
+              $('#modal-requirements').val(requirements).trigger('change')       
             }
 					});
 				});
