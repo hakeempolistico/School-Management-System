@@ -11,28 +11,33 @@ class enroll_student extends CI_Controller {
 	
 	public function index()
 	{	
-		$this->load->view('enrollment/picking');
+		$data = $this->parse->parsed();
+		$this->parser->parse('enrollment/picking', $data);
 	}
 
 	public function enroll()
 	{
-		$this->load->view('enrollment/enroll_student');
+		$data = $this->parse->parsed();
+		$this->parser->parse('enrollment/enroll_student', $data);
 	}
 
 	public function strands()
 	{
-		$this->load->view('enrollment/strand_selection');
+		$data = $this->parse->parsed();
+		$this->parser->parse('enrollment/strand_selection', $data);
 	}
 
 	public function enrolled()
 	{
-		$this->load->view('enrollment/enrolled');
+		$data = $this->parse->parsed();
+		$this->parser->parse('enrollment/enrolled', $data);
 	}
 
 	public function search()
-	{
+	{	
+		$data = $this->parse->parsed();
 		$data['onlineRecords']  = json_encode($this->global_model->getRecords('online_applicants'));
-		$this->load->view('enrollment/search', $data);
+		$this->parser->parse('enrollment/search', $data);
 
 	}
 
@@ -73,7 +78,8 @@ class enroll_student extends CI_Controller {
 				
 		if ($this->form_validation->run() == FALSE)
 		{
-			$this->load->view('enrollment/enroll_student');
+			$data = $this->parse->parsed();
+		$this->parser->parse('enrollment/enroll_student', $data);
 		}
 		else
 		{

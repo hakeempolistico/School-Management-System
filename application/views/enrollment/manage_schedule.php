@@ -45,10 +45,7 @@
   <header class="main-header">
     <!-- Logo -->
     <a href="<?php echo site_url('welcome/index2') ?>" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>S</b>M</span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg">School Management</span>
+      {logo}
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -812,13 +809,9 @@
   </div>
   <!-- /.content-wrapper -->
 
-  <footer class="hidden-print main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Version</b> 1.0.0
-    </div>
-    <strong>Copyright &copy; 2017-2018 <a href="https://adminlte.io">Araullo School Management</a>.</strong> All rights
-    reserved.
-  </footer>
+  <!-- Footer -->
+  {footer}
+  <!-- /.Footer -->
 
   
 </div>

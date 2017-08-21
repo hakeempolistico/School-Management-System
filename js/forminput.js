@@ -89,10 +89,10 @@ $(document).ready(function(){
 
           if ($(this).val() == a) {
             document.getElementById("textREQUIREMENTS").innerHTML ='<span class="label label-success">Complete</span>';
-            $("#requirements").val('complete');
+            $("#requirements").val('COMPLETE');
             } else {
             document.getElementById("textREQUIREMENTS").innerHTML = '<span class="label label-warning">Incomplete</span>';
-            $("#requirements").val('incomplete');
+            $("#requirements").val('INCOMPLETE');
             }
       });
       $("#inputNOTE").change(function(){
