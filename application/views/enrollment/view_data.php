@@ -532,15 +532,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<li class="list-group-item">
 					<strong><i class="fa fa-book margin-r-5"></i> Note</strong>
 	
-					 <p class="text-muted">
-						B.S. in Information System in Technological University of the Philippines
+					 <p class="text-muted" id="modal-note">
+						
 					 </p>
 				</li>
 				
 				<li class="list-group-item requirements-section">
 					<strong><i class="fa fa-book margin-r-5"></i>Requirements</strong>
 	
-					  <select class="form-control select2" multiple="multiple" id="inputREQUIREMENTS" data-placeholder="Select Requirement" style="width: 100%;">
+					  <select class="form-control select2" multiple="multiple" id="modal-requirements" data-placeholder="Select Requirement" style="width: 100%;">
               <option id="f137">Form 137</option>
               <option id="f138">Form 138</option>
               <option id="nso">NSO Birth Certificate</option>
@@ -582,6 +582,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   var arrofobject2 = <?php echo $teacherRecords;?>;
   var arrofobject3 = <?php echo $roomRecords;?>;
   var ajaxUrl = "<?php echo base_url("enrollment/view_data/ajax"); ?>"
+  var ajaxReqUrl = "<?php echo base_url("enrollment/view_data/ajaxReq"); ?>"
 </script> 
 
 <script src="<?php echo base_url(); ?>dist/js/enrollment/view_data.js"></script>

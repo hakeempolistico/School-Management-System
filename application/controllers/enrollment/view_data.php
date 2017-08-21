@@ -25,4 +25,12 @@ class view_data extends CI_Controller {
 		$records = json_encode($this->global_model->getRow($table, $set, $value));
 		echo $records;
 	}
+	public function ajaxReq()
+	{
+		$table = $this->input->post('table');
+		$set = $this->input->post('set');
+		$value = $this->input->post('lrn');
+		$records = json_encode($this->global_model->getRow($table, $set, $value));
+		echo $records;
+	}
 }
