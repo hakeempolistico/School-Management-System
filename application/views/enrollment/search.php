@@ -388,7 +388,7 @@
           <!-- Profile Image -->
           <div class="box box-primary" >
             <div class="box-body box-profile">
-              <form>
+              <form method="POST" action="/sms/enrollment/enroll_student/move/">
               <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url(); ?>dist/img/user4-128x128.jpg" alt="User profile picture">
 
               <h3 id="name" class="profile-username text-center" ></h3>
@@ -464,13 +464,14 @@
         <li class="list-group-item requirements-section">
           <strong><i class="fa fa-book margin-r-5"></i>Requirements</strong>
   
-            <select class="form-control select2" multiple="multiple" id="inputREQUIREMENTS" data-placeholder="Select Requirement" style="width: 100%;">
+            <select class="form-control select2" multiple="multiple" id="inputREQUIREMENTS" name="requirement[]" value="<?php echo set_select('requirement'); ?>" data-placeholder="Select Requirement" style="width: 100%;">
               <option id="f137">Form 137</option>
               <option id="f138">Form 138</option>
               <option id="nso">NSO Birth Certificate</option>
             </select>
 
         </li>
+        <input type="hidden" name="lrn" value="<?php echo set_value('lrn'); ?>" id="learner">
         <input type="hidden" name="grade" value="<?php echo set_value('grade'); ?>" id="grade">
         <input type="hidden" name="first_name" value="<?php echo set_value('first_name'); ?>" id="fname">
         <input type="hidden" name="middle_name" value="<?php echo set_value('middle_name'); ?>" id="mname">
@@ -493,12 +494,14 @@
         <input type="hidden" name="guardian" value="<?php echo set_value('guardian'); ?>" id="guard">
         <input type="hidden" name="relationship" value="<?php echo set_value('relationship'); ?>" id="relation">
         <input type="hidden" name="guardian_contact" value="<?php echo set_value('guardian_contact'); ?>" id="guardcontact">
+        <input type="hidden" name="requirements" value="<?php echo set_value('requirements'); ?>" id="requirements">
         <input type="hidden" name="note" value="<?php echo set_value('note'); ?>" id="noto">
-        </form>
+        
 
               </ul>
               <a href="#" class="btn btn-primary btn-block pull-left" data-dismiss="modal" style="max-width: 100px"><b>Close</b></a>
-              <a href="#" class="btn btn-primary btn-block pull-right" id="enrollStudent" style="max-width: 150px"><b>Enroll Student</b></a>
+              <button type="submit" class="btn btn-primary btn-block pull-right" id="enrollStudent" style="max-width: 150px"><b>Enroll Student</b></button>>
+              </form>
             </div>
             <!-- /.box-body -->
           </div>
@@ -538,6 +541,18 @@
     $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td><td>'+val.grade+'</td> <td><button type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs buttonView" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
   });
 
+  $("#inputREQUIREMENTS").on("change", function (e) {
+    var a = "Form 137,Form 138,NSO Birth Certificate"
+
+    //alert($('.select2').val());
+
+    if ($(this).val() == a) {
+      $("#requirements").val('complete');
+    } else {
+      $("#requirements").val('incomplete');
+    }
+  });
+
   $(".buttonView").click(function(){
           var lrn = $(this).closest('tr').find('td:eq(0)').html(); 
           $.ajax({
@@ -570,21 +585,8 @@
                 $('#guardian_contact').html(val.guardian_contact);  
                 $('#position').html('Grade 12 Student');   
                 $('.requirements-section').show();
-              })
-            }
-          });
-        });
 
-  $("#enrollStudent").click(function(){
-          var lrn = $(this).closest('tr').find('td:eq(0)').html(); 
-          $.ajax({
-            url: "<?php echo base_url("enrollment/enroll_student/kek"); ?>",
-            type: 'post',
-            dataType: 'json', 
-            data: {'lrn' : lrn, 'table': 'online_applicants', 'set': 'lrn' }, 
-            success: function(result2){
-              alert(result2); 
-              $.each(result2, function(index, val) {
+                $('#learner').attr('value', val.lrn);
                 $('#grade').attr('value', val.grade);
                 $('#fname').attr('value', val.first_name);
                 $('#mname').attr('value', val.middle_name);
@@ -605,8 +607,8 @@
                 $('#fathercontact').attr('value', val.father_contact);
                 $('#mothercontact').attr('value', val.mother_contact);
                 $('#guard').attr('value', val.guardian);
-                $('#rel').attr('value', val.relationship);
-                $('#guardcontact').html(val.guardian_contact);
+                $('#relation').attr('value', val.relationship);
+                $('#guardcontact').attr('value', val.guardian_contact);
                 $('#noto').attr('value', val.note);
               })
             }

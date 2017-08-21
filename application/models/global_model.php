@@ -21,6 +21,12 @@ class global_model extends CI_Model{
 		return $query;
 	}
 
+	public function delete($table,$data)
+	{
+		$query = $this->db->delete($table, $data);
+		return $query;
+	}
+
 }
 
 ?>
