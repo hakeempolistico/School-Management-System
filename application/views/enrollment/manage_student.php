@@ -325,120 +325,122 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
       <div class="row">
         <div class="col-md-12">
+
           <div class="row">
-        <div class="col-lg-4 col-xs-12">
-          <!-- small box -->
-          <div class="small-box bg-green" id="stem_list" style="cursor: pointer;">
-            <div class="inner">
-              <h3>STEM</h3>
+            <div class="col-lg-4 col-xs-12">
+              <!-- small box -->
+              <div class="small-box bg-green" id="stem_list" style="cursor: pointer;">
+                <div class="inner">
+                  <h3>STEM</h3>
 
-              <p>Science, Technology,<br> Engineering, and Mathematics</p>
+                  <p>Science, Technology,<br> Engineering, and Mathematics</p>
+                </div>
+                <div class="icon">
+                  <i class="fa fa-flask"></i>
+                </div>
+                <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
+              </div>
             </div>
-            <div class="icon">
-              <i class="fa fa-flask"></i>
+            <!-- ./col -->
+            <div class="col-lg-4 col-xs-12">
+              <!-- small box -->
+              <div class="small-box bg-maroon" id="gas_list" style="cursor: pointer;">
+                <div class="inner">
+                  <h3>GAS</h3>
+
+                  <p>General<br>Academic Strand</p>
+                </div>
+                <div class="icon">
+                  <i class="fa fa-book"></i>
+                </div>
+                <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
+              </div>
             </div>
-            <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
+            <!-- ./col -->
+            <div class="col-lg-4 col-xs-12">
+              <!-- small box -->
+              <div class="small-box bg-yellow" id="humss_list" style="cursor: pointer;">
+                <div class="inner">
+                  <h3>HUMSS</h3>
+
+                  <p>Humanities<br>and Social Sciences</p>
+                </div>
+                <div class="icon">
+                  <i class="fa fa-users"></i>
+                </div>
+                <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
+              </div>
+            </div>
+            <!-- ./col -->
           </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-4 col-xs-12">
-          <!-- small box -->
-          <div class="small-box bg-maroon" id="gas_list" style="cursor: pointer;">
-            <div class="inner">
-              <h3>GAS</h3>
 
-              <p>General<br>Academic Strand</p>
+          <div class="row">
+            <div class="col-lg-4 col-xs-12">
+              <!-- small box -->
+              <div class="small-box bg-purple" id="abm_list" style="cursor: pointer;">
+                <div class="inner">
+                  <h3>ABM</h3>
+
+                  <p>Accountancy<br>and Business Management</p>
+                </div>
+                <div class="icon">
+                  <i class="fa fa-briefcase"></i>
+                </div>
+                <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
+              </div>
             </div>
-            <div class="icon">
-              <i class="fa fa-book"></i>
+
+            <div class="col-lg-4 col-xs-12">
+              <!-- small box -->
+              <div class="small-box bg-blue" id="tvlhe_list" style="cursor: pointer;">
+                <div class="inner">
+                  <h3>TVL-HE</h3>
+
+                  <p>Technology-Vocational<br>Livelihood: Home Economics</p>
+                </div>
+                <div class="icon">
+                  <i class="fa fa-home"></i>
+                </div>
+                <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
+              </div>
             </div>
-            <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
+
+            <div class="col-lg-4 col-xs-12">
+              <!-- small box -->
+              <div class="small-box bg-navy" id="tvlas_list" style="cursor: pointer;">
+                <div class="inner">
+                  <h3>TVL-AS</h3>
+
+                  <p>Technogy-Vocational<br>Livelihood: Automotive Services</p>
+                </div>
+                <div class="icon">
+                  <i class="fa fa-cogs"></i>
+                </div>
+                <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
+              </div>
+            </div>
+            <!-- ./col -->
           </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-4 col-xs-12">
-          <!-- small box -->
-          <div class="small-box bg-yellow" id="humss_list" style="cursor: pointer;">
-            <div class="inner">
-              <h3>HUMSS</h3>
+          <!-- /.row -->
 
-              <p>Humanities<br>and Social Sciences</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-users"></i>
-            </div>
-            <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
-          </div>
-        </div>
-        <!-- ./col -->
-      </div>
-      <div class="row">
-        <div class="col-lg-4 col-xs-12">
-          <!-- small box -->
-          <div class="small-box bg-purple" id="abm_list" style="cursor: pointer;">
-            <div class="inner">
-              <h3>ABM</h3>
-
-              <p>Accountancy<br>and Business Management</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-briefcase"></i>
-            </div>
-            <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-xs-12">
-          <!-- small box -->
-          <div class="small-box bg-blue" id="tvlhe_list" style="cursor: pointer;">
-            <div class="inner">
-              <h3>TVL-HE</h3>
-
-              <p>Technology-Vocational<br>Livelihood: Home Economics</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-home"></i>
-            </div>
-            <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-xs-12">
-          <!-- small box -->
-          <div class="small-box bg-navy" id="tvlas_list" style="cursor: pointer;">
-            <div class="inner">
-              <h3>TVL-AS</h3>
-
-              <p>Technogy-Vocational<br>Livelihood: Automotive Services</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-cogs"></i>
-            </div>
-            <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
-          </div>
-        </div>
-        <!-- ./col -->
-      </div>
-      <!-- /.row -->
-
-      <!--container ng mga ic-click na box-->
-      <div class="row">
-      <div class="col-xs-12">
-          <div id="lapa">
-            <div class="alert bg-gray" style="height: 234px;">
-                <div>
-                <center>
-                <i class="icon fa fa-exclamation-triangle fa-4x" style="margin-top: 25px;"></i>
-                <h3>No table selected!</h3>
-                <h4> Please choose from the above tables to view data</h4>
-                </center>
+          <!--container ng mga ic-click na box-->
+          <div class="row">
+            <div class="col-xs-12">
+                <div id="lapa">
+                  <div class="alert bg-gray" style="height: 234px;">
+                      <div>
+                      <center>
+                      <i class="icon fa fa-exclamation-triangle fa-4x" style="margin-top: 25px;"></i>
+                      <h3>No table selected!</h3>
+                      <h4> Please choose from the above tables to view data</h4>
+                      </center>
+                      </div>
+                  </div>
                 </div>
             </div>
           </div>
-      </div>
-    </div>
 
-      <!-- BOX OF STEM-->
+          <!-- BOX OF STEM-->
           <div class="box" hidden id="stem_box">
             <div class="box-header">
               <h3 class="box-title">STEM</h3>
@@ -447,23 +449,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="box-body">
               <!--<div class="nav-tabs-custom">-->
               <div class="wizard">
+
                 <ul class="nav nav-wizard">
-
                     <li class="active">
-                        <a href="#step1" data-toggle="tab">Select Students</a>
+                        <a href="#step1" data-toggle="tab"> Students</a>
                     </li>
-
                     <li class="disabled">
-                        <a href="#step2" data-toggle="tab">Add Section</a>
+                        <a href="#step2" data-toggle="tab">Sections</a>
                     </li>
-
                     <li class="disabled">
                         <a href="#step3" data-toggle="tab">Summary</a>
-                    </li>
-                  
-                </ul><br>
+                    </li>                  
+                </ul>
+
+                <br>
                 <div class="tab-content">
-                  <div class="tab-pane active" id="step1">  
+
+                  <div class="tab-pane active" id="step1"> 
+                  <h4>Select Students</h4><hr>
                     <table id="example1" class="table table-bordered table-striped">
                       <thead>
                         <tr>
@@ -546,12 +549,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       
                       <ul class="list-inline pull-right">
                         <li><button type="button" class="btn btn-primary">Add</button></li>
-                      </ul>
-                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" style="width: 15%;">Transfer</button>
+                        <li><button type="button" class="btn btn-primary">Transfer</button></li>
+                      </ul>                      
                   </div>
                   <!-- /.end student tab-->
 
-                  <div class="tab-pane" id="step2">  
+                  <div class="tab-pane" id="step2">
+                  <h4>Select a Section</h4>
+                  <hr>
                     <table id="example2" class="table table-bordered table-striped">
                       <thead>
                         <tr>
@@ -585,24 +590,79 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       <hr style="margin-bottom: 10px;">
                       <ul class="list-inline pull-right">
                         <li><button type="button" class="btn btn-primary">Next</button></li>
-                      </ul>
-                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" style="width: 15%;">Save</button>                      
+                      </ul>                                           
                   </div>
                   <!--end section_tab-->
                   <div class="tab-pane" id="step3">
-                    <p style="font-size: 100px">SUMMARY XD</p>
+                  <h4>Confirm Operation:</h4>
+                    <hr>
+                     <h3>ADD TO <b> STEM-1</b></h3>
+                        <table class="table table-responsive table-bordered">
+                          <tr>
+                            <th>#</th>
+                            <th>LRN</th>
+                            <th>Full Name</th>
+                            <th>Sex</th>
+                             
+                          </tr>
+                           <tr>
+                            <td>1.</td>
+                            <td>00000000008</td>
+                            <td>Escaro, Adrielle Kristine Nicolette</td>
+                            <td>Female</td>
+                              
+                          </tr>
+                          <tr>
+                            <td>2.</td>
+                            <td>00000000009</td>
+                            <td>Polistico, Hakeem</td>
+                            <td>Male</td>
+                              
+                          </tr>  
+                           <tr>
+                            <td>3.</td>
+                            <td>00000000007</td>
+                            <td>Salva, Jasver Anlouise</td>
+                            <td>Female</td>
+                            
+                          </tr>                
+                        </table><hr>
+                  
                     <ul class="list-inline pull-right">
-                      <li><button type="button" class="btn btn-primary">Next</button></li>
+                      <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_success" >Save</button></li>
                     </ul>
                   </div>
                 </div>
                 <!-- /. end tab contents-->
-              <!--</div>-->
-              <!-- /.nav-tabs-custom-->
+              </div>
+              <!-- /.WIZARD-->
             </div>
             <!-- /.box-body -->
           </div>
           <!--/.box (box ng STEM)-->
+
+      <div class="modal fade" id="modal_success">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-green">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">System Message</h4>
+            </div>
+            <div class="modal-body">
+              <div class="box-body">
+                <p>Operation Successful!</p>
+                <br>                
+              </div>
+              <!-- /.box-body -->
+            </div>
+            <!-- /.modal-body -->
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
 
           <!-- BOX OF GAS START-->
           <div class="box" hidden id="gas_box">
@@ -1221,112 +1281,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </div>   
             </div>
           </div>
-          <!--end of SUMMARY modal-->
-
-                <!--modal start-->
-                <div class="modal fade" id="gas_modal">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header bg-green">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">ADD TO <b>GAS-1</b></h4>
-                      </div>
-                      <div class="modal-body">
-                        <div class="box-body table-responsive no-padding">
-                          <table class="table">
-                            <tr>
-                              <th>#</th>
-                              <th>LRN</th>
-                              <th>Full Name</th>
-                              <th>Sex</th>
-                              
-                            </tr>
-                            <tr>
-                              <td>1.</td>
-                              <td>00000000008</td>
-                              <td>Escaro, Adrielle Kristine Nicolette</td>
-                              <td>Female</td>
-                              
-                            </tr>
-                            <tr>
-                              <td>2.</td>
-                              <td>00000000009</td>
-                              <td>Polistico, Hakeem</td>
-                              <td>Male</td>
-                              
-                            </tr>  
-                            <tr>
-                              <td>3.</td>
-                              <td>00000000007</td>
-                              <td>Salva, Jasver Anlouise</td>
-                              <td>Female</td>
-                              
-                            </tr>                
-                          </table>
-                        </div>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-success">Confirm</button>
-                      </div>
-                    </div>   
-                  </div>
-                </div>
-                <!--end of modal-->
-
-          <!--SECTION modal start-->
-          <div class="modal fade" id="section_modal">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title">Select a Section</h4>
-                </div>
-                <div class="modal-body">
-                  <table id="example2" class="table table-bordered table-striped">
-                    <thead>
-                      <tr>
-                        <th>#</th>
-                        <th>Section Name</th>
-                        <th>Count</th>
-                        <th>Status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>1.</td>
-                        <td>STEM-1</td>
-                        <td>31/40</td>
-                        <td><span class="label label-success">Open</span></td>
-                       </tr>
-                      <tr>
-                        <td>2.</td>
-                        <td>STEM-2</td>
-                        <td>40/40</td>
-                        <td><span class="label label-danger">Closed</span></td>
-                      </tr>
-                      <tr>
-                        <td>3.</td>
-                        <td>STEM-3</td>
-                        <td>0/40</td>
-                        <td><span class="label label-success">Open</span></td>
-                      </tr>
-                    </tbody>                      
-                  </table>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#modal-default">Next</button>
-                </div>
-              </div>
-              <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-          </div>
-          <!-- /.modal -->
-          <!--section modal end-->
+          <!--end of SUMMARY modal-->            
         <!-- right col -->
       </div>
       <!-- /.row (main row) -->
@@ -1353,7 +1308,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
 <!-- Step Wizard js -->
-<script src="<?php echo base_url(); ?>dist/js/enrollment/step_wizard.js"></script>
+<script src="<?php echo base_url(); ?>dist/js/enrollment/manage_student.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
 
