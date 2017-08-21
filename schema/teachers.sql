@@ -23,11 +23,11 @@ CREATE TABLE `teachers` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 INSERT INTO `teachers` (`id`, `employee_id`, `first_name`, `middle_name`, `last_name`, `major`, `position`, `status`, `sex`, `age`, `birth_date`, `birth_place`, `mother_tongue`, `contact`, `street`, `barangay`, `city`, `province`, `religion`, `note`, `date_modified`) VALUES
-(1, '4245744', 'Luxanna', 'Draven', 'Crownguard', 'chemitstry', 'admin', 'active', 'Female', 21, '2017-08-07', 'Demacia', 'english', '09123456789', '#123 Barietto St.', 'Barangay Mahalkita', 'Bacolod', 'Batangas', 'Catholic', 'Kapatid ni Garen', '2017-08-21 06:40:49'),
-(2, '4245745', 'Garen', 'Draven', 'Crownguard', 'Physical Education', 'superadmin', 'active', 'Male', 28, '2017-08-11', 'Demacia', 'english', '09987654321', '#211 Bariettoo st.', 'Barangay moto', 'Ionia', 'Cavite', 'Catholic', 'Kapatid ni Lux', '2017-08-21 06:44:43'),
-(3, '4245746', 'Aiella', 'Mestiola', 'Escaro', 'Math', 'teacher', 'active', 'Female', 18, '1998-12-26', 'Hostpital bed', 'Tagalog', '0999999999', '#211 Domingo st.', 'Barangay Maharlika', 'Imus', 'Cavite', 'Catholic', 'Yon', '2017-08-21 06:59:41'),
-(4, '4245747', 'Jeru', 'Something', 'Valenzuela', 'Physics', 'teacher', 'active', 'Female', 19, '2017-06-26', 'Hospital bed', 'Tagalog', '09333333333', 'Panget st.', 'Barangay Panget', 'Panget city', 'Panget Province', 'Catholic', 'Yoko na', '2017-08-21 07:13:14'),
-(5, '4245748', 'Adolf', 'Hitler', 'Junior', 'Terrorism', 'teacher', 'active', 'male', 56, '2017-08-09', 'UAE', 'Arabian', '09444444444', 'Saudi st.', 'Barangay Saudi', 'Saudi City', 'Saudi Province', 'Catholic', 'aaaaaahk', '2017-08-21 07:21:05');
+(1, '4245744', 'Luxanna', 'Draven', 'Crownguard', 'chemitstry', 'admin', 'ACTIVE', 'Female', 21, '2017-08-07', 'Demacia', 'english', '09123456789', '#123 Barietto St.', 'Barangay Mahalkita', 'Bacolod', 'Batangas', 'Catholic', 'Kapatid ni Garen', '2017-08-20 22:40:49'),
+(2, '4245745', 'Garen', 'Draven', 'Crownguard', 'Physical Education', 'superadmin', 'ACTIVE', 'Male', 28, '2017-08-11', 'Demacia', 'english', '09987654321', '#211 Bariettoo st.', 'Barangay moto', 'Ionia', 'Cavite', 'Catholic', 'Kapatid ni Lux', '2017-08-20 22:44:43'),
+(3, '4245746', 'Aiella', 'Mestiola', 'Escaro', 'Math', 'teacher', 'ACTIVE', 'Female', 18, '1998-12-26', 'Hostpital bed', 'Tagalog', '0999999999', '#211 Domingo st.', 'Barangay Maharlika', 'Imus', 'Cavite', 'Catholic', 'Yon', '2017-08-20 22:59:41'),
+(4, '4245747', 'Jeru', 'Something', 'Valenzuela', 'Physics', 'teacher', 'INACTIVE', 'Female', 19, '2017-06-26', 'Hospital bed', 'Tagalog', '09333333333', 'Panget st.', 'Barangay Panget', 'Panget city', 'Panget Province', 'Catholic', 'Yoko na', '2017-08-20 23:13:14'),
+(5, '4245748', 'Adolf', 'Hitler', 'Junior', 'Terrorism', 'teacher', 'ACTIVE', 'male', 56, '2017-08-09', 'UAE', 'Arabian', '09444444444', 'Saudi st.', 'Barangay Saudi', 'Saudi City', 'Saudi Province', 'Catholic', 'aaaaaahk', '2017-08-20 23:21:05');
 
 ALTER TABLE `teachers`
   ADD PRIMARY KEY (`id`),

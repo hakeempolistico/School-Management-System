@@ -14,6 +14,7 @@ class view_data extends CI_Controller {
 		$data['teacherRecords']  = json_encode($this->global_model->getRecords('teachers'));
 		$data['studentRecords'] = json_encode($this->global_model->getRecords('students'));
 		$data['roomRecords'] = json_encode($this->view_model->getRooms());
+		$data['classRecords'] = json_encode($this->view_model->getClasses());
 		$this->load->view('enrollment/view_data', $data);
 	}
 	

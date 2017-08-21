@@ -582,6 +582,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   var arrofobject = <?php echo $studentRecords;?>;
   var arrofobject2 = <?php echo $teacherRecords;?>;
   var arrofobject3 = <?php echo $roomRecords;?>;
+  var arrofobject4 = <?php echo $classRecords;?>;
   var ajaxUrl = "<?php echo base_url("enrollment/view_data/ajax"); ?>"
   var ajaxReqUrl = "<?php echo base_url("enrollment/view_data/ajaxReq"); ?>"
 </script> 
