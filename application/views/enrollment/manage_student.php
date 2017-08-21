@@ -36,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>dist/css/enrollment/manage_student.css"">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>dist/css/enrollment/manage_student.css">
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -454,12 +454,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <div class="nav-tabs-custom">
+              <!--<div class="nav-tabs-custom">-->
                 <ul class="nav nav-tabs">
-                  <li class="completed"><a href="#tab_1" data-toggle="tab">Select Students</a></li>
-                  <li> <a href="#tab_2" data-toggle="tab">Add Section</a></li>
-                  <li> <a href="#tab_2" data-toggle="tab">Summary</a></li>
-                </ul>
+
+                  <li class="completed"><a href="#tab_1" data-toggle="tab">Select Students</a>
+                  </li>
+
+                  <li> <a href="#tab_2" data-toggle="tab">Add Section</a>
+                  </li>
+
+                  <li> <a href="#tab_2" data-toggle="tab">Summary</a>
+                  </li>
+
+                </ul><br>
                 <div class="tab-content">
                   <div class="tab-pane active" id="tab_1">  
                     <table id="example1" class="table table-bordered table-striped">
@@ -542,7 +549,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </table>
                     <hr style="margin-bottom: 10px;">
                       
-                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#section_modal" style="width: 15%; ">Add</button>
+                      <ul class="list-inline pull-right">
+                           <li><button type="button" class="btn btn-primary">Continue</button></li>
+                        </ul>
                       <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" style="width: 15%;">Transfer</button>
                   </div>
                   <!-- /.end student tab-->
@@ -584,7 +593,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <!--end section_tab-->
                 </div>
                 <!-- /. end tab contents-->
-              </div>
+              <!--</div>-->
               <!-- /.nav-tabs-custom-->
             </div>
             <!-- /.box-body -->
@@ -1438,7 +1447,30 @@ $(document).ready(function(){
 $('input.check').iCheck({
   checkboxClass: 'icheckbox_minimal-blue'
 })*/
+$(document).ready(function () {
+  
+    //Wizard
+    $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
 
+        var $target = $(e.target);
+    
+        if ($target.parent().hasClass('disabled')) {
+            return false;
+        }
+    });
+
+    $(".btn-primary").click(function (e) {
+
+        var $active = $('.wizard .nav-wizard li.active');
+        $active.next().removeClass('disabled');
+        nextTab($active);
+
+    });
+});
+
+function nextTab(elem) {
+    $(elem).next().find('a[data-toggle="tab"]').click();
+}
 </script>
 </body>
 </html>

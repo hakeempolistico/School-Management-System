@@ -4,7 +4,7 @@
   background: #D4D4D4;
   list-style: none; 
   overflow: hidden; 
-  margin: 20px;
+  margin: 0px;
 }
 .nav>li+li:before {
   padding: 0;
@@ -18,13 +18,13 @@
 }
 .nav li.completed a {
   background: brown;                   /* fallback color */
-  background: hsla(195, 81%, 51%, 1); 
+  background: hsla(153, 57%, 51%, 1); 
 }
 .nav li.active a:after {
   border-left: 30px solid #ffc107 ;
 }
 .nav li.completed a:after {
-  border-left: 30px solid hsla(195, 81%, 51%, 1);
+  border-left: 30px solid hsla(153, 57%, 51%, 1);
 } 
 
 .nav li a {
