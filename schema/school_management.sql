@@ -1,20 +1,21 @@
 CREATE TABLE `classes` (
   `id` int(11) NOT NULL,
-  `class_name` varchar(50) NOT NULL,
-  `year` varchar(10) NOT NULL,
-  `adviser` int(11) NOT NULL,
-  `occupants` int(11) NOT NULL,
-  `capacity` int(11) NOT NULL,
+  `class_name` varchar(50) DEFAULT NULL,
+  `year` varchar(10) DEFAULT NULL,
+  `adviser` int(11) DEFAULT NULL,
+  `occupants` int(11) DEFAULT NULL,
+  `capacity` int(11) DEFAULT NULL,
   `date_created` timestamp NOT NULL,
   `date_modified` timestamp NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 INSERT INTO `classes` (`id`, `class_name`, `year`, `adviser`, `occupants`, `capacity`, `date_created`, `date_modified`) VALUES
-(1, 'STEM1', 'Grade 11', 4245744, 35, 40, '2017-08-20 23:22:42', '2017-08-20 23:22:42'),
-(2, 'GAS2', 'Grade 12', 4245745, 36, 40, '2017-08-20 23:23:22', '2017-08-20 23:23:22'),
-(3, 'HUMSS3', 'Grade 11', 4245746, 37, 40, '2017-08-20 23:23:58', '2017-08-20 23:23:58'),
-(4, 'ABM4', 'Grade 12', 4245747, 38, 40, '2017-08-20 23:24:45', '2017-08-20 23:24:45'),
-(5, 'TVLHE5', 'Grade 11', 4245748, 39, 40, '2017-08-20 23:25:28', '2017-08-20 23:25:28');
+(1, 'STEM-1', 'Grade 11', 4245744, 35, 40, '2017-08-20 23:22:42', '2017-08-20 23:22:42'),
+(2, 'GAS-2', 'Grade 12', 4245745, 36, 40, '2017-08-20 23:23:22', '2017-08-20 23:23:22'),
+(3, 'HUMSS-3', 'Grade 11', 4245746, 37, 40, '2017-08-20 23:23:58', '2017-08-20 23:23:58'),
+(4, 'ABM-4', 'Grade 12', 4245747, 40, 40, '2017-08-20 23:24:45', '2017-08-20 23:24:45'),
+(5, 'TVLHE-5', 'Grade 11', 4245748, 40, 40, '2017-08-20 23:25:28', '2017-08-20 23:25:28'),
+(0, '--', ' ', NULL, NULL, NULL, '2017-08-21 13:14:18', '2017-08-21 13:14:18');
 
 CREATE TABLE `online_applicants` (
   `id` int(255) NOT NULL,
@@ -80,20 +81,19 @@ CREATE TABLE `rooms` (
   `id` int(100) NOT NULL,
   `room_id` varchar(50) NOT NULL,
   `room_name` varchar(50) NOT NULL,
-  `capacity` int(11) NOT NULL,
-  `occupants` int(11) NOT NULL,
-  `class_id` int(11) NOT NULL,
-  `adviser_id` int(11) NOT NULL,
+  `class_id` int(11) DEFAULT NULL,
+  `status` varchar(20) NOT NULL,
   `date_created` timestamp NOT NULL,
   `date_modified` timestamp NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-INSERT INTO `rooms` (`id`, `room_id`, `room_name`, `capacity`, `occupants`, `class_id`, `adviser_id`, `date_created`, `date_modified`) VALUES
-(1, '123', 'AVR', 60, 55, 1, 1, '2017-08-21 00:46:19', '2017-08-21 00:46:19'),
-(2, '234', 'Lab 1', 60, 56, 2, 2, '2017-08-21 00:46:47', '2017-08-21 00:46:47'),
-(3, '345', 'Lab 2', 60, 57, 3, 3, '2017-08-21 00:47:17', '2017-08-21 00:47:17'),
-(4, '456', 'Lab 3', 60, 58, 4, 4, '2017-08-21 00:47:50', '2017-08-21 00:47:50'),
-(5, '567', 'Lab 4', 60, 59, 5, 5, '2017-08-21 00:48:20', '2017-08-21 00:48:20');
+INSERT INTO `rooms` (`id`, `room_id`, `room_name`, `class_id`, `status`, `date_created`, `date_modified`) VALUES
+(1, '123', 'AVR', 1, 'OCCUPIED', '2017-08-21 00:46:19', '2017-08-21 00:46:19'),
+(2, '234', 'Lab 1', 2, 'OCCUPIED', '2017-08-21 00:46:47', '2017-08-21 00:46:47'),
+(3, '345', 'Lab 2', 3, 'OCCUPIED', '2017-08-21 00:47:17', '2017-08-21 00:47:17'),
+(4, '456', 'Lab 3', 4, 'OCCUPIED', '2017-08-21 00:47:50', '2017-08-21 00:47:50'),
+(5, '567', 'Lab 4', 5, 'OCCUPIED', '2017-08-21 00:48:20', '2017-08-21 00:48:20'),
+(6, '169', 'Private Room', 0, 'AVAILABLE', '2017-08-21 13:09:21', '2017-08-21 13:09:21');
 
 CREATE TABLE `students` (
   `id` int(11) NOT NULL,
@@ -125,11 +125,11 @@ CREATE TABLE `students` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 INSERT INTO `students` (`id`, `lrn`, `grade`, `first_name`, `middle_name`, `last_name`, `sex`, `contact`, `birth_date`, `birth_place`, `age`, `mother_tongue`, `religion`, `street`, `barangay`, `city`, `province`, `father_name`, `mother_name`, `father_contact`, `mother_contact`, `guardian`, `relationship`, `guardian_contact`, `requirements`, `note`) VALUES
-(1, '14038020', 'Grade 11', 'Aaron', 'James', 'Alcantara', 'Male', '09222222222', '2017-08-15', 'Laguna', 20, 'Tagalog', 'Catholic', 'Laguna st.', 'Laguna', 'Laguna', 'Laguna', 'Father Alcantara', 'Mother Alcantara', 'Falcan contact', 'Malcan contact', 'N/A', 'N/A', 'N/A', 'complete', '1'),
-(2, '14038021', 'Grade 12', 'Jan', 'Diether', 'Francia', 'Male', '09333333333', '2017-08-25', 'Caloocan', 19, 'Tagalog', 'Catholic', 'Caloocan st.', 'Caloocan', 'Caloocan', 'Caloocn', 'Father Francia', 'Mother Francia', 'Ffrancia contact', 'Mfrancia contact', 'N/A', 'N/A', 'N/A', 'complete', '2'),
-(3, '14038022', 'Grade 11', 'Rie', 'John', 'Torres', 'Male', '09444444444', '2017-08-23', 'Fairview', 19, 'Tagalog', 'Catholic', 'Fairview st.', 'Fairview', 'Fairview', 'Fairview', 'Father Torres', 'Mother Torres', 'Ftorres contact', 'Mtorres contact', 'N/A', 'N/A', 'N/A', 'complete', '3'),
-(4, '14038023', 'Grade 12', 'John', 'Robert', 'Capistrano', 'Male', '09555555555', '2017-08-01', 'Monumento', 20, 'Tagalog', 'Catholic', 'Monumento st.', 'Monumento', 'Monumento', 'Monumento', 'Father Capistrano', 'Mother Capistrano', 'Fcapis contact', 'Mcapis contact', 'N/A', 'N/A', 'N/A', 'complete', '4'),
-(5, '14038024', 'Grade 12', 'Shanai', 'Hazel', 'Zulueta', 'Female', '09666666666', '2017-07-31', 'Bicol', 19, 'Tagalog', 'Catholic', 'Bicol st.', 'Bicol', 'Bicol', 'Bicol', 'Father Zulueta', 'Mother Zulueta', 'Fzulueta contact', 'Mzulueta contact', 'N/A', 'N/A', 'N/A', 'complete', '5');
+(1, '14038020', 'Grade 11', 'Aaron', 'James', 'Alcantara', 'Male', '09222222222', '2017-08-15', 'Laguna', 20, 'Tagalog', 'Catholic', 'Laguna st.', 'Laguna', 'Laguna', 'Laguna', 'Father Alcantara', 'Mother Alcantara', 'Falcan contact', 'Malcan contact', 'N/A', 'N/A', 'N/A', 'COMPLETE', '1'),
+(2, '14038021', 'Grade 12', 'Jan', 'Diether', 'Francia', 'Male', '09333333333', '2017-08-25', 'Caloocan', 19, 'Tagalog', 'Catholic', 'Caloocan st.', 'Caloocan', 'Caloocan', 'Caloocn', 'Father Francia', 'Mother Francia', 'Ffrancia contact', 'Mfrancia contact', 'N/A', 'N/A', 'N/A', 'COMPLETE', '2'),
+(3, '14038022', 'Grade 11', 'Rie', 'John', 'Torres', 'Male', '09444444444', '2017-08-23', 'Fairview', 19, 'Tagalog', 'Catholic', 'Fairview st.', 'Fairview', 'Fairview', 'Fairview', 'Father Torres', 'Mother Torres', 'Ftorres contact', 'Mtorres contact', 'N/A', 'N/A', 'N/A', 'COMPLETE', '3'),
+(4, '14038023', 'Grade 12', 'John', 'Robert', 'Capistrano', 'Male', '09555555555', '2017-08-01', 'Monumento', 20, 'Tagalog', 'Catholic', 'Monumento st.', 'Monumento', 'Monumento', 'Monumento', 'Father Capistrano', 'Mother Capistrano', 'Fcapis contact', 'Mcapis contact', 'N/A', 'N/A', 'N/A', 'COMPLETE', '4'),
+(5, '14038024', 'Grade 12', 'Shanai', 'Hazel', 'Zulueta', 'Female', '09666666666', '2017-07-31', 'Bicol', 19, 'Tagalog', 'Catholic', 'Bicol st.', 'Bicol', 'Bicol', 'Bicol', 'Father Zulueta', 'Mother Zulueta', 'Fzulueta contact', 'Mzulueta contact', 'N/A', 'N/A', 'N/A', 'COMPLETE', '5');
 
 CREATE TABLE `teachers` (
   `id` int(11) NOT NULL,
@@ -156,11 +156,29 @@ CREATE TABLE `teachers` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 INSERT INTO `teachers` (`id`, `employee_id`, `first_name`, `middle_name`, `last_name`, `major`, `position`, `status`, `sex`, `age`, `birth_date`, `birth_place`, `mother_tongue`, `contact`, `street`, `barangay`, `city`, `province`, `religion`, `note`, `date_modified`) VALUES
-(1, '4245744', 'Luxanna', 'Draven', 'Crownguard', 'chemitstry', 'admin', 'active', 'Female', 21, '2017-08-07', 'Demacia', 'english', '09123456789', '#123 Barietto St.', 'Barangay Mahalkita', 'Bacolod', 'Batangas', 'Catholic', 'Kapatid ni Garen', '2017-08-20 22:40:49'),
-(2, '4245745', 'Garen', 'Draven', 'Crownguard', 'Physical Education', 'superadmin', 'active', 'Male', 28, '2017-08-11', 'Demacia', 'english', '09987654321', '#211 Bariettoo st.', 'Barangay moto', 'Ionia', 'Cavite', 'Catholic', 'Kapatid ni Lux', '2017-08-20 22:44:43'),
-(3, '4245746', 'Aiella', 'Mestiola', 'Escaro', 'Math', 'teacher', 'active', 'Female', 18, '1998-12-26', 'Hostpital bed', 'Tagalog', '0999999999', '#211 Domingo st.', 'Barangay Maharlika', 'Imus', 'Cavite', 'Catholic', 'Yon', '2017-08-20 22:59:41'),
-(4, '4245747', 'Jeru', 'Something', 'Valenzuela', 'Physics', 'teacher', 'active', 'Female', 19, '2017-06-26', 'Hospital bed', 'Tagalog', '09333333333', 'Panget st.', 'Barangay Panget', 'Panget city', 'Panget Province', 'Catholic', 'Yoko na', '2017-08-20 23:13:14'),
-(5, '4245748', 'Adolf', 'Hitler', 'Junior', 'Terrorism', 'teacher', 'active', 'male', 56, '2017-08-09', 'UAE', 'Arabian', '09444444444', 'Saudi st.', 'Barangay Saudi', 'Saudi City', 'Saudi Province', 'Catholic', 'aaaaaahk', '2017-08-20 23:21:05');
+(1, '4245744', 'Luxanna', 'Draven', 'Crownguard', 'chemitstry', 'admin', 'ACTIVE', 'Female', 21, '2017-08-07', 'Demacia', 'english', '09123456789', '#123 Barietto St.', 'Barangay Mahalkita', 'Bacolod', 'Batangas', 'Catholic', 'Kapatid ni Garen', '2017-08-20 22:40:49'),
+(2, '4245745', 'Garen', 'Draven', 'Crownguard', 'Physical Education', 'superadmin', 'ACTIVE', 'Male', 28, '2017-08-11', 'Demacia', 'english', '09987654321', '#211 Bariettoo st.', 'Barangay moto', 'Ionia', 'Cavite', 'Catholic', 'Kapatid ni Lux', '2017-08-20 22:44:43'),
+(3, '4245746', 'Aiella', 'Mestiola', 'Escaro', 'Math', 'teacher', 'ACTIVE', 'Female', 18, '1998-12-26', 'Hostpital bed', 'Tagalog', '0999999999', '#211 Domingo st.', 'Barangay Maharlika', 'Imus', 'Cavite', 'Catholic', 'Yon', '2017-08-20 22:59:41'),
+(4, '4245747', 'Jeru', 'Something', 'Valenzuela', 'Physics', 'teacher', 'INACTIVE', 'Female', 19, '2017-06-26', 'Hospital bed', 'Tagalog', '09333333333', 'Panget st.', 'Barangay Panget', 'Panget city', 'Panget Province', 'Catholic', 'Yoko na', '2017-08-20 23:13:14'),
+(5, '4245748', 'Adolf', 'Hitler', 'Junior', 'Terrorism', 'teacher', 'ACTIVE', 'male', 56, '2017-08-09', 'UAE', 'Arabian', '09444444444', 'Saudi st.', 'Barangay Saudi', 'Saudi City', 'Saudi Province', 'Catholic', 'aaaaaahk', '2017-08-20 23:21:05');
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `first_name` varchar(100) NOT NULL,
+  `last_name` varchar(100) NOT NULL,
+  `position` varchar(50) NOT NULL,
+  `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_modified` timestamp NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+INSERT INTO `users` (`id`, `username`, `password`, `first_name`, `last_name`, `position`, `date_created`, `date_modified`) VALUES
+(1, 'admin', 'admin', 'Hakeem', 'Polistico', 'superadmin', '2017-08-21 00:49:08', '2017-08-21 00:49:08'),
+(2, 'adriitakumi', 'hakeemjoshua', 'Adrielle', 'Escaro', 'admin', '2017-08-21 00:50:36', '2017-08-21 00:50:36'),
+(3, 'jassyber', 'ilovetolove', 'Jasver', 'Salva', 'admin', '2017-08-21 00:51:15', '2017-08-21 00:51:15'),
+(4, 'iamteacher', 'iamteacher', 'Teacher', 'IsMe', 'teacher', '2017-08-21 00:51:48', '2017-08-21 00:51:48'),
+(5, 'studentisme', 'studentisme', 'Student', 'IsMe', 'student', '2017-08-21 00:52:27', '2017-08-21 00:52:27');
 
 ALTER TABLE `classes`
   ADD PRIMARY KEY (`id`);
@@ -183,8 +201,11 @@ ALTER TABLE `teachers`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `employee_id` (`employee_id`);
 
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
 ALTER TABLE `classes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 ALTER TABLE `online_applicants`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
@@ -193,10 +214,13 @@ ALTER TABLE `requirements`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 ALTER TABLE `rooms`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 ALTER TABLE `students`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 ALTER TABLE `teachers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
