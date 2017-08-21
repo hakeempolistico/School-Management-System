@@ -69,7 +69,7 @@ class enroll_student extends CI_Controller {
 		$this->form_validation->set_rules('guardian', 'Guardian Name', 'trim|required|min_length[3]|max_length[40]', $required_message);
 		$this->form_validation->set_rules('relationship', 'Relationship', 'trim|required|min_length[3]|max_length[40]', $required_message);
 		$this->form_validation->set_rules('guardian_contact', 'Guardian\'s Contact', 'trim|required|min_length[3]|max_length[20]', $required_message	);
-		$this->form_validation->set_rules('note', 'Note', 'trim|min_length[2]|max_length[200]', $required_message);
+		$this->form_validation->set_rules('note', 'Note', 'trim|min_length[1]|max_length[200]', $required_message);
 				
 		if ($this->form_validation->run() == FALSE)
 		{
@@ -101,12 +101,40 @@ class enroll_student extends CI_Controller {
 
 	public function ajax()
 	{
-		$table = $this->input->post('table');;
-		$set = $this->input->post('set');;
+		$table = $this->input->post('table');
+		$set = $this->input->post('set');
 		$value = $this->input->post('lrn');
 		$records = json_encode($this->global_model->getRow($table, $set, $value));
 		echo $records;
 	}
+
+	public function move()
+	{	
+		$this->load->model('enroll_model');
+			
+		if($this->input->post()) {
+			$data = $this->input->post();
+			$data2 = $this->input->post('requirement[]');
+
+			foreach($data2 as $val){
+				$dataReq = array(
+					'lrn' =>  $this->input->post('lrn'),
+					'requirement' => $val
+				);
+			$result = $this->global_model->insert('requirements', $dataReq);
+			}
+
+			unset($data['requirement']);
+			$result = $this->global_model->insert('students', $data);
+
+			$lrn = array('lrn' => $this->input->post('lrn'));
+			$this->global_model->delete('online_applicants', $lrn);
+
+
+			redirect('enrollment/enroll_student/strands');
+		}
+	}
+
 
 }
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 20, 2017 at 04:51 AM
+-- Generation Time: Aug 21, 2017 at 11:01 AM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -60,7 +60,11 @@ CREATE TABLE `online_applicants` (
 --
 
 INSERT INTO `online_applicants` (`id`, `lrn`, `grade`, `first_name`, `middle_name`, `last_name`, `sex`, `contact`, `birth_date`, `birth_place`, `age`, `mother_tongue`, `religion`, `street`, `barangay`, `city`, `province`, `father_name`, `mother_name`, `father_contact`, `mother_contact`, `guardian`, `relationship`, `guardian_contact`, `status`, `note`) VALUES
-(1, '14038027', 'Grade 12', 'Adrii', 'Allahu', 'Akbar', 'Female', '745928324', '06/24/1998', 'qc', '19', 'Japanese', 'Filipino', '#211', 'kdshfksd', 'fksdhfksj', 'lkkjhkj', 'hkhkjhkj', 'hkjhkjhkj', 'hkjhkjhkjh', 'kjhkjhkjh', 'kjhkjhkjhkh', 'kjhkjhk', 'dasasda', 'Enrolled', 'dsfsdfs');
+(1, '14038027', 'Grade 12', 'Adrielle', 'Mestiola', 'Escaro', 'Female', '09355156653', '1998-06-24', 'quezon city', '19', 'tagalog', 'catholic', 'barietto st', 'maharlika', 'imus', 'cavite', 'wilson escaro', 'gema escaro', '09179430720', '09204260692', 'lea cultivo', 'yaya', '0290242342', 'ff', '1'),
+(2, '14038028', 'Grade 11', 'Marc', 'Inzon', 'Terrobias', 'Male', '093224241', '1998-06-24', 'Mandaluyong', '19', 'Tagalog', 'catholic', 'mandaluyong st', 'mandaluyong', 'mandaluyong', 'mandaluyong', 'mark terrobias', 'monica terrobias', '84294829184', '29823479284', 'N/A', 'N/A', 'N/A', 'ds', '2'),
+(3, '14038029', 'Grade 12', 'Jasver', 'Anlouise', 'Salva', 'Female', '983294820', '1998-06-24', 'Pedro Gil', '18', 'Tagalog', 'Catholic', 'Pedro st.', 'Gil', 'Pedro', 'Gil', 'Father Salva', 'Mother Salva', 'Fsalva contact', 'Msalva contact', 'N/A', 'N/A', 'N/A', 'N/A', '3'),
+(4, '14038030', 'Grade 11', 'John', 'Patrick', 'Guzman', 'Male', '983294820', '1998-06-24', 'Pedro Gil', '18', 'Tagalog', 'Catholic', 'Pedro st.', 'Gil', 'Pedro', 'Gil', 'Father Guzman', 'Mother Guzman', 'Fguzman contact', 'Mguzman contact', 'N/A', 'N/A', 'N/A', 'N/A', '4'),
+(5, '14038031', 'Grade 12', 'Hakeem', 'Joshua', 'Polistico', 'Male', '983294820', '1998-07-22', 'Talaba', '23', 'Tagalog', 'Catholic', 'Talaba st.', 'Talaba', 'Talaba', 'Talaba', 'Father Polistico', 'Mother Polistico', 'Fpolis contact', 'Mpolis contact', 'N/A', 'N/A', 'N/A', 'N/A', '5');
 
 --
 -- Indexes for dumped tables
@@ -81,7 +85,7 @@ ALTER TABLE `online_applicants`
 -- AUTO_INCREMENT for table `online_applicants`
 --
 ALTER TABLE `online_applicants`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

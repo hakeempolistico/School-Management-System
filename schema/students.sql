@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 20, 2017 at 04:58 AM
+-- Generation Time: Aug 21, 2017 at 11:02 AM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -60,16 +60,11 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `lrn`, `grade`, `first_name`, `middle_name`, `last_name`, `sex`, `contact`, `birth_date`, `birth_place`, `age`, `mother_tongue`, `religion`, `street`, `barangay`, `city`, `province`, `father_name`, `mother_name`, `father_contact`, `mother_contact`, `guardian`, `relationship`, `guardian_contact`, `requirements`, `note`) VALUES
-(2, 'rerrwrw', '', 'werwrwrw', 'rwrwrwer', 'erwerwrwer', 'Female', 'wrwerwwrw', '2017-08-09', 'wrwrw', 23, 'rwerwrwrw', 'rwrerwrwrwr', 'rwrwwr', 'wrwrwerwer', 'wrrewrwerw', 'rewrwrwrw', 'rwerwrwrw', 'rwerwerwer', 'werwerwer', 'wrwrwwr', 'wrwrwrwe', 'rwerwrwrw', 'rwerwerwrwe', '', ''),
-(3, 'dasdada', '', 'dasdasdasd', 'dasdada', 'dadada', 'Female', 'dasdada', '2017-08-09', 'sdasdada', 12, 'sdadasda', 'dasdasdad', 'asdadasd', 'adadas', 'dasdad', 'adasdad', 'dadasda', 'dasdadas', 'ddasdasd', 'adadasasd', 'dasdasdas', 'dasdasdasd', 'asdasda', '', ''),
-(4, 'dsadasd', '', 'dadad', 'asdasda', 'dasdas', 'Male', 'dasdads', '2017-08-29', 'sadada', 0, 'asdasda', 'dasdasda', 'dasdas', 'dasdas', 'dasda', 'dasda', 'dasdada', 'dasda', 'asdasd', 'dasdad', 'dasdad', 'dasda', 'dasda', '', ''),
-(5, 'xzczxc', '', 'czxczx', 'czxczcz', 'czxczcz', 'Female', 'cxzczxcz', '2017-09-07', 'cxzczxcz', 12, 'cxvxvxcvx', 'vxcvxvxcv', 'xvxcv', 'xvxcv', 'xcvxcvx', 'vxcvx', 'xcvxcvx', 'cvxcvxcv', 'vcxvxcvxc', 'vxcvxc', 'xcvxcv', 'xcvxvxcv', 'xcvxcv', '', ''),
-(6, 'adadad', '', 'dsadasd', 'adasdadad', 'asdasda', 'Male', 'dadada', '2017-08-16', 'dasdada', 45, 'dsass', 'ssssss', 'ssssssssss', 'sssssssssssssssssss', 'ssssssssssssssssssss', 'sssssssssssssssssssss', 'sssssssssssssssssss', 'sssssssssssssss', 'ssssssssssss', 'sssssssssssssss', 'sssssssssssssssssss', 'sssssssssssssss', 'sssssssssssssss', '', ''),
-(7, 'fsdfsffds', '', 'fdsfsdfsd', 'fsdfsdfsd', 'fsdfsdfsd', 'Female', 'fsdfsdff', '2017-08-17', 'dsfsfsf', 34, 'fdsfsfs', 'sfsfsd', 'fsdfsdf', 'sfsdf', 'sfsdfsdfs', 'fsdsfs', 'fsdfsdfsd', 'fsdfsdfsdf', 'fsdfsfsd', 'fsdfsdfs', 'fsdfsfsdf', 'fsdfsdf', 'fsfsdfs', '', ''),
-(8, '14038027', '', 'ewrwrw', 'rewrwrw', 'rwrwer', 'Male', '434344', '2017-08-09', 'rewrrw', 12, 'gfdgddg', 'dgdgd', 'dgdgd', 'gdfgdgd', 'gdgdgdg', 'gdgdgdfg', 'gdfgdfgdf', 'gdgdfgd', 'gdgdgdg', 'dgdfgdg', 'dgdfgdg', 'gdgdfgdfgd', 'gdfgdgd', '', ''),
-(9, '777777777777', '', 'gjgjg', 'gjgjgjgh', 'jghjghjg', 'Female', 'ghjgjgjg', '2017-08-16', 'jhgjgjgjg', 67, 'jghjgjgjg', 'gjgjgj', 'gjgjgjg', 'jghjghjghjg', 'jgjgjgjg', 'jgjgjgjg', 'jgjgjgjgj', 'gjgjgj', 'gjgjgjghjg', 'jgjgjghjg', 'jghjgjg', 'jgjgjghjg', 'jghjgjg', '', ''),
-(10, 'dsfsdfsf', '', 'fsdfsfsf', 'sdfsfsfs', 'fsdfsfsfs', 'Female', 'sfsfsfsf', '2017-08-23', 'sdfsfsf', 34, 'dsfsfsfs', 'fsfsfsfs', 'fsfsfsf', 'sfsfsf', 'sfsfsf', 'sfsfs', 'fsdfsdfsf', 'sdfsdfs', 'sfsfsf', 'sfsfsf', 'sfsfsf', 'sfsfsf', 'sdfsdfsd', '', ''),
-(11, '8346735', '', 'katara', 'allahu', 'akbar', 'Female', '873429', '2017-08-08', 'kdfjsljkldf', 23, 'kdshfsdkjfhsdj', 'hjkhkjhk', 'hjkhkjhkjhk', 'kjhkjhk', 'hkjhkjhk', 'jhkhkjhkh', 'kjhkjhkjhkj', 'hkjhkjhkhjk', 'hjhkhkjhkhk', 'khkhjhkjh', 'kjhkjhkjh', 'jjkhkjhkjh', 'jhkjhkjhk', '', 'This is a shit pc');
+(1, '14038020', 'Grade 11', 'Aaron', 'James', 'Alcantara', 'Male', '09222222222', '2017-08-15', 'Laguna', 20, 'Tagalog', 'Catholic', 'Laguna st.', 'Laguna', 'Laguna', 'Laguna', 'Father Alcantara', 'Mother Alcantara', 'Falcan contact', 'Malcan contact', 'N/A', 'N/A', 'N/A', 'complete', '1'),
+(2, '14038021', 'Grade 12', 'Jan', 'Diether', 'Francia', 'Male', '09333333333', '2017-08-25', 'Caloocan', 19, 'Tagalog', 'Catholic', 'Caloocan st.', 'Caloocan', 'Caloocan', 'Caloocn', 'Father Francia', 'Mother Francia', 'Ffrancia contact', 'Mfrancia contact', 'N/A', 'N/A', 'N/A', 'complete', '2'),
+(3, '14038022', 'Grade 11', 'Rie', 'John', 'Torres', 'Male', '09444444444', '2017-08-23', 'Fairview', 19, 'Tagalog', 'Catholic', 'Fairview st.', 'Fairview', 'Fairview', 'Fairview', 'Father Torres', 'Mother Torres', 'Ftorres contact', 'Mtorres contact', 'N/A', 'N/A', 'N/A', 'complete', '3'),
+(4, '14038023', 'Grade 12', 'John', 'Robert', 'Capistrano', 'Male', '09555555555', '2017-08-01', 'Monumento', 20, 'Tagalog', 'Catholic', 'Monumento st.', 'Monumento', 'Monumento', 'Monumento', 'Father Capistrano', 'Mother Capistrano', 'Fcapis contact', 'Mcapis contact', 'N/A', 'N/A', 'N/A', 'complete', '4'),
+(5, '14038024', 'Grade 12', 'Shanai', 'Hazel', 'Zulueta', 'Female', '09666666666', '2017-07-31', 'Bicol', 19, 'Tagalog', 'Catholic', 'Bicol st.', 'Bicol', 'Bicol', 'Bicol', 'Father Zulueta', 'Mother Zulueta', 'Fzulueta contact', 'Mzulueta contact', 'N/A', 'N/A', 'N/A', 'complete', '5');
 
 --
 -- Indexes for dumped tables
@@ -90,7 +85,7 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
