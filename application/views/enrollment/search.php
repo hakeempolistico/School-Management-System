@@ -434,7 +434,7 @@
         <ul class="list-group list-group-unbordered">
         <li class="list-group-item">
           <strong><i class="fa fa-book margin-r-5"></i> Note</strong>
-            <textarea class="form-control" id="inputNOTE" value="<?php echo set_value('note'); ?>" >
+            <textarea class="form-control" name="note" value="<?php echo set_value('note'); ?>"></textarea> 
         </li>
         
         <li class="list-group-item requirements-section">
@@ -471,7 +471,6 @@
         <input type="hidden" name="relationship" value="<?php echo set_value('relationship'); ?>" id="relation">
         <input type="hidden" name="guardian_contact" value="<?php echo set_value('guardian_contact'); ?>" id="guardcontact">
         <input type="hidden" name="requirements" value="<?php echo set_value('requirements'); ?>" id="requirements">
-        <input type="hidden" name="note" value="<?php echo set_value('note'); ?>" id="noto">
         
 
               </ul>

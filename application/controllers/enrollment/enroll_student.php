@@ -35,9 +35,9 @@ class enroll_student extends CI_Controller {
 
 	public function search()
 	{	
-		$data = $this->parse->parsed();
+		
 		$data['onlineRecords']  = json_encode($this->global_model->getRecords('online_applicants'));
-		$this->parser->parse('enrollment/search', $data);
+		$this->load->view('enrollment/search', $data);
 
 	}
 
