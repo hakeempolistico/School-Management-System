@@ -11,7 +11,8 @@ class manage_student extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('enrollment/manage_student');
+		$data = $this->parse->parsed();
+		$this->parser->parse('enrollment/manage_student', $data);
 	}
 
 }

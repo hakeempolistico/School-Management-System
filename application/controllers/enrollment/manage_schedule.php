@@ -11,7 +11,8 @@ class manage_schedule extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('enrollment/manage_schedule');
+		$data = $this->parse->parsed();
+		$this->parser->parse('enrollment/manage_schedule', $data);
 	}
 
 }
