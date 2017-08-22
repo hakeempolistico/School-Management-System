@@ -10,6 +10,14 @@ class view_model extends CI_Model{
 		$query = $this->db->get()->result();
 		return $query;
 	}
+	public function getClasses()
+	{	
+		$this->db->select('*');
+		$this->db->from('classes');
+		$this->db->join('teachers', 'teachers.employee_id = classes.adviser');
+		$query = $this->db->get()->result(); 
+		return $query;
+	}
 
 	public function insertRequirement($table, $dataReq){
 		$this->db->select('requirement');
