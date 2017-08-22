@@ -11,11 +11,11 @@ class view_data extends CI_Controller {
 
 	public function index()
 	{	
+		$data = $this->parse->parsed();
 		$data['teacherRecords']  = json_encode($this->global_model->getRecords('teachers'));
 		$data['studentRecords'] = json_encode($this->global_model->getRecords('students'));
 		$data['roomRecords'] = json_encode($this->view_model->getRooms());
 		$data['classRecords'] = json_encode($this->view_model->getClasses());
-		$data = $this->parse->parsed();
 		$this->parser->parse('enrollment/view_data', $data);
 	}
 	

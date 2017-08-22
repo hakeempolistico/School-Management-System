@@ -434,10 +434,7 @@
         <ul class="list-group list-group-unbordered">
         <li class="list-group-item">
           <strong><i class="fa fa-book margin-r-5"></i> Note</strong>
-  
-           <p class="text-muted">
-            B.S. in Information System in Technological University of the Philippines
-           </p>
+            <textarea class="form-control" id="inputNOTE" value="<?php echo set_value('note'); ?>" >
         </li>
         
         <li class="list-group-item requirements-section">
