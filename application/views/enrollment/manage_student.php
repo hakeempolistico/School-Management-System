@@ -548,8 +548,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <hr style="margin-bottom: 10px;">
                       
                       <ul class="list-inline pull-right">
-                        <li><button type="button" class="btn btn-primary">Add</button></li>
-                        <li><button type="button" class="btn btn-primary">Transfer</button></li>
+                        <li><button type="button" class="btn btn-primary btnNext">Add</button></li>
+                        <li><button type="button" class="btn btn-primary btnNext">Transfer</button></li>
                       </ul>                      
                   </div>
                   <!-- /.end student tab-->
@@ -589,7 +589,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </table>
                       <hr style="margin-bottom: 10px;">
                       <ul class="list-inline pull-right">
-                        <li><button type="button" class="btn btn-primary">Next</button></li>
+                        <li><button type="button" class="btn btn-primary btnBack">Back</button></li>
+                        <li><button type="button" class="btn btn-primary btnNext">Next</button></li>
                       </ul>                                           
                   </div>
                   <!--end section_tab-->
@@ -629,6 +630,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </table><hr>
                   
                     <ul class="list-inline pull-right">
+                      <li><button type="button" class="btn btn-primary btnBack">Back</button></li>
                       <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_success" >Save</button></li>
                     </ul>
                   </div>

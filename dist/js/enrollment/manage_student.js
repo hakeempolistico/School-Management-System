@@ -10,18 +10,24 @@ $(document).ready(function () {
         }
     });
 
-    $(".btn-primary").click(function (e) {
+    $(".btnNext").click(function (e) {
 
         var $active = $('.wizard .nav-wizard li.active');
         $active.next().removeClass('disabled');
         nextTab($active);
 
     });
+
+    $('.btnBack').click(function(){
+    $('.nav-wizard > .active').prev('li').find('a').trigger('click');
+});
 });
 
 function nextTab(elem) {
     $(elem).next().find('a[data-toggle="tab"]').click();
 }
+
+
 
 // $(function () {
 //       $('#example1').DataTable(){
