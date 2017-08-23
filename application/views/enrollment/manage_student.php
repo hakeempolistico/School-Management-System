@@ -455,7 +455,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <a href="#step2" data-toggle="tab">Sections</a>
                     </li>
                     <li class="disabled">
-                        <a href="#step3" data-toggle="tab">Summary</a>
+                        <a href="#step3" data-toggle="tab">Rooms</a>
+                    </li>
+                    <li class="disabled">
+                        <a href="#step4" data-toggle="tab">Summary</a>
                     </li>                  
                 </ul>
 
@@ -544,9 +547,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </table>
                     <hr style="margin-bottom: 10px;">
                       
-                      <ul class="list-inline pull-right">
-                        <li><button type="button" class="btn btn-primary btnNext">Add</button></li>
+                      <ul class="list-inline pull-right">                        
                         <li><button type="button" class="btn btn-primary btnNext">Transfer</button></li>
+                        <li><button type="button" class="btn btn-primary btnNext">Add</button></li>
                       </ul>                      
                   </div>
                   <!-- /.end student tab-->
@@ -592,6 +595,46 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   </div>
                   <!--end section_tab-->
                   <div class="tab-pane" id="step3">
+                  <h4>Select a Room</h4>
+                  <hr>
+                    <table id="example2" class="table table-bordered table-striped">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Room No.</th>
+                          <th>Room Name</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1.</td>
+                          <td>329</td>
+                          <td></td>
+                          <td><span class="label label-success">Open</span></td>
+                        </tr>
+                        <tr>
+                          <td>2.</td>
+                          <td>328</td>
+                          <td></td>
+                          <td><span class="label label-danger">Closed</span></td>
+                        </tr>
+                        <tr>
+                          <td>3.</td>
+                          <td>327</td>
+                          <td>/td>
+                          <td><span class="label label-success">Open</span></td>
+                        </tr>
+                      </tbody>                      
+                    </table>
+                      <hr style="margin-bottom: 10px;">
+                      <ul class="list-inline pull-right">
+                        <li><button type="button" class="btn btn-primary btnBack">Back</button></li>
+                        <li><button type="button" class="btn btn-primary btnNext">Next</button></li>
+                      </ul>                                           
+                  </div>
+                  <!--end section_tab-->
+                  <div class="tab-pane" id="step4">
                   <h4>Confirm Operation:</h4>
                     <hr>
                      <h3>ADD TO <b> STEM-1</b></h3>
