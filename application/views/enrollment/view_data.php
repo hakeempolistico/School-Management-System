@@ -330,7 +330,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!-- small box -->
           <div class="small-box bg-aqua" id="viewStudents" style="cursor: pointer;">
             <div class="inner">
-              <h3>1200</h3>
+              <h3><?php echo $studentsCount ?></h3>
 
               <p>Students</p>
             </div>
@@ -345,7 +345,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!-- small box -->
           <div class="small-box bg-green" id="viewTeachers" style="cursor: pointer;">
             <div class="inner">
-              <h3>169</h3>
+              <h3><?php echo $teachersCount ?></h3>
 
               <p>Teachers</p>
             </div>
@@ -360,7 +360,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!-- small box -->
           <div class="small-box bg-yellow" id="viewRooms" style="cursor: pointer;">
             <div class="inner">
-              <h3>44</h3>
+              <h3><?php echo $roomsCount ?></h3>
 
               <p>Rooms</p>
             </div>
@@ -375,7 +375,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!-- small box -->
           <div class="small-box bg-red" id="viewClasses" style="cursor: pointer;">
             <div class="inner">
-              <h3>65</h3>
+              <h3><?php echo $classesCount ?></h3>
 
               <p>Class</p>
             </div>
