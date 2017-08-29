@@ -6,16 +6,17 @@ CREATE TABLE `classes` (
   `occupants` int(11) DEFAULT NULL,
   `capacity` int(11) DEFAULT NULL,
   `date_created` timestamp NOT NULL,
-  `date_modified` timestamp NOT NULL
+  `date_modified` timestamp NOT NULL,
+  `strand` varchar(10) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-INSERT INTO `classes` (`id`, `class_name`, `year`, `adviser`, `occupants`, `capacity`, `date_created`, `date_modified`) VALUES
-(1, 'STEM-1', 'Grade 11', 4245744, 35, 40, '2017-08-20 23:22:42', '2017-08-20 23:22:42'),
-(2, 'GAS-2', 'Grade 12', 4245745, 36, 40, '2017-08-20 23:23:22', '2017-08-20 23:23:22'),
-(3, 'HUMSS-3', 'Grade 11', 4245746, 37, 40, '2017-08-20 23:23:58', '2017-08-20 23:23:58'),
-(4, 'ABM-4', 'Grade 12', 4245747, 40, 40, '2017-08-20 23:24:45', '2017-08-20 23:24:45'),
-(5, 'TVLHE-5', 'Grade 11', 4245748, 40, 40, '2017-08-20 23:25:28', '2017-08-20 23:25:28'),
-(0, '--', ' ', NULL, NULL, NULL, '2017-08-21 13:14:18', '2017-08-21 13:14:18');
+INSERT INTO `classes` (`id`, `class_name`, `year`, `adviser`, `occupants`, `capacity`, `date_created`, `date_modified`, `strand`) VALUES
+(1, 'STEM-1', 'Grade 11', 4245744, 35, 40, '2017-08-20 23:22:42', '2017-08-20 23:22:42', 'STEM'),
+(2, 'GAS-2', 'Grade 12', 4245745, 36, 40, '2017-08-20 23:23:22', '2017-08-20 23:23:22', 'GAS'),
+(3, 'HUMSS-3', 'Grade 11', 4245746, 37, 40, '2017-08-20 23:23:58', '2017-08-20 23:23:58', 'HUMSS'),
+(4, 'ABM-4', 'Grade 12', 4245747, 40, 40, '2017-08-20 23:24:45', '2017-08-20 23:24:45', 'ABM'),
+(5, 'TVLHE-5', 'Grade 11', 4245748, 40, 40, '2017-08-20 23:25:28', '2017-08-20 23:25:28', 'TVLHE'),
+(6, 'TVLAS-6', 'Grade 12', 4245749, 21, 40, '2017-08-21 13:14:18', '2017-08-21 13:14:18', 'TVLAS');
 
 CREATE TABLE `online_applicants` (
   `id` int(255) NOT NULL,
@@ -121,15 +122,17 @@ CREATE TABLE `students` (
   `relationship` varchar(50) NOT NULL,
   `guardian_contact` varchar(20) NOT NULL,
   `requirements` varchar(20) NOT NULL,
-  `note` varchar(255) NOT NULL
+  `note` varchar(255) NOT NULL,
+  `strand` varchar(10) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-INSERT INTO `students` (`id`, `lrn`, `grade`, `first_name`, `middle_name`, `last_name`, `sex`, `contact`, `birth_date`, `birth_place`, `age`, `mother_tongue`, `religion`, `street`, `barangay`, `city`, `province`, `father_name`, `mother_name`, `father_contact`, `mother_contact`, `guardian`, `relationship`, `guardian_contact`, `requirements`, `note`) VALUES
-(1, '14038020', 'Grade 11', 'Aaron', 'James', 'Alcantara', 'Male', '09222222222', '2017-08-15', 'Laguna', 20, 'Tagalog', 'Catholic', 'Laguna st.', 'Laguna', 'Laguna', 'Laguna', 'Father Alcantara', 'Mother Alcantara', 'Falcan contact', 'Malcan contact', 'N/A', 'N/A', 'N/A', 'COMPLETE', '1'),
-(2, '14038021', 'Grade 12', 'Jan', 'Diether', 'Francia', 'Male', '09333333333', '2017-08-25', 'Caloocan', 19, 'Tagalog', 'Catholic', 'Caloocan st.', 'Caloocan', 'Caloocan', 'Caloocn', 'Father Francia', 'Mother Francia', 'Ffrancia contact', 'Mfrancia contact', 'N/A', 'N/A', 'N/A', 'COMPLETE', '2'),
-(3, '14038022', 'Grade 11', 'Rie', 'John', 'Torres', 'Male', '09444444444', '2017-08-23', 'Fairview', 19, 'Tagalog', 'Catholic', 'Fairview st.', 'Fairview', 'Fairview', 'Fairview', 'Father Torres', 'Mother Torres', 'Ftorres contact', 'Mtorres contact', 'N/A', 'N/A', 'N/A', 'COMPLETE', '3'),
-(4, '14038023', 'Grade 12', 'John', 'Robert', 'Capistrano', 'Male', '09555555555', '2017-08-01', 'Monumento', 20, 'Tagalog', 'Catholic', 'Monumento st.', 'Monumento', 'Monumento', 'Monumento', 'Father Capistrano', 'Mother Capistrano', 'Fcapis contact', 'Mcapis contact', 'N/A', 'N/A', 'N/A', 'COMPLETE', '4'),
-(5, '14038024', 'Grade 12', 'Shanai', 'Hazel', 'Zulueta', 'Female', '09666666666', '2017-07-31', 'Bicol', 19, 'Tagalog', 'Catholic', 'Bicol st.', 'Bicol', 'Bicol', 'Bicol', 'Father Zulueta', 'Mother Zulueta', 'Fzulueta contact', 'Mzulueta contact', 'N/A', 'N/A', 'N/A', 'COMPLETE', '5');
+INSERT INTO `students` (`id`, `lrn`, `grade`, `first_name`, `middle_name`, `last_name`, `sex`, `contact`, `birth_date`, `birth_place`, `age`, `mother_tongue`, `religion`, `street`, `barangay`, `city`, `province`, `father_name`, `mother_name`, `father_contact`, `mother_contact`, `guardian`, `relationship`, `guardian_contact`, `requirements`, `note`, `strand`) VALUES
+(1, '14038020', 'Grade 11', 'Aaron', 'James', 'Alcantara', 'Male', '09222222222', '2017-08-15', 'Laguna', 20, 'Tagalog', 'Catholic', 'Laguna st.', 'Laguna', 'Laguna', 'Laguna', 'Father Alcantara', 'Mother Alcantara', 'Falcan contact', 'Malcan contact', 'N/A', 'N/A', 'N/A', 'COMPLETE', '1', 'STEM'),
+(2, '14038021', 'Grade 12', 'Jan', 'Diether', 'Francia', 'Male', '09333333333', '2017-08-25', 'Caloocan', 19, 'Tagalog', 'Catholic', 'Caloocan st.', 'Caloocan', 'Caloocan', 'Caloocn', 'Father Francia', 'Mother Francia', 'Ffrancia contact', 'Mfrancia contact', 'N/A', 'N/A', 'N/A', 'COMPLETE', '2', 'GAS'),
+(3, '14038022', 'Grade 11', 'Rie', 'John', 'Torres', 'Male', '09444444444', '2017-08-23', 'Fairview', 19, 'Tagalog', 'Catholic', 'Fairview st.', 'Fairview', 'Fairview', 'Fairview', 'Father Torres', 'Mother Torres', 'Ftorres contact', 'Mtorres contact', 'N/A', 'N/A', 'N/A', 'COMPLETE', '3', 'HUMSS'),
+(4, '14038023', 'Grade 12', 'John', 'Robert', 'Capistrano', 'Male', '09555555555', '2017-08-01', 'Monumento', 20, 'Tagalog', 'Catholic', 'Monumento st.', 'Monumento', 'Monumento', 'Monumento', 'Father Capistrano', 'Mother Capistrano', 'Fcapis contact', 'Mcapis contact', 'N/A', 'N/A', 'N/A', 'COMPLETE', '4', 'ABM'),
+(5, '14038024', 'Grade 12', 'Shanai', 'Hazel', 'Zulueta', 'Female', '09666666666', '2017-07-31', 'Bicol', 19, 'Tagalog', 'Catholic', 'Bicol st.', 'Bicol', 'Bicol', 'Bicol', 'Father Zulueta', 'Mother Zulueta', 'Fzulueta contact', 'Mzulueta contact', 'N/A', 'N/A', 'N/A', 'COMPLETE', '5', 'TVL-HE'),
+(6, '14038025', 'Grade 12', 'Shiela', 'May', 'Morales', 'Female', '09777777777', '1997-05-03', 'Pampanga', 20, 'Tagalog', 'Catholic', 'Pampanga st.', 'Pampanga', 'Pampanga', 'Pampanga', 'Father Morales', 'Mother Morales', 'Fmorales contact', 'Mmorales contact', 'N/A', 'N/A', 'N/A', 'COMPLETE', '6', 'TVL-AS');
 
 CREATE TABLE `teachers` (
   `id` int(11) NOT NULL,
