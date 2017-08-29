@@ -309,7 +309,7 @@
     <div class="alert bg-maroon alert-dismissible flat">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <h4><i class="icon fa fa-bullhorn"></i> Choose Carefully!</h4>
-        Once a strand has been picked, the student co no longer change his or her strand.
+        Once a strand has been picked, the student could no longer change his or her strand.
      </div>
     <!-- Content Header (Page header) -->
     <section class="content-header">

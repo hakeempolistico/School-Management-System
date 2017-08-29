@@ -438,19 +438,19 @@
                   <label>Address</label>
                   <div class="row">
                       <div class="col-md-3">
-                        <input type="text" class="form-control" id="inputSTREET" value="<?php echo set_value('street'); ?>" placeholder="House #, Street" name="street">
+                        <input type="text" class="form-control address" id="inputSTREET" value="<?php echo set_value('street'); ?>" placeholder="House #, Street" name="street">
                         <?php echo form_error('street'); ?>
                       </div>
                       <div class="col-md-3">
-                        <input type="text" class="form-control" id="inputBARANGAY" value="<?php echo set_value('barangay'); ?>" placeholder="Barangay" name="barangay">
+                        <input type="text" class="form-control address" id="inputBARANGAY" value="<?php echo set_value('barangay'); ?>" placeholder="Barangay" name="barangay">
                         <?php echo form_error('barangay'); ?>
                       </div>
                       <div class="col-md-3">
-                        <input type="text" class="form-control" id="inputCITY" value="<?php echo set_value('city'); ?>" placeholder="City" name="city">
+                        <input type="text" class="form-control address" id="inputCITY" value="<?php echo set_value('city'); ?>" placeholder="City" name="city">
                         <?php echo form_error('city'); ?>
                       </div>
                       <div class="col-md-3">
-                        <input type="text" class="form-control" id="inputPROVINCE" value="<?php echo set_value('province'); ?>" placeholder="Province" name="province">
+                        <input type="text" class="form-control address" id="inputPROVINCE" value="<?php echo set_value('province'); ?>" placeholder="Province" name="province">
                         <?php echo form_error('province'); ?>
                       </div>
                     </div>
