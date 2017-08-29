@@ -27,6 +27,11 @@ class global_model extends CI_Model{
 		return $query;
 	}
 
+	public function count($table)
+	{
+		return $this->db->count_all($table);
+	}
+
 }
 
 ?>
