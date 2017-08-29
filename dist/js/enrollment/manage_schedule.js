@@ -146,3 +146,35 @@ $('#printBtn').on('click',function(){
 printData();
 })
 
+$('#students-select').hide();
+$('#teachers-select').hide();
+$('#rooms-select').hide();
+
+$('#students-pick').on('click',function(){
+  $('#students-select').show();
+  $('#teachers-pick').show();
+  $('#rooms-pick').show();
+  $('#teachers-select').hide();
+  $('#rooms-select').hide();
+  $('.select2').select2()
+  $(this).hide();
+})
+$('#teachers-pick').on('click',function(){
+  $('#teachers-select').show();
+  $('#students-pick').show();
+  $('#rooms-pick').show();
+  $('#students-select').hide();
+  $('#rooms-select').hide();
+  $('.select2').select2()
+  $(this).hide();
+})
+$('#rooms-pick').on('click',function(){
+  $('#rooms-select').show();
+  $('#teachers-pick').show();
+  $('#students-pick').show();
+  $('#teachers-select').hide();
+  $('#students-select').hide();
+  $('.select2').select2()
+  $(this).hide();
+})
+

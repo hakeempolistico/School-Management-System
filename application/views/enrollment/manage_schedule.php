@@ -324,7 +324,7 @@
       <div class="row hidden-print">
         <div class="col-lg-4 col-xs-12">
           <!-- small box -->
-          <div class="small-box bg-aqua" id="viewStudents" style="cursor: pointer;">
+          <div id="students-pick" class="small-box bg-aqua" id="viewStudents" style="cursor: pointer;">
             <div class="inner">
               <h3>1200</h3>
 
@@ -335,45 +335,9 @@
             </div>
             <a href="#" class="small-box-footer">View table <i class="fa fa-arrow-circle-right"></i></a>
           </div>
-        </div>
-        <!-- ./col -->
 
-        <div class="col-lg-4 col-xs-12">
-          <!-- small box -->
-          <div class="small-box bg-green" id="viewTeachers" style="cursor: pointer;">
-            <div class="inner">
-              <h3>169</h3>
-
-              <p>Teachers</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-mortar-board"></i>
-            </div>
-            <a href="#" class="small-box-footer">View table  <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-
-        <div class="col-lg-4 col-xs-12">
-          <!-- small box -->
-          <div class="small-box bg-yellow" id="viewRooms" style="cursor: pointer;">
-            <div class="inner">
-              <h3>44</h3>
-
-              <p>Rooms</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-home"></i>
-            </div>
-            <a href="#" class="small-box-footer">View table <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-      </div>
-      <div class="row">
-      <div class="col-md-4">
-        <!-- SELECT2 EXAMPLE -->
-      <div class="box box-default">
+          <!-- SELECT2 EXAMPLE -->
+      <div id="students-select" class="box box-default">
         <div class="box-header with-border">
           <h3 class="box-title">Select data</h3>
 
@@ -407,11 +371,25 @@
         <!-- /.box-body -->
       </div>
       <!-- /.box -->
+        </div>
+        <!-- ./col -->
 
-      </div>
-      <div class="col-md-4">
-        <!-- SELECT2 EXAMPLE -->
-      <div class="box box-default">
+        <div class="col-lg-4 col-xs-12">
+          <!-- small box -->
+          <div id="teachers-pick" class="small-box bg-green" id="viewTeachers" style="cursor: pointer;">
+            <div class="inner">
+              <h3>169</h3>
+
+              <p>Teachers</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-mortar-board"></i>
+            </div>
+            <a href="#" class="small-box-footer">View table  <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+
+          <!-- SELECT2 EXAMPLE -->
+      <div id="teachers-select" class="box box-default">
         <div class="box-header with-border">
           <h3 class="box-title">Select data</h3>
 
@@ -445,11 +423,25 @@
         <!-- /.box-body -->
       </div>
       <!-- /.box -->
+        </div>
+        <!-- ./col -->
 
-      </div>
-      <div class="col-md-4">
-        <!-- SELECT2 EXAMPLE -->
-      <div class="box box-default">
+        <div class="col-lg-4 col-xs-12">
+          <!-- small box -->
+          <div id="rooms-pick" class="small-box bg-yellow" id="viewRooms" style="cursor: pointer;">
+            <div class="inner">
+              <h3>44</h3>
+
+              <p>Rooms</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-home"></i>
+            </div>
+            <a href="#" class="small-box-footer">View table <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+
+          <!-- SELECT2 EXAMPLE -->
+      <div id="rooms-select" class="box box-default">
         <div class="box-header with-border">
           <h3 class="box-title">Select data</h3>
 
@@ -483,8 +475,8 @@
         <!-- /.box-body -->
       </div>
       <!-- /.box -->
-
-      </div>
+        </div>
+        <!-- ./col -->
       </div>
       <div class="row hidden-print">
         <div class="col-md-12">
