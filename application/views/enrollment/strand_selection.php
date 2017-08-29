@@ -309,7 +309,7 @@
     <div class="alert bg-maroon alert-dismissible flat">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <h4><i class="icon fa fa-bullhorn"></i> Choose Carefully!</h4>
-        Once a strand has been picked, the student co no longer change his or her strand.
+        Once a strand has been picked, the student could no longer change his or her strand.
      </div>
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -334,43 +334,46 @@
           <h3 class="box-title">Please enter the ff. grades: </h3>
         </div>
         <div class="box-body">
+        <form>
           <div class="form-group">
-                <label>English</label>
-                  <input type="text" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Mathematics</label>
-                  <input type="text" class="form-control" id="lrn">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Science</label>
-                  <input type="text" class="form-control" id="lrn">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Filipino</label>
-                  <input type="text" class="form-control" id="lrn">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Araling Panlipunan</label>
-                  <input type="text" class="form-control" id="lrn">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">T.L.E.</label>
-                  <input type="text" class="form-control" id="lrn">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Computer Education</label>
-                  <input type="text" class="form-control" id="lrn">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">MAPEH</label>
-                  <input type="text" class="form-control" id="lrn">
-                </div>        </div>
+            <label>English</label>
+            <input type="text" class="form-control" name="english" style="margin-bottom: -10px;">
+          </div>
+          <div class="form-group">
+            <label>Mathematics</label>
+            <input type="text" class="form-control" name="math"  style="margin-bottom: -10px;">
+          </div>
+          <div class="form-group">
+            <label>Science</label>
+            <input type="text" class="form-control" name="science"  style="margin-bottom: -10px;">
+          </div>
+          <div class="form-group">
+            <label>Filipino</label>
+            <input type="text" class="form-control" name="filipino"  style="margin-bottom: -10px;">
+          </div>
+          <div class="form-group">
+            <label>Araling Panlipunan</label>
+            <input type="text" class="form-control" name="ap" style="margin-bottom: -10px;">
+          </div>
+          <div class="form-group">
+            <label>T.L.E.</label>
+            <input type="text" class="form-control" name="tle" style="margin-bottom: -10px;">
+          </div>
+          <div class="form-group">
+            <label>Computer Education</label>
+            <input type="text" class="form-control" name="computer" style="margin-bottom: -10px;">
+          </div>
+          <div class="form-group">
+            <label>MAPEH</label>
+            <input type="text" class="form-control" name="mapeh" style="margin-bottom: -10px;">
+          </div>
+        </div>
         <!-- /.box-body -->
         <div class="box-footer">
           <button type="submit" name="search" class="btn btn-primary btn-flat">Submit</button>
         </div>
         <!-- /.box-footer-->
+      </form>
       </div>
       <!-- /.box -->
       </div>
