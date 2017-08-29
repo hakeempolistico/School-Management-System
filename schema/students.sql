@@ -28,7 +28,7 @@ CREATE TABLE `students` (
   `strand` varchar(10) NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-INSERT INTO `students` (`id`, `lrn`, `grade`, `first_name`, `middle_name`, `last_name`, `sex`, `contact`, `birth_date`, `birth_place`, `age`, `mother_tongue`, `religion`, `street`, `barangay`, `city`, `province`, `father_name`, `mother_name`, `father_contact`, `mother_contact`, `guardian`, `relationship`, `guardian_contact`, `requirements`, `note`) VALUES
+INSERT INTO `students` (`id`, `lrn`, `grade`, `first_name`, `middle_name`, `last_name`, `sex`, `contact`, `birth_date`, `birth_place`, `age`, `mother_tongue`, `religion`, `street`, `barangay`, `city`, `province`, `father_name`, `mother_name`, `father_contact`, `mother_contact`, `guardian`, `relationship`, `guardian_contact`, `requirements`, `note`, `strand`) VALUES
 (1, '14038020', 'Grade 11', 'Aaron', 'James', 'Alcantara', 'Male', '09222222222', '2017-08-15', 'Laguna', 20, 'Tagalog', 'Catholic', 'Laguna st.', 'Laguna', 'Laguna', 'Laguna', 'Father Alcantara', 'Mother Alcantara', 'Falcan contact', 'Malcan contact', 'N/A', 'N/A', 'N/A', 'COMPLETE', '1'),
 (2, '14038021', 'Grade 12', 'Jan', 'Diether', 'Francia', 'Male', '09333333333', '2017-08-25', 'Caloocan', 19, 'Tagalog', 'Catholic', 'Caloocan st.', 'Caloocan', 'Caloocan', 'Caloocn', 'Father Francia', 'Mother Francia', 'Ffrancia contact', 'Mfrancia contact', 'N/A', 'N/A', 'N/A', 'COMPLETE', '2'),
 (3, '14038022', 'Grade 11', 'Rie', 'John', 'Torres', 'Male', '09444444444', '2017-08-23', 'Fairview', 19, 'Tagalog', 'Catholic', 'Fairview st.', 'Fairview', 'Fairview', 'Fairview', 'Father Torres', 'Mother Torres', 'Ftorres contact', 'Mtorres contact', 'N/A', 'N/A', 'N/A', 'COMPLETE', '3'),
