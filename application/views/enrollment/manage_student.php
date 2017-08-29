@@ -1339,7 +1339,7 @@ $('example3').DataTable();
   $('#record3').hide();
 
   $.each(arrofobject, function(index, val) {
-    $('#tbody1').append('<tr id="record"> <td><input type="checkbox" class="check"></td> <td>'+val.id+'</td> <td>'+val.lrn+'</td> <td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td> <td>'+val.sex+'</td> <td>'+val.class+'</td> </tr>');
+    $('#tbody1').append('<tr id="record"> <td><input type="checkbox" class="check"></td> <td>'+val.id+'</td> <td>'+val.lrn+'</td> <td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td> <td>'+val.sex+'</td> <td>'+val.strand+'</td> </tr>');
   });
   $.each(arrofobject2, function(index, val) {
     $('#tbody2').append('<tr id="record2"><td>'+val.id+'</td> <td>'+val.class_name+'</td> <td>'+val.occupants+'/'+val.capacity+'</td> <td><span class="label label-success">Open</span></td></tr>');
@@ -1363,7 +1363,7 @@ $('gas_room_table').DataTable();
   $('#record6').hide();
 
   $.each(arrofobject4, function(index, val) {
-    $('#tbody4').append('<tr id="record4"> <td><input type="checkbox" class="check"></td> <td>'+val.id+'</td> <td>'+val.lrn+'</td> <td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td> <td>'+val.sex+'</td> <td>'+val.class+'</td> </tr>');
+    $('#tbody4').append('<tr id="record4"> <td><input type="checkbox" class="check"></td> <td>'+val.id+'</td> <td>'+val.lrn+'</td> <td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td> <td>'+val.sex+'</td> <td>'+val.strand+'</td> </tr>');
   });
   $.each(arrofobject5, function(index, val) {
     $('#tbody5').append('<tr id="record5"><td>'+val.id+'</td> <td>'+val.class_name+'</td> <td>'+val.occupants+'/'+val.capacity+'</td> <td><span class="label label-success">Open</span></td></tr>');
@@ -1387,7 +1387,7 @@ $('humss_room_table').DataTable();
   $('#record9').hide();
 
   $.each(arrofobject7, function(index, val) {
-    $('#tbody7').append('<tr id="record7"> <td><input type="checkbox" class="check"></td> <td>'+val.id+'</td> <td>'+val.lrn+'</td> <td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td> <td>'+val.sex+'</td> <td>'+val.class+'</td> </tr>');
+    $('#tbody7').append('<tr id="record7"> <td><input type="checkbox" class="check"></td> <td>'+val.id+'</td> <td>'+val.lrn+'</td> <td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td> <td>'+val.sex+'</td> <td>'+val.strand+'</td> </tr>');
   });
   $.each(arrofobject8, function(index, val) {
     $('#tbody8').append('<tr id="record8"><td>'+val.id+'</td> <td>'+val.class_name+'</td> <td>'+val.occupants+'/'+val.capacity+'</td> <td><span class="label label-success">Open</span></td></tr>');
@@ -1411,7 +1411,7 @@ $('abm_room_table').DataTable();
   $('#record12').hide();
 
   $.each(arrofobject10, function(index, val) {
-    $('#tbody10').append('<tr id="record10"> <td><input type="checkbox" class="check"></td> <td>'+val.id+'</td> <td>'+val.lrn+'</td> <td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td> <td>'+val.sex+'</td> <td>'+val.class+'</td> </tr>');
+    $('#tbody10').append('<tr id="record10"> <td><input type="checkbox" class="check"></td> <td>'+val.id+'</td> <td>'+val.lrn+'</td> <td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td> <td>'+val.sex+'</td> <td>'+val.strand+'</td> </tr>');
   });
   $.each(arrofobject11, function(index, val) {
     $('#tbody11').append('<tr id="record11"><td>'+val.id+'</td> <td>'+val.class_name+'</td> <td>'+val.occupants+'/'+val.capacity+'</td> <td><span class="label label-success">Open</span></td></tr>');
@@ -1434,7 +1434,7 @@ $('tvlhe_room_table').DataTable();
   $('#record15').hide();
 
   $.each(arrofobject13, function(index, val) {
-    $('#tbody13').append('<tr id="record13"> <td><input type="checkbox" class="check"></td> <td>'+val.id+'</td> <td>'+val.lrn+'</td> <td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td> <td>'+val.sex+'</td> <td>'+val.class+'</td> </tr>');
+    $('#tbody13').append('<tr id="record13"> <td><input type="checkbox" class="check"></td> <td>'+val.id+'</td> <td>'+val.lrn+'</td> <td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td> <td>'+val.sex+'</td> <td>'+val.strand+'</td> </tr>');
   });
   $.each(arrofobject14, function(index, val) {
     $('#tbody14').append('<tr id="record14"><td>'+val.id+'</td> <td>'+val.class_name+'</td> <td>'+val.occupants+'/'+val.capacity+'</td> <td><span class="label label-success">Open</span></td></tr>');
@@ -1458,7 +1458,7 @@ $('tvlas_room_table').DataTable();
   $('#record18').hide();
 
   $.each(arrofobject16, function(index, val) {
-    $('#tbody16').append('<tr id="record16"> <td><input type="checkbox" class="check"></td> <td>'+val.id+'</td> <td>'+val.lrn+'</td> <td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td> <td>'+val.sex+'</td> <td>'+val.class+'</td> </tr>');
+    $('#tbody16').append('<tr id="record16"> <td><input type="checkbox" class="check"></td> <td>'+val.id+'</td> <td>'+val.lrn+'</td> <td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td> <td>'+val.sex+'</td> <td>'+val.strand+'</td> </tr>');
   });
   $.each(arrofobject17, function(index, val) {
     $('#tbody17').append('<tr id="record17"><td>'+val.id+'</td> <td>'+val.class_name+'</td> <td>'+val.occupants+'/'+val.capacity+'</td> <td><span class="label label-success">Open</span></td></tr>');
