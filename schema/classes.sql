@@ -7,15 +7,16 @@ CREATE TABLE `classes` (
   `capacity` int(11) DEFAULT NULL,
   `date_created` timestamp NOT NULL,
   `date_modified` timestamp NOT NULL
+  `strand` varchar(10) DEFAULT NULL,
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 INSERT INTO `classes` (`id`, `class_name`, `year`, `adviser`, `occupants`, `capacity`, `date_created`, `date_modified`) VALUES
-(1, 'STEM-1', 'Grade 11', 4245744, 35, 40, '2017-08-20 23:22:42', '2017-08-20 23:22:42'),
-(2, 'GAS-2', 'Grade 12', 4245745, 36, 40, '2017-08-20 23:23:22', '2017-08-20 23:23:22'),
-(3, 'HUMSS-3', 'Grade 11', 4245746, 37, 40, '2017-08-20 23:23:58', '2017-08-20 23:23:58'),
-(4, 'ABM-4', 'Grade 12', 4245747, 40, 40, '2017-08-20 23:24:45', '2017-08-20 23:24:45'),
-(5, 'TVLHE-5', 'Grade 11', 4245748, 40, 40, '2017-08-20 23:25:28', '2017-08-20 23:25:28'),
-(0, '--', ' ', NULL, NULL, NULL, '2017-08-21 13:14:18', '2017-08-21 13:14:18');
+(1, 'STEM-1', 'Grade 11', 4245744, 35, 40, '2017-08-20 23:22:42', '2017-08-20 23:22:42', 'STEM'),
+(2, 'GAS-2', 'Grade 12', 4245745, 36, 40, '2017-08-20 23:23:22', '2017-08-20 23:23:22'), 'GAS',
+(3, 'HUMSS-3', 'Grade 11', 4245746, 37, 40, '2017-08-20 23:23:58', '2017-08-20 23:23:58', 'HUMSS'),
+(4, 'ABM-4', 'Grade 12', 4245747, 40, 40, '2017-08-20 23:24:45', '2017-08-20 23:24:45', 'ABM'),
+(5, 'TVLHE-5', 'Grade 11', 4245748, 40, 40, '2017-08-20 23:25:28', '2017-08-20 23:25:28', 'TVLHE'),
+(6, 'TVLAS-6', 'Grade 12 ', 4245748, 21, 40, '2017-08-21 13:14:18', '2017-08-21 13:14:18', 'TVLAS');
 
 ALTER TABLE `classes`
   ADD PRIMARY KEY (`id`);
