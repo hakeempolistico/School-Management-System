@@ -326,7 +326,7 @@
           <!-- small box -->
           <div id="students-pick" class="small-box bg-aqua" id="viewStudents" style="cursor: pointer;">
             <div class="inner">
-              <h3>1200</h3>
+              <h3><?php echo $studentsCount ?></h3>
 
               <p>Students</p>
             </div>
@@ -352,13 +352,11 @@
               <div class="form-group">
                 <label>Students</label>
                 <select class="form-control select2"  data-placeholder="Select Students">
-                  <option>Hakeem Polistico</option>
-                  <option>Diether Francia</option>
-                  <option>Marc Terrobias</option>
-                  <option>Patrick Guzman</option>
-                  <option>Jasver Salva</option>
-                  <option>Adrielle Kristine Nicolette Escaro</option>
-                  <option>AJ Alcantara</option>
+                  <option></option>
+                  <?php foreach ($students as $val) {
+                    echo "<option>".$val->first_name." ".$val->last_name."</option>";
+                  }
+                  ?>   
                 </select>
               </div>
               <!-- /.form-group -->              
@@ -378,7 +376,7 @@
           <!-- small box -->
           <div id="teachers-pick" class="small-box bg-green" id="viewTeachers" style="cursor: pointer;">
             <div class="inner">
-              <h3>169</h3>
+              <h3><?php echo $teachersCount ?></h3>
 
               <p>Teachers</p>
             </div>
@@ -405,12 +403,10 @@
                 <label>Teachers</label>
                 <select class="form-control select2" data-placeholder="Select Teachers">
                   <option></option>
-                  <option>Alaska</option>
-                  <option>California</option>
-                  <option>Delaware</option>
-                  <option>Tennessee</option>
-                  <option>Texas</option>
-                  <option>Washington</option>
+                  <?php foreach ($teachers as $val) {
+                    echo "<option>".$val->first_name." ".$val->last_name."</option>";
+                  }
+                  ?>
                 </select>
               </div>
               <!-- /.form-group -->              
@@ -430,7 +426,7 @@
           <!-- small box -->
           <div id="rooms-pick" class="small-box bg-yellow" id="viewRooms" style="cursor: pointer;">
             <div class="inner">
-              <h3>44</h3>
+              <h3><?php echo $roomsCount ?></h3>
 
               <p>Rooms</p>
             </div>
@@ -457,12 +453,10 @@
                 <label>Rooms</label>
                 <select class="form-control select2" data-placeholder="Select Rooms">
                   <option></option>
-                  <option>Alaska</option>
-                  <option>California</option>
-                  <option>Delaware</option>
-                  <option>Tennessee</option>
-                  <option>Texas</option>
-                  <option>Washington</option>
+                  <?php foreach ($rooms as $val) {
+                    echo "<option>".$val->room_name."</option>";
+                  }
+                  ?>                  
                 </select>
               </div>
               <!-- /.form-group -->              

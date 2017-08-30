@@ -12,6 +12,13 @@ class manage_schedule extends CI_Controller {
 	public function index()
 	{
 		$data = $this->parse->parsed();
+		$data['studentsCount'] = $this->global_model->count('students');
+		$data['teachersCount'] = $this->global_model->count('teachers');
+		$data['roomsCount'] = $this->global_model->count('rooms');
+		$data['classesCount'] = $this->global_model->count('classes');
+		$data['students'] = $this->global_model->getRecords('students');		
+		$data['teachers'] = $this->global_model->getRecords('teachers');		
+		$data['rooms'] = $this->global_model->getRecords('rooms');		
 		$this->parser->parse('enrollment/manage_schedule', $data);
 	}
 
