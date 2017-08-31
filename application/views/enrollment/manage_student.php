@@ -418,24 +418,175 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <!-- ./col -->
           </div>
-          <!-- /.row -->
+          <!-- /.row -->    
 
-          <!--container ng mga ic-click na box-->
-          <div class="row">
-            <div class="col-xs-12">
-                <div id="lapa">
-                  <div class="alert bg-gray" style="height: 234px;">
-                      <div>
-                      <center>
-                      <i class="icon fa fa-exclamation-triangle fa-4x" style="margin-top: 25px;"></i>
-                      <h3>No table selected!</h3>
-                      <h4> Please choose from the above tables to view data</h4>
-                      </center>
-                      </div>
+          <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+          <div class="box" id="all_box">
+            <div class="box-header">
+              <h3 class="box-title">STUDENTS</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <!--<div class="nav-tabs-custom">-->
+              <div class="wizard">
+
+                <ul class="nav nav-wizard">
+                    <li class="active">
+                        <a href="#step1" data-toggle="tab"> Students</a>
+                    </li>
+                    <li class="disabled">
+                        <a href="#step2" data-toggle="tab">Sections</a>
+                    </li>
+                    <li class="disabled">
+                        <a href="#step3" data-toggle="tab">Rooms</a>
+                    </li>
+                    <li class="disabled">
+                        <a href="#step4" data-toggle="tab">Summary</a>
+                    </li>                  
+                </ul>
+
+                <br>
+                <div class="tab-content">
+
+                  <div class="tab-pane active" id="step1"> 
+                  <h4>Select Students</h4><hr>
+                    <table id="tbl_allStudents" class="table table-bordered table-striped">
+                      <thead>
+                        <tr>
+                          <th><input type="checkbox" class="check" id="checkAll"></th>
+                          <th>#</th>
+                          <th>LRN</th>
+                          <th>Full Name</th>
+                          <th>Sex</th>
+                          <th>Section</th>
+                        </tr>
+                      </thead>
+                      <tbody id="tbodyAll">
+                        <tr id="recordAll">
+                          <td><input type="checkbox" class="check"></td>
+                          <td>1.</td>
+                          <td>000000000008</td>
+                          <td>Escaro, Adrielle Kristine Nicolette</td>
+                          <td>Female</td>
+                          <td>STEM-2</td>
+                        </tr>                        
+                      </tbody>
+                    </table>
+                    <hr style="margin-bottom: 10px;">
+                      
+                      <ul class="list-inline pull-right">                        
+                        <li><button type="button" class="btn btn-primary btnNext">Transfer</button></li>
+                        <li><button type="button" class="btn btn-primary btnNext">Add</button></li>
+                      </ul>                      
+                  </div>
+                  <!-- /.end student tab-->
+
+                  <div class="tab-pane" id="step2">
+                  <h4>Select a Section</h4>
+                  <hr>
+                    <table id="tbl_allSections" class="table table-bordered table-striped">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Section Name</th>
+                          <th>Count</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody id="tbodyAll2">
+                        <tr id="recordAll2">
+                          <td>1.</td>
+                          <td>STEM-1</td>
+                          <td>31/40</td>
+                          <td><span class="label label-success">Open</span></td>
+                        </tr>                        
+                      </tbody>                      
+                    </table>
+                      <hr style="margin-bottom: 10px;">
+                      <ul class="list-inline pull-right">
+                        <li><button type="button" class="btn btn-primary btnBack">Back</button></li>
+                        <li><button type="button" class="btn btn-primary btnNext">Next</button></li>
+                      </ul>                                           
+                  </div>
+                  <!--end section_tab-->
+                  <div class="tab-pane" id="step3">
+                  <h4>Select a Room</h4>
+                  <hr>
+                    <table id="tbl_allRooms" class="table table-bordered table-striped">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Room No.</th>
+                          <th>Room Name</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody id="tbodyAll3">
+                        <tr id="recordAll3">
+                          <td>1.</td>
+                          <td>329</td>
+                          <td></td>
+                          <td><span class="label label-success">Open</span></td>
+                        </tr>                        
+                      </tbody>                      
+                    </table>
+                      <hr style="margin-bottom: 10px;">
+                      <ul class="list-inline pull-right">
+                        <li><button type="button" class="btn btn-primary btnBack">Back</button></li>
+                        <li><button type="button" class="btn btn-primary btnNext">Next</button></li>
+                      </ul>                                           
+                  </div>
+                  <!--end section_tab-->
+                  <div class="tab-pane" id="step4">
+                  <h4>Confirm Operation:</h4>
+                    <hr>
+                     <h3>ADD TO <b> STEM-1</b> in <b>RM. 325</b></h3>
+                        <table class="table table-responsive table-bordered">
+                          <tr>
+                            <th>#</th>
+                            <th>LRN</th>
+                            <th>Full Name</th>
+                            <th>Sex</th>
+                             
+                          </tr>
+                           <tr>
+                            <td>1.</td>
+                            <td>00000000008</td>
+                            <td>Escaro, Adrielle Kristine Nicolette</td>
+                            <td>Female</td>
+                              
+                          </tr>
+                          <tr>
+                            <td>2.</td>
+                            <td>00000000009</td>
+                            <td>Polistico, Hakeem</td>
+                            <td>Male</td>
+                              
+                          </tr>  
+                           <tr>
+                            <td>3.</td>
+                            <td>00000000007</td>
+                            <td>Salva, Jasver Anlouise</td>
+                            <td>Female</td>
+                            
+                          </tr>                
+                        </table><hr>
+                  
+                    <ul class="list-inline pull-right">
+                      <li><button type="button" class="btn btn-primary btnBack">Back</button></li>
+                      <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_success" >Save</button></li>
+                    </ul>
                   </div>
                 </div>
+                <!-- /. end tab contents-->
+              </div>
+              <!-- /.WIZARD-->
             </div>
+            <!-- /.box-body -->
           </div>
+
+          <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
 
           <!-- BOX OF STEM-->
           <div class="box" hidden id="stem_box">
@@ -1324,6 +1475,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <script>
 
+//=============================== A L L ========================================================================================================//
+$('tbl_allStudents').DataTable();
+$('tbl_allSections').DataTable();
+$('tbl_allRooms').DataTable();
+
+
+  var arrofobjectAllStudents = <?php echo $allStudents ?>;
+  var arrofobjectAllSections = <?php echo $allClasses ?>;
+  var arrofobjectAllRooms = <?php echo $rooms ?>;
+
+  $('#recordAll').hide();
+  $('#recordAll2').hide();
+  $('#recordAll3').hide();
+
+  $.each(arrofobjectAllStudents, function(index, val) {
+    $('#tbodyAll').append('<tr id="recordAll"> <td><input type="checkbox" class="check"></td> <td>'+val.id+'</td> <td>'+val.lrn+'</td> <td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td> <td>'+val.sex+'</td> <td>'+val.strand+'</td> </tr>');
+  });
+  $.each(arrofobjectAllSections, function(index, val) {
+    $('#tbodyAll2').append('<tr id="recordAll2"><td>'+val.id+'</td> <td>'+val.class_name+'</td> <td>'+val.occupants+'/'+val.capacity+'</td> <td><span class="label label-success">Open</span></td></tr>');
+  });
+   $.each(arrofobjectAllRooms, function(index, val) {
+    $('#tbodyAll3').append('<tr id="recordAll3"><td>'+val.id+'</td> <td>'+val.room_id+'</td> <td>'+val.room_name+'</td> <td><span class="label label-success">Available</span></td></tr>');
+  });
+
 //===============================S T E M========================================================================================================//
 $('example1').DataTable();
 $('example2').DataTable();
@@ -1468,9 +1643,14 @@ $('tvlas_room_table').DataTable();
   });     
 
 $(function () {
+
+    $('#tbl_allStudents').DataTable()
+    $('#tbl_allSections').DataTable()
+    $('#tbl_allRooms').DataTable()
+
     $('#example1').DataTable()
     $('#example2').DataTable()
-    $('#example3').DataTable();
+    $('#example3').DataTable()
 
     $('#gas_student_table').DataTable()
     $('#gas_section_table').DataTable()
@@ -1505,7 +1685,7 @@ $('.check').change(function(){ //".checkbox" change
 });
 $(document).ready(function(){
     $("#stem_list").click(function(){ 
-      $("#lapa").hide();     
+      $("#all_box").hide();     
       $("#stem_box").show();
       $("#gas_box").hide();
       $("#humss_box").hide();
@@ -1514,7 +1694,7 @@ $(document).ready(function(){
       $("#tvlas_box").hide();
     });
     $("#gas_list").click(function(){
-      $("#lapa").hide();
+      $("#all_box").hide();
       $("#stem_box").hide();
       $("#humss_box").hide();
       $("#gas_box").show();
@@ -1523,7 +1703,7 @@ $(document).ready(function(){
       $("#tvlas_box").hide();
     });
     $("#humss_list").click(function(){
-      $("#lapa").hide();
+      $("#all_box").hide();
       $("#humss_box").show();
       $("#stem_box").hide();
       $("#gas_box").hide();      
@@ -1532,7 +1712,7 @@ $(document).ready(function(){
       $("#tvlas_box").hide();
     });
     $("#abm_list").click(function(){
-      $("#lapa").hide();
+      $("#all_box").hide();
       $("#abm_box").show();
       $("#gas_box").hide();
       $("#stem_box").hide();      
@@ -1541,7 +1721,7 @@ $(document).ready(function(){
       $("#tvlas_box").hide();      
     });
     $("#tvlhe_list").click(function(){
-      $("#lapa").hide();
+      $("#all_box").hide();
       $("#stem_box").hide();
       $("#gas_box").hide();
       $("#abm_box").hide();
@@ -1550,7 +1730,7 @@ $(document).ready(function(){
       $("#tvlhe_box").show();
     });
     $("#tvlas_list").click(function(){
-      $("#lapa").hide();
+      $("#all_box").hide();
       $("#stem_box").hide();
       $("#gas_box").hide();
       $("#abm_box").hide();
