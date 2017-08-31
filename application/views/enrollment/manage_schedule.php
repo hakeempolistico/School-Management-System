@@ -351,10 +351,10 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label>Students</label>
-                <select class="form-control select2"  data-placeholder="Select Students">
+                <select id="select-student" class="form-control select2"  data-placeholder="Select Students">
                   <option></option>
                   <?php foreach ($students as $val) {
-                    echo "<option>".$val->first_name." ".$val->last_name."</option>";
+                    echo "<option value='".$val->lrn."'>".$val->first_name." ".$val->last_name."</option>";
                   }
                   ?>   
                 </select>
@@ -401,10 +401,10 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label>Teachers</label>
-                <select class="form-control select2" data-placeholder="Select Teachers">
+                <select id="select-teacher" class="form-control select2" data-placeholder="Select Teachers">
                   <option></option>
                   <?php foreach ($teachers as $val) {
-                    echo "<option>".$val->first_name." ".$val->last_name."</option>";
+                    echo "<option value='".$val->employee_id."'>".$val->first_name." ".$val->last_name."</option>";
                   }
                   ?>
                 </select>
@@ -451,7 +451,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label>Rooms</label>
-                <select class="form-control select2" data-placeholder="Select Rooms">
+                <select id="select-room" class="form-control select2" data-placeholder="Select Rooms">
                   <option></option>
                   <?php foreach ($rooms as $val) {
                     echo "<option>".$val->room_name."</option>";
@@ -478,20 +478,19 @@
           <!-- Widget: user widget style 1 -->
           <div class="box box-widget widget-user-2">
             <!-- Add the bg color to the header using any of the bg-* classes -->
-            <div class="widget-user-header bg-yellow">
+            <div class="widget-user-header" style="background-color: darkred;">
               <div class="widget-user-image">
-                <img class="img-circle" src="<?php echo base_url(); ?>dist/img/user7-128x128.jpg" alt="User Avatar">
+                <img class="img-circle" src="<?php echo base_url('images/alt_picture.jpg'); ?>" alt="User Avatar">
               </div>
               <!-- /.widget-user-image -->
-              <h3 class="widget-user-username">Nadia Carmichael</h3>
-              <h5 class="widget-user-desc">Lead Developer</h5>
+              <h3 class="widget-user-username" style="color: white" id="profile-name">Nadia Carmichael</h3>
+              <h5 class="widget-user-desc" style="color: white" id="profile-position"> Teacher 1</h5>
             </div>
             <div class="box-footer no-padding">
               <ul class="nav nav-stacked">
-                <li><a href="#">Projects <span class="pull-right badge bg-blue">31</span></a></li>
-                <li><a href="#">Tasks <span class="pull-right badge bg-aqua">5</span></a></li>
-                <li><a href="#">Completed Projects <span class="pull-right badge bg-green">12</span></a></li>
-                <li><a href="#">Followers <span class="pull-right badge bg-red">842</span></a></li>
+                <li><a href="#">Major <span class="pull-right text-danger" id="profile-major">STEM</span></a></li>
+                <li><a href="#">Status <span class="pull-right text-danger"  id="profile-status">Senior High</span></a></li>
+                <li><a href="#">Contact <span class="pull-right text-danger" id="profile-contact">09975864782</span></a></li>
               </ul>
             </div>
           </div>
@@ -760,6 +759,8 @@
 <script type="text/javascript">
   //Initialize Select2 Elements
     $('.select2').select2()
+
+  var ajaxUrl = "<?php echo base_url("enrollment/manage_schedule/ajax"); ?>"
 </script>
 </body>
 </html>

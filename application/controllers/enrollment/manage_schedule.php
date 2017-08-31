@@ -22,4 +22,11 @@ class manage_schedule extends CI_Controller {
 		$this->parser->parse('enrollment/manage_schedule', $data);
 	}
 
+	public function ajax()
+	{
+		$post = $this->input->post();
+		$row = $this->global_model->getRow($post['table'], $post['set'], $post['value']);
+		echo json_encode($row);
+	}
+
 }
