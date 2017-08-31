@@ -199,7 +199,10 @@ $('#select-teacher').on('change',function(){
                 $('#profile-position').html(val.position);
                 $('#profile-major').html(val.major);
                 $('#profile-status').html(val.status);
-                $('#profile-status').html(val.contact);
+                if(val.status == "ACTIVE"){
+                  $('#profile-status').addClass('badge bg-blue');
+                }
+                $('#profile-contact').html(val.contact);
               })
             }
           });
