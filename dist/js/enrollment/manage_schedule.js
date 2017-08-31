@@ -150,7 +150,11 @@ $('#students-select').hide();
 $('#teachers-select').hide();
 $('#rooms-select').hide();
 
+var table; 
+var set;
 $('#students-pick').on('click',function(){
+  table = "students";
+  set = "lrn"
   $('#students-select').show();
   $('#teachers-pick').show();
   $('#rooms-pick').show();
@@ -160,6 +164,8 @@ $('#students-pick').on('click',function(){
   $(this).hide();
 })
 $('#teachers-pick').on('click',function(){
+  table = "teachers";
+  set = "employee_id";
   $('#teachers-select').show();
   $('#students-pick').show();
   $('#rooms-pick').show();
@@ -169,6 +175,7 @@ $('#teachers-pick').on('click',function(){
   $(this).hide();
 })
 $('#rooms-pick').on('click',function(){
+  table = "rooms";
   $('#rooms-select').show();
   $('#teachers-pick').show();
   $('#students-pick').show();
@@ -178,3 +185,23 @@ $('#rooms-pick').on('click',function(){
   $(this).hide();
 })
 
+$('#select-teacher').on('change',function(){
+  var value = $('#select-teacher').val();
+  $.ajax({
+            url: ajaxUrl,
+            type: 'post',
+            dataType: 'json', 
+            data: {'set' : set, 'table' : table, 'value' : value }, 
+            success: function(result){
+              console.log(result);
+              $.each(result, function(index, val) {
+                $('#profile-name').html(val.first_name +" " + val.last_name);
+                $('#profile-position').html(val.position);
+                $('#profile-major').html(val.major);
+                $('#profile-status').html(val.status);
+                $('#profile-status').html(val.contact);
+              })
+            }
+          });
+
+})
