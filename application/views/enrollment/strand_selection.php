@@ -334,46 +334,46 @@
           <h3 class="box-title">Please enter the ff. grades: </h3>
         </div>
         <div class="box-body">
-        <form>
           <div class="form-group">
             <label>English</label>
-            <input type="text" class="form-control" name="english" style="margin-bottom: -10px;">
+            <input type="text" class="form-control" name="subj[]" id="eng" style="margin-bottom: -10px;">
           </div>
           <div class="form-group">
             <label>Mathematics</label>
-            <input type="text" class="form-control" name="math"  style="margin-bottom: -10px;">
+            <input type="text" class="form-control" name="subj[]" id="math"  style="margin-bottom: -10px;">
           </div>
           <div class="form-group">
             <label>Science</label>
-            <input type="text" class="form-control" name="science"  style="margin-bottom: -10px;">
+            <input type="text" class="form-control" name="subj[]" id="sci"  style="margin-bottom: -10px;">
           </div>
           <div class="form-group">
             <label>Filipino</label>
-            <input type="text" class="form-control" name="filipino"  style="margin-bottom: -10px;">
+            <input type="text" class="form-control" name="subj[]" id="fil"  style="margin-bottom: -10px;">
           </div>
           <div class="form-group">
             <label>Araling Panlipunan</label>
-            <input type="text" class="form-control" name="ap" style="margin-bottom: -10px;">
+            <input type="text" class="form-control" name="subj[]" id="ap" style="margin-bottom: -10px;">
           </div>
           <div class="form-group">
             <label>T.L.E.</label>
-            <input type="text" class="form-control" name="tle" style="margin-bottom: -10px;">
+            <input type="text" class="form-control" name="subj[]" id="tle" style="margin-bottom: -10px;">
           </div>
           <div class="form-group">
             <label>Computer Education</label>
-            <input type="text" class="form-control" name="computer" style="margin-bottom: -10px;">
+            <input type="text" class="form-control" name="subj[]" id="comp" style="margin-bottom: -10px;">
           </div>
           <div class="form-group">
             <label>MAPEH</label>
-            <input type="text" class="form-control" name="mapeh" style="margin-bottom: -10px;">
+            <input type="text" class="form-control" name="subj[]" id="mapeh" style="margin-bottom: -10px;">
           </div>
         </div>
         <!-- /.box-body -->
         <div class="box-footer">
-          <button type="submit" name="search" class="btn btn-primary btn-flat">Submit</button>
+          <button id="ave" class="btn btn-primary btn-flat">Submit</button>
+          <div id="error"></div>
+          <div id="avera"></div>
         </div>
         <!-- /.box-footer-->
-      </form>
       </div>
       <!-- /.box -->
       </div>
@@ -386,7 +386,7 @@
 
       <div class="row">
 
-        <div class="col-md-6">
+        <div class="col-md-6" id="stemdiv">
           <div class="small-box bg-green" data-toggle="modal" data-target="#stem" style="cursor: pointer;">
             <div class="inner">
               <h3>STEM</h3>
@@ -416,12 +416,7 @@
         </div>
         <!-- ./col -->
 
-      </div>
-      <!-- /.row -->
-
-      <div class="row">
-
-        <div class="col-md-6">
+        <div class="col-md-6" id="humssdiv">
           <div class="small-box bg-yellow" data-toggle="modal" data-target="#humss" style="cursor: pointer;">
             <div class="inner">
               <h3>HUMSS</h3>
@@ -436,7 +431,7 @@
         </div>
         <!-- ./col -->
 
-        <div class="col-md-6">
+        <div class="col-md-6" id="abmdiv">
           <div class="small-box bg-purple" data-toggle="modal" data-target="#abm" style="cursor: pointer;">
             <div class="inner">
               <h3>ABM</h3>
@@ -450,11 +445,6 @@
           </div>
         </div>
         <!-- ./col -->
-
-      </div>
-      <!-- /.row -->
-
-      <div class="row">
 
         <div class="col-md-6">
           <div class="small-box bg-blue" data-toggle="modal" data-target="#tvlhe" style="cursor: pointer;">
@@ -699,6 +689,36 @@
     $('#datepicker').datepicker({
       autoclose: true
     })
+</script>
+
+<script>
+$("#ave").click(function(){
+  var input1 = parseInt($('#eng').val(),10);
+  var input2 = parseInt($('#math').val(),10);
+  var input3 = parseInt($('#sci').val(),10);
+  var input4 = parseInt($('#fil').val(),10);
+  var input5 = parseInt($('#ap').val(),10);
+  var input6 = parseInt($('#tle').val(),10);
+  var input7 = parseInt($('#comp').val(),10);
+  var input8 = parseInt($('#mapeh').val(),10);
+
+  if (isNaN(input1) || isNaN(input2) || isNaN(input3) || isNaN(input4) || isNaN(input5) || isNaN(input6) || isNaN(input7) || isNaN(input8)) {
+    $('#error').text('Inputs must be numbers');
+  } else {
+    $('#error').remove();
+
+      ave = (input1 + input2 + input3 + input4 + input5 + input6 + input7 +input8) / 8;
+      $('#avera').text(ave);
+
+      if (ave < 85){
+        $('#stemdiv').remove();
+        $('#humssdiv').remove();
+        $('#abmdiv').remove();
+      }
+    }
+  });
+
+
 </script>
 
 </body>

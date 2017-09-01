@@ -141,6 +141,16 @@ class enroll_student extends CI_Controller {
 		}
 	}
 
+	public function average()
+	{
+		$arr = $this->input->post('subj[]');
+
+		$a = array_filter($arr);
+		$average = array_sum($a)/count($a);
+		
+		redirect('enrollment/enroll_student/strands', $average);
+	}
+
 
 }
 
