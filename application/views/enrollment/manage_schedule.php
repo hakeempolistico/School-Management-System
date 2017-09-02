@@ -324,11 +324,11 @@
       <div class="row hidden-print">
         <div class="col-lg-4 col-xs-12">
           <!-- small box -->
-          <div id="students-pick" class="small-box bg-aqua" id="viewStudents" style="cursor: pointer;">
+          <div id="classes-pick" class="small-box bg-aqua" id="viewStudents" style="cursor: pointer;">
             <div class="inner">
-              <h3><?php echo $studentsCount ?></h3>
+              <h3><?php echo $classesCount ?></h3>
 
-              <p>Students</p>
+              <p>Classes</p>
             </div>
             <div class="icon">
               <i class="fa fa-pencil"></i>
@@ -337,25 +337,21 @@
           </div>
 
           <!-- SELECT2 EXAMPLE -->
-      <div id="students-select" class="box box-default">
+      <div id="classes-select" class="box box-default">
         <div class="box-header with-border">
-          <h3 class="box-title">Select data</h3>
-
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
-          </div>
+          <h3 class="box-title">Select class</h3>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
           <div class="row">
             <div class="col-md-12">
-              <div class="form-group">
-                <label>Students</label>
-                <select id="select-student" class="form-control select2"  data-placeholder="Select Students">
+              <div class="form-group" style="margin-top: 15px">
+                <select id="select-class" class="form-control select2"  data-placeholder="Select class">
                   <option></option>
-                  <?php foreach ($students as $val) {
-                    echo "<option value='".$val->lrn."'>".$val->first_name." ".$val->last_name."</option>";
-                  }
+                  <?php foreach ($classes as $val) 
+                    {
+                      echo "<option value='".$val->id."'>".$val->class_name."</option>";
+                    }
                   ?>   
                 </select>
               </div>
@@ -389,23 +385,19 @@
           <!-- SELECT2 EXAMPLE -->
       <div id="teachers-select" class="box box-default">
         <div class="box-header with-border">
-          <h3 class="box-title">Select data</h3>
-
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
-          </div>
+          <h3 class="box-title">Select teacher</h3>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
           <div class="row">
             <div class="col-md-12">
-              <div class="form-group">
-                <label>Teachers</label>
+              <div class="form-group" style="margin-top: 15px">
                 <select id="select-teacher" class="form-control select2" data-placeholder="Select Teachers">
                   <option></option>
-                  <?php foreach ($teachers as $val) {
-                    echo "<option value='".$val->employee_id."'>".$val->first_name." ".$val->last_name."</option>";
-                  }
+                  <?php foreach ($teachers as $val) 
+                    {
+                      echo "<option value='".$val->employee_id."'>".$val->first_name." ".$val->last_name."</option>";
+                    }
                   ?>
                 </select>
               </div>
@@ -439,23 +431,19 @@
           <!-- SELECT2 EXAMPLE -->
       <div id="rooms-select" class="box box-default">
         <div class="box-header with-border">
-          <h3 class="box-title">Select data</h3>
-
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
-          </div>
+          <h3 class="box-title">Select room</h3>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
           <div class="row">
             <div class="col-md-12">
-              <div class="form-group">
-                <label>Rooms</label>
+              <div class="form-group" style="margin-top: 15px">
                 <select id="select-room" class="form-control select2" data-placeholder="Select Rooms">
                   <option></option>
-                  <?php foreach ($rooms as $val) {
-                    echo "<option>".$val->room_name."</option>";
-                  }
+                  <?php foreach ($rooms as $val) 
+                    {
+                      echo "<option>".$val->room_name."</option>";
+                    }
                   ?>                  
                 </select>
               </div>
@@ -476,14 +464,14 @@
       <div class="row">
         <div class="hidden-print col-md-3">
           <!-- Widget: user widget style 1 -->
-          <div class="box box-widget widget-user-2">
+          <div id="profile-box" class="box box-widget widget-user-2">
             <!-- Add the bg color to the header using any of the bg-* classes -->
-            <div class="widget-user-header" style="background-color: darkred;">
+            <div class="widget-user-header bg-green">
               <div class="widget-user-image">
                 <img class="img-circle" src="<?php echo base_url('images/alt_picture.jpg'); ?>" alt="User Avatar">
               </div>
               <!-- /.widget-user-image -->
-              <h3 class="widget-user-username" style="color: white" id="profile-name">Nadia Carmichael</h3>
+              <h3 class="widget-user-username" style="color: white; font-size: 25px;" id="profile-name">Nadia Nacia</h3>
               <h5 class="widget-user-desc" style="color: white" id="profile-position"> Teacher 1</h5>
             </div>
             <div class="box-footer no-padding">
@@ -491,6 +479,43 @@
                 <li><a href="#">Major <span class="pull-right text-danger" id="profile-major">STEM</span></a></li>
                 <li><a href="#">Status <span class="pull-right text-danger"  id="profile-status">Senior High</span></a></li>
                 <li><a href="#">Contact <span class="pull-right text-danger" id="profile-contact">09975864782</span></a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- Widget: user widget style 1 -->
+          <div id="profile-box-class" class="box box-widget widget-user-2">
+            <!-- Add the bg color to the header using any of the bg-* classes -->
+            <div class="widget-user-header bg-aqua">
+              <div class="widget-user-image">
+                <img class="img-circle" src="<?php echo base_url('images/alt_picture.jpg'); ?>" alt="User Avatar">
+              </div>
+              <!-- /.widget-user-image -->
+              <h3 class="widget-user-username" style="color: white; font-size: 25px;" id="profile-class-name">Stem-3</h3>
+              <h5 class="widget-user-desc" style="color: white" id="profile-class-grade">Grade 12</h5>
+            </div>
+            <div class="box-footer no-padding">
+              <ul class="nav nav-stacked">
+                <li><a href="#">Adviser <span class="pull-right text-info" id="profile-class-adviser">Meliton</span></a></li>
+                <li><a href="#">Capacity <span class="pull-right text-info"  id="profile-class-capacity">30/40</span></a></li>
+                <li><a href="#">Status <span class="pull-right text-danger badge bg-blue" id="profile-class-status">NOT FULL</span></a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- Widget: user widget style 1 -->
+          <div id="profile-box-room" class="box box-widget widget-user-2">
+            <!-- Add the bg color to the header using any of the bg-* classes -->
+            <div class="widget-user-header bg-orange">
+              <div class="widget-user-image">
+                <img class="img-circle" src="<?php echo base_url('images/alt_picture.jpg'); ?>" alt="User Avatar">
+              </div>
+              <!-- /.widget-user-image -->
+              <h3 class="widget-user-username" style="color: white; font-size: 25px;" id="profile-room-name">Lab 1</h3>
+              <h5 class="widget-user-desc" style="color: white" id="profile-room-building">English Building</h5>
+            </div>
+            <div class="box-footer no-padding">
+              <ul class="nav nav-stacked">
+                <li><a href="#">Class <span class="pull-right text-danger" id="profile-room-class">Type-0</span></a></li>
+                <li><a href="#">Status <span class="pull-right text-danger badge bg-blue" id="profile-room-status">AVAILABLE</span></a></li>
               </ul>
             </div>
           </div>
