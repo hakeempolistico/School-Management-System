@@ -26,14 +26,16 @@ class users_model extends CI_Model{
 	public function checkUserPassword($username, $password){
 		$this->db->where('username',$username);
 		$resultUsers = $this->db->get('users');
+		$userName = $resultUsers->row()->username;
 		$countUser = $resultUsers->num_rows();
 
-		if($countUser>0){
+		if($userName == $username && $countUser>0){
 			$this->db->where('password',$password);
 			$resultPass = $this->db->get('users');
+			$pass = $resultPass->row()->password;
 			$countPass = $resultPass->num_rows();
 
-			if($countPass>0){
+			if($pass == $password && $countPass>0){
 				return $resultUsers->row();
 			}
 			else{
