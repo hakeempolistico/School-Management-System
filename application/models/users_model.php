@@ -30,12 +30,9 @@ class users_model extends CI_Model{
 		$countUser = $resultUsers->num_rows();
 
 		if($userName == $username && $countUser>0){
-			$this->db->where('password',$password);
-			$resultPass = $this->db->get('users');
-			$pass = $resultPass->row()->password;
-			$countPass = $resultPass->num_rows();
+			$pass = $resultUsers->row()->password;
 
-			if($pass == $password && $countPass>0){
+			if($pass == $password){
 				return $resultUsers->row();
 			}
 			else{
