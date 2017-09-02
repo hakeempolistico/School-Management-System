@@ -27,9 +27,8 @@ class users_model extends CI_Model{
 		$this->db->where('username',$username);
 		$resultUsers = $this->db->get('users');
 		$userName = $resultUsers->row()->username;
-		$countUser = $resultUsers->num_rows();
 
-		if($userName == $username && $countUser>0){
+		if($userName == $username){
 			$pass = $resultUsers->row()->password;
 
 			if($pass == $password){
