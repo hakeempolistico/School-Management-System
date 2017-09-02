@@ -179,6 +179,7 @@ $('#teachers-pick').on('click',function(){
 })
 $('#rooms-pick').on('click',function(){
   table = "rooms";
+  set = "room_id";
   $('#rooms-select').show();
   $('#teachers-pick').show();
   $('#classes-pick').show();
@@ -214,6 +215,48 @@ $('#select-teacher').on('change',function(){
                     $('#profile-status').addClass('badge bg-red');
                   }
                 $('#profile-contact').html(val.contact);
+              })
+            }
+          });
+
+})
+
+$('#select-room').on('change',function(){
+  $('#profile-box-class').hide();
+  $('#profile-box').hide();
+  var value = $('#select-room').val();
+  $('#profile-box-room').show();
+  $.ajax({
+            url: ajaxUrl,
+            type: 'post',
+            dataType: 'json', 
+            data: {'set' : set, 'table' : table, 'value' : value }, 
+            success: function(result){
+              console.log(result);
+              $.each(result, function(index, val) {
+                $('#profile-room-name').html(val.room_name);
+                $('#profile-room-building').html(val.building);
+                $('#profile-room-status').html(val.status);
+                  if(val.status == "AVAILABLE"){
+                    $('#profile-room-status').removeClass('badge bg-red');
+                    $('#profile-room-status').addClass('badge bg-blue');
+                  }
+                  if(val.status == "OCCUPIED"){
+                    $('#profile-room-status').removeClass('badge bg-blue');
+                    $('#profile-room-status').addClass('badge bg-red');
+                  }
+                $.ajax({
+                    url: ajaxUrl,
+                    type: 'post',
+                    dataType: 'json', 
+                    data: {'set' : 'id', 'table' : 'classes', 'value' : val.class_id }, 
+                    success: function(result){    
+                       $.each(result, function(index, val) {
+                          $('#profile-room-class').html(val.class_name);
+                       })           
+                      
+                    }
+                })
               })
             }
           });

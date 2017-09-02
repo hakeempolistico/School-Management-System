@@ -442,7 +442,7 @@
                   <option></option>
                   <?php foreach ($rooms as $val) 
                     {
-                      echo "<option>".$val->room_name."</option>";
+                      echo "<option value='".$val->room_id."'>".$val->room_name."</option>";
                     }
                   ?>                  
                 </select>
