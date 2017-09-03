@@ -14,6 +14,8 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/Ionicons/css/ionicons.min.css">
   <!-- Select2 -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/select2/dist/css/select2.min.css">
+  <!-- iCheck for checkboxes and radio inputs -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/iCheck/all.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -320,17 +322,20 @@
 
     <!-- Main content -->
     <section class="content">
-          <!-- general form elements -->
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-2">
+        </div>
+        <!-- /.col -->
+        <div class="col-md-8">
           <div class="box box-info">
+
             <div class="box-header with-border">
               <h3 class="box-title">Senior High School Profile</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form method="POST" action="/sms/enrollment/enroll_student/register/">
-              <div class="box-body" style="padding-bottom: 20px;">
+            <div class="box-body" style="padding-bottom: 20px;">
+              <form method="POST" action="/sms/enrollment/enroll_student/register/">
                 <div class="row">
                   <div class="col-md-8">
                     <div class="form-group">
@@ -351,6 +356,8 @@
                     </div>
                   </div>
                 </div>
+                <!-- /.row -->
+
                 <div class="form-group">
                   <label for="exampleInputEmail1">Name</label>
                     <div class="row">
@@ -368,330 +375,220 @@
                       </div>
                     </div>
                 </div>
+                <!-- /.form-group -->
+
                 <div class="row">
-                <div class="col-md-6">
-                <div class="form-group">
-                  <label>Sex</label>
-                  <select class="form-control" id="inputSEX" name="sex" value="<?php echo set_select('sex'); ?>" placeholder="Sex">
-                    <option value="" disabled selected>Sex</option>
-                    <option value="Female" <?php echo  set_select('sex', 'Female'); ?> >Female</option>
-                    <option value="Male" <?php echo  set_select('sex', 'Male'); ?> >Male</option>
-                  </select>
-                  <?php echo form_error('sex'); ?>
-                </div>
-                </div>
-                <div class="col-md-6">
-                <div class="form-group">
-                  <label>Contact Number</label>
-                  <input type="text" class="form-control" name="contact" id="inputCONTACT" value="<?php echo set_value('contact'); ?>" placeholder="Contact Number">
-                  <?php echo form_error('contact'); ?>
-                </div>
-                </div>
-                </div>
-                <hr>
-                <div class="row">
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Birth Date</label>
-                  <div class="input-group date">
-                    <div class="input-group-addon">
-                      <i class="fa fa-calendar"></i>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Sex</label>
+                      <select class="form-control" id="inputSEX" name="sex" value="<?php echo set_select('sex'); ?>" placeholder="Sex">
+                        <option value="" disabled selected>Sex</option>
+                        <option value="Female" <?php echo  set_select('sex', 'Female'); ?> >Female</option>
+                        <option value="Male" <?php echo  set_select('sex', 'Male'); ?> >Male</option>
+                      </select>
+                      <?php echo form_error('sex'); ?>
                     </div>
-                    <input type="text" class="form-control" id="datepicker" name="birth_date" value="<?php echo set_value('birth_date'); ?>" placeholder="mm/dd/yyyy">
                   </div>
-                    <?php echo form_error('birth_date'); ?>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Contact Number</label>
+                      <input type="text" class="form-control" name="contact" id="inputCONTACT" value="<?php echo set_value('contact'); ?>" placeholder="Contact Number">
+                      <?php echo form_error('contact'); ?>
+                    </div>
+                  </div>
                 </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Birth Place</label>
-                  <input type="text" class="form-control" id="inputBIRTHPLACE" name="birth_place" value="<?php echo set_value('birth_place'); ?>" placeholder="Birth Place">
-                  <?php echo form_error('birth_place'); ?>
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Age <small>(as of last birthday)</small></label>
-                  <input type="text" class="form-control" id="inputAGE" value="<?php echo set_value('age'); ?>" placeholder="Age" name="age">
-                  <?php echo form_error('age'); ?>
-                </div>
-                </div>
-                </div>
-                <div class="row">
-                <div class="col-md-6">
-                <div class="form-group">
-                  <label>Mother Tongue</label>
-                  <input type="text" class="form-control" id="inputMOTHERTONGUE" value="<?php echo set_value('mother_tongue'); ?>" placeholder="Mother Tongue" name="mother_tongue">
-                  <?php echo form_error('mother_tongue'); ?>
-                </div>
-                </div>
-                <div class="col-md-6">
-                <div class="form-group">
-                  <label>Religion</label>
-                  <input type="text" class="form-control" id="inputRELIGION" value="<?php echo set_value('religion'); ?>" placeholder="Religion" name="religion">
-                  <?php echo form_error('religion'); ?>
-                </div>
-                </div>
-                </div>
+                <!-- /.row -->
                 <hr>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Birth Date</label>
+                      <div class="input-group date">
+                        <div class="input-group-addon">
+                          <i class="fa fa-calendar"></i>
+                        </div>
+                        <input type="text" class="form-control" id="datepicker" name="birth_date" value="<?php echo set_value('birth_date'); ?>" placeholder="mm/dd/yyyy">
+                      </div>
+                      <?php echo form_error('birth_date'); ?>
+                    </div>
+                  </div>
+                  <!-- /.col -->
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Birth Place</label>
+                      <input type="text" class="form-control" id="inputBIRTHPLACE" name="birth_place" value="<?php echo set_value('birth_place'); ?>" placeholder="Birth Place">
+                      <?php echo form_error('birth_place'); ?>
+                    </div>
+                  </div>
+                  <!-- /.col -->
+                </div>
+                <!-- /.row -->
+
                 <div class="form-group">
                   <label>Address</label>
                   <div class="row">
-                      <div class="col-md-3">
-                        <input type="text" class="form-control address" id="inputSTREET" value="<?php echo set_value('street'); ?>" placeholder="House #, Street" name="street">
+                    <div class="col-md-3">
+                      <input type="text" class="form-control address" id="inputSTREET" value="<?php echo set_value('street'); ?>" placeholder="House #, Street" name="street">
                         <?php echo form_error('street'); ?>
-                      </div>
-                      <div class="col-md-3">
-                        <input type="text" class="form-control address" id="inputBARANGAY" value="<?php echo set_value('barangay'); ?>" placeholder="Barangay" name="barangay">
-                        <?php echo form_error('barangay'); ?>
-                      </div>
-                      <div class="col-md-3">
-                        <input type="text" class="form-control address" id="inputCITY" value="<?php echo set_value('city'); ?>" placeholder="City" name="city">
-                        <?php echo form_error('city'); ?>
-                      </div>
-                      <div class="col-md-3">
-                        <input type="text" class="form-control address" id="inputPROVINCE" value="<?php echo set_value('province'); ?>" placeholder="Province" name="province">
-                        <?php echo form_error('province'); ?>
-                      </div>
                     </div>
+                    <div class="col-md-3">
+                      <input type="text" class="form-control address" id="inputBARANGAY" value="<?php echo set_value('barangay'); ?>" placeholder="Barangay" name="barangay">
+                        <?php echo form_error('barangay'); ?>
+                    </div>
+                    <div class="col-md-3">
+                      <input type="text" class="form-control address" id="inputCITY" value="<?php echo set_value('city'); ?>" placeholder="City" name="city">
+                        <?php echo form_error('city'); ?>
+                    </div>
+                    <div class="col-md-3">
+                      <input type="text" class="form-control address" id="inputPROVINCE" value="<?php echo set_value('province'); ?>" placeholder="Province" name="province">
+                        <?php echo form_error('province'); ?>
+                    </div>
+                  </div>
                 </div>
-                <hr>
-                <div class="row">
-                <div class="col-md-6">
-                <div class="form-group">
-                  <label>Father's Name</label>
-                  <input type="text" class="form-control" id="inputFATHER" value="<?php echo set_value('father_name'); ?>" placeholder="Father's Name" name="father_name">
-                  <?php echo form_error('father_name'); ?>
-                </div>
-                </div>
-                <div class="col-md-6">
-                <div class="form-group">
-                  <label>Mother's Maiden Name</label>
-                  <input type="text" class="form-control" id="inputMOTHER" value="<?php echo set_value('mother_name'); ?>" placeholder="Mother's Maiden Name" name="mother_name">
-                  <?php echo form_error('mother_name'); ?>
-                </div>
-                </div>
-                </div>
-                <div class="row">
-                <div class="col-md-6">
-                <div class="form-group">
-                  <label>Father's Contact No.</label>
-                  <input type="text" class="form-control" id="inputFATHERCONTACT" value="<?php echo set_value('father_contact'); ?>" placeholder="Father's Contact No." name="father_contact">
-                  <?php echo form_error('father_contact'); ?>
-                </div>
-                </div>
-                <div class="col-md-6">
-                <div class="form-group">
-                  <label>Mother's Contact No.</label>
-                  <input type="text" class="form-control" id="inputMOTHERCONTACT" value="<?php echo set_value('mother_contact'); ?>" placeholder="Mother's Contact No." name="mother_contact">
-                  <?php echo form_error('mother_contact'); ?>
-                </div>
-                </div>
-                </div>
-                <div class="row">
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Guardian's Name</label>
-                  <input type="text" class="form-control" id="inputGUARDIAN" value="<?php echo set_value('guardian'); ?>" placeholder="Guardian's Name" name="guardian">
-                  <?php echo form_error('guardian'); ?>
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Relationship</label>
-                  <input type="text" class="form-control" id="inputRELATIONSHIP" value="<?php echo set_value('relationship'); ?>" placeholder="Relationship with Guardian" name="relationship">
-                  <?php echo form_error('relationship'); ?>
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Guardian's Contact No.</label>
-                  <input type="text" class="form-control" id="inputGUARDIANCONTACT" value="<?php echo set_value('guardian_contact'); ?>" placeholder="Guradian's Contact No." name="guardian_contact">
-                  <?php echo form_error('guardian_contact'); ?>
-                </div>
-                </div>
-                </div>
-                <hr>
-                <div class="form-group">
-                <label>Requirements</label>
-                <select class="form-control select2" multiple="multiple" id="inputREQUIREMENTS" value="<?php echo set_select('requirement'); ?>" name="requirement[]" data-placeholder="Select Requirement"
-                        style="width: 100%;">
-                  <option id="f137">Form 137</option>
-                  <option id="f138">Form 138</option>
-                  <option id="nso">NSO Birth Certificate</option>
-                </select>
-                <input type="hidden" name="requirements" value="<?php echo set_value('requirements'); ?>" id="requirements">
-              </div>
-              <div class="form-group">
-                <label>Note</label>
-                <textarea class="form-control" id="inputNOTE" value="<?php echo set_value('note'); ?>" placeholder="Note" name="note"></textarea>
-              </div>
-              </div>
-              <!-- /.box-body -->
-           
-          </div>
-        </div>
+                <!-- /.form-group -->
 
-        <div class="col-md-6">  
-          <div class="box box-info">
-            <div class="box-header with-border">
-              <h3 class="box-title">Senior High School Profile</h3>
-              <div class="box-body">
                 <div class="row">
-                  <div class="col-md-8">
+                  <div class="col-md-6">
                     <div class="form-group">
-                        <label>LRN</label>
-                        <div id="textLRN"><i class="text-red">Please input</i></div>
+                      <label>Mother Tongue</label>
+                      <input type="text" class="form-control" id="inputMOTHERTONGUE" value="<?php echo set_value('mother_tongue'); ?>" placeholder="Mother Tongue" name="mother_tongue">
+                      <?php echo form_error('mother_tongue'); ?>
+                    </div>
+                  </div>
+                  <!-- /.col -->
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Religion</label>
+                      <input type="text" class="form-control" id="inputRELIGION" value="<?php echo set_value('religion'); ?>" placeholder="Religion" name="religion">
+                      <?php echo form_error('religion'); ?>
+                    </div>
+                  </div>
+                  <!-- /.col -->
+                </div>
+                <!-- /.row -->
+
+                <hr>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Father's Name</label>
+                      <input type="text" class="form-control" id="inputFATHER" value="<?php echo set_value('father_name'); ?>" placeholder="Father's Name" name="father_name">
+                      <?php echo form_error('father_name'); ?>
+                    </div>
+                  </div>
+                  <!-- /.col -->
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Mother's Maiden Name</label>
+                      <input type="text" class="form-control" id="inputMOTHER" value="<?php echo set_value('mother_name'); ?>" placeholder="Mother's Maiden Name" name="mother_name">
+                      <?php echo form_error('mother_name'); ?>
+                    </div>
+                  </div>
+                  <!-- /.col -->
+                </div>
+                <!-- /.row -->
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Father's Contact No.</label>
+                      <input type="text" class="form-control" id="inputFATHERCONTACT" value="<?php echo set_value('father_contact'); ?>" placeholder="Father's Contact No." name="father_contact">
+                      <?php echo form_error('father_contact'); ?>
+                    </div>
+                  </div>
+                  <!-- /.col -->
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Mother's Contact No.</label>
+                      <input type="text" class="form-control" id="inputMOTHERCONTACT" value="<?php echo set_value('mother_contact'); ?>" placeholder="Mother's Contact No." name="mother_contact">
+                      <?php echo form_error('mother_contact'); ?>
+                    </div>
+                  </div>
+                  <!-- /.col -->
+                </div>
+                <!-- /.row -->
+
+                <hr>
+                <label>Guardian</label>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                        <input type="radio" name="r3" class="flat-red parent">   Father
                     </div>
                   </div>
                   <div class="col-md-4">
                     <div class="form-group">
-                        <label>Grade</label>
-                        <div id="textGRADE"><i class="text-red">Please input</i></div>
+                        <input type="radio" name="r3" class="flat-red parent">   Mother
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                        <input type="radio" name="r3" class="flat-red other">   Other
                     </div>
                   </div>
                 </div>
-                <div class="form-group">
-                    <div class="row">
-                      <div class="col-md-4">
-                        <label>First Name</label>
-                        <div id="textFNAME"><i class="text-red">Please input</i></div>
-                      </div>
-                      <div class="col-md-4">
-                        <label>Middle Name</label>
-                        <div id="textMNAME""><i class="text-red">Please input</i></div>
-                      </div>
-                      <div class="col-md-4">
-                        <label>Last Name</label>
-                        <div id="textLNAME""><i class="text-red">Please input</i></div>
-                      </div>
+                <!-- /.row -->
+
+                <div id="guardianInput" class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Guardian's Name</label>
+                      <input type="text" class="form-control" id="inputGUARDIAN" value="<?php echo set_value('guardian'); ?>" placeholder="Guardian's Name" name="guardian">
+                      <?php echo form_error('guardian'); ?>
                     </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Relationship</label>
+                      <input type="text" class="form-control" id="inputRELATIONSHIP" value="<?php echo set_value('relationship'); ?>" placeholder="Relationship with Guardian" name="relationship">
+                      <?php echo form_error('relationship'); ?>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Guardian's Contact No.</label>
+                      <input type="text" class="form-control" id="inputGUARDIANCONTACT" value="<?php echo set_value('guardian_contact'); ?>" placeholder="Guradian's Contact No." name="guardian_contact">
+                      <?php echo form_error('guardian_contact'); ?>
+                    </div>
+                  </div>
+                  <!-- /.col -->
                 </div>
-                <div class="row">
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Sex</label>
-                  <div id="textSEX"><i class="text-red">Please input</i></div>
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Contact Number</label>
-                  <div id="textCONTACT"><i class="text-red">Please input</i></div>
-                </div>
-                </div>
-                </div>
-                <hr>
-                <div class="row">
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Birth Date</label>
-                  <div id="textDATEPICKER"><i class="text-red">Please input</i></div>
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Birth Place</label>
-                  <div id="textBIRTHPLACE"><i class="text-red">Please input</i></div>
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Age <small>(as of last birthday)</small></label>
-                  <div id="textAGE"><i class="text-red">Please input</i></div>
-                </div>
-                </div>
-                </div>
-                <div class="row">
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Mother Tongue</label>
-                  <div id="textMOTHERTONGUE"><i class="text-red">Please input</i></div>
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Religion</label>
-                  <div id="textRELIGION"><i class="text-red">Please input</i></div>
-                </div>
-                </div>
-                </div>
-                <hr>
-                <div class="form-group">
-                  <label>Address</label>
-                    <div id="textADDRESS"><i class="text-red">Please input</i></div>
-                </div>
-                <hr>
-                <div class="row">
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Father's Name</label>
-                  <div id="textFATHER"><i class="text-red">Please input</i></div>
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Mother's Maiden Name</label>
-                  <div id="textMOTHER"><i class="text-red">Please input</i></div>
-                </div>
-                </div>
-                </div>
-                <div class="row">
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Father's Contact No.</label>
-                  <div id="textFATHERCONTACT"><i class="text-red">Please input</i></div>
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Mother's Contact No.</label>
-                  <div id="textMOTHERCONTACT"><i class="text-red">Please input</i></div>
-                </div>
-                </div>
-                </div>
-                <div class="row">
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Guardian's Name</label>
-                  <div id="textGUARDIAN"><i class="text-red">Please input</i></div>
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Relationship</label>
-                  <div id="textRELATIONSHIP"><i class="text-red">Please input</i></div>
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                  <label>Guardian's Contact No.</label>
-                  <div id="textGUARDIANCONTACT"><i class="text-red">Please input</i></div>
-                </div>
-                </div>
-                </div>
+                <!-- /.row -->
+
                 <hr>
                 <div class="form-group">
                   <label>Requirements</label>
-                  <div id="textREQUIREMENTS"><i class="text-red">Please pass</i></div>
+                  <select class="form-control select2" multiple="multiple" id="inputREQUIREMENTS" value="<?php echo set_select('requirement'); ?>" name="requirement[]" data-placeholder="Select Requirement" style="width: 100%;">
+                    <option id="f137">Form 137</option>
+                    <option id="f138">Form 138</option>
+                    <option id="nso">NSO Birth Certificate</option>
+                  </select>
+                  <input type="hidden" name="requirements" value="<?php echo set_value('requirements'); ?>" id="requirements">
                 </div>
+                <!-- /.form-group -->
+
                 <div class="form-group">
                   <label>Note</label>
-                  <div id="textNOTE"></div>
+                  <textarea class="form-control" id="inputNOTE" value="<?php echo set_value('note'); ?>" placeholder="Note" name="note"></textarea>
                 </div>
-              </div>
-              <!-- /.box-body -->
-              <div class="box-footer">
-                <input type="submit" class="btn btn-primary pull-right"></button>
-                </a>
-              </div>
+                <!-- /.form-group -->
+
+                <button type="submit" class="btn btn-primary pull-right">Submit</button>
+
+              </form>
             </div>
-            <!-- /.box-header -->
-             </form>
+            <!-- /.box-body -->
           </div>
           <!-- /.box -->
         </div>
-        <!-- /.col-md-6 --> 
+        <!-- /.col -->
+
+        <div class="col-md-2">
+        </div>
+        <!-- /.col -->
+
       </div>
       <!-- /.row -->
     </section>
@@ -717,6 +614,8 @@
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
+<!-- iCheck 1.0.1 -->
+<script src="<?php echo base_url(); ?>plugins/iCheck/icheck.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
 <!-- js ni adrii -->
@@ -734,6 +633,33 @@
       autoclose: true,
       format: 'yyyy/mm/dd'
     })
+
+    //iCheck for checkbox and radio inputs
+    $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+      checkboxClass: 'icheckbox_minimal-blue',
+      radioClass   : 'iradio_minimal-blue'
+    })
+    //Red color scheme for iCheck
+    $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+      checkboxClass: 'icheckbox_minimal-red',
+      radioClass   : 'iradio_minimal-red'
+    })
+    //Flat red color scheme for iCheck
+    $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+      checkboxClass: 'icheckbox_flat-green',
+      radioClass   : 'iradio_flat-green'
+    })
+</script>
+<script>
+$(document).ready(function(){
+    $(".parent").click(function(){ 
+      $("#guardianInput").hide();
+    });
+    $(".other").click(function(){
+      $("#guardianInput").show();
+    });
+});
+
 </script>
 <script type="text/javascript">
   //Initialize Select2 Elements
