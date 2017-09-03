@@ -468,7 +468,7 @@
             <!-- Add the bg color to the header using any of the bg-* classes -->
             <div class="widget-user-header bg-green">
               <div class="widget-user-image">
-                <img class="img-circle" src="<?php echo base_url('images/alt_picture.jpg'); ?>" alt="User Avatar">
+                <img class="img-circle" src="<?php echo base_url('images/alt_picture_green.jpg'); ?>" alt="User Avatar">
               </div>
               <!-- /.widget-user-image -->
               <h3 class="widget-user-username" style="color: white; font-size: 25px;" id="profile-name">Nadia Nacia</h3>
@@ -487,7 +487,7 @@
             <!-- Add the bg color to the header using any of the bg-* classes -->
             <div class="widget-user-header bg-aqua">
               <div class="widget-user-image">
-                <img class="img-circle" src="<?php echo base_url('images/alt_picture.jpg'); ?>" alt="User Avatar">
+                <img class="img-circle" src="<?php echo base_url('images/alt_picture_aqua.jpg'); ?>" alt="User Avatar">
               </div>
               <!-- /.widget-user-image -->
               <h3 class="widget-user-username" style="color: white; font-size: 25px;" id="profile-class-name">Stem-3</h3>
@@ -506,7 +506,7 @@
             <!-- Add the bg color to the header using any of the bg-* classes -->
             <div class="widget-user-header bg-orange">
               <div class="widget-user-image">
-                <img class="img-circle" src="<?php echo base_url('images/alt_picture.jpg'); ?>" alt="User Avatar">
+                <img class="img-circle" src="<?php echo base_url('images/alt_picture_yellow.jpg'); ?>" alt="User Avatar">
               </div>
               <!-- /.widget-user-image -->
               <h3 class="widget-user-username" style="color: white; font-size: 25px;" id="profile-room-name">Lab 1</h3>
