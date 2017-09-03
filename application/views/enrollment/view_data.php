@@ -461,7 +461,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="box-body box-profile">
               <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url('images/alt_picture.jpg'); ?>" alt="User profile picture">
 
-              <h3 id="name" class="profile-username text-center" ></h3>
+              <h3 id="name" class="profile-username text-center"></h3>
 
               <p class="text-muted text-center" id="position"></p>
 		<div class="row">
