@@ -71,8 +71,8 @@
 
 
       //Remove event from text input
-      $('#new-event-subject').val('')
-      $('#new-event-teacher').val('')
+      $('#new-event-subject').val('').trigger('change')
+      $('#new-event-teacher').val('').trigger('change')
       
     })
   })
