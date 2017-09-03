@@ -1,3 +1,31 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.5.1
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Sep 03, 2017 at 11:24 PM
+-- Server version: 5.7.11
+-- PHP Version: 7.0.4
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+08:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `school_management`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `classes`
+--
+
 CREATE TABLE `classes` (
   `id` int(11) NOT NULL,
   `class_name` varchar(50) DEFAULT NULL,
@@ -20,7 +48,8 @@ INSERT INTO `classes` (`id`, `class_name`, `year`, `adviser`, `occupants`, `capa
 (3, 'HUMSS-3', 'Grade 11', 4245746, 37, 40, '2017-08-20 15:23:58', '2017-08-20 15:23:58', 'HUMSS'),
 (4, 'ABM-4', 'Grade 12', 4245747, 40, 40, '2017-08-20 15:24:45', '2017-08-20 15:24:45', 'ABM'),
 (5, 'TVLHE-5', 'Grade 11', 4245748, 40, 40, '2017-08-20 15:25:28', '2017-08-20 15:25:28', 'TVLHE'),
-(6, 'TVLAS-6', 'Grade 12', 4245749, 21, 40, '2017-08-21 05:14:18', '2017-08-21 05:14:18', 'TVLAS');
+(6, 'TVLAS-6', 'Grade 12', 4245749, 21, 40, '2017-08-21 05:14:18', '2017-08-21 05:14:18', 'TVLAS'),
+(0, '-', '-', NULL, NULL, NULL, '2017-09-03 14:27:27', '2017-09-03 14:27:27', NULL);
 
 -- --------------------------------------------------------
 
@@ -134,6 +163,29 @@ INSERT INTO `rooms` (`id`, `room_id`, `room_name`, `building`, `class_id`, `stat
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `schedule`
+--
+
+CREATE TABLE `schedule` (
+  `id` int(11) NOT NULL,
+  `room_id` int(11) NOT NULL,
+  `subject_id` int(11) NOT NULL,
+  `teacher_id` int(11) NOT NULL,
+  `time_start` time NOT NULL,
+  `time_end` time NOT NULL,
+  `day` enum('Monday','Tuesday','Wednesday','Thursday','Friday') NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `schedule`
+--
+
+INSERT INTO `schedule` (`id`, `room_id`, `subject_id`, `teacher_id`, `time_start`, `time_end`, `day`) VALUES
+(1, 1, 1, 1, '09:00:00', '10:00:00', 'Monday');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `students`
 --
 
@@ -178,6 +230,31 @@ INSERT INTO `students` (`id`, `lrn`, `grade`, `first_name`, `middle_name`, `last
 (4, '14038023', 'Grade 12', 'John', 'Robert', 'Capistrano', 'Male', '09555555555', '2017-08-01', 'Monumento', 20, 'Tagalog', 'Catholic', 'Monumento st.', 'Monumento', 'Monumento', 'Monumento', 'Father Capistrano', 'Mother Capistrano', 'Fcapis contact', 'Mcapis contact', 'N/A', 'N/A', 'N/A', 'COMPLETE', '4', 'ABM'),
 (5, '14038024', 'Grade 12', 'Shanai', 'Hazel', 'Zulueta', 'Female', '09666666666', '2017-07-31', 'Bicol', 19, 'Tagalog', 'Catholic', 'Bicol st.', 'Bicol', 'Bicol', 'Bicol', 'Father Zulueta', 'Mother Zulueta', 'Fzulueta contact', 'Mzulueta contact', 'N/A', 'N/A', 'N/A', 'COMPLETE', '5', 'TVL-HE'),
 (6, '14038025', 'Grade 12', 'Shiela', 'May', 'Morales', 'Female', '09777777777', '1997-05-03', 'Pampanga', 20, 'Tagalog', 'Catholic', 'Pampanga st.', 'Pampanga', 'Pampanga', 'Pampanga', 'Father Morales', 'Mother Morales', 'Fmorales contact', 'Mmorales contact', 'N/A', 'N/A', 'N/A', 'COMPLETE', '6', 'TVL-AS');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subjects`
+--
+
+CREATE TABLE `subjects` (
+  `id` int(11) NOT NULL,
+  `name` varchar(150) NOT NULL,
+  `date_created` timestamp NULL DEFAULT NULL,
+  `date_modified` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `subjects`
+--
+
+INSERT INTO `subjects` (`id`, `name`, `date_created`, `date_modified`) VALUES
+(1, 'English', '2017-09-03 13:55:03', '2017-09-03 13:55:03'),
+(2, 'Mathematics', NULL, NULL),
+(3, 'Science', NULL, NULL),
+(4, 'Social Studies', NULL, NULL),
+(5, 'English', NULL, NULL),
+(6, 'Values', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -278,11 +355,23 @@ ALTER TABLE `rooms`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `schedule`
+--
+ALTER TABLE `schedule`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `students`
 --
 ALTER TABLE `students`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `lrn` (`lrn`);
+
+--
+-- Indexes for table `subjects`
+--
+ALTER TABLE `subjects`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `teachers`
@@ -305,7 +394,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `classes`
 --
 ALTER TABLE `classes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `online_applicants`
 --
@@ -322,9 +411,19 @@ ALTER TABLE `requirements`
 ALTER TABLE `rooms`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
+-- AUTO_INCREMENT for table `schedule`
+--
+ALTER TABLE `schedule`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `subjects`
+--
+ALTER TABLE `subjects`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `teachers`

@@ -525,7 +525,7 @@
               <h4 class="box-title">Draggable Events</h4>
             </div>
             <div class="box-body">
-               <div class="count object" id="1" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div></div>
+               <div class="count object" id="0" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div></div>
               <div id="external-events">
               </div>
             </div>
@@ -557,8 +557,22 @@
               </div>
               <!-- /btn-group -->
               <div class="input-group">
-                <input style="height:34px;" id="new-event-subject" type="text" class="form-control" placeholder="Event">
-                <input style="height:34px;" id="new-event-teacher" type="text" class="form-control" placeholder="Teacher">
+                <select id="new-event-subject" class="form-control select2"  data-placeholder="Select subject">
+                  <option></option>
+                  <?php foreach ($subjects as $val) 
+                    {
+                      echo "<option>".$val->name."</option>";
+                    }
+                  ?>   
+                </select>
+                <select id="new-event-teacher" class="form-control select2"  data-placeholder="Select teacher">
+                  <option></option>
+                  <?php foreach ($teachers as $val) 
+                    {
+                      echo "<option>".$val->first_name." ".$val->last_name."</option>";
+                    }
+                  ?>   
+                </select>
 
                 <div class="input-group-btn ">
                   <button id="add-new-event" type="button" class="btn btn-primary btn-flat" style="height:68px;">Add</button>
@@ -591,8 +605,9 @@
               <center>
                 <button style="width: 100px" id="remove" class="btn btn-danger">Remove</button>
                 <button style="width: 100px" id="removeAll" class="btn btn-warning">Remove All</button><br>
-                <button style="width: 100px; margin-top: 3px" id="add"class="btn btn-success">Add</button>
-                <button style="width: 100px; margin-top: 3px" id="printBtn"class="btn btn-primary">Print</button>
+                <button style="width: 100px; margin-top: 3px" id="add" class="btn btn-success">Add</button>
+                <button style="width: 100px; margin-top: 3px" id="printBtn" class="btn btn-primary">Print</button>
+                <button style="margin-top: 3px" id="saveBtn" class="btn bg-purple">Save Schedule</button>
               </center>                
               <div id="external-events">
 
@@ -738,6 +753,7 @@
                 </tr>
                 </tfoot>
               </table>
+
             </div>
             <!-- /.box-body -->
           </div>
