@@ -370,7 +370,7 @@
         </div>
         <!-- /.box-body -->
         <div class="box-footer">
-          <button type="submit" name="search" class="btn btn-primary btn-flat">Submit</button>
+          <button class="btn btn-primary btn-flat">Submit</button>
         </div>
         <!-- /.box-footer-->
       </form>
