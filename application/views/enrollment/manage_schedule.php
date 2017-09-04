@@ -473,7 +473,7 @@
 
           <div class="box box-solid">
             <div class="box-header with-border">
-              <h4 class="box-title">Draggable Events</h4>
+              <h4 class="box-title">Draggable Events <div class="box-title" style="font-size: 13px">(max of 3) </div></h4>
             </div>
             <div class="box-body" style="padding: 7px 10px 7px 10px">
                <div class="count object" id="0" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div></div>
