@@ -333,7 +333,7 @@
             <div class="icon">
               <i class="fa fa-pencil"></i>
             </div>
-            <a href="#" class="small-box-footer">View table <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer">select class <i class="fa fa-arrow-circle-right"></i></a>
           </div>
 
           <!-- SELECT2 EXAMPLE -->
@@ -345,7 +345,7 @@
         <div class="box-body">
           <div class="row">
             <div class="col-md-12">
-              <div class="form-group" style="margin-top: 15px">
+              <div class="form-group" style="margin-bottom: 0px">
                 <select id="select-class" class="form-control select2"  data-placeholder="Select class">
                   <option></option>
                   <?php foreach ($classes as $val) 
@@ -365,124 +365,7 @@
         <!-- /.box-body -->
       </div>
       <!-- /.box -->
-        </div>
-        <!-- ./col -->
-
-        <div class="col-lg-4 col-xs-12">
-          <!-- small box -->
-          <div id="teachers-pick" class="small-box bg-green" id="viewTeachers" style="cursor: pointer;">
-            <div class="inner">
-              <h3><?php echo $teachersCount ?></h3>
-
-              <p>Teachers</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-mortar-board"></i>
-            </div>
-            <a href="#" class="small-box-footer">View table  <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-
-          <!-- SELECT2 EXAMPLE -->
-      <div id="teachers-select" class="box box-default">
-        <div class="box-header with-border">
-          <h3 class="box-title">Select teacher</h3>
-        </div>
-        <!-- /.box-header -->
-        <div class="box-body">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="form-group" style="margin-top: 15px">
-                <select id="select-teacher" class="form-control select2" data-placeholder="Select Teachers">
-                  <option></option>
-                  <?php foreach ($teachers as $val) 
-                    {
-                      echo "<option value='".$val->employee_id."'>".$val->first_name." ".$val->last_name."</option>";
-                    }
-                  ?>
-                </select>
-              </div>
-              <!-- /.form-group -->              
-            </div>
-            <!-- /.col -->
-
-          </div>
-          <!-- /.row -->
-        </div>
-        <!-- /.box-body -->
-      </div>
-      <!-- /.box -->
-        </div>
-        <!-- ./col -->
-
-        <div class="col-lg-4 col-xs-12">
-          <!-- small box -->
-          <div id="rooms-pick" class="small-box bg-yellow" id="viewRooms" style="cursor: pointer;">
-            <div class="inner">
-              <h3><?php echo $roomsCount ?></h3>
-
-              <p>Rooms</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-home"></i>
-            </div>
-            <a href="#" class="small-box-footer">View table <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-
-          <!-- SELECT2 EXAMPLE -->
-      <div id="rooms-select" class="box box-default">
-        <div class="box-header with-border">
-          <h3 class="box-title">Select room</h3>
-        </div>
-        <!-- /.box-header -->
-        <div class="box-body">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="form-group" style="margin-top: 15px">
-                <select id="select-room" class="form-control select2" data-placeholder="Select Rooms">
-                  <option></option>
-                  <?php foreach ($rooms as $val) 
-                    {
-                      echo "<option value='".$val->room_id."'>".$val->room_name."</option>";
-                    }
-                  ?>                  
-                </select>
-              </div>
-              <!-- /.form-group -->              
-            </div>
-            <!-- /.col -->
-
-          </div>
-          <!-- /.row -->
-        </div>
-        <!-- /.box-body -->
-      </div>
-      <!-- /.box -->
-        </div>
-        <!-- ./col -->
-      </div>
-
-      <div class="row">
-        <div class="hidden-print col-md-3">
-          <!-- Widget: user widget style 1 -->
-          <div id="profile-box" class="box box-widget widget-user-2">
-            <!-- Add the bg color to the header using any of the bg-* classes -->
-            <div class="widget-user-header bg-green">
-              <div class="widget-user-image">
-                <img class="img-circle" src="<?php echo base_url('images/alt_picture_green.jpg'); ?>" alt="User Avatar">
-              </div>
-              <!-- /.widget-user-image -->
-              <h3 class="widget-user-username" style="color: white; font-size: 25px;" id="profile-name">Nadia Nacia</h3>
-              <h5 class="widget-user-desc" style="color: white" id="profile-position"> Teacher 1</h5>
-            </div>
-            <div class="box-footer no-padding">
-              <ul class="nav nav-stacked">
-                <li><a href="#">Major <span class="pull-right text-danger" id="profile-major">STEM</span></a></li>
-                <li><a href="#">Status <span class="pull-right text-danger"  id="profile-status">Senior High</span></a></li>
-                <li><a href="#">Contact <span class="pull-right text-danger" id="profile-contact">09975864782</span></a></li>
-              </ul>
-            </div>
-          </div>
-          <!-- Widget: user widget style 1 -->
+      <!-- Widget: user widget style 1 -->
           <div id="profile-box-class" class="box box-widget widget-user-2">
             <!-- Add the bg color to the header using any of the bg-* classes -->
             <div class="widget-user-header bg-aqua">
@@ -490,48 +373,21 @@
                 <img class="img-circle" src="<?php echo base_url('images/alt_picture_aqua.jpg'); ?>" alt="User Avatar">
               </div>
               <!-- /.widget-user-image -->
-              <h3 class="widget-user-username" style="color: white; font-size: 25px;" id="profile-class-name">Stem-3</h3>
-              <h5 class="widget-user-desc" style="color: white" id="profile-class-grade">Grade 12</h5>
+              <h3 class="widget-user-username" style="color: white; font-size: 25px;" id="profile-class-name">-</h3>
+              <h5 class="widget-user-desc" style="color: white" id="profile-class-grade">-</h5>
             </div>
             <div class="box-footer no-padding">
               <ul class="nav nav-stacked">
-                <li><a href="#">Adviser <span class="pull-right text-info" id="profile-class-adviser">Meliton</span></a></li>
-                <li><a href="#">Capacity <span class="pull-right text-info"  id="profile-class-capacity">30/40</span></a></li>
-                <li><a href="#">Status <span class="pull-right text-danger badge bg-blue" id="profile-class-status">NOT FULL</span></a></li>
+                <li><a href="#">Adviser <span class="pull-right text-info" id="profile-class-adviser">-</span></a></li>
+                <li><a href="#">Capacity <span class="pull-right text-info"  id="profile-class-capacity">-/-</span></a></li>
+                <li><a href="#">Status <span class="pull-right text-danger badge bg-blue" id="profile-class-status">-</span></a></li>
               </ul>
             </div>
           </div>
-          <!-- Widget: user widget style 1 -->
-          <div id="profile-box-room" class="box box-widget widget-user-2">
-            <!-- Add the bg color to the header using any of the bg-* classes -->
-            <div class="widget-user-header bg-orange">
-              <div class="widget-user-image">
-                <img class="img-circle" src="<?php echo base_url('images/alt_picture_yellow.jpg'); ?>" alt="User Avatar">
-              </div>
-              <!-- /.widget-user-image -->
-              <h3 class="widget-user-username" style="color: white; font-size: 25px;" id="profile-room-name">Lab 1</h3>
-              <h5 class="widget-user-desc" style="color: white" id="profile-room-building">English Building</h5>
-            </div>
-            <div class="box-footer no-padding">
-              <ul class="nav nav-stacked">
-                <li><a href="#">Class <span class="pull-right text-danger" id="profile-room-class">Type-0</span></a></li>
-                <li><a href="#">Status <span class="pull-right text-danger badge bg-blue" id="profile-room-status">AVAILABLE</span></a></li>
-              </ul>
-            </div>
-          </div>
-          <!-- /.widget-user -->
-          <div class="box box-solid">
-            <div class="box-header with-border">
-              <h4 class="box-title">Draggable Events</h4>
-            </div>
-            <div class="box-body">
-               <div class="count object" id="0" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div></div>
-              <div id="external-events">
-              </div>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /. box -->
+        </div>
+        <!-- ./col -->
+
+        <div class="col-lg-4 col-xs-12">
           <div class="hidden-print box box-solid">
             <div class="box-header with-border">
               <h3 class="box-title">Create Event</h3>
@@ -543,7 +399,6 @@
                   <li><a class="text-aqua" href="#"><i class="fa fa-square"></i></a></li>
                   <li><a class="text-blue" href="#"><i class="fa fa-square"></i></a></li>
                   <li><a class="text-light-blue" href="#"><i class="fa fa-square"></i></a></li>
-                  <li><a class="text-teal" href="#"><i class="fa fa-square"></i></a></li>
                   <li><a class="text-yellow" href="#"><i class="fa fa-square"></i></a></li>
                   <li><a class="text-orange" href="#"><i class="fa fa-square"></i></a></li>
                   <li><a class="text-green" href="#"><i class="fa fa-square"></i></a></li>
@@ -551,8 +406,6 @@
                   <li><a class="text-red" href="#"><i class="fa fa-square"></i></a></li>
                   <li><a class="text-purple" href="#"><i class="fa fa-square"></i></a></li>
                   <li><a class="text-fuchsia" href="#"><i class="fa fa-square"></i></a></li>
-                  <li><a class="text-muted" href="#"><i class="fa fa-square"></i></a></li>
-                  <li><a class="text-navy" href="#"><i class="fa fa-square"></i></a></li>
                 </ul>
               </div>
               <!-- /btn-group -->
@@ -585,39 +438,59 @@
 
           <div class="hidden-print box box-solid">
             <div class="box-header with-border">
+              <h4 class="box-title">Actions Row</h4>
+            </div>
+            <div class="box-body" style="padding: 19px 0px 19px 0px">
+            <center>
+                <button style="width: 100px; margin-top: 3px" id="add" class="btn btn-success">Add</button>
+                <button style="width: 100px; margin-top: 3px" id="remove" class="btn btn-danger">Remove</button>
+                <button style="width: 100px; margin-top: 3px" id="removeAll" class="btn btn-warning">Remove All</button>
+                <button style="width: 100px; margin-top: 3px" id="printBtn" class="btn btn-primary">Print</button>
+                <button style="width: 100px; margin-top: 3px" id="saveBtn" class="btn bg-purple">Save Sched</button>         
+                <button style="width: 100px; margin-top: 3px" id="clearBtn" class="btn bg-purple">Clear</button>  
+            </center>                
+                             
+            </div>
+            <!-- /.box-body -->
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-4 col-xs-12">
+
+          <div class="hidden-print box box-solid">
+            <div class="box-header with-border">
               <h4 id="trash" class="box-title">Drag Here To Trash</h4>
             </div>
-            <div class="box-body">
+            <div class="box-body" style="padding: 5px 10px 5px 10px">
               <!-- the events -->
               <div ondrop="dropTrash(event)" ondragover="allowDrop(event)" >
-                  <h5 class="box-title text-center"><icon id = "icon" class="fa fa-trash-o fa-4x"/></h5>
+                  <h5 class="box-title text-center"><icon id = "icon" class="fa fa-trash-o fa-2x"/></h5>
               </div>
             </div>
             <!-- /.box-body -->
           </div>
           <!-- /. box -->
 
-          <div class="hidden-print box box-solid">
+          <div class="box box-solid">
             <div class="box-header with-border">
-              <h4 class="box-title">Actions Row</h4>
+              <h4 class="box-title">Draggable Events <div class="box-title" style="font-size: 13px">(max of 3) </div></h4>
             </div>
-            <div class="box-body">
-              <center>
-                <button style="width: 100px" id="remove" class="btn btn-danger">Remove</button>
-                <button style="width: 100px" id="removeAll" class="btn btn-warning">Remove All</button><br>
-                <button style="width: 100px; margin-top: 3px" id="add" class="btn btn-success">Add</button>
-                <button style="width: 100px; margin-top: 3px" id="printBtn" class="btn btn-primary">Print</button>
-                <button style="margin-top: 3px" id="saveBtn" class="btn bg-purple">Save Schedule</button>
-              </center>                
+            <div class="box-body" style="padding: 7px 10px 7px 10px">
+               <div class="count object" id="0" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div></div>
               <div id="external-events">
-
               </div>
             </div>
             <!-- /.box-body -->
           </div>
+          <!-- /. box -->
+          
         </div>
+        <!-- ./col -->
+      </div>
+
+      <div class="row">
         <!-- /.col -->
-        <div class="col-md-9">
+        <div class="col-md-12">
 
           <div class="box box-primary">
             <div class="box-body no-padding">
