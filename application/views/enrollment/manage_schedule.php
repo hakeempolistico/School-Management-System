@@ -324,11 +324,11 @@
       <div class="row hidden-print">
         <div class="col-lg-4 col-xs-12">
           <!-- small box -->
-          <div id="students-pick" class="small-box bg-aqua" id="viewStudents" style="cursor: pointer;">
+          <div id="classes-pick" class="small-box bg-aqua" id="viewStudents" style="cursor: pointer;">
             <div class="inner">
-              <h3><?php echo $studentsCount ?></h3>
+              <h3><?php echo $classesCount ?></h3>
 
-              <p>Students</p>
+              <p>Classes</p>
             </div>
             <div class="icon">
               <i class="fa fa-pencil"></i>
@@ -337,25 +337,21 @@
           </div>
 
           <!-- SELECT2 EXAMPLE -->
-      <div id="students-select" class="box box-default">
+      <div id="classes-select" class="box box-default">
         <div class="box-header with-border">
-          <h3 class="box-title">Select data</h3>
-
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
-          </div>
+          <h3 class="box-title">Select class</h3>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
           <div class="row">
             <div class="col-md-12">
-              <div class="form-group">
-                <label>Students</label>
-                <select class="form-control select2"  data-placeholder="Select Students">
+              <div class="form-group" style="margin-top: 15px">
+                <select id="select-class" class="form-control select2"  data-placeholder="Select class">
                   <option></option>
-                  <?php foreach ($students as $val) {
-                    echo "<option>".$val->first_name." ".$val->last_name."</option>";
-                  }
+                  <?php foreach ($classes as $val) 
+                    {
+                      echo "<option value='".$val->id."'>".$val->class_name."</option>";
+                    }
                   ?>   
                 </select>
               </div>
@@ -389,23 +385,19 @@
           <!-- SELECT2 EXAMPLE -->
       <div id="teachers-select" class="box box-default">
         <div class="box-header with-border">
-          <h3 class="box-title">Select data</h3>
-
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
-          </div>
+          <h3 class="box-title">Select teacher</h3>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
           <div class="row">
             <div class="col-md-12">
-              <div class="form-group">
-                <label>Teachers</label>
-                <select class="form-control select2" data-placeholder="Select Teachers">
+              <div class="form-group" style="margin-top: 15px">
+                <select id="select-teacher" class="form-control select2" data-placeholder="Select Teachers">
                   <option></option>
-                  <?php foreach ($teachers as $val) {
-                    echo "<option>".$val->first_name." ".$val->last_name."</option>";
-                  }
+                  <?php foreach ($teachers as $val) 
+                    {
+                      echo "<option value='".$val->employee_id."'>".$val->first_name." ".$val->last_name."</option>";
+                    }
                   ?>
                 </select>
               </div>
@@ -439,23 +431,19 @@
           <!-- SELECT2 EXAMPLE -->
       <div id="rooms-select" class="box box-default">
         <div class="box-header with-border">
-          <h3 class="box-title">Select data</h3>
-
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
-          </div>
+          <h3 class="box-title">Select room</h3>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
           <div class="row">
             <div class="col-md-12">
-              <div class="form-group">
-                <label>Rooms</label>
-                <select class="form-control select2" data-placeholder="Select Rooms">
+              <div class="form-group" style="margin-top: 15px">
+                <select id="select-room" class="form-control select2" data-placeholder="Select Rooms">
                   <option></option>
-                  <?php foreach ($rooms as $val) {
-                    echo "<option>".$val->room_name."</option>";
-                  }
+                  <?php foreach ($rooms as $val) 
+                    {
+                      echo "<option value='".$val->room_id."'>".$val->room_name."</option>";
+                    }
                   ?>                  
                 </select>
               </div>
@@ -472,104 +460,72 @@
         </div>
         <!-- ./col -->
       </div>
-      <div class="row hidden-print">
-        <div class="col-md-12">
-          <div class="box box-danger">
-            <div class="box-header with-border">
-              <h3 class="box-title">Profile</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-              </div>
-              <!-- /.box-tools -->
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <div class="col-md-4">
-          <!-- Widget: user widget style 1 -->
-          <div style = "border-width: 1px; border-style: solid; border-color: #f1f1f1;" class="box box-widget widget-user">
-            <!-- Add the bg color to the header using any of the bg-* classes -->
-            <div class="widget-user-header bg-maroon-active">
-              <h3 class="widget-user-username">Adrielle Nicolette Escaro</h3>
-              <h5 class="widget-user-desc">Lead Developer</h5>
-            </div>
-            <div class="widget-user-image">
-              <img class="img-circle" src="<?php echo base_url(); ?>dist/img/user1-128x128.jpg" alt="User Avatar">
-            </div>
-            <div class="box-footer">
-              <div class="row">
-                <div class="col-sm-4 border-right">
-                  <div class="description-block">
-                    <h5 class="description-header">3,200</h5>
-                    <span class="description-text">SALES</span>
-                  </div>
-                  <!-- /.description-block -->
-                </div>
-                <!-- /.col -->
-                <div class="col-sm-4 border-right">
-                  <div class="description-block">
-                    <h5 class="description-header">13,000</h5>
-                    <span class="description-text">FOLLOWERS</span>
-                  </div>
-                  <!-- /.description-block -->
-                </div>
-                <!-- /.col -->
-                <div class="col-sm-4">
-                  <div class="description-block">
-                    <h5 class="description-header">35</h5>
-                    <span class="description-text">PRODUCTS</span>
-                  </div>
-                  <!-- /.description-block -->
-                </div>
-                <!-- /.col -->
-              </div>
-              <!-- /.row -->
-            </div>
-          </div>
-          <!-- /.widget-user -->
-        </div>
-        <div class="col-md-4">
-          <!-- Widget: user widget style 1 -->
-           <div style = "border-width: 1px; border-style: solid; border-color: #f1f1f1;" class="box box-widget widget-user-2">
-              <div class="box-footer" style="padding: 6px">
-              <ul class="nav nav-stacked">
-                <li><a href="#">Status <span class="pull-right badge bg-blue">Active</span></a></li>
-                <li><a href="#">Full Name <span class="pull-right text-maroon">Adrielle Kristine Nicolette Escaro</span></a></li>
-                <li><a href="#">Position <span class="pull-right text-maroon">Teacher 1</span></a></li>
-                <li><a href="#">Major <span class="pull-right text-maroon">English</span></a></li>
-                <li><a href="#">Contact No <span class="pull-right text-maroon">0997-586-4782</span></a></li>
-              </ul>
-            </div>
-          </div>
-          <!-- /.widget-user -->    
-        </div>
-        <!-- /.col -->
-        <div class="col-md-4">
-            <!-- /.box-header -->
-            <div style = "border-width: 1px; border-style: solid; border-color: #f1f1f1;  height: 218px; max-height: 218;" class="box-body">
-              <strong><i class="fa fa-file-text-o margin-r-5"></i> Notes</strong>
-              <p>Max of 250 characters only.</p>
-            </div>
-            <!-- /.box-body -->
-        </div>
-
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-        </div>
-        
-      </div>
 
       <div class="row">
         <div class="hidden-print col-md-3">
+          <!-- Widget: user widget style 1 -->
+          <div id="profile-box" class="box box-widget widget-user-2">
+            <!-- Add the bg color to the header using any of the bg-* classes -->
+            <div class="widget-user-header bg-green">
+              <div class="widget-user-image">
+                <img class="img-circle" src="<?php echo base_url('images/alt_picture_green.jpg'); ?>" alt="User Avatar">
+              </div>
+              <!-- /.widget-user-image -->
+              <h3 class="widget-user-username" style="color: white; font-size: 25px;" id="profile-name">Nadia Nacia</h3>
+              <h5 class="widget-user-desc" style="color: white" id="profile-position"> Teacher 1</h5>
+            </div>
+            <div class="box-footer no-padding">
+              <ul class="nav nav-stacked">
+                <li><a href="#">Major <span class="pull-right text-danger" id="profile-major">STEM</span></a></li>
+                <li><a href="#">Status <span class="pull-right text-danger"  id="profile-status">Senior High</span></a></li>
+                <li><a href="#">Contact <span class="pull-right text-danger" id="profile-contact">09975864782</span></a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- Widget: user widget style 1 -->
+          <div id="profile-box-class" class="box box-widget widget-user-2">
+            <!-- Add the bg color to the header using any of the bg-* classes -->
+            <div class="widget-user-header bg-aqua">
+              <div class="widget-user-image">
+                <img class="img-circle" src="<?php echo base_url('images/alt_picture_aqua.jpg'); ?>" alt="User Avatar">
+              </div>
+              <!-- /.widget-user-image -->
+              <h3 class="widget-user-username" style="color: white; font-size: 25px;" id="profile-class-name">Stem-3</h3>
+              <h5 class="widget-user-desc" style="color: white" id="profile-class-grade">Grade 12</h5>
+            </div>
+            <div class="box-footer no-padding">
+              <ul class="nav nav-stacked">
+                <li><a href="#">Adviser <span class="pull-right text-info" id="profile-class-adviser">Meliton</span></a></li>
+                <li><a href="#">Capacity <span class="pull-right text-info"  id="profile-class-capacity">30/40</span></a></li>
+                <li><a href="#">Status <span class="pull-right text-danger badge bg-blue" id="profile-class-status">NOT FULL</span></a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- Widget: user widget style 1 -->
+          <div id="profile-box-room" class="box box-widget widget-user-2">
+            <!-- Add the bg color to the header using any of the bg-* classes -->
+            <div class="widget-user-header bg-orange">
+              <div class="widget-user-image">
+                <img class="img-circle" src="<?php echo base_url('images/alt_picture_yellow.jpg'); ?>" alt="User Avatar">
+              </div>
+              <!-- /.widget-user-image -->
+              <h3 class="widget-user-username" style="color: white; font-size: 25px;" id="profile-room-name">Lab 1</h3>
+              <h5 class="widget-user-desc" style="color: white" id="profile-room-building">English Building</h5>
+            </div>
+            <div class="box-footer no-padding">
+              <ul class="nav nav-stacked">
+                <li><a href="#">Class <span class="pull-right text-danger" id="profile-room-class">Type-0</span></a></li>
+                <li><a href="#">Status <span class="pull-right text-danger badge bg-blue" id="profile-room-status">AVAILABLE</span></a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- /.widget-user -->
           <div class="box box-solid">
             <div class="box-header with-border">
               <h4 class="box-title">Draggable Events</h4>
             </div>
             <div class="box-body">
-               <div class="count object" id="1" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div></div>
+               <div class="count object" id="0" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div></div>
               <div id="external-events">
               </div>
             </div>
@@ -601,8 +557,22 @@
               </div>
               <!-- /btn-group -->
               <div class="input-group">
-                <input style="height:34px;" id="new-event-subject" type="text" class="form-control" placeholder="Event">
-                <input style="height:34px;" id="new-event-teacher" type="text" class="form-control" placeholder="Teacher">
+                <select id="new-event-subject" class="form-control select2"  data-placeholder="Select subject">
+                  <option></option>
+                  <?php foreach ($subjects as $val) 
+                    {
+                      echo "<option>".$val->name."</option>";
+                    }
+                  ?>   
+                </select>
+                <select id="new-event-teacher" class="form-control select2"  data-placeholder="Select teacher">
+                  <option></option>
+                  <?php foreach ($teachers as $val) 
+                    {
+                      echo "<option>".$val->first_name." ".$val->last_name."</option>";
+                    }
+                  ?>   
+                </select>
 
                 <div class="input-group-btn ">
                   <button id="add-new-event" type="button" class="btn btn-primary btn-flat" style="height:68px;">Add</button>
@@ -635,8 +605,9 @@
               <center>
                 <button style="width: 100px" id="remove" class="btn btn-danger">Remove</button>
                 <button style="width: 100px" id="removeAll" class="btn btn-warning">Remove All</button><br>
-                <button style="width: 100px; margin-top: 3px" id="add"class="btn btn-success">Add</button>
-                <button style="width: 100px; margin-top: 3px" id="printBtn"class="btn btn-primary">Print</button>
+                <button style="width: 100px; margin-top: 3px" id="add" class="btn btn-success">Add</button>
+                <button style="width: 100px; margin-top: 3px" id="printBtn" class="btn btn-primary">Print</button>
+                <button style="margin-top: 3px" id="saveBtn" class="btn bg-purple">Save Schedule</button>
               </center>                
               <div id="external-events">
 
@@ -782,6 +753,7 @@
                 </tr>
                 </tfoot>
               </table>
+
             </div>
             <!-- /.box-body -->
           </div>
@@ -828,6 +800,8 @@
 <script type="text/javascript">
   //Initialize Select2 Elements
     $('.select2').select2()
+
+  var ajaxUrl = "<?php echo base_url("enrollment/manage_schedule/ajax"); ?>"
 </script>
 </body>
 </html>

@@ -334,46 +334,46 @@
           <h3 class="box-title">Please enter the ff. grades: </h3>
         </div>
         <div class="box-body">
-        <form>
           <div class="form-group">
             <label>English</label>
-            <input type="text" class="form-control" name="english" style="margin-bottom: -10px;">
+            <input type="text" class="form-control" name="subj[]" id="eng" style="margin-bottom: -10px;">
           </div>
           <div class="form-group">
             <label>Mathematics</label>
-            <input type="text" class="form-control" name="math"  style="margin-bottom: -10px;">
+            <input type="text" class="form-control" name="subj[]" id="math"  style="margin-bottom: -10px;">
           </div>
           <div class="form-group">
             <label>Science</label>
-            <input type="text" class="form-control" name="science"  style="margin-bottom: -10px;">
+            <input type="text" class="form-control" name="subj[]" id="sci"  style="margin-bottom: -10px;">
           </div>
           <div class="form-group">
             <label>Filipino</label>
-            <input type="text" class="form-control" name="filipino"  style="margin-bottom: -10px;">
+            <input type="text" class="form-control" name="subj[]" id="fil"  style="margin-bottom: -10px;">
           </div>
           <div class="form-group">
             <label>Araling Panlipunan</label>
-            <input type="text" class="form-control" name="ap" style="margin-bottom: -10px;">
+            <input type="text" class="form-control" name="subj[]" id="ap" style="margin-bottom: -10px;">
           </div>
           <div class="form-group">
             <label>T.L.E.</label>
-            <input type="text" class="form-control" name="tle" style="margin-bottom: -10px;">
+            <input type="text" class="form-control" name="subj[]" id="tle" style="margin-bottom: -10px;">
           </div>
           <div class="form-group">
             <label>Computer Education</label>
-            <input type="text" class="form-control" name="computer" style="margin-bottom: -10px;">
+            <input type="text" class="form-control" name="subj[]" id="comp" style="margin-bottom: -10px;">
           </div>
           <div class="form-group">
             <label>MAPEH</label>
-            <input type="text" class="form-control" name="mapeh" style="margin-bottom: -10px;">
+            <input type="text" class="form-control" name="subj[]" id="mapeh" style="margin-bottom: -10px;">
           </div>
         </div>
         <!-- /.box-body -->
         <div class="box-footer">
-          <button class="btn btn-primary btn-flat">Submit</button>
+          <button id="ave" class="btn btn-primary btn-flat">Submit</button>
+          <div id="error"></div>
+          <div id="avera"></div>
         </div>
         <!-- /.box-footer-->
-      </form>
       </div>
       <!-- /.box -->
       </div>
@@ -387,14 +387,14 @@
       <div class="row">
 
         <div class="col-md-6">
-          <div class="small-box bg-green" data-toggle="modal" data-target="#stem" style="cursor: pointer;">
+          <div class="small-box bg-navy" data-toggle="modal" data-target="#tvla" style="cursor: pointer;">
             <div class="inner">
-              <h3>STEM</h3>
+              <h3>TVL-AS</h3>
 
-              <p>Science, Technology,<br> Engineering, and Mathematics</p>
+              <p>Technogy-Vocational<br>Livelihood: Automotive Services</p>
             </div>
             <div class="icon">
-              <i class="fa fa-flask"></i>
+              <i class="fa fa-cogs"></i>
             </div>
             <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -416,46 +416,6 @@
         </div>
         <!-- ./col -->
 
-      </div>
-      <!-- /.row -->
-
-      <div class="row">
-
-        <div class="col-md-6">
-          <div class="small-box bg-yellow" data-toggle="modal" data-target="#humss" style="cursor: pointer;">
-            <div class="inner">
-              <h3>HUMSS</h3>
-
-              <p>Humanities<br>and Social Sciences</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-users"></i>
-            </div>
-            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-
-        <div class="col-md-6">
-          <div class="small-box bg-purple" data-toggle="modal" data-target="#abm" style="cursor: pointer;">
-            <div class="inner">
-              <h3>ABM</h3>
-
-              <p>Accountancy<br>and Business Management</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-briefcase"></i>
-            </div>
-            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-
-      </div>
-      <!-- /.row -->
-
-      <div class="row">
-
         <div class="col-md-6">
           <div class="small-box bg-blue" data-toggle="modal" data-target="#tvlhe" style="cursor: pointer;">
             <div class="inner">
@@ -471,20 +431,50 @@
         </div>
         <!-- ./col -->
 
-        <div class="col-md-6">
-          <div class="small-box bg-navy" data-toggle="modal" data-target="#tvla" style="cursor: pointer;">
+        <div class="col-md-6" id="humssdiv">
+          <div class="small-box bg-gray" id="humssbox" data-toggle="modal" data-target="#humss" style="pointer-events: none;">
             <div class="inner">
-              <h3>TVL-AS</h3>
+              <h3>HUMSS</h3>
 
-              <p>Technogy-Vocational<br>Livelihood: Automotive Services</p>
+              <p>Humanities<br>and Social Sciences</p>
             </div>
             <div class="icon">
-              <i class="fa fa-cogs"></i>
+              <i class="fa fa-users"></i>
             </div>
             <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
+
+        <div class="col-md-6" id="abmdiv">
+          <div class="small-box bg-gray" id="abmbox" data-toggle="modal" data-target="#abm" style="pointer-events: none;">
+            <div class="inner">
+              <h3>ABM</h3>
+
+              <p>Accountancy<br>and Business Management</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-briefcase"></i>
+            </div>
+            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+
+        <div class="col-md-6" id="stemdiv">
+          <div class="small-box bg-gray" id="stembox" data-toggle="modal" data-target="#stem" style="pointer-events: none;">
+            <div class="inner">
+              <h3>STEM</h3>
+
+              <p>Science, Technology,<br> Engineering, and Mathematics</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-flask"></i>
+            </div>
+            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->        
 
       </div>
       <!-- /.row -->
@@ -699,6 +689,42 @@
     $('#datepicker').datepicker({
       autoclose: true
     })
+</script>
+
+<script>
+$("#ave").click(function(){
+  var input1 = parseInt($('#eng').val(),10);
+  var input2 = parseInt($('#math').val(),10);
+  var input3 = parseInt($('#sci').val(),10);
+  var input4 = parseInt($('#fil').val(),10);
+  var input5 = parseInt($('#ap').val(),10);
+  var input6 = parseInt($('#tle').val(),10);
+  var input7 = parseInt($('#comp').val(),10);
+  var input8 = parseInt($('#mapeh').val(),10);
+
+  if (isNaN(input1) || isNaN(input2) || isNaN(input3) || isNaN(input4) || isNaN(input5) || isNaN(input6) || isNaN(input7) || isNaN(input8)) {
+    $('#error').text('Inputs must be numbers');
+  } else {
+    $('#error').remove();
+
+      ave = (input1 + input2 + input3 + input4 + input5 + input6 + input7 +input8) / 8;
+      $('#avera').text(ave);
+
+      if (ave > 85){
+        $('#stembox').hide();
+        $('#abmbox').hide();
+        $('#humssbox').hide();
+
+        $('#stemdiv').append('<div class="small-box bg-yellow-active color-palette" id="humssbox" data-toggle="modal" data-target="#humss" style="curor: pointer;"><div class="inner"><h3>HUMSS</h3><p>Humanities<br>and Social Sciences</p></div><div class="icon"><i class="fa fa-users"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
+
+        $('#abmdiv').append('<div class="small-box bg-purple-active color-palette" id="abmbox" data-toggle="modal" data-target="#abm" style="cursor: pointer;"><div class="inner"><h3>ABM</h3><p>Accountancy<br>and Business Management</p></div><div class="icon"><i class="fa fa-briefcase"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
+
+        $('#humssdiv').append('<div class="small-box bg-green-active color-palette" id="stembox" data-toggle="modal" data-target="#stem" style="cursor: pointer;"><div class="inner"><h3>STEM</h3><p>Science, Technology,<br> Engineering, and Mathematics</p></div><div class="icon"><i class="fa fa-flask"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
+      }
+    }
+  });
+
+
 </script>
 
 </body>

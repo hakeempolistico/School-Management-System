@@ -12,6 +12,9 @@ class manage_student extends CI_Controller {
 	public function index()
 	{
 		$data = $this->parse->parsed();
+		$data['allStudents']  = json_encode($this->global_model->getRecords('students'));
+		$data['allClasses']  = json_encode($this->global_model->getRecords('classes'));
+
 		$data['stemStudents']  = json_encode($this->global_model->getRow('students','strand','STEM'));
 		$data['stemClasses']  = json_encode($this->global_model->getRow('classes','strand','STEM'));
 		$data['rooms']  = json_encode($this->global_model->getRecords('rooms'));

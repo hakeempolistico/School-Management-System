@@ -71,8 +71,8 @@
 
 
       //Remove event from text input
-      $('#new-event-subject').val('')
-      $('#new-event-teacher').val('')
+      $('#new-event-subject').val('').trigger('change')
+      $('#new-event-teacher').val('').trigger('change')
       
     })
   })
@@ -144,14 +144,21 @@ function printData()
 
 $('#printBtn').on('click',function(){
 printData();
-})
+});
 
-$('#students-select').hide();
+$('#classes-select').hide();
 $('#teachers-select').hide();
 $('#rooms-select').hide();
+$('#profile-box').hide();
+$('#profile-box-class').hide();
+$('#profile-box-room').hide();
 
-$('#students-pick').on('click',function(){
-  $('#students-select').show();
+var table; 
+var set;
+$('#classes-pick').on('click',function(){
+  table = "classes";
+  set = "id"
+  $('#classes-select').show();
   $('#teachers-pick').show();
   $('#rooms-pick').show();
   $('#teachers-select').hide();
@@ -160,21 +167,149 @@ $('#students-pick').on('click',function(){
   $(this).hide();
 })
 $('#teachers-pick').on('click',function(){
+  table = "teachers";
+  set = "employee_id";
   $('#teachers-select').show();
-  $('#students-pick').show();
+  $('#classes-pick').show();
   $('#rooms-pick').show();
-  $('#students-select').hide();
+  $('#classes-select').hide();
   $('#rooms-select').hide();
   $('.select2').select2()
   $(this).hide();
 })
 $('#rooms-pick').on('click',function(){
+  table = "rooms";
+  set = "room_id";
   $('#rooms-select').show();
   $('#teachers-pick').show();
-  $('#students-pick').show();
+  $('#classes-pick').show();
   $('#teachers-select').hide();
-  $('#students-select').hide();
+  $('#classes-select').hide();
   $('.select2').select2()
   $(this).hide();
 })
 
+$('#select-teacher').on('change',function(){
+  $('#profile-box-class').hide();
+  $('#profile-box-room').hide();
+  var value = $('#select-teacher').val();
+  $('#profile-box').show();
+  $.ajax({
+            url: ajaxUrl,
+            type: 'post',
+            dataType: 'json', 
+            data: {'set' : set, 'table' : table, 'value' : value }, 
+            success: function(result){
+              console.log(result);
+              $.each(result, function(index, val) {
+                $('#profile-name').html(val.first_name +" " + val.last_name);
+                $('#profile-position').html(val.position);
+                $('#profile-major').html(val.major);
+                $('#profile-status').html(val.status);
+                  if(val.status == "ACTIVE"){
+                    $('#profile-status').removeClass('badge bg-red');
+                    $('#profile-status').addClass('badge bg-blue');
+                  }
+                  else{
+                    $('#profile-status').removeClass('badge bg-blue');
+                    $('#profile-status').addClass('badge bg-red');
+                  }
+                $('#profile-contact').html(val.contact);
+              })
+            }
+          });
+
+})
+
+$('#select-room').on('change',function(){
+  $('#profile-box-class').hide();
+  $('#profile-box').hide();
+  var value = $('#select-room').val();
+  $('#profile-box-room').show();
+  $.ajax({
+            url: ajaxUrl,
+            type: 'post',
+            dataType: 'json', 
+            data: {'set' : set, 'table' : table, 'value' : value }, 
+            success: function(result){
+              console.log(result);
+              $.each(result, function(index, val) {
+                $('#profile-room-name').html(val.room_name);
+                $('#profile-room-building').html(val.building);
+                $('#profile-room-status').html(val.status);
+                  if(val.status == "AVAILABLE"){
+                    $('#profile-room-status').removeClass('badge bg-red');
+                    $('#profile-room-status').addClass('badge bg-blue');
+                  }
+                  if(val.status == "OCCUPIED"){
+                    $('#profile-room-status').removeClass('badge bg-blue');
+                    $('#profile-room-status').addClass('badge bg-red');
+                  }
+                $.ajax({
+                    url: ajaxUrl,
+                    type: 'post',
+                    dataType: 'json', 
+                    data: {'set' : 'id', 'table' : 'classes', 'value' : val.class_id }, 
+                    success: function(result){    
+                       $.each(result, function(index, val) {
+                          $('#profile-room-class').html(val.class_name);
+                       })           
+                      
+                    }
+                })
+              })
+            }
+          });
+
+})
+
+$('#select-class').on('change',function(){
+  $('#profile-box').hide();
+  $('#profile-box-room').hide();
+  var value = $('#select-class').val();
+  $('#profile-box-class').show();
+  $.ajax({
+            url: ajaxUrl,
+            type: 'post',
+            dataType: 'json', 
+            data: {'set' : set, 'table' : table, 'value' : value }, 
+            success: function(result){
+              console.log(result);
+              $.each(result, function(index, val) {
+                $('#profile-class-name').html(val.class_name);
+                $('#profile-class-grade').html(val.year);
+                $('#profile-class-capacity').html(val.occupants+'/'+val.capacity); 
+                var stat;
+                if(val.occupants >= val.capacity){
+                  stat="FULL";
+                }
+                else{
+                  stat="NOT FULL";
+                }
+                $('#profile-class-status').html(stat);
+                  if(stat == "NOT FULL"){
+                    $('#profile-class-status').removeClass('badge bg-red');
+                    $('#profile-class-status').addClass('badge bg-blue');
+                  }
+                  else{
+                    $('#profile-class-status').removeClass('badge bg-blue');
+                    $('#profile-class-status').addClass('badge bg-red');
+                  }
+
+                $.ajax({
+                    url: ajaxUrl,
+                    type: 'post',
+                    dataType: 'json', 
+                    data: {'set' : 'employee_id', 'table' : 'teachers', 'value' : val.adviser }, 
+                    success: function(result){    
+                       $.each(result, function(index, val) {
+                          $('#profile-class-adviser').html(val.first_name+' '+val.last_name);
+                       })           
+                      
+                    }
+                })
+              })
+            }
+          });
+
+})
