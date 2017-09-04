@@ -468,7 +468,7 @@
             <!-- Add the bg color to the header using any of the bg-* classes -->
             <div class="widget-user-header bg-green">
               <div class="widget-user-image">
-                <img class="img-circle" src="<?php echo base_url('images/alt_picture.jpg'); ?>" alt="User Avatar">
+                <img class="img-circle" src="<?php echo base_url('images/alt_picture_green.jpg'); ?>" alt="User Avatar">
               </div>
               <!-- /.widget-user-image -->
               <h3 class="widget-user-username" style="color: white; font-size: 25px;" id="profile-name">Nadia Nacia</h3>
@@ -487,7 +487,7 @@
             <!-- Add the bg color to the header using any of the bg-* classes -->
             <div class="widget-user-header bg-aqua">
               <div class="widget-user-image">
-                <img class="img-circle" src="<?php echo base_url('images/alt_picture.jpg'); ?>" alt="User Avatar">
+                <img class="img-circle" src="<?php echo base_url('images/alt_picture_aqua.jpg'); ?>" alt="User Avatar">
               </div>
               <!-- /.widget-user-image -->
               <h3 class="widget-user-username" style="color: white; font-size: 25px;" id="profile-class-name">Stem-3</h3>
@@ -506,7 +506,7 @@
             <!-- Add the bg color to the header using any of the bg-* classes -->
             <div class="widget-user-header bg-orange">
               <div class="widget-user-image">
-                <img class="img-circle" src="<?php echo base_url('images/alt_picture.jpg'); ?>" alt="User Avatar">
+                <img class="img-circle" src="<?php echo base_url('images/alt_picture_yellow.jpg'); ?>" alt="User Avatar">
               </div>
               <!-- /.widget-user-image -->
               <h3 class="widget-user-username" style="color: white; font-size: 25px;" id="profile-room-name">Lab 1</h3>
@@ -525,7 +525,7 @@
               <h4 class="box-title">Draggable Events</h4>
             </div>
             <div class="box-body">
-               <div class="count object" id="1" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div></div>
+               <div class="count object" id="0" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div></div>
               <div id="external-events">
               </div>
             </div>
@@ -557,8 +557,22 @@
               </div>
               <!-- /btn-group -->
               <div class="input-group">
-                <input style="height:34px;" id="new-event-subject" type="text" class="form-control" placeholder="Event">
-                <input style="height:34px;" id="new-event-teacher" type="text" class="form-control" placeholder="Teacher">
+                <select id="new-event-subject" class="form-control select2"  data-placeholder="Select subject">
+                  <option></option>
+                  <?php foreach ($subjects as $val) 
+                    {
+                      echo "<option>".$val->name."</option>";
+                    }
+                  ?>   
+                </select>
+                <select id="new-event-teacher" class="form-control select2"  data-placeholder="Select teacher">
+                  <option></option>
+                  <?php foreach ($teachers as $val) 
+                    {
+                      echo "<option>".$val->first_name." ".$val->last_name."</option>";
+                    }
+                  ?>   
+                </select>
 
                 <div class="input-group-btn ">
                   <button id="add-new-event" type="button" class="btn btn-primary btn-flat" style="height:68px;">Add</button>
@@ -591,8 +605,9 @@
               <center>
                 <button style="width: 100px" id="remove" class="btn btn-danger">Remove</button>
                 <button style="width: 100px" id="removeAll" class="btn btn-warning">Remove All</button><br>
-                <button style="width: 100px; margin-top: 3px" id="add"class="btn btn-success">Add</button>
-                <button style="width: 100px; margin-top: 3px" id="printBtn"class="btn btn-primary">Print</button>
+                <button style="width: 100px; margin-top: 3px" id="add" class="btn btn-success">Add</button>
+                <button style="width: 100px; margin-top: 3px" id="printBtn" class="btn btn-primary">Print</button>
+                <button style="margin-top: 3px" id="saveBtn" class="btn bg-purple">Save Schedule</button>
               </center>                
               <div id="external-events">
 
@@ -738,6 +753,7 @@
                 </tr>
                 </tfoot>
               </table>
+
             </div>
             <!-- /.box-body -->
           </div>
