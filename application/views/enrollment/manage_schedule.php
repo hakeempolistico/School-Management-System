@@ -349,55 +349,6 @@
 
           <div class="hidden-print box box-solid">
             <div class="box-header with-border">
-              <h4 id="trash" class="box-title">Drag Here To Trash</h4>
-            </div>
-            <div class="box-body" style="padding: 5px 10px 5px 10px">
-              <div ondrop="dropTrash(event)" ondragover="allowDrop(event)" >
-                  <h5 class="box-title text-center"><icon id = "icon" class="fa fa-trash-o fa-3x"/></h5>
-              </div>
-            </div>
-
-          </div>
-          <div class="box box-solid" style="height: 290px">
-            <div class="box-header with-border">
-              <h4 class="box-title">Draggable Events <div class="box-title" style="font-size: 13px">(max of 4) </div></h4>
-            </div>
-            <div class="box-body" >
-              <div class="count object" id="0" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div>
-              </div>
-              <div class="count object" id="0" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div>
-              </div>
-              <div class="count object" id="0" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div>
-              </div>
-              <div class="count object" id="0" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div>
-              </div>
-              <div id="external-events">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-8 col-xs-12">
-          <div id="profile-box-class" class="box box-widget widget-user-2">
-            <!-- Add the bg color to the header using any of the bg-* classes -->
-            <div class="widget-user-header bg-aqua">
-              <div class="widget-user-image">
-                <img class="img-circle" src="<?php echo base_url('images/alt_picture_aqua.jpg'); ?>" alt="User Avatar">
-              </div>
-              <!-- /.widget-user-image -->
-              <h3 class="widget-user-username" style="color: white; font-size: 25px;" id="profile-class-name">Type O</h3>
-              <h5 class="widget-user-desc" style="color: white" id="profile-class-grade">Solaris One Building</h5>
-            </div>
-            <div class="box-footer no-padding">
-              <ul class="nav nav-stacked">
-                <li><a href="#">Adviser <span class="pull-right text-info" id="profile-class-adviser">Hakeem Polistico</span></a></li>
-                <li><a href="#">Capacity <span class="pull-right text-info"  id="profile-class-capacity">30/40</span></a></li>
-                <li><a href="#">Status <span class="pull-right text-danger badge bg-blue" id="profile-class-status">FULL</span></a></li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="hidden-print box box-solid">
-            <div class="box-header with-border">
               <h3 class="box-title">Create Event</h3>
             </div>
             <div class="box-body">
@@ -443,6 +394,29 @@
               <!-- /input-group -->
             </div>
           </div>
+          
+        </div>
+        <div class="col-lg-8 col-xs-12">
+          <div id="profile-box-class" class="box box-widget widget-user-2">
+            <!-- Add the bg color to the header using any of the bg-* classes -->
+            <div class="widget-user-header bg-aqua">
+              <div class="widget-user-image">
+                <img class="img-circle" src="<?php echo base_url('images/alt_picture_aqua.jpg'); ?>" alt="User Avatar">
+              </div>
+              <!-- /.widget-user-image -->
+              <h3 class="widget-user-username" style="color: white; font-size: 25px;" id="profile-class-name">Type O</h3>
+              <h5 class="widget-user-desc" style="color: white" id="profile-class-grade">Solaris One Building</h5>
+            </div>
+            <div class="box-footer no-padding">
+              <ul class="nav nav-stacked">
+                <li><a href="#">Adviser <span class="pull-right text-info" id="profile-class-adviser">Hakeem Polistico</span></a></li>
+                <li><a href="#">Capacity <span class="pull-right text-info"  id="profile-class-capacity">30/40</span></a></li>
+                <li><a href="#">Status <span class="pull-right text-danger badge bg-blue" id="profile-class-status">FULL</span></a></li>
+              </ul>
+            </div>
+          </div>
+
+          
 
           <div class="hidden-print box box-solid">
             <div class="box-header with-border">
@@ -465,29 +439,46 @@
       </div>
     </div>
 
-      <div class="row hidden-print">
-        <div class="col-lg-4 col-xs-12">
-          
-          
-        </div>
-        <!-- ./col -->
-
-        <div class="col-lg-4 col-xs-12">
-          
-
-          
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-4 col-xs-12">
-  
-          
-        </div>
-        <!-- ./col -->
-      </div>
-
       <div class="row">
         <!-- /.col -->
-        <div class="col-md-12">
+        <div class="col-md-3">
+
+          <div class="hidden-print box box-solid">
+            <div class="box-header with-border">
+              <h4 id="trash" class="box-title">Drag Here To Trash</h4>
+            </div>
+            <div class="box-body" style="padding: 5px 10px 5px 10px">
+              <div ondrop="dropTrash(event)" ondragover="allowDrop(event)" >
+                  <h5 class="box-title text-center"><icon id = "icon" class="fa fa-trash-o fa-3x"/></h5>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="box box-solid">
+            <div class="box-header with-border">
+              <h4 class="box-title">Draggable Events <div class="box-title" style="font-size: 13px">(max of 4) </div></h4>
+            </div>
+            <div class="box-body" >
+              <div class="count object" id="0" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div>
+              </div>
+              <div class="count object" id="0" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div>
+              </div>
+              <div class="count object" id="0" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div>
+              </div>
+              <div class="count object" id="0" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div>
+              </div>
+              <div class="count object" id="0" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div>
+              </div>
+              <div class="count object" id="0" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div>
+              </div>
+              <div id="external-events">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-9">
 
           <div class="box box-primary">
             <div class="box-body no-padding">
