@@ -321,50 +321,60 @@
 
     <!-- Main content -->
     <section class="content">
-      <div class="row">
-        <div class="col-md-4 col-xs-12">
-
-          <div id="classes-select" class="box box-primary">
-            <div class="box-header with-border">
-              <h3 class="box-title">Select class</h3>
-            </div>
-            <div class="box-body">
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group" style="margin-bottom: 0px">
-                    <select id="select-class" class="form-control select2"  data-placeholder="Select class">
-                      <option></option>
-                      <?php foreach ($classes as $val) 
-                        {
-                          echo "<option value='".$val->id."'>".$val->class_name."</option>";
-                        }
-                      ?>   
-                    </select>
-                  </div>    
-                </div>
-                
+    <div class="row">
+      <div class="col-lg-5 col-xs-12">
+        <div class="input-group margin" style="margin: 0 0 10px 0;">
+                <input type="text" class="form-control" placeholder="select class">
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-info btn-flat">ENTER</button>
+                    </span>
               </div>
+
+      </div>
+
+    </div>
+      
+      
+      <div class="row">
+        <div class="col-lg-5 col-xs-12">
+          <div id="profile-box-class" class="box box-widget widget-user-2">
+            <!-- Add the bg color to the header using any of the bg-* classes -->
+            <div class="widget-user-header bg-primary">
+              <div class="widget-user-image">
+                <img class="img-circle" src="<?php echo base_url('images/alt_picture_aqua.jpg'); ?>" alt="User Avatar">
+              </div>
+              <!-- /.widget-user-image -->
+              <h3 class="widget-user-username" style="color: white; font-size: 25px;" id="profile-class-name">Type O</h3>
+              <h5 class="widget-user-desc" style="color: white" id="profile-class-grade">Grade 12</h5>
+            </div>
+            <div class="box-footer no-padding">
+              <ul class="nav nav-stacked">
+                <li><a href="#">Adviser <span class="pull-right text-info" id="profile-class-adviser">Hakeem Polistico</span></a></li>
+                <li><a href="#">Status <span class="pull-right text-danger badge bg-blue" id="profile-class-status">FULL</span></a></li>
+              </ul>
             </div>
           </div>
-
-          <div class="hidden-print box box-solid">
+        </div>
+        
+        <div class="col-lg-4 col-xs-12">
+        <div class="hidden-print box box-solid">
             <div class="box-header with-border">
               <h3 class="box-title">Create Event</h3>
             </div>
-            <div class="box-body">
+            <div class="box-body" style="padding: 18px 10px 17px 10px">
               <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
                 <!--<button type="button" id="color-chooser-btn" class="btn btn-info btn-block dropdown-toggle" data-toggle="dropdown">Color <span class="caret"></span></button>-->
-                <ul class="fc-color-picker" id="color-chooser">
-                  <li><a class="text-aqua" href="#"><i class="fa fa-square"></i></a></li>
-                  <li><a class="text-blue" href="#"><i class="fa fa-square"></i></a></li>
-                  <li><a class="text-light-blue" href="#"><i class="fa fa-square"></i></a></li>
-                  <li><a class="text-yellow" href="#"><i class="fa fa-square"></i></a></li>
-                  <li><a class="text-orange" href="#"><i class="fa fa-square"></i></a></li>
-                  <li><a class="text-green" href="#"><i class="fa fa-square"></i></a></li>
-                  <li><a class="text-lime" href="#"><i class="fa fa-square"></i></a></li>
-                  <li><a class="text-red" href="#"><i class="fa fa-square"></i></a></li>
-                  <li><a class="text-purple" href="#"><i class="fa fa-square"></i></a></li>
-                  <li><a class="text-fuchsia" href="#"><i class="fa fa-square"></i></a></li>
+                <ul class="fc-color-picker" id="color-chooser">        
+                    <li><a class="text-aqua" href="#"><i class="fa fa-square"></i></a></li>
+                    <li><a class="text-blue" href="#"><i class="fa fa-square"></i></a></li>
+                    <li><a class="text-light-blue" href="#"><i class="fa fa-square"></i></a></li>
+                    <li><a class="text-yellow" href="#"><i class="fa fa-square"></i></a></li>
+                    <li><a class="text-orange" href="#"><i class="fa fa-square"></i></a></li>
+                    <li><a class="text-green" href="#"><i class="fa fa-square"></i></a></li>
+                    <li><a class="text-lime" href="#"><i class="fa fa-square"></i></a></li>
+                    <li><a class="text-red" href="#"><i class="fa fa-square"></i></a></li>
+                    <li><a class="text-purple" href="#"><i class="fa fa-square"></i></a></li>
+                    <li><a class="text-fuchsia" href="#"><i class="fa fa-square"></i></a></li>                  
                 </ul>
               </div>
               <!-- /btn-group -->
@@ -394,35 +404,14 @@
               <!-- /input-group -->
             </div>
           </div>
-          
-        </div>
-        <div class="col-lg-8 col-xs-12">
-          <div id="profile-box-class" class="box box-widget widget-user-2">
-            <!-- Add the bg color to the header using any of the bg-* classes -->
-            <div class="widget-user-header bg-aqua">
-              <div class="widget-user-image">
-                <img class="img-circle" src="<?php echo base_url('images/alt_picture_aqua.jpg'); ?>" alt="User Avatar">
-              </div>
-              <!-- /.widget-user-image -->
-              <h3 class="widget-user-username" style="color: white; font-size: 25px;" id="profile-class-name">Type O</h3>
-              <h5 class="widget-user-desc" style="color: white" id="profile-class-grade">Solaris One Building</h5>
-            </div>
-            <div class="box-footer no-padding">
-              <ul class="nav nav-stacked">
-                <li><a href="#">Adviser <span class="pull-right text-info" id="profile-class-adviser">Hakeem Polistico</span></a></li>
-                <li><a href="#">Capacity <span class="pull-right text-info"  id="profile-class-capacity">30/40</span></a></li>
-                <li><a href="#">Status <span class="pull-right text-danger badge bg-blue" id="profile-class-status">FULL</span></a></li>
-              </ul>
-            </div>
-          </div>
+      </div>
 
-          
-
-          <div class="hidden-print box box-solid">
+        <div class="col-lg-3 col-xs-12">
+          <div class="hidden-print box box-solid" style="padding-top:6px; padding-bottom:6px;">
             <div class="box-header with-border">
               <h4 class="box-title">Actions Row</h4>
             </div>
-            <div class="box-body" style="padding: 19px 0px 19px 0px">
+            <div class="box-body">
             <center>
                 <button style="width: 100px; margin-top: 3px" id="add" class="btn btn-success">Add</button>
                 <button style="width: 100px; margin-top: 3px" id="remove" class="btn btn-danger">Remove</button>
@@ -437,6 +426,7 @@
           </div>
         
       </div>
+      
     </div>
 
       <div class="row">
