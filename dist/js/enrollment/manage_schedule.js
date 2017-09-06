@@ -98,7 +98,7 @@ function dropTrash(ev) {
     $("#"+data).remove();
 
     $("#icon").animate({fontSize: '20px'},"fast");
-    $("#icon").animate({fontSize: '30px'},"slow");
+    $("#icon").animate({fontSize: '50px'},"slow");
 }
 
 
@@ -146,25 +146,12 @@ $('#printBtn').on('click',function(){
 printData();
 });
 
-$('#classes-select').hide();
-$('#rooms-select').hide();
-
 var table; 
 var set;
-$('#classes-pick').on('click',function(){
-  table = "classes";
-  set = "id"
-  $('#classes-select').show();
-  $('#teachers-pick').show();
-  $('#rooms-pick').show();
-  $('#teachers-select').hide();
-  $('#rooms-select').hide();
-  $('.select2').select2()
-  $(this).hide();
-})
-
 
 $('#select-class').on('change',function(){
+  table = "classes";
+  set = "id"
   var value = $('#select-class').val();
   $('#profile-box-class').show();
   $.ajax({
