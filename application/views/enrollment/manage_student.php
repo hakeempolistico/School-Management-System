@@ -309,7 +309,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <section class="content-header">
       <h1>
         Manage Students
-        <!--<small>Control panel</small>-->
+        <small>Add students to a section and a room</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Enrollment</a></li>
@@ -433,23 +433,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                 <ul class="nav nav-wizard">
                     <li class="active">
-                        <a href="#step1" data-toggle="tab"> Students</a>
+                        <a href="#all_step1" data-toggle="tab"> Students</a>
                     </li>
                     <li class="disabled">
-                        <a href="#step2" data-toggle="tab">Sections</a>
+                        <a href="#all_step2" data-toggle="tab">Sections</a>
                     </li>
                     <li class="disabled">
-                        <a href="#step3" data-toggle="tab">Rooms</a>
+                        <a href="#all_step3" data-toggle="tab">Rooms</a>
                     </li>
                     <li class="disabled">
-                        <a href="#step4" data-toggle="tab">Summary</a>
+                        <a href="#all_step4" data-toggle="tab">Summary</a>
                     </li>                  
                 </ul>
 
                 <br>
                 <div class="tab-content">
 
-                  <div class="tab-pane active" id="step1"> 
+                  <div class="tab-pane active" id="all_step1"> 
                   <h4>Select Students</h4><hr>
                     <table id="tbl_allStudents" class="table table-bordered table-striped">
                       <thead>
@@ -482,7 +482,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   </div>
                   <!-- /.end student tab-->
 
-                  <div class="tab-pane" id="step2">
+                  <div class="tab-pane" id="all_step2">
                   <h4>Select a Section</h4>
                   <hr>
                     <table id="tbl_allSections" class="table table-bordered table-striped">
@@ -510,7 +510,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       </ul>                                           
                   </div>
                   <!--end section_tab-->
-                  <div class="tab-pane" id="step3">
+                  <div class="tab-pane" id="all_step3">
                   <h4>Select a Room</h4>
                   <hr>
                     <table id="tbl_allRooms" class="table table-bordered table-striped">
@@ -538,7 +538,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       </ul>                                           
                   </div>
                   <!--end section_tab-->
-                  <div class="tab-pane" id="step4">
+                  <div class="tab-pane" id="all_step4">
                   <h4>Confirm Operation:</h4>
                     <hr>
                      <h3>ADD TO <b> STEM-1</b> in <b>RM. 325</b></h3>
@@ -600,23 +600,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                 <ul class="nav nav-wizard">
                     <li class="active">
-                        <a href="#step1" data-toggle="tab"> Students</a>
+                        <a href="#stem_step1" data-toggle="tab"> Students</a>
                     </li>
                     <li class="disabled">
-                        <a href="#step2" data-toggle="tab">Sections</a>
+                        <a href="#stem_step2" data-toggle="tab">Sections</a>
                     </li>
                     <li class="disabled">
-                        <a href="#step3" data-toggle="tab">Rooms</a>
+                        <a href="#stem_step3" data-toggle="tab">Rooms</a>
                     </li>
                     <li class="disabled">
-                        <a href="#step4" data-toggle="tab">Summary</a>
+                        <a href="#stem_step4" data-toggle="tab">Summary</a>
                     </li>                  
                 </ul>
 
                 <br>
                 <div class="tab-content">
 
-                  <div class="tab-pane active" id="step1"> 
+                  <div class="tab-pane active" id="stem_step1"> 
                   <h4>Select Students</h4><hr>
                     <table id="example1" class="table table-bordered table-striped">
                       <thead>
@@ -649,7 +649,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   </div>
                   <!-- /.end student tab-->
 
-                  <div class="tab-pane" id="step2">
+                  <div class="tab-pane" id="stem_step2">
                   <h4>Select a Section</h4>
                   <hr>
                     <table id="example2" class="table table-bordered table-striped">
@@ -677,7 +677,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       </ul>                                           
                   </div>
                   <!--end section_tab-->
-                  <div class="tab-pane" id="step3">
+                  <div class="tab-pane" id="stem_step3">
                   <h4>Select a Room</h4>
                   <hr>
                     <table id="example3" class="table table-bordered table-striped">
@@ -705,7 +705,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       </ul>                                           
                   </div>
                   <!--end section_tab-->
-                  <div class="tab-pane" id="step4">
+                  <div class="tab-pane" id="stem_step4">
                   <h4>Confirm Operation:</h4>
                     <hr>
                      <h3>ADD TO <b> STEM-1</b> in <b>RM. 325</b></h3>

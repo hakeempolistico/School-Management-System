@@ -311,7 +311,7 @@
     <section class="content-header">
       <h1>
         Manage Schedule
-        <small>Temporary idle</small>
+        <small>Create a schedule for school year 2017-2018</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="enrollment/dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
