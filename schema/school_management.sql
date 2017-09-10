@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 10, 2017 at 09:19 PM
+-- Generation Time: Sep 10, 2017 at 10:56 PM
 -- Server version: 5.7.11
 -- PHP Version: 7.0.4
 
@@ -37,29 +37,16 @@ CREATE TABLE `academic_years` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `address`
+-- Table structure for table `addresses`
 --
 
-CREATE TABLE `address` (
+CREATE TABLE `addresses` (
   `id` int(11) NOT NULL,
+  `registered_student_id` int(11) NOT NULL,
   `street` varchar(50) NOT NULL,
   `barangay` varchar(50) NOT NULL,
   `city` varchar(50) NOT NULL,
   `province` varchar(50) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `contacts`
---
-
-CREATE TABLE `contacts` (
-  `id` int(11) NOT NULL,
-  `mother_name` varchar(70) NOT NULL,
-  `mother_contact` varchar(15) NOT NULL,
-  `father_name` varchar(70) NOT NULL,
-  `father_contact` varchar(15) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -82,14 +69,30 @@ CREATE TABLE `enrolled_students` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `guardian`
+-- Table structure for table `guardians`
 --
 
-CREATE TABLE `guardian` (
-  `student_id` int(11) NOT NULL,
+CREATE TABLE `guardians` (
+  `id` int(11) NOT NULL,
+  `registered_student_id` int(11) NOT NULL,
   `name` varchar(70) NOT NULL,
   `contact` varchar(15) NOT NULL,
   `relationship` varchar(50) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `parents`
+--
+
+CREATE TABLE `parents` (
+  `id` int(11) NOT NULL,
+  `registered_student_id` int(11) NOT NULL,
+  `mother_name` varchar(70) NOT NULL,
+  `mother_contact` varchar(15) NOT NULL,
+  `father_name` varchar(70) NOT NULL,
+  `father_contact` varchar(15) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -105,14 +108,16 @@ CREATE TABLE `registered_students` (
   `middle_name` varchar(50) DEFAULT NULL,
   `last_name` varchar(50) NOT NULL,
   `sex` varchar(10) NOT NULL,
-  `contact` varchar(20) NOT NULL,
+  `contact_number` varchar(20) NOT NULL,
   `birth_date` date NOT NULL,
   `birth_place` varchar(50) NOT NULL,
   `age` int(2) NOT NULL,
   `mother_tongue` varchar(50) NOT NULL,
   `religion` varchar(50) NOT NULL,
   `note` varchar(255) NOT NULL,
-  `online_applicant` bit(1) NOT NULL
+  `online_applicant` bit(1) NOT NULL,
+  `date_registered` timestamp NOT NULL,
+  `date_modified` timestamp NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -147,10 +152,10 @@ CREATE TABLE `rooms` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `schedule`
+-- Table structure for table `schedules`
 --
 
-CREATE TABLE `schedule` (
+CREATE TABLE `schedules` (
   `id` int(11) NOT NULL,
   `room_id` int(11) NOT NULL,
   `subject_id` int(11) NOT NULL,
@@ -175,13 +180,26 @@ CREATE TABLE `sections` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `strand`
+-- Table structure for table `strands`
 --
 
-CREATE TABLE `strand` (
+CREATE TABLE `strands` (
   `id` int(11) NOT NULL,
   `code` varchar(45) NOT NULL,
   `name` varchar(45) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `student_contacts`
+--
+
+CREATE TABLE `student_contacts` (
+  `id` int(11) NOT NULL,
+  `registered_student_id` int(11) NOT NULL,
+  `parents_id` int(11) NOT NULL,
+  `guardian_id` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -246,10 +264,10 @@ INSERT INTO `users` (`id`, `username`, `password`, `first_name`, `last_name`, `p
 -- --------------------------------------------------------
 
 --
--- Table structure for table `year_level`
+-- Table structure for table `year_levels`
 --
 
-CREATE TABLE `year_level` (
+CREATE TABLE `year_levels` (
   `id` int(11) NOT NULL,
   `name` varchar(45) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -265,15 +283,9 @@ ALTER TABLE `academic_years`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `address`
+-- Indexes for table `addresses`
 --
-ALTER TABLE `address`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `contacts`
---
-ALTER TABLE `contacts`
+ALTER TABLE `addresses`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -283,10 +295,16 @@ ALTER TABLE `enrolled_students`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `guardian`
+-- Indexes for table `guardians`
 --
-ALTER TABLE `guardian`
-  ADD PRIMARY KEY (`student_id`);
+ALTER TABLE `guardians`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `parents`
+--
+ALTER TABLE `parents`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `registered_students`
@@ -307,9 +325,9 @@ ALTER TABLE `rooms`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `schedule`
+-- Indexes for table `schedules`
 --
-ALTER TABLE `schedule`
+ALTER TABLE `schedules`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -319,9 +337,15 @@ ALTER TABLE `sections`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `strand`
+-- Indexes for table `strands`
 --
-ALTER TABLE `strand`
+ALTER TABLE `strands`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `student_contacts`
+--
+ALTER TABLE `student_contacts`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -344,9 +368,9 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `year_level`
+-- Indexes for table `year_levels`
 --
-ALTER TABLE `year_level`
+ALTER TABLE `year_levels`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -374,9 +398,14 @@ ALTER TABLE `requirements`
 ALTER TABLE `rooms`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `schedule`
+-- AUTO_INCREMENT for table `schedules`
 --
-ALTER TABLE `schedule`
+ALTER TABLE `schedules`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `student_contacts`
+--
+ALTER TABLE `student_contacts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `subjects`
