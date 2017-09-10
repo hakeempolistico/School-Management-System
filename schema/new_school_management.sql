@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 10, 2017 at 08:21 PM
+-- Generation Time: Sep 10, 2017 at 09:19 PM
 -- Server version: 5.7.11
 -- PHP Version: 7.0.4
 
@@ -17,8 +17,22 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `new_sms`
+-- Database: `school_management`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `academic_years`
+--
+
+CREATE TABLE `academic_years` (
+  `id` int(11) NOT NULL,
+  `year_start` int(4) NOT NULL,
+  `year_end` int(4) NOT NULL,
+  `date_created` timestamp NOT NULL,
+  `date_modified` timestamp NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -27,7 +41,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `address` (
-  `student_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `street` varchar(50) NOT NULL,
   `barangay` varchar(50) NOT NULL,
   `city` varchar(50) NOT NULL,
@@ -37,27 +51,32 @@ CREATE TABLE `address` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `classes`
+-- Table structure for table `contacts`
 --
 
-CREATE TABLE `classes` (
-  `class_id` int(11) NOT NULL,
-  `class_name` varchar(45) NOT NULL,
-  `capacity` int(2) NOT NULL
+CREATE TABLE `contacts` (
+  `id` int(11) NOT NULL,
+  `mother_name` varchar(70) NOT NULL,
+  `mother_contact` varchar(15) NOT NULL,
+  `father_name` varchar(70) NOT NULL,
+  `father_contact` varchar(15) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contacts`
+-- Table structure for table `enrolled_students`
 --
 
-CREATE TABLE `contacts` (
-  `student_id` int(11) NOT NULL,
-  `mother_name` varchar(70) NOT NULL,
-  `mother_contact` varchar(15) NOT NULL,
-  `father_name` varchar(70) NOT NULL,
-  `father_contact` varchar(15) NOT NULL
+CREATE TABLE `enrolled_students` (
+  `id` int(50) NOT NULL,
+  `registered_student_id` int(50) NOT NULL,
+  `class_id` int(50) NOT NULL,
+  `strand_id` int(50) NOT NULL,
+  `year_level_id` int(50) NOT NULL,
+  `academic_year_id` int(50) NOT NULL,
+  `date_enrolled` timestamp NOT NULL,
+  `date_modified` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -68,9 +87,32 @@ CREATE TABLE `contacts` (
 
 CREATE TABLE `guardian` (
   `student_id` int(11) NOT NULL,
-  `guardian_name` varchar(70) NOT NULL,
-  `guardian_contact` varchar(15) NOT NULL,
+  `name` varchar(70) NOT NULL,
+  `contact` varchar(15) NOT NULL,
   `relationship` varchar(50) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `registered_students`
+--
+
+CREATE TABLE `registered_students` (
+  `id` int(11) NOT NULL,
+  `lrn` int(12) NOT NULL,
+  `first_name` varchar(50) NOT NULL,
+  `middle_name` varchar(50) DEFAULT NULL,
+  `last_name` varchar(50) NOT NULL,
+  `sex` varchar(10) NOT NULL,
+  `contact` varchar(20) NOT NULL,
+  `birth_date` date NOT NULL,
+  `birth_place` varchar(50) NOT NULL,
+  `age` int(2) NOT NULL,
+  `mother_tongue` varchar(50) NOT NULL,
+  `religion` varchar(50) NOT NULL,
+  `note` varchar(255) NOT NULL,
+  `online_applicant` bit(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -81,7 +123,7 @@ CREATE TABLE `guardian` (
 
 CREATE TABLE `requirements` (
   `id` int(11) NOT NULL,
-  `lrn` varchar(15) NOT NULL,
+  `enrolled_student_id` varchar(15) NOT NULL,
   `requirement` varchar(40) NOT NULL,
   `date_given` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -121,39 +163,25 @@ CREATE TABLE `schedule` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `strand`
+-- Table structure for table `sections`
 --
 
-CREATE TABLE `strand` (
-  `strand_id` int(11) NOT NULL,
-  `stand_code` varchar(45) NOT NULL,
-  `strand_name` varchar(45) NOT NULL
+CREATE TABLE `sections` (
+  `id` int(11) NOT NULL,
+  `name` varchar(45) NOT NULL,
+  `capacity` int(2) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `students`
+-- Table structure for table `strand`
 --
 
-CREATE TABLE `students` (
-  `student_id` int(11) NOT NULL,
-  `student_lrn` int(12) NOT NULL,
-  `first_name` varchar(50) NOT NULL,
-  `middle_name` varchar(50) DEFAULT NULL,
-  `last_name` varchar(50) NOT NULL,
-  `sex` varchar(10) NOT NULL,
-  `contact` varchar(20) NOT NULL,
-  `birth_date` date NOT NULL,
-  `birth_place` varchar(50) NOT NULL,
-  `age` int(2) NOT NULL,
-  `mother_tongue` varchar(50) NOT NULL,
-  `religion` varchar(50) NOT NULL,
-  `note` varchar(255) NOT NULL,
-  `online_applicant` bit(1) NOT NULL,
-  `strand_id` int(11) DEFAULT NULL,
-  `class_id` int(11) DEFAULT NULL,
-  `year_level_id` int(11) DEFAULT NULL
+CREATE TABLE `strand` (
+  `id` int(11) NOT NULL,
+  `code` varchar(45) NOT NULL,
+  `name` varchar(45) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -184,20 +212,7 @@ CREATE TABLE `teachers` (
   `last_name` varchar(50) NOT NULL,
   `major` varchar(50) NOT NULL,
   `position` varchar(50) NOT NULL,
-  `status` varchar(50) NOT NULL,
-  `sex` varchar(6) NOT NULL,
-  `age` int(11) NOT NULL,
-  `birth_date` date NOT NULL,
-  `birth_place` varchar(100) NOT NULL,
-  `mother_tongue` varchar(100) NOT NULL,
-  `contact` varchar(50) NOT NULL,
-  `street` varchar(100) NOT NULL,
-  `barangay` varchar(100) NOT NULL,
-  `city` varchar(100) NOT NULL,
-  `province` varchar(100) NOT NULL,
-  `religion` varchar(100) NOT NULL,
-  `note` varchar(255) NOT NULL,
-  `date_modified` timestamp NULL DEFAULT NULL
+  `status` varchar(50) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -235,8 +250,8 @@ INSERT INTO `users` (`id`, `username`, `password`, `first_name`, `last_name`, `p
 --
 
 CREATE TABLE `year_level` (
-  `year_level_id` int(11) NOT NULL,
-  `year_level_name` varchar(45) NOT NULL
+  `id` int(11) NOT NULL,
+  `name` varchar(45) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -244,28 +259,40 @@ CREATE TABLE `year_level` (
 --
 
 --
+-- Indexes for table `academic_years`
+--
+ALTER TABLE `academic_years`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `address`
 --
 ALTER TABLE `address`
-  ADD PRIMARY KEY (`student_id`);
-
---
--- Indexes for table `classes`
---
-ALTER TABLE `classes`
-  ADD PRIMARY KEY (`class_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `contacts`
 --
 ALTER TABLE `contacts`
-  ADD PRIMARY KEY (`student_id`);
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `enrolled_students`
+--
+ALTER TABLE `enrolled_students`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `guardian`
 --
 ALTER TABLE `guardian`
   ADD PRIMARY KEY (`student_id`);
+
+--
+-- Indexes for table `registered_students`
+--
+ALTER TABLE `registered_students`
+  ADD PRIMARY KEY (`id`,`lrn`);
 
 --
 -- Indexes for table `requirements`
@@ -286,16 +313,16 @@ ALTER TABLE `schedule`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `sections`
+--
+ALTER TABLE `sections`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `strand`
 --
 ALTER TABLE `strand`
-  ADD PRIMARY KEY (`strand_id`);
-
---
--- Indexes for table `students`
---
-ALTER TABLE `students`
-  ADD PRIMARY KEY (`student_id`,`student_lrn`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `subjects`
@@ -320,12 +347,22 @@ ALTER TABLE `users`
 -- Indexes for table `year_level`
 --
 ALTER TABLE `year_level`
-  ADD PRIMARY KEY (`year_level_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
+--
+-- AUTO_INCREMENT for table `academic_years`
+--
+ALTER TABLE `academic_years`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `enrolled_students`
+--
+ALTER TABLE `enrolled_students`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `requirements`
 --
