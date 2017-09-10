@@ -263,6 +263,24 @@
                 <i class="fa fa-circle-o text-aqua"></i>
                 Dashboard
               </a>
+            </li>                      
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Subjects (admin)
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Manage Class (admin)
+              </a>
+            </li>
+            <li class="active">
+              <a href="<?php echo site_url('enrollment/manage_schedule'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                  Manage Schedule (admin)
+              </a>
             </li>
             <li>
               <a href="<?php echo site_url('enrollment/view_data'); ?>">
@@ -271,24 +289,19 @@
               </a>
             </li>
             <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Register Student
+              </a>
+            </li>
+            <li>
               <a href="<?php echo site_url('enrollment/enroll_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   Enroll Student
               </a>
             </li>
-            <li>
-              <a href="<?php echo site_url('enrollment/manage_student'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                  Manage Student
-              </a>
-            </li>
-            <li class="active">
-              <a href="<?php echo site_url('enrollment/manage_schedule'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                  Manage Schedule
-              </a>
-            </li>
           </ul>
+          
         </li>
       
         
@@ -335,7 +348,7 @@
     </div>
       
       
-      <div class="row">
+      <div class="row disabled">
         <div class="col-lg-5 col-xs-12">
           <div id="profile-box-class" class="box box-widget widget-user-2">
             <!-- Add the bg color to the header using any of the bg-* classes -->
@@ -429,7 +442,7 @@
       
     </div>
 
-      <div class="row">
+      <div class="row disabled">
         <!-- /.col -->
         <div class="col-md-3">
 
