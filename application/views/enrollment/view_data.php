@@ -269,10 +269,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 Dashboard
               </a>
             </li>
-            <li  class="active">
+            <li>          
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Subjects (admin)
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Manage Class (admin)
+              </a>
+            </li>
+            <li>
+              <a href="<?php echo site_url('enrollment/manage_schedule'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                  Manage Schedule (admin)
+              </a>
+            </li>
+            <li class="active">
               <a href="<?php echo site_url('enrollment/view_data'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   View Data
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Register Student
               </a>
             </li>
             <li>
@@ -281,19 +306,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   Enroll Student
               </a>
             </li>
-            <li>
-              <a href="<?php echo site_url('enrollment/manage_student'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                  Manage Student
-              </a>
-            </li>
-            <li>
-              <a href="<?php echo site_url('enrollment/manage_schedule'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                  Manage Schedule
-              </a>
-            </li>
           </ul>
+          
         </li>
       
         
@@ -381,6 +395,66 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <div class="icon">
               <i class="fa fa-star"></i>
+            </div>
+            <a href="#" class="small-box-footer">View table <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green" id="viewClasses" style="cursor: pointer;">
+            <div class="inner">
+              <h3><?php echo $classesCount ?></h3>
+
+              <p>Online Applicants</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-paperclip"></i>
+            </div>
+            <a href="#" class="small-box-footer">View table <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-purple" id="viewClasses" style="cursor: pointer;">
+            <div class="inner">
+              <h3><?php echo $classesCount ?></h3>
+
+              <p>Enrolled Students</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-users"></i>
+            </div>
+            <a href="#" class="small-box-footer">View table <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-fuchsia" id="viewClasses" style="cursor: pointer;">
+            <div class="inner">
+              <h3><?php echo $classesCount ?></h3>
+
+              <p>Strands</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-folder-open"></i>
+            </div>
+            <a href="#" class="small-box-footer">View table <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-teal" id="viewClasses" style="cursor: pointer;">
+            <div class="inner">
+              <h3><?php echo $classesCount ?></h3>
+
+              <p>Subjects</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-book"></i>
             </div>
             <a href="#" class="small-box-footer">View table <i class="fa fa-arrow-circle-right"></i></a>
           </div>
