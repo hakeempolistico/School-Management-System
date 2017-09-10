@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
--- https://www.phpmyadmin.net/
+-- version 4.5.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 06, 2017 at 07:52 AM
--- Server version: 5.7.14
--- PHP Version: 5.6.25
+-- Generation Time: Sep 10, 2017 at 08:21 PM
+-- Server version: 5.7.11
+-- PHP Version: 7.0.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `school_management`
+-- Database: `new_sms`
 --
 
 -- --------------------------------------------------------
@@ -43,9 +43,7 @@ CREATE TABLE `address` (
 CREATE TABLE `classes` (
   `class_id` int(11) NOT NULL,
   `class_name` varchar(45) NOT NULL,
-  `occupants` int(2) NOT NULL,
-  `capacity` int(2) NOT NULL,
-  `status` varchar(45) NOT NULL
+  `capacity` int(2) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -78,41 +76,6 @@ CREATE TABLE `guardian` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `online_applicants`
---
-
-CREATE TABLE `online_applicants` (
-  `id` int(255) NOT NULL,
-  `lrn` varchar(15) NOT NULL,
-  `grade` varchar(15) NOT NULL,
-  `first_name` varchar(40) NOT NULL,
-  `middle_name` varchar(40) NOT NULL,
-  `last_name` varchar(40) NOT NULL,
-  `sex` varchar(15) NOT NULL,
-  `contact` varchar(15) NOT NULL,
-  `birth_date` varchar(15) NOT NULL,
-  `birth_place` varchar(40) NOT NULL,
-  `age` varchar(10) NOT NULL,
-  `mother_tongue` varchar(30) NOT NULL,
-  `religion` varchar(30) NOT NULL,
-  `street` varchar(40) NOT NULL,
-  `barangay` varchar(40) NOT NULL,
-  `city` varchar(40) NOT NULL,
-  `province` varchar(40) NOT NULL,
-  `father_name` varchar(40) NOT NULL,
-  `mother_name` varchar(40) NOT NULL,
-  `father_contact` varchar(15) NOT NULL,
-  `mother_contact` varchar(15) NOT NULL,
-  `guardian` varchar(40) NOT NULL,
-  `relationship` varchar(30) NOT NULL,
-  `guardian_contact` varchar(15) NOT NULL,
-  `status` varchar(15) NOT NULL,
-  `note` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `requirements`
 --
 
@@ -135,7 +98,6 @@ CREATE TABLE `rooms` (
   `room_name` varchar(50) NOT NULL,
   `building` varchar(200) NOT NULL,
   `class_id` int(11) DEFAULT NULL,
-  `status` varchar(20) NOT NULL,
   `date_created` timestamp NOT NULL,
   `date_modified` timestamp NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -188,6 +150,7 @@ CREATE TABLE `students` (
   `mother_tongue` varchar(50) NOT NULL,
   `religion` varchar(50) NOT NULL,
   `note` varchar(255) NOT NULL,
+  `online_applicant` bit(1) NOT NULL,
   `strand_id` int(11) DEFAULT NULL,
   `class_id` int(11) DEFAULT NULL,
   `year_level_id` int(11) DEFAULT NULL
@@ -202,6 +165,7 @@ CREATE TABLE `students` (
 CREATE TABLE `subjects` (
   `id` int(11) NOT NULL,
   `name` varchar(150) NOT NULL,
+  `description` varchar(500) NOT NULL,
   `date_created` timestamp NULL DEFAULT NULL,
   `date_modified` timestamp NULL DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -304,13 +268,6 @@ ALTER TABLE `guardian`
   ADD PRIMARY KEY (`student_id`);
 
 --
--- Indexes for table `online_applicants`
---
-ALTER TABLE `online_applicants`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `lrn` (`lrn`);
-
---
 -- Indexes for table `requirements`
 --
 ALTER TABLE `requirements`
@@ -369,11 +326,6 @@ ALTER TABLE `year_level`
 -- AUTO_INCREMENT for dumped tables
 --
 
---
--- AUTO_INCREMENT for table `online_applicants`
---
-ALTER TABLE `online_applicants`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `requirements`
 --
