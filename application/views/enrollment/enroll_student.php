@@ -43,10 +43,7 @@
   <header class="main-header">
     <!-- Logo -->
     <a href="<?php echo site_url('/') ?>" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>S</b>M</span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>School</b>Management</span>
+      {logo}
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -241,17 +238,7 @@
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
-      <!-- search form -->
-      <form action="#" method="get" class="sidebar-form">
-        <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
-              <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-        </div>
-      </form>
-      <!-- /.search form -->
+      
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
@@ -276,10 +263,35 @@
                 Dashboard
               </a>
             </li>
+            <li>          
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Add subject (admin)
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Manage Class (admin)
+              </a>
+            </li>
+            <li>
+              <a href="<?php echo site_url('enrollment/manage_schedule'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                  Manage Schedule (admin)
+              </a>
+            </li>
             <li>
               <a href="<?php echo site_url('enrollment/view_data'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   View Data
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Register Student
               </a>
             </li>
             <li class="active">
@@ -288,19 +300,8 @@
                   Enroll Student
               </a>
             </li>
-            <li>
-              <a href="<?php echo site_url('enrollment/manage_student'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                  Manage Student
-              </a>
-            </li>
-            <li>
-              <a href="<?php echo site_url('enrollment/manage_schedule'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                  Manage Schedule
-              </a>
-            </li>
           </ul>
+
         </li>
       
         
@@ -451,19 +452,19 @@
                   <label>Address</label>
                   <div class="row">
                       <div class="col-md-3">
-                        <input type="text" class="form-control" id="inputSTREET" value="<?php echo set_value('street'); ?>" placeholder="House #, Street" name="street">
+                        <input type="text" class="form-control address" id="inputSTREET" value="<?php echo set_value('street'); ?>" placeholder="House #, Street" name="street">
                         <?php echo form_error('street'); ?>
                       </div>
                       <div class="col-md-3">
-                        <input type="text" class="form-control" id="inputBARANGAY" value="<?php echo set_value('barangay'); ?>" placeholder="Barangay" name="barangay">
+                        <input type="text" class="form-control address" id="inputBARANGAY" value="<?php echo set_value('barangay'); ?>" placeholder="Barangay" name="barangay">
                         <?php echo form_error('barangay'); ?>
                       </div>
                       <div class="col-md-3">
-                        <input type="text" class="form-control" id="inputCITY" value="<?php echo set_value('city'); ?>" placeholder="City" name="city">
+                        <input type="text" class="form-control address" id="inputCITY" value="<?php echo set_value('city'); ?>" placeholder="City" name="city">
                         <?php echo form_error('city'); ?>
                       </div>
                       <div class="col-md-3">
-                        <input type="text" class="form-control" id="inputPROVINCE" value="<?php echo set_value('province'); ?>" placeholder="Province" name="province">
+                        <input type="text" class="form-control address" id="inputPROVINCE" value="<?php echo set_value('province'); ?>" placeholder="Province" name="province">
                         <?php echo form_error('province'); ?>
                       </div>
                     </div>
@@ -712,15 +713,9 @@
   </div>
   <!-- /.content-wrapper -->
 
-
-
-  <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Version</b> 1.0.0
-    </div>
-    <strong>Copyright &copy; 2017-2018 <a href="https://adminlte.io">Araullo School Management System</a>.</strong> All rights
-    reserved.
-  </footer>
+  <!-- Footer -->
+  {footer}
+  <!-- /.Footer -->
 
 
 </div>

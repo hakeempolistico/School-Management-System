@@ -45,10 +45,7 @@
   <header class="main-header">
     <!-- Logo -->
     <a href="<?php echo site_url('welcome/index2') ?>" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>S</b>M</span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg">School Management</span>
+      {logo}
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -266,6 +263,24 @@
                 <i class="fa fa-circle-o text-aqua"></i>
                 Dashboard
               </a>
+            </li>                      
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Subjects (admin)
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Manage Class (admin)
+              </a>
+            </li>
+            <li class="active">
+              <a href="<?php echo site_url('enrollment/manage_schedule'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                  Manage Schedule (admin)
+              </a>
             </li>
             <li>
               <a href="<?php echo site_url('enrollment/view_data'); ?>">
@@ -274,24 +289,19 @@
               </a>
             </li>
             <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Register Student
+              </a>
+            </li>
+            <li>
               <a href="<?php echo site_url('enrollment/enroll_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   Enroll Student
               </a>
             </li>
-            <li>
-              <a href="<?php echo site_url('enrollment/manage_student'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                  Manage Student
-              </a>
-            </li>
-            <li class="active">
-              <a href="<?php echo site_url('enrollment/manage_schedule'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                  Manage Schedule
-              </a>
-            </li>
           </ul>
+          
         </li>
       
         
@@ -314,7 +324,7 @@
     <section class="content-header">
       <h1>
         Manage Schedule
-        <small>Temporary idle</small>
+        <small>Create a schedule for school year 2017-2018</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="enrollment/dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
@@ -324,302 +334,80 @@
 
     <!-- Main content -->
     <section class="content">
-      <div class="row hidden-print">
-        <div class="col-lg-4 col-xs-12">
-          <!-- small box -->
-          <div class="small-box bg-aqua" id="viewStudents" style="cursor: pointer;">
-            <div class="inner">
-              <h3>1200</h3>
-
-              <p>Students</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-pencil"></i>
-            </div>
-            <a href="#" class="small-box-footer">View table <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-
-        <div class="col-lg-4 col-xs-12">
-          <!-- small box -->
-          <div class="small-box bg-green" id="viewTeachers" style="cursor: pointer;">
-            <div class="inner">
-              <h3>169</h3>
-
-              <p>Teachers</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-mortar-board"></i>
-            </div>
-            <a href="#" class="small-box-footer">View table  <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-
-        <div class="col-lg-4 col-xs-12">
-          <!-- small box -->
-          <div class="small-box bg-yellow" id="viewRooms" style="cursor: pointer;">
-            <div class="inner">
-              <h3>44</h3>
-
-              <p>Rooms</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-home"></i>
-            </div>
-            <a href="#" class="small-box-footer">View table <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-      </div>
-      <div class="row">
-      <div class="col-md-4">
-        <!-- SELECT2 EXAMPLE -->
-      <div class="box box-default">
-        <div class="box-header with-border">
-          <h3 class="box-title">Select data</h3>
-
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
-          </div>
-        </div>
-        <!-- /.box-header -->
-        <div class="box-body">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>Students</label>
-                <select class="form-control select2"  data-placeholder="Select Students">
-                  <option>Hakeem Polistico</option>
-                  <option>Diether Francia</option>
-                  <option>Marc Terrobias</option>
-                  <option>Patrick Guzman</option>
-                  <option>Jasver Salva</option>
-                  <option>Adrielle Kristine Nicolette Escaro</option>
-                  <option>AJ Alcantara</option>
-                </select>
+    <div class="row">
+      <div class="col-lg-5 col-xs-12">
+        <div class="input-group margin" style="margin: 0 0 10px 0;">
+                <input type="text" class="form-control" placeholder="select class">
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-info btn-flat">ENTER</button>
+                    </span>
               </div>
-              <!-- /.form-group -->              
-            </div>
-            <!-- /.col -->
-            
-          </div>
-          <!-- /.row -->
-        </div>
-        <!-- /.box-body -->
-      </div>
-      <!-- /.box -->
 
       </div>
-      <div class="col-md-4">
-        <!-- SELECT2 EXAMPLE -->
-      <div class="box box-default">
-        <div class="box-header with-border">
-          <h3 class="box-title">Select data</h3>
 
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
-          </div>
-        </div>
-        <!-- /.box-header -->
-        <div class="box-body">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>Teachers</label>
-                <select class="form-control select2" data-placeholder="Select Teachers">
-                  <option></option>
-                  <option>Alaska</option>
-                  <option>California</option>
-                  <option>Delaware</option>
-                  <option>Tennessee</option>
-                  <option>Texas</option>
-                  <option>Washington</option>
-                </select>
-              </div>
-              <!-- /.form-group -->              
-            </div>
-            <!-- /.col -->
-
-          </div>
-          <!-- /.row -->
-        </div>
-        <!-- /.box-body -->
-      </div>
-      <!-- /.box -->
-
-      </div>
-      <div class="col-md-4">
-        <!-- SELECT2 EXAMPLE -->
-      <div class="box box-default">
-        <div class="box-header with-border">
-          <h3 class="box-title">Select data</h3>
-
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
-          </div>
-        </div>
-        <!-- /.box-header -->
-        <div class="box-body">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>Rooms</label>
-                <select class="form-control select2" data-placeholder="Select Rooms">
-                  <option></option>
-                  <option>Alaska</option>
-                  <option>California</option>
-                  <option>Delaware</option>
-                  <option>Tennessee</option>
-                  <option>Texas</option>
-                  <option>Washington</option>
-                </select>
-              </div>
-              <!-- /.form-group -->              
-            </div>
-            <!-- /.col -->
-
-          </div>
-          <!-- /.row -->
-        </div>
-        <!-- /.box-body -->
-      </div>
-      <!-- /.box -->
-
-      </div>
-      </div>
-      <div class="row hidden-print">
-        <div class="col-md-12">
-          <div class="box box-danger">
-            <div class="box-header with-border">
-              <h3 class="box-title">Profile</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-              </div>
-              <!-- /.box-tools -->
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <div class="col-md-4">
-          <!-- Widget: user widget style 1 -->
-          <div style = "border-width: 1px; border-style: solid; border-color: #f1f1f1;" class="box box-widget widget-user">
+    </div>
+      
+      
+      <div class="row disabled">
+        <div class="col-lg-5 col-xs-12">
+          <div id="profile-box-class" class="box box-widget widget-user-2">
             <!-- Add the bg color to the header using any of the bg-* classes -->
-            <div class="widget-user-header bg-maroon-active">
-              <h3 class="widget-user-username">Adrielle Nicolette Escaro</h3>
-              <h5 class="widget-user-desc">Lead Developer</h5>
-            </div>
-            <div class="widget-user-image">
-              <img class="img-circle" src="<?php echo base_url(); ?>dist/img/user1-128x128.jpg" alt="User Avatar">
-            </div>
-            <div class="box-footer">
-              <div class="row">
-                <div class="col-sm-4 border-right">
-                  <div class="description-block">
-                    <h5 class="description-header">3,200</h5>
-                    <span class="description-text">SALES</span>
-                  </div>
-                  <!-- /.description-block -->
-                </div>
-                <!-- /.col -->
-                <div class="col-sm-4 border-right">
-                  <div class="description-block">
-                    <h5 class="description-header">13,000</h5>
-                    <span class="description-text">FOLLOWERS</span>
-                  </div>
-                  <!-- /.description-block -->
-                </div>
-                <!-- /.col -->
-                <div class="col-sm-4">
-                  <div class="description-block">
-                    <h5 class="description-header">35</h5>
-                    <span class="description-text">PRODUCTS</span>
-                  </div>
-                  <!-- /.description-block -->
-                </div>
-                <!-- /.col -->
+            <div class="widget-user-header bg-primary">
+              <div class="widget-user-image">
+                <img class="img-circle" src="<?php echo base_url('images/alt_picture_aqua.jpg'); ?>" alt="User Avatar">
               </div>
-              <!-- /.row -->
+              <!-- /.widget-user-image -->
+              <h3 class="widget-user-username" style="color: white; font-size: 25px;" id="profile-class-name">Type O</h3>
+              <h5 class="widget-user-desc" style="color: white" id="profile-class-grade">Grade 12</h5>
             </div>
-          </div>
-          <!-- /.widget-user -->
-        </div>
-        <div class="col-md-4">
-          <!-- Widget: user widget style 1 -->
-           <div style = "border-width: 1px; border-style: solid; border-color: #f1f1f1;" class="box box-widget widget-user-2">
-              <div class="box-footer" style="padding: 6px">
+            <div class="box-footer no-padding">
               <ul class="nav nav-stacked">
-                <li><a href="#">Status <span class="pull-right badge bg-blue">Active</span></a></li>
-                <li><a href="#">Full Name <span class="pull-right text-maroon">Adrielle Kristine Nicolette Escaro</span></a></li>
-                <li><a href="#">Position <span class="pull-right text-maroon">Teacher 1</span></a></li>
-                <li><a href="#">Major <span class="pull-right text-maroon">English</span></a></li>
-                <li><a href="#">Contact No <span class="pull-right text-maroon">0997-586-4782</span></a></li>
+                <li><a href="#">Adviser <span class="pull-right text-info" id="profile-class-adviser">Hakeem Polistico</span></a></li>
+                <li><a href="#">Status <span class="pull-right text-danger badge bg-blue" id="profile-class-status">FULL</span></a></li>
               </ul>
             </div>
           </div>
-          <!-- /.widget-user -->    
-        </div>
-        <!-- /.col -->
-        <div class="col-md-4">
-            <!-- /.box-header -->
-            <div style = "border-width: 1px; border-style: solid; border-color: #f1f1f1;  height: 218px; max-height: 218;" class="box-body">
-              <strong><i class="fa fa-file-text-o margin-r-5"></i> Notes</strong>
-              <p>Max of 250 characters only.</p>
-            </div>
-            <!-- /.box-body -->
-        </div>
-
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
         </div>
         
-      </div>
-
-      <div class="row">
-        <div class="hidden-print col-md-3">
-          <div class="box box-solid">
-            <div class="box-header with-border">
-              <h4 class="box-title">Draggable Events</h4>
-            </div>
-            <div class="box-body">
-               <div class="count object" id="1" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div></div>
-              <div id="external-events">
-              </div>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /. box -->
-          <div class="hidden-print box box-solid">
+        <div class="col-lg-4 col-xs-12">
+        <div class="hidden-print box box-solid">
             <div class="box-header with-border">
               <h3 class="box-title">Create Event</h3>
             </div>
-            <div class="box-body">
+            <div class="box-body" style="padding: 18px 10px 17px 10px">
               <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
                 <!--<button type="button" id="color-chooser-btn" class="btn btn-info btn-block dropdown-toggle" data-toggle="dropdown">Color <span class="caret"></span></button>-->
-                <ul class="fc-color-picker" id="color-chooser">
-                  <li><a class="text-aqua" href="#"><i class="fa fa-square"></i></a></li>
-                  <li><a class="text-blue" href="#"><i class="fa fa-square"></i></a></li>
-                  <li><a class="text-light-blue" href="#"><i class="fa fa-square"></i></a></li>
-                  <li><a class="text-teal" href="#"><i class="fa fa-square"></i></a></li>
-                  <li><a class="text-yellow" href="#"><i class="fa fa-square"></i></a></li>
-                  <li><a class="text-orange" href="#"><i class="fa fa-square"></i></a></li>
-                  <li><a class="text-green" href="#"><i class="fa fa-square"></i></a></li>
-                  <li><a class="text-lime" href="#"><i class="fa fa-square"></i></a></li>
-                  <li><a class="text-red" href="#"><i class="fa fa-square"></i></a></li>
-                  <li><a class="text-purple" href="#"><i class="fa fa-square"></i></a></li>
-                  <li><a class="text-fuchsia" href="#"><i class="fa fa-square"></i></a></li>
-                  <li><a class="text-muted" href="#"><i class="fa fa-square"></i></a></li>
-                  <li><a class="text-navy" href="#"><i class="fa fa-square"></i></a></li>
+                <ul class="fc-color-picker" id="color-chooser">        
+                    <li><a class="text-aqua" href="#"><i class="fa fa-square"></i></a></li>
+                    <li><a class="text-blue" href="#"><i class="fa fa-square"></i></a></li>
+                    <li><a class="text-light-blue" href="#"><i class="fa fa-square"></i></a></li>
+                    <li><a class="text-yellow" href="#"><i class="fa fa-square"></i></a></li>
+                    <li><a class="text-orange" href="#"><i class="fa fa-square"></i></a></li>
+                    <li><a class="text-green" href="#"><i class="fa fa-square"></i></a></li>
+                    <li><a class="text-lime" href="#"><i class="fa fa-square"></i></a></li>
+                    <li><a class="text-red" href="#"><i class="fa fa-square"></i></a></li>
+                    <li><a class="text-purple" href="#"><i class="fa fa-square"></i></a></li>
+                    <li><a class="text-fuchsia" href="#"><i class="fa fa-square"></i></a></li>                  
                 </ul>
               </div>
               <!-- /btn-group -->
               <div class="input-group">
-                <input style="height:34px;" id="new-event-subject" type="text" class="form-control" placeholder="Event">
-                <input style="height:34px;" id="new-event-teacher" type="text" class="form-control" placeholder="Teacher">
+                <select id="new-event-subject" class="form-control select2"  data-placeholder="Select subject">
+                  <option></option>
+                  <?php foreach ($subjects as $val) 
+                    {
+                      echo "<option>".$val->name."</option>";
+                    }
+                  ?>   
+                </select>
+                <select id="new-event-teacher" class="form-control select2"  data-placeholder="Select teacher">
+                  <option></option>
+                  <?php foreach ($teachers as $val) 
+                    {
+                      echo "<option>".$val->first_name." ".$val->last_name."</option>";
+                    }
+                  ?>   
+                </select>
 
                 <div class="input-group-btn ">
                   <button id="add-new-event" type="button" class="btn btn-primary btn-flat" style="height:68px;">Add</button>
@@ -629,40 +417,70 @@
               <!-- /input-group -->
             </div>
           </div>
+      </div>
+
+        <div class="col-lg-3 col-xs-12">
+          <div class="hidden-print box box-solid" style="padding-top:6px; padding-bottom:6px;">
+            <div class="box-header with-border">
+              <h4 class="box-title">Actions Row</h4>
+            </div>
+            <div class="box-body">
+            <center>
+                <button style="width: 100px; margin-top: 3px" id="add" class="btn btn-success">Add</button>
+                <button style="width: 100px; margin-top: 3px" id="remove" class="btn btn-danger">Remove</button>
+                <button style="width: 100px; margin-top: 3px" id="removeAll" class="btn btn-warning">Remove All</button>
+                <button style="width: 100px; margin-top: 3px" id="printBtn" class="btn btn-primary">Print</button>
+                <button style="width: 100px; margin-top: 3px" id="saveBtn" class="btn bg-purple">Save Sched</button>         
+                <button style="width: 100px; margin-top: 3px" id="clearBtn" class="btn bg-purple">Clear</button>  
+            </center>                
+                             
+            </div>
+            <!-- /.box-body -->
+          </div>
+        
+      </div>
+      
+    </div>
+
+      <div class="row disabled">
+        <!-- /.col -->
+        <div class="col-md-3">
 
           <div class="hidden-print box box-solid">
             <div class="box-header with-border">
               <h4 id="trash" class="box-title">Drag Here To Trash</h4>
             </div>
-            <div class="box-body">
-              <!-- the events -->
+            <div class="box-body" style="padding: 5px 10px 5px 10px">
               <div ondrop="dropTrash(event)" ondragover="allowDrop(event)" >
-                  <h5 class="box-title text-center"><icon id = "icon" class="fa fa-trash-o fa-4x"/></h5>
+                  <h5 class="box-title text-center"><icon id = "icon" class="fa fa-trash-o fa-3x"/></h5>
               </div>
             </div>
-            <!-- /.box-body -->
+
           </div>
-          <!-- /. box -->
 
-          <div class="hidden-print box box-solid">
+          <div class="box box-solid">
             <div class="box-header with-border">
-              <h4 class="box-title">Actions Row</h4>
+              <h4 class="box-title">Draggable Events <div class="box-title" style="font-size: 13px">(max of 4) </div></h4>
             </div>
-            <div class="box-body">
-              <center>
-                <button style="width: 100px" id="remove" class="btn btn-danger">Remove</button>
-                <button style="width: 100px" id="removeAll" class="btn btn-warning">Remove All</button><br>
-                <button style="width: 100px; margin-top: 3px" id="add"class="btn btn-success">Add</button>
-                <button style="width: 100px; margin-top: 3px" id="printBtn"class="btn btn-primary">Print</button>
-              </center>                
+            <div class="box-body" >
+              <div class="count object" id="0" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div>
+              </div>
+              <div class="count object" id="0" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div>
+              </div>
+              <div class="count object" id="0" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div>
+              </div>
+              <div class="count object" id="0" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div>
+              </div>
+              <div class="count object" id="0" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div>
+              </div>
+              <div class="count object" id="0" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div>
+              </div>
               <div id="external-events">
-
               </div>
             </div>
-            <!-- /.box-body -->
           </div>
         </div>
-        <!-- /.col -->
+
         <div class="col-md-9">
 
           <div class="box box-primary">
@@ -799,6 +617,7 @@
                 </tr>
                 </tfoot>
               </table>
+
             </div>
             <!-- /.box-body -->
           </div>
@@ -812,13 +631,9 @@
   </div>
   <!-- /.content-wrapper -->
 
-  <footer class="hidden-print main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Version</b> 1.0.0
-    </div>
-    <strong>Copyright &copy; 2017-2018 <a href="https://adminlte.io">Araullo School Management</a>.</strong> All rights
-    reserved.
-  </footer>
+  <!-- Footer -->
+  {footer}
+  <!-- /.Footer -->
 
   
 </div>
@@ -849,6 +664,8 @@
 <script type="text/javascript">
   //Initialize Select2 Elements
     $('.select2').select2()
+
+  var ajaxUrl = "<?php echo base_url("enrollment/manage_schedule/ajax"); ?>"
 </script>
 </body>
 </html>

@@ -39,10 +39,7 @@
   <header class="main-header">
     <!-- Logo -->
     <a href="<?php echo site_url('/') ?>" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>S</b>M</span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>School</b>Management</span>
+      {logo}
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -239,17 +236,7 @@
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
-      <!-- search form -->
-      <form action="#" method="get" class="sidebar-form">
-        <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
-              <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-        </div>
-      </form>
-      <!-- /.search form -->
+      
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
@@ -322,7 +309,7 @@
     <div class="alert bg-maroon alert-dismissible flat">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <h4><i class="icon fa fa-bullhorn"></i> Choose Carefully!</h4>
-        Once a strand has been picked, the student co no longer change his or her strand.
+        Once a strand has been picked, the student could no longer change his or her strand.
      </div>
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -347,43 +334,46 @@
           <h3 class="box-title">Please enter the ff. grades: </h3>
         </div>
         <div class="box-body">
+        <form>
           <div class="form-group">
-                <label>English</label>
-                  <input type="text" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Mathematics</label>
-                  <input type="text" class="form-control" id="lrn">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Science</label>
-                  <input type="text" class="form-control" id="lrn">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Filipino</label>
-                  <input type="text" class="form-control" id="lrn">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Araling Panlipunan</label>
-                  <input type="text" class="form-control" id="lrn">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">T.L.E.</label>
-                  <input type="text" class="form-control" id="lrn">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Computer Education</label>
-                  <input type="text" class="form-control" id="lrn">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">MAPEH</label>
-                  <input type="text" class="form-control" id="lrn">
-                </div>        </div>
+            <label>English</label>
+            <input type="text" class="form-control" name="english" style="margin-bottom: -10px;">
+          </div>
+          <div class="form-group">
+            <label>Mathematics</label>
+            <input type="text" class="form-control" name="math"  style="margin-bottom: -10px;">
+          </div>
+          <div class="form-group">
+            <label>Science</label>
+            <input type="text" class="form-control" name="science"  style="margin-bottom: -10px;">
+          </div>
+          <div class="form-group">
+            <label>Filipino</label>
+            <input type="text" class="form-control" name="filipino"  style="margin-bottom: -10px;">
+          </div>
+          <div class="form-group">
+            <label>Araling Panlipunan</label>
+            <input type="text" class="form-control" name="ap" style="margin-bottom: -10px;">
+          </div>
+          <div class="form-group">
+            <label>T.L.E.</label>
+            <input type="text" class="form-control" name="tle" style="margin-bottom: -10px;">
+          </div>
+          <div class="form-group">
+            <label>Computer Education</label>
+            <input type="text" class="form-control" name="computer" style="margin-bottom: -10px;">
+          </div>
+          <div class="form-group">
+            <label>MAPEH</label>
+            <input type="text" class="form-control" name="mapeh" style="margin-bottom: -10px;">
+          </div>
+        </div>
         <!-- /.box-body -->
         <div class="box-footer">
           <button type="submit" name="search" class="btn btn-primary btn-flat">Submit</button>
         </div>
         <!-- /.box-footer-->
+      </form>
       </div>
       <!-- /.box -->
       </div>
@@ -677,15 +667,9 @@
   </div>
   <!-- /.content-wrapper -->
 
-
-
-  <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Version</b> 2.4.0
-    </div>
-    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
-    reserved.
-  </footer>
+  <!-- Footer -->
+  {footer}
+  <!-- /.Footer -->
 
   <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->

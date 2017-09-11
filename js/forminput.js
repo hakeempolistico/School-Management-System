@@ -43,12 +43,21 @@ $(document).ready(function(){
           var value = $('#inputRELIGION').val();
           $('#textRELIGION').text(value);
       });
-      $("#inputPROVINCE").change(function(){
+      $(".address").change(function(){
           var street = $('#inputSTREET').val();
           var brgy = $('#inputBARANGAY').val();
           var city = $('#inputCITY').val();
           var province = $('#inputPROVINCE').val();
-          $('#textADDRESS').text(street+', '+brgy+', '+city+', '+province);
+
+          if (street.length > 0 && brgy.length > 0 && city.length > 0 && province.length > 0){
+            $('#textADDRESS').text(street+', '+brgy+', '+city+', '+province);
+          } else if (street.length > 0 && brgy.length > 0 && city.length > 0){
+            $('#textADDRESS').text(street+', '+brgy+', '+city);
+          } else if (street.length > 0 && brgy.length > 0) {
+            $('#textADDRESS').text(street+', '+brgy);
+          } else if (street.length > 0){
+            $('#textADDRESS').text(street);
+          }
       });
       $("#inputFATHER").change(function(){
           var value = $('#inputFATHER').val();
@@ -89,10 +98,10 @@ $(document).ready(function(){
 
           if ($(this).val() == a) {
             document.getElementById("textREQUIREMENTS").innerHTML ='<span class="label label-success">Complete</span>';
-            $("#requirements").val('complete');
+            $("#requirements").val('COMPLETE');
             } else {
             document.getElementById("textREQUIREMENTS").innerHTML = '<span class="label label-warning">Incomplete</span>';
-            $("#requirements").val('incomplete');
+            $("#requirements").val('INCOMPLETE');
             }
       });
       $("#inputNOTE").change(function(){

@@ -48,10 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <header class="main-header">
     <!-- Logo -->
     <a href="<?php echo site_url('/') ?>" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>S</b>M</span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg">School Management</span>
+      {logo}
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -312,7 +309,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <section class="content-header">
       <h1>
         Manage Students
-        <!--<small>Control panel</small>-->
+        <small>Add students to a section and a room</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Enrollment</a></li>
@@ -325,120 +322,273 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
       <div class="row">
         <div class="col-md-12">
+
           <div class="row">
-        <div class="col-lg-4 col-xs-12">
-          <!-- small box -->
-          <div class="small-box bg-green" id="stem_list" style="cursor: pointer;">
-            <div class="inner">
-              <h3>STEM</h3>
+            <div class="col-lg-4 col-xs-12">
+              <!-- small box -->
+              <div class="small-box bg-green" id="stem_list" style="cursor: pointer;">
+                <div class="inner">
+                  <h3>STEM</h3>
 
-              <p>Science, Technology,<br> Engineering, and Mathematics</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-flask"></i>
-            </div>
-            <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-4 col-xs-12">
-          <!-- small box -->
-          <div class="small-box bg-maroon" id="gas_list" style="cursor: pointer;">
-            <div class="inner">
-              <h3>GAS</h3>
-
-              <p>General<br>Academic Strand</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-book"></i>
-            </div>
-            <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-4 col-xs-12">
-          <!-- small box -->
-          <div class="small-box bg-yellow" id="humss_list" style="cursor: pointer;">
-            <div class="inner">
-              <h3>HUMSS</h3>
-
-              <p>Humanities<br>and Social Sciences</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-users"></i>
-            </div>
-            <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
-          </div>
-        </div>
-        <!-- ./col -->
-      </div>
-      <div class="row">
-        <div class="col-lg-4 col-xs-12">
-          <!-- small box -->
-          <div class="small-box bg-purple" id="abm_list" style="cursor: pointer;">
-            <div class="inner">
-              <h3>ABM</h3>
-
-              <p>Accountancy<br>and Business Management</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-briefcase"></i>
-            </div>
-            <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-xs-12">
-          <!-- small box -->
-          <div class="small-box bg-blue" id="tvlhe_list" style="cursor: pointer;">
-            <div class="inner">
-              <h3>TVL-HE</h3>
-
-              <p>Technology-Vocational<br>Livelihood: Home Economics</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-home"></i>
-            </div>
-            <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-xs-12">
-          <!-- small box -->
-          <div class="small-box bg-navy" id="tvlas_list" style="cursor: pointer;">
-            <div class="inner">
-              <h3>TVL-AS</h3>
-
-              <p>Technogy-Vocational<br>Livelihood: Automotive Services</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-cogs"></i>
-            </div>
-            <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
-          </div>
-        </div>
-        <!-- ./col -->
-      </div>
-      <!-- /.row -->
-
-      <!--container ng mga ic-click na box-->
-      <div class="row">
-      <div class="col-xs-12">
-          <div id="lapa">
-            <div class="alert bg-gray" style="height: 234px;">
-                <div>
-                <center>
-                <i class="icon fa fa-exclamation-triangle fa-4x" style="margin-top: 25px;"></i>
-                <h3>No table selected!</h3>
-                <h4> Please choose from the above tables to view data</h4>
-                </center>
+                  <p>Science, Technology,<br> Engineering, and Mathematics</p>
                 </div>
+                <div class="icon">
+                  <i class="fa fa-flask"></i>
+                </div>
+                <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
+              </div>
             </div>
-          </div>
-      </div>
-    </div>
+            <!-- ./col -->
+            <div class="col-lg-4 col-xs-12">
+              <!-- small box -->
+              <div class="small-box bg-maroon" id="gas_list" style="cursor: pointer;">
+                <div class="inner">
+                  <h3>GAS</h3>
 
-      <!-- BOX OF STEM-->
+                  <p>General<br>Academic Strand</p>
+                </div>
+                <div class="icon">
+                  <i class="fa fa-book"></i>
+                </div>
+                <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
+              </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-4 col-xs-12">
+              <!-- small box -->
+              <div class="small-box bg-yellow" id="humss_list" style="cursor: pointer;">
+                <div class="inner">
+                  <h3>HUMSS</h3>
+
+                  <p>Humanities<br>and Social Sciences</p>
+                </div>
+                <div class="icon">
+                  <i class="fa fa-users"></i>
+                </div>
+                <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
+              </div>
+            </div>
+            <!-- ./col -->
+          </div>
+
+          <div class="row">
+            <div class="col-lg-4 col-xs-12">
+              <!-- small box -->
+              <div class="small-box bg-purple" id="abm_list" style="cursor: pointer;">
+                <div class="inner">
+                  <h3>ABM</h3>
+
+                  <p>Accountancy<br>and Business Management</p>
+                </div>
+                <div class="icon">
+                  <i class="fa fa-briefcase"></i>
+                </div>
+                <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-xs-12">
+              <!-- small box -->
+              <div class="small-box bg-blue" id="tvlhe_list" style="cursor: pointer;">
+                <div class="inner">
+                  <h3>TVL-HE</h3>
+
+                  <p>Technology-Vocational<br>Livelihood: Home Economics</p>
+                </div>
+                <div class="icon">
+                  <i class="fa fa-home"></i>
+                </div>
+                <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-xs-12">
+              <!-- small box -->
+              <div class="small-box bg-navy" id="tvlas_list" style="cursor: pointer;">
+                <div class="inner">
+                  <h3>TVL-AS</h3>
+
+                  <p>Technogy-Vocational<br>Livelihood: Automotive Services</p>
+                </div>
+                <div class="icon">
+                  <i class="fa fa-cogs"></i>
+                </div>
+                <div class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></div>
+              </div>
+            </div>
+            <!-- ./col -->
+          </div>
+          <!-- /.row -->    
+
+          <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+          <div class="box" id="all_box">
+            <div class="box-header">
+              <h3 class="box-title">STUDENTS</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <!--<div class="nav-tabs-custom">-->
+              <div class="wizard">
+
+                <ul class="nav nav-wizard">
+                    <li class="active">
+                        <a href="#all_step1" data-toggle="tab"> Students</a>
+                    </li>
+                    <li class="disabled">
+                        <a href="#all_step2" data-toggle="tab">Sections</a>
+                    </li>
+                    <li class="disabled">
+                        <a href="#all_step3" data-toggle="tab">Rooms</a>
+                    </li>
+                    <li class="disabled">
+                        <a href="#all_step4" data-toggle="tab">Summary</a>
+                    </li>                  
+                </ul>
+
+                <br>
+                <div class="tab-content">
+
+                  <div class="tab-pane active" id="all_step1"> 
+                  <h4>Select Students</h4><hr>
+                    <table id="tbl_allStudents" class="table table-bordered table-striped">
+                      <thead>
+                        <tr>
+                          <th><input type="checkbox" class="check" id="checkAll"></th>
+                          <th>#</th>
+                          <th>LRN</th>
+                          <th>Full Name</th>
+                          <th>Sex</th>
+                          <th>Section</th>
+                        </tr>
+                      </thead>
+                      <tbody id="tbodyAll">
+                        <tr id="recordAll">
+                          <td><input type="checkbox" class="check"></td>
+                          <td>1.</td>
+                          <td>000000000008</td>
+                          <td>Escaro, Adrielle Kristine Nicolette</td>
+                          <td>Female</td>
+                          <td>STEM-2</td>
+                        </tr>                        
+                      </tbody>
+                    </table>
+                    <hr style="margin-bottom: 10px;">
+                      
+                      <ul class="list-inline pull-right">                        
+                        <li><button type="button" class="btn btn-primary btnNext">Transfer</button></li>
+                        <li><button type="button" class="btn btn-primary btnNext">Add</button></li>
+                      </ul>                      
+                  </div>
+                  <!-- /.end student tab-->
+
+                  <div class="tab-pane" id="all_step2">
+                  <h4>Select a Section</h4>
+                  <hr>
+                    <table id="tbl_allSections" class="table table-bordered table-striped">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Section Name</th>
+                          <th>Count</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody id="tbodyAll2">
+                        <tr id="recordAll2">
+                          <td>1.</td>
+                          <td>STEM-1</td>
+                          <td>31/40</td>
+                          <td><span class="label label-success">Open</span></td>
+                        </tr>                        
+                      </tbody>                      
+                    </table>
+                      <hr style="margin-bottom: 10px;">
+                      <ul class="list-inline pull-right">
+                        <li><button type="button" class="btn btn-primary btnBack">Back</button></li>
+                        <li><button type="button" class="btn btn-primary btnNext">Next</button></li>
+                      </ul>                                           
+                  </div>
+                  <!--end section_tab-->
+                  <div class="tab-pane" id="all_step3">
+                  <h4>Select a Room</h4>
+                  <hr>
+                    <table id="tbl_allRooms" class="table table-bordered table-striped">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Room No.</th>
+                          <th>Room Name</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody id="tbodyAll3">
+                        <tr id="recordAll3">
+                          <td>1.</td>
+                          <td>329</td>
+                          <td></td>
+                          <td><span class="label label-success">Open</span></td>
+                        </tr>                        
+                      </tbody>                      
+                    </table>
+                      <hr style="margin-bottom: 10px;">
+                      <ul class="list-inline pull-right">
+                        <li><button type="button" class="btn btn-primary btnBack">Back</button></li>
+                        <li><button type="button" class="btn btn-primary btnNext">Next</button></li>
+                      </ul>                                           
+                  </div>
+                  <!--end section_tab-->
+                  <div class="tab-pane" id="all_step4">
+                  <h4>Confirm Operation:</h4>
+                    <hr>
+                     <h3>ADD TO <b> STEM-1</b> in <b>RM. 325</b></h3>
+                        <table class="table table-responsive table-bordered">
+                          <tr>
+                            <th>#</th>
+                            <th>LRN</th>
+                            <th>Full Name</th>
+                            <th>Sex</th>
+                             
+                          </tr>
+                           <tr>
+                            <td>1.</td>
+                            <td>00000000008</td>
+                            <td>Escaro, Adrielle Kristine Nicolette</td>
+                            <td>Female</td>
+                              
+                          </tr>
+                          <tr>
+                            <td>2.</td>
+                            <td>00000000009</td>
+                            <td>Polistico, Hakeem</td>
+                            <td>Male</td>
+                              
+                          </tr>  
+                           <tr>
+                            <td>3.</td>
+                            <td>00000000007</td>
+                            <td>Salva, Jasver Anlouise</td>
+                            <td>Female</td>
+                            
+                          </tr>                
+                        </table><hr>
+                  
+                    <ul class="list-inline pull-right">
+                      <li><button type="button" class="btn btn-primary btnBack">Back</button></li>
+                      <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_success" >Save</button></li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- /. end tab contents-->
+              </div>
+              <!-- /.WIZARD-->
+            </div>
+            <!-- /.box-body -->
+          </div>
+
+          <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+          <!-- BOX OF STEM-->
           <div class="box" hidden id="stem_box">
             <div class="box-header">
               <h3 class="box-title">STEM</h3>
@@ -447,23 +597,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="box-body">
               <!--<div class="nav-tabs-custom">-->
               <div class="wizard">
+
                 <ul class="nav nav-wizard">
-
                     <li class="active">
-                        <a href="#step1" data-toggle="tab">Select Students</a>
+                        <a href="#stem_step1" data-toggle="tab"> Students</a>
                     </li>
-
                     <li class="disabled">
-                        <a href="#step2" data-toggle="tab">Add Section</a>
+                        <a href="#stem_step2" data-toggle="tab">Sections</a>
                     </li>
-
                     <li class="disabled">
-                        <a href="#step3" data-toggle="tab">Summary</a>
+                        <a href="#stem_step3" data-toggle="tab">Rooms</a>
                     </li>
-                  
-                </ul><br>
+                    <li class="disabled">
+                        <a href="#stem_step4" data-toggle="tab">Summary</a>
+                    </li>                  
+                </ul>
+
+                <br>
                 <div class="tab-content">
-                  <div class="tab-pane active" id="step1">  
+
+                  <div class="tab-pane active" id="stem_step1"> 
+                  <h4>Select Students</h4><hr>
                     <table id="example1" class="table table-bordered table-striped">
                       <thead>
                         <tr>
@@ -475,83 +629,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                           <th>Section</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr>
+                      <tbody id="tbody1">
+                        <tr id="record">
                           <td><input type="checkbox" class="check"></td>
                           <td>1.</td>
                           <td>000000000008</td>
                           <td>Escaro, Adrielle Kristine Nicolette</td>
                           <td>Female</td>
                           <td>STEM-2</td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox" class="check"></td>
-                          <td>2.</td>
-                          <td>000000000007</td>
-                          <td>Polistico, Hakeem</td>
-                          <td>Male</td>
-                          <td>STEM-1</td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox" class="check"></td>
-                          <td>3.</td>
-                          <td>000000000009</td>
-                          <td>Salva, Jasver Anlouise</td>
-                          <td>Female</td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox" class="check"></td>
-                          <td>4.</td>
-                          <td>000000000010</td>
-                          <td>Morales, Shiela May</td>
-                          <td>Female</td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox" class="check"></td>
-                          <td>5.</td>
-                          <td>000000000021</td>
-                          <td>Zulueta, Shanai Hazel</td>
-                          <td>Female</td>
-                          <td>STEM-3</td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox" class="check"></td>
-                          <td>6.</td>
-                          <td>000000000005</td>
-                          <td>Francia, Jan Diether</td>
-                          <td>Male</td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox" class="check"></td>
-                          <td>7.</td>
-                          <td>000000000001</td>
-                          <td>Terrobias, Marc Inzon</td>
-                          <td>Male</td>
-                          <td>STEM-3</td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox" class="check"></td>
-                          <td>8.</td>
-                          <td>000000000003</td>
-                          <td>Alcantara, Aaron James</td>
-                          <td>Male</td>
-                          <td></td>
-                        </tr>
+                        </tr>                        
                       </tbody>
                     </table>
                     <hr style="margin-bottom: 10px;">
                       
-                      <ul class="list-inline pull-right">
-                        <li><button type="button" class="btn btn-primary">Add</button></li>
-                      </ul>
-                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" style="width: 15%;">Transfer</button>
+                      <ul class="list-inline pull-right">                        
+                        <li><button type="button" class="btn btn-primary btnNext">Transfer</button></li>
+                        <li><button type="button" class="btn btn-primary btnNext">Add</button></li>
+                      </ul>                      
                   </div>
                   <!-- /.end student tab-->
 
-                  <div class="tab-pane" id="step2">  
+                  <div class="tab-pane" id="stem_step2">
+                  <h4>Select a Section</h4>
+                  <hr>
                     <table id="example2" class="table table-bordered table-striped">
                       <thead>
                         <tr>
@@ -561,48 +661,121 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                           <th>Status</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr>
+                      <tbody id="tbody2">
+                        <tr id="record2">
                           <td>1.</td>
                           <td>STEM-1</td>
                           <td>31/40</td>
                           <td><span class="label label-success">Open</span></td>
-                        </tr>
-                        <tr>
-                          <td>2.</td>
-                          <td>STEM-2</td>
-                          <td>40/40</td>
-                          <td><span class="label label-danger">Closed</span></td>
-                        </tr>
-                        <tr>
-                          <td>3.</td>
-                          <td>STEM-3</td>
-                          <td>0/40</td>
-                          <td><span class="label label-success">Open</span></td>
-                        </tr>
+                        </tr>                        
                       </tbody>                      
                     </table>
                       <hr style="margin-bottom: 10px;">
                       <ul class="list-inline pull-right">
-                        <li><button type="button" class="btn btn-primary">Next</button></li>
-                      </ul>
-                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" style="width: 15%;">Save</button>                      
+                        <li><button type="button" class="btn btn-primary btnBack">Back</button></li>
+                        <li><button type="button" class="btn btn-primary btnNext">Next</button></li>
+                      </ul>                                           
                   </div>
                   <!--end section_tab-->
-                  <div class="tab-pane" id="step3">
-                    <p style="font-size: 100px">SUMMARY XD</p>
+                  <div class="tab-pane" id="stem_step3">
+                  <h4>Select a Room</h4>
+                  <hr>
+                    <table id="example3" class="table table-bordered table-striped">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Room No.</th>
+                          <th>Room Name</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody id="tbody3">
+                        <tr id="record3">
+                          <td>1.</td>
+                          <td>329</td>
+                          <td></td>
+                          <td><span class="label label-success">Open</span></td>
+                        </tr>                        
+                      </tbody>                      
+                    </table>
+                      <hr style="margin-bottom: 10px;">
+                      <ul class="list-inline pull-right">
+                        <li><button type="button" class="btn btn-primary btnBack">Back</button></li>
+                        <li><button type="button" class="btn btn-primary btnNext">Next</button></li>
+                      </ul>                                           
+                  </div>
+                  <!--end section_tab-->
+                  <div class="tab-pane" id="stem_step4">
+                  <h4>Confirm Operation:</h4>
+                    <hr>
+                     <h3>ADD TO <b> STEM-1</b> in <b>RM. 325</b></h3>
+                        <table class="table table-responsive table-bordered">
+                          <tr>
+                            <th>#</th>
+                            <th>LRN</th>
+                            <th>Full Name</th>
+                            <th>Sex</th>
+                             
+                          </tr>
+                           <tr>
+                            <td>1.</td>
+                            <td>00000000008</td>
+                            <td>Escaro, Adrielle Kristine Nicolette</td>
+                            <td>Female</td>
+                              
+                          </tr>
+                          <tr>
+                            <td>2.</td>
+                            <td>00000000009</td>
+                            <td>Polistico, Hakeem</td>
+                            <td>Male</td>
+                              
+                          </tr>  
+                           <tr>
+                            <td>3.</td>
+                            <td>00000000007</td>
+                            <td>Salva, Jasver Anlouise</td>
+                            <td>Female</td>
+                            
+                          </tr>                
+                        </table><hr>
+                  
                     <ul class="list-inline pull-right">
-                      <li><button type="button" class="btn btn-primary">Next</button></li>
+                      <li><button type="button" class="btn btn-primary btnBack">Back</button></li>
+                      <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_success" >Save</button></li>
                     </ul>
                   </div>
                 </div>
                 <!-- /. end tab contents-->
-              <!--</div>-->
-              <!-- /.nav-tabs-custom-->
+              </div>
+              <!-- /.WIZARD-->
             </div>
             <!-- /.box-body -->
           </div>
           <!--/.box (box ng STEM)-->
+
+      <div class="modal fade" id="modal_success">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-green">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">System Message</h4>
+            </div>
+            <div class="modal-body">
+              <div class="box-body">
+                <p>Operation Successful!</p>
+                <br>                
+              </div>
+              <!-- /.box-body -->
+            </div>
+            <!-- /.modal-body -->
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
 
           <!-- BOX OF GAS START-->
           <div class="box" hidden id="gas_box">
@@ -611,11 +784,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <div class="nav-tabs-custom">
-                <ul class="nav nav-tabs">
-                  <li class="active"><a href="#gas_student_tab" data-toggle="tab">Student List</a></li>
-                  <!--<li> <a href="#gas_section_tab" data-toggle="tab">Section</a></li>-->
+              <div class="wizard">
+
+                <ul class="nav nav-wizard">
+                    <li class="active">
+                        <a href="#gas_student_tab" data-toggle="tab"> Students</a>
+                    </li>
+                    <li class="disabled">
+                        <a href="#gas_section_tab" data-toggle="tab">Sections</a>
+                    </li>
+                    <li class="disabled">
+                        <a href="#gas_room_tab" data-toggle="tab">Rooms</a>
+                    </li>
+                    <li class="disabled">
+                        <a href="#step4" data-toggle="tab">Summary</a>
+                    </li>                  
                 </ul>
+
+                <br>
                 <div class="tab-content">
                   <div class="tab-pane active" id="gas_student_tab">  
                     <table id="gas_student_table" class="table table-bordered table-striped">
@@ -629,77 +815,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                           <th>Section</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr>
+                      <tbody id="tbody4">
+                        <tr id="record4">
                           <td><input type="checkbox" class="check"></td>
                           <td>1.</td>
                           <td>000000000008</td>
                           <td>Escaro, Adrielle Kristine Nicolette</td>
                           <td>Female</td>
                           <td>GAS-2</td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox" class="check"></td>
-                          <td>2.</td>
-                          <td>000000000007</td>
-                          <td>Polistico, Hakeem</td>
-                          <td>Male</td>
-                          <td>GAS-1</td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox" class="check"></td>
-                          <td>3.</td>
-                          <td>000000000009</td>
-                          <td>Salva, Jasver Anlouise</td>
-                          <td>Female</td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox" class="check"></td>
-                          <td>4.</td>
-                          <td>000000000010</td>
-                          <td>Morales, Shiela May</td>
-                          <td>Female</td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox" class="check"></td>
-                          <td>5.</td>
-                          <td>000000000021</td>
-                          <td>Zulueta, Shanai Hazel</td>
-                          <td>Female</td>
-                          <td>STEM-3</td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox" class="check"></td>
-                          <td>6.</td>
-                          <td>000000000005</td>
-                          <td>Francia, Jan Diether</td>
-                          <td>Male</td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox" class="check"></td>
-                          <td>7.</td>
-                          <td>000000000001</td>
-                          <td>Terrobias, Marc Inzon</td>
-                          <td>Male</td>
-                          <td>STEM-3</td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox" class="check"></td>
-                          <td>8.</td>
-                          <td>000000000003</td>
-                          <td>Alcantara, Aaron James</td>
-                          <td>Male</td>
-                          <td></td>
-                        </tr>
+                        </tr>                        
                       </tbody>
                     </table>
-                    <hr style="margin-bottom: 10px;">
-                      
-                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#section_modal" style="width: 15%; ">Add</button>
-                      <button type="button" class="btn btn-default" style="width: 15%;">Transfer</button>
+                    <hr style="margin-bottom: 10px;">                      
+                      <ul class="list-inline pull-right">                        
+                        <li><button type="button" class="btn btn-primary btnNext">Transfer</button></li>
+                        <li><button type="button" class="btn btn-primary btnNext">Add</button></li>
+                      </ul>
                   </div>
                   <!-- /.end student tab-->
 
@@ -713,31 +844,50 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                           <th>Status</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr>
+                      <tbody id="tbody5">
+                        <tr id="record5">
                           <td>1.</td>
                           <td>GAS-1</td>
                           <td>31/40</td>
                           <td><span class="label label-success">Open</span></td>
-                        </tr>
-                        <tr>
-                          <td>2.</td>
-                          <td>GAS-2</td>
-                          <td>40/40</td>
-                          <td><span class="label label-danger">Closed</span></td>
-                        </tr>
-                        <tr>
-                          <td>3.</td>
-                          <td>GAS-3</td>
-                          <td>0/40</td>
-                          <td><span class="label label-success">Open</span></td>
-                        </tr>
+                        </tr>                        
                       </tbody>                      
                     </table>
                       <hr style="margin-bottom: 10px;">
-                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#gas_modal" style="width: 15%;">Save</button>                      
+                      <ul class="list-inline pull-right">
+                        <li><button type="button" class="btn btn-primary btnBack">Back</button></li>
+                        <li><button type="button" class="btn btn-primary btnNext">Next</button></li>
+                      </ul>                      
                   </div>
                   <!--end section_tab-->
+                  <div class="tab-pane" id="gas_room_tab">
+                  <h4>Select a Room</h4>
+                  <hr>
+                    <table id="gas_room_table" class="table table-bordered table-striped">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Room No.</th>
+                          <th>Room Name</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody id="tbody6">
+                        <tr id="record6">
+                          <td>1.</td>
+                          <td>329</td>
+                          <td></td>
+                          <td><span class="label label-success">Open</span></td>
+                        </tr>                        
+                      </tbody>                      
+                    </table>
+                      <hr style="margin-bottom: 10px;">
+                      <ul class="list-inline pull-right">
+                        <li><button type="button" class="btn btn-primary btnBack">Back</button></li>
+                        <li><button type="button" class="btn btn-primary btnNext">Next</button></li>
+                      </ul>                                           
+                  </div>
+                  <!--/. end room_tab-->
                 </div>
                 <!-- /. end tab contents-->
               </div>
@@ -747,20 +897,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
           <!--/.box (box ng GAS)-->
 
-          <!-- BOX OF HUMSS start-->
+          <!-- BOX OF HUMSS START-->
           <div class="box" hidden id="humss_box">
             <div class="box-header">
               <h3 class="box-title">HUMSS</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <div class="nav-tabs-custom">
-                <ul class="nav nav-tabs">
-                  <li class="active"><a href="#humms_student_tab" data-toggle="tab">Student List</a></li>
-                  <!--<li> <a href="#humss_section_tab" data-toggle="tab">Section</a></li>-->
+              <div class="wizard">
+
+                <ul class="nav nav-wizard">
+                    <li class="active">
+                        <a href="#humss_student_tab" data-toggle="tab">Students</a>
+                    </li>
+                    <li class="disabled">
+                        <a href="#humss_section_tab" data-toggle="tab">Sections</a>
+                    </li>
+                    <li class="disabled">
+                        <a href="#humss_room_tab" data-toggle="tab">Rooms</a>
+                    </li>
+                    <li class="disabled">
+                        <a href="#step4" data-toggle="tab">Summary</a>
+                    </li>                  
                 </ul>
+
+                <br>
                 <div class="tab-content">
-                  <div class="tab-pane active" id="humms_student_tab">  
+                  <div class="tab-pane active" id="humss_student_tab">  
                     <table id="humss_student_table" class="table table-bordered table-striped">
                       <thead>
                         <tr>
@@ -772,37 +935,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                           <th>Section</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr>
+                      <tbody id="tbody7">
+                        <tr id="record7">
                           <td><input type="checkbox" class="check"></td>
                           <td>1.</td>
                           <td>000000000008</td>
                           <td>Escaro, Adrielle Kristine Nicolette</td>
                           <td>Female</td>
                           <td>HUMSS-2</td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox" class="check"></td>
-                          <td>2.</td>
-                          <td>000000000007</td>
-                          <td>Polistico, Hakeem</td>
-                          <td>Male</td>
-                          <td>HUMSS-1</td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox" class="check"></td>
-                          <td>3.</td>
-                          <td>000000000009</td>
-                          <td>Salva, Jasver Anlouise</td>
-                          <td>Female</td>
-                          <td></td>
                         </tr>                        
                       </tbody>
                     </table>
-                    <hr style="margin-bottom: 10px;">
-                      
-                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#section_modal" style="width: 15%;">Add</button>
-                      <button type="button" class="btn btn-default" style="width: 15%;">Transfer</button>
+                    <hr style="margin-bottom: 10px;">                      
+                      <ul class="list-inline pull-right">                        
+                        <li><button type="button" class="btn btn-primary btnNext">Transfer</button></li>
+                        <li><button type="button" class="btn btn-primary btnNext">Add</button></li>
+                      </ul>
                   </div>
                   <!-- /.end student tab-->
 
@@ -816,31 +964,50 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                           <th>Status</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr>
+                      <tbody id="tbody8">
+                        <tr id="record8">
                           <td>1.</td>
                           <td>HUMSS-1</td>
                           <td>31/40</td>
                           <td><span class="label label-success">Open</span></td>
-                        </tr>
-                        <tr>
-                          <td>2.</td>
-                          <td>HUMSS-2</td>
-                          <td>40/40</td>
-                          <td><span class="label label-danger">Closed</span></td>
-                        </tr>
-                        <tr>
-                          <td>3.</td>
-                          <td>HUMSS-3</td>
-                          <td>0/40</td>
-                          <td><span class="label label-success">Open</span></td>
-                        </tr>
+                        </tr>                        
                       </tbody>                      
                     </table>
                       <hr style="margin-bottom: 10px;">
-                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" style="width: 15%;">Save</button>                      
+                      <ul class="list-inline pull-right">
+                        <li><button type="button" class="btn btn-primary btnBack">Back</button></li>
+                        <li><button type="button" class="btn btn-primary btnNext">Next</button></li>
+                      </ul>                      
                   </div>
                   <!--end section_tab-->
+                  <div class="tab-pane" id="humss_room_tab">
+                  <h4>Select a Room</h4>
+                  <hr>
+                    <table id="humss_room_table" class="table table-bordered table-striped">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Room No.</th>
+                          <th>Room Name</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody id="tbody9">
+                        <tr id="record9">
+                          <td>1.</td>
+                          <td>329</td>
+                          <td></td>
+                          <td><span class="label label-success">Open</span></td>
+                        </tr>                        
+                      </tbody>                      
+                    </table>
+                      <hr style="margin-bottom: 10px;">
+                      <ul class="list-inline pull-right">
+                        <li><button type="button" class="btn btn-primary btnBack">Back</button></li>
+                        <li><button type="button" class="btn btn-primary btnNext">Next</button></li>
+                      </ul>                                           
+                  </div>
+                  <!--/. end room_tab-->
                 </div>
                 <!-- /. end tab contents-->
               </div>
@@ -848,7 +1015,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <!-- /.box-body -->
           </div>
-          <!--/.box (box ng HUMSS)-->
+          <!--/.box (box ng GAS)-->
 
           <!-- BOX OF ABM start-->
           <div class="box" hidden id="abm_box">
@@ -857,11 +1024,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <div class="nav-tabs-custom">
-                <ul class="nav nav-tabs">
-                  <li class="active"><a href="#abm_student_tab" data-toggle="tab">Student List</a></li>
-                  <!--<li> <a href="#abm_section_tab" data-toggle="tab">Section</a></li>-->
+              <div class="wizard">
+
+                <ul class="nav nav-wizard">
+                    <li class="active">
+                        <a href="#abm_student_tab" data-toggle="tab">Students</a>
+                    </li>
+                    <li class="disabled">
+                        <a href="#abm_section_tab" data-toggle="tab">Sections</a>
+                    </li>
+                    <li class="disabled">
+                        <a href="#abm_room_tab" data-toggle="tab">Rooms</a>
+                    </li>
+                    <li class="disabled">
+                        <a href="#step4" data-toggle="tab">Summary</a>
+                    </li>                  
                 </ul>
+                <br>
                 <div class="tab-content">
                   <div class="tab-pane active" id="abm_student_tab">  
                     <table id="abm_student_table" class="table table-bordered table-striped">
@@ -875,37 +1054,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                           <th>Section</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr>
+                      <tbody id="tbody10">
+                        <tr id="record10">
                           <td><input type="checkbox" class="check"></td>
                           <td>1.</td>
                           <td>000000000008</td>
                           <td>Escaro, Adrielle Kristine Nicolette</td>
                           <td>Female</td>
                           <td>ABM-2</td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox" class="check"></td>
-                          <td>2.</td>
-                          <td>000000000007</td>
-                          <td>Polistico, Hakeem</td>
-                          <td>Male</td>
-                          <td>ABM-1</td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox" class="check"></td>
-                          <td>3.</td>
-                          <td>000000000009</td>
-                          <td>Salva, Jasver Anlouise</td>
-                          <td>Female</td>
-                          <td></td>
-                        </tr>                        
+                        </tr>                                                
                       </tbody>
                     </table>
                     <hr style="margin-bottom: 10px;">
-                      
-                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#section_modal" style="width: 15%; ">Add</button>
-                      <button type="button" class="btn btn-default" style="width: 15%;">Transfer</button>
+                      <ul class="list-inline pull-right">                        
+                        <li><button type="button" class="btn btn-primary btnNext">Transfer</button></li>
+                        <li><button type="button" class="btn btn-primary btnNext">Add</button></li>
+                      </ul>
                   </div>
                   <!-- /.end student tab-->
 
@@ -919,31 +1083,50 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                           <th>Status</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr>
+                      <tbody id="tbody11">
+                        <tr id="record11">
                           <td>1.</td>
                           <td>ABM-1</td>
                           <td>31/40</td>
                           <td><span class="label label-success">Open</span></td>
-                        </tr>
-                        <tr>
-                          <td>2.</td>
-                          <td>ABM-2</td>
-                          <td>40/40</td>
-                          <td><span class="label label-danger">Closed</span></td>
-                        </tr>
-                        <tr>
-                          <td>3.</td>
-                          <td>ABM-3</td>
-                          <td>0/40</td>
-                          <td><span class="label label-success">Open</span></td>
-                        </tr>
+                        </tr>                        
                       </tbody>                      
                     </table>
                       <hr style="margin-bottom: 10px;">
-                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" style="width: 15%;">Save</button>                      
+                      <ul class="list-inline pull-right">
+                        <li><button type="button" class="btn btn-primary btnBack">Back</button></li>
+                        <li><button type="button" class="btn btn-primary btnNext">Next</button></li>
+                      </ul>                      
                   </div>
                   <!--end section_tab-->
+                  <div class="tab-pane" id="abm_room_tab">
+                  <h4>Select a Room</h4>
+                  <hr>
+                    <table id="abm_room_table" class="table table-bordered table-striped">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Room No.</th>
+                          <th>Room Name</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody id="tbody12">
+                        <tr id="record12">
+                          <td>1.</td>
+                          <td>329</td>
+                          <td></td>
+                          <td><span class="label label-success">Open</span></td>
+                        </tr>                        
+                      </tbody>                      
+                    </table>
+                      <hr style="margin-bottom: 10px;">
+                      <ul class="list-inline pull-right">
+                        <li><button type="button" class="btn btn-primary btnBack">Back</button></li>
+                        <li><button type="button" class="btn btn-primary btnNext">Next</button></li>
+                      </ul>                                           
+                  </div>
+                  <!--/. end room_tab-->
                 </div>
                 <!-- /. end tab contents-->
               </div>
@@ -960,11 +1143,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <div class="nav-tabs-custom">
-                <ul class="nav nav-tabs">
-                  <li class="active"><a href="#tvlhe_student_tab" data-toggle="tab">Student List</a></li>
-                  <!--<li> <a href="#tvlhe_section_tab" data-toggle="tab">Section</a></li>-->
+              <div class="wizard">
+
+                <ul class="nav nav-wizard">
+                    <li class="active">
+                        <a href="#tvlhe_student_tab" data-toggle="tab">Students</a>
+                    </li>
+                    <li class="disabled">
+                        <a href="#tvlhe_section_tab" data-toggle="tab">Sections</a>
+                    </li>
+                    <li class="disabled">
+                        <a href="#tvlhe_room_tab" data-toggle="tab">Rooms</a>
+                    </li>
+                    <li class="disabled">
+                        <a href="#step4" data-toggle="tab">Summary</a>
+                    </li>                  
                 </ul>
+
+                <br>
                 <div class="tab-content">
                   <div class="tab-pane active" id="tvlhe_student_tab">  
                     <table id="tvlhe_student_table" class="table table-bordered table-striped">
@@ -978,37 +1174,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                           <th>Section</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr>
+                      <tbody id="tbody13">
+                        <tr id="record13">
                           <td><input type="checkbox" class="check"></td>
                           <td>1.</td>
                           <td>000000000008</td>
                           <td>Escaro, Adrielle Kristine Nicolette</td>
                           <td>Female</td>
                           <td>TVL-HE-2</td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox" class="check"></td>
-                          <td>2.</td>
-                          <td>000000000007</td>
-                          <td>Polistico, Hakeem</td>
-                          <td>Male</td>
-                          <td>TVL-HE-1</td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox" class="check"></td>
-                          <td>3.</td>
-                          <td>000000000009</td>
-                          <td>Salva, Jasver Anlouise</td>
-                          <td>Female</td>
-                          <td></td>
-                        </tr>                        
+                        </tr>                                             
                       </tbody>
                     </table>
                     <hr style="margin-bottom: 10px;">
-                      
-                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#section_modal" style="width: 15%;">Add</button>
-                      <button type="button" class="btn btn-default" style="width: 15%;">Transfer</button>
+                      <ul class="list-inline pull-right">                        
+                        <li><button type="button" class="btn btn-primary btnNext">Transfer</button></li>
+                        <li><button type="button" class="btn btn-primary btnNext">Add</button></li>
+                      </ul>
                   </div>
                   <!-- /.end student tab-->
 
@@ -1022,31 +1203,50 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                           <th>Status</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr>
+                      <tbody id="tbody14">
+                        <tr id="record14">
                           <td>1.</td>
                           <td>TVL-HE-1</td>
                           <td>31/40</td>
                           <td><span class="label label-success">Open</span></td>
-                        </tr>
-                        <tr>
-                          <td>2.</td>
-                          <td>TVL-HE-2</td>
-                          <td>40/40</td>
-                          <td><span class="label label-danger">Closed</span></td>
-                        </tr>
-                        <tr>
-                          <td>3.</td>
-                          <td>TVL-HE-3</td>
-                          <td>0/40</td>
-                          <td><span class="label label-success">Open</span></td>
-                        </tr>
+                        </tr>                        
                       </tbody>                      
                     </table>
                       <hr style="margin-bottom: 10px;">
-                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" style="width: 15%;">Save</button>                      
+                      <ul class="list-inline pull-right">
+                        <li><button type="button" class="btn btn-primary btnBack">Back</button></li>
+                        <li><button type="button" class="btn btn-primary btnNext">Next</button></li>
+                      </ul>                      
                   </div>
                   <!--end section_tab-->
+                  <div class="tab-pane" id="tvlhe_room_tab">
+                  <h4>Select a Room</h4>
+                  <hr>
+                    <table id="tvlhe_room_table" class="table table-bordered table-striped">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Room No.</th>
+                          <th>Room Name</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody id="tbody15">
+                        <tr id="record15">
+                          <td>1.</td>
+                          <td>329</td>
+                          <td></td>
+                          <td><span class="label label-success">Open</span></td>
+                        </tr>                        
+                      </tbody>                      
+                    </table>
+                      <hr style="margin-bottom: 10px;">
+                      <ul class="list-inline pull-right">
+                        <li><button type="button" class="btn btn-primary btnBack">Back</button></li>
+                        <li><button type="button" class="btn btn-primary btnNext">Next</button></li>
+                      </ul>                                           
+                  </div>
+                  <!--/. end room_tab-->
                 </div>
                 <!-- /. end tab contents-->
               </div>
@@ -1063,11 +1263,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <div class="nav-tabs-custom">
-                <ul class="nav nav-tabs">
-                  <li class="active"><a href="#tvlas_student_tab" data-toggle="tab">Student List</a></li>
-                  <!--<li> <a href="#tvlas_section_tab" data-toggle="tab">Section</a></li>-->
+              <div class="wizard">
+
+                <ul class="nav nav-wizard">
+                    <li class="active">
+                        <a href="#tvlas_student_tab" data-toggle="tab">Students</a>
+                    </li>
+                    <li class="disabled">
+                        <a href="#tvlas_section_tab" data-toggle="tab">Sections</a>
+                    </li>
+                    <li class="disabled">
+                        <a href="#tvlas_room_tab" data-toggle="tab">Rooms</a>
+                    </li>
+                    <li class="disabled">
+                        <a href="#step4" data-toggle="tab">Summary</a>
+                    </li>                  
                 </ul>
+
+                <br>
                 <div class="tab-content">
                   <div class="tab-pane active" id="tvlas_student_tab">  
                     <table id="tvlas_student_table" class="table table-bordered table-striped">
@@ -1081,37 +1294,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                           <th>Section</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr>
+                      <tbody id="tbody16">
+                        <tr id="record16">
                           <td><input type="checkbox" class="check"></td>
                           <td>1.</td>
                           <td>000000000008</td>
                           <td>Escaro, Adrielle Kristine Nicolette</td>
                           <td>Female</td>
                           <td>TVL-HE-2</td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox" class="check"></td>
-                          <td>2.</td>
-                          <td>000000000007</td>
-                          <td>Polistico, Hakeem</td>
-                          <td>Male</td>
-                          <td>TVL-HE-1</td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox" class="check"></td>
-                          <td>3.</td>
-                          <td>000000000009</td>
-                          <td>Salva, Jasver Anlouise</td>
-                          <td>Female</td>
-                          <td></td>
-                        </tr>                        
+                        </tr>                                              
                       </tbody>
                     </table>
                     <hr style="margin-bottom: 10px;">
-                      
-                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#section_modal" style="width: 15%;">Add</button>
-                      <button type="button" class="btn btn-default" style="width: 15%;">Transfer</button>
+                      <ul class="list-inline pull-right">                        
+                        <li><button type="button" class="btn btn-primary btnNext">Transfer</button></li>
+                        <li><button type="button" class="btn btn-primary btnNext">Add</button></li>
+                      </ul>
                   </div>
                   <!-- /.end student tab-->
 
@@ -1125,31 +1323,50 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                           <th>Status</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr>
+                      <tbody id="tbody17">
+                        <tr id="record17">
                           <td>1.</td>
                           <td>TVL-AS-1</td>
                           <td>31/40</td>
                           <td><span class="label label-success">Open</span></td>
-                        </tr>
-                        <tr>
-                          <td>2.</td>
-                          <td>TVL-AS-2</td>
-                          <td>40/40</td>
-                          <td><span class="label label-danger">Closed</span></td>
-                        </tr>
-                        <tr>
-                          <td>3.</td>
-                          <td>TVL-AS-3</td>
-                          <td>0/40</td>
-                          <td><span class="label label-success">Open</span></td>
-                        </tr>
+                        </tr>                        
                       </tbody>                      
                     </table>
                       <hr style="margin-bottom: 10px;">
-                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" style="width: 15%;">Save</button>                      
+                      <ul class="list-inline pull-right">
+                        <li><button type="button" class="btn btn-primary btnBack">Back</button></li>
+                        <li><button type="button" class="btn btn-primary btnNext">Next</button></li>
+                      </ul>                      
                   </div>
                   <!--end section_tab-->
+                  <div class="tab-pane" id="tvlas_room_tab">
+                  <h4>Select a Room</h4>
+                  <hr>
+                    <table id="tvlas_room_table" class="table table-bordered table-striped">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Room No.</th>
+                          <th>Room Name</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody id="tbody18">
+                        <tr id="record18">
+                          <td>1.</td>
+                          <td>329</td>
+                          <td></td>
+                          <td><span class="label label-success">Open</span></td>
+                        </tr>                        
+                      </tbody>                      
+                    </table>
+                      <hr style="margin-bottom: 10px;">
+                      <ul class="list-inline pull-right">
+                        <li><button type="button" class="btn btn-primary btnBack">Back</button></li>
+                        <li><button type="button" class="btn btn-primary btnNext">Next</button></li>
+                      </ul>                                           
+                  </div>
+                  <!--/. end room_tab-->
                 </div>
                 <!-- /. end tab contents-->
               </div>
@@ -1221,112 +1438,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </div>   
             </div>
           </div>
-          <!--end of SUMMARY modal-->
-
-                <!--modal start-->
-                <div class="modal fade" id="gas_modal">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header bg-green">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">ADD TO <b>GAS-1</b></h4>
-                      </div>
-                      <div class="modal-body">
-                        <div class="box-body table-responsive no-padding">
-                          <table class="table">
-                            <tr>
-                              <th>#</th>
-                              <th>LRN</th>
-                              <th>Full Name</th>
-                              <th>Sex</th>
-                              
-                            </tr>
-                            <tr>
-                              <td>1.</td>
-                              <td>00000000008</td>
-                              <td>Escaro, Adrielle Kristine Nicolette</td>
-                              <td>Female</td>
-                              
-                            </tr>
-                            <tr>
-                              <td>2.</td>
-                              <td>00000000009</td>
-                              <td>Polistico, Hakeem</td>
-                              <td>Male</td>
-                              
-                            </tr>  
-                            <tr>
-                              <td>3.</td>
-                              <td>00000000007</td>
-                              <td>Salva, Jasver Anlouise</td>
-                              <td>Female</td>
-                              
-                            </tr>                
-                          </table>
-                        </div>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-success">Confirm</button>
-                      </div>
-                    </div>   
-                  </div>
-                </div>
-                <!--end of modal-->
-
-          <!--SECTION modal start-->
-          <div class="modal fade" id="section_modal">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title">Select a Section</h4>
-                </div>
-                <div class="modal-body">
-                  <table id="example2" class="table table-bordered table-striped">
-                    <thead>
-                      <tr>
-                        <th>#</th>
-                        <th>Section Name</th>
-                        <th>Count</th>
-                        <th>Status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>1.</td>
-                        <td>STEM-1</td>
-                        <td>31/40</td>
-                        <td><span class="label label-success">Open</span></td>
-                       </tr>
-                      <tr>
-                        <td>2.</td>
-                        <td>STEM-2</td>
-                        <td>40/40</td>
-                        <td><span class="label label-danger">Closed</span></td>
-                      </tr>
-                      <tr>
-                        <td>3.</td>
-                        <td>STEM-3</td>
-                        <td>0/40</td>
-                        <td><span class="label label-success">Open</span></td>
-                      </tr>
-                    </tbody>                      
-                  </table>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#modal-default">Next</button>
-                </div>
-              </div>
-              <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-          </div>
-          <!-- /.modal -->
-          <!--section modal end-->
+          <!--end of SUMMARY modal-->            
         <!-- right col -->
       </div>
       <!-- /.row (main row) -->
@@ -1335,12 +1447,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </div>
   <!-- /.content-wrapper -->
 
-  <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Version</b> 1.0.0
-    </div>
-    <strong>Copyright &copy; 2017-2018 <a href="https://adminlte.io">Araullo School Management System</a>.</strong> All rights reserved.
-  </footer>
+  <!-- Footer -->
+  {footer}
+  <!-- /.Footer -->
 
 </div>
 <!-- ./wrapper -->
@@ -1353,7 +1462,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
 <!-- Step Wizard js -->
-<script src="<?php echo base_url(); ?>dist/js/enrollment/step_wizard.js"></script>
+<script src="<?php echo base_url(); ?>dist/js/enrollment/manage_student.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
 
@@ -1365,19 +1474,203 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url(); ?>plugins/iCheck/icheck.js"></script>
 
 <script>
+
+//=============================== A L L ========================================================================================================//
+$('tbl_allStudents').DataTable();
+$('tbl_allSections').DataTable();
+$('tbl_allRooms').DataTable();
+
+
+  var arrofobjectAllStudents = <?php echo $allStudents ?>;
+  var arrofobjectAllSections = <?php echo $allClasses ?>;
+  var arrofobjectAllRooms = <?php echo $rooms ?>;
+
+  $('#recordAll').hide();
+  $('#recordAll2').hide();
+  $('#recordAll3').hide();
+
+  $.each(arrofobjectAllStudents, function(index, val) {
+    $('#tbodyAll').append('<tr id="recordAll"> <td><input type="checkbox" class="check"></td> <td>'+val.id+'</td> <td>'+val.lrn+'</td> <td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td> <td>'+val.sex+'</td> <td>'+val.strand+'</td> </tr>');
+  });
+  $.each(arrofobjectAllSections, function(index, val) {
+    $('#tbodyAll2').append('<tr id="recordAll2"><td>'+val.id+'</td> <td>'+val.class_name+'</td> <td>'+val.occupants+'/'+val.capacity+'</td> <td><span class="label label-success">Open</span></td></tr>');
+  });
+   $.each(arrofobjectAllRooms, function(index, val) {
+    $('#tbodyAll3').append('<tr id="recordAll3"><td>'+val.id+'</td> <td>'+val.room_id+'</td> <td>'+val.room_name+'</td> <td><span class="label label-success">Available</span></td></tr>');
+  });
+
+//===============================S T E M========================================================================================================//
+$('example1').DataTable();
+$('example2').DataTable();
+$('example3').DataTable();
+
+
+  var arrofobject = <?php echo $stemStudents ?>;
+  var arrofobject2 = <?php echo $stemClasses ?>;
+  var arrofobject3 = <?php echo $rooms ?>;
+
+  $('#record').hide();
+  $('#record2').hide();
+  $('#record3').hide();
+
+  $.each(arrofobject, function(index, val) {
+    $('#tbody1').append('<tr id="record"> <td><input type="checkbox" class="check"></td> <td>'+val.id+'</td> <td>'+val.lrn+'</td> <td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td> <td>'+val.sex+'</td> <td>'+val.strand+'</td> </tr>');
+  });
+  $.each(arrofobject2, function(index, val) {
+    $('#tbody2').append('<tr id="record2"><td>'+val.id+'</td> <td>'+val.class_name+'</td> <td>'+val.occupants+'/'+val.capacity+'</td> <td><span class="label label-success">Open</span></td></tr>');
+  });
+   $.each(arrofobject3, function(index, val) {
+    $('#tbody3').append('<tr id="record3"><td>'+val.id+'</td> <td>'+val.room_id+'</td> <td>'+val.room_name+'</td> <td><span class="label label-success">Available</span></td></tr>');
+  });
+ 
+//===============================G A S===========================================================================================================//
+$('gas_student_table').DataTable();
+$('gas_section_table').DataTable();
+$('gas_room_table').DataTable();
+
+
+  var arrofobject4 = <?php echo $gasStudents ?>;
+  var arrofobject5 = <?php echo $gasClasses ?>;
+  var arrofobject6 = <?php echo $rooms ?>;
+
+  $('#record4').hide();
+  $('#record5').hide();
+  $('#record6').hide();
+
+  $.each(arrofobject4, function(index, val) {
+    $('#tbody4').append('<tr id="record4"> <td><input type="checkbox" class="check"></td> <td>'+val.id+'</td> <td>'+val.lrn+'</td> <td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td> <td>'+val.sex+'</td> <td>'+val.strand+'</td> </tr>');
+  });
+  $.each(arrofobject5, function(index, val) {
+    $('#tbody5').append('<tr id="record5"><td>'+val.id+'</td> <td>'+val.class_name+'</td> <td>'+val.occupants+'/'+val.capacity+'</td> <td><span class="label label-success">Open</span></td></tr>');
+  });
+   $.each(arrofobject6, function(index, val) {
+    $('#tbody6').append('<tr id="record6"><td>'+val.id+'</td> <td>'+val.room_id+'</td> <td>'+val.room_name+'</td> <td><span class="label label-success">Available</span></td></tr>');
+  });
+
+//===============================H U M S S ===========================================================================================================//
+$('humss_student_table').DataTable();
+$('humss_section_table').DataTable();
+$('humss_room_table').DataTable();
+
+
+  var arrofobject7 = <?php echo $humssStudents ?>;
+  var arrofobject8 = <?php echo $humssClasses ?>;
+  var arrofobject9 = <?php echo $rooms ?>;
+
+  $('#record7').hide();
+  $('#record8').hide();
+  $('#record9').hide();
+
+  $.each(arrofobject7, function(index, val) {
+    $('#tbody7').append('<tr id="record7"> <td><input type="checkbox" class="check"></td> <td>'+val.id+'</td> <td>'+val.lrn+'</td> <td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td> <td>'+val.sex+'</td> <td>'+val.strand+'</td> </tr>');
+  });
+  $.each(arrofobject8, function(index, val) {
+    $('#tbody8').append('<tr id="record8"><td>'+val.id+'</td> <td>'+val.class_name+'</td> <td>'+val.occupants+'/'+val.capacity+'</td> <td><span class="label label-success">Open</span></td></tr>');
+  });
+   $.each(arrofobject9, function(index, val) {
+    $('#tbody9').append('<tr id="record9"><td>'+val.id+'</td> <td>'+val.room_id+'</td> <td>'+val.room_name+'</td> <td><span class="label label-success">Available</span></td></tr>');
+  });
+
+  //===============================A B M =================================================================================================================//
+$('abm_student_table').DataTable();
+$('abm_section_table').DataTable();
+$('abm_room_table').DataTable();
+
+
+  var arrofobject10 = <?php echo $abmStudents ?>;
+  var arrofobject11 = <?php echo $abmClasses ?>;
+  var arrofobject12 = <?php echo $rooms ?>;
+
+  $('#record10').hide();
+  $('#record11').hide();
+  $('#record12').hide();
+
+  $.each(arrofobject10, function(index, val) {
+    $('#tbody10').append('<tr id="record10"> <td><input type="checkbox" class="check"></td> <td>'+val.id+'</td> <td>'+val.lrn+'</td> <td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td> <td>'+val.sex+'</td> <td>'+val.strand+'</td> </tr>');
+  });
+  $.each(arrofobject11, function(index, val) {
+    $('#tbody11').append('<tr id="record11"><td>'+val.id+'</td> <td>'+val.class_name+'</td> <td>'+val.occupants+'/'+val.capacity+'</td> <td><span class="label label-success">Open</span></td></tr>');
+  });
+   $.each(arrofobject12, function(index, val) {
+    $('#tbody12').append('<tr id="record12"><td>'+val.id+'</td> <td>'+val.room_id+'</td> <td>'+val.room_name+'</td> <td><span class="label label-success">Available</span></td></tr>');
+  }); 
+ //===============================T V L H E =================================================================================================================//
+$('tvlhe_student_table').DataTable();
+$('tvlhe_section_table').DataTable();
+$('tvlhe_room_table').DataTable();
+
+
+  var arrofobject13 = <?php echo $tvlheStudents ?>;
+  var arrofobject14 = <?php echo $tvlheClasses ?>;
+  var arrofobject15 = <?php echo $rooms ?>;
+
+  $('#record13').hide();
+  $('#record14').hide();
+  $('#record15').hide();
+
+  $.each(arrofobject13, function(index, val) {
+    $('#tbody13').append('<tr id="record13"> <td><input type="checkbox" class="check"></td> <td>'+val.id+'</td> <td>'+val.lrn+'</td> <td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td> <td>'+val.sex+'</td> <td>'+val.strand+'</td> </tr>');
+  });
+  $.each(arrofobject14, function(index, val) {
+    $('#tbody14').append('<tr id="record14"><td>'+val.id+'</td> <td>'+val.class_name+'</td> <td>'+val.occupants+'/'+val.capacity+'</td> <td><span class="label label-success">Open</span></td></tr>');
+  });
+   $.each(arrofobject15, function(index, val) {
+    $('#tbody15').append('<tr id="record15"><td>'+val.id+'</td> <td>'+val.room_id+'</td> <td>'+val.room_name+'</td> <td><span class="label label-success">Available</span></td></tr>');
+  });
+
+//===============================T V L A S =================================================================================================================//
+$('tvlas_student_table').DataTable();
+$('tvlas_section_table').DataTable();
+$('tvlas_room_table').DataTable();
+
+
+  var arrofobject16 = <?php echo $tvlasStudents ?>;
+  var arrofobject17 = <?php echo $tvlasClasses ?>;
+  var arrofobject18 = <?php echo $rooms ?>;
+
+  $('#record16').hide();
+  $('#record17').hide();
+  $('#record18').hide();
+
+  $.each(arrofobject16, function(index, val) {
+    $('#tbody16').append('<tr id="record16"> <td><input type="checkbox" class="check"></td> <td>'+val.id+'</td> <td>'+val.lrn+'</td> <td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td> <td>'+val.sex+'</td> <td>'+val.strand+'</td> </tr>');
+  });
+  $.each(arrofobject17, function(index, val) {
+    $('#tbody17').append('<tr id="record17"><td>'+val.id+'</td> <td>'+val.class_name+'</td> <td>'+val.occupants+'/'+val.capacity+'</td> <td><span class="label label-success">Open</span></td></tr>');
+  });
+   $.each(arrofobject18, function(index, val) {
+    $('#tbody18').append('<tr id="record18"><td>'+val.id+'</td> <td>'+val.room_id+'</td> <td>'+val.room_name+'</td> <td><span class="label label-success">Available</span></td></tr>');
+  });     
+
 $(function () {
+
+    $('#tbl_allStudents').DataTable()
+    $('#tbl_allSections').DataTable()
+    $('#tbl_allRooms').DataTable()
+
     $('#example1').DataTable()
     $('#example2').DataTable()
+    $('#example3').DataTable()
+
     $('#gas_student_table').DataTable()
     $('#gas_section_table').DataTable()
+    $('#gas_room_table').DataTable();
+
     $('#humss_student_table').DataTable()
     $('#humss_section_table').DataTable()
+    $('#humss_room_table').DataTable()
+
     $('#abm_student_table').DataTable()
     $('#abm_section_table').DataTable()
+    $('#abm_room_table').DataTable()
+
     $('#tvlhe_student_table').DataTable()
     $('#tvlhe_section_table').DataTable()
+    $('#tvlhe_room_table').DataTable()
+
     $('#tvlas_student_table').DataTable()
     $('#tvlas_section_table').DataTable()
+    $('#tvlas_room_table').DataTable()
   })
 //selectAll
 $("#checkAll").click(function () {
@@ -1392,7 +1685,7 @@ $('.check').change(function(){ //".checkbox" change
 });
 $(document).ready(function(){
     $("#stem_list").click(function(){ 
-      $("#lapa").hide();     
+      $("#all_box").hide();     
       $("#stem_box").show();
       $("#gas_box").hide();
       $("#humss_box").hide();
@@ -1401,7 +1694,7 @@ $(document).ready(function(){
       $("#tvlas_box").hide();
     });
     $("#gas_list").click(function(){
-      $("#lapa").hide();
+      $("#all_box").hide();
       $("#stem_box").hide();
       $("#humss_box").hide();
       $("#gas_box").show();
@@ -1410,7 +1703,7 @@ $(document).ready(function(){
       $("#tvlas_box").hide();
     });
     $("#humss_list").click(function(){
-      $("#lapa").hide();
+      $("#all_box").hide();
       $("#humss_box").show();
       $("#stem_box").hide();
       $("#gas_box").hide();      
@@ -1419,7 +1712,7 @@ $(document).ready(function(){
       $("#tvlas_box").hide();
     });
     $("#abm_list").click(function(){
-      $("#lapa").hide();
+      $("#all_box").hide();
       $("#abm_box").show();
       $("#gas_box").hide();
       $("#stem_box").hide();      
@@ -1428,7 +1721,7 @@ $(document).ready(function(){
       $("#tvlas_box").hide();      
     });
     $("#tvlhe_list").click(function(){
-      $("#lapa").hide();
+      $("#all_box").hide();
       $("#stem_box").hide();
       $("#gas_box").hide();
       $("#abm_box").hide();
@@ -1437,7 +1730,7 @@ $(document).ready(function(){
       $("#tvlhe_box").show();
     });
     $("#tvlas_list").click(function(){
-      $("#lapa").hide();
+      $("#all_box").hide();
       $("#stem_box").hide();
       $("#gas_box").hide();
       $("#abm_box").hide();

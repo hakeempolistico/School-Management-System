@@ -19,18 +19,20 @@
 			$('thead tr').append( $('<th />', {text : 'Action'}) ); 
 
 			$.each(arrofobject, function(index, val) {
-				$('tbody').append('<tr class="record"><td>'+val.lrn+'</td><td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td><td>'+'STATIC'+'</td> <td><span class="label label-success">'+'COMPLETE'+'</span></td> <td><button type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs buttonView" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
+				$('tbody').append('<tr class="record"><td>'+val.lrn+'</td><td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td><td>'+val.grade+'</td>'+
+          (val.requirements === "COMPLETE" ? '<td><span class="label label-success">'+val.requirements+'</span></td>': '<td><span class="label label-danger">'+val.requirements+'</span></td>')+
+          '<td><button type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs buttonView" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
 				});
 				
 				$(".buttonView").click(function(){
           var lrn = $(this).closest('tr').find('td:eq(0)').html(); 
-					$.ajax({
-					  url: ajaxUrl,
+          $.ajax({
+            url: ajaxUrl,
             type: 'post',
             dataType: 'json', 
             data: {'lrn' : lrn, 'table': 'students', 'set': 'lrn' }, 
-						success: function(result){
-							//alert(result);
+            success: function(result){
+              //alert(result);
               $.each(result, function(index, val) {
                 $('#name').html(val.first_name +" "+ val.middle_name + " " + val.last_name);
                 $('#lrn').html(val.lrn);
@@ -51,10 +53,31 @@
                 $('#mother_contact').html(val.mother_contact);
                 $('#guardian').html(val.guardian);
                 $('#relationship').html(val.relationship);
-                $('#guardian_contact').html(val.guardian_contact);	
-                $('#position').html('Grade 12 Student');   
-                $('.requirements-section').show();  
+                $('#guardian_contact').html(val.guardian_contact);  
+                $('#position').html('Grade '+val.grade+' Student');  
+                $('#modal-note').html(val.note);                   
+                $('.requirements-section').show();                     
+                $('#input-submit').show();                
+                $('#input-lrn').val(val.lrn);  
               })
+            }
+          });
+
+					$.ajax({
+					  url: ajaxReqUrl,
+            type: 'post',
+            dataType: 'json', 
+            data: {'lrn' : lrn, 'table': 'requirements', 'set': 'lrn' }, 
+						success: function(result){
+							//alert(result);
+              var requirements = [];
+              $.each(result, function(index, val) {
+               //alert(val.requirement);
+               requirements.push(val.requirement);
+
+              });
+              $('#modal-requirements').val(requirements);
+              $('#modal-requirements').val(requirements).trigger('change')       
             }
 					});
 				});
@@ -73,7 +96,8 @@
       $('thead tr').append( $('<th />', {text : 'Action'}) ); 
 
       $.each(arrofobject2, function(index, val) {
-        $('tbody').append('<tr class="record"><td>'+val.employee_id+'</td><td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td><td>'+val.position+'</td> <td>'+val.major+'</td> <td><span class="label label-success">'+val.status+'</span></td> <td><button type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs buttonView" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
+        $('tbody').append('<tr class="record"><td>'+val.employee_id+'</td><td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td><td>'+val.position+'</td> <td>'+val.major+'</td>'+
+          (val.status == "ACTIVE" ? '<td><span class="label label-success">'+val.status+'</span></td>': '<td><span class="label label-danger">'+val.status+'</span></td>')+' <td><button type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs buttonView" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
         });
         
         $(".buttonView").click(function(){
@@ -107,7 +131,9 @@
                 $('#relationship').html('NOT AVAILABLE');
                 $('#guardian_contact').html('NOT AVAILABLE');
                 $('#position').html(val.position); 
-                $('.requirements-section').hide();     
+                $('#modal-note').html(val.note);      
+                $('.requirements-section').hide(); 
+                $('#input-submit').hide();     
               })
             }
           });
@@ -120,11 +146,33 @@
       changeTable();
       $('#tableTitle').text('List of Rooms');
       $('thead tr').append( $('<th />', {text : 'Room Name'}) );
-      $('thead tr').append( $('<th />', {text : 'Capacity'}) ); 
       $('thead tr').append( $('<th />', {text : 'Class'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Status'}) );  
+      
 
       $.each(arrofobject3, function(index, val) {
-        $('tbody').append('<tr class="record"><td>'+val.room_name+'</td><td>'+val.occupants+'/'+val.capacity+'</td><td>'+val.class_name+'</td> </div> </tr>');
+        $('tbody').append('<tr class="record"><td>'+val.room_name+'</td><td>'+val.class_name+'</td>'+
+          (val.status == 'OCCUPIED' ? '<td><span class="label label-success">'+val.status+'</span></td>':'<td><span class="label label-info">'+val.status+'</span></td></div></tr>')
+          );
+        });
+        
+          
+     $('table').DataTable();
+    });
+    //-------------------------------------------------------------------------------------------------
+    $("#viewClasses").click(function(){ 
+      changeTable();
+      $('#tableTitle').text('List of Classes');
+      $('thead tr').append( $('<th />', {text : 'Class Name'}) );
+      $('thead tr').append( $('<th />', {text : 'Adviser'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Grade'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Capacity'}) ); 
+      $('thead tr').append( $('<th />', {text : 'Status'}) ); 
+
+      $.each(arrofobject4, function(index, val) {
+        $('tbody').append('<tr class="record"><td>'+val.class_name+'</td><td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td><td>'+val.year+'</td><td>'+val.occupants+'/'+val.capacity+
+           (val.occupants < val.capacity ? '<td><span class="label label-success">NOT FULL</span></td>':'<td><span class="label label-danger">FULL</span></td></div></tr>')
+          );
         });
         
           

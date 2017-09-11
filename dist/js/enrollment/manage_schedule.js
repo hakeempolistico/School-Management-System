@@ -71,8 +71,8 @@
 
 
       //Remove event from text input
-      $('#new-event-subject').val('')
-      $('#new-event-teacher').val('')
+      $('#new-event-subject').val('').trigger('change')
+      $('#new-event-teacher').val('').trigger('change')
       
     })
   })
@@ -98,7 +98,7 @@ function dropTrash(ev) {
     $("#"+data).remove();
 
     $("#icon").animate({fontSize: '20px'},"fast");
-    $("#icon").animate({fontSize: '60px'},"slow");
+    $("#icon").animate({fontSize: '50px'},"slow");
 }
 
 
@@ -144,5 +144,58 @@ function printData()
 
 $('#printBtn').on('click',function(){
 printData();
-})
+});
 
+var table; 
+var set;
+
+$('#select-class').on('change',function(){
+  table = "classes";
+  set = "id"
+  var value = $('#select-class').val();
+  $('#profile-box-class').show();
+  $.ajax({
+            url: ajaxUrl,
+            type: 'post',
+            dataType: 'json', 
+            data: {'set' : set, 'table' : table, 'value' : value }, 
+            success: function(result){
+              console.log(result);
+              $.each(result, function(index, val) {
+                $('#profile-class-name').html(val.class_name);
+                $('#profile-class-grade').html(val.year);
+                $('#profile-class-capacity').html(val.occupants+'/'+val.capacity); 
+                var stat;
+                if(val.occupants >= val.capacity){
+                  stat="FULL";
+                }
+                else{
+                  stat="NOT FULL";
+                }
+                $('#profile-class-status').html(stat);
+                  if(stat == "NOT FULL"){
+                    $('#profile-class-status').removeClass('badge bg-red');
+                    $('#profile-class-status').addClass('badge bg-blue');
+                  }
+                  else{
+                    $('#profile-class-status').removeClass('badge bg-blue');
+                    $('#profile-class-status').addClass('badge bg-red');
+                  }
+
+                $.ajax({
+                    url: ajaxUrl,
+                    type: 'post',
+                    dataType: 'json', 
+                    data: {'set' : 'employee_id', 'table' : 'teachers', 'value' : val.adviser }, 
+                    success: function(result){    
+                       $.each(result, function(index, val) {
+                          $('#profile-class-adviser').html(val.first_name+' '+val.last_name);
+                       })           
+                      
+                    }
+                })
+              })
+            }
+          });
+
+})

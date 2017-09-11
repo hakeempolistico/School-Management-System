@@ -11,10 +11,16 @@ class view_data extends CI_Controller {
 
 	public function index()
 	{	
-		$data['teacherRecords']  = json_encode($this->global_model->getRecords('teachers'));
+		$data = $this->parse->parsed();
+		/*$data['teacherRecords']  = json_encode($this->global_model->getRecords('teachers'));
 		$data['studentRecords'] = json_encode($this->global_model->getRecords('students'));
 		$data['roomRecords'] = json_encode($this->view_model->getRooms());
-		$this->load->view('enrollment/view_data', $data);
+		$data['classRecords'] = json_encode($this->view_model->getClasses());
+		$data['studentsCount'] = $this->global_model->count('students');
+		$data['teachersCount'] = $this->global_model->count('teachers');
+		$data['roomsCount'] = $this->global_model->count('rooms');
+		$data['classesCount'] = $this->global_model->count('classes');*/
+		$this->parser->parse('enrollment/view_data', $data);
 	}
 	
 	public function ajax()
@@ -24,5 +30,29 @@ class view_data extends CI_Controller {
 		$value = $this->input->post('lrn');
 		$records = json_encode($this->global_model->getRow($table, $set, $value));
 		echo $records;
+	}
+	public function ajaxReq()
+	{
+		$table = $this->input->post('table');
+		$set = $this->input->post('set');
+		$value = $this->input->post('lrn');
+		$records = json_encode($this->global_model->getRow($table, $set, $value));
+		echo $records;
+	}
+	public function updateRequirements()
+	{
+		$data2 = $this->input->post('requirement[]');
+				foreach($data2 as $val){
+					$dataReq = array(
+						'lrn' =>  $this->input->post('lrn'),
+						'requirement' => $val
+						);
+					$result = $this->view_model->insertRequirement('requirements', $dataReq);
+				}
+		if(count($data2)==3){
+			$lrn = $this->input->post('lrn');
+			$this->view_model->updateStudent($lrn);
+		}
+		redirect('enrollment/view_data');
 	}
 }

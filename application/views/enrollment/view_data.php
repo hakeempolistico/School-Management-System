@@ -54,10 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <header class="main-header">
     <!-- Logo -->
     <a href="<?php echo site_url('/') ?>" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>S</b>M</span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg">School Management</span>
+      {logo}
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -272,10 +269,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 Dashboard
               </a>
             </li>
-            <li  class="active">
+            <li>          
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Subjects (admin)
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Manage Class (admin)
+              </a>
+            </li>
+            <li>
+              <a href="<?php echo site_url('enrollment/manage_schedule'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                  Manage Schedule (admin)
+              </a>
+            </li>
+            <li class="active">
               <a href="<?php echo site_url('enrollment/view_data'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   View Data
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Register Student
               </a>
             </li>
             <li>
@@ -284,19 +306,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   Enroll Student
               </a>
             </li>
-            <li>
-              <a href="<?php echo site_url('enrollment/manage_student'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                  Manage Student
-              </a>
-            </li>
-            <li>
-              <a href="<?php echo site_url('enrollment/manage_schedule'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                  Manage Schedule
-              </a>
-            </li>
           </ul>
+          
         </li>
       
         
@@ -333,7 +344,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!-- small box -->
           <div class="small-box bg-aqua" id="viewStudents" style="cursor: pointer;">
             <div class="inner">
-              <h3>1200</h3>
+              <h3>12</h3>
 
               <p>Students</p>
             </div>
@@ -348,7 +359,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!-- small box -->
           <div class="small-box bg-green" id="viewTeachers" style="cursor: pointer;">
             <div class="inner">
-              <h3>169</h3>
+              <h3>13</h3>
 
               <p>Teachers</p>
             </div>
@@ -363,7 +374,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!-- small box -->
           <div class="small-box bg-yellow" id="viewRooms" style="cursor: pointer;">
             <div class="inner">
-              <h3>44</h3>
+              <h3>14</h3>
 
               <p>Rooms</p>
             </div>
@@ -378,12 +389,72 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!-- small box -->
           <div class="small-box bg-red" id="viewClasses" style="cursor: pointer;">
             <div class="inner">
-              <h3>65</h3>
+              <h3>15</h3>
 
               <p>Class</p>
             </div>
             <div class="icon">
               <i class="fa fa-star"></i>
+            </div>
+            <a href="#" class="small-box-footer">View table <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green" id="viewClasses" style="cursor: pointer;">
+            <div class="inner">
+              <h3>16</h3>
+
+              <p>Online Applicants</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-paperclip"></i>
+            </div>
+            <a href="#" class="small-box-footer">View table <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-purple" id="viewClasses" style="cursor: pointer;">
+            <div class="inner">
+              <h3>17</h3>
+
+              <p>Enrolled Students</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-users"></i>
+            </div>
+            <a href="#" class="small-box-footer">View table <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-fuchsia" id="viewClasses" style="cursor: pointer;">
+            <div class="inner">
+              <h3>18</h3>
+
+              <p>Strands</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-folder-open"></i>
+            </div>
+            <a href="#" class="small-box-footer">View table <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-teal" id="viewClasses" style="cursor: pointer;">
+            <div class="inner">
+              <h3>19</h3>
+
+              <p>Subjects</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-book"></i>
             </div>
             <a href="#" class="small-box-footer">View table <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -446,13 +517,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Version</b> 2.4.0
-    </div>
-    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
-    reserved.
-  </footer>
+  
+  <!-- Footer -->
+  {footer}
+  <!-- /.Footer -->
 
 </div>
 <!-- ./wrapper -->
@@ -529,26 +597,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 			</div>
 				<ul class="list-group list-group-unbordered">
-				<li class="list-group-item">
-					<strong><i class="fa fa-book margin-r-5"></i> Note</strong>
-	
-					 <p class="text-muted">
-						B.S. in Information System in Technological University of the Philippines
-					 </p>
-				</li>
-				
-				<li class="list-group-item requirements-section">
-					<strong><i class="fa fa-book margin-r-5"></i>Requirements</strong>
-	
-					  <select class="form-control select2" multiple="multiple" id="inputREQUIREMENTS" data-placeholder="Select Requirement" style="width: 100%;">
-              <option id="f137">Form 137</option>
-              <option id="f138">Form 138</option>
-              <option id="nso">NSO Birth Certificate</option>
-            </select>
+  				<li class="list-group-item">
+  					<strong><i class="fa fa-book margin-r-5"></i> Note</strong>
+  					 <p class="text-muted" id="modal-note"></p>
+  				</li>
 
-				</li>
+			<form action="/enrollment/view_data/updateRequirements" method="post">
+  				<li class="list-group-item requirements-section">
+  					<strong><i class="fa fa-book margin-r-5"></i>Requirements</strong>
+  	
+  					  <select class="form-control select2" multiple="multiple" name="requirement[]" id="modal-requirements" data-placeholder="Select Requirement" style="width: 100%;">
+                <option id="f137">Form 137</option>
+                <option id="f138">Form 138</option>
+                <option id="nso">NSO Birth Certificate</option>
+              </select>
+              <input id="input-lrn" name="lrn" type="hidden" />
+
+  				</li>
               </ul>
               <a href="#" class="btn btn-primary btn-block pull-left" data-dismiss="modal" style="max-width: 100px"><b>Close</b></a>
+              <input id="input-submit" type="submit" href="#" class="btn btn-primary btn-block pull-right" style="max-width: 100px" />
+      </form>
             </div>
             <!-- /.box-body -->
           </div>
@@ -581,7 +650,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   var arrofobject = <?php echo $studentRecords;?>;
   var arrofobject2 = <?php echo $teacherRecords;?>;
   var arrofobject3 = <?php echo $roomRecords;?>;
+  var arrofobject4 = <?php echo $classRecords;?>;
   var ajaxUrl = "<?php echo base_url("enrollment/view_data/ajax"); ?>"
+  var ajaxReqUrl = "<?php echo base_url("enrollment/view_data/ajaxReq"); ?>"
 </script> 
 
 <script src="<?php echo base_url(); ?>dist/js/enrollment/view_data.js"></script>
