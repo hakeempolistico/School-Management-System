@@ -287,13 +287,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 Schedule
               </a>
             </li>          
-            <li class="active">
+            <li>
               <a href="<?php echo site_url('academics/subjects'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Subjects
               </a>
             </li>
-            <li>
+            <li class="active">
               <a href="<?php echo site_url('academics/assign_subjects'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Assign Subjects
@@ -312,7 +312,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 Sections
               </a>
             </li>
-            <li class="active">
+            <li>
               <a href="<?php echo site_url('academics/strands'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Strands
@@ -343,12 +343,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Subjects
+        Assign Subjects
         <small>temporary message here</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="enrollment/dashboard"><i class="fa fa-mortar-board"></i> Academics</a></li>
-        <li class="active">Subjects</li>
+        <li class="active">Assign Subjects</li>
       </ol>
     </section>
 
@@ -361,70 +361,55 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <h3 class="box-title">Add Subjects</h3>
               </div>
               <!-- /.box-header -->
-              <div class="box-body">
-                <div class="form-group">
-                  <label for="subjectNameInput">Name</label>
-                  <input type="text" class="form-control" id="subjectNameInput" placeholder="subject name">
-                </div>
-                <div class="form-group">
-                  <label for="subjectCodeInput">Code</label>
-                  <input type="text" class="form-control" id="subjectCodeInput" placeholder="subject code">
-                </div>
-                <div class="form-group">
-                  <label for="subjectTypeInput">Type</label>
-                  <input type="text" class="form-control" id="subjectTypeInput" placeholder="subject type">
-                </div>
+              <div class="box-body">                  
+                    <div class="form-group">
+                      <label for="subjectNameInput">Year Level</label>
+                      <input type="text" class="form-control" id="subjectNameInput" placeholder="select year level">
+                    </div> 
+                
+                    <div class="form-group">
+                      <label for="subjectCodeInput">Strand</label>
+                      <input type="text" class="form-control" id="subjectCodeInput" placeholder="select strand">
+                    </div> 
+                
+                    <div class="form-group">
+                      <label for="subjectCodeInput">Section</label>
+                      <input type="text" class="form-control" id="subjectCodeInput" placeholder="select section">
+                    </div> 
+                
                 <button type="button" style="width: 100px" class="btn btn-block btn-primary pull-right">Add</button>
               </div>
           </div>
         </div>
+
         <div class="col-lg-8 col-xs-12">
-
           <div class="box box-primary">
-            <div class="box-header">
-              <h3 class="box-title">Subject List</h3>
+              <div class="box-header">
+                <h3 class="box-title">Add Subjects</h3>
+                <h3 class="box-title pull-right"><a href="#" class="btn btn-default btn-xs"><span class="fa fa-fw fa-pencil"></span></a></h3>
+              </div>
+              <!-- /.box-header -->
+              <div class="box-body">
+                <div class="row">
+                  <div class="col-xs-12 col-lg-6">
+                    <div class="form-group">
+                      <label for="subjectNameInput">Subject</label>
+                      <input type="text" class="form-control" id="subjectNameInput" placeholder="select subject">
+                    </div> 
+                  </div>
+                         
+                  <div class="col-xs-12 col-lg-6">
+                    <div class="form-group">
+                      <label for="subjectCodeInput">Teacher</label>
+                      <input type="text" class="form-control" id="subjectCodeInput" placeholder="select teacher">
+                    </div> 
+                  </div>
+                </div>              
+              <button type="button" style="width: 100px" class="btn btn-block btn-primary pull-right">Save</button>
             </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <table id="subjectsTable" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Code</th>
-                  <th>Type</th>
-                  <th>Action</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td>English</td>
-                  <td>069</td>
-                  <td>ANYTHING HERE</td>
-                  <td>  
-                    <center>
-                      <a href="#" class="btn btn-default btn-xs"><span class="fa fa-fw fa-pencil"></span></a>
-                      <a href="#" class="btn btn-default btn-xs"><span class="fa fa-fw fa-remove"></span></a> 
-                    </center>
-                     
-                  </td>                  
-                </tr>
-                </tbody>
-                <tfoot>
-                <tr>
-                  <th>Name</th>
-                  <th>Code</th>
-                  <th>Type</th>
-                  <th>Action</th>
-                </tr>
-                </tfoot>
-              </table>
-            </div>
-            <!-- /.box-body -->
+            
           </div>
-          <!-- /.box -->
-
         </div>
-
       </div>
     </section>
     <!-- /.content -->

@@ -294,17 +294,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="<?php echo site_url('academics/assign_subjects'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Assign Subjects
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="<?php echo site_url('academics/teachers'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Teachers
               </a>
             </li>
+            <li>
             <li class="active">
               <a href="<?php echo site_url('academics/sections'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
