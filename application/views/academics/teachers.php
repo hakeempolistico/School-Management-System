@@ -239,6 +239,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
+        
         <li class="treeview">
           <a href="#">
             <i class="fa fa-files-o"></i>
@@ -282,7 +283,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
           <ul class="treeview-menu">
             <li>
-              <a href="#">
+              <a href="<?php echo site_url('academics/schedule'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Schedule
               </a>
