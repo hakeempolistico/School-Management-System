@@ -407,7 +407,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <tr>
                   <td>STEM-1</td>
                   <td>STEM</td>                  
-                  <td>WAIT</td>
+                  <td>
+                    <a href="#" class="btn btn-success btn-xs"><span class="fa fa-fw fa-pencil"></span></a>
+                    <a href="#" class="btn btn-danger btn-xs"><span class="fa fa-fw fa-remove"></span></a>
+                  </td>
+                  </td>
                 </tr>
                 </tbody>
                 <tfoot>                
