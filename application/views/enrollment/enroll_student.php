@@ -305,6 +305,62 @@
           </ul>
 
         </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-mortar-board"></i>
+            <span>Academics</span>
+            <span class="pull-right-container">
+              <span class="label label-primary pull-right">4</span>
+            </span>
+          </a>
+
+          <ul class="treeview-menu">
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Schedule
+              </a>
+            </li>          
+            <li>
+              <a href="<?php echo site_url('academics/subjects'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Subjects
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Assign Subjects
+              </a>
+            </li>
+            <li>
+              <a href="<?php echo site_url('academics/teachers'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Teachers
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Year Level
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Sections
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Strands
+              </a>
+            </li>
+          </ul>
+          
+        </li>
       
         
         <li class="header">LABELS</li>  
@@ -344,7 +400,7 @@
           <div class="box box-info">
 
             <div class="box-header with-border">
-              <h3 class="box-title">Senior High School Profile</h3>
+              <h3 class="box-title">Student Information</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -527,42 +583,50 @@
                 <!-- /.row -->
 
                 <hr>
-                <label>Guardian</label>
-                <div class="row">
-                  <div class="col-md-4">
+                <div class="row" style="margin-bottom: -10px;">
+                  <div class="col-md-3">
+                    <label>If Guardian is</label>
+                  </div>
+                  <div class="col-md-3">
                     <div class="form-group">
-                        <input type="radio" name="r3" class="flat-red parent">   Father
+                        <input type="radio" name="r3" class="flat-red parent" value="Father">   Father
                     </div>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-3">
                     <div class="form-group">
-                        <input type="radio" name="r3" class="flat-red parent">   Mother
+                        <input type="radio" name="r3" class="flat-red parent" value="Mother">   Mother
                     </div>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-3">
                     <div class="form-group">
-                        <input type="radio" name="r3" class="flat-red other">   Other
+                        <input type="radio" name="r3" class="flat-red other" value="Other" checked>   Other
                     </div>
                   </div>
                 </div>
                 <!-- /.row -->
 
-                <div id="guardianInput" class="row">
-                  <div class="col-md-12">
+                <div hidden id="guardianInput" class="row">
+                  <div class="col-md-4">
                     <div class="form-group">
-                      <label>Guardian's Name</label>
+                      <label>Name</label>
                       <input type="text" class="form-control" id="inputGUARDIAN" value="<?php echo set_value('guardian'); ?>" placeholder="Guardian's Name" name="guardian">
                       <?php echo form_error('guardian'); ?>
                     </div>
+                  </div>
+                  <!-- /.col -->
 
+                  <div class="col-md-4">
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Relationship</label>
+                      <label>Relationship</label>
                       <input type="text" class="form-control" id="inputRELATIONSHIP" value="<?php echo set_value('relationship'); ?>" placeholder="Relationship with Guardian" name="relationship">
                       <?php echo form_error('relationship'); ?>
                     </div>
+                  </div>
+                  <!-- /.col --> 
 
+                  <div class="col-md-4">
                     <div class="form-group">
-                      <label>Guardian's Contact No.</label>
+                      <label>Contact No.</label>
                       <input type="text" class="form-control" id="inputGUARDIANCONTACT" value="<?php echo set_value('guardian_contact'); ?>" placeholder="Guradian's Contact No." name="guardian_contact">
                       <?php echo form_error('guardian_contact'); ?>
                     </div>
@@ -642,6 +706,36 @@
 <script src="<?php echo base_url(); ?>plugins/input-mask/jquery.inputmask.extensions.js"></script>
 
 <script>
+
+    $('.flat-red').on('ifChecked', function(event){
+      var radioInput = $(this).val(); 
+      
+
+      if(radioInput == "Father"){
+        alert(radioInput);
+        $('#guardianInput').hide();
+        $('#inputGUARDIAN').val($('#inputFATHER').val());
+        $('#inputRELATIONSHIP').val(radioInput);
+        $('#inputGUARDIANCONTACT').val($('#inputFATHERCONTACT').val());
+
+      }else if(radioInput == "Mother"){
+        alert(radioInput);
+        $('#guardianInput').hide();
+        $('#inputGUARDIAN').val($('#inputMOTHER').val());
+        $('#inputRELATIONSHIP').val(radioInput);
+        $('#inputGUARDIANCONTACT').val($('#inputMOTHERCONTACT').val());
+
+      }else{
+        alert(radioInput);
+        $('#guardianInput').show();
+        $('#inputGUARDIAN').val('');
+        $('#inputRELATIONSHIP').val('');
+        $('#inputGUARDIANCONTACT').val('');
+      }
+
+    });
+</script>
+<script>
 //Date picker
     $('#datepicker').datepicker({
       autoclose: true,
@@ -649,31 +743,17 @@
     })
 
     //iCheck for checkbox and radio inputs
-    $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
-      checkboxClass: 'icheckbox_minimal-blue',
+    $('input[type="radio"].minimal').iCheck({
       radioClass   : 'iradio_minimal-blue'
     })
     //Red color scheme for iCheck
-    $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
-      checkboxClass: 'icheckbox_minimal-red',
+    $('input[type="radio"].minimal-red').iCheck({
       radioClass   : 'iradio_minimal-red'
     })
     //Flat red color scheme for iCheck
-    $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
-      checkboxClass: 'icheckbox_flat-green',
+    $('input[type="radio"].flat-red').iCheck({
       radioClass   : 'iradio_flat-green'
     })
-</script>
-<script>
-$(document).ready(function(){
-    $(".parent").click(function(){ 
-      $("#guardianInput").hide();
-    });
-    $(".other").click(function(){
-      $("#guardianInput").show();
-    });
-});
-
 </script>
 <script type="text/javascript">
   //Initialize Select2 Elements
