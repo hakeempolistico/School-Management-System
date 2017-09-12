@@ -379,7 +379,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <label for="subjectTypeInput">Type</label>
                   <input type="text" class="form-control" id="subjectTypeInput" placeholder="subject type">
                 </div>
-                <button type="button" class="btn btn-block btn-primary">Add</button>
+                <button type="button" style="width: 100px" class="btn btn-block btn-primary pull-right">Add</button>
               </div>
           </div>
         </div>
@@ -405,7 +405,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <td>English</td>
                   <td>069</td>
                   <td>ANYTHING HERE</td>
-                  <td>WAIT</td>
+                  <td>  
+                  <center>
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm  btn-success  btn-flat"><i class="fa fa-pencil"></i></button>
+                      <button type="button" class="btn btn-sm  btn-danger btn-flat"><i class="fa fa-close"></i></button>
+                    </div>
+                  </td>
+                  </center>
+                    
                 </tr>
                 </tbody>
                 <tfoot>
@@ -447,7 +455,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <script>
   $(function () {
-    $('#subjectsTable').DataTable()
+    $('#subjectsTable').DataTable({
+      "columns": [
+        null, null, null,
+        { "width": "20%" }
+      ]
+    })
   })
 </script>
 </body>
