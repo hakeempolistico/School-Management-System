@@ -288,6 +288,62 @@
             </li>
           </ul>
         </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-mortar-board"></i>
+            <span>Academics</span>
+            <span class="pull-right-container">
+              <span class="label label-primary pull-right">4</span>
+            </span>
+          </a>
+
+          <ul class="treeview-menu">
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Schedule
+              </a>
+            </li>          
+            <li>
+              <a href="<?php echo site_url('academics/subjects'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Subjects
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Assign Subjects
+              </a>
+            </li>
+            <li>
+              <a href="<?php echo site_url('academics/teachers'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Teachers
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Year Level
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Sections
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Strands
+              </a>
+            </li>
+          </ul>
+          
+        </li>
       
         
         <li class="header">LABELS</li>
