@@ -393,10 +393,8 @@
     <!-- Main content -->
     <section class="content">
       <div class="row">
-        <div class="col-md-2">
-        </div>
-        <!-- /.col -->
-        <div class="col-md-8">
+        
+        <div class="col-md-12">
           <div class="box box-info">
 
             <div class="box-header with-border">
@@ -589,7 +587,7 @@
                   </div>
                   <div class="col-md-3">
                     <div class="form-group">
-                        <input type="radio" name="r3" class="flat-red parent" value="Father">   Father
+                        <input type="radio" name="r3" class="flat-red parent" value="Father" checked>   Father
                     </div>
                   </div>
                   <div class="col-md-3">
@@ -599,7 +597,7 @@
                   </div>
                   <div class="col-md-3">
                     <div class="form-group">
-                        <input type="radio" name="r3" class="flat-red other" value="Other" checked>   Other
+                        <input type="radio" name="r3" class="flat-red other" value="Other" >   Other
                     </div>
                   </div>
                 </div>
@@ -660,10 +658,6 @@
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
-        </div>
-        <!-- /.col -->
-
-        <div class="col-md-2">
         </div>
         <!-- /.col -->
 
