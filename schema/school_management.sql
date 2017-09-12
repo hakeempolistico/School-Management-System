@@ -174,7 +174,9 @@ CREATE TABLE `schedules` (
 CREATE TABLE `sections` (
   `id` int(11) NOT NULL,
   `name` varchar(45) NOT NULL,
-  `capacity` int(2) NOT NULL
+  `capacity` int(2) NOT NULL,
+  `strand_id` int(11) NOT NULL,
+  `year_level_id` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
