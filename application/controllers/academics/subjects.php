@@ -10,4 +10,10 @@ class subjects extends CI_Controller {
 		$this->sms_session->checkSession();
 	}
 
+	public function ajaxInsert(){
+		$data = $this->input->post();
+		$result = $this->global_model->insert('subjects',$data);
+		echo json_encode($result);
+	}
+
 }
