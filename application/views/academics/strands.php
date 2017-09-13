@@ -306,11 +306,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </a>
             </li>
             <li>
-              <a href="<?php echo site_url('academics/year_level'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Year Level
-              </a>
-            </li>
             <li>
               <a href="<?php echo site_url('academics/sections'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
