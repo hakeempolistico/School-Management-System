@@ -355,7 +355,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <section class="content">
       <div class="row">
         <div class="col-lg-4 col-xs-12">
-          <div class="box">
+          <div class="box box-primary">
               <div class="box-header">
                 <h3 class="box-title">Add Sections</h3>
               </div>
@@ -391,7 +391,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
         <div class="col-lg-8 col-xs-12">
 
-          <div class="box">
+          <div class="box box-primary">
             <div class="box-header">
               <h3 class="box-title">Strand List</h3>
             </div>
