@@ -540,6 +540,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         null, null, null,
         { "width": "15%" }
       ],
+      "order": [] ,
       "ajax": "<?php echo base_url('/academics/subjects/ajaxGetRecords')?>"
     })
   })
@@ -565,6 +566,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   null, null, null,
                   { "width": "15%" }
                 ],
+                "order": [] ,
                 "ajax": "<?php echo base_url('/academics/subjects/ajaxGetRecords')?>"
               })
 
