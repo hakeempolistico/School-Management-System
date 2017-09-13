@@ -18,9 +18,9 @@ class subjects extends CI_Controller {
 	public function ajaxGetRecords(){
 		$result = $this->global_model->getRecords('subjects', 'desc', 'id');
 		$action = "<center>
-                    <a data-toggle='modal' data-target='#modal-view' class='btn btn-default btn-xs'><span class='fa fa-fw fa-search'></span></a>
-                    <a data-toggle='modal' data-target='#modal-edit' class='btn btn-default btn-xs'><span class='fa fa-fw fa-pencil'></span></a>                    
-                    <a data-toggle='modal' data-target='#modal-delete' class='btn btn-default btn-xs'><span class='fa fa-fw fa-remove'></span></a>                
+                    <a data-toggle='modal' id='view-btn' data-target='#modal-view' class='btn btn-default btn-xs view-btn'><span class='fa fa-fw fa-search'></span></a>
+                    <a data-toggle='modal' data-target='#modal-edit' class='btn btn-default btn-xs edit-btn'><span class='fa fa-fw fa-pencil'></span></a>                    
+                    <a data-toggle='modal' data-target='#modal-delete' class='btn btn-default btn-xs delete-btn'><span class='fa fa-fw fa-remove'></span></a>                
                   </center>";
 		$data = [];
         foreach ($result as $key => $value)
