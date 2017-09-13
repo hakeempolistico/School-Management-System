@@ -287,7 +287,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 Schedule
               </a>
             </li>          
-            <li class="active">
+            <li>
               <a href="<?php echo site_url('academics/subjects'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Subjects
@@ -306,12 +306,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="<?php echo site_url('academics/year_level'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Year Level
               </a>
             </li>
-            <li>
+            <li class="active">
               <a href="<?php echo site_url('academics/sections'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Sections
@@ -348,12 +348,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Subjects
-        <small>temporary message here</small>
+        Sections
+        <small>Manage Sections</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="enrollment/dashboard"><i class="fa fa-mortar-board"></i> Academics</a></li>
-        <li class="active">Subjects</li>
+        <li class="active">Sections</li>
       </ol>
     </section>
 
@@ -363,22 +363,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="col-lg-4 col-xs-12">
           <div class="box">
               <div class="box-header">
-                <h3 class="box-title">Add Subjects</h3>
+                <h3 class="box-title">Add Sections</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
                 <div class="form-group">
-                  <label for="subjectNameInput">Name</label>
+                  <label for="sectionNameInput">Name</label>
                   <input type="text" class="form-control" id="subjectNameInput" placeholder="subject name">
                 </div>
                 <div class="form-group">
-                  <label for="subjectCodeInput">Code</label>
-                  <input type="text" class="form-control" id="subjectCodeInput" placeholder="subject code">
-                </div>
-                <div class="form-group">
-                  <label for="subjectTypeInput">Type</label>
-                  <input type="text" class="form-control" id="subjectTypeInput" placeholder="subject type">
-                </div>
+                  <label for="strandSelect">Strand</label>                  
+                  <select class="form-control">
+                    <option>Select</option>
+                    <option>STEM</option>
+                    <option>GAS</option>
+                    <option>ABM</option>
+                    <option>HUMSS</option>
+                    <option>TVL-AUTO</option>
+                    <option>TVL-HE</option>
+                  </select>
+                </div>                
                 <button type="button" class="btn btn-block btn-primary">Add</button>
               </div>
           </div>
@@ -387,34 +391,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Subject List</h3>
+              <h3 class="box-title">Strand List</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="subjectsTable" class="table table-bordered table-striped">
+              <table id="sectionsTable" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>Name</th>
-                  <th>Code</th>
-                  <th>Type</th>
+                  <th>Strand</th>                  
                   <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                  <td>English</td>
-                  <td>069</td>
-                  <td>ANYTHING HERE</td>
+                  <td>STEM-1</td>
+                  <td>STEM</td>                  
                   <td>WAIT</td>
                 </tr>
                 </tbody>
-                <tfoot>
-                <tr>
-                  <th>Name</th>
-                  <th>Code</th>
-                  <th>Type</th>
-                  <th>Action</th>
-                </tr>
+                <tfoot>                
                 </tfoot>
               </table>
             </div>
@@ -447,7 +443,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <script>
   $(function () {
-    $('#subjectsTable').DataTable()
+    $('#sectionsTable').DataTable()
   })
 </script>
 </body>

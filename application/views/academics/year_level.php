@@ -15,6 +15,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/Ionicons/css/ionicons.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/select2/dist/css/select2.min.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- Theme style -->
@@ -22,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/skins/_all-skins.min.css">
-
+  
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -287,7 +289,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 Schedule
               </a>
             </li>          
-            <li class="active">
+            <li>
               <a href="<?php echo site_url('academics/subjects'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Subjects
@@ -305,8 +307,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 Teachers
               </a>
             </li>
-            <li>
-              <a href="#">
+            <li class="active">
+              <a href="<?php echo site_url('academics/year_level'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Year Level
               </a>
@@ -348,12 +350,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Subjects
-        <small>temporary message here</small>
+        Year Levels
+        <small>Manage Year Levels</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="enrollment/dashboard"><i class="fa fa-mortar-board"></i> Academics</a></li>
-        <li class="active">Subjects</li>
+        <li class="active">Year Levels</li>
       </ol>
     </section>
 
@@ -363,22 +365,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="col-lg-4 col-xs-12">
           <div class="box">
               <div class="box-header">
-                <h3 class="box-title">Add Subjects</h3>
+                <h3 class="box-title">Add Year Levels</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
                 <div class="form-group">
-                  <label for="subjectNameInput">Name</label>
-                  <input type="text" class="form-control" id="subjectNameInput" placeholder="subject name">
+                  <label for="yearLevelNameInput">Name</label>
+                  <input type="text" class="form-control" id="subjectNameInput" placeholder="year level name">
                 </div>
                 <div class="form-group">
-                  <label for="subjectCodeInput">Code</label>
-                  <input type="text" class="form-control" id="subjectCodeInput" placeholder="subject code">
-                </div>
-                <div class="form-group">
-                  <label for="subjectTypeInput">Type</label>
-                  <input type="text" class="form-control" id="subjectTypeInput" placeholder="subject type">
-                </div>
+                  <label for="sectionSelect">Section</label>                  
+                  <select class="form-control select2" multiple="multiple" data-placeholder="Select Sections"
+                        style="width: 100%;">                    
+                    <option>STEM-1</option>
+                    <option>STEM-2</option>
+                  </select>
+                </div>                
                 <button type="button" class="btn btn-block btn-primary">Add</button>
               </div>
           </div>
@@ -387,34 +389,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Subject List</h3>
+              <h3 class="box-title">Strand List</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="subjectsTable" class="table table-bordered table-striped">
+              <table id="yearLevelTable" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>Name</th>
-                  <th>Code</th>
-                  <th>Type</th>
+                  <th>Sections</th>                  
                   <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                  <td>English</td>
-                  <td>069</td>
-                  <td>ANYTHING HERE</td>
+                  <td>Grade 11</td>
+                  <td>STEM-1</td>                  
                   <td>WAIT</td>
                 </tr>
                 </tbody>
-                <tfoot>
-                <tr>
-                  <th>Name</th>
-                  <th>Code</th>
-                  <th>Type</th>
-                  <th>Action</th>
-                </tr>
+                <tfoot>                
                 </tfoot>
               </table>
             </div>
@@ -442,12 +436,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
+<!-- Select2 -->
+<script src="<?php echo base_url(); ?>bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- DataTables -->
 <script src="<?php echo base_url(); ?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
 <script>
   $(function () {
-    $('#subjectsTable').DataTable()
+    $('#yearLevelTable').DataTable()
+    $('.select2').select2()
   })
 </script>
 </body>
