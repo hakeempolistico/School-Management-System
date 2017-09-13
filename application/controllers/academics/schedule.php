@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class manage_schedule extends CI_Controller {
+class schedule extends CI_Controller {
 
 	public function __construct()
 	{
@@ -17,7 +17,7 @@ class manage_schedule extends CI_Controller {
 		$data['teachers'] = $this->global_model->getRecords('teachers');		
 		$data['rooms'] = $this->global_model->getRecords('rooms');			
 		$data['subjects'] = $this->global_model->getRecords('subjects');		
-		$this->parser->parse('enrollment/manage_schedule', $data);
+		$this->parser->parse('academics/schedule', $data);
 	}
 
 	public function ajax()
