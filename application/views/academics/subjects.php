@@ -362,19 +362,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </div>
               <!-- /.box-header -->
               <div class="box-body">
-                <div class="form-group">
-                  <label for="subjectNameInput">Name</label>
-                  <input type="text" class="form-control" id="subjectNameInput" placeholder="subject name">
-                </div>
-                <div class="form-group">
-                  <label for="subjectCodeInput">Code</label>
-                  <input type="text" class="form-control" id="subjectCodeInput" placeholder="subject code">
-                </div>
-                <div class="form-group">
-                  <label for="subjectTypeInput">Type</label>
-                  <input type="text" class="form-control" id="subjectTypeInput" placeholder="subject type">
-                </div>
-                <button type="button" style="width: 100px" class="btn btn-block btn-primary pull-right">Add</button>
+                  <div class="form-group" style="margin-bottom: 5px;">
+                    <label for="name-input">Name</label>
+                    <label for="name-input" class="text-danger">*</label>
+                    <input type="text" class="form-control" id="name-input" placeholder="subject name" required>
+                  </div>
+                  <div class="form-group"style="margin-bottom: 5px;">
+                    <label for="code-input">Code</label>
+                    <label for="name-input" class="text-danger">*</label>
+                    <input type="text" class="form-control" id="code-input" placeholder="subject code" required>
+                  </div>
+                  <div class="form-group"style="margin-bottom: 5px;">
+                    <label for="type-input">Type</label>
+                    <input type="text" class="form-control" id="type-input" placeholder="subject type">
+                  </div>
+                  <div class="form-group">
+                    <label for="description-input">Description</label>
+                    <input type="text" class="form-control" id="description-input" placeholder="subject description">
+                  </div>
+                  <button id="add-btn" type="button" style="width: 100px" class="btn btn-block btn-primary pull-right">Add</button>
               </div>
           </div>
         </div>
@@ -395,24 +401,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <th>Action</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                  <td>English</td>
-                  <td>069</td>
-                  <td>ANYTHING HERE</td>
-                  <td>  
-                    <center>
-                      <a href="#" class="btn btn-default btn-xs"><span class="fa fa-fw fa-pencil"></span></a>
-                      <a href="#" class="btn btn-default btn-xs"><span class="fa fa-fw fa-remove"></span></a> 
-                    </center>
-                     
-                  </td>                  
-                </tr>
-                </tbody>
+                
                 <tfoot>
                 <tr>
                   <th>Name</th>
-                  <th>Code</th>
                   <th>Type</th>
                   <th>Action</th>
                 </tr>
@@ -423,6 +415,101 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
           <!-- /.box -->
 
+        </div>
+
+        <div class="modal fade in" id="modal-view">
+          <div class="modal-dialog" style="max-width: 400px">
+            <div class="modal-content">
+              <div class="box box-primary">
+            <div class="box-body box-profile flat ">
+
+              <center><span class="fa fa-fw fa-book fa-5x text-primary"></center>
+              <h3 class="profile-username text-center">English</h3>
+
+              <ul class="list-group list-group-unbordered">
+                <li class="list-group-item">
+                  <b>Subject Code</b> <a class="pull-right">56-462-8792</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Subjet Type</b> <a class="pull-right">STEM SUBJECTS</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Subject Description</b> <br> <a>This subject is related to all stem courses. It includes advance english.</a>
+                </li>
+              </ul>
+
+              <a href="#" class="btn btn-primary btn-block" data-dismiss="modal"><b>Close</b></a>
+            </div>
+            <!-- /.box-body -->
+          </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+
+        <div class="modal fade in" id="modal-edit">
+          <div class="modal-dialog" style="max-width: 400px">
+            <div class="modal-content">
+              <div class="box box-primary">
+            <div class="box-body box-profile flat ">
+
+              <center><span class="fa fa-fw fa-book fa-5x text-primary"></center>
+              <h3 class="profile-username text-center">English</h3>
+
+              <ul class="list-group list-group-unbordered">
+                <li>
+                  <div class="form-group" style="margin-bottom: 5px;">
+                  <label for="name-input">Name</label>
+                  <input type="text" class="form-control" id="name-input" placeholder="subject name">
+                </div>
+                <div class="form-group"style="margin-bottom: 5px;">
+                  <label for="code-input">Code</label>
+                  <input type="text" class="form-control" id="code-input" placeholder="subject code">
+                </div>
+                <div class="form-group"style="margin-bottom: 5px;">
+                  <label for="type-input">Type</label>
+                  <input type="text" class="form-control" id="type-input" placeholder="subject type">
+                </div>
+                <div class="form-group">
+                  <label for="description-input">Description</label>
+                  <input type="text" class="form-control" id="description-input" placeholder="subject description">
+                </div>
+                <a href="#" class="btn btn-danger pull-left" data-dismiss="modal" style="width: 100px">Close</a>
+                <button type="button" style="width: 100px" class="btn btn-block btn-primary pull-right">Update</button>
+                 
+                </li>                
+              </ul>
+             
+            </div>
+            <!-- /.box-body -->
+          </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+
+        <div class="modal fade in" id="modal-delete">
+          <div class="modal-dialog" style="max-width: 400px">
+            <div class="modal-content">
+              <div class="box box-primary">
+            <div class="box-body box-profile flat ">
+              <h4>Are you sure you want to delete English?</h4>
+              <button type="button" style="width: 100px" class="btn btn-block btn-primary pull-right">Confirm</button>
+              <button data-dismiss="modal" type="button" style="width: 100px" class="btn btn-block btn-danger">Cancel</button>
+              
+                 
+                </li>                
+              </ul>
+             
+            </div>
+            <!-- /.box-body -->
+          </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
         </div>
 
       </div>
@@ -451,10 +538,41 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     $('#subjectsTable').DataTable({
       "columns": [
         null, null, null,
-        { "width": "10%" }
-      ]
+        { "width": "15%" }
+      ],
+      "ajax": "<?php echo base_url('/academics/subjects/ajaxGetRecords')?>"
     })
   })
+
+  $("#add-btn").click(function(){
+    var name = $('#name-input').val();
+    var code = $('#code-input').val();
+    var type = $('#type-input').val();
+    var description = $('#description-input').val();
+
+      var ajaxUrl = "<?php echo base_url('/academics/subjects/ajaxInsert')?>";
+          $.ajax({
+            url: ajaxUrl,
+            type: 'post',
+            dataType: 'json', 
+            data: {'name' : name, 'code': code, 'type': type, 'description': description }, 
+            success: function(result){
+              console.log(result);
+              $('#subjectsTable').DataTable().destroy();
+
+              $('#subjectsTable').DataTable({
+                "columns": [
+                  null, null, null,
+                  { "width": "15%" }
+                ],
+                "ajax": "<?php echo base_url('/academics/subjects/ajaxGetRecords')?>"
+              })
+
+            }
+          });   
+    
+  });
+
 </script>
 </body>
 </html>
