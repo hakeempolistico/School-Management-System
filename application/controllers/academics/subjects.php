@@ -15,5 +15,25 @@ class subjects extends CI_Controller {
 		$result = $this->global_model->insert('subjects',$data);
 		echo json_encode($result);
 	}
+	public function ajaxGetRecords(){
+		$result = $this->global_model->getRecords('subjects');
+		$action = "<center>
+                    <a data-toggle='modal' data-target='#modal-view' class='btn btn-default btn-xs'><span class='fa fa-fw fa-search'></span></a>
+                    <a data-toggle='modal' data-target='#modal-edit' class='btn btn-default btn-xs'><span class='fa fa-fw fa-pencil'></span></a>                    
+                    <a data-toggle='modal' data-target='#modal-delete' class='btn btn-default btn-xs'><span class='fa fa-fw fa-remove'></span></a>                
+                  </center>";
+		$data = [];
+        foreach ($result as $key => $value)
+            {
+                $arr = array(
+                    $value->name,
+                    $value->code,
+                    $value->type,
+                    $action
+                );
+                $data['data'][] = $arr;
+            }
+		echo json_encode($data);
+	}
 
 }

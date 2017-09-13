@@ -401,21 +401,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <th>Action</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                  <td>English</td>
-                  <td>069</td>
-                  <td>ANYTHING HERE</td>
-                  <td>  
-                    <center>
-                    <a data-toggle="modal" data-target="#modal-view" class="btn btn-default btn-xs"><span class="fa fa-fw fa-search"></span></a>
-                    <a data-toggle="modal" data-target="#modal-edit" class="btn btn-default btn-xs"><span class="fa fa-fw fa-pencil"></span></a>                    
-                    <a data-toggle="modal" data-target="#modal-delete" class="btn btn-default btn-xs"><span class="fa fa-fw fa-remove"></span></a>                
-                  </center>
-                     
-                  </td>                  
-                </tr>
-                </tbody>
+                
                 <tfoot>
                 <tr>
                   <th>Name</th>
@@ -553,7 +539,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       "columns": [
         null, null, null,
         { "width": "15%" }
-      ]
+      ],
+      "ajax": "<?php echo base_url('/academics/subjects/ajaxGetRecords')?>"
     })
   })
 
@@ -571,10 +558,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             data: {'name' : name, 'code': code, 'type': type, 'description': description }, 
             success: function(result){
               console.log(result);
+              $('#subjectsTable').DataTable().destroy();
+
+              $('#subjectsTable').DataTable({
+                "columns": [
+                  null, null, null,
+                  { "width": "15%" }
+                ],
+                "ajax": "<?php echo base_url('/academics/subjects/ajaxGetRecords')?>"
+              })
+
             }
-          });
-    
-    
+          });   
     
   });
 
