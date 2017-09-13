@@ -369,7 +369,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="box-body">
                 <div class="form-group">
                   <label for="sectionNameInput">Name</label>
-                  <input type="text" class="form-control" id="subjectNameInput" placeholder="subject name">
+                  <input type="text" class="form-control" id="subjectNameInput" placeholder="section name">
                 </div>
                 <div class="form-group">
                   <label for="strandSelect">Strand</label>                  
