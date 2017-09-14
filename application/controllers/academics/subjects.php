@@ -15,19 +15,34 @@ class subjects extends CI_Controller {
 		$result = $this->global_model->insert('subjects',$data);
 		echo json_encode($result);
 	}
+	public function ajaxUpdate(){
+		$data = $this->input->post();
+		$result = $this->subjects_model->update('subjects', $data);
+		echo json_encode($result);
+	}
+	public function ajaxDeleteRow(){
+		$data = $this->input->post();
+		$result = $this->global_model->delete('subjects',$data);
+		echo json_encode($result);
+	}
+	public function ajaxGetRow(){
+		$data = $this->input->post();
+		$result = $this->global_model->getRow($data['table'], $data['set'], $data['value']);
+		echo json_encode($result);
+	}
 	public function ajaxGetRecords(){
-		$result = $this->global_model->getRecords('subjects');
+		$result = $this->global_model->getRecords('subjects', 'desc', 'id');
 		$action = "<center>
-                    <a data-toggle='modal' data-target='#modal-view' class='btn btn-default btn-xs'><span class='fa fa-fw fa-search'></span></a>
-                    <a data-toggle='modal' data-target='#modal-edit' class='btn btn-default btn-xs'><span class='fa fa-fw fa-pencil'></span></a>                    
-                    <a data-toggle='modal' data-target='#modal-delete' class='btn btn-default btn-xs'><span class='fa fa-fw fa-remove'></span></a>                
+                    <button data-toggle='modal' id='view-btn' data-target='#modal-view' class='btn btn-default btn-xs view-btn'><span class='fa fa-fw fa-search'></span></button>
+                    <button data-toggle='modal' data-target='#modal-edit' class='btn btn-default btn-xs edit-btn'><span class='fa fa-fw fa-pencil'></span></button>                    
+                    <button data-toggle='modal' data-target='#modal-delete' class='btn btn-default btn-xs delete-btn'><span class='fa fa-fw fa-remove'></span></button>                
                   </center>";
 		$data = [];
         foreach ($result as $key => $value)
             {
                 $arr = array(
-                    $value->name,
                     $value->code,
+                    $value->name,
                     $value->type,
                     $action
                 );

@@ -362,15 +362,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </div>
               <!-- /.box-header -->
               <div class="box-body">
-                  <div class="form-group" style="margin-bottom: 5px;">
-                    <label for="name-input">Name</label>
-                    <label for="name-input" class="text-danger">*</label>
-                    <input type="text" class="form-control" id="name-input" placeholder="subject name" required>
-                  </div>
                   <div class="form-group"style="margin-bottom: 5px;">
                     <label for="code-input">Code</label>
                     <label for="name-input" class="text-danger">*</label>
                     <input type="text" class="form-control" id="code-input" placeholder="subject code" required>
+                  </div>
+                  <div class="form-group" style="margin-bottom: 5px;">
+                    <label for="name-input">Name</label>
+                    <label for="name-input" class="text-danger">*</label>
+                    <input type="text" class="form-control" id="name-input" placeholder="subject name" required>
                   </div>
                   <div class="form-group"style="margin-bottom: 5px;">
                     <label for="type-input">Type</label>
@@ -380,7 +380,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <label for="description-input">Description</label>
                     <input type="text" class="form-control" id="description-input" placeholder="subject description">
                   </div>
-                  <button id="add-btn" type="button" style="width: 100px" class="btn btn-block btn-primary pull-right">Add</button>
+                  <button id="add-btn" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Add</button>
               </div>
           </div>
         </div>
@@ -395,8 +395,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <table id="subjectsTable" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Name</th>
                   <th>Code</th>
+                  <th>Name</th>
                   <th>Type</th>
                   <th>Action</th>
                 </tr>
@@ -404,6 +404,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 <tfoot>
                 <tr>
+                  <th>Code</th>
                   <th>Name</th>
                   <th>Type</th>
                   <th>Action</th>
@@ -419,64 +420,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <div class="modal fade in" id="modal-view">
           <div class="modal-dialog" style="max-width: 400px">
-            <div class="modal-content">
               <div class="box box-primary">
             <div class="box-body box-profile flat ">
 
               <center><span class="fa fa-fw fa-book fa-5x text-primary"></center>
-              <h3 class="profile-username text-center">English</h3>
-
-              <ul class="list-group list-group-unbordered">
-                <li class="list-group-item">
-                  <b>Subject Code</b> <a class="pull-right">56-462-8792</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Subjet Type</b> <a class="pull-right">STEM SUBJECTS</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Subject Description</b> <br> <a>This subject is related to all stem courses. It includes advance english.</a>
-                </li>
-              </ul>
-
-              <a href="#" class="btn btn-primary btn-block" data-dismiss="modal"><b>Close</b></a>
-            </div>
-            <!-- /.box-body -->
-          </div>
-            </div>
-            <!-- /.modal-content -->
-          </div>
-          <!-- /.modal-dialog -->
-        </div>
-
-        <div class="modal fade in" id="modal-edit">
-          <div class="modal-dialog" style="max-width: 400px">
-            <div class="modal-content">
-              <div class="box box-primary">
-            <div class="box-body box-profile flat ">
-
-              <center><span class="fa fa-fw fa-book fa-5x text-primary"></center>
-              <h3 class="profile-username text-center">English</h3>
+              <h3 class="profile-username text-center">View Subject</h3>
+              <a id="view-edit" class="btn btn-default btn-xs pull-right"><span class="fa fa-fw fa-pencil"></span></a>
 
               <ul class="list-group list-group-unbordered">
                 <li>
                   <div class="form-group" style="margin-bottom: 5px;">
-                  <label for="name-input">Name</label>
-                  <input type="text" class="form-control" id="name-input" placeholder="subject name">
+                  <label for="view-name">Name</label>
+                  <input type="text" class="form-control" id="view-name" placeholder="subject name" value="Subject Name">
                 </div>
                 <div class="form-group"style="margin-bottom: 5px;">
-                  <label for="code-input">Code</label>
-                  <input type="text" class="form-control" id="code-input" placeholder="subject code">
+                  <label for="view-code">Code</label>
+                  <input type="text" class="form-control" id="view-code" placeholder="subject code" value="Subject Code">
                 </div>
                 <div class="form-group"style="margin-bottom: 5px;">
-                  <label for="type-input">Type</label>
-                  <input type="text" class="form-control" id="type-input" placeholder="subject type">
+                  <label for="view-type">Type</label>
+                  <input type="text" class="form-control" id="view-type" placeholder="subject type" value="Subject Type">
                 </div>
                 <div class="form-group">
-                  <label for="description-input">Description</label>
-                  <input type="text" class="form-control" id="description-input" placeholder="subject description">
+                  <label for="view-description">Description</label>
+                  <textarea type="text" class="form-control" id="view-description" placeholder="subject description">Subject Description </textarea>
                 </div>
-                <a href="#" class="btn btn-danger pull-left" data-dismiss="modal" style="width: 100px">Close</a>
-                <button type="button" style="width: 100px" class="btn btn-block btn-primary pull-right">Update</button>
+                <a href="#" class="btn btn-sm btn-danger pull-left" data-dismiss="modal" style="width: 100px">Close</a>                
+                <button id="view-update" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Update</button>
                  
                 </li>                
               </ul>
@@ -484,20 +454,57 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <!-- /.box-body -->
           </div>
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+
+        <div class="modal fade in" id="modal-edit">
+          <div class="modal-dialog" style="max-width: 400px">
+              <div class="box box-primary">
+            <div class="box-body box-profile flat ">
+
+              <center><span class="fa fa-fw fa-book fa-5x text-primary"></center>
+              <h3 class="profile-username text-center">Edit Subject</h3> 
+
+
+              <ul class="list-group list-group-unbordered">
+                <li>
+                  <div class="form-group" style="margin-bottom: 5px;">
+                  <label for="edit-name">Name</label>
+                  <input type="text" class="form-control" id="edit-name" placeholder="subject name">
+                </div>
+                <div class="form-group"style="margin-bottom: 5px;">
+                  <label for="edit-code">Code</label>
+                  <input type="text" class="form-control" id="edit-code" placeholder="subject code">
+                </div>
+                <div class="form-group"style="margin-bottom: 5px;">
+                  <label for="edit-type">Type</label>
+                  <input type="text" class="form-control" id="edit-type" placeholder="subject type">
+                </div>
+                <div class="form-group">
+                  <label for="edit-description">Description</label>
+                  <textarea type="text" class="form-control" id="edit-description" placeholder="subject description" value="THIS IS DESCRIPTION SECTION"> </textarea>
+                </div>
+                <a href="#" class="btn btn-sm btn-danger pull-left" data-dismiss="modal" style="width: 100px">Close</a>
+                <button id="edit-update" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Update</button>
+                 
+                </li>                
+              </ul>
+             
             </div>
-            <!-- /.modal-content -->
+            <!-- /.box-body -->
+          </div>
           </div>
           <!-- /.modal-dialog -->
         </div>
 
         <div class="modal fade in" id="modal-delete">
-          <div class="modal-dialog" style="max-width: 400px">
-            <div class="modal-content">
+          <div class="modal-dialog" style="max-width: 320px">
               <div class="box box-primary">
             <div class="box-body box-profile flat ">
-              <h4>Are you sure you want to delete English?</h4>
-              <button type="button" style="width: 100px" class="btn btn-block btn-primary pull-right">Confirm</button>
-              <button data-dismiss="modal" type="button" style="width: 100px" class="btn btn-block btn-danger">Cancel</button>
+              <h4>Are you sure you want to delete record?</h4>
+              <button id="delete-confirm" data-dismiss="modal" type="button" style="width: 75px" class="btn btn-block btn-primary btn-sm pull-right">Confirm</button>
+              <button data-dismiss="modal" type="button" style="width: 75px" class="btn btn-sm btn-block btn-danger">Cancel</button>
               
                  
                 </li>                
@@ -506,8 +513,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <!-- /.box-body -->
           </div>
-            </div>
-            <!-- /.modal-content -->
           </div>
           <!-- /.modal-dialog -->
         </div>
@@ -533,46 +538,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- DataTables -->
 <script src="<?php echo base_url(); ?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
+
+
 <script>
-  $(function () {
-    $('#subjectsTable').DataTable({
-      "columns": [
-        null, null, null,
-        { "width": "15%" }
-      ],
-      "ajax": "<?php echo base_url('/academics/subjects/ajaxGetRecords')?>"
-    })
-  })
-
-  $("#add-btn").click(function(){
-    var name = $('#name-input').val();
-    var code = $('#code-input').val();
-    var type = $('#type-input').val();
-    var description = $('#description-input').val();
-
-      var ajaxUrl = "<?php echo base_url('/academics/subjects/ajaxInsert')?>";
-          $.ajax({
-            url: ajaxUrl,
-            type: 'post',
-            dataType: 'json', 
-            data: {'name' : name, 'code': code, 'type': type, 'description': description }, 
-            success: function(result){
-              console.log(result);
-              $('#subjectsTable').DataTable().destroy();
-
-              $('#subjectsTable').DataTable({
-                "columns": [
-                  null, null, null,
-                  { "width": "15%" }
-                ],
-                "ajax": "<?php echo base_url('/academics/subjects/ajaxGetRecords')?>"
-              })
-
-            }
-          });   
-    
-  });
-
+  var getRecordsUrl = '<?php echo base_url('/academics/subjects/ajaxGetRecords')?>';
+  var updateUrl = "<?php echo base_url('/academics/subjects/ajaxUpdate')?>";
+  var addUrl = "<?php echo base_url('/academics/subjects/ajaxInsert')?>";
+  var getRowUrl = "<?php echo base_url('/academics/subjects/ajaxGetRow')?>";
+  var deleteRowUrl = "<?php echo base_url('/academics/subjects/ajaxDeleteRow')?>";
 </script>
+<script src="<?php echo base_url(); ?>dist/js/academics/subjects.js"></script>
 </body>
 </html>

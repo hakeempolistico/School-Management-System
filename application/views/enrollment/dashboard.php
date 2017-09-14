@@ -262,7 +262,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <i class="fa fa-circle-o text-aqua"></i>
                 Dashboard
               </a>
-            </li> 
+            </li>         
             <li>
               <a href="#">
                 <i class="fa fa-circle-o text-aqua"></i>
@@ -279,7 +279,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           
         </li>
 
-        <li class="treeview">
+          <li class="treeview">
           <a href="#">
             <i class="fa fa-mortar-board"></i>
             <span>Academics</span>
@@ -292,13 +292,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li>
               <a href="#">
                 <i class="fa fa-circle-o text-aqua"></i>
-                Schedule
+                  Schedule
               </a>
             </li>          
             <li>
-              <a href="<?php echo site_url('academics/subjects'); ?>">
+              <a href="#">
                 <i class="fa fa-circle-o text-aqua"></i>
-                Subjects
+                  Subjects
               </a>
             </li>
             <li>
