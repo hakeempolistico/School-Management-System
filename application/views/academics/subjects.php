@@ -362,15 +362,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </div>
               <!-- /.box-header -->
               <div class="box-body">
-                  <div class="form-group" style="margin-bottom: 5px;">
-                    <label for="name-input">Name</label>
-                    <label for="name-input" class="text-danger">*</label>
-                    <input type="text" class="form-control" id="name-input" placeholder="subject name" required>
-                  </div>
                   <div class="form-group"style="margin-bottom: 5px;">
                     <label for="code-input">Code</label>
                     <label for="name-input" class="text-danger">*</label>
                     <input type="text" class="form-control" id="code-input" placeholder="subject code" required>
+                  </div>
+                  <div class="form-group" style="margin-bottom: 5px;">
+                    <label for="name-input">Name</label>
+                    <label for="name-input" class="text-danger">*</label>
+                    <input type="text" class="form-control" id="name-input" placeholder="subject name" required>
                   </div>
                   <div class="form-group"style="margin-bottom: 5px;">
                     <label for="type-input">Type</label>
@@ -395,8 +395,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <table id="subjectsTable" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Name</th>
                   <th>Code</th>
+                  <th>Name</th>
                   <th>Type</th>
                   <th>Action</th>
                 </tr>
@@ -404,8 +404,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 <tfoot>
                 <tr>
-                  <th>Name</th>
                   <th>Code</th>
+                  <th>Name</th>
                   <th>Type</th>
                   <th>Action</th>
                 </tr>
@@ -540,6 +540,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <script>
 function populateTable(){
+  var subjectCode;
+
   $('#subjectsTable').DataTable().destroy();
 
   $('#subjectsTable').DataTable({
@@ -551,6 +553,9 @@ function populateTable(){
         "ajax": "<?php echo base_url('/academics/subjects/ajaxGetRecords')?>"
   });
 
+  $("#subjectsTable").on("click", "tr td .view-btn", function(){
+    subjectCode = $(this).parents('tr').find('td:first').html();
+  });
   
 }
   $(function () {
@@ -580,6 +585,7 @@ function populateTable(){
           });   
     
   })
+
 </script>
 </body>
 </html>
