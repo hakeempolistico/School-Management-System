@@ -242,12 +242,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li>
+        <li class="active">
           <a href="<?php echo site_url('/'); ?>">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
-        <li class="active treeview">
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-files-o"></i>
             <span>Enrollment</span>
@@ -257,12 +257,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </a>
 
           <ul class="treeview-menu">
-            <li class="active">
+            <li>
               <a href="<?php echo site_url('enrollment/dashboard'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Dashboard
               </a>
-            </li>        
+            </li>         
             <li>
               <a href="#">
                 <i class="fa fa-circle-o text-aqua"></i>
@@ -270,12 +270,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="<?php echo site_url('enrollment/enroll_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   Enroll Student
               </a>
             </li>
           </ul>
+          
+        </li>
+
           <li class="treeview">
           <a href="#">
             <i class="fa fa-mortar-board"></i>
@@ -301,25 +304,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li>
               <a href="#">
                 <i class="fa fa-circle-o text-aqua"></i>
-                  Assign Subjects
+                Assign Subjects
+              </a>
+            </li>
+            <li>
+              <a href="<?php echo site_url('academics/teachers'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Teachers
               </a>
             </li>
             <li>
               <a href="#">
                 <i class="fa fa-circle-o text-aqua"></i>
-                  Year Level
+                Year Level
               </a>
             </li>
             <li>
               <a href="#">
                 <i class="fa fa-circle-o text-aqua"></i>
-                  Sections
+                Sections
               </a>
             </li>
             <li>
               <a href="#">
                 <i class="fa fa-circle-o text-aqua"></i>
-                  Strands
+                Strands
               </a>
             </li>
           </ul>

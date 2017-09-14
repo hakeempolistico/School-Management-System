@@ -309,6 +309,62 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </ul>
           
         </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-mortar-board"></i>
+            <span>Academics</span>
+            <span class="pull-right-container">
+              <span class="label label-primary pull-right">4</span>
+            </span>
+          </a>
+
+          <ul class="treeview-menu">
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Schedule
+              </a>
+            </li>          
+            <li>
+              <a href="<?php echo site_url('academics/subjects'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Subjects
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Assign Subjects
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Teachers
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Year Level
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Sections
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Strands
+              </a>
+            </li>
+          </ul>
+          
+        </li>
       
         
         <li class="header">LABELS</li>
@@ -344,9 +400,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!-- small box -->
           <div class="small-box bg-aqua" id="viewStudents" style="cursor: pointer;">
             <div class="inner">
-              <h3>12</h3>
+              <h3><?php echo $registeredStudentsCount; ?></h3>
 
-              <p>Students</p>
+              <p>Registered Students</p>
             </div>
             <div class="icon">
               <i class="fa fa-pencil"></i>
@@ -359,7 +415,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!-- small box -->
           <div class="small-box bg-green" id="viewTeachers" style="cursor: pointer;">
             <div class="inner">
-              <h3>13</h3>
+              <h3><?php echo $teachersCount; ?></h3>
 
               <p>Teachers</p>
             </div>
@@ -374,7 +430,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!-- small box -->
           <div class="small-box bg-yellow" id="viewRooms" style="cursor: pointer;">
             <div class="inner">
-              <h3>14</h3>
+              <h3><?php echo $roomsCount; ?></h3>
 
               <p>Rooms</p>
             </div>
@@ -389,9 +445,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!-- small box -->
           <div class="small-box bg-red" id="viewClasses" style="cursor: pointer;">
             <div class="inner">
-              <h3>15</h3>
+              <h3><?php echo $sectionsCount; ?></h3>
 
-              <p>Class</p>
+              <p>Sections</p>
             </div>
             <div class="icon">
               <i class="fa fa-star"></i>
@@ -404,7 +460,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!-- small box -->
           <div class="small-box bg-green" id="viewClasses" style="cursor: pointer;">
             <div class="inner">
-              <h3>16</h3>
+              <h3><?php echo $onlineApplicantsCount; ?></h3>
 
               <p>Online Applicants</p>
             </div>
@@ -419,7 +475,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!-- small box -->
           <div class="small-box bg-purple" id="viewClasses" style="cursor: pointer;">
             <div class="inner">
-              <h3>17</h3>
+              <h3><?php echo $enrolledStudentsCount; ?></h3>
 
               <p>Enrolled Students</p>
             </div>
@@ -434,7 +490,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!-- small box -->
           <div class="small-box bg-fuchsia" id="viewClasses" style="cursor: pointer;">
             <div class="inner">
-              <h3>18</h3>
+              <h3><?php echo $strandsCount; ?></h3>
 
               <p>Strands</p>
             </div>
@@ -449,7 +505,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!-- small box -->
           <div class="small-box bg-teal" id="viewClasses" style="cursor: pointer;">
             <div class="inner">
-              <h3>19</h3>
+              <h3><?php echo $subjectsCount; ?></h3>
 
               <p>Subjects</p>
             </div>
@@ -535,7 +591,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="box-body box-profile">
               <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url('images/alt_picture.jpg'); ?>" alt="User profile picture">
 
-              <h3 id="name" class="profile-username text-center" ></h3>
+              <h3 id="name" class="profile-username text-center"></h3>
 
               <p class="text-muted text-center" id="position"></p>
 		<div class="row">

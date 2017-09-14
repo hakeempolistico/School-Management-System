@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 10, 2017 at 10:56 PM
+-- Generation Time: Sep 12, 2017 at 11:48 PM
 -- Server version: 5.7.11
 -- PHP Version: 7.0.4
 
@@ -47,6 +47,21 @@ CREATE TABLE `addresses` (
   `barangay` varchar(50) NOT NULL,
   `city` varchar(50) NOT NULL,
   `province` varchar(50) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `class_subjects`
+--
+
+CREATE TABLE `class_subjects` (
+  `id` int(11) NOT NULL,
+  `section_id` int(11) NOT NULL,
+  `subject_id` int(11) NOT NULL,
+  `teacher_id` int(11) NOT NULL,
+  `date_created` timestamp NOT NULL,
+  `date_modified` timestamp NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -174,7 +189,9 @@ CREATE TABLE `schedules` (
 CREATE TABLE `sections` (
   `id` int(11) NOT NULL,
   `name` varchar(45) NOT NULL,
-  `capacity` int(2) NOT NULL
+  `capacity` int(2) NOT NULL,
+  `strand_id` int(11) NOT NULL,
+  `year_level_id` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -289,6 +306,12 @@ ALTER TABLE `addresses`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `class_subjects`
+--
+ALTER TABLE `class_subjects`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `enrolled_students`
 --
 ALTER TABLE `enrolled_students`
@@ -381,6 +404,11 @@ ALTER TABLE `year_levels`
 -- AUTO_INCREMENT for table `academic_years`
 --
 ALTER TABLE `academic_years`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `class_subjects`
+--
+ALTER TABLE `class_subjects`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `enrolled_students`

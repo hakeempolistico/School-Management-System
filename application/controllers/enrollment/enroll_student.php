@@ -36,7 +36,7 @@ class enroll_student extends CI_Controller {
 	public function search()
 	{	
 		$data = $this->parse->parsed();
-		$data['onlineRecords']  = json_encode($this->global_model->getRecords('online_applicants'));
+		$data['onlineRecords']  = json_encode($this->global_model->getRecords('registered_students'));
 		$this->parser->parse('enrollment/search', $data);
 
 	}
@@ -139,6 +139,16 @@ class enroll_student extends CI_Controller {
 
 			redirect('enrollment/enroll_student/strands');
 		}
+	}
+
+	public function average()
+	{
+		$arr = $this->input->post('subj[]');
+
+		$a = array_filter($arr);
+		$average = array_sum($a)/count($a);
+		
+		redirect('enrollment/enroll_student/strands', $average);
 	}
 
 

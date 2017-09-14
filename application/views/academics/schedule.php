@@ -248,7 +248,8 @@
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
-        <li class="active treeview">
+        
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-files-o"></i>
             <span>Enrollment</span>
@@ -263,31 +264,7 @@
                 <i class="fa fa-circle-o text-aqua"></i>
                 Dashboard
               </a>
-            </li>                      
-            <li>
-              <a href="#">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Subjects (admin)
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Manage Class (admin)
-              </a>
-            </li>
-            <li class="active">
-              <a href="<?php echo site_url('enrollment/manage_schedule'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                  Manage Schedule (admin)
-              </a>
-            </li>
-            <li>
-              <a href="<?php echo site_url('enrollment/view_data'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                  View Data
-              </a>
-            </li>
+            </li> 
             <li>
               <a href="#">
                 <i class="fa fa-circle-o text-aqua"></i>
@@ -304,7 +281,7 @@
           
         </li>
 
-        <li class="treeview">
+        <li class="active treeview">
           <a href="#">
             <i class="fa fa-mortar-board"></i>
             <span>Academics</span>
@@ -314,8 +291,8 @@
           </a>
 
           <ul class="treeview-menu">
-            <li>
-              <a href="#">
+            <li class="active">
+              <a href="<?php echo site_url('academics/schedule'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Schedule
               </a>
@@ -327,31 +304,26 @@
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="<?php echo site_url('academics/assign_subjects'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Assign Subjects
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="<?php echo site_url('academics/teachers'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Teachers
               </a>
             </li>
             <li>
-              <a href="#">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Year Level
-              </a>
-            </li>
             <li>
-              <a href="#">
+              <a href="<?php echo site_url('academics/sections'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Sections
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="<?php echo site_url('academics/strands'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Strands
               </a>
