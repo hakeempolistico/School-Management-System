@@ -30,6 +30,11 @@ class subjects extends CI_Controller {
 		$result = $this->global_model->getRow($data['table'], $data['set'], $data['value']);
 		echo json_encode($result);
 	}
+	public function ajaxCountRow(){
+		$data = $this->input->post();
+		$result = $this->global_model->count($data['table'], $data['set'], $data['value']);
+		echo json_encode($result);
+	}
 	public function ajaxGetRecords(){
 		$result = $this->global_model->getRecords('subjects', 'desc', 'id');
 		$action = "<center>

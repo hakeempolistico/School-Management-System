@@ -1,4 +1,9 @@
 var i, subjectCode;
+var name;
+var code;
+var type;
+var description;
+var newCode;
 function show(){
   i=1;
     $( "#view-name" ).prop( "disabled", false );
@@ -15,6 +20,43 @@ function hide(){
     $( "#view-description" ).prop( "disabled", true );
     $( "#view-update" ).hide();
 }
+function updateRow(){ 
+
+  $.ajax({
+            url: countUrl,
+            type: 'post',
+            dataType: 'json', 
+            data: {'table' : 'subjects', 'set' : 'code', 'value' : code  }, 
+            success: function(result){
+              var codeCount = result;    
+              if (code == null || code.trim() === ''){
+                alert('Subject code cannot be empty');
+              }
+              else if(codeCount > 0 && code != newCode){
+                alert('Subject code already exist');
+              }
+              else if (name == null || name.trim() === ''){
+                alert('Subject name cannot be empty');
+              }
+              else{
+                $.ajax({
+                  url: updateUrl,
+                  type: 'post',
+                  dataType: 'json', 
+                  data: {'name' : name, 'code': newCode, 'type': type, 'description': description, 'set': subjectCode }, 
+                  success: function(result){
+                    console.log(result);
+                    hide();
+                    populateTable();
+                  }
+                }); 
+              }
+
+
+            }
+  }); 
+
+}
 $('#view-edit').click(function(){
   
   if(i==0){
@@ -27,39 +69,20 @@ $('#view-edit').click(function(){
 })
 
 $('#view-update').click(function(){
-  var name = $( "#view-name" ).val();
-  var code = $( "#view-code" ).val();
-  var type = $( "#view-type" ).val();
-  var description = $( "#view-description" ).val();
-  $.ajax({
-            url: updateUrl,
-            type: 'post',
-            dataType: 'json', 
-            data: {'name' : name, 'code': code, 'type': type, 'description': description, 'set': subjectCode }, 
-            success: function(result){
-              console.log(result);
-              hide();
-              populateTable();
-            }
-          }); 
+  name = $( "#view-name" ).val();
+  newCode = $( "#view-code" ).val();
+  type = $( "#view-type" ).val();
+  description = $( "#view-description" ).val();
+  updateRow();
+  
 })
 
 $('#edit-update').click(function(){
-  var name = $( "#edit-name" ).val();
-  var code = $( "#edit-code" ).val();
-  var type = $( "#edit-type" ).val();
-  var description = $( "#edit-description" ).val();
-  $.ajax({
-            url: updateUrl,
-            type: 'post',
-            dataType: 'json', 
-            data: {'name' : name, 'code': code, 'type': type, 'description': description, 'set': subjectCode }, 
-            success: function(result){
-              console.log(result);
-              hide();
-              populateTable();
-            }
-          }); 
+  name = $( "#edit-name" ).val();
+  newCode = $( "#edit-code" ).val();
+  type = $( "#edit-type" ).val();
+  description = $( "#edit-description" ).val();
+  updateRow(); 
 })
 
 $('#delete-confirm').click(function(){
@@ -105,10 +128,11 @@ function populateTable(){
             dataType: 'json', 
             data: {'table' : 'subjects', 'set': 'code', 'value': subjectCode}, 
             success: function(result){          
-              var name = $( "#view-name" ).val(result.name);
-              var code = $( "#view-code" ).val(result.code);
-              var type = $( "#view-type" ).val(result.type);
-              var description = $( "#view-description" ).val(result.description);
+              code = result.code;
+              $( "#view-name" ).val(result.name);
+              $( "#view-code" ).val(result.code);
+              $( "#view-type" ).val(result.type);
+              $( "#view-description" ).val(result.description);
             }
           });   
   });
@@ -123,10 +147,11 @@ function populateTable(){
             dataType: 'json', 
             data: {'table' : 'subjects', 'set': 'code', 'value': subjectCode}, 
             success: function(result){          
-              var name = $( "#edit-name" ).val(result.name);
-              var code = $( "#edit-code" ).val(result.code);
-              var type = $( "#edit-type" ).val(result.type);
-              var description = $( "#edit-description" ).val(result.description);
+              code = result.code;
+              $( "#edit-name" ).val(result.name);
+              $( "#edit-code" ).val(result.code);
+              $( "#edit-type" ).val(result.type);
+              $( "#edit-description" ).val(result.description);
             }
           });   
   });
@@ -143,25 +168,66 @@ function populateTable(){
     populateTable();
   })
 
+  $('.close').click(function(){
+    $('#alert-box').hide();
+  })
+
   $("#add-btn").click(function(){
     var name = $('#name-input').val();
     var code = $('#code-input').val();
     var type = $('#type-input').val();
     var description = $('#description-input').val();
-      
-          $.ajax({
-            url: addUrl,
+
+    $.ajax({
+            url: countUrl,
             type: 'post',
             dataType: 'json', 
-            data: {'name' : name, 'code': code, 'type': type, 'description': description }, 
+            data: {'table' : 'subjects', 'set' : 'code', 'value' : code  }, 
             success: function(result){
-              console.log(result);
-              populateTable();
-              var name = $('#name-input').val('');
-              var code = $('#code-input').val('');
-              var type = $('#type-input').val('');
-              var description = $('#description-input').val('');
+              var codeCount = result;    
+              if (code == null || code.trim() === ''){
+                $('#alert-box').slideDown(1000);
+                $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!');
+                $('#alert-message').html('Please fill up subject code.');
+                $('#alert-box').delay( 1500 ).slideUp(1000);
+              }
+              else if(codeCount > 0){
+                $('#alert-box').slideDown(1000);
+                $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!');
+                $('#alert-message').html('Subject code in in use. Please try another one.');
+                $('#alert-box').delay( 1500 ).slideUp(1000);
+              }
+              else if (name == null || name.trim() === ''){
+                $('#alert-box').slideDown(1000);
+                $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!');
+                $('#alert-message').html('Please fill up subject name.');
+                $('#alert-box').delay( 1500 ).slideUp(1000);
+              }
+              else{
+                $.ajax({
+                  url: addUrl,
+                  type: 'post',
+                  dataType: 'json', 
+                  data: {'name' : name, 'code': code, 'type': type, 'description': description }, 
+                  success: function(result){
+                    console.log(result);              
+                    populateTable();
+                    $('#name-input').val('');
+                    $('#code-input').val('');
+                    $('#type-input').val('');
+                    $('#description-input').val('');
+                    $('#alert-box').slideDown(1000);
+                    $('#alert-box').addClass('alert-success').removeClass('alert-danger');
+                    $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-check"></i> SUCCESS MESSAGE!');
+                    $('#alert-message').html('Added <br> Subject code: '+code+ ' <br> Subject name:' + name );
+                    $('#alert-box').delay( 2000 ).slideUp(1000);
+                  }
+                }); 
+              }
+
+
             }
-          });   
+          });     
     
   })
+

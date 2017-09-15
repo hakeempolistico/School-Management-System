@@ -334,11 +334,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <div class="alert alert-success alert-dismissible flat">
+
+    <!-- <div class="alert alert-success alert-dismissible flat">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <h4><i class="icon fa fa-bullhorn"></i> Day 1 of Enrollment is successful!</h4>
         Congratulations! Job well done! Please do the same on Day 2 of Enrollment!
+     </div> -->
+
+     <div id="alert-box" class="alert alert-danger alert-dismissible flat" hidden>
+      <button type="button" class="close" aria-hidden="true">&times;</button>
+      <h4 id="alert-title"><i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!</h4>
+        <div id="alert-message">Subject code already used. Please use another one.</div>
      </div>
+
+
+     
       
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -547,6 +557,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   var addUrl = "<?php echo base_url('/academics/subjects/ajaxInsert')?>";
   var getRowUrl = "<?php echo base_url('/academics/subjects/ajaxGetRow')?>";
   var deleteRowUrl = "<?php echo base_url('/academics/subjects/ajaxDeleteRow')?>";
+  var countUrl = "<?php echo base_url('/academics/subjects/ajaxCountRow')?>";
 </script>
 <script src="<?php echo base_url(); ?>dist/js/academics/subjects.js"></script>
 </body>
