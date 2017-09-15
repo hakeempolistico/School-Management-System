@@ -29,7 +29,7 @@ function updateRow(){
             data: {'table' : 'subjects', 'set' : 'code', 'value' : code  }, 
             success: function(result){
               var codeCount = result;    
-              if (code == null || code.trim() === ''){
+              if (newCode == null || newCode.trim() === ''){
                 alert('Subject code cannot be empty');
               }
               else if(codeCount > 0 && code != newCode){
