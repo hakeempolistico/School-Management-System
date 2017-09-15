@@ -439,13 +439,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
               <ul class="list-group list-group-unbordered">
                 <li>
-                  <div class="form-group" style="margin-bottom: 5px;">
-                  <label for="view-name">Name</label>
-                  <input type="text" class="form-control" id="view-name" placeholder="subject name" value="Subject Name">
-                </div>
                 <div class="form-group"style="margin-bottom: 5px;">
                   <label for="view-code">Code</label>
                   <input type="text" class="form-control" id="view-code" placeholder="subject code" value="Subject Code">
+                </div>
+                  <div class="form-group" style="margin-bottom: 5px;">
+                  <label for="view-name">Name</label>
+                  <input type="text" class="form-control" id="view-name" placeholder="subject name" value="Subject Name">
                 </div>
                 <div class="form-group"style="margin-bottom: 5px;">
                   <label for="view-type">Type</label>
@@ -479,13 +479,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
               <ul class="list-group list-group-unbordered">
                 <li>
-                  <div class="form-group" style="margin-bottom: 5px;">
-                  <label for="edit-name">Name</label>
-                  <input type="text" class="form-control" id="edit-name" placeholder="subject name">
-                </div>
                 <div class="form-group"style="margin-bottom: 5px;">
                   <label for="edit-code">Code</label>
                   <input type="text" class="form-control" id="edit-code" placeholder="subject code">
+                </div>
+                  <div class="form-group" style="margin-bottom: 5px;">
+                  <label for="edit-name">Name</label>
+                  <input type="text" class="form-control" id="edit-name" placeholder="subject name">
                 </div>
                 <div class="form-group"style="margin-bottom: 5px;">
                   <label for="edit-type">Type</label>
