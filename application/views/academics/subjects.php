@@ -282,11 +282,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
           <ul class="treeview-menu">
             <li>
-              <a href="#">
+              <a href="<?php echo site_url('academics/schedule'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Schedule
               </a>
-            </li>          
+            </li>           
             <li class="active">
               <a href="<?php echo site_url('academics/subjects'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
@@ -294,23 +294,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="<?php echo site_url('academics/assign_subjects'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Assign Subjects
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="<?php echo site_url('academics/teachers'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Teachers
               </a>
             </li>
             <li>
-              <a href="#">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Year Level
-              </a>
-            </li>
             <li>
               <a href="<?php echo site_url('academics/sections'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
@@ -367,19 +362,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </div>
               <!-- /.box-header -->
               <div class="box-body">
-                <div class="form-group">
-                  <label for="subjectNameInput">Name</label>
-                  <input type="text" class="form-control" id="subjectNameInput" placeholder="subject name">
-                </div>
-                <div class="form-group">
-                  <label for="subjectCodeInput">Code</label>
-                  <input type="text" class="form-control" id="subjectCodeInput" placeholder="subject code">
-                </div>
-                <div class="form-group">
-                  <label for="subjectTypeInput">Type</label>
-                  <input type="text" class="form-control" id="subjectTypeInput" placeholder="subject type">
-                </div>
-                <button type="button" style="width: 100px" class="btn btn-block btn-primary pull-right">Add</button>
+                  <div class="form-group"style="margin-bottom: 5px;">
+                    <label for="code-input">Code</label>
+                    <label for="name-input" class="text-danger">*</label>
+                    <input type="text" class="form-control" id="code-input" placeholder="subject code" required>
+                  </div>
+                  <div class="form-group" style="margin-bottom: 5px;">
+                    <label for="name-input">Name</label>
+                    <label for="name-input" class="text-danger">*</label>
+                    <input type="text" class="form-control" id="name-input" placeholder="subject name" required>
+                  </div>
+                  <div class="form-group"style="margin-bottom: 5px;">
+                    <label for="type-input">Type</label>
+                    <input type="text" class="form-control" id="type-input" placeholder="subject type">
+                  </div>
+                  <div class="form-group">
+                    <label for="description-input">Description</label>
+                    <input type="text" class="form-control" id="description-input" placeholder="subject description">
+                  </div>
+                  <button id="add-btn" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Add</button>
               </div>
           </div>
         </div>
@@ -394,32 +395,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <table id="subjectsTable" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Name</th>
                   <th>Code</th>
+                  <th>Name</th>
                   <th>Type</th>
                   <th>Action</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                  <td>English</td>
-                  <td>069</td>
-                  <td>ANYTHING HERE</td>
-                  <td>  
-                  <center>
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm  btn-success  btn-flat"><i class="fa fa-pencil"></i></button>
-                      <button type="button" class="btn btn-sm  btn-danger btn-flat"><i class="fa fa-close"></i></button>
-                    </div>
-                  </td>
-                  </center>
-                    
-                </tr>
-                </tbody>
+                
                 <tfoot>
                 <tr>
-                  <th>Name</th>
                   <th>Code</th>
+                  <th>Name</th>
                   <th>Type</th>
                   <th>Action</th>
                 </tr>
@@ -430,6 +416,105 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
           <!-- /.box -->
 
+        </div>
+
+        <div class="modal fade in" id="modal-view">
+          <div class="modal-dialog" style="max-width: 400px">
+              <div class="box box-primary">
+            <div class="box-body box-profile flat ">
+
+              <center><span class="fa fa-fw fa-book fa-5x text-primary"></center>
+              <h3 class="profile-username text-center">View Subject</h3>
+              <a id="view-edit" class="btn btn-default btn-xs pull-right"><span class="fa fa-fw fa-pencil"></span></a>
+
+              <ul class="list-group list-group-unbordered">
+                <li>
+                  <div class="form-group" style="margin-bottom: 5px;">
+                  <label for="view-name">Name</label>
+                  <input type="text" class="form-control" id="view-name" placeholder="subject name" value="Subject Name">
+                </div>
+                <div class="form-group"style="margin-bottom: 5px;">
+                  <label for="view-code">Code</label>
+                  <input type="text" class="form-control" id="view-code" placeholder="subject code" value="Subject Code">
+                </div>
+                <div class="form-group"style="margin-bottom: 5px;">
+                  <label for="view-type">Type</label>
+                  <input type="text" class="form-control" id="view-type" placeholder="subject type" value="Subject Type">
+                </div>
+                <div class="form-group">
+                  <label for="view-description">Description</label>
+                  <textarea type="text" class="form-control" id="view-description" placeholder="subject description">Subject Description </textarea>
+                </div>
+                <a href="#" class="btn btn-sm btn-danger pull-left" data-dismiss="modal" style="width: 100px">Close</a>                
+                <button id="view-update" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Update</button>
+                 
+                </li>                
+              </ul>
+             
+            </div>
+            <!-- /.box-body -->
+          </div>
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+
+        <div class="modal fade in" id="modal-edit">
+          <div class="modal-dialog" style="max-width: 400px">
+              <div class="box box-primary">
+            <div class="box-body box-profile flat ">
+
+              <center><span class="fa fa-fw fa-book fa-5x text-primary"></center>
+              <h3 class="profile-username text-center">Edit Subject</h3> 
+
+
+              <ul class="list-group list-group-unbordered">
+                <li>
+                  <div class="form-group" style="margin-bottom: 5px;">
+                  <label for="edit-name">Name</label>
+                  <input type="text" class="form-control" id="edit-name" placeholder="subject name">
+                </div>
+                <div class="form-group"style="margin-bottom: 5px;">
+                  <label for="edit-code">Code</label>
+                  <input type="text" class="form-control" id="edit-code" placeholder="subject code">
+                </div>
+                <div class="form-group"style="margin-bottom: 5px;">
+                  <label for="edit-type">Type</label>
+                  <input type="text" class="form-control" id="edit-type" placeholder="subject type">
+                </div>
+                <div class="form-group">
+                  <label for="edit-description">Description</label>
+                  <textarea type="text" class="form-control" id="edit-description" placeholder="subject description" value="THIS IS DESCRIPTION SECTION"> </textarea>
+                </div>
+                <a href="#" class="btn btn-sm btn-danger pull-left" data-dismiss="modal" style="width: 100px">Close</a>
+                <button id="edit-update" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Update</button>
+                 
+                </li>                
+              </ul>
+             
+            </div>
+            <!-- /.box-body -->
+          </div>
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+
+        <div class="modal fade in" id="modal-delete">
+          <div class="modal-dialog" style="max-width: 320px">
+              <div class="box box-primary">
+            <div class="box-body box-profile flat ">
+              <h4>Are you sure you want to delete record?</h4>
+              <button id="delete-confirm" data-dismiss="modal" type="button" style="width: 75px" class="btn btn-block btn-primary btn-sm pull-right">Confirm</button>
+              <button data-dismiss="modal" type="button" style="width: 75px" class="btn btn-sm btn-block btn-danger">Cancel</button>
+              
+                 
+                </li>                
+              </ul>
+             
+            </div>
+            <!-- /.box-body -->
+          </div>
+          </div>
+          <!-- /.modal-dialog -->
         </div>
 
       </div>
@@ -453,15 +538,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- DataTables -->
 <script src="<?php echo base_url(); ?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
+
+
 <script>
-  $(function () {
-    $('#subjectsTable').DataTable({
-      "columns": [
-        null, null, null,
-        { "width": "20%" }
-      ]
-    })
-  })
+  var getRecordsUrl = '<?php echo base_url('/academics/subjects/ajaxGetRecords')?>';
+  var updateUrl = "<?php echo base_url('/academics/subjects/ajaxUpdate')?>";
+  var addUrl = "<?php echo base_url('/academics/subjects/ajaxInsert')?>";
+  var getRowUrl = "<?php echo base_url('/academics/subjects/ajaxGetRow')?>";
+  var deleteRowUrl = "<?php echo base_url('/academics/subjects/ajaxDeleteRow')?>";
 </script>
+<script src="<?php echo base_url(); ?>dist/js/academics/subjects.js"></script>
 </body>
 </html>

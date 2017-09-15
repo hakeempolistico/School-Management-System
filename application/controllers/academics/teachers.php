@@ -6,13 +6,7 @@ class teachers extends CI_Controller {
 	public function index()
 	{	
 		$data = $this->parse->parsed();
-        $this->parser->parse('academics/teachers/teachers', $data);
-		$this->sms_session->checkSession();
-	}
-	public function view()
-	{	
-		$data = $this->parse->parsed();
-        $this->parser->parse('academics/teachers/view', $data);
+        $this->parser->parse('academics/teachers', $data);
 		$this->sms_session->checkSession();
 	}
 

@@ -239,6 +239,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
+        
         <li class="treeview">
           <a href="#">
             <i class="fa fa-files-o"></i>
@@ -286,7 +287,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <i class="fa fa-circle-o text-aqua"></i>
                 Schedule
               </a>
-            </li>           
+            </li>          
             <li>
               <a href="<?php echo site_url('academics/subjects'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
@@ -299,7 +300,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 Assign Subjects
               </a>
             </li>
-            <li>
+            <li class="active">
               <a href="<?php echo site_url('academics/teachers'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Teachers
@@ -312,7 +313,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 Sections
               </a>
             </li>
-            <li class="active">
+            <li>
               <a href="<?php echo site_url('academics/strands'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Strands
@@ -343,12 +344,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Strands
-        <small>Manage Strands</small>
+        Teachers
+        <small>temporary message here</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="enrollment/dashboard"><i class="fa fa-mortar-board"></i> Academics</a></li>
-        <li class="active">Strands</li>
+        <li class="active">Teachers</li>
       </ol>
     </section>
 
@@ -358,19 +359,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="col-lg-4 col-xs-12">
           <div class="box box-primary">
               <div class="box-header">
-                <h3 class="box-title">Add Strands</h3>
+                <h3 class="box-title">Add Teacher</h3>
               </div>
-              <!-- /.box-header -->
               <div class="box-body">
-                <div class="form-group">
-                  <label for="strandNameInput">Name</label>
-                  <input type="text" class="form-control" id="subjectNameInput" placeholder="Strand Name">
+                <div class="form-group" style="margin-bottom: 5px">
+                  <label for="employee-id-input">Employee Id</label>
+                  <input type="text" class="form-control" id="employee-id-input" placeholder="enter here">
                 </div>
-                <div class="form-group">
-                  <label for="srtandCodeInput">Code</label>
-                  <input type="text" class="form-control" id="subjectCodeInput" placeholder="Strand Code">
-                </div>                
-                <button type="button" class="btn btn-block btn-primary">Add</button>
+                <div class="form-group" style="margin-bottom: 5px">
+                  <label for="firstname-input">First Name</label>
+                  <input type="text" class="form-control" id="firstname-input" placeholder="enter here">
+                </div>
+                <div class="form-group" style="margin-bottom: 5px">
+                  <label for="middlename-input">Middle Name</label>
+                  <input type="text" class="form-control" id="middlename-input" placeholder="enter here">
+                </div>
+                <div class="form-group" style="margin-bottom: 5px">
+                  <label for="lastname-input">Last Name</label>
+                  <input type="text" class="form-control" id="lastname-input" placeholder="enter here">
+                </div>
+                <div class="form-group" style="margin-bottom: 5px">
+                  <label for="major-input">Major</label>
+                  <input type="text" class="form-control" id="major-input" placeholder="enter here">
+                </div>
+                <div class="form-group" style="margin-bottom: 5px">
+                  <label for="position-input">Position</label>
+                  <input type="text" class="form-control" id="position-input" placeholder="enter here">
+                </div>
+                <button type="button" style="width: 100px" class="btn btn-block btn-primary pull-right">Add</button>
               </div>
           </div>
         </div>
@@ -378,29 +394,44 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
           <div class="box box-primary">
             <div class="box-header">
-              <h3 class="box-title">Strand List</h3>
+              <h3 class="box-title">Teacher List</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="strandsTable" class="table table-bordered table-striped">
+              <table id="teachersTable" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Code</th>                  
+                  <th>Employee ID</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Position</th>
                   <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                  <td>Science, Technology, Engineering, and Mathematics</td>
-                  <td>STEM</td>                  
-                  <td>
-                    <a href="#" class="btn btn-success btn-xs"><span class="fa fa-fw fa-pencil"></span></a>
-                    <a href="#" class="btn btn-danger btn-xs"><span class="fa fa-fw fa-remove"></span></a>
+                  <td>14-038-014</td>
+                  <td>Hakeem</td>
+                  <td>Polistico</td>
+                  <td>Teacher 1</td>
+                  <td>  
+                  <center>
+                    <a data-toggle="modal" data-target="#modal-default" class="btn btn-default btn-xs"><span class="fa fa-fw fa-search"></span></a>
+                    <a href="#" class="btn btn-default btn-xs"><span class="fa fa-fw fa-pencil"></span></a>                    
+                    <a href="#" class="btn btn-default btn-xs"><span class="fa fa-fw fa-remove"></span></a>                
                   </td>
+                  </center>
+                    
                 </tr>
                 </tbody>
-                <tfoot>                
+                <tfoot>
+                <tr>
+                  <th>Employee ID</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Position</th>
+                  <th>Action</th>
+                </tr>
                 </tfoot>
               </table>
             </div>
@@ -411,6 +442,43 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
 
       </div>
+
+      <div class="modal fade" id="modal-default">
+          <div class="modal-dialog" style="max-width: 400px">
+            <div class="modal-content" >
+              <div class="box box-primary">
+            <div class="box-body box-profile flat">
+              <img class="profile-user-img img-responsive img-circle" src="http://sms.local/dist/img/user4-128x128.jpg" alt="User profile picture">
+
+              <h3 class="profile-username text-center">Hakeem Polistico</h3>
+
+              <p class="text-muted text-center">Teacher 1</p>
+
+              <ul class="list-group list-group-unbordered">
+                <li class="list-group-item">
+                  <b>Employee ID</b> <a class="pull-right">14-038-014</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Contact</b> <a class="pull-right">0997-586-4782</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Major</b> <a class="pull-right">English</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Status</b> <a class="pull-right badge bg-blue">Active</a>
+                </li>
+              </ul>
+
+              <a href="#" class="btn btn-primary btn-block" data-dismiss="modal"><b>Close</b></a>
+            </div>
+            <!-- /.box-body -->
+          </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
     </section>
     <!-- /.content -->
   </div>
@@ -433,7 +501,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <script>
   $(function () {
-    $('#strandsTable').DataTable()
+    $('#teachersTable').DataTable({
+      "columns": [
+        { "width": "20%" },
+        { "width": "20%" },
+        { "width": "20%" },
+        { "width": "20%" },
+        { "width": "20%" }
+      ]
+    })
   })
 </script>
 </body>

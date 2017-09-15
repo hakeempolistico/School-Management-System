@@ -282,11 +282,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
           <ul class="treeview-menu">
             <li>
-              <a href="#">
+              <a href="<?php echo site_url('academics/schedule'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Schedule
               </a>
-            </li>          
+            </li>           
             <li>
               <a href="<?php echo site_url('academics/subjects'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
@@ -294,23 +294,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="<?php echo site_url('academics/assign_subjects'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Assign Subjects
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="<?php echo site_url('academics/teachers'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Teachers
               </a>
             </li>
             <li>
-              <a href="<?php echo site_url('academics/year_level'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Year Level
-              </a>
-            </li>
             <li class="active">
               <a href="<?php echo site_url('academics/sections'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
@@ -361,7 +356,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <section class="content">
       <div class="row">
         <div class="col-lg-4 col-xs-12">
-          <div class="box">
+          <div class="box box-primary">
               <div class="box-header">
                 <h3 class="box-title">Add Sections</h3>
               </div>
@@ -369,7 +364,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="box-body">
                 <div class="form-group">
                   <label for="sectionNameInput">Name</label>
-                  <input type="text" class="form-control" id="subjectNameInput" placeholder="subject name">
+                  <input type="text" class="form-control" id="subjectNameInput" placeholder="section name">
                 </div>
                 <div class="form-group">
                   <label for="strandSelect">Strand</label>                  
@@ -382,6 +377,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <option>TVL-AUTO</option>
                     <option>TVL-HE</option>
                   </select>
+                </div>
+                <div class="form-group">
+                  <label for="yearLevelSelect">Year Level</label>                  
+                  <select class="form-control">
+                    <option>Select</option>
+                    <option>Grade 11</option>
+                    <option>Grade 12</option>
+                  </select>
                 </div>                
                 <button type="button" class="btn btn-block btn-primary">Add</button>
               </div>
@@ -389,7 +392,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
         <div class="col-lg-8 col-xs-12">
 
-          <div class="box">
+          <div class="box box-primary">
             <div class="box-header">
               <h3 class="box-title">Strand List</h3>
             </div>
@@ -399,15 +402,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <thead>
                 <tr>
                   <th>Name</th>
-                  <th>Strand</th>                  
+                  <th>Strand</th>
+                  <th>Year Level</th>
                   <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
                   <td>STEM-1</td>
-                  <td>STEM</td>                  
-                  <td>WAIT</td>
+                  <td>STEM</td>
+                  <td>Grade 11</td>
+                  <td>
+                    <a href="#" class="btn btn-success btn-xs"><span class="fa fa-fw fa-pencil"></span></a>
+                    <a href="#" class="btn btn-danger btn-xs"><span class="fa fa-fw fa-remove"></span></a>
+                  </td>
+                  </td>
                 </tr>
                 </tbody>
                 <tfoot>                
