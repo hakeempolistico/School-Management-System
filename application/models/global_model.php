@@ -31,9 +31,13 @@ class global_model extends CI_Model{
 		return $query;
 	}
 
-	public function count($table)
+	public function count($table, $set=null, $value=null)
 	{
-		return $this->db->count_all($table);
+		if($set != null && $value != null){
+			$this->db->where($set, $value);
+		}
+		$query = $this->db->get($table);
+		return $query->num_rows();
 	}
 
 }
