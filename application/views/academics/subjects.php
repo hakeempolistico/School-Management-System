@@ -470,8 +470,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <div class="modal fade in" id="modal-edit">
           <div class="modal-dialog" style="max-width: 400px">
-              <div class="box box-primary">
-            <div class="box-body box-profile flat ">
+            <div class="box box-primary">
+              <div class="box-body box-profile flat ">
 
               <center><span class="fa fa-fw fa-book fa-5x text-primary"></center>
               <h3 class="profile-username text-center">Edit Subject</h3> 
@@ -504,17 +504,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <!-- /.box-body -->
           </div>
-          </div>
-          <!-- /.modal-dialog -->
         </div>
+          <!-- /.modal-dialog -->
+      </div>
 
         <div class="modal fade in" id="modal-delete">
           <div class="modal-dialog" style="max-width: 320px">
-              <div class="box box-primary">
-            <div class="box-body box-profile flat ">
-              <h4>Are you sure you want to delete record?</h4>
-              <button id="delete-confirm" data-dismiss="modal" type="button" style="width: 75px" class="btn btn-block btn-primary btn-sm pull-right">Confirm</button>
-              <button data-dismiss="modal" type="button" style="width: 75px" class="btn btn-sm btn-block btn-danger">Cancel</button>
+            <div class="box box-primary">
+              <div class="box-body box-profile flat ">
+                <h4>Are you sure you want to delete record?</h4>
+                <button id="delete-confirm" data-dismiss="modal" type="button" style="width: 75px" class="btn btn-block btn-primary btn-sm pull-right">Confirm</button>
+                <button data-dismiss="modal" type="button" style="width: 75px" class="btn btn-sm btn-block btn-danger">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
               
                  
                 </li>                
