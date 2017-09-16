@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class enroll_student extends CI_Controller {
+class register_student extends CI_Controller {
 
 	public function __construct()
 	{
@@ -12,29 +12,29 @@ class enroll_student extends CI_Controller {
 	public function index()
 	{
 		$data = $this->parse->parsed();
-		$this->parser->parse('enrollment/enroll_student', $data);
+		$this->parser->parse('enrollment/register_student', $data);
 	}
 
 	public function register_error()
 	{
 		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
-		$this->load->view('enrollment/enroll_student/enroll');
+		$data = $this->parse->parsed();
+		$this->parser->parse('enrollment/register_student', $data);
 	}
 
 	public function register()
 	{	
 		$required_message = array('required' => 'Field is required!');
 		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
-		$this->form_validation->set_rules('lrn', 'LRN', 'trim|required|min_length[3]|max_length[15]|is_unique[students.lrn]', $required_message);
+		$this->form_validation->set_rules('lrn', 'LRN', 'trim|required|min_length[3]|max_length[15]|is_unique[registered_students.lrn]', $required_message);
 		$this->form_validation->set_rules('grade', 'Grade', 'trim|required|min_length[3]|max_length[15]', $required_message);
 		$this->form_validation->set_rules('first_name', 'First Name', 'trim|required|min_length[3]|max_length[40]', $required_message);
 		$this->form_validation->set_rules('middle_name', 'Middle Name', 'trim|min_length[3]|max_length[20]', $required_message);
 		$this->form_validation->set_rules('last_name', 'Last Name', 'trim|required|min_length[3]|max_length[20]', $required_message);
 		$this->form_validation->set_rules('sex', 'Sex', 'trim|required|min_length[3]|max_length[20]', $required_message);
-		$this->form_validation->set_rules('contact', 'Contact No', 'trim|required|min_length[3]|max_length[20]', $required_message);
+		$this->form_validation->set_rules('contact_number', 'Contact No', 'trim|required|min_length[3]|max_length[20]', $required_message);
 		$this->form_validation->set_rules('birth_date', 'Birthdate', 'trim|required|min_length[3]|max_length[20]', $required_message);
 		$this->form_validation->set_rules('birth_place', 'Birthplace', 'trim|required|min_length[3]|max_length[40]', $required_message);
-		$this->form_validation->set_rules('age', 'Age', 'trim|required|min_length[1]|max_length[5]', $required_message);
 		$this->form_validation->set_rules('mother_tongue', 'Mother Tongue', 'trim|required|min_length[3]|max_length[20]', $required_message);
 		$this->form_validation->set_rules('religion', 'Religion', 'trim|required|min_length[3]|max_length[30]', $required_message);
 		$this->form_validation->set_rules('street', 'House #, Street', 'trim|required|min_length[3]|max_length[40]', $required_message);
@@ -47,36 +47,92 @@ class enroll_student extends CI_Controller {
 		$this->form_validation->set_rules('mother_contact', 'Mother\'s Contact No', 'trim|required|min_length[3]|max_length[20]', $required_message);
 		$this->form_validation->set_rules('guardian', 'Guardian Name', 'trim|required|min_length[3]|max_length[40]', $required_message);
 		$this->form_validation->set_rules('relationship', 'Relationship', 'trim|required|min_length[3]|max_length[40]', $required_message);
-		$this->form_validation->set_rules('guardian_contact', 'Guardian\'s Contact', 'trim|required|min_length[3]|max_length[20]', $required_message	);
-		$this->form_validation->set_rules('note', 'Note', 'trim|min_length[1]|max_length[200]', $required_message);
+		$this->form_validation->set_rules('guardian_contact', 'Guardian\'s Contact', 'trim|required|min_length[3]|max_length[20]', $required_message);
 				
 		if ($this->form_validation->run() == FALSE)
 		{
 			$data = $this->parse->parsed();
-		$this->parser->parse('enrollment/enroll_student', $data);
+			$this->parser->parse('enrollment/register_student', $data);
 		}
 		else
 		{
-			$this->load->model('enroll_model');
 			
 			if($this->input->post()) {
-				$data = $this->input->post();
-				$data2 = $this->input->post('requirement[]');
 
-				foreach($data2 as $val){
-					$dataReq = array(
-						'lrn' =>  $this->input->post('lrn'),
-						'requirement' => $val
-						);
-					$result = $this->global_model->insert('requirements', $dataReq);
-				}
+				$studentInfo = array(
+					'id' => '' ,
+					'lrn' => $this->input->post('lrn'),
+					'first_name' => $this->input->post('first_name') ,
+					'middle_name' => $this->input->post('middle_name') ,
+					'last_name' => $this->input->post('last_name') ,
+					'sex' => $this->input->post('sex') ,
+					'contact_number' => $this->input->post('contact_number') ,
+					'birth_date' => $this->input->post('birth_date'),
+					'birth_place' =>$this->input->post('birth_place'),
+					'mother_tongue' => $this->input->post('mother_tongue') ,
+					'religion' => $this->input->post('religion') ,
+					'online_applicant' => 0 
+				);		
+				//KULANG PA TO NG AGE
 
-				unset($data['requirement']);
-				$result = $this->global_model->insert('students', $data);
 
-				redirect('enrollment/enroll_student/strands');
+				$id = $this->register_student_model->insert('registered_students', $studentInfo);
+
+
+				$addressInfo = array(
+					'id' => '' ,
+					'registered_student_id' => $id,
+					'street' => $this->input->post('street') ,
+					'barangay' => $this->input->post('barangay') ,
+					'city' => $this->input->post('city') ,
+					'province' => $this->input->post('province')
+				);
+
+
+				$this->global_model->insert('addresses', $addressInfo);	
+
+				$parentsInfo = array(
+					'id' => '' ,
+					'registered_student_id' => $id,
+					'mother_name' => $this->input->post('mother_name') ,
+					'mother_contact' => $this->input->post('mother_contact') ,
+					'father_name' => $this->input->post('father_name') ,
+					'father_contact' => $this->input->post('father_contact')
+				);	
+
+				$this->global_model->insert('parents', $parentsInfo);
+
+				$guardianInfo = array(
+					'id' => '' ,
+					'registered_student_id' => $id,
+					'name' => $this->input->post('guardian') ,
+					'contact' => $this->input->post('guardian_contact') ,
+					'relationship' => $this->input->post('relationship')
+				);	
+
+				$this->global_model->insert('guardians', $guardianInfo);
+
+				redirect('enrollment/register_student/after_register');
+
 			}
 		}
+	}
+
+
+	public function after_register()
+	{
+		$data = $this->parse->parsed();
+		$data['lastLrn'] = json_encode($this->register_student_model->getLastRow('registered_students'));
+		$this->parser->parse('enrollment/after_register', $data);
+	}
+
+	public function ajax()
+	{
+		$table = $this->input->post('table');
+		$set = $this->input->post('set');
+		$value = $this->input->post('value');
+		$records = json_encode($this->global_model->getRow($table, $set, $value));
+		echo $records;
 	}
 
 	
