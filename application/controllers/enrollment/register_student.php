@@ -27,7 +27,6 @@ class register_student extends CI_Controller {
 		$required_message = array('required' => 'Field is required!');
 		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 		$this->form_validation->set_rules('lrn', 'LRN', 'trim|required|min_length[3]|max_length[15]|is_unique[registered_students.lrn]', $required_message);
-		$this->form_validation->set_rules('grade', 'Grade', 'trim|required|min_length[3]|max_length[15]', $required_message);
 		$this->form_validation->set_rules('first_name', 'First Name', 'trim|required|min_length[3]|max_length[40]', $required_message);
 		$this->form_validation->set_rules('middle_name', 'Middle Name', 'trim|min_length[3]|max_length[20]', $required_message);
 		$this->form_validation->set_rules('last_name', 'Last Name', 'trim|required|min_length[3]|max_length[20]', $required_message);
@@ -59,6 +58,13 @@ class register_student extends CI_Controller {
 			
 			if($this->input->post()) {
 
+				$from = new DateTime($this->input->post('birth_date'));
+				$to   = new DateTime('today');
+				$age = $from->diff($to)->y;
+
+				# procedural
+				#echo date_diff(date_create('1970-02-01'), date_create('today'))->y;
+
 				$studentInfo = array(
 					'id' => '' ,
 					'lrn' => $this->input->post('lrn'),
@@ -68,20 +74,20 @@ class register_student extends CI_Controller {
 					'sex' => $this->input->post('sex') ,
 					'contact_number' => $this->input->post('contact_number') ,
 					'birth_date' => $this->input->post('birth_date'),
-					'birth_place' =>$this->input->post('birth_place'),
+					'birth_place' => $this->input->post('birth_place'),
+					'age' => $age,
 					'mother_tongue' => $this->input->post('mother_tongue') ,
 					'religion' => $this->input->post('religion') ,
 					'online_applicant' => 0 
 				);		
-				//KULANG PA TO NG AGE
-
+				
 
 				$id = $this->register_student_model->insert('registered_students', $studentInfo);
 
 
 				$addressInfo = array(
 					'id' => '' ,
-					'registered_student_id' => $id,
+					'registered_student_lrn' => $id,
 					'street' => $this->input->post('street') ,
 					'barangay' => $this->input->post('barangay') ,
 					'city' => $this->input->post('city') ,
@@ -93,7 +99,7 @@ class register_student extends CI_Controller {
 
 				$parentsInfo = array(
 					'id' => '' ,
-					'registered_student_id' => $id,
+					'registered_student_lrn' => $id,
 					'mother_name' => $this->input->post('mother_name') ,
 					'mother_contact' => $this->input->post('mother_contact') ,
 					'father_name' => $this->input->post('father_name') ,
@@ -104,7 +110,7 @@ class register_student extends CI_Controller {
 
 				$guardianInfo = array(
 					'id' => '' ,
-					'registered_student_id' => $id,
+					'registered_student_lrn' => $id,
 					'name' => $this->input->post('guardian') ,
 					'contact' => $this->input->post('guardian_contact') ,
 					'relationship' => $this->input->post('relationship')

@@ -7,8 +7,8 @@ class register_student_model extends CI_Model{
 		$this->db->insert($table, $data);
 
 		$row = $this->db->get($table)->last_row();
-		$id = $row->id;
-		return $id;
+		$lrn = $row->lrn;
+		return $lrn;
 	}
 
 	public function getLastRow($table)

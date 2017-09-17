@@ -290,13 +290,13 @@
                   View Data
               </a>
             </li>
-            <li>
+            <li class="active">
               <a href="<?php echo site_url('enrollment/register_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Register Student
               </a>
             </li>
-            <li class="active">
+            <li>
               <a href="<?php echo site_url('enrollment/enroll_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   Enroll Student
@@ -407,8 +407,8 @@
               <img src="<?php echo base_url('images/alt_picture.jpg');?>" class="img-circle" alt="<?php echo base_url('images/alt_picture.jpg');?>" style="width: 70%; margin-bottom: 10px;"></center>
               <h3 id="name" class="profile-username text-center" style="padding: 0 20px;">Adrielle Kristine Nicolette M. Escaro</h3>
 
-              <button class="btn btn-primary">Register another student</button>
-              <button class="btn btn-primary">Enroll this student</button>
+              <a href="<?php echo site_url('enrollment/register_student'); ?>" class="btn btn-primary" style="width:100%; margin-bottom: 10px;">Register another student</a>
+              <button class="btn btn-primary" style="width:100%; margin-bottom: 10px;">Enroll this student</button>
             </div>
             <!-- /. col-->
 
@@ -527,6 +527,8 @@
 
 <script>
 $(document).ready(function(){ 
+
+
   var lastLrn = <?php echo $lastLrn;?>;
   var ajaxUrl = "<?php echo base_url("enrollment/register_student/ajax"); ?>"
 
@@ -542,10 +544,12 @@ $(document).ready(function(){
                 $('#contact').html(result.contact_number);
                 $('#birth_date').html(result.birth_date);
                 $('#birth_place').html(result.birth_place);
+                $('#age').html(result.age);
                 $('#mother_tongue').html(result.mother_tongue);
                 $('#religion').html(result.religion);
-                $('#sex').html(result.sex);
-                $('#position').html(result.grade+' Student');    
+                $('#sex').html(result.sex);   
+
+                
               
               }
   });
@@ -556,7 +560,7 @@ $(document).ready(function(){
             dataType: 'json', 
             data: {'value' : lastLrn, 'table': 'addresses', 'set': 'registered_student_lrn'}, 
             success: function(result){
-
+              
                 $('#street').html(result.street+", ");
                 $('#barangay').html(result.barangay+", ");
                 $('#city').html(result.city+", ");
@@ -593,7 +597,7 @@ $(document).ready(function(){
               
               }
   });
- });
+});
 </script>
 <script>
 

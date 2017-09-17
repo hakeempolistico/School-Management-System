@@ -290,13 +290,13 @@
                   View Data
               </a>
             </li>
-            <li>
+            <li class="active">
               <a href="<?php echo site_url('enrollment/register_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Register Student
               </a>
             </li>
-            <li class="active">
+            <li>
               <a href="<?php echo site_url('enrollment/enroll_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   Enroll Student
@@ -405,22 +405,11 @@
             <div class="box-body" style="padding-bottom: 20px;">
               <form method="POST" action="/sms/enrollment/register_student/register/">
                 <div class="row">
-                  <div class="col-md-8">
+                  <div class="col-md-12">
                     <div class="form-group">
                         <label>LRN<span class="text-red">*</span></label>
                         <input type="text" class="form-control" name="lrn" id="inputLRN" value="<?php echo set_value('lrn'); ?>" placeholder="Learner Reference Number">
                         <?php echo form_error('lrn'); ?>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label>Grade</label>
-                      <select class="form-control" id="inputGRADE" name="grade" value="<?php echo set_select('grade'); ?>" placeholder="Grade">
-                      <option value="" disabled selected>Grade<span class="text-red">*</span></option>
-                      <option value="Grade 11" <?php echo  set_select('grade', 'Grade 11'); ?> >Grade 11</option>
-                      <option value="Grade 12" <?php echo  set_select('grade', 'Grade 12'); ?> >Grade 12</option>
-                      </select>
-                      <?php echo form_error('sex'); ?>
                     </div>
                   </div>
                 </div>
@@ -448,9 +437,9 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label>Sex</label>
+                      <label>Sex<span class="text-red">*</span></label>
                       <select class="form-control" id="inputSEX" name="sex" value="<?php echo set_select('sex'); ?>" placeholder="Sex">
-                        <option value="" disabled selected>Sex<span class="text-red">*</span></option>
+                        <option value="" disabled selected>Sex</option>
                         <option value="Female" <?php echo  set_select('sex', 'Female'); ?> >Female</option>
                         <option value="Male" <?php echo  set_select('sex', 'Male'); ?> >Male</option>
                       </select>
@@ -587,17 +576,17 @@
                   </div>
                   <div class="col-md-3">
                     <div class="form-group">
-                        <input type="radio" name="r3" class="flat-red parent" value="Father" checked>   Father
+                        <input type="radio" name="r3" class="flat-red parent" value="Father" <?php echo  set_radio('r3', 'Father'); ?> >   Father
                     </div>
                   </div>
                   <div class="col-md-3">
                     <div class="form-group">
-                        <input type="radio" name="r3" class="flat-red parent" value="Mother">   Mother
+                        <input type="radio" name="r3" class="flat-red parent" value="Mother" <?php echo  set_radio('r3', 'Mother'); ?> >   Mother
                     </div>
                   </div>
                   <div class="col-md-3">
                     <div class="form-group">
-                        <input type="radio" name="r3" class="flat-red other" value="Other" >   Other
+                        <input type="radio" name="r3" class="flat-red other" value="Other" <?php echo  set_radio('r3', 'Other'); ?> >   Other
                     </div>
                   </div>
                 </div>
@@ -685,20 +674,29 @@
 <script src="<?php echo base_url(); ?>plugins/input-mask/jquery.inputmask.extensions.js"></script>
 
 <script>
+  var dateString = $('#guardianInput').hide();
+  var today = new Date();
+  var birthDate = new Date(dateString);
+  var age = today.getFullYear() - birthDate.getFullYear();
+  var m = today.getMonth() - birthDate.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+</script>
+
+<script>
 
     $('.flat-red').on('ifChecked', function(event){
       var radioInput = $(this).val(); 
       
 
       if(radioInput == "Father"){
-        alert(radioInput);
         $('#guardianInput').hide();
         $('#inputGUARDIAN').val($('#inputFATHER').val());
         $('#inputRELATIONSHIP').val(radioInput);
         $('#inputGUARDIANCONTACT').val($('#inputFATHERCONTACT').val());
 
       }else if(radioInput == "Mother"){
-        alert(radioInput);
         $('#guardianInput').hide();
         $('#inputGUARDIAN').val($('#inputMOTHER').val());
         $('#inputRELATIONSHIP').val(radioInput);
