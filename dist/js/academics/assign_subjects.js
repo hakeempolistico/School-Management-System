@@ -76,42 +76,25 @@ $(function () {
     })
 
 
-    //ADD SUBJECTS BOX
+    $('#add-btn').on('click', function(){
+      $( "#label-subject" ).clone().attr("style", "margin-top: 10px;").addClass('clone').insertAfter("#select-subject");
+      $( "#select-subject" ).clone().insertAfter("#select-subject").addClass('clone').select2();
+      $( "#label-teacher" ).clone().attr("style", "margin-top: 10px;").addClass('clone').insertAfter("#select-teacher");
+      $( "#select-teacher" ).clone().insertAfter("#select-teacher").addClass('clone').select2();
+    })
 
-    $.ajax({
-      url: getSubjects,
-      type: 'post',
-      dataType: 'json',  
-      success: function(result){
-        console.log(result);
+    $('#save-btn').on('click', function(){
 
-        for (var i = 0; i >= 0; i++) {
-          $('.subject-input').append($('<option>', { 
-              value: result[i].code,
-              text : result[i].name
-          })).select2();
-        }
+      $('.subject-input').each(function(index, elem) {
+        value = $(elem).val();
+        alert(value);
+      })
+    })
 
-      }
-    }); 
 
-    $.ajax({
-      url: getTeachers,
-      type: 'post',
-      dataType: 'json',  
-      success: function(result){
-        console.log(result);
 
-        for (var i = 0; i >= 0; i++) {
-          var name=result[i].first_name+' '+result[i].middle_name+' '+result[i].last_name;
-          console.log(name);
-          $('.teacher-input').append($('<option>', { 
-              value: result[i].employee_id,
-              text : name
-          })).select2();
-        }
+     
 
-      }
-    }); 
+    
 
   })
