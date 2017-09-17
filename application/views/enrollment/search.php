@@ -263,9 +263,9 @@
               </a>
             </li>
             <li>
-              <a href="<?php echo site_url('enrollment/view_data'); ?>">
+              <a href="<?php echo site_url('enrollment/register_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
-                  View Data
+                Register Student
               </a>
             </li>
             <li class="active">
@@ -274,21 +274,9 @@
                   Enroll Student
               </a>
             </li>
-            <li>
-              <a href="<?php echo site_url('enrollment/manage_student'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                  Manage Student
-              </a>
-            </li>
-            <li>
-              <a href="<?php echo site_url('enrollment/manage_schedule'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                  Manage Schedule
-              </a>
-            </li>
           </ul>
-        </li>
 
+        </li>
 
         <li class="treeview">
           <a href="#">
@@ -347,7 +335,7 @@
         </li>
       
         
-        <li class="header">LABELS</li>
+        <li class="header">LABELS</li>  
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -357,16 +345,16 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <div class="alert bg-navy alert-dismissible flat">
+    <!--<div class="alert bg-navy alert-dismissible flat">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <h4><i class="icon fa fa-bullhorn"></i> Reminder!</h4>
         Make sure to receive the necessary requirements for enrollment, otherwise the student won't be enrolled!
-     </div>
+     </div>-->
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Search for Online Applications
-        <small>(IDK what to put here)</small>
+        Search for Registered Students
+        <small>Pick one to enroll</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Enrollment</a></li>
@@ -378,7 +366,7 @@
     <section class="content">
       <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Table With Full Features</h3>
+              <h3 class="box-title">Registered Students</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -387,7 +375,7 @@
                 <tr>
                   <th>LRN</th>
                   <th>Name</th>
-                  <th>Grade</th>
+                  <th>Date Registered</th>
                   <th>Action</th>
                 </tr>
                 </thead>
@@ -417,132 +405,7 @@
   <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
-<!--Modal-->
-<div class="modal fade" id="modal-default">
 
-          <div class="modal-dialog" style="align-self: center; max-width: 500px">
-          <!-- Profile Image -->
-          <div class="box box-primary" >
-            <div class="box-body box-profile">
-              <form method="POST" action="/sms/enrollment/enroll_student/move/">
-              <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url(); ?>dist/img/user4-128x128.jpg" alt="User profile picture">
-
-              <h3 id="name" class="profile-username text-center" ></h3>
-
-              <p class="text-muted text-center" id="position"></p>
-    <div class="row">
-        <div class="col-md-6">
-              <ul class="list-group list-group-unbordered" style= "text-align: center">
-                <li class="list-group-item">
-                  <b>LRN</b><br> <a id="lrn"></a>
-                </li>
-                <li class="list-group-item">
-                  <b>Contact No.</b><br> <a id="contact"></a>
-                </li>
-                <li class="list-group-item">
-                  <b>Birthdate</b><br> <a id="birth_date" ></a>
-                </li>
-                <li class="list-group-item">
-                  <b>Birthplace</b> <br><a id="birth_place"></a>
-                </li>
-                <li class="list-group-item">
-                  <b>Age</b><br> <a id="age"></a>
-                </li>
-                <li class="list-group-item">
-                  <b>Mother Tongue</b><br> <a id="mother_tongue"></a>
-                </li>
-                <li class="list-group-item">
-                  <b>Religion</b> <br><a id="religion">c</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Address</b> <br><a id="street"></a><br><a id="barangay"></a><a id="city"></a><br><a id="province"></a><br>
-                </li>
-        </ul>
-      </div>
-      <div class="col-md-6">
-      <ul class="list-group list-group-unbordered" style= "text-align: center">
-                <li class="list-group-item">
-                  <b>Sex</b> <br><a id="sex"></a>
-                </li>
-        <li class="list-group-item">
-                  <b>Father's Name</b> <br><a id="father_name">asd</a>
-                </li>
-        <li class="list-group-item">
-                  <b>Father's Contact No</b> <br><a id="father_contact">asd</a>
-                </li>
-        <li class="list-group-item">
-                  <b>Mother's Maiden Name</b> <br><a id="mother_name">asd</a>
-                </li>
-        <li class="list-group-item">
-                  <b>Mother's Contact No</b> <br><a id="mother_contact">asd</a>
-                </li>
-        <li class="list-group-item">
-                  <b>Guardian's Name</b><br> <a id="guardian">asd</a>
-                </li>
-        <li class="list-group-item">
-                  <b>Guardian's Relationship</b> <br><a id="relationship">asd</a>
-                </li>
-        <li class="list-group-item">
-                  <b>Guardian's Contact No</b> <br><a id="guardian_contact">asd</a>
-                </li>
-        </ul>
-      </div>
-      </div>
-        <ul class="list-group list-group-unbordered">
-        <li class="list-group-item">
-          <strong><i class="fa fa-book margin-r-5"></i> Note</strong>
-            <textarea class="form-control" name="note" value="<?php echo set_value('note'); ?>"></textarea> 
-        </li>
-        
-        <li class="list-group-item requirements-section">
-          <strong><i class="fa fa-book margin-r-5"></i>Requirements</strong>
-  
-            <select class="form-control select2" multiple="multiple" id="inputREQUIREMENTS" name="requirement[]" value="<?php echo set_select('requirement'); ?>" data-placeholder="Select Requirement" style="width: 100%;">
-              <option id="f137">Form 137</option>
-              <option id="f138">Form 138</option>
-              <option id="nso">NSO Birth Certificate</option>
-            </select>
-
-        </li>
-        <input type="hidden" name="lrn" value="<?php echo set_value('lrn'); ?>" id="learner">
-        <input type="hidden" name="grade" value="<?php echo set_value('grade'); ?>" id="grade">
-        <input type="hidden" name="first_name" value="<?php echo set_value('first_name'); ?>" id="fname">
-        <input type="hidden" name="middle_name" value="<?php echo set_value('middle_name'); ?>" id="mname">
-        <input type="hidden" name="last_name" value="<?php echo set_value('last_name'); ?>" id="lname">
-        <input type="hidden" name="sex" value="<?php echo set_value('sex'); ?>" id="gender">
-        <input type="hidden" name="contact" value="<?php echo set_value('contact'); ?>" id="contactno">
-        <input type="hidden" name="birth_date" value="<?php echo set_value('birth_date'); ?>" id="birthdate">
-        <input type="hidden" name="birth_place" value="<?php echo set_value('birth_place'); ?>" id="birthplace">
-        <input type="hidden" name="age" value="<?php echo set_value('age'); ?>" id="edad">
-        <input type="hidden" name="mother_tongue" value="<?php echo set_value('mother_tongue'); ?>" id="mothertongue">
-        <input type="hidden" name="religion" value="<?php echo set_value('religion'); ?>" id="reli">
-        <input type="hidden" name="street" value="<?php echo set_value('street'); ?>" id="house">
-        <input type="hidden" name="barangay" value="<?php echo set_value('barangay'); ?>" id="baranggay">
-        <input type="hidden" name="city" value="<?php echo set_value('city'); ?>" id="cityy">
-        <input type="hidden" name="province" value="<?php echo set_value('province'); ?>" id="prov">
-        <input type="hidden" name="father_name" value="<?php echo set_value('father_name'); ?>" id="fathername">
-        <input type="hidden" name="mother_name" value="<?php echo set_value('mother_name'); ?>" id="mothername">
-        <input type="hidden" name="father_contact" value="<?php echo set_value('father_contact'); ?>" id="fathercontact">
-        <input type="hidden" name="mother_contact" value="<?php echo set_value('mother_contact'); ?>" id="mothercontact">
-        <input type="hidden" name="guardian" value="<?php echo set_value('guardian'); ?>" id="guard">
-        <input type="hidden" name="relationship" value="<?php echo set_value('relationship'); ?>" id="relation">
-        <input type="hidden" name="guardian_contact" value="<?php echo set_value('guardian_contact'); ?>" id="guardcontact">
-        <input type="hidden" name="requirements" value="<?php echo set_value('requirements'); ?>" id="requirements">
-        
-
-              </ul>
-              <a href="#" class="btn btn-primary btn-block pull-left" data-dismiss="modal" style="max-width: 100px"><b>Close</b></a>
-              <button type="submit" class="btn btn-primary btn-block pull-right" id="enrollStudent" style="max-width: 150px"><b>Enroll Student</b></button>
-              </form>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-
-          </div>
-          <!-- /.modal-dialog -->
-        </div>
-        <!-- /.modal -->
 
 
 <!-- jQuery 3 -->
@@ -562,96 +425,26 @@
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
 <!-- SlimScroll -->
 <script src="<?php echo base_url(); ?>bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<script type="text/javascript">
+
+<script>
+  var arrofobject = <?php echo $registeredStudents ?>;
+
   $('table').DataTable();
-
-  var arrofobject = <?php echo $onlineRecords ?>;
-
-  $('#record').hide();
+  $('#record').remove();
 
   $.each(arrofobject, function(index, val) {
-    $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td><td>'+val.grade+'</td> <td><button type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs buttonView" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
+    var date = val.date_registered.split(" ");
+    var str = date[0];
+    var dt = new Date(str);
+    var supurit = dt.split("-");
+
+    console.log(supurit);
+
+
+    $('tbody').append('<tr class="record"><td>'+val.lrn+'</td><td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td><td>'+date[0]+'</td><td><button type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-primary btn-flat btn-xs buttonView" style="max-width: 100px; display:block;margin: auto;">Enroll</button></td> </div> </tr>');
   });
-
-  $("#inputREQUIREMENTS").on("change", function (e) {
-    var a = "Form 137,Form 138,NSO Birth Certificate"
-
-    //alert($('.select2').val());
-
-    if ($(this).val() == a) {
-      $("#requirements").val('COMPLETE');
-    } else {
-      $("#requirements").val('INCOMPLETE');
-    }
-  });
-
-  $(".buttonView").click(function(){
-          var lrn = $(this).closest('tr').find('td:eq(0)').html(); 
-          $.ajax({
-            url: "<?php echo base_url("enrollment/enroll_student/ajax"); ?>",
-            type: 'post',
-            dataType: 'json', 
-            data: {'lrn' : lrn, 'table': 'online_applicants', 'set': 'lrn' }, 
-            success: function(result){
-              //alert(result);
-              $.each(result, function(index, val) {
-                $('#name').html(val.first_name +" "+ val.middle_name + " " + val.last_name);
-                $('#lrn').html(val.lrn);
-                $('#contact').html(val.contact);
-                $('#birth_date').html(val.birth_date);
-                $('#birth_place').html(val.birth_place);
-                $('#age').html(val.age);
-                $('#mother_tongue').html(val.mother_tongue);
-                $('#religion').html(val.religion);
-                $('#street').html(val.street);
-                $('#barangay').html(val.barangay+", ");
-                $('#city').html(val.city);
-                $('#province').html(val.province);
-                $('#sex').html(val.sex);
-                $('#father_name').html(val.father_name);
-                $('#father_contact').html(val.father_contact);
-                $('#mother_name').html(val.mother_name);
-                $('#mother_contact').html(val.mother_contact);
-                $('#guardian').html(val.guardian);
-                $('#relationship').html(val.relationship);
-                $('#guardian_contact').html(val.guardian_contact);  
-                $('#position').html('Grade 12 Student');   
-                $('.requirements-section').show();
-
-                $('#learner').attr('value', val.lrn);
-                $('#grade').attr('value', val.grade);
-                $('#fname').attr('value', val.first_name);
-                $('#mname').attr('value', val.middle_name);
-                $('#lname').attr('value', val.last_name);
-                $('#gender').attr('value', val.sex);
-                $('#contactno').attr('value', val.contact);
-                $('#birthdate').attr('value', val.birth_date);
-                $('#birthplace').attr('value', val.birth_place);
-                $('#edad').attr('value', val.age);
-                $('#mothertongue').attr('value', val.mother_tongue);
-                $('#reli').attr('value', val.religion);
-                $('#house').attr('value', val.street);
-                $('#baranggay').attr('value', val.barangay);
-                $('#cityy').attr('value', val.city);
-                $('#prov').attr('value', val.province);
-                $('#fathername').attr('value', val.father_name);
-                $('#mothername').attr('value', val.mother_name);
-                $('#fathercontact').attr('value', val.father_contact);
-                $('#mothercontact').attr('value', val.mother_contact);
-                $('#guard').attr('value', val.guardian);
-                $('#relation').attr('value', val.relationship);
-                $('#guardcontact').attr('value', val.guardian_contact);
-                $('#noto').attr('value', val.note);
-              })
-            }
-          });
-        });
-
 </script>
-<script type="text/javascript">
-  //Initialize Select2 Elements
-    $('.select2').select2()
-</script>
+
 
 </body>
 </html>

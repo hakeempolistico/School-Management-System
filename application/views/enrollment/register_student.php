@@ -265,31 +265,6 @@
                 Dashboard
               </a>
             </li>
-            <li>          
-            <li>
-              <a href="#">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Add subject (admin)
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Manage Class (admin)
-              </a>
-            </li>
-            <li>
-              <a href="<?php echo site_url('enrollment/manage_schedule'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                  Manage Schedule (admin)
-              </a>
-            </li>
-            <li>
-              <a href="<?php echo site_url('enrollment/view_data'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                  View Data
-              </a>
-            </li>
             <li class="active">
               <a href="<?php echo site_url('enrollment/register_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
