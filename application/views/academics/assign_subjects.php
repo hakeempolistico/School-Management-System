@@ -15,6 +15,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/Ionicons/css/ionicons.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/select2/dist/css/select2.min.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- Theme style -->
@@ -334,11 +336,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <div class="alert alert-success alert-dismissible flat">
+    <!-- <div class="alert alert-success alert-dismissible flat">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <h4><i class="icon fa fa-bullhorn"></i> Day 1 of Enrollment is successful!</h4>
         Congratulations! Job well done! Please do the same on Day 2 of Enrollment!
-     </div>
+     </div> -->
       
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -358,26 +360,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="col-lg-4 col-xs-12">
           <div class="box box-primary">
               <div class="box-header">
-                <h3 class="box-title">Add Subjects</h3>
+                <h3 class="box-title">Select class</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">                  
                     <div class="form-group">
-                      <label for="subjectNameInput">Year Level</label>
-                      <input type="text" class="form-control" id="subjectNameInput" placeholder="select year level">
-                    </div> 
-                
+                      <label>Strand</label>
+                      <select id="select-strand" data-placeholder="select strand" class="form-control select2" style="width: 100%;">
+                        <option id="option-strand"></option>
+                      </select>
+                    </div>                   
                     <div class="form-group">
-                      <label for="subjectCodeInput">Strand</label>
-                      <input type="text" class="form-control" id="subjectCodeInput" placeholder="select strand">
-                    </div> 
-                
+                      <label>Year</label>
+                      <select id="select-year" data-placeholder="select year" class="form-control select2" style="width: 100%;">
+                        <option id="option-year"></option>
+                      </select>
+                    </div>                   
                     <div class="form-group">
-                      <label for="subjectCodeInput">Section</label>
-                      <input type="text" class="form-control" id="subjectCodeInput" placeholder="select section">
+                      <label>Section</label>
+                      <select id="select-section" data-placeholder="select section" class="form-control select2" style="width: 100%;">
+                        <option id="option-section"></option>
+                      </select>
                     </div> 
                 
-                <button type="button" style="width: 100px" class="btn btn-block btn-primary pull-right">Add</button>
+                <button type="button" style="width: 100px" class="btn btn-block btn-primary pull-right">Confirm</button>
               </div>
           </div>
         </div>
@@ -386,7 +392,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="box box-primary">
               <div class="box-header">
                 <h3 class="box-title">Add Subjects</h3>
-                <h3 class="box-title pull-right"><a href="#" class="btn btn-default btn-xs"><span class="fa fa-fw fa-pencil"></span></a></h3>
+                <h3 class="box-title pull-right"><a href="#" class="btn btn-default btn-xs"><span class="fa fa-fw fa-plus"></span></a></h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
@@ -394,14 +400,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <div class="col-xs-12 col-lg-6">
                     <div class="form-group">
                       <label for="subjectNameInput">Subject</label>
-                      <input type="text" class="form-control" id="subjectNameInput" placeholder="select subject">
+                      <select id="select-strand" data-placeholder="select subject" class="subject-input form-control select2" style="width: 100%;">
+                        <option id="option-strand"></option>
+                      </select>
                     </div> 
                   </div>
                          
                   <div class="col-xs-12 col-lg-6">
                     <div class="form-group">
                       <label for="subjectCodeInput">Teacher</label>
-                      <input type="text" class="form-control" id="subjectCodeInput" placeholder="select teacher">
+                      <select id="select-strand" data-placeholder="select teacher" class="teacher-input form-control select2" style="width: 100%;">
+                        <option id="option-strand"></option>
+                      </select>
                     </div> 
                   </div>
                 </div>              
@@ -426,20 +436,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
+<!-- Select2 -->
+<script src="<?php echo base_url(); ?>bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
 <!-- DataTables -->
 <script src="<?php echo base_url(); ?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="<?php echo base_url('dist/js/academics/assign_subjects.js'); ?>"></script>
+
 <script>
-  $(function () {
-    $('#subjectsTable').DataTable({
-      "columns": [
-        null, null, null,
-        { "width": "10%" }
-      ]
-    })
-  })
+var getStrands = '<?php echo base_url('academics/assign_subjects/getStrands'); ?>';
+var getYears = '<?php echo base_url('academics/assign_subjects/getYears'); ?>';
+var getSection = '<?php echo base_url('academics/assign_subjects/getSection'); ?>';
+var getSubjects = '<?php echo base_url('academics/assign_subjects/getSubjects'); ?>';
+var getTeachers = '<?php echo base_url('academics/assign_subjects/getTeachers'); ?>';
 </script>
 </body>
 </html>
