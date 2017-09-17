@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-
+  
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
@@ -335,10 +335,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <div class="alert alert-success alert-dismissible flat">
+    <!-- <div class="alert alert-success alert-dismissible flat">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <h4><i class="icon fa fa-bullhorn"></i> Day 1 of Enrollment is successful!</h4>
         Congratulations! Job well done! Please do the same on Day 2 of Enrollment!
+     </div> -->
+
+     <div id="alert-box" class="alert alert-danger alert-dismissible flat" hidden>
+      <button type="button" class="close" aria-hidden="true">&times;</button>
+      <h4 id="alert-title"><i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!</h4>
+        <div id="alert-message">Subject code already used. Please use another one.</div>
      </div>
       
     <!-- Content Header (Page header) -->
@@ -363,30 +369,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </div>
               <div class="box-body">
                 <div class="form-group" style="margin-bottom: 5px">
-                  <label for="employee-id-input">Employee Id</label>
-                  <input type="text" class="form-control" id="employee-id-input" placeholder="enter here">
+                  <label for="id-input">Employee ID</label>
+                  <label for="name-input" class="text-danger">*</label>
+                  <input type="text" class="form-control" id="id-input">
                 </div>
                 <div class="form-group" style="margin-bottom: 5px">
                   <label for="firstname-input">First Name</label>
-                  <input type="text" class="form-control" id="firstname-input" placeholder="enter here">
+                  <input type="text" class="form-control" id="firstname-input">
                 </div>
                 <div class="form-group" style="margin-bottom: 5px">
                   <label for="middlename-input">Middle Name</label>
-                  <input type="text" class="form-control" id="middlename-input" placeholder="enter here">
+                  <input type="text" class="form-control" id="middlename-input">
                 </div>
                 <div class="form-group" style="margin-bottom: 5px">
                   <label for="lastname-input">Last Name</label>
-                  <input type="text" class="form-control" id="lastname-input" placeholder="enter here">
+                  <input type="text" class="form-control" id="lastname-input">
                 </div>
                 <div class="form-group" style="margin-bottom: 5px">
                   <label for="major-input">Major</label>
-                  <input type="text" class="form-control" id="major-input" placeholder="enter here">
+                  <input type="text" class="form-control" id="major-input">
                 </div>
                 <div class="form-group" style="margin-bottom: 5px">
                   <label for="position-input">Position</label>
-                  <input type="text" class="form-control" id="position-input" placeholder="enter here">
+                  <input type="text" class="form-control" id="position-input">
                 </div>
-                <button type="button" style="width: 100px" class="btn btn-block btn-primary pull-right">Add</button>
+                <button id="add-btn" type="button" style="width: 100px" class="btn btn-block btn-primary pull-right">Add</button>
               </div>
           </div>
         </div>
@@ -404,33 +411,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <th>Employee ID</th>
                   <th>First Name</th>
                   <th>Last Name</th>
-                  <th>Position</th>
+                  <th>Status</th>
                   <th>Action</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                  <td>14-038-014</td>
-                  <td>Hakeem</td>
-                  <td>Polistico</td>
-                  <td>Teacher 1</td>
-                  <td>  
-                  <center>
-                    <a data-toggle="modal" data-target="#modal-default" class="btn btn-default btn-xs"><span class="fa fa-fw fa-search"></span></a>
-                    <a href="#" class="btn btn-default btn-xs"><span class="fa fa-fw fa-pencil"></span></a>                    
-                    <a href="#" class="btn btn-default btn-xs"><span class="fa fa-fw fa-remove"></span></a>                
-                  </td>
-                  </center>
-                    
-                </tr>
-                </tbody>
                 <tfoot>
                 <tr>
                   <th>Employee ID</th>
                   <th>First Name</th>
                   <th>Last Name</th>
                   <th>Position</th>
-                  <th>Action</th>
+                  <th>Status</th>
                 </tr>
                 </tfoot>
               </table>
@@ -443,33 +434,48 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
       </div>
 
-      <div class="modal fade" id="modal-default">
+      <div class="modal fade" id="modal-view">
           <div class="modal-dialog" style="max-width: 400px">
             <div class="modal-content" >
               <div class="box box-primary">
             <div class="box-body box-profile flat">
-              <img class="profile-user-img img-responsive img-circle" src="http://sms.local/dist/img/user4-128x128.jpg" alt="User profile picture">
-
-              <h3 class="profile-username text-center">Hakeem Polistico</h3>
-
-              <p class="text-muted text-center">Teacher 1</p>
-
+              <img class="profile-user-img img-responsive img-circle" src="http://sms.local/dist/img/user4-128x128.jpg" alt="<?php base_url('images/alt_picture.jpg')?>"> <br>
+              <a id="view-edit" class="btn btn-default btn-xs pull-right"><span class="fa fa-fw fa-pencil"></span></a>
               <ul class="list-group list-group-unbordered">
-                <li class="list-group-item">
-                  <b>Employee ID</b> <a class="pull-right">14-038-014</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Contact</b> <a class="pull-right">0997-586-4782</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Major</b> <a class="pull-right">English</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Status</b> <a class="pull-right badge bg-blue">Active</a>
-                </li>
+                <li>
+                <div class="form-group" style="margin-bottom: 5px;">
+                  <label for="view-id">Employee ID</label>
+                  <input type="text" class="form-control" id="view-id">
+                </div>
+                  <div class="form-group" style="margin-bottom: 5px;">
+                  <label for="view-firstname">First Name</label>
+                  <input type="text" class="form-control" id="view-firstname">
+                </div>
+                <div class="form-group" style="margin-bottom: 5px;">
+                  <label for="view-middlename">Middle Name</label>
+                  <input type="text" class="form-control" id="view-middlename">
+                </div>
+                <div class="form-group" style="margin-bottom: 5px;">
+                  <label for="view-lastname">Last Name</label>
+                  <input type="text" class="form-control" id="view-lastname">
+                </div>
+                <div class="form-group" style="margin-bottom: 5px;">
+                  <label for="view-major">Major</label>
+                  <input type="text" class="form-control" id="view-major">
+                </div>
+                <div class="form-group" style="margin-bottom: 5px;">
+                  <label for="view-position">Position</label>
+                  <input type="text" class="form-control" id="view-position">
+                </div>
+                <div class="form-group" style="margin-bottom: 5px;">
+                  <label for="view-status">Status</label>
+                  <input type="text" class="form-control" id="view-status">
+                </div>
+                <a href="#" class="btn btn-sm btn-danger pull-left" data-dismiss="modal" style="width: 100px">Close</a>                
+                <button id="view-update" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Update</button>
+                 
+                </li>   
               </ul>
-
-              <a href="#" class="btn btn-primary btn-block" data-dismiss="modal"><b>Close</b></a>
             </div>
             <!-- /.box-body -->
           </div>
@@ -479,6 +485,70 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!-- /.modal-dialog -->
         </div>
         <!-- /.modal -->
+
+      <div class="modal fade" id="modal-edit">
+          <div class="modal-dialog" style="max-width: 400px">
+            <div class="modal-content" >
+              <div class="box box-primary">
+            <div class="box-body box-profile flat">
+              <img class="profile-user-img img-responsive img-circle" src="http://sms.local/dist/img/user4-128x128.jpg" alt="<?php base_url('images/alt_picture.jpg')?>"> <br>
+              <ul class="list-group list-group-unbordered">
+                <li>
+                  <div class="form-group" style="margin-bottom: 5px;">
+                    <label for="edit-id">Employee ID</label>
+                    <input type="text" class="form-control" id="edit-id">
+                  </div>
+                    <div class="form-group" style="margin-bottom: 5px;">
+                    <label for="edit-firstname">First Name</label>
+                    <input type="text" class="form-control" id="edit-firstname">
+                  </div>
+                  <div class="form-group" style="margin-bottom: 5px;">
+                    <label for="edit-middlename">Middle Name</label>
+                    <input type="text" class="form-control" id="edit-middlename">
+                  </div>
+                  <div class="form-group" style="margin-bottom: 5px;">
+                    <label for="edit-lastname">Last Name</label>
+                    <input type="text" class="form-control" id="edit-lastname">
+                  </div>
+                  <div class="form-group" style="margin-bottom: 5px;">
+                    <label for="edit-major">Major</label>
+                    <input type="text" class="form-control" id="edit-major">
+                  </div>
+                  <div class="form-group" style="margin-bottom: 5px;">
+                    <label for="edit-position">Position</label>
+                    <input type="text" class="form-control" id="edit-position">
+                  </div>
+                  <div class="form-group" style="margin-bottom: 5px;">
+                    <label for="edit-status">Status</label>
+                    <input type="text" class="form-control" id="edit-status">
+                  </div>
+                  <a href="#" class="btn btn-sm btn-danger pull-left" data-dismiss="modal" style="width: 100px">Close</a>                
+                  <button id="edit-update" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Update</button>                 
+                </li>   
+              </ul>
+            </div>
+            <!-- /.box-body -->
+          </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+        <div class="modal fade in" id="modal-delete">
+          <div class="modal-dialog" style="max-width: 320px">
+            <div class="box box-primary">
+              <div class="box-body box-profile flat ">
+                <h4>Are you sure you want to delete record?</h4>
+                <button id="delete-confirm" data-dismiss="modal" type="button" style="width: 75px" class="btn btn-block btn-primary btn-sm pull-right">Confirm</button>
+                <button data-dismiss="modal" type="button" style="width: 75px" class="btn btn-sm btn-block btn-danger">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
     </section>
     <!-- /.content -->
   </div>
@@ -499,18 +569,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- DataTables -->
 <script src="<?php echo base_url(); ?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
+<script src="<?php echo base_url('dist/js/academics/teachers.js'); ?>"></script>
+  
 <script>
-  $(function () {
-    $('#teachersTable').DataTable({
-      "columns": [
-        { "width": "20%" },
-        { "width": "20%" },
-        { "width": "20%" },
-        { "width": "20%" },
-        { "width": "20%" }
-      ]
-    })
-  })
+  var getRecordsUrl = '<?php echo base_url('/academics/teachers/ajaxGetRecords')?>';
+  var countUrl = "<?php echo base_url('/academics/teachers/ajaxCountRow')?>";
+  var addUrl = "<?php echo base_url('/academics/teachers/ajaxInsert')?>";
+  var updateUrl = "<?php echo base_url('/academics/teachers/ajaxUpdate')?>";
+  var getRowUrl = "<?php echo base_url('/academics/teachers/ajaxGetRow')?>";
+  var deleteRowUrl = "<?php echo base_url('/academics/teachers/ajaxDeleteRow')?>";
 </script>
+
 </body>
 </html>

@@ -334,11 +334,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <div class="alert alert-success alert-dismissible flat">
+
+    <!-- <div class="alert alert-success alert-dismissible flat">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <h4><i class="icon fa fa-bullhorn"></i> Day 1 of Enrollment is successful!</h4>
         Congratulations! Job well done! Please do the same on Day 2 of Enrollment!
+     </div> -->
+
+     <div id="alert-box" class="alert alert-danger alert-dismissible flat" hidden>
+      <button type="button" class="close" aria-hidden="true">&times;</button>
+      <h4 id="alert-title"><i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!</h4>
+        <div id="alert-message">Subject code already used. Please use another one.</div>
      </div>
+
+
+     
       
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -429,13 +439,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
               <ul class="list-group list-group-unbordered">
                 <li>
-                  <div class="form-group" style="margin-bottom: 5px;">
-                  <label for="view-name">Name</label>
-                  <input type="text" class="form-control" id="view-name" placeholder="subject name" value="Subject Name">
-                </div>
                 <div class="form-group"style="margin-bottom: 5px;">
                   <label for="view-code">Code</label>
                   <input type="text" class="form-control" id="view-code" placeholder="subject code" value="Subject Code">
+                </div>
+                  <div class="form-group" style="margin-bottom: 5px;">
+                  <label for="view-name">Name</label>
+                  <input type="text" class="form-control" id="view-name" placeholder="subject name" value="Subject Name">
                 </div>
                 <div class="form-group"style="margin-bottom: 5px;">
                   <label for="view-type">Type</label>
@@ -460,8 +470,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <div class="modal fade in" id="modal-edit">
           <div class="modal-dialog" style="max-width: 400px">
-              <div class="box box-primary">
-            <div class="box-body box-profile flat ">
+            <div class="box box-primary">
+              <div class="box-body box-profile flat ">
 
               <center><span class="fa fa-fw fa-book fa-5x text-primary"></center>
               <h3 class="profile-username text-center">Edit Subject</h3> 
@@ -469,13 +479,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
               <ul class="list-group list-group-unbordered">
                 <li>
-                  <div class="form-group" style="margin-bottom: 5px;">
-                  <label for="edit-name">Name</label>
-                  <input type="text" class="form-control" id="edit-name" placeholder="subject name">
-                </div>
                 <div class="form-group"style="margin-bottom: 5px;">
                   <label for="edit-code">Code</label>
                   <input type="text" class="form-control" id="edit-code" placeholder="subject code">
+                </div>
+                  <div class="form-group" style="margin-bottom: 5px;">
+                  <label for="edit-name">Name</label>
+                  <input type="text" class="form-control" id="edit-name" placeholder="subject name">
                 </div>
                 <div class="form-group"style="margin-bottom: 5px;">
                   <label for="edit-type">Type</label>
@@ -494,17 +504,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <!-- /.box-body -->
           </div>
-          </div>
-          <!-- /.modal-dialog -->
         </div>
+          <!-- /.modal-dialog -->
+      </div>
 
         <div class="modal fade in" id="modal-delete">
           <div class="modal-dialog" style="max-width: 320px">
-              <div class="box box-primary">
-            <div class="box-body box-profile flat ">
-              <h4>Are you sure you want to delete record?</h4>
-              <button id="delete-confirm" data-dismiss="modal" type="button" style="width: 75px" class="btn btn-block btn-primary btn-sm pull-right">Confirm</button>
-              <button data-dismiss="modal" type="button" style="width: 75px" class="btn btn-sm btn-block btn-danger">Cancel</button>
+            <div class="box box-primary">
+              <div class="box-body box-profile flat ">
+                <h4>Are you sure you want to delete record?</h4>
+                <button id="delete-confirm" data-dismiss="modal" type="button" style="width: 75px" class="btn btn-block btn-primary btn-sm pull-right">Confirm</button>
+                <button data-dismiss="modal" type="button" style="width: 75px" class="btn btn-sm btn-block btn-danger">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
               
                  
                 </li>                
@@ -547,6 +561,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   var addUrl = "<?php echo base_url('/academics/subjects/ajaxInsert')?>";
   var getRowUrl = "<?php echo base_url('/academics/subjects/ajaxGetRow')?>";
   var deleteRowUrl = "<?php echo base_url('/academics/subjects/ajaxDeleteRow')?>";
+  var countUrl = "<?php echo base_url('/academics/subjects/ajaxCountRow')?>";
 </script>
 <script src="<?php echo base_url(); ?>dist/js/academics/subjects.js"></script>
 </body>
