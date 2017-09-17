@@ -290,13 +290,13 @@
                   View Data
               </a>
             </li>
-            <li>
-              <a href="#">
+            <li class="active">
+              <a href="<?php echo site_url('enrollment/register_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Register Student
               </a>
             </li>
-            <li class="active">
+            <li>
               <a href="<?php echo site_url('enrollment/enroll_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   Enroll Student
@@ -373,302 +373,122 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <div class="alert bg-navy alert-dismissible flat">
+    <!--<div class="alert bg-navy alert-dismissible flat">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <h4><i class="icon fa fa-bullhorn"></i> Reminder!</h4>
         Make sure to receive the necessary requirements for enrollment, otherwise the student won't be enrolled!
-     </div>
+     </div>-->
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Enroll Student
-        <small>(IDK what to put here)</small>
+        Register Student
+        <small>Entering student info</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Enrollment</a></li>
-        <li class="active">Enroll Student</li>
+        <li>Register Student</li>
+        <li class="active">After Register</li>
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
-      <div class="row">
-        <div class="col-md-2">
-        </div>
-        <!-- /.col -->
-        <div class="col-md-8">
-          <div class="box box-info">
+      
+      <div class="callout callout-success">
+        <h4>Enrollment Complete!</h4>
 
-            <div class="box-header with-border">
-              <h3 class="box-title">Student Information</h3>
-            </div>
-            <!-- /.box-header -->
-            <!-- form start -->
-            <div class="box-body" style="padding-bottom: 20px;">
-              <form method="POST" action="/sms/enrollment/enroll_student/register/">
-                <div class="row">
-                  <div class="col-md-8">
-                    <div class="form-group">
-                        <label>LRN</label>
-                        <input type="text" class="form-control" name="lrn" id="inputLRN" value="<?php echo set_value('lrn'); ?>" placeholder="Learner Reference Number">
-                        <?php echo form_error('lrn'); ?>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label>Grade</label>
-                      <select class="form-control" id="inputGRADE" name="grade" value="<?php echo set_select('grade'); ?>" placeholder="Grade">
-                      <option value="" disabled selected>Grade</option>
-                      <option value="Grade 11" <?php echo  set_select('grade', 'Grade 11'); ?> >Grade 11</option>
-                      <option value="Grade 12" <?php echo  set_select('grade', 'Grade 12'); ?> >Grade 12</option>
-                      </select>
-                      <?php echo form_error('sex'); ?>
-                    </div>
-                  </div>
-                </div>
-                <!-- /.row -->
-
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Name</label>
-                    <div class="row">
-                      <div class="col-md-4">
-                        <input type="text" class="form-control" name="first_name" id="inputFNAME" value="<?php echo set_value('first_name'); ?>" placeholder="First Name">
-                        <?php echo form_error('first_name'); ?>
-                      </div>
-                      <div class="col-md-4">
-                        <input type="text" class="form-control" name="middle_name" id="inputMNAME" value="<?php echo set_value('middle_name'); ?>" placeholder="Middle Name">
-                        <?php echo form_error('middle_name'); ?>
-                      </div>
-                      <div class="col-md-4">
-                        <input type="text" class="form-control" name="last_name" id="inputLNAME" value="<?php echo set_value('last_name'); ?>" placeholder="Last Name">
-                        <?php echo form_error('last_name'); ?>
-                      </div>
-                    </div>
-                </div>
-                <!-- /.form-group -->
-
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label>Sex</label>
-                      <select class="form-control" id="inputSEX" name="sex" value="<?php echo set_select('sex'); ?>" placeholder="Sex">
-                        <option value="" disabled selected>Sex</option>
-                        <option value="Female" <?php echo  set_select('sex', 'Female'); ?> >Female</option>
-                        <option value="Male" <?php echo  set_select('sex', 'Male'); ?> >Male</option>
-                      </select>
-                      <?php echo form_error('sex'); ?>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label>Contact Number</label>
-                      <input type="text" class="form-control" name="contact" id="inputCONTACT" value="<?php echo set_value('contact'); ?>" placeholder="Contact Number">
-                      <?php echo form_error('contact'); ?>
-                    </div>
-                  </div>
-                </div>
-                <!-- /.row -->
-                <hr>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label>Birth Date</label>
-                      <div class="input-group date">
-                        <div class="input-group-addon">
-                          <i class="fa fa-calendar"></i>
-                        </div>
-                        <input type="text" class="form-control" id="datepicker" name="birth_date" value="<?php echo set_value('birth_date'); ?>" placeholder="mm/dd/yyyy">
-                      </div>
-                      <?php echo form_error('birth_date'); ?>
-                    </div>
-                  </div>
-                  <!-- /.col -->
-
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label>Birth Place</label>
-                      <input type="text" class="form-control" id="inputBIRTHPLACE" name="birth_place" value="<?php echo set_value('birth_place'); ?>" placeholder="Birth Place">
-                      <?php echo form_error('birth_place'); ?>
-                    </div>
-                  </div>
-                  <!-- /.col -->
-                </div>
-                <!-- /.row -->
-
-                <div class="form-group">
-                  <label>Address</label>
-                  <div class="row">
-                    <div class="col-md-3">
-                      <input type="text" class="form-control address" id="inputSTREET" value="<?php echo set_value('street'); ?>" placeholder="House #, Street" name="street">
-                        <?php echo form_error('street'); ?>
-                    </div>
-                    <div class="col-md-3">
-                      <input type="text" class="form-control address" id="inputBARANGAY" value="<?php echo set_value('barangay'); ?>" placeholder="Barangay" name="barangay">
-                        <?php echo form_error('barangay'); ?>
-                    </div>
-                    <div class="col-md-3">
-                      <input type="text" class="form-control address" id="inputCITY" value="<?php echo set_value('city'); ?>" placeholder="City" name="city">
-                        <?php echo form_error('city'); ?>
-                    </div>
-                    <div class="col-md-3">
-                      <input type="text" class="form-control address" id="inputPROVINCE" value="<?php echo set_value('province'); ?>" placeholder="Province" name="province">
-                        <?php echo form_error('province'); ?>
-                    </div>
-                  </div>
-                </div>
-                <!-- /.form-group -->
-
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label>Mother Tongue</label>
-                      <input type="text" class="form-control" id="inputMOTHERTONGUE" value="<?php echo set_value('mother_tongue'); ?>" placeholder="Mother Tongue" name="mother_tongue">
-                      <?php echo form_error('mother_tongue'); ?>
-                    </div>
-                  </div>
-                  <!-- /.col -->
-
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label>Religion</label>
-                      <input type="text" class="form-control" id="inputRELIGION" value="<?php echo set_value('religion'); ?>" placeholder="Religion" name="religion">
-                      <?php echo form_error('religion'); ?>
-                    </div>
-                  </div>
-                  <!-- /.col -->
-                </div>
-                <!-- /.row -->
-
-                <hr>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label>Father's Name</label>
-                      <input type="text" class="form-control" id="inputFATHER" value="<?php echo set_value('father_name'); ?>" placeholder="Father's Name" name="father_name">
-                      <?php echo form_error('father_name'); ?>
-                    </div>
-                  </div>
-                  <!-- /.col -->
-
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label>Mother's Maiden Name</label>
-                      <input type="text" class="form-control" id="inputMOTHER" value="<?php echo set_value('mother_name'); ?>" placeholder="Mother's Maiden Name" name="mother_name">
-                      <?php echo form_error('mother_name'); ?>
-                    </div>
-                  </div>
-                  <!-- /.col -->
-                </div>
-                <!-- /.row -->
-
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label>Father's Contact No.</label>
-                      <input type="text" class="form-control" id="inputFATHERCONTACT" value="<?php echo set_value('father_contact'); ?>" placeholder="Father's Contact No." name="father_contact">
-                      <?php echo form_error('father_contact'); ?>
-                    </div>
-                  </div>
-                  <!-- /.col -->
-
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label>Mother's Contact No.</label>
-                      <input type="text" class="form-control" id="inputMOTHERCONTACT" value="<?php echo set_value('mother_contact'); ?>" placeholder="Mother's Contact No." name="mother_contact">
-                      <?php echo form_error('mother_contact'); ?>
-                    </div>
-                  </div>
-                  <!-- /.col -->
-                </div>
-                <!-- /.row -->
-
-                <hr>
-                <div class="row" style="margin-bottom: -10px;">
-                  <div class="col-md-3">
-                    <label>If Guardian is</label>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="form-group">
-                        <input type="radio" name="r3" class="flat-red parent" value="Father">   Father
-                    </div>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="form-group">
-                        <input type="radio" name="r3" class="flat-red parent" value="Mother">   Mother
-                    </div>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="form-group">
-                        <input type="radio" name="r3" class="flat-red other" value="Other" checked>   Other
-                    </div>
-                  </div>
-                </div>
-                <!-- /.row -->
-
-                <div hidden id="guardianInput" class="row">
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label>Name</label>
-                      <input type="text" class="form-control" id="inputGUARDIAN" value="<?php echo set_value('guardian'); ?>" placeholder="Guardian's Name" name="guardian">
-                      <?php echo form_error('guardian'); ?>
-                    </div>
-                  </div>
-                  <!-- /.col -->
-
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label>Relationship</label>
-                      <input type="text" class="form-control" id="inputRELATIONSHIP" value="<?php echo set_value('relationship'); ?>" placeholder="Relationship with Guardian" name="relationship">
-                      <?php echo form_error('relationship'); ?>
-                    </div>
-                  </div>
-                  <!-- /.col --> 
-
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label>Contact No.</label>
-                      <input type="text" class="form-control" id="inputGUARDIANCONTACT" value="<?php echo set_value('guardian_contact'); ?>" placeholder="Guradian's Contact No." name="guardian_contact">
-                      <?php echo form_error('guardian_contact'); ?>
-                    </div>
-                  </div>
-                  <!-- /.col -->
-                </div>
-                <!-- /.row -->
-
-                <hr>
-                <div class="form-group">
-                  <label>Requirements</label>
-                  <select class="form-control select2" multiple="multiple" id="inputREQUIREMENTS" value="<?php echo set_select('requirement'); ?>" name="requirement[]" data-placeholder="Select Requirement" style="width: 100%;">
-                    <option id="f137">Form 137</option>
-                    <option id="f138">Form 138</option>
-                    <option id="nso">NSO Birth Certificate</option>
-                  </select>
-                  <input type="hidden" name="requirements" value="<?php echo set_value('requirements'); ?>" id="requirements">
-                </div>
-                <!-- /.form-group -->
-
-                <div class="form-group">
-                  <label>Note</label>
-                  <textarea class="form-control" id="inputNOTE" value="<?php echo set_value('note'); ?>" placeholder="Note" name="note"></textarea>
-                </div>
-                <!-- /.form-group -->
-
-                <button type="submit" class="btn btn-primary pull-right">Submit</button>
-
-              </form>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-        </div>
-        <!-- /.col -->
-
-        <div class="col-md-2">
-        </div>
-        <!-- /.col -->
-
+        <p>You have successfully enrolled <bold>Adrielle Kristine Nicolette M. Escaro</bold> to <bold>STEM</bold>. Would you like to enroll another student?</p>
       </div>
-      <!-- /.row -->
+
+      <div class="box box-default">
+        <div class="box-body box-profile" style=" padding: 20px;">
+          <div class="row">
+            <div class="col-md-4"><center>
+              <img src="<?php echo base_url('images/alt_picture.jpg');?>" class="img-circle" alt="<?php echo base_url('images/alt_picture.jpg');?>" style="width: 70%; margin-bottom: 10px;"></center>
+              <h3 id="name" class="profile-username text-center" style="padding: 0 20px;">Adrielle Kristine Nicolette M. Escaro</h3>
+
+              <a href="<?php echo site_url('enrollment/register_student'); ?>" class="btn btn-primary" style="width:100%; margin-bottom: 10px;">Register another student</a>
+              <button class="btn btn-primary" style="width:100%; margin-bottom: 10px;">Enroll this student</button>
+            </div>
+            <!-- /. col-->
+
+            <div class="col-md-8">
+              <table class="table">
+                <tr>
+                  <td><b>LRN</b></td>
+                  <td><a id="lrn">SEE HOW DIRTY I CAN GET THEM</a></td>
+                </tr>
+                <tr>
+                  <td><b>Contact No.</b></td>
+                  <td><a id="contact">LETS BE ALONE TOGETHER</a></td>
+                </tr>
+                <tr>
+                  <td><b>Birthdate</b></td>
+                  <td><a id="birth_date">TAKE IT ALL AWAY</a></td>
+                </tr>
+                <tr>
+                  <td><b>Birthplace</b></td>
+                  <td><a id="birth_place">OOOOOOOOOH</a></td>
+                </tr>
+                <tr>
+                  <td><b>Age</b></td>
+                  <td><a id="age">UH HUH</a></td>
+                </tr>
+                <tr>
+                  <td><b>Mother Tongue</b></td>
+                  <td><a id="mother_tongue">HOW THE MIGHTY FALL IN LOVE</a></td>
+                </tr>
+                <tr>
+                  <td><b>Religion</b></td>
+                  <td><a id="religion">THE MIGHTY FALL</a></td>
+                </tr>
+                <tr>
+                  <td><b>Address</b></td>
+                  <td><a id="street">I</a><a id="barangay">MISS</a><a id="city">MISSING</a><a id="province">YOU</a></td>
+                </tr>
+                <tr>
+                  <td><b>Sex</b></td>
+                  <td><a id="sex">FEMALE</a></td>
+                </tr>
+                <tr>
+                  <td><b>Father's Name</b></td>
+                  <td><a id="father_name">SO PUT THE D IN DIRT NOW BABEH</a></td>
+                </tr>
+                <tr>
+                  <td><b>Father's Contact No</b></td>
+                  <td><a id="father_contact">WE ARE ALIVE</a></td>
+                </tr>
+                <tr>
+                  <td><b>Mother's Maiden Name</b></td>
+                  <td><a id="mother_name">FEEL MORE ALIVE</a></td>
+                </tr>
+                <tr>
+                  <td><b>Mother's Contact No</b></td>
+                  <td><a id="mother_contact">WE'RE THOSE IN RUINS</a></td>
+                </tr>
+                <tr>
+                  <td><b>Guardian's Name</b></td>
+                  <td><a id="guardian">COME ON MAKE IT EASY</a></td>
+                </tr>
+                <tr>
+                  <td><b>Guardian's Relationship</b></td>
+                  <td><a id="relationship">YOUNG VOLCANOES</a></td>
+                </tr>
+                <tr>
+                  <td><b>Guardian's Contact No</b></td>
+                  <td><a id="guardian_contact">WE ARE LIKE YOUNG VOLCANOES</a></td>
+                </tr>
+              </table>
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /. box -->
+
+
     </section>
     <!-- /.content -->
   </div>
@@ -706,6 +526,80 @@
 <script src="<?php echo base_url(); ?>plugins/input-mask/jquery.inputmask.extensions.js"></script>
 
 <script>
+$(document).ready(function(){ 
+
+
+  var lastLrn = <?php echo $lastLrn;?>;
+  var ajaxUrl = "<?php echo base_url("enrollment/register_student/ajax"); ?>"
+
+  $.ajax({
+            url: ajaxUrl,
+            type: 'post',
+            dataType: 'json', 
+            data: {'value' : lastLrn, 'table': 'registered_students', 'set': 'lrn'}, 
+            success: function(result){
+
+                $('#name').html(result.first_name +" "+ result.middle_name + " " + result.last_name);
+                $('#lrn').html(result.lrn);
+                $('#contact').html(result.contact_number);
+                $('#birth_date').html(result.birth_date);
+                $('#birth_place').html(result.birth_place);
+                $('#age').html(result.age);
+                $('#mother_tongue').html(result.mother_tongue);
+                $('#religion').html(result.religion);
+                $('#sex').html(result.sex);   
+
+                
+              
+              }
+  });
+
+  $.ajax({
+            url: ajaxUrl,
+            type: 'post',
+            dataType: 'json', 
+            data: {'value' : lastLrn, 'table': 'addresses', 'set': 'registered_student_lrn'}, 
+            success: function(result){
+              
+                $('#street').html(result.street+", ");
+                $('#barangay').html(result.barangay+", ");
+                $('#city').html(result.city+", ");
+                $('#province').html(result.province); 
+              
+              }
+  });
+
+  $.ajax({
+            url: ajaxUrl,
+            type: 'post',
+            dataType: 'json', 
+            data: {'value' : lastLrn, 'table': 'guardians', 'set': 'registered_student_lrn'}, 
+            success: function(result){
+
+                $('#guardian').html(result.name);
+                $('#relationship').html(result.relationship);
+                $('#guardian_contact').html(result.contact);
+              
+              }
+  });
+
+  $.ajax({
+            url: ajaxUrl,
+            type: 'post',
+            dataType: 'json', 
+            data: {'value' : lastLrn, 'table': 'parents', 'set': 'registered_student_lrn'}, 
+            success: function(result){
+
+                $('#father_name').html(result.father_name);
+                $('#father_contact').html(result.father_contact);
+                $('#mother_name').html(result.mother_name);
+                $('#mother_contact').html(result.mother_contact);
+              
+              }
+  });
+});
+</script>
+<script>
 
     $('.flat-red').on('ifChecked', function(event){
       var radioInput = $(this).val(); 
@@ -726,7 +620,6 @@
         $('#inputGUARDIANCONTACT').val($('#inputMOTHERCONTACT').val());
 
       }else{
-        alert(radioInput);
         $('#guardianInput').show();
         $('#inputGUARDIAN').val('');
         $('#inputRELATIONSHIP').val('');
