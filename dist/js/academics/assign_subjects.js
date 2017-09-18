@@ -42,6 +42,13 @@ $(function () {
       }
     }); 
 
+    $('.subject-input').prop('disabled', true);
+    $('.teacher-input').prop('disabled', true);
+    $('#add-btn').prop('disabled', true);
+    $('#save-btn').prop('disabled', true);   
+    $('#confirm-btn').prop('disabled', true);
+
+
     $('#select-strand').on('change',function(){
        $('#select-section').find('option').remove();
        $("#select-year").val("").trigger("change");
@@ -73,8 +80,19 @@ $(function () {
           }
         }); 
 
+       $('#confirm-btn').prop('disabled',false);
+
     })
 
+    $('#confirm-btn').on('click', function(){
+      $('.subject-input').prop('disabled', false);
+      $('.teacher-input').prop('disabled', false);
+      $('#add-btn').prop('disabled', false);
+      $('#save-btn').prop('disabled', false);  
+    })
+
+
+    //ADD SUBJECT-TEACHER BOX
 
     $('#add-btn').on('click', function(){
       $( "#label-subject" ).clone().attr("style", "margin-top: 10px;").addClass('clone').insertAfter("#select-subject");

@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.0
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 18, 2017 at 12:03 AM
--- Server version: 5.7.11
--- PHP Version: 7.0.4
+-- Generation Time: Sep 18, 2017 at 04:22 AM
+-- Server version: 10.1.22-MariaDB
+-- PHP Version: 7.1.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -30,8 +32,8 @@ CREATE TABLE `academic_years` (
   `id` int(11) NOT NULL,
   `year_start` int(4) NOT NULL,
   `year_end` int(4) NOT NULL,
-  `date_created` timestamp NOT NULL,
-  `date_modified` timestamp NOT NULL
+  `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -60,8 +62,8 @@ CREATE TABLE `class_subjects` (
   `section_id` int(11) NOT NULL,
   `subject_id` int(11) NOT NULL,
   `teacher_id` int(11) NOT NULL,
-  `date_created` timestamp NOT NULL,
-  `date_modified` timestamp NOT NULL
+  `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -78,7 +80,7 @@ CREATE TABLE `enrolled_students` (
   `strand_id` int(50) NOT NULL,
   `year_level_id` int(50) NOT NULL,
   `academic_year_id` int(50) NOT NULL,
-  `date_enrolled` timestamp NOT NULL,
+  `date_enrolled` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `date_modified` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -104,7 +106,7 @@ CREATE TABLE `guardians` (
 
 CREATE TABLE `parents` (
   `id` int(11) NOT NULL,
-  `registered_student_id` int(11) NOT NULL,
+  `registered_student_lrn` int(11) NOT NULL,
   `mother_name` varchar(70) NOT NULL,
   `mother_contact` varchar(15) NOT NULL,
   `father_name` varchar(70) NOT NULL,
@@ -131,8 +133,8 @@ CREATE TABLE `registered_students` (
   `mother_tongue` varchar(50) NOT NULL,
   `religion` varchar(50) NOT NULL,
   `online_applicant` bit(1) NOT NULL,
-  `date_registered` timestamp NOT NULL,
-  `date_modified` timestamp NOT NULL
+  `date_registered` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -160,8 +162,8 @@ CREATE TABLE `rooms` (
   `room_name` varchar(50) NOT NULL,
   `building` varchar(200) NOT NULL,
   `class_id` int(11) DEFAULT NULL,
-  `date_created` timestamp NOT NULL,
-  `date_modified` timestamp NOT NULL
+  `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -266,7 +268,7 @@ CREATE TABLE `users` (
   `last_name` varchar(100) NOT NULL,
   `position` varchar(50) NOT NULL,
   `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `date_modified` timestamp NOT NULL
+  `date_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -398,6 +400,11 @@ ALTER TABLE `year_levels`
 ALTER TABLE `academic_years`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `addresses`
+--
+ALTER TABLE `addresses`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `class_subjects`
 --
 ALTER TABLE `class_subjects`
@@ -407,6 +414,21 @@ ALTER TABLE `class_subjects`
 --
 ALTER TABLE `enrolled_students`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `guardians`
+--
+ALTER TABLE `guardians`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `parents`
+--
+ALTER TABLE `parents`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `registered_students`
+--
+ALTER TABLE `registered_students`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `requirements`
 --
@@ -426,12 +448,12 @@ ALTER TABLE `schedules`
 -- AUTO_INCREMENT for table `sections`
 --
 ALTER TABLE `sections`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `strands`
 --
 ALTER TABLE `strands`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `student_contacts`
 --
@@ -441,22 +463,23 @@ ALTER TABLE `student_contacts`
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `teachers`
 --
 ALTER TABLE `teachers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `year_levels`
 --
 ALTER TABLE `year_levels`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
