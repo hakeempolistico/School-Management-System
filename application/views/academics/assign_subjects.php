@@ -383,7 +383,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       </select>
                     </div> 
                 
-                <button type="button" style="width: 100px" class="btn btn-block btn-primary pull-right">Confirm</button>
+                <button id="confirm-btn" type="button" style="width: 100px" class="btn btn-block btn-primary pull-right">Confirm</button>
               </div>
           </div>
         </div>
@@ -392,7 +392,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="box box-primary">
               <div class="box-header">
                 <h3 class="box-title">Add Subjects</h3>
-                <h3 class="box-title pull-right"><a id="add-btn" class="btn btn-default btn-xs"><span class="fa fa-fw fa-plus"></span></a></h3>
+                <h3 class="box-title pull-right"><button id="add-btn" class="btn btn-default btn-xs"><span class="fa fa-fw fa-plus"></span></button></h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
