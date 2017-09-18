@@ -3,13 +3,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class assign_subjects extends CI_Controller {
 
+	public function __construct()
+	{
+	    parent::__construct();
+	    $this->sms_session->checkSession();
+	}
+
 	public function index()
 	{	
 		$data = $this->parse->parsed();
 		$data['teachers'] = $this->global_model->getRecords('teachers');
 		$data['subjects'] = $this->global_model->getRecords('subjects');
         $this->parser->parse('academics/assign_subjects', $data);
-		$this->sms_session->checkSession();
 	}
 
 	public function getStrands(){		
