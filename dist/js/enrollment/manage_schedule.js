@@ -98,7 +98,7 @@ function dropTrash(ev) {
     $("#"+data).remove();
 
     $("#icon").animate({fontSize: '20px'},"fast");
-    $("#icon").animate({fontSize: '60px'},"slow");
+    $("#icon").animate({fontSize: '50px'},"slow");
 }
 
 
@@ -146,126 +146,12 @@ $('#printBtn').on('click',function(){
 printData();
 });
 
-$('#classes-select').hide();
-$('#teachers-select').hide();
-$('#rooms-select').hide();
-$('#profile-box').hide();
-$('#profile-box-class').hide();
-$('#profile-box-room').hide();
-
 var table; 
 var set;
-$('#classes-pick').on('click',function(){
-  table = "classes";
-  set = "id"
-  $('#classes-select').show();
-  $('#teachers-pick').show();
-  $('#rooms-pick').show();
-  $('#teachers-select').hide();
-  $('#rooms-select').hide();
-  $('.select2').select2()
-  $(this).hide();
-})
-$('#teachers-pick').on('click',function(){
-  table = "teachers";
-  set = "employee_id";
-  $('#teachers-select').show();
-  $('#classes-pick').show();
-  $('#rooms-pick').show();
-  $('#classes-select').hide();
-  $('#rooms-select').hide();
-  $('.select2').select2()
-  $(this).hide();
-})
-$('#rooms-pick').on('click',function(){
-  table = "rooms";
-  set = "room_id";
-  $('#rooms-select').show();
-  $('#teachers-pick').show();
-  $('#classes-pick').show();
-  $('#teachers-select').hide();
-  $('#classes-select').hide();
-  $('.select2').select2()
-  $(this).hide();
-})
-
-$('#select-teacher').on('change',function(){
-  $('#profile-box-class').hide();
-  $('#profile-box-room').hide();
-  var value = $('#select-teacher').val();
-  $('#profile-box').show();
-  $.ajax({
-            url: ajaxUrl,
-            type: 'post',
-            dataType: 'json', 
-            data: {'set' : set, 'table' : table, 'value' : value }, 
-            success: function(result){
-              console.log(result);
-              $.each(result, function(index, val) {
-                $('#profile-name').html(val.first_name +" " + val.last_name);
-                $('#profile-position').html(val.position);
-                $('#profile-major').html(val.major);
-                $('#profile-status').html(val.status);
-                  if(val.status == "ACTIVE"){
-                    $('#profile-status').removeClass('badge bg-red');
-                    $('#profile-status').addClass('badge bg-blue');
-                  }
-                  else{
-                    $('#profile-status').removeClass('badge bg-blue');
-                    $('#profile-status').addClass('badge bg-red');
-                  }
-                $('#profile-contact').html(val.contact);
-              })
-            }
-          });
-
-})
-
-$('#select-room').on('change',function(){
-  $('#profile-box-class').hide();
-  $('#profile-box').hide();
-  var value = $('#select-room').val();
-  $('#profile-box-room').show();
-  $.ajax({
-            url: ajaxUrl,
-            type: 'post',
-            dataType: 'json', 
-            data: {'set' : set, 'table' : table, 'value' : value }, 
-            success: function(result){
-              console.log(result);
-              $.each(result, function(index, val) {
-                $('#profile-room-name').html(val.room_name);
-                $('#profile-room-building').html(val.building);
-                $('#profile-room-status').html(val.status);
-                  if(val.status == "AVAILABLE"){
-                    $('#profile-room-status').removeClass('badge bg-red');
-                    $('#profile-room-status').addClass('badge bg-blue');
-                  }
-                  if(val.status == "OCCUPIED"){
-                    $('#profile-room-status').removeClass('badge bg-blue');
-                    $('#profile-room-status').addClass('badge bg-red');
-                  }
-                $.ajax({
-                    url: ajaxUrl,
-                    type: 'post',
-                    dataType: 'json', 
-                    data: {'set' : 'id', 'table' : 'classes', 'value' : val.class_id }, 
-                    success: function(result){    
-                       $.each(result, function(index, val) {
-                          $('#profile-room-class').html(val.class_name);
-                       })           
-                      
-                    }
-                })
-              })
-            }
-          });
-
-})
 
 $('#select-class').on('change',function(){
-  $('#profile-box').hide();
-  $('#profile-box-room').hide();
+  table = "classes";
+  set = "id"
   var value = $('#select-class').val();
   $('#profile-box-class').show();
   $.ajax({

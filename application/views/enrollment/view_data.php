@@ -269,10 +269,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 Dashboard
               </a>
             </li>
-            <li  class="active">
+            <li>          
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Subjects (admin)
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Manage Class (admin)
+              </a>
+            </li>
+            <li>
+              <a href="<?php echo site_url('enrollment/manage_schedule'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                  Manage Schedule (admin)
+              </a>
+            </li>
+            <li class="active">
               <a href="<?php echo site_url('enrollment/view_data'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   View Data
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Register Student
               </a>
             </li>
             <li>
@@ -281,19 +306,64 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   Enroll Student
               </a>
             </li>
+          </ul>
+          
+        </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-mortar-board"></i>
+            <span>Academics</span>
+            <span class="pull-right-container">
+              <span class="label label-primary pull-right">4</span>
+            </span>
+          </a>
+
+          <ul class="treeview-menu">
             <li>
-              <a href="<?php echo site_url('enrollment/manage_student'); ?>">
+              <a href="#">
                 <i class="fa fa-circle-o text-aqua"></i>
-                  Manage Student
+                Schedule
+              </a>
+            </li>          
+            <li>
+              <a href="<?php echo site_url('academics/subjects'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Subjects
               </a>
             </li>
             <li>
-              <a href="<?php echo site_url('enrollment/manage_schedule'); ?>">
+              <a href="#">
                 <i class="fa fa-circle-o text-aqua"></i>
-                  Manage Schedule
+                Assign Subjects
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Teachers
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Year Level
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Sections
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Strands
               </a>
             </li>
           </ul>
+          
         </li>
       
         
@@ -330,9 +400,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!-- small box -->
           <div class="small-box bg-aqua" id="viewStudents" style="cursor: pointer;">
             <div class="inner">
-              <h3><?php echo $studentsCount ?></h3>
+              <h3><?php echo $registeredStudentsCount; ?></h3>
 
-              <p>Students</p>
+              <p>Registered Students</p>
             </div>
             <div class="icon">
               <i class="fa fa-pencil"></i>
@@ -345,7 +415,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!-- small box -->
           <div class="small-box bg-green" id="viewTeachers" style="cursor: pointer;">
             <div class="inner">
-              <h3><?php echo $teachersCount ?></h3>
+              <h3><?php echo $teachersCount; ?></h3>
 
               <p>Teachers</p>
             </div>
@@ -360,7 +430,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!-- small box -->
           <div class="small-box bg-yellow" id="viewRooms" style="cursor: pointer;">
             <div class="inner">
-              <h3><?php echo $roomsCount ?></h3>
+              <h3><?php echo $roomsCount; ?></h3>
 
               <p>Rooms</p>
             </div>
@@ -375,12 +445,72 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!-- small box -->
           <div class="small-box bg-red" id="viewClasses" style="cursor: pointer;">
             <div class="inner">
-              <h3><?php echo $classesCount ?></h3>
+              <h3><?php echo $sectionsCount; ?></h3>
 
-              <p>Class</p>
+              <p>Sections</p>
             </div>
             <div class="icon">
               <i class="fa fa-star"></i>
+            </div>
+            <a href="#" class="small-box-footer">View table <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green" id="viewClasses" style="cursor: pointer;">
+            <div class="inner">
+              <h3><?php echo $onlineApplicantsCount; ?></h3>
+
+              <p>Online Applicants</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-paperclip"></i>
+            </div>
+            <a href="#" class="small-box-footer">View table <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-purple" id="viewClasses" style="cursor: pointer;">
+            <div class="inner">
+              <h3><?php echo $enrolledStudentsCount; ?></h3>
+
+              <p>Enrolled Students</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-users"></i>
+            </div>
+            <a href="#" class="small-box-footer">View table <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-fuchsia" id="viewClasses" style="cursor: pointer;">
+            <div class="inner">
+              <h3><?php echo $strandsCount; ?></h3>
+
+              <p>Strands</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-folder-open"></i>
+            </div>
+            <a href="#" class="small-box-footer">View table <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-teal" id="viewClasses" style="cursor: pointer;">
+            <div class="inner">
+              <h3><?php echo $subjectsCount; ?></h3>
+
+              <p>Subjects</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-book"></i>
             </div>
             <a href="#" class="small-box-footer">View table <i class="fa fa-arrow-circle-right"></i></a>
           </div>

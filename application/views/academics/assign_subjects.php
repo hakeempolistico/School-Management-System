@@ -1,9 +1,12 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Enroll Student</title>
+  <title>AdminLTE 2 | Dashboard</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -12,13 +15,15 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/Ionicons/css/ionicons.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/select2/dist/css/select2.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/skins/_all-skins.min.css">
-  <!-- bootstrap datepicker -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -32,20 +37,16 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-
   <header class="main-header">
     <!-- Logo -->
     <a href="<?php echo site_url('/') ?>" class="logo">
-      {logo}
+     {logo}
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
       <!-- Sidebar toggle button-->
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
       </a>
 
       <div class="navbar-custom-menu">
@@ -154,7 +155,6 @@
                       <i class="fa fa-users text-red"></i> 5 new members joined
                     </a>
                   </li>
-
                   <li>
                     <a href="#">
                       <i class="fa fa-shopping-cart text-green"></i> 25 sales made
@@ -170,16 +170,18 @@
               <li class="footer"><a href="#">View all</a></li>
             </ul>
           </li>
+          
+         
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="<?php echo base_url('images/alt_picture.jpg');?>" class="user-image" alt="<?php echo base_url('images/alt_picture.jpg');?>">
+              <img src="<?php echo base_url('images/1.jpg');?>" class="user-image" alt="<?php echo base_url('images/alt_picture.jpg');?>">
               <span class="hidden-xs"><?php echo $this->session->first_name." ".$this->session->last_name ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="<?php echo base_url('images/alt_picture.jpg');?>" class="img-circle" alt="<?php echo base_url('images/alt_picture.jpg');?>">
+                <img src="<?php echo base_url('images/1.jpg');?>" class="img-circle" alt="<?php echo base_url('images/alt_picture.jpg');?>">
 
                 <p>
                  <?php echo $this->session->first_name." ".$this->session->last_name." - ".$this->session->position ?>
@@ -207,13 +209,12 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="<?php echo site_url('login/logout')?>" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
           </li>
           <!-- Control Sidebar Toggle Button -->
-          
         </ul>
       </div>
     </nav>
@@ -225,14 +226,13 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="<?php echo base_url('images/alt_picture.jpg');?>" class="img-circle" alt="<?php echo base_url('images/alt_picture.jpg');?>">
+          <img src="<?php echo base_url('images/1.jpg');?>" class="img-circle" alt="<?php echo base_url('images/alt_picture.jpg');?>">
         </div>
         <div class="pull-left info">
           <p><?php echo $this->session->first_name." ".$this->session->last_name ?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
-      
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
@@ -241,7 +241,7 @@
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
-        <li class="active treeview">
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-files-o"></i>
             <span>Enrollment</span>
@@ -256,48 +256,24 @@
                 <i class="fa fa-circle-o text-aqua"></i>
                 Dashboard
               </a>
-            </li>
-            <li>          
-            <li>
-              <a href="#">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Subjects (admin)
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Manage Class (admin)
-              </a>
-            </li>
-            <li>
-              <a href="<?php echo site_url('enrollment/manage_schedule'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                  Manage Schedule (admin)
-              </a>
-            </li>
-            <li>
-              <a href="<?php echo site_url('enrollment/view_data'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                  View Data
-              </a>
-            </li>
+            </li> 
             <li>
               <a href="<?php echo site_url('enrollment/register_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Register Student
               </a>
             </li>
-            <li class="active">
+            <li>
               <a href="<?php echo site_url('enrollment/enroll_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   Enroll Student
               </a>
             </li>
           </ul>
+          
         </li>
 
-        <li class="treeview">
+        <li class="active treeview">
           <a href="#">
             <i class="fa fa-mortar-board"></i>
             <span>Academics</span>
@@ -308,7 +284,7 @@
 
           <ul class="treeview-menu">
             <li>
-              <a href="#">
+              <a href="<?php echo site_url('academics/schedule'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Schedule
               </a>
@@ -319,32 +295,27 @@
                 Subjects
               </a>
             </li>
-            <li>
-              <a href="#">
+            <li class="active">
+              <a href="<?php echo site_url('academics/assign_subjects'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Assign Subjects
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="<?php echo site_url('academics/teachers'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Teachers
               </a>
             </li>
             <li>
-              <a href="#">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Year Level
-              </a>
-            </li>
             <li>
-              <a href="#">
+              <a href="<?php echo site_url('academics/sections'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Sections
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="<?php echo site_url('academics/strands'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Strands
               </a>
@@ -355,151 +326,119 @@
       
         
         <li class="header">LABELS</li>
+       
+
         
+      </ul>
     </section>
     <!-- /.sidebar -->
   </aside>
 
-
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="padding-bottom: 385px;">
-    <div class="alert bg-blue alert-dismissible flat">
+  <div class="content-wrapper">
+    <!-- <div class="alert alert-success alert-dismissible flat">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <h4><i class="icon fa fa-bullhorn"></i> Reminder!</h4>
-        Always ask for a clear copy of the student's signature!
-     </div>
+      <h4><i class="icon fa fa-bullhorn"></i> Day 1 of Enrollment is successful!</h4>
+        Congratulations! Job well done! Please do the same on Day 2 of Enrollment!
+     </div> -->
+      
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Enroll Student
-        <small>Choose one</small>
+        Assign Subjects
+        <small>temporary message here</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Enrollment</a></li>
-        <li class="active"><a href="#">Enroll Student</a></li>
+        <li><a href="enrollment/dashboard"><i class="fa fa-mortar-board"></i> Academics</a></li>
+        <li class="active">Assign Subjects</li>
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
-
-      <!-- Default box -->
-      <div class="row" style="margin-top: 20px;">
-            <div class="col-md-4">
-              <div class="alert alert-warning" style="height: 382px; padding: 25px 50px 20px 30px;">
-                <h4><i class="icon fa fa-check"></i> Remember!</h4>
-                <ul style="font-size: 16px;">
-                  <li>Don't be distracted by your surroundings</li>
-                  <li>Make sure you input the correct data!</li>
-                  <li>Explain thoroughly the process of enrollment to the applicant</li>
-                  <li>Answer any question being asked</li>
-                  <li>Be approachable!</li>
-                  <li>Smile!</li>
-                </ul>
+      <div class="row">
+        <div class="col-lg-4 col-xs-12">
+          <div class="box box-primary">
+              <div class="box-header">
+                <h3 class="box-title">Select class</h3>
               </div>
-            </div>
-
-            <div class="col-md-8">
-              <div class="row">
-              <div class="col-md-6">
-              <div class="small-box bg-purple" id="show">
-                <div class="inner">
-                  <h3>Apply</h3>
-
-                  <p>For Enrollment</p>
-                </div>
-                <div class="icon">
-                  <i class="fa  fa-files-o"></i>
-                </div>
-                <a href="#" class="small-box-footer" style="height: 26px;">More info <i class="fa fa-arrow-circle-right"></i></a>
+              <!-- /.box-header -->
+              <div class="box-body">                  
+                    <div class="form-group">
+                      <label>Strand</label>
+                      <select id="select-strand" data-placeholder="select strand" class="form-control select2" style="width: 100%;">
+                        <option id="option-strand"></option>
+                      </select>
+                    </div>                   
+                    <div class="form-group">
+                      <label>Year</label>
+                      <select id="select-year" data-placeholder="select year" class="form-control select2" style="width: 100%;">
+                        <option id="option-year"></option>
+                      </select>
+                    </div>                   
+                    <div class="form-group">
+                      <label>Section</label>
+                      <select id="select-section" data-placeholder="select section" class="form-control select2" style="width: 100%;">
+                        <option id="option-section"></option>
+                      </select>
+                    </div> 
+                
+                <button id="confirm-btn" type="button" style="width: 100px" class="btn btn-block btn-primary pull-right">Confirm</button>
               </div>
+          </div>
+        </div>
 
-              
-            </div>
-
-            <div class="col-md-6">
-              <div class="small-box bg-maroon" id="change">
-                <div class="inner">
-                  <h3>Search</h3>
-
-                  <p>Online Applications</p>
-                </div>
-                <div class="icon">
-                  <i class="fa fa-search"></i>
-                </div>
-                <a href="#" class="small-box-footer" style="height: 26px;">More info <i class="fa fa-arrow-circle-right"></i></a>
+        <div class="col-lg-8 col-xs-12">
+          <div class="box box-primary">
+              <div class="box-header">
+                <h3 class="box-title">Add Subjects</h3>
+                <h3 class="box-title pull-right"><button id="add-btn" class="btn btn-default btn-xs"><span class="fa fa-fw fa-plus"></span></button></h3>
               </div>
-            </div>
-          </div>
+              <!-- /.box-header -->
+              <div class="box-body">
+                  <div class="row">
+                    <div class="col-xs-12 col-lg-6">
+                      <div class="form-group" id="group-subject">
+                        <label id="label-subject" for="subjectNameInput">Subject</label>
+                        <select id="select-subject" data-placeholder="select subject" class="subject-input form-control select2" style="width: 100%;">
+                          <option></option>
+                          <?php foreach($subjects as $key => $val) {  ?>
+                            <option value = '<?php echo $val->code; ?>'> <?php echo $val->name; ?> </option>
+                          <?php } ?>
+                        </select>
+                      </div> 
+                    </div>
+                           
+                    <div class="col-xs-12 col-lg-6">
+                      <div class="form-group" id="group-teacher" >
+                        <label id="label-teacher" for="subjectCodeInput">Teacher</label>
+                        <select id="select-teacher" data-placeholder="select teacher" class="teacher-input form-control select2" style="width: 100%;">
+                          <option></option>
+                          <?php foreach($teachers as $key => $val) {  ?>
+                            <option value = '<?php echo $val->employee_id; ?>'> <?php echo $val->first_name." ".$val->last_name; ?> </option>
+                          <?php } ?>
+                        </select>
+                      </div> 
+                    </div>
+                  </div>     
+                     
 
-          <div id="lapa">
-            <div class="alert bg-gray" style="height: 234px;">
-                <div>
-                <center>
-                <i class="icon fa fa-exclamation-triangle fa-4x" style="margin-top: 25px;"></i>
-                <h3>No button selected!</h3>
-                <h4> Please choose from the two buttons above</h4>
-                </center>
-                </div>
+                <button id="save-btn" type="button" style="width: 100px" class="btn btn-block btn-primary pull-right">Save</button>  
             </div>
-          </div>
 
-          <div hidden id="apply">
-            <div class="alert bg-purple" style="padding-bottom: 45px;">
-                <div>
-                <h4><i class="icon fa fa-check"></i> Apply for enrollment!</h4>
-                <ol type= "1" style="font-size: 16px;">
-                  <li>Fill up a personal information form</li>
-                  <li>Submit necessary requirements</li>
-                  <li>Input grades to determine available strands</li>
-                  <li>Select desired strand</li>
-                  <li>Sumbit requirements</li>
-                  <li>Finish Enrollment</li>
-                  <a href="<?php echo site_url('enrollment/enroll_student/enroll')?>">
-                  <button type="button" class="btn pull-right" style="background-color: rgba(0,0,0,0.25); color: white; margin-top: 10px;">Proceed</button>
-                  </a>
-                </ol>
-                </div>
-            </div>
-          </div>
-          <div hidden id="search">
-            <div class="alert bg-maroon" style="padding-bottom: 45px;">
-                <div>
-                <h4><i class="icon fa fa-check"></i> Search for Applications Online!</h4>
-                <ol type= "1" style="font-size: 16px;">
-                  <li>Search for applications filed by the students from the Araullo website</li>
-                  <li>Submit necessary requirements</li>
-                  <li>Input grades to determine available strands</li>
-                  <li>Select desired strand</li>
-                  <li>Sumbit requirements</li>
-                  <li>Finish Enrollment</li>
-                  <a href="<?php echo site_url('enrollment/enroll_student/search') ?>">
-                  <button type="button" class="btn pull-right" style="background-color: rgba(0,0,0,0.25); color: white; margin-top: 10px;">Proceed</button>
-                  </a>
-                </ol>
-                </div>
-            </div>
-          </div>
-          </div>
-          <!-- /.row-->
-    </div>
 
+            
+          </div>
+        </div>
+      </div>
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  
-  <!-- Footer -->
   {footer}
-  <!-- /.Footer -->
-
-  <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
-  <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery 3 -->
 <script src="<?php echo base_url(); ?>bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo base_url(); ?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -507,28 +446,21 @@
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
+<!-- Select2 -->
+<script src="<?php echo base_url(); ?>bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
-<!-- InputMask -->
-<script src="<?php echo base_url(); ?>plugins/input-mask/jquery.inputmask.js"></script>
-<script src="<?php echo base_url(); ?>plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
-<script src="<?php echo base_url(); ?>plugins/input-mask/jquery.inputmask.extensions.js"></script>
+<!-- DataTables -->
+<script src="<?php echo base_url(); ?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="<?php echo base_url('dist/js/academics/assign_subjects.js'); ?>"></script>
 
 <script>
-$(document).ready(function(){
-    $("#show").click(function(){ 
-      $("#lapa").hide();     
-      $("#apply").show();
-      $("#search").hide();
-    });
-    $("#change").click(function(){
-      $("#lapa").hide();
-      $("#apply").hide();
-      $("#search").show();
-    });
-});
-
+var getStrands = '<?php echo base_url('academics/assign_subjects/getStrands'); ?>';
+var getYears = '<?php echo base_url('academics/assign_subjects/getYears'); ?>';
+var getSection = '<?php echo base_url('academics/assign_subjects/getSection'); ?>';
+var getSubjects = '<?php echo base_url('academics/assign_subjects/getSubjects'); ?>';
+var getTeachers = '<?php echo base_url('academics/assign_subjects/getTeachers'); ?>';
 </script>
-
 </body>
 </html>

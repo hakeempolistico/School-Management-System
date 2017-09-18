@@ -12,6 +12,10 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/Ionicons/css/ionicons.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/select2/dist/css/select2.min.css">
+  <!-- iCheck for checkboxes and radio inputs -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/iCheck/all.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -26,7 +30,12 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-
+<style type="text/css">
+  .error {
+  color: red;
+  font-size: 14px;
+  }
+</style>
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
@@ -170,6 +179,7 @@
               <li class="footer"><a href="#">View all</a></li>
             </ul>
           </li>
+                
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -212,8 +222,6 @@
               </li>
             </ul>
           </li>
-          <!-- Control Sidebar Toggle Button -->
-          
         </ul>
       </div>
     </nav>
@@ -261,7 +269,7 @@
             <li>
               <a href="#">
                 <i class="fa fa-circle-o text-aqua"></i>
-                Subjects (admin)
+                Add subject (admin)
               </a>
             </li>
             <li>
@@ -282,19 +290,20 @@
                   View Data
               </a>
             </li>
-            <li>
+            <li class="active">
               <a href="<?php echo site_url('enrollment/register_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Register Student
               </a>
             </li>
-            <li class="active">
+            <li>
               <a href="<?php echo site_url('enrollment/enroll_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   Enroll Student
               </a>
             </li>
           </ul>
+
         </li>
 
         <li class="treeview">
@@ -326,7 +335,7 @@
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="<?php echo site_url('academics/teachers'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Teachers
               </a>
@@ -354,148 +363,290 @@
         </li>
       
         
-        <li class="header">LABELS</li>
-        
+        <li class="header">LABELS</li>  
+      </ul>
     </section>
     <!-- /.sidebar -->
   </aside>
 
 
+
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="padding-bottom: 385px;">
-    <div class="alert bg-blue alert-dismissible flat">
+  <div class="content-wrapper">
+    <div class="alert bg-navy alert-dismissible flat">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <h4><i class="icon fa fa-bullhorn"></i> Reminder!</h4>
-        Always ask for a clear copy of the student's signature!
+        Make sure to receive the necessary requirements for enrollment, otherwise the student won't be enrolled!
      </div>
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Enroll Student
-        <small>Choose one</small>
+        Register Student
+        <small>Entering student info</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Enrollment</a></li>
-        <li class="active"><a href="#">Enroll Student</a></li>
+        <li class="active">Register Student</li>
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
+      <div class="row">
+        
+        <div class="col-md-12">
+          <div class="box box-info">
 
-      <!-- Default box -->
-      <div class="row" style="margin-top: 20px;">
-            <div class="col-md-4">
-              <div class="alert alert-warning" style="height: 382px; padding: 25px 50px 20px 30px;">
-                <h4><i class="icon fa fa-check"></i> Remember!</h4>
-                <ul style="font-size: 16px;">
-                  <li>Don't be distracted by your surroundings</li>
-                  <li>Make sure you input the correct data!</li>
-                  <li>Explain thoroughly the process of enrollment to the applicant</li>
-                  <li>Answer any question being asked</li>
-                  <li>Be approachable!</li>
-                  <li>Smile!</li>
-                </ul>
-              </div>
+            <div class="box-header with-border">
+              <h3 class="box-title">Student Information</h3>
             </div>
-
-            <div class="col-md-8">
-              <div class="row">
-              <div class="col-md-6">
-              <div class="small-box bg-purple" id="show">
-                <div class="inner">
-                  <h3>Apply</h3>
-
-                  <p>For Enrollment</p>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <div class="box-body" style="padding-bottom: 20px;">
+              <form method="POST" action="/sms/enrollment/register_student/register/">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                        <label>LRN<span class="text-red">*</span></label>
+                        <input type="text" class="form-control" name="lrn" id="inputLRN" value="<?php echo set_value('lrn'); ?>" placeholder="Learner Reference Number">
+                        <?php echo form_error('lrn'); ?>
+                    </div>
+                  </div>
                 </div>
-                <div class="icon">
-                  <i class="fa  fa-files-o"></i>
-                </div>
-                <a href="#" class="small-box-footer" style="height: 26px;">More info <i class="fa fa-arrow-circle-right"></i></a>
-              </div>
+                <!-- /.row -->
 
-              
+                <div class="form-group">
+                  <label>Name<span class="text-red">*</span></label>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <input type="text" class="form-control" name="first_name" id="inputFNAME" value="<?php echo set_value('first_name'); ?>" placeholder="First Name">
+                        <?php echo form_error('first_name'); ?>
+                      </div>
+                      <div class="col-md-4">
+                        <input type="text" class="form-control" name="middle_name" id="inputMNAME" value="<?php echo set_value('middle_name'); ?>" placeholder="Middle Name">
+                        <?php echo form_error('middle_name'); ?>
+                      </div>
+                      <div class="col-md-4">
+                        <input type="text" class="form-control" name="last_name" id="inputLNAME" value="<?php echo set_value('last_name'); ?>" placeholder="Last Name">
+                        <?php echo form_error('last_name'); ?>
+                      </div>
+                    </div>
+                </div>
+                <!-- /.form-group -->
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Sex<span class="text-red">*</span></label>
+                      <select class="form-control" id="inputSEX" name="sex" value="<?php echo set_select('sex'); ?>" placeholder="Sex">
+                        <option value="" disabled selected>Sex</option>
+                        <option value="Female" <?php echo  set_select('sex', 'Female'); ?> >Female</option>
+                        <option value="Male" <?php echo  set_select('sex', 'Male'); ?> >Male</option>
+                      </select>
+                      <?php echo form_error('sex'); ?>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Contact Number<span class="text-red">*</span></label>
+                      <input type="text" class="form-control" name="contact_number" id="inputCONTACT" value="<?php echo set_value('contact_number'); ?>" placeholder="Contact Number">
+                      <?php echo form_error('contact_number'); ?>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.row -->
+                <hr>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Birth Date<span class="text-red">*</span></label>
+                      <div class="input-group date">
+                        <div class="input-group-addon">
+                          <i class="fa fa-calendar"></i>
+                        </div>
+                        <input type="text" class="form-control" id="datepicker" name="birth_date" value="<?php echo set_value('birth_date'); ?>" placeholder="mm/dd/yyyy">
+                      </div>
+                      <?php echo form_error('birth_date'); ?>
+                    </div>
+                  </div>
+                  <!-- /.col -->
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Birth Place<span class="text-red">*</span></label>
+                      <input type="text" class="form-control" id="inputBIRTHPLACE" name="birth_place" value="<?php echo set_value('birth_place'); ?>" placeholder="Birth Place">
+                      <?php echo form_error('birth_place'); ?>
+                    </div>
+                  </div>
+                  <!-- /.col -->
+                </div>
+                <!-- /.row -->
+
+                <div class="form-group">
+                  <label>Address<span class="text-red">*</span></label>
+                  <div class="row">
+                    <div class="col-md-3">
+                      <input type="text" class="form-control address" id="inputSTREET" value="<?php echo set_value('street'); ?>" placeholder="House #, Street" name="street">
+                        <?php echo form_error('street'); ?>
+                    </div>
+                    <div class="col-md-3">
+                      <input type="text" class="form-control address" id="inputBARANGAY" value="<?php echo set_value('barangay'); ?>" placeholder="Barangay" name="barangay">
+                        <?php echo form_error('barangay'); ?>
+                    </div>
+                    <div class="col-md-3">
+                      <input type="text" class="form-control address" id="inputCITY" value="<?php echo set_value('city'); ?>" placeholder="City" name="city">
+                        <?php echo form_error('city'); ?>
+                    </div>
+                    <div class="col-md-3">
+                      <input type="text" class="form-control address" id="inputPROVINCE" value="<?php echo set_value('province'); ?>" placeholder="Province" name="province">
+                        <?php echo form_error('province'); ?>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.form-group -->
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Mother Tongue<span class="text-red">*</span></label>
+                      <input type="text" class="form-control" id="inputMOTHERTONGUE" value="<?php echo set_value('mother_tongue'); ?>" placeholder="Mother Tongue" name="mother_tongue">
+                      <?php echo form_error('mother_tongue'); ?>
+                    </div>
+                  </div>
+                  <!-- /.col -->
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Religion<span class="text-red">*</span></label>
+                      <input type="text" class="form-control" id="inputRELIGION" value="<?php echo set_value('religion'); ?>" placeholder="Religion" name="religion">
+                      <?php echo form_error('religion'); ?>
+                    </div>
+                  </div>
+                  <!-- /.col -->
+                </div>
+                <!-- /.row -->
+
+                <hr>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Father's Name<span class="text-red">*</span></label>
+                      <input type="text" class="form-control" id="inputFATHER" value="<?php echo set_value('father_name'); ?>" placeholder="Father's Name" name="father_name">
+                      <?php echo form_error('father_name'); ?>
+                    </div>
+                  </div>
+                  <!-- /.col -->
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Mother's Maiden Name<span class="text-red">*</span></label>
+                      <input type="text" class="form-control" id="inputMOTHER" value="<?php echo set_value('mother_name'); ?>" placeholder="Mother's Maiden Name" name="mother_name">
+                      <?php echo form_error('mother_name'); ?>
+                    </div>
+                  </div>
+                  <!-- /.col -->
+                </div>
+                <!-- /.row -->
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Father's Contact No.<span class="text-red">*</span></label>
+                      <input type="text" class="form-control" id="inputFATHERCONTACT" value="<?php echo set_value('father_contact'); ?>" placeholder="Father's Contact No." name="father_contact">
+                      <?php echo form_error('father_contact'); ?>
+                    </div>
+                  </div>
+                  <!-- /.col -->
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Mother's Contact No.<span class="text-red">*</span></label>
+                      <input type="text" class="form-control" id="inputMOTHERCONTACT" value="<?php echo set_value('mother_contact'); ?>" placeholder="Mother's Contact No." name="mother_contact">
+                      <?php echo form_error('mother_contact'); ?>
+                    </div>
+                  </div>
+                  <!-- /.col -->
+                </div>
+                <!-- /.row -->
+
+                <hr>
+                <div class="row" style="margin-bottom: -10px;">
+                  <div class="col-md-3">
+                    <label>If Guardian is<span class="text-red">*</span></label>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                        <input type="radio" name="r3" class="flat-red parent" value="Father" <?php echo  set_radio('r3', 'Father'); ?> >   Father
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                        <input type="radio" name="r3" class="flat-red parent" value="Mother" <?php echo  set_radio('r3', 'Mother'); ?> >   Mother
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                        <input type="radio" name="r3" class="flat-red other" value="Other" <?php echo  set_radio('r3', 'Other'); ?> >   Other
+                    </div>
+                  </div>
+                </div>
+                <!-- /.row -->
+
+                <div hidden id="guardianInput" class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Name<span class="text-red">*</span></label>
+                      <input type="text" class="form-control" id="inputGUARDIAN" value="<?php echo set_value('guardian'); ?>" placeholder="Guardian's Name" name="guardian">
+                      <?php echo form_error('guardian'); ?>
+                    </div>
+                  </div>
+                  <!-- /.col -->
+
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Relationship<span class="text-red">*</span></label>
+                      <input type="text" class="form-control" id="inputRELATIONSHIP" value="<?php echo set_value('relationship'); ?>" placeholder="Relationship with Guardian" name="relationship">
+                      <?php echo form_error('relationship'); ?>
+                    </div>
+                  </div>
+                  <!-- /.col --> 
+
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Contact No.<span class="text-red">*</span></label>
+                      <input type="text" class="form-control" id="inputGUARDIANCONTACT" value="<?php echo set_value('guardian_contact'); ?>" placeholder="Guradian's Contact No." name="guardian_contact">
+                      <?php echo form_error('guardian_contact'); ?>
+                    </div>
+                  </div>
+                  <!-- /.col -->
+                </div>
+                <!-- /.row -->
+
+                <hr>
+                
+
+                <button type="submit" class="btn btn-primary pull-right">Submit</button>
+
+              </form>
             </div>
-
-            <div class="col-md-6">
-              <div class="small-box bg-maroon" id="change">
-                <div class="inner">
-                  <h3>Search</h3>
-
-                  <p>Online Applications</p>
-                </div>
-                <div class="icon">
-                  <i class="fa fa-search"></i>
-                </div>
-                <a href="#" class="small-box-footer" style="height: 26px;">More info <i class="fa fa-arrow-circle-right"></i></a>
-              </div>
-            </div>
+            <!-- /.box-body -->
           </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
 
-          <div id="lapa">
-            <div class="alert bg-gray" style="height: 234px;">
-                <div>
-                <center>
-                <i class="icon fa fa-exclamation-triangle fa-4x" style="margin-top: 25px;"></i>
-                <h3>No button selected!</h3>
-                <h4> Please choose from the two buttons above</h4>
-                </center>
-                </div>
-            </div>
-          </div>
-
-          <div hidden id="apply">
-            <div class="alert bg-purple" style="padding-bottom: 45px;">
-                <div>
-                <h4><i class="icon fa fa-check"></i> Apply for enrollment!</h4>
-                <ol type= "1" style="font-size: 16px;">
-                  <li>Fill up a personal information form</li>
-                  <li>Submit necessary requirements</li>
-                  <li>Input grades to determine available strands</li>
-                  <li>Select desired strand</li>
-                  <li>Sumbit requirements</li>
-                  <li>Finish Enrollment</li>
-                  <a href="<?php echo site_url('enrollment/enroll_student/enroll')?>">
-                  <button type="button" class="btn pull-right" style="background-color: rgba(0,0,0,0.25); color: white; margin-top: 10px;">Proceed</button>
-                  </a>
-                </ol>
-                </div>
-            </div>
-          </div>
-          <div hidden id="search">
-            <div class="alert bg-maroon" style="padding-bottom: 45px;">
-                <div>
-                <h4><i class="icon fa fa-check"></i> Search for Applications Online!</h4>
-                <ol type= "1" style="font-size: 16px;">
-                  <li>Search for applications filed by the students from the Araullo website</li>
-                  <li>Submit necessary requirements</li>
-                  <li>Input grades to determine available strands</li>
-                  <li>Select desired strand</li>
-                  <li>Sumbit requirements</li>
-                  <li>Finish Enrollment</li>
-                  <a href="<?php echo site_url('enrollment/enroll_student/search') ?>">
-                  <button type="button" class="btn pull-right" style="background-color: rgba(0,0,0,0.25); color: white; margin-top: 10px;">Proceed</button>
-                  </a>
-                </ol>
-                </div>
-            </div>
-          </div>
-          </div>
-          <!-- /.row-->
-    </div>
-
+      </div>
+      <!-- /.row -->
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  
+
   <!-- Footer -->
   {footer}
   <!-- /.Footer -->
 
-  <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
-  <div class="control-sidebar-bg"></div>
+
 </div>
 <!-- ./wrapper -->
 
@@ -503,32 +654,89 @@
 <script src="<?php echo base_url(); ?>bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo base_url(); ?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Select2 -->
+<script src="<?php echo base_url(); ?>bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
+<!-- iCheck 1.0.1 -->
+<script src="<?php echo base_url(); ?>plugins/iCheck/icheck.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
+<!-- js ni adrii -->
+<script src="<?php echo base_url(); ?>js/forminput.js"></script>
+<!-- bootstrap datepicker -->
+<script src="<?php echo base_url(); ?>bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <!-- InputMask -->
 <script src="<?php echo base_url(); ?>plugins/input-mask/jquery.inputmask.js"></script>
 <script src="<?php echo base_url(); ?>plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
 <script src="<?php echo base_url(); ?>plugins/input-mask/jquery.inputmask.extensions.js"></script>
 
 <script>
-$(document).ready(function(){
-    $("#show").click(function(){ 
-      $("#lapa").hide();     
-      $("#apply").show();
-      $("#search").hide();
-    });
-    $("#change").click(function(){
-      $("#lapa").hide();
-      $("#apply").hide();
-      $("#search").show();
-    });
-});
-
+  var dateString = $('#guardianInput').hide();
+  var today = new Date();
+  var birthDate = new Date(dateString);
+  var age = today.getFullYear() - birthDate.getFullYear();
+  var m = today.getMonth() - birthDate.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
 </script>
+
+<script>
+
+    $('.flat-red').on('ifChecked', function(event){
+      var radioInput = $(this).val(); 
+      
+
+      if(radioInput == "Father"){
+        $('#guardianInput').hide();
+        $('#inputGUARDIAN').val($('#inputFATHER').val());
+        $('#inputRELATIONSHIP').val(radioInput);
+        $('#inputGUARDIANCONTACT').val($('#inputFATHERCONTACT').val());
+
+      }else if(radioInput == "Mother"){
+        $('#guardianInput').hide();
+        $('#inputGUARDIAN').val($('#inputMOTHER').val());
+        $('#inputRELATIONSHIP').val(radioInput);
+        $('#inputGUARDIANCONTACT').val($('#inputMOTHERCONTACT').val());
+
+      }else{
+        $('#guardianInput').show();
+        $('#inputGUARDIAN').val('');
+        $('#inputRELATIONSHIP').val('');
+        $('#inputGUARDIANCONTACT').val('');
+      }
+
+    });
+</script>
+<script>
+//Date picker
+    $('#datepicker').datepicker({
+      autoclose: true,
+      format: 'yyyy/mm/dd'
+    })
+
+    //iCheck for checkbox and radio inputs
+    $('input[type="radio"].minimal').iCheck({
+      radioClass   : 'iradio_minimal-blue'
+    })
+    //Red color scheme for iCheck
+    $('input[type="radio"].minimal-red').iCheck({
+      radioClass   : 'iradio_minimal-red'
+    })
+    //Flat red color scheme for iCheck
+    $('input[type="radio"].flat-red').iCheck({
+      radioClass   : 'iradio_flat-green'
+    })
+</script>
+<script type="text/javascript">
+  //Initialize Select2 Elements
+    $('.select2').select2();
+    
+</script>
+
 
 </body>
 </html>

@@ -8,8 +8,12 @@ class global_model extends CI_Model{
 		return $query;
 	}
 
-	public function getRecords($table)
+	public function getRecords($table, $order_by=null, $set=null)
 	{
+		if($order_by != null && $set != null)
+		{
+		   $this->db->order_by($set, $order_by);
+		}
 		$query = $this->db->get($table)->result();
 		return $query;
 	}
@@ -17,7 +21,7 @@ class global_model extends CI_Model{
 	public function getRow($table, $set, $value)
 	{
 		$this->db->where($set, $value);
-		$query = $this->db->get($table)->result();
+		$query = $this->db->get($table)->row();
 		return $query;
 	}
 
@@ -27,9 +31,13 @@ class global_model extends CI_Model{
 		return $query;
 	}
 
-	public function count($table)
+	public function count($table, $set=null, $value=null)
 	{
-		return $this->db->count_all($table);
+		if($set != null && $value != null){
+			$this->db->where($set, $value);
+		}
+		$query = $this->db->get($table);
+		return $query->num_rows();
 	}
 
 }

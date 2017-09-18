@@ -1,39 +1,9 @@
--- phpMyAdmin SQL Dump
--- version 4.7.0
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Sep 18, 2017 at 04:22 AM
--- Server version: 10.1.22-MariaDB
--- PHP Version: 7.1.4
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `school_management`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `academic_years`
---
-
 CREATE TABLE `academic_years` (
   `id` int(11) NOT NULL,
   `year_start` int(4) NOT NULL,
   `year_end` int(4) NOT NULL,
-  `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `date_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+  `date_created` timestamp NOT NULL,
+  `date_modified` timestamp NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -51,20 +21,6 @@ CREATE TABLE `addresses` (
   `province` varchar(50) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `class_subjects`
---
-
-CREATE TABLE `class_subjects` (
-  `id` int(11) NOT NULL,
-  `section_id` int(11) NOT NULL,
-  `subject_id` int(11) NOT NULL,
-  `teacher_id` int(11) NOT NULL,
-  `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `date_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -74,13 +30,13 @@ CREATE TABLE `class_subjects` (
 
 CREATE TABLE `enrolled_students` (
   `id` int(50) NOT NULL,
-  `registered_student_lrn` int(50) NOT NULL,
-  `note` text NOT NULL,
+  `registered_student_id` int(50) NOT NULL,
   `class_id` int(50) NOT NULL,
   `strand_id` int(50) NOT NULL,
   `year_level_id` int(50) NOT NULL,
   `academic_year_id` int(50) NOT NULL,
-  `date_enrolled` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `note` varchar(255) NOT NULL,
+  `date_enrolled` timestamp NOT NULL,
   `date_modified` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -98,6 +54,7 @@ CREATE TABLE `guardians` (
   `relationship` varchar(50) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+
 -- --------------------------------------------------------
 
 --
@@ -112,6 +69,7 @@ CREATE TABLE `parents` (
   `father_name` varchar(70) NOT NULL,
   `father_contact` varchar(15) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -133,9 +91,10 @@ CREATE TABLE `registered_students` (
   `mother_tongue` varchar(50) NOT NULL,
   `religion` varchar(50) NOT NULL,
   `online_applicant` bit(1) NOT NULL,
-  `date_registered` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `date_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+  `date_registered` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -162,8 +121,8 @@ CREATE TABLE `rooms` (
   `room_name` varchar(50) NOT NULL,
   `building` varchar(200) NOT NULL,
   `class_id` int(11) DEFAULT NULL,
-  `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `date_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+  `date_created` timestamp NOT NULL,
+  `date_modified` timestamp NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -191,9 +150,7 @@ CREATE TABLE `schedules` (
 CREATE TABLE `sections` (
   `id` int(11) NOT NULL,
   `name` varchar(45) NOT NULL,
-  `capacity` int(2) NOT NULL,
-  `strand_id` int(11) NOT NULL,
-  `year_level_id` int(11) NOT NULL
+  `capacity` int(2) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -229,9 +186,7 @@ CREATE TABLE `student_contacts` (
 
 CREATE TABLE `subjects` (
   `id` int(11) NOT NULL,
-  `code` varchar(50) NOT NULL,
   `name` varchar(150) NOT NULL,
-  `type` varchar(50) NOT NULL,
   `description` varchar(500) NOT NULL,
   `date_created` timestamp NULL DEFAULT NULL,
   `date_modified` timestamp NULL DEFAULT NULL
@@ -251,7 +206,7 @@ CREATE TABLE `teachers` (
   `last_name` varchar(50) NOT NULL,
   `major` varchar(50) NOT NULL,
   `position` varchar(50) NOT NULL,
-  `status` varchar(50) NOT NULL DEFAULT 'Active'
+  `status` varchar(50) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -268,8 +223,19 @@ CREATE TABLE `users` (
   `last_name` varchar(100) NOT NULL,
   `position` varchar(50) NOT NULL,
   `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `date_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+  `date_modified` timestamp NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`, `first_name`, `last_name`, `position`, `date_created`, `date_modified`) VALUES
+(1, 'admin', 'admin', 'Hakeem', 'Polistico', 'superadmin', '2017-08-20 08:49:08', '2017-08-20 08:49:08'),
+(2, 'adriitakumi', 'hakeemjoshua', 'Adrielle', 'Escaro', 'admin', '2017-08-20 08:50:36', '2017-08-20 08:50:36'),
+(3, 'jassyber', 'ilovetolove', 'Jasver', 'Salva', 'admin', '2017-08-20 08:51:15', '2017-08-20 08:51:15'),
+(4, 'iamteacher', 'iamteacher', 'Teacher', 'IsMe', 'teacher', '2017-08-20 08:51:48', '2017-08-20 08:51:48'),
+(5, 'studentisme', 'studentisme', 'Student', 'IsMe', 'student', '2017-08-20 08:52:27', '2017-08-20 08:52:27');
 
 -- --------------------------------------------------------
 
@@ -296,12 +262,6 @@ ALTER TABLE `academic_years`
 -- Indexes for table `addresses`
 --
 ALTER TABLE `addresses`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `class_subjects`
---
-ALTER TABLE `class_subjects`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -368,8 +328,7 @@ ALTER TABLE `student_contacts`
 -- Indexes for table `subjects`
 --
 ALTER TABLE `subjects`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `code` (`code`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `teachers`
@@ -403,11 +362,6 @@ ALTER TABLE `academic_years`
 -- AUTO_INCREMENT for table `addresses`
 --
 ALTER TABLE `addresses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `class_subjects`
---
-ALTER TABLE `class_subjects`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `enrolled_students`
@@ -445,16 +399,6 @@ ALTER TABLE `rooms`
 ALTER TABLE `schedules`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `sections`
---
-ALTER TABLE `sections`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `strands`
---
-ALTER TABLE `strands`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT for table `student_contacts`
 --
 ALTER TABLE `student_contacts`
@@ -473,13 +417,7 @@ ALTER TABLE `teachers`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `year_levels`
---
-ALTER TABLE `year_levels`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;COMMIT;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
