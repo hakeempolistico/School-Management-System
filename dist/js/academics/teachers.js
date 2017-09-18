@@ -172,7 +172,7 @@ $("#add-btn").click(function(){
                   }, 
                   success: function(result){
                     console.log(result);              
-                    //populateTable();
+                    populateTable();
                     $('#id-input').val('');
                     $('#firstname-input').val('');
                     $('#middlename-input').val('');
