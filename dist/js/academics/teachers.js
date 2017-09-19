@@ -8,6 +8,15 @@ var position;
 var major;
 var status;
 
+
+  var getRecordsUrl = '/academics/teachers/ajaxGetRecords';
+  var countUrl = "/academics/teachers/ajaxCountRow";
+  var addUrl = "/academics/teachers/ajaxInsert";
+  var updateUrl = "/academics/teachers/ajaxUpdate";
+  var getRowUrl = "/academics/teachers/ajaxGetRow";
+  var deleteRowUrl = "/academics/teachers/ajaxDeleteRow";
+
+
 $(function () {
    populateTable();
 })
@@ -19,7 +28,7 @@ $(function () {
                 url: countUrl,
                 type: 'post',
                 dataType: 'json', 
-                data: {'table' : 'teachers', 'set' : 'employee_id', 'value' : employee_id  }, 
+                data: {'table' : 'teachers', 'set' : 'employee_id', 'value' : new_empoyee_id  }, 
                 success: function(result){
                   var employeeCount = result;    
                   if (new_empoyee_id == null || new_empoyee_id.trim() === ''){
