@@ -439,7 +439,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="modal-content" >
               <div class="box box-primary">
             <div class="box-body box-profile flat">
-              <img class="profile-user-img img-responsive img-circle" src="http://sms.local/dist/img/user4-128x128.jpg" alt="<?php base_url('images/alt_picture.jpg')?>"> <br>
+              <img class="profile-user-img img-responsive img-circle" src="http://sms.local/dist/img/user4-128x128.jpg" alt="<?php echo base_url('images/alt_picture.jpg');?>"> <br>
               <a id="view-edit" class="btn btn-default btn-xs pull-right"><span class="fa fa-fw fa-pencil"></span></a>
               <ul class="list-group list-group-unbordered">
                 <li>
@@ -491,7 +491,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="modal-content" >
               <div class="box box-primary">
             <div class="box-body box-profile flat">
-              <img class="profile-user-img img-responsive img-circle" src="http://sms.local/dist/img/user4-128x128.jpg" alt="<?php base_url('images/alt_picture.jpg')?>"> <br>
+              <img class="profile-user-img img-responsive img-circle" src="http://sms.local/dist/img/user4-128x128.jpg" alt="<?php echo base_url('images/alt_picture.jpg');?>"> <br>
               <ul class="list-group list-group-unbordered">
                 <li>
                   <div class="form-group" style="margin-bottom: 5px;">

@@ -527,6 +527,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <!-- /.box-body -->
           </div>
+          {footer}
           </div>
           <!-- /.modal-dialog -->
         </div>
@@ -536,7 +537,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  {footer}
 </div>
 <!-- ./wrapper -->
 

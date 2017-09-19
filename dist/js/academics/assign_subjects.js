@@ -42,6 +42,13 @@ $(function () {
       }
     }); 
 
+    $('.subject-input').prop('disabled', true);
+    $('.teacher-input').prop('disabled', true);
+    $('#add-btn').prop('disabled', true);
+    $('#save-btn').prop('disabled', true);   
+    $('#confirm-btn').prop('disabled', true);
+
+
     $('#select-strand').on('change',function(){
        $('#select-section').find('option').remove();
        $("#select-year").val("").trigger("change");
@@ -73,45 +80,53 @@ $(function () {
           }
         }); 
 
+       $('#confirm-btn').prop('disabled',false);
+
+    })
+
+    $('#confirm-btn').on('click', function(){ 
+
+      $('.cloneInput').select2('destroy').remove();
+      $('.clone').remove();
+
+      $( "#select-subject" ).val(null).trigger("change");
+      $( "#select-teacher" ).val(null).trigger("change");
+
+      $('.subject-input').prop('disabled', false);
+      $('.teacher-input').prop('disabled', false);
+      $('#add-btn').prop('disabled', false);
+      $('#save-btn').prop('disabled', false); 
+
     })
 
 
-    //ADD SUBJECTS BOX
+    //ADD SUBJECT-TEACHER BOX
 
-    $.ajax({
-      url: getSubjects,
-      type: 'post',
-      dataType: 'json',  
-      success: function(result){
-        console.log(result);
+    $('#add-btn').on('click', function(){
+      $( "#label-subject" ).clone().attr("style", "margin-top: 10px;").addClass('clone').insertAfter("#select-subject");
+      $( "#select-subject" ).clone().insertBefore("#select-subject").addClass('cloneInput').select2();
+      $( "#label-teacher" ).clone().attr("style", "margin-top: 10px;").addClass('clone').insertAfter("#select-teacher");
+      $( "#select-teacher" ).clone().insertBefore("#select-teacher").addClass('cloneInput').select2();
+    })
 
-        for (var i = 0; i >= 0; i++) {
-          $('.subject-input').append($('<option>', { 
-              value: result[i].code,
-              text : result[i].name
-          })).select2();
-        }
+    $('#save-btn').on('click', function(){
+      var subjects = [];
+      var teachers = [];
+      $('.subject-input').each(function(index, elem) {
+        subjects.push($(elem).val());
+      })
+      $('.teacher-input').each(function(index, elem) {
+        teachers.push($(elem).val());
+      })
+      
+      console.log(subjects);
+      console.log(teachers);
+    })
 
-      }
-    }); 
 
-    $.ajax({
-      url: getTeachers,
-      type: 'post',
-      dataType: 'json',  
-      success: function(result){
-        console.log(result);
 
-        for (var i = 0; i >= 0; i++) {
-          var name=result[i].first_name+' '+result[i].middle_name+' '+result[i].last_name;
-          console.log(name);
-          $('.teacher-input').append($('<option>', { 
-              value: result[i].employee_id,
-              text : name
-          })).select2();
-        }
+     
 
-      }
-    }); 
+    
 
   })

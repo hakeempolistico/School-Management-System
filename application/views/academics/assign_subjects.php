@@ -383,7 +383,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       </select>
                     </div> 
                 
-                <button type="button" style="width: 100px" class="btn btn-block btn-primary pull-right">Confirm</button>
+                <button id="confirm-btn" type="button" style="width: 100px" class="btn btn-block btn-primary pull-right">Confirm</button>
               </div>
           </div>
         </div>
@@ -392,31 +392,41 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="box box-primary">
               <div class="box-header">
                 <h3 class="box-title">Add Subjects</h3>
-                <h3 class="box-title pull-right"><a href="#" class="btn btn-default btn-xs"><span class="fa fa-fw fa-plus"></span></a></h3>
+                <h3 class="box-title pull-right"><button id="add-btn" class="btn btn-default btn-xs"><span class="fa fa-fw fa-plus"></span></button></h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
-                <div class="row">
-                  <div class="col-xs-12 col-lg-6">
-                    <div class="form-group">
-                      <label for="subjectNameInput">Subject</label>
-                      <select id="select-strand" data-placeholder="select subject" class="subject-input form-control select2" style="width: 100%;">
-                        <option id="option-strand"></option>
-                      </select>
-                    </div> 
-                  </div>
-                         
-                  <div class="col-xs-12 col-lg-6">
-                    <div class="form-group">
-                      <label for="subjectCodeInput">Teacher</label>
-                      <select id="select-strand" data-placeholder="select teacher" class="teacher-input form-control select2" style="width: 100%;">
-                        <option id="option-strand"></option>
-                      </select>
-                    </div> 
-                  </div>
-                </div>              
-              <button type="button" style="width: 100px" class="btn btn-block btn-primary pull-right">Save</button>
+                  <div class="row">
+                    <div class="col-xs-12 col-lg-6">
+                      <div class="form-group" id="group-subject">
+                        <label id="label-subject" for="subjectNameInput">Subject</label>
+                        <select id="select-subject" data-placeholder="select subject" class="subject-input form-control select2" style="width: 100%;">
+                          <option></option>
+                          <?php foreach($subjects as $key => $val) {  ?>
+                            <option value = '<?php echo $val->code; ?>'> <?php echo $val->name; ?> </option>
+                          <?php } ?>
+                        </select>
+                      </div> 
+                    </div>
+                           
+                    <div class="col-xs-12 col-lg-6">
+                      <div class="form-group" id="group-teacher" >
+                        <label id="label-teacher" for="subjectCodeInput">Teacher</label>
+                        <select id="select-teacher" data-placeholder="select teacher" class="teacher-input form-control select2" style="width: 100%;">
+                          <option></option>
+                          <?php foreach($teachers as $key => $val) {  ?>
+                            <option value = '<?php echo $val->employee_id; ?>'> <?php echo $val->first_name." ".$val->last_name; ?> </option>
+                          <?php } ?>
+                        </select>
+                      </div> 
+                    </div>
+                  </div>     
+                     
+
+                <button id="save-btn" type="button" style="width: 100px" class="btn btn-block btn-primary pull-right">Save</button>  
             </div>
+
+
             
           </div>
         </div>
