@@ -104,25 +104,23 @@ $(function () {
 
     $('#add-btn').on('click', function(){
       $( "#label-subject" ).clone().attr("style", "margin-top: 10px;").addClass('clone').insertAfter("#select-subject");
-      $( "#select-subject" ).clone().insertAfter("#select-subject").addClass('cloneInput').select2();
+      $( "#select-subject" ).clone().insertBefore("#select-subject").addClass('cloneInput').select2();
       $( "#label-teacher" ).clone().attr("style", "margin-top: 10px;").addClass('clone').insertAfter("#select-teacher");
-      $( "#select-teacher" ).clone().insertAfter("#select-teacher").addClass('cloneInput').select2();
+      $( "#select-teacher" ).clone().insertBefore("#select-teacher").addClass('cloneInput').select2();
     })
 
     $('#save-btn').on('click', function(){
       var subjects = [];
       var teachers = [];
       $('.subject-input').each(function(index, elem) {
-        if (index === 0) return;
         subjects.push($(elem).val());
       })
       $('.teacher-input').each(function(index, elem) {
-        if (index === 0) return;
         teachers.push($(elem).val());
       })
-      /*
+      
       console.log(subjects);
-      console.log(teachers);*/
+      console.log(teachers);
     })
 
 
