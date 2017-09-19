@@ -84,11 +84,19 @@ $(function () {
 
     })
 
-    $('#confirm-btn').on('click', function(){
+    $('#confirm-btn').on('click', function(){ 
+
+      $('.cloneInput').select2('destroy').remove();
+      $('.clone').remove();
+
+      $( "#select-subject" ).val(null).trigger("change");
+      $( "#select-teacher" ).val(null).trigger("change");
+
       $('.subject-input').prop('disabled', false);
       $('.teacher-input').prop('disabled', false);
       $('#add-btn').prop('disabled', false);
-      $('#save-btn').prop('disabled', false);  
+      $('#save-btn').prop('disabled', false); 
+
     })
 
 
@@ -96,17 +104,23 @@ $(function () {
 
     $('#add-btn').on('click', function(){
       $( "#label-subject" ).clone().attr("style", "margin-top: 10px;").addClass('clone').insertAfter("#select-subject");
-      $( "#select-subject" ).clone().insertAfter("#select-subject").addClass('clone').select2();
+      $( "#select-subject" ).clone().insertBefore("#select-subject").addClass('cloneInput').select2();
       $( "#label-teacher" ).clone().attr("style", "margin-top: 10px;").addClass('clone').insertAfter("#select-teacher");
-      $( "#select-teacher" ).clone().insertAfter("#select-teacher").addClass('clone').select2();
+      $( "#select-teacher" ).clone().insertBefore("#select-teacher").addClass('cloneInput').select2();
     })
 
     $('#save-btn').on('click', function(){
-
+      var subjects = [];
+      var teachers = [];
       $('.subject-input').each(function(index, elem) {
-        value = $(elem).val();
-        alert(value);
+        subjects.push($(elem).val());
       })
+      $('.teacher-input').each(function(index, elem) {
+        teachers.push($(elem).val());
+      })
+      
+      console.log(subjects);
+      console.log(teachers);
     })
 
 
