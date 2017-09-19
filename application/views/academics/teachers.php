@@ -573,12 +573,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url('dist/js/academics/teachers.js'); ?>"></script>
   
 <script>
-  var getRecordsUrl = '<?php echo base_url('/academics/teachers/ajaxGetRecords')?>';
-  var countUrl = "<?php echo base_url('/academics/teachers/ajaxCountRow')?>";
-  var addUrl = "<?php echo base_url('/academics/teachers/ajaxInsert')?>";
-  var updateUrl = "<?php echo base_url('/academics/teachers/ajaxUpdate')?>";
-  var getRowUrl = "<?php echo base_url('/academics/teachers/ajaxGetRow')?>";
-  var deleteRowUrl = "<?php echo base_url('/academics/teachers/ajaxDeleteRow')?>";
 </script>
 
 </body>
