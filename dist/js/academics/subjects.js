@@ -4,6 +4,15 @@ var code;
 var type;
 var description;
 var newCode;
+
+
+  var getRecordsUrl = '/academics/subjects/ajaxGetRecords';
+  var updateUrl = "/academics/subjects/ajaxUpdate";
+  var addUrl = "/academics/subjects/ajaxInsert";
+  var getRowUrl = "/academics/subjects/ajaxGetRow";
+  var deleteRowUrl = "/academics/subjects/ajaxDeleteRow";
+  var countUrl = "/academics/subjects/ajaxCountRow";
+
 function show(){
   i=1;
     $( "#view-name" ).prop( "disabled", false );
@@ -26,7 +35,7 @@ function updateRow(){
             url: countUrl,
             type: 'post',
             dataType: 'json', 
-            data: {'table' : 'subjects', 'set' : 'code', 'value' : code  }, 
+            data: {'table' : 'subjects', 'set' : 'code', 'value' : newCode  }, 
             success: function(result){
               var codeCount = result;    
               if (newCode == null || newCode.trim() === ''){

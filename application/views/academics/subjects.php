@@ -556,13 +556,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 <script>
-  var getRecordsUrl = '<?php echo base_url('/academics/subjects/ajaxGetRecords')?>';
-  var updateUrl = "<?php echo base_url('/academics/subjects/ajaxUpdate')?>";
-  var addUrl = "<?php echo base_url('/academics/subjects/ajaxInsert')?>";
-  var getRowUrl = "<?php echo base_url('/academics/subjects/ajaxGetRow')?>";
-  var deleteRowUrl = "<?php echo base_url('/academics/subjects/ajaxDeleteRow')?>";
-  var countUrl = "<?php echo base_url('/academics/subjects/ajaxCountRow')?>";
 </script>
+
 <script src="<?php echo base_url(); ?>dist/js/academics/subjects.js"></script>
 </body>
 </html>
