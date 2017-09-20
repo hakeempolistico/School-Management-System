@@ -9,12 +9,12 @@ var major;
 var status;
 
 
-  var getRecordsUrl = '/academics/teachers/ajaxGetRecords';
-  var countUrl = "/academics/teachers/ajaxCountRow";
-  var addUrl = "/academics/teachers/ajaxInsert";
-  var updateUrl = "/academics/teachers/ajaxUpdate";
-  var getRowUrl = "/academics/teachers/ajaxGetRow";
-  var deleteRowUrl = "/academics/teachers/ajaxDeleteRow";
+  var getRecordsUrl = 'teachers/ajaxGetRecords';
+  var countUrl = "teachers/ajaxCountRow";
+  var addUrl = "teachers/ajaxInsert";
+  var updateUrl = "teachers/ajaxUpdate";
+  var getRowUrl = "teachers/ajaxGetRow";
+  var deleteRowUrl = "teachers/ajaxDeleteRow";
 
 
 $(function () {
