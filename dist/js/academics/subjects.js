@@ -6,12 +6,12 @@ var description;
 var newCode;
 
 
-  var getRecordsUrl = '/academics/subjects/ajaxGetRecords';
-  var updateUrl = "/academics/subjects/ajaxUpdate";
-  var addUrl = "/academics/subjects/ajaxInsert";
-  var getRowUrl = "/academics/subjects/ajaxGetRow";
-  var deleteRowUrl = "/academics/subjects/ajaxDeleteRow";
-  var countUrl = "/academics/subjects/ajaxCountRow";
+  var getRecordsUrl = 'subjects/ajaxGetRecords';
+  var updateUrl = "subjects/ajaxUpdate";
+  var addUrl = "subjects/ajaxInsert";
+  var getRowUrl = "subjects/ajaxGetRow";
+  var deleteRowUrl = "subjects/ajaxDeleteRow";
+  var countUrl = "subjects/ajaxCountRow";
 
 function show(){
   i=1;
