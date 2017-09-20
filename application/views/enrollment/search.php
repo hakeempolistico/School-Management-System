@@ -426,19 +426,20 @@
   $('#record').remove();
 
   $.each(arrofobject, function(index, val) {
-    var date = val.date_registered.split(" ");
-    var str = date[0];
-    var dstr = str.split("-");
-    var y = dstr[0];
-    var m = dstr[1];
-    var d = dstr[2];
-    var dash = '-';
-    var newDate = m+dash+d+dash+y
+     var dregister = val.date_registered;
+     var dateTime = dregister.split(" ");
+     var date = dateTime[0];
+     var splitDate = date.split("-");
+     var y = splitDate[0];
+     var m = splitDate[1];
+     var d = splitDate[2];
+     var dash = "-";
+     var mdy = m+dash+d+dash+y;
 
-    console.log(str);
+     console.log(mdy);
 
 
-    $('tbody').append('<tr class="record"><td>'+val.lrn+'</td><td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td><td>'+newDate+'</td><td><button type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-primary btn-flat btn-xs buttonView" style="max-width: 100px; display:block;margin: auto;">Enroll</button></td> </div> </tr>');
+    $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td><td>'+mdy+'</td> <td><button type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs buttonView" style="max-width: 100px; display:block;margin: auto;">View</button></td> </div> </tr>');
   });
 </script>
 
