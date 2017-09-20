@@ -435,13 +435,17 @@
   $.each(arrofobject, function(index, val) {
     var date = val.date_registered.split(" ");
     var str = date[0];
-    var dt = new Date(str);
-    var supurit = dt.split("-");
+    var dstr = str.split("-");
+    var y = dstr[0];
+    var m = dstr[1];
+    var d = dstr[2];
+    var dash = '-';
+    var newDate = m+dash+d+dash+y
 
-    console.log(supurit);
+    console.log(str);
 
 
-    $('tbody').append('<tr class="record"><td>'+val.lrn+'</td><td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td><td>'+date[0]+'</td><td><button type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-primary btn-flat btn-xs buttonView" style="max-width: 100px; display:block;margin: auto;">Enroll</button></td> </div> </tr>');
+    $('tbody').append('<tr class="record"><td>'+val.lrn+'</td><td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td><td>'+newDate+'</td><td><button type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-primary btn-flat btn-xs buttonView" style="max-width: 100px; display:block;margin: auto;">Enroll</button></td> </div> </tr>');
   });
 </script>
 

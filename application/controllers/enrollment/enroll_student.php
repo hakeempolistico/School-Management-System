@@ -16,6 +16,12 @@ class enroll_student extends CI_Controller {
 		$this->parser->parse('enrollment/search', $data);
 	}
 
+	public function enroll()
+	{
+		$data = $this->parse->parsed();
+		$this->parser->parse('enrollment/enroll_student', $data);
+	}
+
 }
 
 ?>
