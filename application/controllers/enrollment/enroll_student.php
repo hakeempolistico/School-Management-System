@@ -12,7 +12,8 @@ class enroll_student extends CI_Controller {
 	public function index()
 	{	
 		$data = $this->parse->parsed();
-		$this->parser->parse('enrollment/picking', $data);
+		$data['onlineRecords']  = json_encode($this->global_model->getRecords('registered_students'));
+		$this->parser->parse('enrollment/search', $data);
 	}
 
 	public function enroll()

@@ -284,21 +284,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
           <ul class="treeview-menu">
             <li>
-              <a href="<?php echo site_url('academics/schedule'); ?>">
+              <a href="<?php echo site_url('academics/strands'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
-                Schedule
-              </a>
-            </li>          
-            <li>
-              <a href="<?php echo site_url('academics/subjects'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Subjects
-              </a>
-            </li>
-            <li class="active">
-              <a href="<?php echo site_url('academics/assign_subjects'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Assign Subjects
+                Strands
               </a>
             </li>
             <li>
@@ -308,16 +296,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </a>
             </li>
             <li>
-            <li>
               <a href="<?php echo site_url('academics/sections'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Sections
               </a>
+            </li>          
+            <li>
+              <a href="<?php echo site_url('academics/subjects'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                  Subjects
+              </a>
+            </li>
+            <li class="active">
+              <a href="<?php echo site_url('academics/assign_subjects'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Assign Subjects
+              </a>
             </li>
             <li>
-              <a href="<?php echo site_url('academics/strands'); ?>">
+              <a href="<?php echo site_url('academics/schedule'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
-                Strands
+                  Schedule
               </a>
             </li>
           </ul>
