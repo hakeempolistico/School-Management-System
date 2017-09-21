@@ -7,6 +7,7 @@ class assign_subjects extends CI_Controller {
 	{
 	    parent::__construct();
 	    $this->sms_session->checkSession();
+	    $this->load->model('academics/assign_subjects_model');	
 	}
 
 	public function index()
@@ -25,8 +26,7 @@ class assign_subjects extends CI_Controller {
 		echo json_encode($this->global_model->getRecords('year_levels'));
 	}
 
-	public function getSection(){	
-		$this->load->model('academics/assign_subjects_model');	
+	public function getSection(){			
 		echo json_encode($this->assign_subjects_model->getSections($this->input->post()));
 	}
 
@@ -36,6 +36,14 @@ class assign_subjects extends CI_Controller {
 
 	public function getTeachers(){	
 		echo json_encode($this->global_model->getRecords('teachers'));
+	}
+
+	public function deleteClassSubject(){	
+		$this->global_model->delete('class_subjects', $this->input->post());
+	}
+
+	public function getClassSubjects(){	
+		echo json_encode($this->assign_subjects_model->getClassSubjects($this->input->post()));
 	}
 
 	public function addClassSubjects(){

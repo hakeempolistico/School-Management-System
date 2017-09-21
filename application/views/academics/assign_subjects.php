@@ -401,9 +401,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <label id="label-subject" for="subjectNameInput">Subject</label>
                         <select id="select-subject" data-placeholder="select subject" class="subject-input form-control select2" style="width: 100%;">
                           <option></option>
-                          <?php foreach($subjects as $key => $val) {  ?>
-                            <option value = '<?php echo $val->code; ?>'> <?php echo $val->name; ?> </option>
-                          <?php } ?>
                         </select>
                       </div> 
                     </div>
@@ -413,9 +410,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <label id="label-teacher" for="subjectCodeInput">Teacher</label>
                         <select id="select-teacher" data-placeholder="select teacher" class="teacher-input form-control select2" style="width: 100%;">
                           <option></option>
-                          <?php foreach($teachers as $key => $val) {  ?>
-                            <option value = '<?php echo $val->employee_id; ?>'> <?php echo $val->first_name." ".$val->last_name; ?> </option>
-                          <?php } ?>
                         </select>
                       </div> 
                     </div>
@@ -461,6 +455,8 @@ var getSection = '<?php echo base_url('academics/assign_subjects/getSection'); ?
 var getSubjects = '<?php echo base_url('academics/assign_subjects/getSubjects'); ?>';
 var getTeachers = '<?php echo base_url('academics/assign_subjects/getTeachers'); ?>';
 var addUrl = '<?php echo base_url('academics/assign_subjects/addClassSubjects'); ?>';
+var getClassSubjects = '<?php echo base_url('academics/assign_subjects/getClassSubjects'); ?>';
+var deleteUrl = '<?php echo base_url('academics/assign_subjects/deleteClassSubject'); ?>';
 </script>
 </body>
 </html>
