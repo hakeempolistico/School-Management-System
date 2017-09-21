@@ -48,9 +48,9 @@ class assign_subjects extends CI_Controller {
 
 	public function addClassSubjects(){
 		$data = array(
-			"teacher_id" => $this->input->post('employee_id'),
+			"teacher_id" => $this->input->post('teacher_id'),
 			"section_id" => $this->input->post('section_id'),
-			"subject_id" => $this->input->post('section_id')
+			"subject_id" => $this->input->post('subject_id')
 		);
 
 		$this->global_model->insert($this->input->post('table'),$data);

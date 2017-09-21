@@ -152,7 +152,7 @@ $(function () {
               $( "#select-teacher" ).clone().insertBefore("#select-teacher").addClass('cloneInput').select2();    
             }
             for(var i=0; i<x; i++){
-              $( ".subject-input:eq("+i+")" ).val(result[i].teacher_id).trigger('change');
+              $( ".subject-input:eq("+i+")" ).val(result[i].subject_id).trigger('change');
               $( ".teacher-input:eq("+i+")" ).val(result[i].teacher_id).trigger('change');    
             }
             //$('.cloneInput').removeAttr('id');
@@ -182,9 +182,6 @@ $(function () {
       $('.teacher-input').each(function(index, elem) {
         teachers.push($(elem).val());
       })
-      
-      //console.log(subjects);
-      console.log(subjects);
       var x = subjects.length;
 
       $.ajax({
@@ -194,12 +191,12 @@ $(function () {
             success: function(result){
               //console.log(result);
               for(var i=0; i<x; i++){
-                //console.log(teachers[i] +' : '+ subjects[i]);
-
+                  console.log(teachers[i] +' : '+ subjects[i]);
+                  console.log(subjects);
                   $.ajax({
                     url: addUrl,
                     type: 'post', 
-                    data: {'table' : 'class_subjects', 'employee_id' : teachers[i], 'subject_id' : subjects[i], 'section_id' :  section_id}, 
+                    data: {'table' : 'class_subjects', 'teacher_id' : teachers[i], 'subject_id' : subjects[i], 'section_id' :  section_id}, 
                     success: function(result){
                       //console.log(result);
                     }
