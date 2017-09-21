@@ -38,4 +38,14 @@ class assign_subjects extends CI_Controller {
 		echo json_encode($this->global_model->getRecords('teachers'));
 	}
 
+	public function addClassSubjects(){
+		$data = array(
+			"teacher_id" => $this->input->post('employee_id'),
+			"section_id" => $this->input->post('section_id'),
+			"subject_id" => $this->input->post('section_id')
+		);
+
+		$this->global_model->insert($this->input->post('table'),$data);
+	}
+
 }

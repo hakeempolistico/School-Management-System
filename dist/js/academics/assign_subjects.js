@@ -45,7 +45,7 @@ $(function () {
     $('.subject-input').prop('disabled', true);
     $('.teacher-input').prop('disabled', true);
     $('#add-btn').prop('disabled', true);
-    $('#save-btn').prop('disabled', true);   
+    $('#save-btn').prop('disabled', true);
     $('#confirm-btn').prop('disabled', true);
 
 
@@ -112,6 +112,7 @@ $(function () {
     $('#save-btn').on('click', function(){
       var subjects = [];
       var teachers = [];
+      var section_id = $('#select-section').val();
       $('.subject-input').each(function(index, elem) {
         subjects.push($(elem).val());
       })
@@ -119,8 +120,24 @@ $(function () {
         teachers.push($(elem).val());
       })
       
-      console.log(subjects);
+      //console.log(subjects);
       console.log(teachers);
+      var x = subjects.length;
+
+      for(var i=0; i<x; i++){
+        //console.log(teachers[i] +' : '+ subjects[i]);
+
+          $.ajax({
+            url: addUrl,
+            type: 'post', 
+            data: {'table' : 'class_subjects', 'employee_id' : teachers[i], 'subject_id' : subjects[i], 'section_id' :  section_id}, 
+            success: function(result){
+              //console.log(result);
+            }
+          }); 
+
+      }
+
     })
 
 

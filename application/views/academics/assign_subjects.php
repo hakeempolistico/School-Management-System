@@ -460,6 +460,7 @@ var getYears = '<?php echo base_url('academics/assign_subjects/getYears'); ?>';
 var getSection = '<?php echo base_url('academics/assign_subjects/getSection'); ?>';
 var getSubjects = '<?php echo base_url('academics/assign_subjects/getSubjects'); ?>';
 var getTeachers = '<?php echo base_url('academics/assign_subjects/getTeachers'); ?>';
+var addUrl = '<?php echo base_url('academics/assign_subjects/addClassSubjects'); ?>';
 </script>
 </body>
 </html>
