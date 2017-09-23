@@ -333,10 +333,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <div class="alert alert-success alert-dismissible flat">
+    <!-- <div class="alert alert-success alert-dismissible flat">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <h4><i class="icon fa fa-bullhorn"></i> Day 1 of Enrollment is successful!</h4>
         Congratulations! Job well done! Please do the same on Day 2 of Enrollment!
+     </div> -->
+     <div id="alert-box" class="alert alert-danger alert-dismissible flat" hidden>
+      <button type="button" class="close" aria-hidden="true">&times;</button>
+      <h4 id="alert-title"><i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!</h4>
+        <div id="alert-message">Subject code already used. Please use another one.</div>
      </div>
       
     <!-- Content Header (Page header) -->
@@ -444,7 +449,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!-- /.modal-dialog -->
         </div>
         <!-- /.modal -->
-
+        <div class="modal fade in" id="modal-delete">
+          <div class="modal-dialog" style="max-width: 320px">
+            <div class="box box-primary">
+              <div class="box-body box-profile flat ">
+                <h4>Are you sure you want to delete record?</h4>
+                <button id="delete-confirm" data-dismiss="modal" type="button" style="width: 75px" class="btn btn-block btn-primary btn-sm pull-right">Confirm</button>
+                <button data-dismiss="modal" type="button" style="width: 75px" class="btn btn-sm btn-block btn-danger">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
     <!-- /.content -->
@@ -475,6 +490,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   var getRecordsUrl = '<?php echo base_url('academics/strands/ajaxGetRecords'); ?>';
   var getRowUrl = '<?php echo base_url('academics/strands/ajaxGetRow'); ?>';
   var updateUrl = '<?php echo base_url('academics/strands/ajaxUpdate'); ?>';
+  var countUrl = '<?php echo base_url('academics/strands/ajaxCountRow'); ?>';
+  var deleteRowUrl = '<?php echo base_url('academics/strands/ajaxDeleteRow'); ?>';
   
 </script>
 </body>
