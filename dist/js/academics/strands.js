@@ -52,6 +52,7 @@ $(function () {
               }
             }
           });     
+
     
 
     populateTable();
@@ -109,7 +110,7 @@ function populateTable(){
         { "width": "30%" },
         { "width": "60%" },
         { "width": "10%" }
-        ],
+    ],
         "order": [] ,
         "ajax": getRecordsUrl
   });
@@ -131,6 +132,7 @@ function populateTable(){
             }
           });   
   });
+
 
   $("#strands-table").on("click", "tr td .delete-btn", function(){
       code = $(this).parents('tr').find('td:first').html();

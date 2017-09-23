@@ -449,7 +449,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!-- /.modal-dialog -->
         </div>
         <!-- /.modal -->
-
         <div class="modal fade in" id="modal-delete">
           <div class="modal-dialog" style="max-width: 320px">
             <div class="box box-primary">
@@ -461,7 +460,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
           </div>
         </div>
-
       </div>
     </section>
     <!-- /.content -->
