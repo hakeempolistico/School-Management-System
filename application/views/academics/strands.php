@@ -362,14 +362,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <!-- /.box-header -->
               <div class="box-body">
                 <div class="form-group">
-                  <label for="strandNameInput">Name</label>
-                  <input type="text" class="form-control" id="subjectNameInput" placeholder="Strand Name">
-                </div>
-                <div class="form-group">
                   <label for="srtandCodeInput">Code</label>
-                  <input type="text" class="form-control" id="subjectCodeInput" placeholder="Strand Code">
-                </div>                
-                <button type="button" class="btn btn-block btn-primary">Add</button>
+                  <label for="srtandCodeInput" class="text-danger">*</label>
+                  <input type="text" class="form-control" id="code-input" placeholder="Strand Code">
+                </div> 
+                <div class="form-group">
+                  <label for="strandNameInput">Name</label>
+                  <input type="text" class="form-control" id="name-input" placeholder="Strand Name">
+                </div>               
+                <button type="button" id="add-btn" class="btn btn-block btn-primary">Add</button>
               </div>
           </div>
         </div>
@@ -381,11 +382,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="strandsTable" class="table table-bordered table-striped">
+              <table id="strands-table" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Code</th>                  
+                  <th>Code</th>    
+                  <th>Name</th>              
                   <th>Action</th>
                 </tr>
                 </thead>
@@ -409,6 +410,41 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         </div>
 
+        <div class="modal fade" id="modal-edit">
+          <div class="modal-dialog" style="max-width: 400px">
+            <div class="modal-content" >
+              <div class="box box-primary">
+            <div class="box-body box-profile flat">
+              
+
+              <center><span class="fa fa-fw fa-briefcase fa-5x text-primary"></center>
+              <h3 class="profile-username text-center">Edit Strand</h3> 
+
+              <ul class="list-group list-group-unbordered">
+                <li>
+                  <div class="form-group" style="margin-bottom: 5px;">
+                    <label for="edit-code">Code</label>                    
+                    <label for="edit-code" class="text-danger">*</label>
+                    <input type="text" class="form-control" id="edit-code">
+                  </div>
+                  <div class="form-group" style="margin-bottom: 5px;">
+                    <label for="edit-status">Name</label>
+                    <input type="text" class="form-control" id="edit-name">
+                  </div>
+                  <a href="#" class="btn btn-sm btn-danger pull-left" data-dismiss="modal" style="width: 100px">Close</a>                
+                  <button id="edit-update" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Update</button>                 
+                </li>   
+              </ul>
+            </div>
+            <!-- /.box-body -->
+          </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
       </div>
     </section>
     <!-- /.content -->
@@ -430,10 +466,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- DataTables -->
 <script src="<?php echo base_url(); ?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
+<script src="<?php echo base_url('dist/js/academics/strands.js'); ?>"></script>
+
 <script>
-  $(function () {
-    $('#strandsTable').DataTable()
-  })
+
+  var addStrand = '<?php echo base_url('academics/strands/addStrand'); ?>';
+  var getRecordsUrl = '<?php echo base_url('academics/strands/ajaxGetRecords'); ?>';
+  var getRowUrl = '<?php echo base_url('academics/strands/ajaxGetRow'); ?>';
+  var updateUrl = '<?php echo base_url('academics/strands/ajaxUpdate'); ?>';
+  
 </script>
 </body>
 </html>
