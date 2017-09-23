@@ -20,6 +20,11 @@ class strands extends CI_Controller {
 		$result = $this->global_model->count($data['table'], $data['set'], $data['value']);
 		echo json_encode($result);
 	}
+	public function ajaxDeleteRow(){
+		$data = $this->input->post();
+		$result = $this->global_model->delete('strands',$data);
+		echo json_encode($result);
+	}
 	public function ajaxUpdate(){
 		$data = $this->input->post();
 		$result = $this->strands_model->update('strands', $data);

@@ -85,6 +85,19 @@ $(function () {
 
 })
 
+$('#delete-confirm').click(function(){
+  $.ajax({
+    url: deleteRowUrl,
+    type: 'post',
+    dataType: 'json', 
+    data: {'code': code }, 
+    success: function(result){
+      console.log(result);
+      populateTable();
+    }
+  }); 
+})
+
 
 function populateTable(){
   
@@ -93,9 +106,9 @@ function populateTable(){
 
   $('#strands-table').DataTable({
     "columns": [
-        { "width": "20%" },
+        { "width": "30%" },
         { "width": "60%" },
-        { "width": "20%" }
+        { "width": "10%" }
         ],
         "order": [] ,
         "ajax": getRecordsUrl
@@ -119,8 +132,8 @@ function populateTable(){
           });   
   });
 
-  $("#teachersTable").on("click", "tr td .delete-btn", function(){
-      employee_id = $(this).parents('tr').find('td:first').html();
+  $("#strands-table").on("click", "tr td .delete-btn", function(){
+      code = $(this).parents('tr').find('td:first').html();
   });
   
 }
