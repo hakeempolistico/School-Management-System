@@ -25,6 +25,11 @@ class sections extends CI_Controller {
 		$result = $this->global_model->count($data['table'], $data['set'], $data['value'], $data['set2'], $data['value2'], $data['set3'], $data['value3']);
 		echo json_encode($result);
 	}
+	public function ajaxUpdate(){
+		$data = $this->input->post();
+		$result = $this->sections_model->update('sections', $data);
+		echo json_encode($result);
+	}
 	public function getYears()
 	{		
 		echo json_encode($this->global_model->getRecords('year_levels'));

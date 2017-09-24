@@ -1,4 +1,11 @@
+var strand_code;
+var year_level;
+var name;
+var capacity;
+
 $(function () {
+  
+
     $('#sectionsTable').DataTable()
     populateTable();
 
@@ -41,10 +48,11 @@ $(function () {
     }); 
 
     $('#btn-add').click(function(){
-      var strand_code = $('#select-strand').val();
-      var year_level_id = $('#select-year').val();
-      var name = $('#input-name').val();
-      var capacity = $('#input-capacity').val();
+      strand_code = $('#select-strand').val();
+      year_level_id = $('#select-year').val();
+      name = $('#input-name').val();
+      capacity = $('#input-capacity').val();
+
       var sectionCount;
 
       $.ajax({
@@ -117,6 +125,75 @@ $(function () {
           });     
     })
 
+    //EDIT MODAL
+
+    $('#edit-update').on('click', function(){ 
+
+    var newStrand = $('#edit-strand').val();
+    var newYear = $('#edit-year').val();
+    var newName = $('#edit-name').val();
+    var newCapacity = $('#edit-capacity').val();
+
+    var sectionCount;
+
+
+      $.ajax({
+            url: countUrl,
+            type: 'post',
+            dataType: 'json', 
+            data: {
+              'table' : 'sections', 
+              'set' : 'strand_code', 
+              'value' : newStrand,
+              'set2' : 'name', 
+              'value2' : newName, 
+              'set3':'year_level_id', 
+              'value3' : newYear  
+            }, 
+            success: function(result){
+              sectionCount = result;
+
+              if(strand_code == null || strand_code.trim() === ''){
+                alert('Please select section strand.');
+              }
+              else if(year_level == null || year_level === ''){
+                alert('Please select year level.');
+              }
+              else if(name == null || name.trim() === ''){
+                alert('Please fill up section name.');
+              }
+              else if(sectionCount > 0 && name != newName){
+                alert('Section name alreay used. Please use another one.');
+              }
+              else{
+                $.ajax({
+                  url: updateUrl,
+                  type: 'post',
+                  dataType: 'json', 
+                  data: {
+                    'strand_code' : newStrand, 
+                    'year_level_id': newYear, 
+                    'name': newName, 
+                    'capacity': newCapacity, 
+                    'set' : strand_code,
+                    'set2' : year_level,
+                    'set3': name
+                  }, 
+                  success: function(result){
+                    populateTable();
+                    strand_code = newStrand;
+                    year_level = newYear;
+                    name = newName;
+                    capacity = newCapacity;
+                  }
+                });  
+              }
+            }
+          });     
+  })
+
+
+
 
 })
 
@@ -140,26 +217,66 @@ function populateTable(){
         "ajax": getRecordsUrl
   });
 
-  $("#strands-table").on("click", "tr td .edit-btn", function(){
-
+  $("#table-sections").on("click", "tr td .edit-btn", function(){
     strand_code = $(this).parents('tr').find('td:first').html();
+    year_level = $(this).parents('tr').find('td:nth-child(2)').html();
+    name = $(this).parents('tr').find('td:nth-child(3)').html();
+    capacity = $(this).parents('tr').find('td:nth-child(4)').html();
+
+    if(year_level=='Grade 11'){
+      year_level = 1;
+    }
+    else if(year_level=='Grade 12'){
+      year_level = 2;
+    }
+
 
     $.ajax({
-            url: getRowUrl,
-            type: 'post',
-            dataType: 'json', 
-            data: {'table' : 'strands', 'set': 'code', 'value': strand_code}, 
-            success: function(result){  
-              code = result.code;
-              name = result.name;
-              $( "#edit-code" ).val(result.code);
-              $( "#edit-name" ).val(result.name);
-            }
-          });   
+      url: getStrands,
+      type: 'post',
+      dataType: 'json',  
+      success: function(result){
+        //console.log(result);
+
+        $.each(result, function( index, value ) {
+          //console.log('index: '+index+' value: '+value);
+          $('#edit-strand').append($('<option>', { 
+              value: value.code,
+              text : value.name
+          })).select2();
+        });
+
+      }
+    }); 
+
+    $.ajax({
+      url: getYears,
+      type: 'post',
+      dataType: 'json',  
+      success: function(result){
+        //console.log(result);
+
+        $.each(result, function( index, value ) {
+          //console.log('index: '+index+' value: '+value);
+          $('#edit-year').append($('<option>', { 
+              value: value.id,
+              text : value.name
+          })).select2();
+        });
+
+      }
+    }); 
+
+
+    $('#edit-strand').val(strand_code).trigger('change');
+    $('#edit-year').val(year_level).trigger('change');
+    $('#edit-name').val(name);
+    $('#edit-capacity').val(capacity);
+  
   });
 
 
-  $("#strands-table").on("click", "tr td .delete-btn", function(){
+  $("#table-section").on("click", "tr td .delete-btn", function(){
       code = $(this).parents('tr').find('td:first').html();
   });
   
