@@ -25,12 +25,17 @@ class enroll_student extends CI_Controller {
 
 		
 
-		$action = '<a href="page2.php?lrn=<?php echo $registeredStudents->lrn ?>" type="button" class="btn btn-block btn-info btn-flat btn-xs buttonView" style="max-width: 100px; display:block;margin: auto;">Enroll</a>';
+		
 
 		$data = [];
 		foreach ($registeredStudents as $registeredStudents) 
 		{
+			$lrn = $registeredStudents->lrn;
+			$action = '<form method="post" action="/sms/enrollment/enroll_student/enroll"><input type="hidden" name="lrn" value="'.$lrn.'"><button type="submit" class="btn btn-block btn-info btn-flat btn-xs buttonView" style="max-width: 100px; display:block;margin: auto;">Enroll</button></form>'; 
+
+
 			$fullName = $registeredStudents->first_name.' '.$registeredStudents->last_name;
+
 			$dateRegistered = $registeredStudents->date_registered;
 			$explodedDateRegistered = explode(" ", $dateRegistered);
 			$explodedDate = explode("-", $explodedDateRegistered[0]);
@@ -40,7 +45,7 @@ class enroll_student extends CI_Controller {
 			$newDate = $m.'-'.$d.'-'.$y;
 			
 			$arr = array(
-		        $registeredStudents->lrn,
+		        $lrn,
 		        $fullName,
 		        $newDate,
 		        $action
@@ -52,10 +57,18 @@ class enroll_student extends CI_Controller {
 		echo json_encode($data);
 	}
 
-	public function enroll()
+	public function submit()
 	{
 		$data = $this->parse->parsed();
 		$this->parser->parse('enrollment/enroll_student', $data);
+	}
+
+	public function enroll()
+	{
+		
+		$data = $this->parse->parsed();
+		$data['lrn'] =  $this->input->post('lrn');
+		$this->parser->parse('enrollment/page2', $data);
 	}
 
 }

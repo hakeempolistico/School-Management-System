@@ -346,8 +346,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Search for Registered Students
-        <small>Pick one to enroll</small>
+        Enroll Student
+        <small>lrn: <?php echo $lrn ?> </small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Enrollment</a></li>
@@ -357,7 +357,6 @@
 
     <!-- Main content -->
     <section class="content">
-      <h1><?php echo $this->input->get('lrn'); ?></h1>
     </section>
     <!-- /.content -->
   </div>
