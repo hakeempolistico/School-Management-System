@@ -7,19 +7,19 @@ $(function () {
     $('#select-year').prop('disabled', true);
     $('#select-section').prop('disabled', true);
 
-    var strand_id;
+    var strand_code;
     var year_id;
     
     $.ajax({
       url: getStrands,
       type: 'post',
       dataType: 'json',  
-      success: function(result){
+      success: function(result){  
         //console.log(result);
 
         $.each(result, function( index, value ) {
           $('#select-strand').append($('<option>', { 
-              value: value.id,
+              value: value.code,
               text : value.name
           })).select2();
         });
@@ -90,7 +90,7 @@ $(function () {
        $("#select-year").val("").trigger("change");
        $('#select-year').prop('disabled', false);
        $('#select-section').prop('disabled', true);
-       strand_id = $('#select-strand').val();
+       strand_code = $('#select-strand').val();
     })
 
     $('#select-year').on('change',function(){
@@ -102,7 +102,7 @@ $(function () {
           url: getSection,
           type: 'post',
           dataType: 'json',  
-          data: {'strand_id': strand_id, 'year_level_id': year_id},
+          data: {'strand_code': strand_code, 'year_level_id': year_id},
           success: function(result){
             //console.log(result);
 
@@ -141,7 +141,7 @@ $(function () {
           dataType: 'json',  
           data: {'section_id': section_id},
           success: function(result){
-            console.log(result);
+            //console.log(result);
             var x = result.length;
             var y = result.length-1;
             for(var i=0; i<x-1; i++){
