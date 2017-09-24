@@ -25,15 +25,12 @@ class enroll_student extends CI_Controller {
 
 		
 
-		
+		$action = '<a href="page2.php?lrn=<?php echo $registeredStudents->lrn ?>" type="button" class="btn btn-block btn-info btn-flat btn-xs buttonView" style="max-width: 100px; display:block;margin: auto;">Enroll</a>';
 
 		$data = [];
 		foreach ($registeredStudents as $registeredStudents) 
 		{
-			$action = '<a href="'.\<?php echo site_url('enrollment/enroll_student/') ?\>.'?lrn='.$registeredStudents->lrn.'" type="button" class="btn btn-block btn-info btn-flat btn-xs buttonView" style="max-width: 100px; display:block;margin: auto;">View</a>';
-
 			$fullName = $registeredStudents->first_name.' '.$registeredStudents->last_name;
-			
 			$dateRegistered = $registeredStudents->date_registered;
 			$explodedDateRegistered = explode(" ", $dateRegistered);
 			$explodedDate = explode("-", $explodedDateRegistered[0]);
