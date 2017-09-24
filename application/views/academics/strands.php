@@ -366,7 +366,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </div>
               <!-- /.box-header -->
               <div class="box-body">
-                <div class="form-group">
+                <div class="form-group" style="margin-bottom: 5px">
                   <label for="srtandCodeInput">Code</label>
                   <label for="srtandCodeInput" class="text-danger">*</label>
                   <input type="text" class="form-control" id="code-input" placeholder="Strand Code">

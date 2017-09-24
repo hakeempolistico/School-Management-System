@@ -13,6 +13,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/select2/dist/css/select2.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/Ionicons/css/ionicons.min.css">
   <!-- DataTables -->
@@ -333,10 +335,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <div class="alert alert-success alert-dismissible flat">
+    <!-- <div class="alert alert-success alert-dismissible flat">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <h4><i class="icon fa fa-bullhorn"></i> Day 1 of Enrollment is successful!</h4>
         Congratulations! Job well done! Please do the same on Day 2 of Enrollment!
+     </div> -->
+     <div id="alert-box" class="alert alert-danger alert-dismissible flat" hidden>
+      <button type="button" class="close" aria-hidden="true">&times;</button>
+      <h4 id="alert-title"><i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!</h4>
+        <div id="alert-message">Subject code already used. Please use another one.</div>
      </div>
       
     <!-- Content Header (Page header) -->
@@ -361,31 +368,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </div>
               <!-- /.box-header -->
               <div class="box-body">
-                <div class="form-group">
-                  <label for="sectionNameInput">Name</label>
-                  <input type="text" class="form-control" id="subjectNameInput" placeholder="section name">
-                </div>
-                <div class="form-group">
-                  <label for="strandSelect">Strand</label>                  
-                  <select class="form-control">
-                    <option>Select</option>
-                    <option>STEM</option>
-                    <option>GAS</option>
-                    <option>ABM</option>
-                    <option>HUMSS</option>
-                    <option>TVL-AUTO</option>
-                    <option>TVL-HE</option>
+                <div class="form-group" style="margin-bottom: 5px">
+                  <label for="select-strand">Strand</label>                  
+                  <label for="select-strand" class="text-danger">*</label>                  
+                  <select id="select-strand" data-placeholder="Section Strand" class="form-control">
+                    <option></option>
                   </select>
                 </div>
-                <div class="form-group">
-                  <label for="yearLevelSelect">Year Level</label>                  
-                  <select class="form-control">
-                    <option>Select</option>
-                    <option>Grade 11</option>
-                    <option>Grade 12</option>
+                <div class="form-group" style="margin-bottom: 5px">
+                  <label for="select-year">Year Level</label> 
+                  <label for="select-year" class="text-danger">*</label>                     
+                  <select id="select-year" data-placeholder="Section Year Level" class="form-control">
+                    <option></option>
                   </select>
+                </div>
+                <div class="form-group" style="margin-bottom: 5px">
+                  <label for="input-name">Name</label>
+                  <label for="input-name" class="text-danger">*</label>    
+                  <input type="text" class="form-control" id="input-name" placeholder="Section Name">
+                </div> 
+                <div class="form-group">
+                  <label for="input-capacity">Capacity</label>
+                  <input type="number" class="form-control" id="input-capacity" placeholder="Section Capacity">
                 </div>                
-                <button type="button" class="btn btn-block btn-primary">Add</button>
+                <button id="btn-add" type="button" class="btn btn-block btn-primary">Add</button>
               </div>
           </div>
         </div>
@@ -397,26 +403,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="sectionsTable" class="table table-bordered table-striped">
+              <table id="table-sections" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Strand</th>
+                  <th>Strand Code</th>
                   <th>Year Level</th>
+                  <th>Name</th>
+                  <th>Capacity</th>
                   <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>STEM-1</td>
-                  <td>STEM</td>
-                  <td>Grade 11</td>
-                  <td>
-                    <a href="#" class="btn btn-success btn-xs"><span class="fa fa-fw fa-pencil"></span></a>
-                    <a href="#" class="btn btn-danger btn-xs"><span class="fa fa-fw fa-remove"></span></a>
-                  </td>
-                  </td>
-                </tr>
                 </tbody>
                 <tfoot>                
                 </tfoot>
@@ -427,6 +424,56 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!-- /.box -->
 
         </div>
+
+
+        <div class="modal fade" id="modal-edit">
+          <div class="modal-dialog" style="max-width: 400px">
+            <div class="modal-content" >
+              <div class="box box-primary">
+            <div class="box-body box-profile flat">
+              
+
+              <center><span class="fa fa-fw fa-briefcase fa-5x text-primary"></center>
+              <h3 class="profile-username text-center">Edit Strand</h3> 
+
+              <ul class="list-group list-group-unbordered">
+                <li>
+                  <div class="form-group">
+                    <label>Strands</label>
+                    <label class="text-danger">*</label>
+                    <select id="edit-strand" data-placeholder="Section Strand" class="form-control select2" style="width:100%;">
+                      <option></option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>Year</label>
+                    <label class="text-danger">*</label>
+                    <select id="edit-year" data-placeholder="Section Year Level" class="form-control select2" style="width:100%;">
+                      <option></option>
+                    </select>
+                  </div>                  
+                  <div class="form-group" style="margin-bottom: 5px;">
+                    <label for="edit-name">Name</label>                    
+                    <label for="edit-name" class="text-danger">*</label>
+                    <input type="text" class="form-control" id="edit-name">
+                  </div>
+                  <div class="form-group" style="margin-bottom: 5px;">
+                    <label for="edit-capacity">Capacity</label>
+                    <input type="number" class="form-control" id="edit-capacity">
+                  </div>
+                  <a href="#" class="btn btn-sm btn-danger pull-left" data-dismiss="modal" style="width: 100px">Close</a>                
+                  <button id="edit-update" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Update</button>                 
+                </li>   
+              </ul>
+            </div>
+            <!-- /.box-body -->
+          </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
 
       </div>
     </section>
@@ -444,15 +491,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
+<!-- Select2 -->
+<script src="<?php echo base_url(); ?>bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
 <!-- DataTables -->
 <script src="<?php echo base_url(); ?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="<?php echo base_url('dist/js/academics/sections.js'); ?>"></script>
+
 <script>
-  $(function () {
-    $('#sectionsTable').DataTable()
-  })
+  var getStrands = '<?php echo base_url('academics/sections/getStrands'); ?>';
+  var getYears = '<?php echo base_url('academics/sections/getYears'); ?>';
+  var getRecordsUrl = '<?php echo base_url('academics/sections/ajaxGetRecords'); ?>';
+  var addUrl = '<?php echo base_url('academics/sections/ajaxInsert'); ?>';
+  var countUrl = '<?php echo base_url('academics/sections/ajaxCountRow'); ?>';
+  var updateUrl = '<?php echo base_url('academics/sections/ajaxUpdate'); ?>';
 </script>
 </body>
 </html>
