@@ -357,34 +357,7 @@
 
     <!-- Main content -->
     <section class="content">
-      <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">Registered Students</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <table id="registeredStudentstable" class="table table-bordered table-hover">
-                <thead>
-                <tr>
-                  <th>LRN</th>
-                  <th>Name</th>
-                  <th>Date Registered</th>
-                  <th>Action</th>
-                </tr>
-                </thead>
-                <tfoot>
-                <tr>
-                  <th>LRN</th>
-                  <th>Name</th>
-                  <th>Date Registered</th>
-                  <th>Action</th>
-                </tr>
-                </tfoot>
-              </table>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
+      <h1><?php echo $this->input->get('lrn'); ?></h1>
     </section>
     <!-- /.content -->
   </div>
