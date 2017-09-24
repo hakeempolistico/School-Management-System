@@ -3,8 +3,12 @@
 class sections_model extends CI_Model{
 
 	public function update($table, $data){	
-		$this->db->where('code', $data['set']);
+		$this->db->where('strand_code', $data['set']);
+		$this->db->where('year_level_id', $data['set2']);
+		$this->db->where('name', $data['set3']);
 		unset($data['set']);
+		unset($data['set2']);
+		unset($data['set3']);
 		$this->db->set($data);
 		$query = $this->db->update($table);
 		return $query;

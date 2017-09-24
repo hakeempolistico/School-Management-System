@@ -370,23 +370,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="box-body">
                 <div class="form-group" style="margin-bottom: 5px">
                   <label for="select-strand">Strand</label>                  
+                  <label for="select-strand" class="text-danger">*</label>                  
                   <select id="select-strand" data-placeholder="Section Strand" class="form-control">
                     <option></option>
                   </select>
                 </div>
                 <div class="form-group" style="margin-bottom: 5px">
-                  <label for="select-year">Year Level</label>                  
+                  <label for="select-year">Year Level</label> 
+                  <label for="select-year" class="text-danger">*</label>                     
                   <select id="select-year" data-placeholder="Section Year Level" class="form-control">
                     <option></option>
                   </select>
                 </div>
                 <div class="form-group" style="margin-bottom: 5px">
                   <label for="input-name">Name</label>
+                  <label for="input-name" class="text-danger">*</label>    
                   <input type="text" class="form-control" id="input-name" placeholder="Section Name">
                 </div> 
                 <div class="form-group">
                   <label for="input-capacity">Capacity</label>
-                  <input type="text" class="form-control" id="input-capacity" placeholder="Section Capacity">
+                  <input type="number" class="form-control" id="input-capacity" placeholder="Section Capacity">
                 </div>                
                 <button id="btn-add" type="button" class="btn btn-block btn-primary">Add</button>
               </div>
@@ -422,6 +425,56 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         </div>
 
+
+        <div class="modal fade" id="modal-edit">
+          <div class="modal-dialog" style="max-width: 400px">
+            <div class="modal-content" >
+              <div class="box box-primary">
+            <div class="box-body box-profile flat">
+              
+
+              <center><span class="fa fa-fw fa-briefcase fa-5x text-primary"></center>
+              <h3 class="profile-username text-center">Edit Strand</h3> 
+
+              <ul class="list-group list-group-unbordered">
+                <li>
+                  <div class="form-group">
+                    <label>Strands</label>
+                    <label class="text-danger">*</label>
+                    <select id="edit-strand" data-placeholder="Section Strand" class="form-control select2" style="width:100%;">
+                      <option></option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>Year</label>
+                    <label class="text-danger">*</label>
+                    <select id="edit-year" data-placeholder="Section Year Level" class="form-control select2" style="width:100%;">
+                      <option></option>
+                    </select>
+                  </div>                  
+                  <div class="form-group" style="margin-bottom: 5px;">
+                    <label for="edit-name">Name</label>                    
+                    <label for="edit-name" class="text-danger">*</label>
+                    <input type="text" class="form-control" id="edit-name">
+                  </div>
+                  <div class="form-group" style="margin-bottom: 5px;">
+                    <label for="edit-capacity">Capacity</label>
+                    <input type="number" class="form-control" id="edit-capacity">
+                  </div>
+                  <a href="#" class="btn btn-sm btn-danger pull-left" data-dismiss="modal" style="width: 100px">Close</a>                
+                  <button id="edit-update" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Update</button>                 
+                </li>   
+              </ul>
+            </div>
+            <!-- /.box-body -->
+          </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
       </div>
     </section>
     <!-- /.content -->
@@ -453,6 +506,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   var getRecordsUrl = '<?php echo base_url('academics/sections/ajaxGetRecords'); ?>';
   var addUrl = '<?php echo base_url('academics/sections/ajaxInsert'); ?>';
   var countUrl = '<?php echo base_url('academics/sections/ajaxCountRow'); ?>';
+  var updateUrl = '<?php echo base_url('academics/sections/ajaxUpdate'); ?>';
 </script>
 </body>
 </html>
