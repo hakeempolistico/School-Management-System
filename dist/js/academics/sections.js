@@ -2,6 +2,7 @@ var strand_code;
 var year_level;
 var name;
 var capacity;
+var id;
 
 $(function () {
   
@@ -192,6 +193,19 @@ $(function () {
           });     
   })
 
+  $('#delete-confirm').click(function(){
+    $.ajax({
+      url: deleteRowUrl,
+      type: 'post',
+      dataType: 'json', 
+      data: {'id': id}, 
+      success: function(result){
+        console.log(result);
+        populateTable();
+      }
+    }); 
+  })
+
 
 
 
@@ -246,6 +260,7 @@ function populateTable(){
           })).select2();
         });
 
+        $('#edit-strand').val(strand_code).trigger('change');
       }
     }); 
 
@@ -264,20 +279,22 @@ function populateTable(){
           })).select2();
         });
 
+        $('#edit-year').val(year_level).trigger('change');
       }
     }); 
 
 
-    $('#edit-strand').val(strand_code).trigger('change');
-    $('#edit-year').val(year_level).trigger('change');
+    
+    
     $('#edit-name').val(name);
     $('#edit-capacity').val(capacity);
   
   });
 
 
-  $("#table-section").on("click", "tr td .delete-btn", function(){
-      code = $(this).parents('tr').find('td:first').html();
+  $("#table-sections").on("click", "tr td .delete-btn", function(){
+      strand_code = $(this).parents('tr').find('td:first').html();
+      id = $(this).attr('data-id');
   });
   
 }
