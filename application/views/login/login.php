@@ -29,45 +29,83 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition login-page">
-<div hidden class="loading">Loading&#8230;</div>
-<div class="login-box">
-  <div class="login-logo">
-    <a href="<?php echo site_url('welcome/index2') ?>"><b>Araullo</b>High School</a>
-  </div>
-  <!-- /.login-logo -->
-  <div class="login-box-body">
-    <p class="login-box-msg"><img src="<?php echo base_url(); ?>images/logo.png" height="75" width="75"> </p>
+<style type="text/css">
+.login-header {
+    position:relative;
+    background-color:#e15915;
+    height:320px !important;
+    width:100% !important;
+}
 
-      <?php echo form_open('login/'); ?>
-      <div class="form-group has-feedback">
-        <input id="input_username" name="username" type="text" class="form-control" placeholder="Username">
-        <div class="text-danger" style="margin-top: -5px; margin-left: 5px;"><h6 id ="validation"><?php echo form_error('username'); ?></h6></div> 
-        <div class="text-danger" style="margin-top: -5px; margin-left: 5px;"><h6 id ="validation"><?php if(isset($userError)) echo $userError; ?></h6></div> 
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+.login-header:after {
+    content:'';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -15px;
+    width: 0;
+    height: 0;
+    border-top: solid 15px #6C1827;
+    border-left: solid 15px transparent;
+    border-right: solid 15px transparent;
+}
+</style>
+<body>
+  <div class="row" style="background: #6C1827;">
+    <div class="col-md-4">    
+    </div>
+    <div class="col-md-4 text-center">
+      <div class="login-header" style="height: 40%; background: #6C1827; padding-top: 80px">        
+          <a href="<?php echo site_url('welcome/index2') ?>">
+            <img src="<?php echo base_url(); ?>images/logo.png" height="75" width="75">
+          </a>        
+          <h2 style="font-weight: 100; color: white;">
+            Araullo High School
+          </h2>        
       </div>
-      <div class="form-group has-feedback">
-        <input id="input_password" name="password" type="password" class="form-control" placeholder="Password"  >
-        <div class="text-danger" style="margin-top: -5px; margin-left: 5px;"><h6 id ="validation"><?php echo form_error('password'); ?></h6></div> 
-        <div class="text-danger" style="margin-top: -5px; margin-left: 5px;"><h6 id ="validation"><?php if(isset($passError)) echo $passError; ?></h6>
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+    </div>
+    <div class="col-md-4">      
+    </div>
+  </div>
+  <!-- /.row -->
+  <div class="row" style="background: #9E373B; height: 54.4%;">    
+    <div class="login-box" style="margin-top: 0px; padding-top: 7%; width: 360px; ">        
+      <?php echo form_open('login/'); ?>
+      <div class="row">
+      <div class="col-md-12">
+        <div class="form-group has-feedback">
+          <input id="input_username" name="username" type="text" class="form-control" placeholder="Username" style="border-color: #6c1827; border-radius: 4px; height: 40px;">
+          <div class="text-danger" style="margin-top: -5px; margin-left: 5px;"><h6 id ="validation"><?php echo form_error('username'); ?></h6></div> 
+          <div class="text-danger" style="margin-top: -5px; margin-left: 5px;"><h6 id ="validation"><?php if(isset($userError)) echo $userError; ?></h6></div> 
+          <span class="glyphicon glyphicon-user form-control-feedback"></span>
+        </div>
+        </div>
       </div>
       <div class="row">
-        <div class="col-xs-8">
+        <div class="col-md-12">
+          <div class="form-group has-feedback">
+            <input id="input_password" name="password" type="password" class="form-control" placeholder="Password" style="border-color: #6c1827; border-radius: 4px; height: 40px; margin-bottom: 20px;">
+            <div class="text-danger" style="margin-top: -5px; margin-left: 5px;"><h6 id ="validation"><?php echo form_error('password'); ?></h6></div> 
+            <div class="text-danger" style="margin-top: -5px; margin-left: 5px;"><h6 id ="validation"><?php if(isset($passError)) echo $passError; ?></h6></div>
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          </div>
         </div>
-        <!-- /.col -->
-        <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat bg-maroon">Sign In</button>
-        </div>
-        <!-- /.col -->
       </div>
+      <div class="row">
+          <!-- /.col -->
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-block " style="background: #6C1827; border-color: #6C1827; height: 40px;color: white;">Sign In
+          </button>
+        </div>
+          <!-- /.col -->
+       </div>
       </form>
-
-    <a href="#">I forgot my password</a><br>  
-
+      <br>
+      <a href="#" style="color: white;">I forgot my password</a><br>  
+    </div>
   </div>
   <!-- /.login-box-body -->
-</div>
+
 <!-- /.login-box -->
 
 <!-- jQuery 3 -->
