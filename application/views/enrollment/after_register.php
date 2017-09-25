@@ -265,7 +265,6 @@
                 Dashboard
               </a>
             </li>
-            <li>
             <li class="active">
               <a href="<?php echo site_url('enrollment/register_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
@@ -530,7 +529,7 @@ $(document).ready(function(){
             dataType: 'json', 
             data: {'value' : lastLrn, 'table': 'addresses', 'set': 'registered_student_lrn'}, 
             success: function(result){
-              
+
                 $('#street').html(result.street+", ");
                 $('#barangay').html(result.barangay+", ");
                 $('#city').html(result.city+", ");
