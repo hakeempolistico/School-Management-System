@@ -364,7 +364,7 @@
         <div class="col-md-1"></div>
 
         <div class="col-md-4">
-          <div class="box" id="grade11">
+          <div class="box" id="grade11" style="width: 100%;">
             <div class="box-header with-border">
             <button class="btn btn-flat btn-primary btn-lg" style="height: 100px; width: 100%;">Grade 11</button>
           </div>
@@ -406,28 +406,28 @@
                     <div class="col-md-3">
                       <div class="form-group">
                         <label>ENG</label>
-                        <input type="text" class="form-control subject11" name="subj[]" id="eng" style="margin-bottom: -10px;" disabled>
+                        <input type="text" class="form-control subject11" name="subj[]" id="eng11" style="margin-bottom: -10px;" disabled>
                       </div>
                     </div>
 
                     <div class="col-md-3">
                       <div class="form-group">
                         <label>MATH</label>
-                        <input type="text" class="form-control subject11" name="subj[]" id="math"  style="margin-bottom: -10px;" disabled>
+                        <input type="text" class="form-control subject11" name="subj[]" id="math11"  style="margin-bottom: -10px;" disabled>
                       </div>
                     </div>
 
                     <div class="col-md-3">
                       <div class="form-group">
                         <label>SCI</label>
-                        <input type="text" class="form-control subject11" name="subj[]" id="sci"  style="margin-bottom: -10px;" disabled>
+                        <input type="text" class="form-control subject11" name="subj[]" id="sci11"  style="margin-bottom: -10px;" disabled>
                       </div>
                     </div>
 
                     <div class="col-md-3">
                       <div class="form-group">
                         <label>FIL</label>
-                        <input type="text" class="form-control subject11" name="subj[]" id="fil"  style="margin-bottom: -10px;" disabled>
+                        <input type="text" class="form-control subject11" name="subj[]" id="fil11"  style="margin-bottom: -10px;" disabled>
                       </div>
                     </div>
 
@@ -440,34 +440,36 @@
                     <div class="col-md-3">
                       <div class="form-group">
                         <label>AP</label>
-                        <input type="text" class="form-control subject11" name="subj[]" id="ap" style="margin-bottom: -10px;" disabled>
+                        <input type="text" class="form-control subject11" name="subj[]" id="ap11" style="margin-bottom: -10px;" disabled>
                       </div>
                     </div>
 
                     <div class="col-md-3">
                       <div class="form-group">
                         <label>TLE</label>
-                        <input type="text" class="form-control subject11" name="subj[]" id="tle" style="margin-bottom: -10px;" disabled>
+                        <input type="text" class="form-control subject11" name="subj[]" id="tle11" style="margin-bottom: -10px;" disabled>
                       </div>
                     </div>
 
                     <div class="col-md-3">
                       <div class="form-group">
                         <label>COMP</label>
-                        <input type="text" class="form-control subject11" name="subj[]" id="comp" style="margin-bottom: -10px;" disabled>
+                        <input type="text" class="form-control subject11" name="subj[]" id="comp11" style="margin-bottom: -10px;" disabled>
                       </div>
                     </div>
 
                     <div class="col-md-3">
                       <div class="form-group">
                         <label>MAPEH</label>
-                        <input type="text" class="form-control subject11" name="subj[]" id="mapeh" style="margin-bottom: -10px;" disabled>
+                        <input type="text" class="form-control subject11" name="subj[]" id="mapeh11" style="margin-bottom: -10px;" disabled>
                       </div>
                     </div>
 
                   </div>
                   <!-- /.row -->
                   <button class="btn btn-primary btn-flat pull-right subject" id="ave11" style="margin-top: 15px; width: 20%;">Go</button>
+                  <div id="error"></div>
+                  <div id="avera"></div>
                 </div>
                 <!-- /.inner -->
               </div>
@@ -476,11 +478,11 @@
           <!-- /.box -->
         </div>
         <!-- /.col -->
-
-        <div class="col-md-2"></div>
+        <div id="grade12">
+        <div class="col-md-1"></div>
 
         <div class="col-md-4">
-          <div class="box" id="grade12">
+          <div class="box" style="width: 100%;">
             <div class="box-header with-border">
             <button class="btn btn-flat btn-primary btn-lg" style="height: 100px; width: 100%;">Grade 12</button>
           </div>
@@ -584,12 +586,98 @@
                   </div>
                   <!-- /.row -->
                   <button class="btn btn-primary btn-flat pull-right" style="margin-top: 15px; width: 20%;">Go</button>
+                   <div id="error"></div>
+                  <div id="avera"></div>
                 </div>
                 <!-- /.inner -->
               </div>
               <!-- /.box-footer -->
           </div>
           <!-- /.box -->
+        </div>
+        <!-- /.col?? -->
+      </div>
+      <!-- /.FOR STRAND-->
+
+        <div class="col-md-6" style="padding-right: 0">
+        <div class="col-md-12" style="margin-bottom: -15px;">
+          <div class="small-box bg-navy" data-toggle="modal" data-target="#tvla" style="cursor: pointer;">
+            <div class="inner">
+              <h3>TVL-AS</h3>
+            </div>
+            <div class="icon">
+              <i class="fa fa-cogs"></i>
+            </div>
+            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+
+        <div class="col-md-12" style="margin-bottom: -15px;">
+          <div class="small-box bg-maroon" data-toggle="modal" data-target="#gas" style="cursor: pointer;">
+            <div class="inner">
+              <h3>GAS</h3>
+            </div>
+            <div class="icon">
+              <i class="fa fa-book"></i>
+            </div>
+            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+
+        <div class="col-md-12" style="margin-bottom: -15px;">
+          <div class="small-box bg-blue" data-toggle="modal" data-target="#tvlhe" style="cursor: pointer;">
+            <div class="inner">
+              <h3>TVL-HE</h3>
+            </div>
+            <div class="icon">
+              <i class="fa fa-home"></i>
+            </div>
+            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+
+        <div class="col-md-12" id="humssdiv" style="margin-bottom: -15px;">
+          <div class="small-box bg-gray" id="humssbox" data-toggle="modal" data-target="#humss" style="pointer-events: none;">
+            <div class="inner">
+              <h3>HUMSS</h3>
+            </div>
+            <div class="icon">
+              <i class="fa fa-users"></i>
+            </div>
+            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+
+        <div class="col-md-12" id="abmdiv" style="margin-bottom: -15px;">
+          <div class="small-box bg-gray" id="abmbox" data-toggle="modal" data-target="#abm" style="pointer-events: none;">
+            <div class="inner">
+              <h3>ABM</h3>
+            </div>
+            <div class="icon">
+              <i class="fa fa-briefcase"></i>
+            </div>
+            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+
+        <div class="col-md-12" id="stemdiv" style="margin-bottom: -15px;">
+          <div class="small-box bg-gray" id="stembox" data-toggle="modal" data-target="#stem" style="pointer-events: none;">
+            <div class="inner">
+              <h3>STEM</h3>
+            </div>
+            <div class="icon">
+              <i class="fa fa-flask"></i>
+            </div>
+            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->        
+
         </div>
 
         <div class="col-md-1"></div>
@@ -625,10 +713,6 @@
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
 <!-- iCheck 1.0.1 -->
 <script src="<?php echo base_url(); ?>plugins/iCheck/icheck.min.js"></script>
-<!-- Select2 -->
-<script src="<?php echo base_url(); ?>bower_components/select2/dist/js/select2.full.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
 <!-- SlimScroll -->
 <script src="<?php echo base_url(); ?>bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 
@@ -703,15 +787,16 @@
 
   
 
-  $("#ave").click(function(){
-  var input1 = parseInt($('#eng').val(),10);
-  var input2 = parseInt($('#math').val(),10);
-  var input3 = parseInt($('#sci').val(),10);
-  var input4 = parseInt($('#fil').val(),10);
-  var input5 = parseInt($('#ap').val(),10);
-  var input6 = parseInt($('#tle').val(),10);
-  var input7 = parseInt($('#comp').val(),10);
-  var input8 = parseInt($('#mapeh').val(),10);
+  $("#ave11").click(function(){
+  var input1 = parseInt($('#eng11').val(),10);
+  console.log(input1);
+  var input2 = parseInt($('#math11').val(),10);
+  var input3 = parseInt($('#sci11').val(),10);
+  var input4 = parseInt($('#fil11').val(),10);
+  var input5 = parseInt($('#ap11').val(),10);
+  var input6 = parseInt($('#tle11').val(),10);
+  var input7 = parseInt($('#comp11').val(),10);
+  var input8 = parseInt($('#mapeh11').val(),10);
 
   if (isNaN(input1) || isNaN(input2) || isNaN(input3) || isNaN(input4) || isNaN(input5) || isNaN(input6) || isNaN(input7) || isNaN(input8)) {
     $('#error').text('Inputs must be numbers');
@@ -721,17 +806,7 @@
       ave = (input1 + input2 + input3 + input4 + input5 + input6 + input7 +input8) / 8;
       $('#avera').text(ave);
 
-      if (ave > 85){
-        $('#stembox').hide();
-        $('#abmbox').hide();
-        $('#humssbox').hide();
-
-        $('#stemdiv').append('<div class="small-box bg-yellow-active color-palette" id="humssbox" data-toggle="modal" data-target="#humss" style="curor: pointer;"><div class="inner"><h3>HUMSS</h3><p>Humanities<br>and Social Sciences</p></div><div class="icon"><i class="fa fa-users"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
-
-        $('#abmdiv').append('<div class="small-box bg-purple-active color-palette" id="abmbox" data-toggle="modal" data-target="#abm" style="cursor: pointer;"><div class="inner"><h3>ABM</h3><p>Accountancy<br>and Business Management</p></div><div class="icon"><i class="fa fa-briefcase"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
-
-        $('#humssdiv').append('<div class="small-box bg-green-active color-palette" id="stembox" data-toggle="modal" data-target="#stem" style="cursor: pointer;"><div class="inner"><h3>STEM</h3><p>Science, Technology,<br> Engineering, and Mathematics</p></div><div class="icon"><i class="fa fa-flask"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
-      }
+      
     }
   });
 
