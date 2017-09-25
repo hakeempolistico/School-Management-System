@@ -14,6 +14,8 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/Ionicons/css/ionicons.min.css">
   <!-- Select2 -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/select2/dist/css/select2.min.css">
+  <!-- iCheck for checkboxes and radio inputs -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/iCheck/all.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- Theme style -->
@@ -357,6 +359,243 @@
 
     <!-- Main content -->
     <section class="content">
+      <h4 style="margin-left: 20px;">Grade:</h4>
+      <div class="row">
+        <div class="col-md-1"></div>
+
+        <div class="col-md-4">
+          <div class="box" id="grade11">
+            <div class="box-header with-border">
+            <button class="btn btn-flat btn-primary btn-lg" style="height: 100px; width: 100%;">Grade 11</button>
+          </div>
+          <div class="box-body">
+            <label>Requirements:</label>
+                <!-- checkbox -->
+                <div class="form-group" style="padding: 10px 20px;">
+                  <label>
+                    <input type="checkbox" class="minimal-red checkAll11">
+                    Check All
+                  </label>
+                  <br>
+                  <label>
+                    <input type="checkbox" class="minimal-red check11">
+                    NSO Birth Certificate
+                  </label>
+                  <br>
+                  <label>
+                    <input type="checkbox" class="minimal-red check11">
+                    Form 137
+                  </label>
+                  <br>
+                  <label>
+                    <input type="checkbox" class="minimal-red check11">
+                    Form 138
+                  </label>
+
+                </div>
+                <!-- /.form-group -->
+              </div>
+
+
+              <div class="box-footer with-border text-muted" id="grades11">
+                <label>Grades:</label>
+                <div class="inner" style="padding: 10px 20px;">
+
+                  <div class="row">
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>ENG</label>
+                        <input type="text" class="form-control subject11" name="subj[]" id="eng" style="margin-bottom: -10px;" disabled>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>MATH</label>
+                        <input type="text" class="form-control subject11" name="subj[]" id="math"  style="margin-bottom: -10px;" disabled>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>SCI</label>
+                        <input type="text" class="form-control subject11" name="subj[]" id="sci"  style="margin-bottom: -10px;" disabled>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>FIL</label>
+                        <input type="text" class="form-control subject11" name="subj[]" id="fil"  style="margin-bottom: -10px;" disabled>
+                      </div>
+                    </div>
+
+                  </div>
+                  <!-- /.row -->
+
+
+                  <div class="row">
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>AP</label>
+                        <input type="text" class="form-control subject11" name="subj[]" id="ap" style="margin-bottom: -10px;" disabled>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>TLE</label>
+                        <input type="text" class="form-control subject11" name="subj[]" id="tle" style="margin-bottom: -10px;" disabled>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>COMP</label>
+                        <input type="text" class="form-control subject11" name="subj[]" id="comp" style="margin-bottom: -10px;" disabled>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>MAPEH</label>
+                        <input type="text" class="form-control subject11" name="subj[]" id="mapeh" style="margin-bottom: -10px;" disabled>
+                      </div>
+                    </div>
+
+                  </div>
+                  <!-- /.row -->
+                  <button class="btn btn-primary btn-flat pull-right subject" id="ave11" style="margin-top: 15px; width: 20%;">Go</button>
+                </div>
+                <!-- /.inner -->
+              </div>
+              <!-- /.box-footer -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+
+        <div class="col-md-2"></div>
+
+        <div class="col-md-4">
+          <div class="box" id="grade12">
+            <div class="box-header with-border">
+            <button class="btn btn-flat btn-primary btn-lg" style="height: 100px; width: 100%;">Grade 12</button>
+          </div>
+          <div class="box-body">
+            <label>Requirements:</label>
+                <!-- checkbox -->
+                <div class="form-group" style="padding: 10px 20px;">
+                  <label>
+                    <input type="checkbox" class="minimal-red checkAll12">
+                    Check All
+                  </label>
+                  <br>
+                  <label>
+                    <input type="checkbox" class="minimal-red check12">
+                    NSO Birth Certificate
+                  </label>
+                  <br>
+                  <label>
+                    <input type="checkbox" class="minimal-red check12">
+                    Form 137
+                  </label>
+                  <br>
+                  <label>
+                    <input type="checkbox" class="minimal-red check12">
+                    Form 138
+                  </label>
+
+                </div>
+                <!-- /.form-group -->
+              </div>
+
+
+              <div class="box-footer with-border text-muted" id="grades12">
+                <label>Grades:</label>
+                <div class="inner" style="padding: 10px 20px;">
+
+                  <div class="row">
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>ENG</label>
+                        <input type="text" class="form-control subject12" name="subj[]" id="eng" style="margin-bottom: -10px;" disabled>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>MATH</label>
+                        <input type="text" class="form-control subject12" name="subj[]" id="math"  style="margin-bottom: -10px;" disabled>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>SCI</label>
+                        <input type="text" class="form-control subject12" name="subj[]" id="sci"  style="margin-bottom: -10px;" disabled>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>FIL</label>
+                        <input type="text" class="form-control subject12" name="subj[]" id="fil"  style="margin-bottom: -10px;" disabled>
+                      </div>
+                    </div>
+
+                  </div>
+                  <!-- /.row -->
+
+
+                  <div class="row">
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>AP</label>
+                        <input type="text" class="form-control subject12" name="subj[]" id="ap" style="margin-bottom: -10px;" disabled>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>TLE</label>
+                        <input type="text" class="form-control subject12" name="subj[]" id="tle" style="margin-bottom: -10px;" disabled>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>COMP</label>
+                        <input type="text" class="form-control subject12" name="subj[]" id="comp" style="margin-bottom: -10px;" disabled>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>MAPEH</label>
+                        <input type="text" class="form-control subject12" name="subj[]" id="mapeh" style="margin-bottom: -10px;" disabled>
+                      </div>
+                    </div>
+
+                  </div>
+                  <!-- /.row -->
+                  <button class="btn btn-primary btn-flat pull-right" style="margin-top: 15px; width: 20%;">Go</button>
+                </div>
+                <!-- /.inner -->
+              </div>
+              <!-- /.box-footer -->
+          </div>
+          <!-- /.box -->
+        </div>
+
+        <div class="col-md-1"></div>
+      </div>
+
+      <hr>
     </section>
     <!-- /.content -->
   </div>
@@ -384,6 +623,8 @@
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
+<!-- iCheck 1.0.1 -->
+<script src="<?php echo base_url(); ?>plugins/iCheck/icheck.min.js"></script>
 <!-- Select2 -->
 <script src="<?php echo base_url(); ?>bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- AdminLTE for demo purposes -->
@@ -392,41 +633,109 @@
 <script src="<?php echo base_url(); ?>bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 
 <script>
-  var getRecordsUrl = '<?php echo base_url("enrollment/enroll_student/populateTable"); ?>';
+  //Red color scheme for iCheck
+  $('input[type="checkbox"].minimal-red').iCheck({
+    checkboxClass: 'icheckbox_minimal-red'
+  })
 
-  $('#registeredStudentstable').DataTable().destroy();
 
-  $('#registeredStudentstable').DataTable({
-    "columns": [
-        { "width": "25%" },
-        { "width": "25%" },
-        { "width": "25%" },
-        { "width": "25%" }
-        ],
-        "order": [] ,
-        "ajax": getRecordsUrl
+  $('.checkAll11').on('ifChecked', function (event) {
+      $('.check11').iCheck('check');
+      $('.subject11').prop('disabled', false);
+      $('#grade12').hide();
+      $('#grades11').removeClass('text-muted');
+      triggeredByChild = false;
   });
-  /*var arrofobject = <?php echo $registeredStudents ?>;
 
-  $('table').DataTable();
-  $('#record').remove();
+  $('.checkAll11').on('ifUnchecked', function (event) {
+      if (!triggeredByChild) {
+          $('.check11').iCheck('uncheck');
+      }
+      $('.subject11').prop('disabled', true);
+      $('#grade12').show();
+      $('#grades11').addClass('text-muted');
+      triggeredByChild = false;
+  });
 
-  $.each(arrofobject, function(index, val) {
-     var dregister = val.date_registered;
-     var dateTime = dregister.split(" ");
-     var date = dateTime[0];
-     var splitDate = date.split("-");
-     var y = splitDate[0];
-     var m = splitDate[1];
-     var d = splitDate[2];
-     var dash = "-";
-     var mdy = m+dash+d+dash+y;
+  $('.check11').on('ifUnchecked', function (event) {
+      triggeredByChild = true;
+      $('.checkAll11').iCheck('uncheck');
+  });
 
-     console.log(mdy);
+  $('.check11').on('ifChecked', function(event){
+      if ($('.check11').filter(':checked').length == $('.check11').length) {
+        $('.checkAll11').iCheck('check');
+
+      }
+  });
 
 
-    $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td><td>'+mdy+'</td> <td><a href="<?php echo site_url('enrollment/enroll_student/'+val.lrn+''); ?>" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs buttonView" style="max-width: 100px; display:block;margin: auto;">View</a></td> </div> </tr>');
-  });*/
+
+  $('.checkAll12').on('ifChecked', function (event) {
+      $('.check12').iCheck('check');
+      $('.subject12').prop('disabled', false);
+      $('#grade11').hide();
+      $('#grades12').removeClass('text-muted');
+      triggeredByChild = false;
+  });
+
+  $('.checkAll12').on('ifUnchecked', function (event) {
+      if (!triggeredByChild) {
+          $('.check12').iCheck('uncheck');
+      }
+      $('.subject12').prop('disabled', true);
+      $('#grade11').show();
+      $('#grades12').addClass('text-muted');
+      triggeredByChild = false;
+  });
+
+  $('.check12').on('ifUnchecked', function (event) {
+      triggeredByChild = true;
+      $('.checkAll12').iCheck('uncheck');
+  });
+
+  $('.check12').on('ifChecked', function(event){
+      if ($('.check12').filter(':checked').length == $('.check12').length) {
+        $('.checkAll12').iCheck('check');
+
+      }
+  });
+
+  
+
+  $("#ave").click(function(){
+  var input1 = parseInt($('#eng').val(),10);
+  var input2 = parseInt($('#math').val(),10);
+  var input3 = parseInt($('#sci').val(),10);
+  var input4 = parseInt($('#fil').val(),10);
+  var input5 = parseInt($('#ap').val(),10);
+  var input6 = parseInt($('#tle').val(),10);
+  var input7 = parseInt($('#comp').val(),10);
+  var input8 = parseInt($('#mapeh').val(),10);
+
+  if (isNaN(input1) || isNaN(input2) || isNaN(input3) || isNaN(input4) || isNaN(input5) || isNaN(input6) || isNaN(input7) || isNaN(input8)) {
+    $('#error').text('Inputs must be numbers');
+  } else {
+    $('#error').remove();
+
+      ave = (input1 + input2 + input3 + input4 + input5 + input6 + input7 +input8) / 8;
+      $('#avera').text(ave);
+
+      if (ave > 85){
+        $('#stembox').hide();
+        $('#abmbox').hide();
+        $('#humssbox').hide();
+
+        $('#stemdiv').append('<div class="small-box bg-yellow-active color-palette" id="humssbox" data-toggle="modal" data-target="#humss" style="curor: pointer;"><div class="inner"><h3>HUMSS</h3><p>Humanities<br>and Social Sciences</p></div><div class="icon"><i class="fa fa-users"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
+
+        $('#abmdiv').append('<div class="small-box bg-purple-active color-palette" id="abmbox" data-toggle="modal" data-target="#abm" style="cursor: pointer;"><div class="inner"><h3>ABM</h3><p>Accountancy<br>and Business Management</p></div><div class="icon"><i class="fa fa-briefcase"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
+
+        $('#humssdiv').append('<div class="small-box bg-green-active color-palette" id="stembox" data-toggle="modal" data-target="#stem" style="cursor: pointer;"><div class="inner"><h3>STEM</h3><p>Science, Technology,<br> Engineering, and Mathematics</p></div><div class="icon"><i class="fa fa-flask"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
+      }
+    }
+  });
+
+  
 </script>
 
 

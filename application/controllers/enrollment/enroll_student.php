@@ -19,6 +19,16 @@ class enroll_student extends CI_Controller {
 		$this->parser->parse('enrollment/search', $data);
 	}
 
+	public function strands()
+	{
+		$data = $this->parse->parsed();
+		//$jjjj = $this->global_model->getRecords('registered_students');
+		//$jjjk = $jjjj['0']->lrn;
+
+		//print_r($jjjk); exit;
+		$this->parser->parse('enrollment/strand_selection', $data);
+	}
+
 	public function populateTable()
 	{
 		$registeredStudents = $this->global_model->getRecords('registered_students');
