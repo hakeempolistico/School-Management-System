@@ -156,6 +156,17 @@ $(function () {
               $( ".teacher-input:eq("+i+")" ).val(result[i].teacher_id).trigger('change');    
             }
             //$('.cloneInput').removeAttr('id');
+            var strand_value = $('#select-strand').select2('data');
+            var year_value = $('#select-year').select2('data');
+            var section_value = $('#select-section').select2('data');
+            var year_val;
+            if(year_value[0]['text'] == 'Grade 11'){
+              year_val = '11';
+            }
+            else if(year_value[0]['text'] == 'Grade 12'){
+              year_val = '12';
+            }
+            $('#assign-subjects-title').html(strand_value[0]['id']+' '+year_val+'-'+section_value[0]['text'])
 
           }
         });
@@ -191,18 +202,23 @@ $(function () {
             success: function(result){
               //console.log(result);
               for(var i=0; i<x; i++){
-                  console.log(teachers[i] +' : '+ subjects[i]);
-                  console.log(subjects);
-                  $.ajax({
-                    url: addUrl,
-                    type: 'post', 
-                    data: {'table' : 'class_subjects', 'teacher_id' : teachers[i], 'subject_id' : subjects[i], 'section_id' :  section_id}, 
-                    success: function(result){
-                      //console.log(result);
-                    }
-                  }); 
-
+                console.log(teachers[i] +' : '+ subjects[i]);
+                console.log(subjects);
+                $.ajax({
+                  url: addUrl,
+                  type: 'post', 
+                  data: {'table' : 'class_subjects', 'teacher_id' : teachers[i], 'subject_id' : subjects[i], 'section_id' :  section_id}, 
+                  success: function(result){
+                    //console.log(result);
+                  }
+                }); 
               }
+              
+              $('#alert-box').addClass('alert-success').removeClass('alert-danger');
+              $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-check"></i> SUCCESS MESSAGE!');
+              $('#alert-message').html('Assigned subjects added.');
+              $('#alert-box').slideDown(1000);
+              $('#alert-box').delay( 2000 ).slideUp(1000);
             }
           }); 
 
