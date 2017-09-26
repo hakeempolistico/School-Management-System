@@ -474,6 +474,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!-- /.modal-dialog -->
         </div>
         <!-- /.modal -->
+        <div class="modal fade in" id="modal-delete">
+          <div class="modal-dialog" style="max-width: 320px">
+            <div class="box box-primary">
+              <div class="box-body box-profile flat ">
+                <h4>Are you sure you want to delete record?</h4>
+                <button id="delete-confirm" data-dismiss="modal" type="button" style="width: 75px" class="btn btn-block btn-primary btn-sm pull-right">Confirm</button>
+                <button data-dismiss="modal" type="button" style="width: 75px" class="btn btn-sm btn-block btn-danger">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
       </div>
     </section>
@@ -507,6 +518,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   var addUrl = '<?php echo base_url('academics/sections/ajaxInsert'); ?>';
   var countUrl = '<?php echo base_url('academics/sections/ajaxCountRow'); ?>';
   var updateUrl = '<?php echo base_url('academics/sections/ajaxUpdate'); ?>';
+  var deleteRowUrl = '<?php echo base_url('academics/sections/ajaxDeleteRow'); ?>';
 </script>
 </body>
 </html>

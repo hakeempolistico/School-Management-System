@@ -34,6 +34,11 @@ class sections extends CI_Controller {
 	{		
 		echo json_encode($this->global_model->getRecords('year_levels'));
 	}
+	public function ajaxDeleteRow(){
+		$data = $this->input->post();
+		$result = $this->global_model->delete('sections',$data);
+		echo json_encode($result);
+	}
 	public function ajaxInsert(){
 		$table = $this->input->post('table');
 		$data = $this->input->post();
@@ -43,14 +48,15 @@ class sections extends CI_Controller {
 	}
 	public function ajaxGetRecords(){
 		$result = $this->sections_model->getRecords('sections', 'desc', 'id');
-		$action = "<center>
-                    <button data-toggle='modal' data-target='#modal-edit' class='btn btn-default btn-xs edit-btn'><span class='fa fa-fw fa-pencil'></span></button>                    
-                    <button data-toggle='modal' data-target='#modal-delete' class='btn btn-default btn-xs delete-btn'><span class='fa fa-fw fa-remove'></span></button>                
-                  </center>";
 
 		$data = [];
         foreach ($result as $value)
-            {	            	
+            {	
+            	$action = "<center>
+                    <button data-toggle='modal' data-target='#modal-edit' class='btn btn-default btn-xs edit-btn'><span class='fa fa-fw fa-pencil'></span></button>                    
+                    <button data-toggle='modal' data-target='#modal-delete' data-id='".$value->id."' class='btn btn-default btn-xs delete-btn'><span class='fa fa-fw fa-remove'></span></button>                
+                  </center>";
+
                 $arr = array(
                     $value->strand_code,
                     $value->a,
