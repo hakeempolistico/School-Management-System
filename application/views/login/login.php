@@ -57,7 +57,7 @@
     <div class="col-md-4 text-center">
       <div class="login-header" style="height: 40%; background: #6C1827; padding-top: 80px">        
           <a href="<?php echo site_url('welcome/index2') ?>">
-            <img src="<?php echo base_url(); ?>images/logo.png" height="75" width="75">
+            <img src="<?php echo base_url(); ?>images/araullo3.png" height="110" width="110">
           </a>        
           <h2 style="font-weight: 100; color: white;">
             Araullo High School
@@ -69,7 +69,7 @@
   </div>
   <!-- /.row -->
   <div class="row" style="background: #9E373B; height: 54.4%;">    
-    <div class="login-box" style="margin-top: 0px; padding-top: 7%; width: 360px; ">        
+    <div class="login-box" style="margin-top: 0px; padding-top: 5%; width: 360px; ">        
       <?php echo form_open('login/'); ?>
       <div class="row">
       <div class="col-md-12">
