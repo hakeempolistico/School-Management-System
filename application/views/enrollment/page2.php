@@ -359,25 +359,608 @@
 
     <!-- Main content -->
     <section class="content">
-      <h4 style="margin-left: 20px;">Choose year level:</h4>
-      <div class="row" style="margin: 20vh 0;">
+      <h4 style="margin-left: 20px;">Grade:</h4>
+      <div class="row">
+
+        <div class="col-md-6" id="strands12" style="padding-left: 50px; margin-right: -112px; display: none;">
+          <div class="row">
+        <div class="col-md-6" style="margin-bottom: 10px;">
+          <div class="small-box bg-yellow
+          " data-toggle="modal" data-target="#tvla" style="cursor: pointer;">
+            <div class="inner">
+              <h3>TVL-AS</h3>
+              <p>Technical Vocational Livelihood:<br> Automative</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-cogs"></i>
+            </div>
+            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+
+        <div class="col-md-6" style="margin-bottom: 10px;">
+          <div class="small-box bg-maroon" data-toggle="modal" data-target="#gas" style="cursor: pointer;">
+            <div class="inner">
+              <h3>GAS</h3>
+              <p>General Academic<br> Strand</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-book"></i>
+            </div>
+            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+
+        <div class="col-md-6" style="margin-bottom: 10px;">
+          <div class="small-box bg-blue" data-toggle="modal" data-target="#tvlhe" style="cursor: pointer;">
+            <div class="inner">
+              <h3>TVL-HE</h3>
+              <p>Technical Vocational Livelihood:<br> Home Economics</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-home"></i>
+            </div>
+            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+
+        <div class="col-md-6" id="humssdiv12" style="margin-bottom: 10px;">
+          <div class="small-box bg-gray humssbox12" data-toggle="modal" data-target="#humss" style="pointer-events: none;">
+            <div class="inner">
+              <h3>HUMSS</h3>
+              <p>Humanities and<br> Social Sciences</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-users"></i>
+            </div>
+            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+
+        <div class="col-md-6" id="abmdiv12" style="margin-bottom: 10px;">
+          <div class="small-box bg-gray abmbox12" data-toggle="modal" data-target="#abm" style="pointer-events: none;">
+            <div class="inner">
+              <h3>ABM</h3>
+              <p>Accounting and Business<br> Management</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-briefcase"></i>
+            </div>
+            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+
+        <div class="col-md-6" id="stemdiv12" style="margin-bottom: 10px;">
+          <div class="small-box bg-gray stembox12" data-toggle="modal" data-target="#stem" style="pointer-events: none;">
+            <div class="inner">
+              <h3>STEM</h3>
+              <p>Science, Technology, <br>Engineering, and Mathematics</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-flask"></i>
+            </div>
+            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->        
+
+        </div>
+      </div>
+
+
+      <div id="grade11">
+        <div class="col-md-1"></div>
+
+
+        <div class="col-md-4">
+          <div class="box" style="width: 100%;">
+            <div class="box-header with-border">
+            <button class="btn btn-flat btn-primary btn-lg" style="height: 100px; width: 100%;">Grade 11</button>
+          </div>
+          <div class="box-body">
+            <label>Requirements:</label>
+                <!-- checkbox -->
+                <div class="form-group" style="padding: 10px 20px;">
+                  <label>
+                    <input type="checkbox" class="minimal-red checkAll11">
+                    Check All
+                  </label>
+                  <br>
+                  <label>
+                    <input type="checkbox" class="minimal-red check11">
+                    NSO Birth Certificate
+                  </label>
+                  <br>
+                  <label>
+                    <input type="checkbox" class="minimal-red check11">
+                    Form 137
+                  </label>
+                  <br>
+                  <label>
+                    <input type="checkbox" class="minimal-red check11">
+                    Form 138
+                  </label>
+
+                </div>
+                <!-- /.form-group -->
+              </div>
+
+
+              <div class="box-footer with-border text-muted" id="grades11">
+                <label>Grades:</label>
+                <div class="inner" style="padding: 10px 20px;">
+
+                  <div class="row">
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>ENG</label>
+                        <input type="text" class="form-control subject11" name="subj[]" id="eng11" style="margin-bottom: -10px;" disabled>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>MATH</label>
+                        <input type="text" class="form-control subject11" name="subj[]" id="math11"  style="margin-bottom: -10px;" disabled>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>SCI</label>
+                        <input type="text" class="form-control subject11" name="subj[]" id="sci11"  style="margin-bottom: -10px;" disabled>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>FIL</label>
+                        <input type="text" class="form-control subject11" name="subj[]" id="fil11"  style="margin-bottom: -10px;" disabled>
+                      </div>
+                    </div>
+
+                  </div>
+                  <!-- /.row -->
+
+
+                  <div class="row">
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>AP</label>
+                        <input type="text" class="form-control subject11" name="subj[]" id="ap11" style="margin-bottom: -10px;" disabled>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>TLE</label>
+                        <input type="text" class="form-control subject11" name="subj[]" id="tle11" style="margin-bottom: -10px;" disabled>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>COMP</label>
+                        <input type="text" class="form-control subject11" name="subj[]" id="comp11" style="margin-bottom: -10px;" disabled>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>MAPEH</label>
+                        <input type="text" class="form-control subject11" name="subj[]" id="mapeh11" style="margin-bottom: -10px;" disabled>
+                      </div>
+                    </div>
+
+                  </div>
+                  <!-- /.row -->
+                  <button class="btn btn-primary btn-flat pull-right subject" id="ave11" style="margin-top: 15px; width: 20%;">Go</button>
+                  <div id="error"></div>
+                  <div id="avera"></div>
+                </div>
+                <!-- /.inner -->
+              </div>
+              <!-- /.box-footer -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div><!--PARA SA STRANDS NG 12 -->
+
+
+        <div id="grade12">
         <div class="col-md-1"></div>
 
         <div class="col-md-4">
-          <button class="btn btn-flat btn-primary btn-lg" style="height: 100px; width: 100%;">Grade 11</button> 
+          <div class="box" style="width: 100%; margin-left: 40px;">
+            <div class="box-header with-border">
+            <button class="btn btn-flat btn-primary btn-lg" style="height: 100px; width: 100%;">Grade 12</button>
+          </div>
+          <div class="box-body">
+            <label>Requirements:</label>
+                <!-- checkbox -->
+                <div class="form-group" style="padding: 10px 20px;">
+                  <label>
+                    <input type="checkbox" class="minimal-red checkAll12">
+                    Check All
+                  </label>
+                  <br>
+                  <label>
+                    <input type="checkbox" class="minimal-red check12">
+                    NSO Birth Certificate
+                  </label>
+                  <br>
+                  <label>
+                    <input type="checkbox" class="minimal-red check12">
+                    Form 137
+                  </label>
+                  <br>
+                  <label>
+                    <input type="checkbox" class="minimal-red check12">
+                    Form 138
+                  </label>
+
+                </div>
+                <!-- /.form-group -->
+              </div>
+
+
+              <div class="box-footer with-border text-muted" id="grades12">
+                <label>Grades:</label>
+                <div class="inner" style="padding: 10px 20px;">
+
+                  <div class="row">
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>ENG</label>
+                        <input type="text" class="form-control subject12" name="subj[]" id="eng12" style="margin-bottom: -10px;" disabled>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>MATH</label>
+                        <input type="text" class="form-control subject12" name="subj[]" id="math12"  style="margin-bottom: -10px;" disabled>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>SCI</label>
+                        <input type="text" class="form-control subject12" name="subj[]" id="sci12"  style="margin-bottom: -10px;" disabled>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>FIL</label>
+                        <input type="text" class="form-control subject12" name="subj[]" id="fil12"  style="margin-bottom: -10px;" disabled>
+                      </div>
+                    </div>
+
+                  </div>
+                  <!-- /.row -->
+
+
+                  <div class="row">
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>AP</label>
+                        <input type="text" class="form-control subject12" name="subj[]" id="ap12" style="margin-bottom: -10px;" disabled>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>TLE</label>
+                        <input type="text" class="form-control subject12" name="subj[]" id="tle12" style="margin-bottom: -10px;" disabled>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>COMP</label>
+                        <input type="text" class="form-control subject12" name="subj[]" id="comp12" style="margin-bottom: -10px;" disabled>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>MAPEH</label>
+                        <input type="text" class="form-control subject12" name="subj[]" id="mapeh12" style="margin-bottom: -10px;" disabled>
+                      </div>
+                    </div>
+
+                  </div>
+                  <!-- /.row -->
+                  <button class="btn btn-primary btn-flat pull-right" id="ave12" style="margin-top: 15px; width: 20%;">Go</button>
+                   <div id="error"></div>
+                  <div id="avera12"></div>
+                </div>
+                <!-- /.inner -->
+              </div>
+              <!-- /.box-footer -->
+          </div>
+          <!-- /.box -->
         </div>
-        <!-- /.col -->
+        <!-- /.col?? -->
+      </div>
+      <!-- /.FOR STRAND-->
+
+        <div class="col-md-6" id="strands" style="padding-right: 0; display: none;">
+          <div class="row">
+        <div class="col-md-6" style="margin-bottom: 10px;">
+          <div class="small-box bg-yellow
+          " data-toggle="modal" data-target="#tvla" style="cursor: pointer;">
+            <div class="inner">
+              <h3>TVL-AS</h3>
+              <p>Technical Vocational<br> Livelihood: Automative</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-cogs"></i>
+            </div>
+            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+
+        <div class="col-md-6" style="margin-bottom: 10px;">
+          <div class="small-box bg-maroon" data-toggle="modal" data-target="#gas" style="cursor: pointer;">
+            <div class="inner">
+              <h3>GAS</h3>
+              <p>General Academic<br> Strand</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-book"></i>
+            </div>
+            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+
+        <div class="col-md-6" style="margin-bottom: 10px;">
+          <div class="small-box bg-blue" data-toggle="modal" data-target="#tvlhe" style="cursor: pointer;">
+            <div class="inner">
+              <h3>TVL-HE</h3>
+              <p>Technical Vocational <br> Livelihood: Economics</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-home"></i>
+            </div>
+            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+
+        <div class="col-md-6" id="humssdiv" style="margin-bottom: 10px;">
+          <div class="small-box bg-gray humssbox" data-toggle="modal" data-target="#humss" style="pointer-events: none;">
+            <div class="inner">
+              <h3>HUMSS</h3>
+              <p>Humanities and<br> Social Sciences</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-users"></i>
+            </div>
+            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+
+        <div class="col-md-6" id="abmdiv" style="margin-bottom: 10px;">
+          <div class="small-box bg-gray abmbox" data-toggle="modal" data-target="#abm" style="pointer-events: none;">
+            <div class="inner">
+              <h3>ABM</h3>
+              <p>Accounting and Business<br> Management</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-briefcase"></i>
+            </div>
+            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+
+        <div class="col-md-6" id="stemdiv" style="margin-bottom: 10px;">
+          <div class="small-box bg-gray stembox" data-toggle="modal" data-target="#stem" style="pointer-events: none;">
+            <div class="inner">
+              <h3>STEM</h3>
+              <p>Science, Technology, <br>Engineering, and Mathematics</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-flask"></i>
+            </div>
+            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->        
+
+        </div>
 
         <div class="col-md-1"></div>
-
-        <div class="col-md-4">
-          <button class="btn btn-flat btn-primary btn-lg" style="height: 100px; width: 100%;">Grade 12</button>
-        </div>
-        <!-- /.col -->
- 
-        <div class="col-md-2"></div>
       </div>
       <!-- /.row -->
+
+
+
+
+      <!-- MODALS -->
+
+      <div class="modal fade" id="stem">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-green">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Are you sure?</h4>
+            </div>
+            <div class="modal-body">
+              <div class="box-body">
+                <p>This action cannot be changed once the profile is sent to the database of the selected strand (STEM).</p>
+                <br>
+                <center>
+                  <a href="<?php echo site_url('enrollment/enroll_student/enrolled') ?>">
+                  <button type="button" class="btn bg-green" data-toggle="modal" data-target="#stem" style="width: 60%; height: 50px;">Enroll to STEM</button>
+                  </a>
+                </center>
+              </div>
+              <!-- /.box-body -->
+            </div>
+            <!-- /.modal-body -->
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+
+      <div class="modal fade" id="gas">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-maroon">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Are you sure?</h4>
+            </div>
+            <div class="modal-body">
+              <div class="box-body">
+                <p>This action cannot be changed once the profile is sent to the database of the selected strand (GAS).</p>
+                <br>
+                <center>
+                  <a href="<?php echo site_url('enrollment/enroll_student/enrolled') ?>">
+                  <button type="button" class="btn bg-maroon" data-toggle="modal" data-target="#stem" style="width: 60%; height: 50px;">Enroll to GAS</button>
+                  </a>
+                </center>
+              </div>
+              <!-- /.box-body -->
+            </div>
+            <!-- /.modal-body -->
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+
+      <div class="modal fade" id="humss">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-yellow">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Are you sure?</h4>
+            </div>
+            <div class="modal-body">
+              <div class="box-body">
+                <p>This action cannot be changed once the profile is sent to the database of the selected strand (HUMSS).</p>
+                <br>
+                <center>
+                  <a href="<?php echo site_url('enrollment/enroll_student/enrolled') ?>">
+                  <button type="button" class="btn bg-yellow" data-toggle="modal" data-target="#stem" style="width: 60%; height: 50px;">Enroll to HUMSS</button>
+                  </a>
+                </center>
+              </div>
+              <!-- /.box-body -->
+            </div>
+            <!-- /.modal-body -->
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+
+      <div class="modal fade" id="abm">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-purple">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Are you sure?</h4>
+            </div>
+            <div class="modal-body">
+              <div class="box-body">
+                <p>This action cannot be changed once the profile is sent to the database of the selected strand (ABM).</p>
+                <br>
+                <center>
+                  <a href="<?php echo site_url('enrollment/enroll_student/enrolled') ?>">
+                  <button type="button" class="btn bg-purple" data-toggle="modal" data-target="#stem" style="width: 60%; height: 50px;">Enroll to ABM</button>
+                  </a>
+                </center>
+              </div>
+              <!-- /.box-body -->
+            </div>
+            <!-- /.modal-body -->
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+
+      <div class="modal fade" id="tvlhe">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-blue">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Are you sure?</h4>
+            </div>
+            <div class="modal-body">
+              <div class="box-body">
+                <p>This action cannot be changed once the profile is sent to the database of the selected strand (TVL-HE).</p>
+                <br>
+                <center>
+                  <a href="<?php echo site_url('enrollment/enroll_student/enrolled') ?>">
+                  <button type="button" class="btn bg-blue" data-toggle="modal" data-target="#stem" style="width: 60%; height: 50px;">Enroll to TVL-HE</button>
+                  </a>
+                </center>
+              </div>
+              <!-- /.box-body -->
+            </div>
+            <!-- /.modal-body -->
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+
+      <div class="modal fade" id="tvla">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-navy">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Are you sure?</h4>
+            </div>
+            <div class="modal-body">
+              <div class="box-body">
+                <p>This action cannot be changed once the profile is sent to the database of the selected strand (TVL-Automative).</p>
+                <br>
+                <center>
+                  <a href="<?php echo site_url('enrollment/enroll_student/enrolled') ?>">
+                  <button type="button" class="btn bg-navy" data-toggle="modal" data-target="#stem" style="width: 60%; height: 50px;">Enroll to TVL-Automative</button>
+                  </a>
+                </center>
+              </div>
+              <!-- /.box-body -->
+            </div>
+            <!-- /.modal-body -->
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
 
     </section>
     <!-- /.content -->
