@@ -10,6 +10,7 @@ $(function () {
     var strand_code;
     var year_id;
     
+    $('.loading').show();
     $.ajax({
       url: getStrands,
       type: 'post',
@@ -24,9 +25,12 @@ $(function () {
           })).select2();
         });
 
+        $('.loading').delay(500).hide();
       }
     });    
 
+    $('.loading').show();
+    
     $.ajax({
       url: getYears,
       type: 'post',
@@ -40,9 +44,11 @@ $(function () {
               text : value.name
           })).select2();
         });
-
+        $('.loading').delay(500).hide();
       }
     }); 
+
+    $('.loading').show();
 
     $.ajax({
       url: getSubjects,
@@ -57,10 +63,11 @@ $(function () {
               text : value.name
           })).select2();
         });
-
+        $('.loading').delay(500).hide();
       }
     }); 
 
+    $('.loading').show();
     $.ajax({
       url: getTeachers,
       type: 'post',
@@ -74,6 +81,7 @@ $(function () {
               text : value.first_name+' '+value.last_name
           })).select2();
         });
+        $('.loading').delay(500).hide();
 
       }
     }); 
@@ -98,6 +106,7 @@ $(function () {
        year_id = $('#select-year').val();
        $('#select-section').find('option').remove();
 
+       $('.loading').show();
        $.ajax({
           url: getSection,
           type: 'post',
@@ -112,7 +121,7 @@ $(function () {
                   text : value.name
               })).select2();
             });
-
+            $('.loading').delay(500).hide();
           }
         }); 
 
@@ -135,6 +144,7 @@ $(function () {
       $('#add-btn').prop('disabled', false);
       $('#save-btn').prop('disabled', false); 
 
+      $('.loading').show();
       $.ajax({
           url: getClassSubjects,
           type: 'post',
@@ -167,7 +177,7 @@ $(function () {
               year_val = '12';
             }
             $('#assign-subjects-title').html(strand_value[0]['id']+' '+year_val+'-'+section_value[0]['text'])
-
+            $('.loading').delay(500).hide();
           }
         });
 
@@ -195,6 +205,8 @@ $(function () {
       })
       var x = subjects.length;
 
+      $('.loading').show();
+
       $.ajax({
             url: deleteUrl,
             type: 'post', 
@@ -219,10 +231,10 @@ $(function () {
               $('#alert-message').html('Assigned subjects added.');
               $('#alert-box').slideDown(1000);
               $('#alert-box').delay( 2000 ).slideUp(1000);
+
+              $('.loading').delay(500).hide();
             }
           }); 
-
-      
 
     })
 
