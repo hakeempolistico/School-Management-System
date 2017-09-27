@@ -4,9 +4,11 @@ var newCode;
 var newName;
 
 $(function () {
-  
+  $('.loading').show();
   $('#strands-table').DataTable()
+  
   populateTable();
+  $('.loading').delay(500).hide();
 
   $('#add-btn').on('click', function(){ 
 
@@ -51,6 +53,7 @@ $(function () {
                   }
                 });
               }
+
               $('.loading').delay(500).hide();
             }
           });     
