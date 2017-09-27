@@ -359,108 +359,35 @@
 
     <!-- Main content -->
     <section class="content">
-      <h4 style="margin-left: 20px;">Grade:</h4>
-      <div class="row">
+      <h4 style="margin-left: 20px;">Choose Grade:</h4>
+      <div class="row" id="yearLevel" style="margin-top: 20vh;">
 
-        <div class="col-md-6" id="strands12" style="padding-left: 50px; margin-right: -112px; display: none;">
-          <div class="row">
-        <div class="col-md-6" style="margin-bottom: 10px;">
-          <div class="small-box bg-yellow
-          " data-toggle="modal" data-target="#tvla" style="cursor: pointer;">
-            <div class="inner">
-              <h3>TVL-AS</h3>
-              <p>Technical Vocational Livelihood:<br> Automative</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-cogs"></i>
-            </div>
-            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
+        <div class="col-md-2"></div>
+
+
+        <div class="col-md-4">
+          <button id="grade11" class="btn btn-flat btn-primary btn-lg" style="height: 100px; width: 100%;">Grade 11</button>
         </div>
-        <!-- ./col -->
+        <!-- /.col -->
 
-        <div class="col-md-6" style="margin-bottom: 10px;">
-          <div class="small-box bg-maroon" data-toggle="modal" data-target="#gas" style="cursor: pointer;">
-            <div class="inner">
-              <h3>GAS</h3>
-              <p>General Academic<br> Strand</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-book"></i>
-            </div>
-            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-
-        <div class="col-md-6" style="margin-bottom: 10px;">
-          <div class="small-box bg-blue" data-toggle="modal" data-target="#tvlhe" style="cursor: pointer;">
-            <div class="inner">
-              <h3>TVL-HE</h3>
-              <p>Technical Vocational Livelihood:<br> Home Economics</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-home"></i>
-            </div>
-            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-
-        <div class="col-md-6" id="humssdiv12" style="margin-bottom: 10px;">
-          <div class="small-box bg-gray humssbox12" data-toggle="modal" data-target="#humss" style="pointer-events: none;">
-            <div class="inner">
-              <h3>HUMSS</h3>
-              <p>Humanities and<br> Social Sciences</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-users"></i>
-            </div>
-            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-
-        <div class="col-md-6" id="abmdiv12" style="margin-bottom: 10px;">
-          <div class="small-box bg-gray abmbox12" data-toggle="modal" data-target="#abm" style="pointer-events: none;">
-            <div class="inner">
-              <h3>ABM</h3>
-              <p>Accounting and Business<br> Management</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-briefcase"></i>
-            </div>
-            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-
-        <div class="col-md-6" id="stemdiv12" style="margin-bottom: 10px;">
-          <div class="small-box bg-gray stembox12" data-toggle="modal" data-target="#stem" style="pointer-events: none;">
-            <div class="inner">
-              <h3>STEM</h3>
-              <p>Science, Technology, <br>Engineering, and Mathematics</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-flask"></i>
-            </div>
-            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->        
-
-        </div>
-      </div>
-
-
-      <div id="grade11">
         <div class="col-md-1"></div>
 
 
         <div class="col-md-4">
+          <button id="grade12" class="btn btn-flat btn-primary btn-lg" style="height: 100px; width: 100%;">Grade 12</button>
+        </div>
+        <!-- /.col -->
+
+
+        <div class="col-md-1"></div>
+
+      </div>
+      <!-- /.row -->
+      <div class="row" id="req" style="display: none;">
+      <div class="col-md-4">
           <div class="box" style="width: 100%;">
             <div class="box-header with-border">
-            <button class="btn btn-flat btn-primary btn-lg" style="height: 100px; width: 100%;">Grade 11</button>
+            <button class="btn btn-flat btn-primary btn-lg" id="grade" style="height: 100px; width: 100%;"></button>
           </div>
           <div class="box-body">
             <label>Requirements:</label>
@@ -572,138 +499,20 @@
           <!-- /.box -->
         </div>
         <!-- /.col -->
-      </div><!--PARA SA STRANDS NG 12 -->
 
-
-        <div id="grade12">
-        <div class="col-md-1"></div>
-
-        <div class="col-md-4">
-          <div class="box" style="width: 100%; margin-left: 40px;">
-            <div class="box-header with-border">
-            <button class="btn btn-flat btn-primary btn-lg" style="height: 100px; width: 100%;">Grade 12</button>
-          </div>
-          <div class="box-body">
-            <label>Requirements:</label>
-                <!-- checkbox -->
-                <div class="form-group" style="padding: 10px 20px;">
-                  <label>
-                    <input type="checkbox" class="minimal-red checkAll12">
-                    Check All
-                  </label>
-                  <br>
-                  <label>
-                    <input type="checkbox" class="minimal-red check12">
-                    NSO Birth Certificate
-                  </label>
-                  <br>
-                  <label>
-                    <input type="checkbox" class="minimal-red check12">
-                    Form 137
-                  </label>
-                  <br>
-                  <label>
-                    <input type="checkbox" class="minimal-red check12">
-                    Form 138
-                  </label>
-
-                </div>
-                <!-- /.form-group -->
-              </div>
-
-
-              <div class="box-footer with-border text-muted" id="grades12">
-                <label>Grades:</label>
-                <div class="inner" style="padding: 10px 20px;">
-
-                  <div class="row">
-
-                    <div class="col-md-3">
-                      <div class="form-group">
-                        <label>ENG</label>
-                        <input type="text" class="form-control subject12" name="subj[]" id="eng12" style="margin-bottom: -10px;" disabled>
-                      </div>
-                    </div>
-
-                    <div class="col-md-3">
-                      <div class="form-group">
-                        <label>MATH</label>
-                        <input type="text" class="form-control subject12" name="subj[]" id="math12"  style="margin-bottom: -10px;" disabled>
-                      </div>
-                    </div>
-
-                    <div class="col-md-3">
-                      <div class="form-group">
-                        <label>SCI</label>
-                        <input type="text" class="form-control subject12" name="subj[]" id="sci12"  style="margin-bottom: -10px;" disabled>
-                      </div>
-                    </div>
-
-                    <div class="col-md-3">
-                      <div class="form-group">
-                        <label>FIL</label>
-                        <input type="text" class="form-control subject12" name="subj[]" id="fil12"  style="margin-bottom: -10px;" disabled>
-                      </div>
-                    </div>
-
-                  </div>
-                  <!-- /.row -->
-
-
-                  <div class="row">
-
-                    <div class="col-md-3">
-                      <div class="form-group">
-                        <label>AP</label>
-                        <input type="text" class="form-control subject12" name="subj[]" id="ap12" style="margin-bottom: -10px;" disabled>
-                      </div>
-                    </div>
-
-                    <div class="col-md-3">
-                      <div class="form-group">
-                        <label>TLE</label>
-                        <input type="text" class="form-control subject12" name="subj[]" id="tle12" style="margin-bottom: -10px;" disabled>
-                      </div>
-                    </div>
-
-                    <div class="col-md-3">
-                      <div class="form-group">
-                        <label>COMP</label>
-                        <input type="text" class="form-control subject12" name="subj[]" id="comp12" style="margin-bottom: -10px;" disabled>
-                      </div>
-                    </div>
-
-                    <div class="col-md-3">
-                      <div class="form-group">
-                        <label>MAPEH</label>
-                        <input type="text" class="form-control subject12" name="subj[]" id="mapeh12" style="margin-bottom: -10px;" disabled>
-                      </div>
-                    </div>
-
-                  </div>
-                  <!-- /.row -->
-                  <button class="btn btn-primary btn-flat pull-right" id="ave12" style="margin-top: 15px; width: 20%;">Go</button>
-                   <div id="error"></div>
-                  <div id="avera12"></div>
-                </div>
-                <!-- /.inner -->
-              </div>
-              <!-- /.box-footer -->
-          </div>
-          <!-- /.box -->
+        <div class="col-md-8" id= "aStrands" style="display: none;">
+        <div style="margin-top: -30px;">
+        <h4>Available Strands:</h4>
         </div>
-        <!-- /.col?? -->
-      </div>
-      <!-- /.FOR STRAND-->
 
-        <div class="col-md-6" id="strands" style="padding-right: 0; display: none;">
-          <div class="row">
-        <div class="col-md-6" style="margin-bottom: 10px;">
-          <div class="small-box bg-yellow
-          " data-toggle="modal" data-target="#tvla" style="cursor: pointer;">
+      <div class="row">
+
+        <div class="col-md-6">
+          <div class="small-box bg-yellow-active" data-toggle="modal" data-target="#tvla" style="cursor: pointer;">
             <div class="inner">
               <h3>TVL-AS</h3>
-              <p>Technical Vocational<br> Livelihood: Automative</p>
+
+              <p>Technogy-Vocational<br>Livelihood: Automotive Services</p>
             </div>
             <div class="icon">
               <i class="fa fa-cogs"></i>
@@ -713,11 +522,12 @@
         </div>
         <!-- ./col -->
 
-        <div class="col-md-6" style="margin-bottom: 10px;">
+        <div class="col-md-6">
           <div class="small-box bg-maroon" data-toggle="modal" data-target="#gas" style="cursor: pointer;">
             <div class="inner">
               <h3>GAS</h3>
-              <p>General Academic<br> Strand</p>
+
+              <p>General<br>Academic Strand</p>
             </div>
             <div class="icon">
               <i class="fa fa-book"></i>
@@ -727,11 +537,12 @@
         </div>
         <!-- ./col -->
 
-        <div class="col-md-6" style="margin-bottom: 10px;">
+        <div class="col-md-6">
           <div class="small-box bg-blue" data-toggle="modal" data-target="#tvlhe" style="cursor: pointer;">
             <div class="inner">
               <h3>TVL-HE</h3>
-              <p>Technical Vocational <br> Livelihood: Economics</p>
+
+              <p>Technology-Vocational<br>Livelihood: Home Economics</p>
             </div>
             <div class="icon">
               <i class="fa fa-home"></i>
@@ -741,11 +552,12 @@
         </div>
         <!-- ./col -->
 
-        <div class="col-md-6" id="humssdiv" style="margin-bottom: 10px;">
+        <div class="col-md-6" id="humssdiv">
           <div class="small-box bg-gray humssbox" data-toggle="modal" data-target="#humss" style="pointer-events: none;">
             <div class="inner">
               <h3>HUMSS</h3>
-              <p>Humanities and<br> Social Sciences</p>
+
+              <p>Humanities<br>and Social Sciences</p>
             </div>
             <div class="icon">
               <i class="fa fa-users"></i>
@@ -755,11 +567,12 @@
         </div>
         <!-- ./col -->
 
-        <div class="col-md-6" id="abmdiv" style="margin-bottom: 10px;">
+        <div class="col-md-6" id="abmdiv">
           <div class="small-box bg-gray abmbox" data-toggle="modal" data-target="#abm" style="pointer-events: none;">
             <div class="inner">
               <h3>ABM</h3>
-              <p>Accounting and Business<br> Management</p>
+
+              <p>Accountancy<br>and Business Management</p>
             </div>
             <div class="icon">
               <i class="fa fa-briefcase"></i>
@@ -769,11 +582,12 @@
         </div>
         <!-- ./col -->
 
-        <div class="col-md-6" id="stemdiv" style="margin-bottom: 10px;">
+        <div class="col-md-6" id="stemdiv">
           <div class="small-box bg-gray stembox" data-toggle="modal" data-target="#stem" style="pointer-events: none;">
             <div class="inner">
               <h3>STEM</h3>
-              <p>Science, Technology, <br>Engineering, and Mathematics</p>
+
+              <p>Science, Technology,<br> Engineering, and Mathematics</p>
             </div>
             <div class="icon">
               <i class="fa fa-flask"></i>
@@ -783,16 +597,18 @@
         </div>
         <!-- ./col -->        
 
-        </div>
+      </div>
+      <!-- /.row -->
+      </div>
+      <!-- /.col-md-8 -->
 
-        <div class="col-md-1"></div>
       </div>
       <!-- /.row -->
 
+    </section>
+    <!-- /.content -->
 
-
-
-      <!-- MODALS -->
+    <!-- MODALS -->
 
       <div class="modal fade" id="stem">
         <div class="modal-dialog">
@@ -853,7 +669,7 @@
       <div class="modal fade" id="humss">
         <div class="modal-dialog">
           <div class="modal-content">
-            <div class="modal-header bg-yellow">
+            <div class="modal-header bg-red-active">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span></button>
               <h4 class="modal-title">Are you sure?</h4>
@@ -864,7 +680,7 @@
                 <br>
                 <center>
                   <a href="<?php echo site_url('enrollment/enroll_student/enrolled') ?>">
-                  <button type="button" class="btn bg-yellow" data-toggle="modal" data-target="#stem" style="width: 60%; height: 50px;">Enroll to HUMSS</button>
+                  <button type="button" class="btn bg-red-active" data-toggle="modal" data-target="#stem" style="width: 60%; height: 50px;">Enroll to HUMSS</button>
                   </a>
                 </center>
               </div>
@@ -937,7 +753,7 @@
       <div class="modal fade" id="tvla">
         <div class="modal-dialog">
           <div class="modal-content">
-            <div class="modal-header bg-navy">
+            <div class="modal-header bg-yellow-active">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span></button>
               <h4 class="modal-title">Are you sure?</h4>
@@ -948,7 +764,7 @@
                 <br>
                 <center>
                   <a href="<?php echo site_url('enrollment/enroll_student/enrolled') ?>">
-                  <button type="button" class="btn bg-navy" data-toggle="modal" data-target="#stem" style="width: 60%; height: 50px;">Enroll to TVL-Automative</button>
+                  <button type="button" class="btn bg-yellow-active" data-toggle="modal" data-target="#stem" style="width: 60%; height: 50px;">Enroll to TVL-Automative</button>
                   </a>
                 </center>
               </div>
@@ -961,9 +777,6 @@
         <!-- /.modal-dialog -->
       </div>
       <!-- /.modal -->
-
-    </section>
-    <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
 
@@ -995,6 +808,20 @@
 <script src="<?php echo base_url(); ?>bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 
 <script>
+  $('#grade11').on('click',function()
+  {
+    $('#yearLevel').remove();
+    $('#grade').html('Grade 11');
+    $('#req').css('display', 'block');
+  });
+
+  $('#grade12').on('click',function()
+  {
+    $('#yearLevel').remove();
+    $('#grade').html('Grade 12');
+    $('#req').css('display', 'block');
+  });
+
   //Red color scheme for iCheck
   $('input[type="checkbox"].minimal-red').iCheck({
     checkboxClass: 'icheckbox_minimal-red'
@@ -1004,9 +831,8 @@
   $('.checkAll11').on('ifChecked', function (event) {
       $('.check11').iCheck('check');
       $('.subject11').prop('disabled', false);
-      $('#grade12').hide();
       $('#grades11').removeClass('text-muted');
-      $('#strands').css('display', 'block');
+      $('#aStrands').css('display', 'block');
       triggeredByChild = false;
   });
 
@@ -1015,9 +841,8 @@
           $('.check11').iCheck('uncheck');
       }
       $('.subject11').prop('disabled', true);
-      $('#grade12').show();
       $('#grades11').addClass('text-muted');
-      $('#strands').css('display', 'none');
+      $('#aStrands').css('display', 'none');
       triggeredByChild = false;
   });
 
@@ -1029,40 +854,6 @@
   $('.check11').on('ifChecked', function(event){
       if ($('.check11').filter(':checked').length == $('.check11').length) {
         $('.checkAll11').iCheck('check');
-
-      }
-  });
-
-
-
-  $('.checkAll12').on('ifChecked', function (event) {
-      $('.check12').iCheck('check');
-      $('.subject12').prop('disabled', false);
-      $('#grade11').hide();
-      $('#grades12').removeClass('text-muted');
-      $('#strands12').css('display', 'block');
-      triggeredByChild = false;
-  });
-
-  $('.checkAll12').on('ifUnchecked', function (event) {
-      if (!triggeredByChild) {
-          $('.check12').iCheck('uncheck');
-      }
-      $('.subject12').prop('disabled', true);
-      $('#grade11').show();
-      $('#grades12').addClass('text-muted');
-      $('#strands12').css('display', 'none');
-      triggeredByChild = false;
-  });
-
-  $('.check12').on('ifUnchecked', function (event) {
-      triggeredByChild = true;
-      $('.checkAll12').iCheck('uncheck');
-  });
-
-  $('.check12').on('ifChecked', function(event){
-      if ($('.check12').filter(':checked').length == $('.check12').length) {
-        $('.checkAll12').iCheck('check');
 
       }
   });
@@ -1113,48 +904,7 @@
   });
 
 
-  $("#ave12").click(function(){
-  var input1 = parseInt($('#eng12').val(),10);
-  console.log(input1);
-  var input2 = parseInt($('#math12').val(),10);
-  var input3 = parseInt($('#sci12').val(),10);
-  var input4 = parseInt($('#fil12').val(),10);
-  var input5 = parseInt($('#ap12').val(),10);
-  var input6 = parseInt($('#tle12').val(),10);
-  var input7 = parseInt($('#comp12').val(),10);
-  var input8 = parseInt($('#mapeh12').val(),10);
-
-  if (isNaN(input1) || isNaN(input2) || isNaN(input3) || isNaN(input4) || isNaN(input5) || isNaN(input6) || isNaN(input7) || isNaN(input8)) {
-    $('#error').text('Inputs must be numbers');
-  } else {
-    $('#error').remove();
-
-      ave = (input1 + input2 + input3 + input4 + input5 + input6 + input7 +input8) / 8;
-      $('#avera').text(ave);
-
-      if (ave > 85){
-        $('.stembox12').hide();
-        $('.abmbox12').hide();
-        $('.humssbox12').hide();
-
-        $('#humssdiv12').append('<div class="small-box bg-red-active color-palette humssbox12" data-toggle="modal" data-target="#humss" style="curor: pointer;"><div class="inner"><h3>HUMSS</h3><p>Humanities and<br> Social Sciences</p></div><div class="icon"><i class="fa fa-users"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
-
-        $('#abmdiv12').append('<div class="small-box bg-green-active color-palette abmbox12" data-toggle="modal" data-target="#abm" style="cursor: pointer;"><div class="inner"><h3>ABM</h3><p>Accountancy and Business<br> Management</p></div><div class="icon"><i class="fa fa-briefcase"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
-
-        $('#stemdiv12').append('<div class="small-box bg-purple-active color-palette stembox12" data-toggle="modal" data-target="#stem" style="cursor: pointer;"><div class="inner"><h3>STEM</h3><p>Science, Technology,<br> Engineering, and Mathematics</p></div><div class="icon"><i class="fa fa-flask"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
-      } else {
-        $('.stembox12').hide();
-        $('.abmbox12').hide();
-        $('.humssbox12').hide();
-
-        $('#humssdiv12').append('<div class="small-box bg-gray color-palette humssbox12" data-toggle="modal" data-target="#humss" style="curor: pointer;"><div class="inner"><h3>HUMSS</h3><p>Humanities and<br> Social Sciences</p></div><div class="icon"><i class="fa fa-users"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
-
-        $('#abmdiv12').append('<div class="small-box bg-gray color-palette abmbox12" data-toggle="modal" data-target="#abm" style="cursor: pointer;"><div class="inner"><h3>ABM</h3><p>Accountancy and Business<br> Management</p></div><div class="icon"><i class="fa fa-briefcase"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
-
-        $('#stemdiv12').append('<div class="small-box bg-gray color-palette stembox12" data-toggle="modal" data-target="#stem" style="cursor: pointer;"><div class="inner"><h3>STEM</h3><p>Science, Technology,<br> Engineering, and Mathematics</p></div><div class="icon"><i class="fa fa-flask"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
-      }
-    }
-  });
+ 
 
   
 </script>
