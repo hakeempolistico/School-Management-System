@@ -13,6 +13,7 @@ $(function () {
     var code = $('#code-input').val();
     var name = $('#name-input').val();
 
+    $('.loading').show();
     $.ajax({
             url: countUrl,
             type: 'post',
@@ -50,12 +51,9 @@ $(function () {
                   }
                 });
               }
+              $('.loading').delay(500).hide();
             }
           });     
-
-    
-
-    populateTable();
 
   })
 
@@ -68,6 +66,7 @@ $(function () {
       alert('Strand code cannot be empty!')
     }
     else{
+      $('.loading').show();
       $.ajax({
         url: updateUrl,
         type: 'post',
@@ -75,6 +74,7 @@ $(function () {
         data: {'name' : newName, 'code': newCode, 'set': code }, 
         success: function(result){
           populateTable();
+          $('.loading').delay(500).hide();
         }
       }); 
     }
@@ -87,6 +87,7 @@ $(function () {
 })
 
 $('#delete-confirm').click(function(){
+  $('.loading').show();
   $.ajax({
     url: deleteRowUrl,
     type: 'post',
@@ -95,6 +96,7 @@ $('#delete-confirm').click(function(){
     success: function(result){
       console.log(result);
       populateTable();
+      $('.loading').delay(500).hide();
     }
   }); 
 })
