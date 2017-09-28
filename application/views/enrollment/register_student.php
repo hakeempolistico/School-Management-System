@@ -265,7 +265,6 @@
                 Dashboard
               </a>
             </li>
-            <li>
             <li class="active">
               <a href="<?php echo site_url('enrollment/register_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
