@@ -391,11 +391,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <label for="major-input">Major</label>
                   <input type="text" class="form-control" id="major-input">
                 </div>
-                <div class="form-group" style="margin-bottom: 5px">
+                <div class="form-group" style="margin-bottom: 7px">
                   <label for="position-input">Position</label>
                   <input type="text" class="form-control" id="position-input">
                 </div>
-                <button id="add-btn" type="button" style="width: 100px" class="btn btn-block btn-primary pull-right">Add</button>
+                <button id="add-btn" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Add</button>
               </div>
           </div>
         </div>
