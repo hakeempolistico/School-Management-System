@@ -371,26 +371,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </div>
               <!-- /.box-header -->
               <div class="box-body">                  
-                    <div class="form-group">
+                    <div class="form-group" style="margin-bottom: 5px">
                       <label>Strand</label>
                       <select id="select-strand" data-placeholder="select strand" class="form-control select2" style="width: 100%;">
                         <option id="option-strand"></option>
                       </select>
                     </div>                   
-                    <div class="form-group">
+                    <div class="form-group" style="margin-bottom: 5px">
                       <label>Year</label>
                       <select id="select-year" data-placeholder="select year" class="form-control select2" style="width: 100%;">
                         <option id="option-year"></option>
                       </select>
                     </div>                   
-                    <div class="form-group">
+                    <div class="form-group" style="margin-bottom: 7px">
                       <label>Section</label>
                       <select id="select-section" data-placeholder="select section" class="form-control select2" style="width: 100%;">
                         <option id="option-section"></option>
                       </select>
                     </div> 
                 
-                <button id="confirm-btn" type="button" style="width: 100px" class="btn btn-block btn-primary pull-right">Confirm</button>
+                <button id="confirm-btn" type="button" style="width: 100px" class="btn btn-sm btn-primary pull-right">Confirm</button>
               </div>
           </div>
         </div>

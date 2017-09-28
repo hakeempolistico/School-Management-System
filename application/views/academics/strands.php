@@ -374,11 +374,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <label for="srtandCodeInput" class="text-danger">*</label>
                   <input type="text" class="form-control" id="code-input" placeholder="Strand Code">
                 </div> 
-                <div class="form-group">
+                <div class="form-group" style="margin-bottom: 7px">
                   <label for="strandNameInput">Name</label>
                   <input type="text" class="form-control" id="name-input" placeholder="Strand Name">
                 </div>               
-                <button type="button" id="add-btn" class="btn btn-block btn-primary">Add</button>
+                <button type="button" id="add-btn" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Add</button>
               </div>
           </div>
         </div>
