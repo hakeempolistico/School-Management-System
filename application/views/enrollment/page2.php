@@ -349,7 +349,7 @@
     <section class="content-header">
       <h1>
         Enroll Student
-        <small>lrn: <?php echo $lrn ?> </small>
+        <small>lrn: <?php echo $id ?> </small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Enrollment</a></li>
@@ -359,40 +359,27 @@
 
     <!-- Main content -->
     <section class="content">
-      <h4 style="margin-left: 20px;">Choose Grade:</h4>
-      <div class="row" id="yearLevel" style="margin-top: 20vh;">
-
-        <div class="col-md-2"></div>
+      <h4 style="margin-left: 20px;" id="choose">Choose Grade:</h4>
+      <div class="row" id="yearLevel">
 
 
         <div class="col-md-4">
-          <button id="grade11" class="btn btn-flat btn-primary btn-lg" style="height: 100px; width: 100%;">Grade 11</button>
+          <button id="grade11" class="btn btn-flat btn-lg" style="background-color: #603838; height: 270px; width: 100%; color: white;">Grade 11</button>
+          <button id="grade12" class="btn btn-flat btn-lg" style="background-color: #82595D; height: 270px; width: 100%; color: white;">Grade 12</button>
         </div>
         <!-- /.col -->
-
-        <div class="col-md-1"></div>
-
-
-        <div class="col-md-4">
-          <button id="grade12" class="btn btn-flat btn-primary btn-lg" style="height: 100px; width: 100%;">Grade 12</button>
-        </div>
-        <!-- /.col -->
-
-
-        <div class="col-md-1"></div>
-
       </div>
       <!-- /.row -->
       <div class="row" id="req" style="display: none;">
       <div class="col-md-4">
           <div class="box" style="width: 100%;">
             <div class="box-header with-border">
-            <button class="btn btn-flat btn-primary btn-lg" id="grade" style="height: 100px; width: 100%;"></button>
+            <button class="btn btn-flat btn-primary btn-lg" id="grade" style="height: 60px; width: 100%;"></button>
           </div>
           <div class="box-body">
             <label>Requirements:</label>
                 <!-- checkbox -->
-                <div class="form-group" style="padding: 10px 20px;">
+                <div class="form-group" style="padding: 3px 20px;">
                   <label>
                     <input type="checkbox" class="minimal-red checkAll11">
                     Check All
@@ -414,7 +401,13 @@
                   </label>
 
                 </div>
+                <label>Note:</label>
                 <!-- /.form-group -->
+                <div class="form-group" style="padding: 0 20px;">
+                  <textarea id="note" style="width: 100%;"></textarea>
+                </div>
+                <!-- /.form-group -->
+
               </div>
 
 
@@ -501,7 +494,7 @@
         <!-- /.col -->
 
         <div class="col-md-8" id= "aStrands" style="display: none;">
-        <div style="margin-top: -30px;">
+        <div>
         <h4>Available Strands:</h4>
         </div>
 
@@ -777,6 +770,17 @@
         <!-- /.modal-dialog -->
       </div>
       <!-- /.modal -->
+
+
+
+
+      <!-- ######################## HIDDEN INPUTS ########################### -->
+      <form>
+        <input type="hidden" id="r_s_id" name="registered_student_id">
+        <input type="hidden" id="noteHidden" name="note">
+        <input type="hidden" id="section_id" name="section_id">
+      </form>
+
   </div>
   <!-- /.content-wrapper -->
 
@@ -811,14 +815,18 @@
   $('#grade11').on('click',function()
   {
     $('#yearLevel').remove();
+    $('#choose').remove();
     $('#grade').html('Grade 11');
+    $('#grade').css('background-color','#603838');
     $('#req').css('display', 'block');
   });
 
   $('#grade12').on('click',function()
   {
     $('#yearLevel').remove();
+    $('#choose').remove();
     $('#grade').html('Grade 12');
+    $('#grade').css('background-color','#82595D');
     $('#req').css('display', 'block');
   });
 
