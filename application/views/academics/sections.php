@@ -390,11 +390,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <label for="input-name" class="text-danger">*</label>    
                   <input type="text" class="form-control" id="input-name" placeholder="Section Name">
                 </div> 
-                <div class="form-group">
+                <div class="form-group" style="margin-bottom: 7px">
                   <label for="input-capacity">Capacity</label>
                   <input type="number" class="form-control" id="input-capacity" placeholder="Section Capacity">
                 </div>                
-                <button id="btn-add" type="button" class="btn btn-block btn-primary">Add</button>
+                <button id="btn-add" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Add</button>
               </div>
           </div>
         </div>

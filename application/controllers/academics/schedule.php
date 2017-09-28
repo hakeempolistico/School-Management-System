@@ -7,6 +7,7 @@ class schedule extends CI_Controller {
 	{
 	    parent::__construct();
 	    $this->sms_session->checkSession();
+	    $this->load->model('academics/schedule_model');
 	}
 
 	public function index()
@@ -17,6 +18,7 @@ class schedule extends CI_Controller {
 		$data['teachers'] = $this->global_model->getRecords('teachers');		
 		$data['rooms'] = $this->global_model->getRecords('rooms');			
 		$data['subjects'] = $this->global_model->getRecords('subjects');		
+		$data['classes'] = $this->schedule_model->getClass();		
 		$this->parser->parse('academics/schedule', $data);
 	}
 

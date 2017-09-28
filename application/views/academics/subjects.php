@@ -384,11 +384,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <label for="name-input" class="text-danger">*</label>
                     <input type="text" class="form-control" id="name-input" placeholder="subject name" required>
                   </div>
-                  <div class="form-group"style="margin-bottom: 5px;">
+                  <div class="form-group" style="margin-bottom: 5px;">
                     <label for="type-input">Type</label>
                     <input type="text" class="form-control" id="type-input" placeholder="subject type">
                   </div>
-                  <div class="form-group">
+                  <div class="form-group" style="margin-bottom: 7px;">
                     <label for="description-input">Description</label>
                     <input type="text" class="form-control" id="description-input" placeholder="subject description">
                   </div>
