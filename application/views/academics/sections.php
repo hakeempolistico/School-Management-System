@@ -374,14 +374,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="form-group" style="margin-bottom: 5px">
                   <label for="select-strand">Strand</label>                  
                   <label for="select-strand" class="text-danger">*</label>                  
-                  <select id="select-strand" data-placeholder="Section Strand" class="form-control">
+                  <select id="select-strand" data-placeholder="Section Strand" class="form-control" style="width: 100%">
                     <option></option>
                   </select>
                 </div>
                 <div class="form-group" style="margin-bottom: 5px">
                   <label for="select-year">Year Level</label> 
                   <label for="select-year" class="text-danger">*</label>                     
-                  <select id="select-year" data-placeholder="Section Year Level" class="form-control">
+                  <select id="select-year" data-placeholder="Section Year Level" class="form-control" style="width: 100%">
                     <option></option>
                   </select>
                 </div>
