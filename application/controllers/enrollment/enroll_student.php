@@ -41,7 +41,9 @@ class enroll_student extends CI_Controller {
 		foreach ($registeredStudents as $registeredStudents) 
 		{
 			$lrn = $registeredStudents->lrn;
-			$action = '<form method="post" action="/sms/enrollment/enroll_student/enroll"><input type="hidden" name="lrn" value="'.$lrn.'"><button type="submit" class="btn btn-block btn-info btn-flat btn-xs buttonView" style="max-width: 100px; display:block;margin: auto;">Enroll</button></form>'; 
+			$id = $registeredStudents->id;
+
+			$action = '<form method="post" action="/sms/enrollment/enroll_student/enroll"><input type="hidden" name="id" value="'.$id.'"><button type="submit" class="btn btn-block btn-info btn-flat btn-xs buttonView" style="max-width: 100px; display:block;margin: auto;">Enroll</button></form>'; 
 
 
 			$fullName = $registeredStudents->first_name.' '.$registeredStudents->last_name;
@@ -77,7 +79,7 @@ class enroll_student extends CI_Controller {
 	{
 		
 		$data = $this->parse->parsed();
-		$data['lrn'] =  $this->input->post('lrn');
+		$data['id'] =  $this->input->post('id');
 		$this->parser->parse('enrollment/page2', $data);
 	}
 
