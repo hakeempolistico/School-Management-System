@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>School Management | Manage Schedule</title>
+  <title>School Management | Schedule</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -342,15 +342,15 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div  class=" content-wrapper">
-    <div class="alert alert-success alert-dismissible flat">
+    <!-- <div class="alert alert-success alert-dismissible flat">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <h4><i class="icon fa fa-bullhorn"></i> Day 1 of Enrollment is successful!</h4>
           Congratulations! Job well done! Please do the same on Day 2 of Enrollment!
-    </div>
+    </div> -->
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Manage Schedule
+        Schedule
         <small>Create a schedule for school year 2017-2018</small>
       </h1>
       <ol class="breadcrumb">
@@ -362,9 +362,16 @@
     <!-- Main content -->
     <section class="content">
     <div class="row">
-      <div class="col-lg-5 col-xs-12">
+      <div class="col-lg-4 col-xs-12">
         <div class="input-group margin" style="margin: 0 0 10px 0;">
-                <input type="text" class="form-control" placeholder="select class">
+                <select id="new-event-subject" class="form-control select2"  data-placeholder="Select Class" style="width: 100%">
+                  <option></option>
+                  <?php foreach ($classes as $val) 
+                    {
+                      echo "<option val='".$val->id."'>".$val->strand_code." ".substr($val->year_level, 6)."-". $val->section_name."</option>";
+                    }
+                  ?>   
+                </select> 
                     <span class="input-group-btn">
                       <button type="button" class="btn btn-info btn-flat">ENTER</button>
                     </span>
@@ -376,23 +383,17 @@
       
       
       <div class="row disabled">
-        <div class="col-lg-5 col-xs-12">
-          <div id="profile-box-class" class="box box-widget widget-user-2">
-            <!-- Add the bg color to the header using any of the bg-* classes -->
-            <div class="widget-user-header bg-primary">
-              <div class="widget-user-image">
-                <img class="img-circle" src="<?php echo base_url('images/alt_picture_aqua.jpg'); ?>" alt="User Avatar">
+        <div class="col-lg-4 col-xs-12">
+           <div class="hidden-print box box-solid">
+            <div class="box-header with-border">
+              <h4 id="trash" class="box-title">Drag Here To Trash</h4>
+            </div>
+            <div class="box-body" style="padding: 10px">
+              <div ondrop="dropTrash(event)" ondragover="allowDrop(event)" >
+                  <h5 class="box-title text-center"><icon id = "icon" class="fa fa-trash-o fa-5x"/></h5>
               </div>
-              <!-- /.widget-user-image -->
-              <h3 class="widget-user-username" style="color: white; font-size: 25px;" id="profile-class-name">Type O</h3>
-              <h5 class="widget-user-desc" style="color: white" id="profile-class-grade">Grade 12</h5>
             </div>
-            <div class="box-footer no-padding">
-              <ul class="nav nav-stacked">
-                <li><a href="#">Adviser <span class="pull-right text-info" id="profile-class-adviser">Hakeem Polistico</span></a></li>
-                <li><a href="#">Status <span class="pull-right text-danger badge bg-blue" id="profile-class-status">FULL</span></a></li>
-              </ul>
-            </div>
+
           </div>
         </div>
         
@@ -400,6 +401,7 @@
         <div class="hidden-print box box-solid">
             <div class="box-header with-border">
               <h3 class="box-title">Create Event</h3>
+              <h3 class="box-title pull-right">STEM 11-A</h3>
             </div>
             <div class="box-body" style="padding: 18px 10px 17px 10px">
               <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
@@ -419,7 +421,7 @@
               </div>
               <!-- /btn-group -->
               <div class="input-group">
-                <select id="new-event-subject" class="form-control select2"  data-placeholder="Select subject">
+                <select id="new-event-subject" class="form-control select2"  data-placeholder="Select subject" style="width: 100%">
                   <option></option>
                   <?php foreach ($subjects as $val) 
                     {
@@ -427,17 +429,9 @@
                     }
                   ?>   
                 </select>
-                <select id="new-event-teacher" class="form-control select2"  data-placeholder="Select teacher">
-                  <option></option>
-                  <?php foreach ($teachers as $val) 
-                    {
-                      echo "<option>".$val->first_name." ".$val->last_name."</option>";
-                    }
-                  ?>   
-                </select>
 
                 <div class="input-group-btn ">
-                  <button id="add-new-event" type="button" class="btn btn-primary btn-flat" style="height:68px;">Add</button>
+                  <button id="add-new-event" type="button" class="btn btn-primary btn-flat">Add</button>
                 </div>
                 <!-- /btn-group -->
               </div>
@@ -446,7 +440,7 @@
           </div>
       </div>
 
-        <div class="col-lg-3 col-xs-12">
+        <div class="col-lg-4 col-xs-12">
           <div class="hidden-print box box-solid" style="padding-top:6px; padding-bottom:6px;">
             <div class="box-header with-border">
               <h4 class="box-title">Actions Row</h4>
@@ -473,17 +467,7 @@
         <!-- /.col -->
         <div class="col-md-3">
 
-          <div class="hidden-print box box-solid">
-            <div class="box-header with-border">
-              <h4 id="trash" class="box-title">Drag Here To Trash</h4>
-            </div>
-            <div class="box-body" style="padding: 5px 10px 5px 10px">
-              <div ondrop="dropTrash(event)" ondragover="allowDrop(event)" >
-                  <h5 class="box-title text-center"><icon id = "icon" class="fa fa-trash-o fa-3x"/></h5>
-              </div>
-            </div>
-
-          </div>
+         
 
           <div class="box box-solid">
             <div class="box-header with-border">

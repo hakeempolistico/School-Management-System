@@ -10,6 +10,7 @@ $(function () {
     var strand_code;
     var year_id;
     
+    $('.loading').show();
     $.ajax({
       url: getStrands,
       type: 'post',
@@ -24,9 +25,12 @@ $(function () {
           })).select2();
         });
 
+        $('.loading').delay(500).hide();
       }
     });    
 
+    $('.loading').show();
+    
     $.ajax({
       url: getYears,
       type: 'post',
@@ -40,9 +44,11 @@ $(function () {
               text : value.name
           })).select2();
         });
-
+        $('.loading').delay(500).hide();
       }
     }); 
+
+    $('.loading').show();
 
     $.ajax({
       url: getSubjects,
@@ -57,10 +63,11 @@ $(function () {
               text : value.name
           })).select2();
         });
-
+        $('.loading').delay(500).hide();
       }
     }); 
 
+    $('.loading').show();
     $.ajax({
       url: getTeachers,
       type: 'post',
@@ -74,6 +81,7 @@ $(function () {
               text : value.first_name+' '+value.last_name
           })).select2();
         });
+        $('.loading').delay(500).hide();
 
       }
     }); 
@@ -98,6 +106,7 @@ $(function () {
        year_id = $('#select-year').val();
        $('#select-section').find('option').remove();
 
+       $('.loading').show();
        $.ajax({
           url: getSection,
           type: 'post',
@@ -112,7 +121,7 @@ $(function () {
                   text : value.name
               })).select2();
             });
-
+            $('.loading').delay(500).hide();
           }
         }); 
 
@@ -135,6 +144,7 @@ $(function () {
       $('#add-btn').prop('disabled', false);
       $('#save-btn').prop('disabled', false); 
 
+      $('.loading').show();
       $.ajax({
           url: getClassSubjects,
           type: 'post',
@@ -156,7 +166,18 @@ $(function () {
               $( ".teacher-input:eq("+i+")" ).val(result[i].teacher_id).trigger('change');    
             }
             //$('.cloneInput').removeAttr('id');
-
+            var strand_value = $('#select-strand').select2('data');
+            var year_value = $('#select-year').select2('data');
+            var section_value = $('#select-section').select2('data');
+            var year_val;
+            if(year_value[0]['text'] == 'Grade 11'){
+              year_val = '11';
+            }
+            else if(year_value[0]['text'] == 'Grade 12'){
+              year_val = '12';
+            }
+            $('#assign-subjects-title').html(strand_value[0]['id']+' '+year_val+'-'+section_value[0]['text'])
+            $('.loading').delay(500).hide();
           }
         });
 
@@ -184,6 +205,8 @@ $(function () {
       })
       var x = subjects.length;
 
+      $('.loading').show();
+
       $.ajax({
             url: deleteUrl,
             type: 'post', 
@@ -191,22 +214,27 @@ $(function () {
             success: function(result){
               //console.log(result);
               for(var i=0; i<x; i++){
-                  console.log(teachers[i] +' : '+ subjects[i]);
-                  console.log(subjects);
-                  $.ajax({
-                    url: addUrl,
-                    type: 'post', 
-                    data: {'table' : 'class_subjects', 'teacher_id' : teachers[i], 'subject_id' : subjects[i], 'section_id' :  section_id}, 
-                    success: function(result){
-                      //console.log(result);
-                    }
-                  }); 
-
+                console.log(teachers[i] +' : '+ subjects[i]);
+                console.log(subjects);
+                $.ajax({
+                  url: addUrl,
+                  type: 'post', 
+                  data: {'table' : 'class_subjects', 'teacher_id' : teachers[i], 'subject_id' : subjects[i], 'section_id' :  section_id}, 
+                  success: function(result){
+                    //console.log(result);
+                  }
+                }); 
               }
+              
+              $('#alert-box').addClass('alert-success').removeClass('alert-danger');
+              $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-check"></i> SUCCESS MESSAGE!');
+              $('#alert-message').html('Assigned subjects added.');
+              $('#alert-box').slideDown(1000);
+              $('#alert-box').delay( 2000 ).slideUp(1000);
+
+              $('.loading').delay(500).hide();
             }
           }); 
-
-      
 
     })
 

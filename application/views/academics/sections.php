@@ -24,6 +24,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/skins/_all-skins.min.css">
+  <!-- Loading -->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/loading.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -37,6 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
+  <div hidden class="loading">Loading&#8230;</div>
   <header class="main-header">
     <!-- Logo -->
     <a href="<?php echo site_url('/') ?>" class="logo">
@@ -175,13 +178,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="<?php echo base_url('images/1.jpg');?>" class="user-image" alt="<?php echo base_url('images/alt_picture.jpg');?>">
+              <img src="<?php echo base_url('images/alt_picture.jpg');?>" class="user-image" alt="<?php echo base_url('images/alt_picture.jpg');?>">
               <span class="hidden-xs"><?php echo $this->session->first_name." ".$this->session->last_name ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="<?php echo base_url('images/1.jpg');?>" class="img-circle" alt="<?php echo base_url('images/alt_picture.jpg');?>">
+                <img src="<?php echo base_url('images/alt_picture.jpg');?>" class="img-circle" alt="<?php echo base_url('images/alt_picture.jpg');?>">
 
                 <p>
                  <?php echo $this->session->first_name." ".$this->session->last_name." - ".$this->session->position ?>
@@ -226,7 +229,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="<?php echo base_url('images/1.jpg');?>" class="img-circle" alt="<?php echo base_url('images/alt_picture.jpg');?>">
+          <img src="<?php echo base_url('images/alt_picture.jpg');?>" class="img-circle" alt="<?php echo base_url('images/alt_picture.jpg');?>">
         </div>
         <div class="pull-left info">
           <p><?php echo $this->session->first_name." ".$this->session->last_name ?></p>
@@ -371,14 +374,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="form-group" style="margin-bottom: 5px">
                   <label for="select-strand">Strand</label>                  
                   <label for="select-strand" class="text-danger">*</label>                  
-                  <select id="select-strand" data-placeholder="Section Strand" class="form-control">
+                  <select id="select-strand" data-placeholder="Section Strand" class="form-control" style="width: 100%">
                     <option></option>
                   </select>
                 </div>
                 <div class="form-group" style="margin-bottom: 5px">
                   <label for="select-year">Year Level</label> 
                   <label for="select-year" class="text-danger">*</label>                     
-                  <select id="select-year" data-placeholder="Section Year Level" class="form-control">
+                  <select id="select-year" data-placeholder="Section Year Level" class="form-control" style="width: 100%">
                     <option></option>
                   </select>
                 </div>
@@ -387,11 +390,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <label for="input-name" class="text-danger">*</label>    
                   <input type="text" class="form-control" id="input-name" placeholder="Section Name">
                 </div> 
-                <div class="form-group">
+                <div class="form-group" style="margin-bottom: 7px">
                   <label for="input-capacity">Capacity</label>
                   <input type="number" class="form-control" id="input-capacity" placeholder="Section Capacity">
                 </div>                
-                <button id="btn-add" type="button" class="btn btn-block btn-primary">Add</button>
+                <button id="btn-add" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Add</button>
               </div>
           </div>
         </div>

@@ -82,7 +82,9 @@ $('#view-update').click(function(){
   newCode = $( "#view-code" ).val();
   type = $( "#view-type" ).val();
   description = $( "#view-description" ).val();
+  $('.loading').show();
   updateRow();
+  $('.loading').delay(500).hide();
   
 })
 
@@ -91,10 +93,13 @@ $('#edit-update').click(function(){
   newCode = $( "#edit-code" ).val();
   type = $( "#edit-type" ).val();
   description = $( "#edit-description" ).val();
+  $('.loading').show();
   updateRow(); 
+  $('.loading').delay(500).hide();
 })
 
 $('#delete-confirm').click(function(){
+  $('.loading').show();
   $.ajax({
             url: deleteRowUrl,
             type: 'post',
@@ -103,6 +108,7 @@ $('#delete-confirm').click(function(){
             success: function(result){
               console.log(result);
               populateTable();
+              $('.loading').delay(500).hide();
             }
           }); 
 })
@@ -174,7 +180,9 @@ function populateTable(){
 }
 
   $(function () {
+    $('.loading').show();
     populateTable();
+    $('.loading').delay(500).hide();
   })
 
   $('.close').click(function(){
@@ -186,6 +194,7 @@ function populateTable(){
     var code = $('#code-input').val();
     var type = $('#type-input').val();
     var description = $('#description-input').val();
+    $('.loading').show();
 
     $.ajax({
             url: countUrl,
@@ -233,8 +242,7 @@ function populateTable(){
                   }
                 }); 
               }
-
-
+            $('.loading').delay(500).hide();
             }
           });     
     

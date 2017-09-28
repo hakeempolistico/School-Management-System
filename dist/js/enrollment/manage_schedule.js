@@ -98,7 +98,7 @@ function dropTrash(ev) {
     $("#"+data).remove();
 
     $("#icon").animate({fontSize: '20px'},"fast");
-    $("#icon").animate({fontSize: '50px'},"slow");
+    $("#icon").animate({fontSize: '70px'},"slow");
 }
 
 

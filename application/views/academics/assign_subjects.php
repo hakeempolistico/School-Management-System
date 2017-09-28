@@ -24,6 +24,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/skins/_all-skins.min.css">
+  <!-- Loading -->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/loading.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -37,6 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
+  <div hidden class="loading">Loading&#8230;</div>
   <header class="main-header">
     <!-- Logo -->
     <a href="<?php echo site_url('/') ?>" class="logo">
@@ -175,13 +178,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="<?php echo base_url('images/1.jpg');?>" class="user-image" alt="<?php echo base_url('images/alt_picture.jpg');?>">
+              <img src="<?php echo base_url('images/alt_picture.jpg');?>" class="user-image" alt="<?php echo base_url('images/alt_picture.jpg');?>">
               <span class="hidden-xs"><?php echo $this->session->first_name." ".$this->session->last_name ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="<?php echo base_url('images/1.jpg');?>" class="img-circle" alt="<?php echo base_url('images/alt_picture.jpg');?>">
+                <img src="<?php echo base_url('images/alt_picture.jpg');?>" class="img-circle" alt="<?php echo base_url('images/alt_picture.jpg');?>">
 
                 <p>
                  <?php echo $this->session->first_name." ".$this->session->last_name." - ".$this->session->position ?>
@@ -226,7 +229,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="<?php echo base_url('images/1.jpg');?>" class="img-circle" alt="<?php echo base_url('images/alt_picture.jpg');?>">
+          <img src="<?php echo base_url('images/alt_picture.jpg');?>" class="img-circle" alt="<?php echo base_url('images/alt_picture.jpg');?>">
         </div>
         <div class="pull-left info">
           <p><?php echo $this->session->first_name." ".$this->session->last_name ?></p>
@@ -340,6 +343,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <h4><i class="icon fa fa-bullhorn"></i> Day 1 of Enrollment is successful!</h4>
         Congratulations! Job well done! Please do the same on Day 2 of Enrollment!
      </div> -->
+     <div id="alert-box" class="alert alert-danger alert-dismissible flat" hidden>
+      <button type="button" class="close" aria-hidden="true">&times;</button>
+      <h4 id="alert-title"><i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!</h4>
+        <div id="alert-message">Subject code already used. Please use another one.</div>
+     </div>
       
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -363,26 +371,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </div>
               <!-- /.box-header -->
               <div class="box-body">                  
-                    <div class="form-group">
+                    <div class="form-group" style="margin-bottom: 5px">
                       <label>Strand</label>
                       <select id="select-strand" data-placeholder="select strand" class="form-control select2" style="width: 100%;">
                         <option id="option-strand"></option>
                       </select>
                     </div>                   
-                    <div class="form-group">
+                    <div class="form-group" style="margin-bottom: 5px">
                       <label>Year</label>
                       <select id="select-year" data-placeholder="select year" class="form-control select2" style="width: 100%;">
                         <option id="option-year"></option>
                       </select>
                     </div>                   
-                    <div class="form-group">
+                    <div class="form-group" style="margin-bottom: 7px">
                       <label>Section</label>
                       <select id="select-section" data-placeholder="select section" class="form-control select2" style="width: 100%;">
                         <option id="option-section"></option>
                       </select>
                     </div> 
                 
-                <button id="confirm-btn" type="button" style="width: 100px" class="btn btn-block btn-primary pull-right">Confirm</button>
+                <button id="confirm-btn" type="button" style="width: 100px" class="btn btn-sm btn-primary pull-right">Confirm</button>
               </div>
           </div>
         </div>
@@ -390,7 +398,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="col-lg-8 col-xs-12">
           <div class="box box-primary">
               <div class="box-header">
-                <h3 class="box-title">Add Subjects</h3>
+                <h3 class="box-title" id="assign-subjects-title">Add Subjects</h3>
                 <h3 class="box-title pull-right"><button id="add-btn" class="btn btn-default btn-xs"><span class="fa fa-fw fa-plus"></span></button></h3>
               </div>
               <!-- /.box-header -->
