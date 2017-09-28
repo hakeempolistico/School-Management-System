@@ -4,11 +4,10 @@ var newCode;
 var newName;
 
 $(function () {
-  $('.loading').show();
   $('#strands-table').DataTable()
   
   populateTable();
-  $('.loading').delay(500).hide();
+  
 
   $('#add-btn').on('click', function(){ 
 
@@ -123,6 +122,7 @@ function populateTable(){
   $("#strands-table").on("click", "tr td .edit-btn", function(){
 
     strand_code = $(this).parents('tr').find('td:first').html();
+    $('.loading').show();
 
     $.ajax({
             url: getRowUrl,
@@ -134,6 +134,7 @@ function populateTable(){
               name = result.name;
               $( "#edit-code" ).val(result.code);
               $( "#edit-name" ).val(result.name);
+              $('.loading').delay(500).hide();
             }
           });   
   });

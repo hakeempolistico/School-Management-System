@@ -419,7 +419,7 @@
               </div>
               <!-- /btn-group -->
               <div class="input-group">
-                <select id="new-event-subject" class="form-control select2"  data-placeholder="Select subject">
+                <select id="new-event-subject" class="form-control select2"  data-placeholder="Select subject" style="width: 100%">
                   <option></option>
                   <?php foreach ($subjects as $val) 
                     {
@@ -427,7 +427,7 @@
                     }
                   ?>   
                 </select>
-                <select id="new-event-teacher" class="form-control select2"  data-placeholder="Select teacher">
+                <select id="new-event-teacher" class="form-control select2"  data-placeholder="Select teacher" style="width: 100%">
                   <option></option>
                   <?php foreach ($teachers as $val) 
                     {
