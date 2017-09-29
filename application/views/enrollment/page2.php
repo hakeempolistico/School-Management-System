@@ -616,20 +616,11 @@
                 <table id="sectionsTable" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th>Id</th>
                   <th>Section</th>
                   <th>Capacity</th>
                   <th>Status</th>
                 </tr>
                 </thead>
-                <tfoot>
-                <tr>
-                  <th>Id</th>
-                  <th>Section</th>
-                  <th>Capacity</th>
-                  <th>Status</th>
-                </tr>
-                </tfoot>
               </table>
               <br>
                   <a href="<?php echo site_url('enrollment/enroll_student/enrolled') ?>">
@@ -657,6 +648,8 @@
         <input type="hidden" id="r_s_id" name="registered_student_id">
         <input type="hidden" id="noteHidden" name="note">
         <input type="hidden" id="section_id" name="section_id">
+        <input type="hidden" id="strand" name="strand">
+        <input type="hidden" id="year" name="year">
       </form>
 
   </div>
@@ -691,30 +684,7 @@
 
 <script>
 
-  // var ajaxUrl = "<?php echo base_url("enrollment/enroll_student/getSectionTable"); ?>"
-
-  // $.ajax({
-  //           url: ajaxUrl,
-  //           type: 'post',
-  //           dataType: 'json', 
-  //           data: {'value' : lastLrn, 'table': 'registered_students', 'set': 'lrn'}, 
-  //           success: function(result){
-
-  //               $('#name').html(result.first_name +" "+ result.middle_name + " " + result.last_name);
-  //               $('#lrn').html(result.lrn);
-  //               $('#contact').html(result.contact_number);
-  //               $('#birth_date').html(result.birth_date);
-  //               $('#birth_place').html(result.birth_place);
-  //               $('#age').html(result.age);
-  //               $('#mother_tongue').html(result.mother_tongue);
-  //               $('#religion').html(result.religion);
-  //               $('#sex').html(result.sex);   
-
-                
-              
-  //             }
-  // });
-
+  
 
   $('#grade11').on('click',function()
   {
@@ -723,6 +693,7 @@
     $('#grade').html('Grade 11');
     $('#grade').css('background-color','#603838');
     $('#req').css('display', 'block');
+    $('#year').val('1');
   });
 
   $('#grade12').on('click',function()
@@ -732,6 +703,7 @@
     $('#grade').html('Grade 12');
     $('#grade').css('background-color','#82595D');
     $('#req').css('display', 'block');
+    $('#year').val('2');
   });
 
   //Red color scheme for iCheck
@@ -818,56 +790,85 @@
 
   $('#tvlasdiv').click(function()
   {
-    $('.modal-header').removeClass('bg-green');
+    $('.modal-header').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
     $('.modal-header').addClass('bg-yellow-active');
     $('#chosenStrand').html('TVL-AS');
-    $('#enroll').removeClass('bg-green');
+    $('#enroll').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
     $('#enroll').addClass('bg-yellow-active');
+    $('#strand').val('tvlas');
   });
 
   $('#gasdiv').click(function()
   {
-    $('.modal-header').removeClass('bg-green');
+    $('.modal-header').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
     $('.modal-header').addClass('bg-maroon');
     $('#chosenStrand').html('GAS');
-    $('#enroll').removeClass('bg-green');
+    $('#enroll').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
     $('#enroll').addClass('bg-maroon');
+    $('#strand').val('gas');
   });
 
-  // $('#tvlhediv').on('click',function()
-  // {
-  //   $('.modal-header').removeClass('bg-green');
-  //   $('.modal-header').addClass('bg-blue');
-  //   $('#chosenStrand').html('TVL-HE');
-  //   $('#enroll').removeClass('bg-green');
-  //   $('#enroll').addClass('bg-blue');
-  // });
+  $('#tvlhediv').on('click',function()
+  {
+    $('.modal-header').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
+    $('.modal-header').addClass('bg-blue');
+    $('#chosenStrand').html('TVL-HE');
+    $('#enroll').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
+    $('#enroll').addClass('bg-blue');
+    $('#strand').val('tvlhe');
+  });
 
-  // $('#humssdiv').on('click',function()
-  // {
-  //   $('.modal-header').removeClass('bg-green');
-  //   $('.modal-header').addClass('bg-red-active');
-  //   $('#chosenStrand').html('HUMSS');
-  //   $('#enroll').removeClass('bg-green');
-  //   $('#enroll').addClass('bg-red-active');
-  // });
+  $('#humssdiv').on('click',function()
+  {
+    $('.modal-header').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
+    $('.modal-header').addClass('bg-red-active');
+    $('#chosenStrand').html('HUMSS');
+    $('#enroll').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
+    $('#enroll').addClass('bg-red-active');
+    $('#strand').val('humss');
+  });
 
-  // $('#abmdiv').on('click',function()
-  // {
-  //   $('#chosenStrand').html('ABM');
-  // });
+  $('#abmdiv').on('click',function()
+  {
+    $('.modal-header').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
+    $('.modal-header').addClass('bg-green-active');
+    $('#chosenStrand').html('STEM');
+    $('#enroll').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
+    $('#enroll').addClass('bg-green-active');
+    $('#strand').val('abm');
+  });
 
-  // $('#stemdiv').on('click',function()
-  // {
-  //   $('.modal-header').removeClass('bg-green');
-  //   $('.modal-header').addClass('bg-purple-active');
-  //   $('#chosenStrand').html('STEM');
-  //   $('#enroll').removeClass('bg-green');
-  //   $('#enroll').addClass('bg-purple-active');
-  // });
+  $('#stemdiv').on('click',function()
+  {
+    $('.modal-header').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
+    $('.modal-header').addClass('bg-purple-active');
+    $('#chosenStrand').html('STEM');
+    $('#enroll').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
+    $('#enroll').addClass('bg-purple-active');
+    $('#strand').val('stem');
+    ajax();
+  });
 
+ function ajax(){
+  var ajaxUrl = "<?php echo base_url("enrollment/enroll_student/getSectionTable"); ?>"
+  var strand = $('#strand').val();
+  var year = $('#year').val(); 
+  //alert('stand : '+strand+' year : '+year);
+  $.ajax({
+            url: ajaxUrl,
+            type: 'post',
+            dataType: 'json', 
+            data: {'strand': strand, 'year_level_id': year}, 
+            success: function(result){
 
+            alert(result);
+                
+              
+              }
+  });   
+ }
  
+
 
   
 </script>

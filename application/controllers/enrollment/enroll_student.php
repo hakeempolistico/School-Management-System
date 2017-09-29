@@ -29,6 +29,35 @@ class enroll_student extends CI_Controller {
 		$this->parser->parse('enrollment/strand_selection', $data);
 	}
 
+	public function getSectionTable()
+	{
+		$strand = $this->input->post('strand');
+		$year = $this->input->post('year_level_id');
+
+		$records = $this->enroll_student_model->getSections('sections', 'strand_code', $strand, 'year_level_id', $year);
+
+		foreach ($records as $record) 
+		{
+			$id = $record->id;
+			$strand_code = $record->strand_code;  
+			$year_level_id = $record->year_level_id;
+			$name = $record->name;
+			$capacity = $record->capacity;
+
+			$section = $strand_code.$year_level_id.$ame;
+
+			$countRows = $this->enroll_student_model->countRows('enrolled_students', 'section_id', $id);
+
+			 //KAYA MO YAN
+
+
+
+
+		}
+
+		print_r($records); exit;
+	}
+
 	public function populateTable()
 	{
 		$registeredStudents = $this->global_model->getRecords('registered_students');
