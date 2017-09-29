@@ -33,10 +33,6 @@ class enroll_student extends CI_Controller {
 	{
 		$registeredStudents = $this->global_model->getRecords('registered_students');
 
-		
-
-		
-
 		$data = [];
 		foreach ($registeredStudents as $registeredStudents) 
 		{

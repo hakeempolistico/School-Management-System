@@ -500,8 +500,8 @@
 
       <div class="row">
 
-        <div class="col-md-6">
-          <div class="small-box bg-yellow-active" data-toggle="modal" data-target="#tvla" style="cursor: pointer;">
+        <div class="col-md-6" id="tvlasdiv">
+          <div class="small-box bg-yellow-active" data-toggle="modal" data-target="#strand_selection" style="cursor: pointer;">
             <div class="inner">
               <h3>TVL-AS</h3>
 
@@ -515,8 +515,8 @@
         </div>
         <!-- ./col -->
 
-        <div class="col-md-6">
-          <div class="small-box bg-maroon" data-toggle="modal" data-target="#gas" style="cursor: pointer;">
+        <div class="col-md-6" id="gasdiv">
+          <div class="small-box bg-maroon" data-toggle="modal" data-target="#strand_selection" style="cursor: pointer;">
             <div class="inner">
               <h3>GAS</h3>
 
@@ -530,8 +530,8 @@
         </div>
         <!-- ./col -->
 
-        <div class="col-md-6">
-          <div class="small-box bg-blue" data-toggle="modal" data-target="#tvlhe" style="cursor: pointer;">
+        <div class="col-md-6" id="tvlhediv">
+          <div class="small-box bg-blue" data-toggle="modal" data-target="#strand_selection" style="cursor: pointer;">
             <div class="inner">
               <h3>TVL-HE</h3>
 
@@ -603,21 +603,37 @@
 
     <!-- MODALS -->
 
-      <div class="modal fade" id="stem">
+      <div class="modal fade" id="strand_selection">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header bg-green">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">Are you sure?</h4>
+              <h4 class="modal-title">Select Section for <span id="chosenStrand"></span></h4>
             </div>
             <div class="modal-body">
               <div class="box-body">
-                <p>This action cannot be changed once the profile is sent to the database of the selected strand (STEM).</p>
-                <br>
-                <center>
+                <table id="sectionsTable" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Section</th>
+                  <th>Capacity</th>
+                  <th>Status</th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                  <th>Id</th>
+                  <th>Section</th>
+                  <th>Capacity</th>
+                  <th>Status</th>
+                </tr>
+                </tfoot>
+              </table>
+              <br>
                   <a href="<?php echo site_url('enrollment/enroll_student/enrolled') ?>">
-                  <button type="button" class="btn bg-green" data-toggle="modal" data-target="#stem" style="width: 60%; height: 50px;">Enroll to STEM</button>
+                  <button type="button" id="enroll" class="btn bg-green" style="width: 100%; height: 50px;">Enroll to STEM</button>
                   </a>
                 </center>
               </div>
@@ -631,145 +647,7 @@
       </div>
       <!-- /.modal -->
 
-      <div class="modal fade" id="gas">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header bg-maroon">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">Are you sure?</h4>
-            </div>
-            <div class="modal-body">
-              <div class="box-body">
-                <p>This action cannot be changed once the profile is sent to the database of the selected strand (GAS).</p>
-                <br>
-                <center>
-                  <a href="<?php echo site_url('enrollment/enroll_student/enrolled') ?>">
-                  <button type="button" class="btn bg-maroon" data-toggle="modal" data-target="#stem" style="width: 60%; height: 50px;">Enroll to GAS</button>
-                  </a>
-                </center>
-              </div>
-              <!-- /.box-body -->
-            </div>
-            <!-- /.modal-body -->
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-      <!-- /.modal -->
-
-      <div class="modal fade" id="humss">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header bg-red-active">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">Are you sure?</h4>
-            </div>
-            <div class="modal-body">
-              <div class="box-body">
-                <p>This action cannot be changed once the profile is sent to the database of the selected strand (HUMSS).</p>
-                <br>
-                <center>
-                  <a href="<?php echo site_url('enrollment/enroll_student/enrolled') ?>">
-                  <button type="button" class="btn bg-red-active" data-toggle="modal" data-target="#stem" style="width: 60%; height: 50px;">Enroll to HUMSS</button>
-                  </a>
-                </center>
-              </div>
-              <!-- /.box-body -->
-            </div>
-            <!-- /.modal-body -->
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-      <!-- /.modal -->
-
-      <div class="modal fade" id="abm">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header bg-purple">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">Are you sure?</h4>
-            </div>
-            <div class="modal-body">
-              <div class="box-body">
-                <p>This action cannot be changed once the profile is sent to the database of the selected strand (ABM).</p>
-                <br>
-                <center>
-                  <a href="<?php echo site_url('enrollment/enroll_student/enrolled') ?>">
-                  <button type="button" class="btn bg-purple" data-toggle="modal" data-target="#stem" style="width: 60%; height: 50px;">Enroll to ABM</button>
-                  </a>
-                </center>
-              </div>
-              <!-- /.box-body -->
-            </div>
-            <!-- /.modal-body -->
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-      <!-- /.modal -->
-
-      <div class="modal fade" id="tvlhe">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header bg-blue">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">Are you sure?</h4>
-            </div>
-            <div class="modal-body">
-              <div class="box-body">
-                <p>This action cannot be changed once the profile is sent to the database of the selected strand (TVL-HE).</p>
-                <br>
-                <center>
-                  <a href="<?php echo site_url('enrollment/enroll_student/enrolled') ?>">
-                  <button type="button" class="btn bg-blue" data-toggle="modal" data-target="#stem" style="width: 60%; height: 50px;">Enroll to TVL-HE</button>
-                  </a>
-                </center>
-              </div>
-              <!-- /.box-body -->
-            </div>
-            <!-- /.modal-body -->
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-      <!-- /.modal -->
-
-      <div class="modal fade" id="tvla">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header bg-yellow-active">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">Are you sure?</h4>
-            </div>
-            <div class="modal-body">
-              <div class="box-body">
-                <p>This action cannot be changed once the profile is sent to the database of the selected strand (TVL-Automative).</p>
-                <br>
-                <center>
-                  <a href="<?php echo site_url('enrollment/enroll_student/enrolled') ?>">
-                  <button type="button" class="btn bg-yellow-active" data-toggle="modal" data-target="#stem" style="width: 60%; height: 50px;">Enroll to TVL-Automative</button>
-                  </a>
-                </center>
-              </div>
-              <!-- /.box-body -->
-            </div>
-            <!-- /.modal-body -->
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-      <!-- /.modal -->
+      
 
 
 
@@ -812,6 +690,32 @@
 <script src="<?php echo base_url(); ?>bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 
 <script>
+
+  // var ajaxUrl = "<?php echo base_url("enrollment/enroll_student/getSectionTable"); ?>"
+
+  // $.ajax({
+  //           url: ajaxUrl,
+  //           type: 'post',
+  //           dataType: 'json', 
+  //           data: {'value' : lastLrn, 'table': 'registered_students', 'set': 'lrn'}, 
+  //           success: function(result){
+
+  //               $('#name').html(result.first_name +" "+ result.middle_name + " " + result.last_name);
+  //               $('#lrn').html(result.lrn);
+  //               $('#contact').html(result.contact_number);
+  //               $('#birth_date').html(result.birth_date);
+  //               $('#birth_place').html(result.birth_place);
+  //               $('#age').html(result.age);
+  //               $('#mother_tongue').html(result.mother_tongue);
+  //               $('#religion').html(result.religion);
+  //               $('#sex').html(result.sex);   
+
+                
+              
+  //             }
+  // });
+
+
   $('#grade11').on('click',function()
   {
     $('#yearLevel').remove();
@@ -892,11 +796,11 @@
         $('.abmbox').hide();
         $('.humssbox').hide();
 
-        $('#humssdiv').append('<div class="small-box bg-red-active color-palette humssbox" data-toggle="modal" data-target="#humss" style="curor: pointer;"><div class="inner"><h3>HUMSS</h3><p>Humanities and<br> Social Sciences</p></div><div class="icon"><i class="fa fa-users"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
+        $('#humssdiv').append('<div class="small-box bg-red-active color-palette humssbox" data-toggle="modal" data-target="#strand_selection" style="curor: pointer;"><div class="inner"><h3>HUMSS</h3><p>Humanities and<br> Social Sciences</p></div><div class="icon"><i class="fa fa-users"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
 
-        $('#abmdiv').append('<div class="small-box bg-green-active color-palette abmbox" data-toggle="modal" data-target="#abm" style="cursor: pointer;"><div class="inner"><h3>ABM</h3><p>Accountancy and Business<br> Management</p></div><div class="icon"><i class="fa fa-briefcase"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
+        $('#abmdiv').append('<div class="small-box bg-green-active color-palette abmbox" data-toggle="modal" data-target="#strand_selection" style="cursor: pointer;"><div class="inner"><h3>ABM</h3><p>Accountancy and Business<br> Management</p></div><div class="icon"><i class="fa fa-briefcase"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
 
-        $('#stemdiv').append('<div class="small-box bg-purple-active color-palette stembox" data-toggle="modal" data-target="#stem" style="cursor: pointer;"><div class="inner"><h3>STEM</h3><p>Science, Technology,<br> Engineering, and Mathematics</p></div><div class="icon"><i class="fa fa-flask"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
+        $('#stemdiv').append('<div class="small-box bg-purple-active color-palette stembox" data-toggle="modal" data-target="#strand_selection" style="cursor: pointer;"><div class="inner"><h3>STEM</h3><p>Science, Technology,<br> Engineering, and Mathematics</p></div><div class="icon"><i class="fa fa-flask"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
       } else{
         $('.stembox').hide();
         $('.abmbox').hide();
@@ -910,6 +814,57 @@
       }
     }
   });
+
+
+  $('#tvlasdiv').click(function()
+  {
+    $('.modal-header').removeClass('bg-green');
+    $('.modal-header').addClass('bg-yellow-active');
+    $('#chosenStrand').html('TVL-AS');
+    $('#enroll').removeClass('bg-green');
+    $('#enroll').addClass('bg-yellow-active');
+  });
+
+  $('#gasdiv').click(function()
+  {
+    $('.modal-header').removeClass('bg-green');
+    $('.modal-header').addClass('bg-maroon');
+    $('#chosenStrand').html('GAS');
+    $('#enroll').removeClass('bg-green');
+    $('#enroll').addClass('bg-maroon');
+  });
+
+  // $('#tvlhediv').on('click',function()
+  // {
+  //   $('.modal-header').removeClass('bg-green');
+  //   $('.modal-header').addClass('bg-blue');
+  //   $('#chosenStrand').html('TVL-HE');
+  //   $('#enroll').removeClass('bg-green');
+  //   $('#enroll').addClass('bg-blue');
+  // });
+
+  // $('#humssdiv').on('click',function()
+  // {
+  //   $('.modal-header').removeClass('bg-green');
+  //   $('.modal-header').addClass('bg-red-active');
+  //   $('#chosenStrand').html('HUMSS');
+  //   $('#enroll').removeClass('bg-green');
+  //   $('#enroll').addClass('bg-red-active');
+  // });
+
+  // $('#abmdiv').on('click',function()
+  // {
+  //   $('#chosenStrand').html('ABM');
+  // });
+
+  // $('#stemdiv').on('click',function()
+  // {
+  //   $('.modal-header').removeClass('bg-green');
+  //   $('.modal-header').addClass('bg-purple-active');
+  //   $('#chosenStrand').html('STEM');
+  //   $('#enroll').removeClass('bg-green');
+  //   $('#enroll').addClass('bg-purple-active');
+  // });
 
 
  
