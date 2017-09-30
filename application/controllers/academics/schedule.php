@@ -22,10 +22,17 @@ class schedule extends CI_Controller {
 		$this->parser->parse('academics/schedule', $data);
 	}
 
-	public function ajax()
+	public function getSectionsDetails()
 	{
-		$post = $this->input->post();
-		$row = $this->global_model->getRow($post['table'], $post['set'], $post['value']);
+		$data = $this->input->post();
+		$row = $this->schedule_model->getSectionDetails($data);
+		echo json_encode($row);
+	}
+
+	public function getSubjects()
+	{
+		$data = $this->input->post();
+		$row = $this->schedule_model->getSubjects($data);
 		echo json_encode($row);
 	}
 
