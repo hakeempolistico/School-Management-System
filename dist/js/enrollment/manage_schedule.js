@@ -42,7 +42,7 @@
     $('#add-new-event').click(function (e) {
       e.preventDefault()
       //Get value and make sure it is not null
-      var val2 = $('#new-event-room').val()
+      var val2 = $('#select-room').val()
       var val1 = $('#select-subject').val()
       
       if (val1.length == 0) {
