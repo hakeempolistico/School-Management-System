@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 30, 2017 at 09:38 AM
+-- Generation Time: Sep 30, 2017 at 01:48 PM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -94,10 +94,10 @@ INSERT INTO `class_subjects` (`id`, `section_id`, `subject_id`, `teacher_id`, `d
 (3, 9, 9, 1, '2017-09-21 10:33:15', '0000-00-00 00:00:00'),
 (4, 9, 9, 5, '2017-09-21 10:33:15', '0000-00-00 00:00:00'),
 (331, 1, 1, 1, '2017-09-21 18:20:04', '0000-00-00 00:00:00'),
-(334, 3, 6, 4, '2017-09-29 07:49:09', '0000-00-00 00:00:00'),
+(219, 3, 3, 7, '2017-09-21 18:01:27', '0000-00-00 00:00:00'),
 (330, 1, 5, 5, '2017-09-21 18:20:04', '0000-00-00 00:00:00'),
-(333, 3, 5, 1, '2017-09-29 07:49:09', '0000-00-00 00:00:00'),
-(332, 3, 2, 5, '2017-09-29 07:49:09', '0000-00-00 00:00:00'),
+(218, 3, 3, 1, '2017-09-21 18:01:27', '0000-00-00 00:00:00'),
+(217, 3, 3, 4, '2017-09-21 18:01:27', '0000-00-00 00:00:00'),
 (329, 1, 4, 4, '2017-09-21 18:20:04', '0000-00-00 00:00:00'),
 (104, 2, 2, 3, '2017-09-21 17:41:32', '0000-00-00 00:00:00'),
 (103, 2, 2, 1, '2017-09-21 17:41:32', '0000-00-00 00:00:00'),
@@ -115,18 +115,11 @@ CREATE TABLE `enrolled_students` (
   `id` int(50) NOT NULL,
   `registered_student_lrn` int(50) NOT NULL,
   `note` text NOT NULL,
-  `section_id` int(12) NOT NULL,
+  `section_id` varchar(15) NOT NULL,
   `academic_year_id` int(50) NOT NULL,
   `date_enrolled` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `date_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `date_modified` timestamp NOT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `enrolled_students`
---
-
-INSERT INTO `enrolled_students` (`id`, `registered_student_lrn`, `note`, `section_id`, `academic_year_id`, `date_enrolled`, `date_modified`) VALUES
-(1, 22222, 'legends never die', 15, 1, '2017-09-30 09:29:16', '2017-09-30 09:29:16');
 
 -- --------------------------------------------------------
 
@@ -283,26 +276,25 @@ INSERT INTO `sections` (`id`, `strand_code`, `year_level_id`, `name`, `capacity`
 (3, 'GAS', 2, 'A', 40),
 (4, 'GAS', 1, 'A', 40),
 (7, 'TVL-HE', 1, 'A', 45),
-(8, 'STEM', 1, 'C', 50),
 (11, 'STEM', 2, 'A', 40),
 (12, 'STEM', 2, 'B', 45),
-(13, 'HUMSS', 1, 'A', 40),
-(14, 'ABM', 1, 'A', 40),
-(15, 'TVL-AS', 1, 'A', 40),
-(16, 'TVL-AS', 2, 'A', 40),
-(17, 'TVL-HE', 2, 'A', 40),
+(13, 'GAS', 1, 'B', 45),
+(14, 'GAS', 2, 'B', 45),
+(15, 'HUMSS', 1, 'A', 40),
+(16, 'HUMSS', 2, 'A', 40),
+(17, 'ABM', 1, 'A', 40),
 (18, 'ABM', 2, 'A', 40),
-(19, 'HUMSS', 2, 'A', 40),
-(20, 'GAS', 2, 'B', 45),
-(21, 'GAS', 1, 'B', 45),
+(19, 'TVL-HE', 2, 'A', 40),
+(20, 'TVL-AS', 1, 'A', 40),
+(21, 'TVL-AS', 2, 'A', 40),
 (22, 'HUMSS', 1, 'B', 45),
 (23, 'HUMSS', 2, 'B', 45),
-(24, 'ABM', 2, 'B', 45),
-(25, 'ABM', 1, 'B', 45),
-(26, 'TVL-HE', 1, 'B', 45),
-(27, 'TVL-HE', 2, 'B', 45),
-(28, 'TVL-AS', 2, 'B', 45),
-(29, 'TVL-AS', 1, 'B', 45);
+(24, 'ABM', 1, 'B', 45),
+(25, 'ABM', 2, 'B', 45),
+(26, 'TVL-HE', 2, 'B', 45),
+(27, 'TVL-HE', 1, 'B', 45),
+(28, 'TVL-AS', 1, 'B', 45),
+(29, 'TVL-AS', 2, 'B', 45);
 
 -- --------------------------------------------------------
 
@@ -396,7 +388,8 @@ INSERT INTO `teachers` (`id`, `employee_id`, `first_name`, `middle_name`, `last_
 (3, '0003', 'Rellmon', '', 'Ponce', 'Web Development', 'Teacher', 'Active'),
 (4, '0004', 'Fernando', '', 'Renegado', 'SAD', 'Department Head', 'Active'),
 (5, '0005', 'Sarah', '', 'Fortune', 'Physical Education', 'Teacher', 'Active'),
-(7, '001', 'James Kevin', 'Movera', 'Fernandez', 'Math', 'Professor', 'Active');
+(7, '001', 'James Kevin', 'Movera', 'Fernandez', 'Math', 'Professor', 'Active'),
+(8, '0006', 'Luxanna', 'Demacia', 'Crownguard', 'Physics', 'Head', 'Active');
 
 -- --------------------------------------------------------
 
@@ -467,7 +460,8 @@ ALTER TABLE `class_subjects`
 -- Indexes for table `enrolled_students`
 --
 ALTER TABLE `enrolled_students`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `registered_student_lrn` (`registered_student_lrn`);
 
 --
 -- Indexes for table `guardians`
@@ -567,12 +561,12 @@ ALTER TABLE `addresses`
 -- AUTO_INCREMENT for table `class_subjects`
 --
 ALTER TABLE `class_subjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=335;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=332;
 --
 -- AUTO_INCREMENT for table `enrolled_students`
 --
 ALTER TABLE `enrolled_students`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `guardians`
 --
@@ -627,7 +621,7 @@ ALTER TABLE `subjects`
 -- AUTO_INCREMENT for table `teachers`
 --
 ALTER TABLE `teachers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `users`
 --

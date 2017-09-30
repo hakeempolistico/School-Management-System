@@ -611,7 +611,7 @@
             <div class="modal-header bg-green">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">Select Section for <span id="chosenStrand"></span></h4>
+              <h4 class="modal-title">Select Section for <span class="chosenStrand"></span></h4>
             </div>
             <div class="modal-body">
               <div class="box-body">
@@ -631,7 +631,7 @@
                   <input type="hidden" id="r_s_lrn" name="registered_student_lrn">
                   <input type="hidden" id="noteHidden" name="note">
                   <input type="hidden" id="section_id" name="section_id">
-                  <button type="button" id="enroll" class="btn bg-green" style="width: 100%; height: 50px;">Enroll to STEM</button>
+                  <button type="button" id="enroll" class="btn bg-green" style="width: 100%; height: 50px;">Enroll to <span class="chosenStrand"></span></button>
                   </form>
               </div>
               <!-- /.box-body -->
@@ -795,7 +795,7 @@
   {
     $('.modal-header').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
     $('.modal-header').addClass('bg-yellow-active');
-    $('#chosenStrand').html('TVL-AS');
+    $('.chosenStrand').html('TVL-AS');
     $('#enroll').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
     $('#enroll').addClass('bg-yellow-active');
     $('#strand').val('tvl-as');
@@ -806,7 +806,7 @@
   {
     $('.modal-header').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
     $('.modal-header').addClass('bg-maroon');
-    $('#chosenStrand').html('GAS');
+    $('.chosenStrand').html('GAS');
     $('#enroll').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
     $('#enroll').addClass('bg-maroon');
     $('#strand').val('gas');
@@ -816,7 +816,7 @@
   {
     $('.modal-header').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
     $('.modal-header').addClass('bg-blue');
-    $('#chosenStrand').html('TVL-HE');
+    $('.chosenStrand').html('TVL-HE');
     $('#enroll').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
     $('#enroll').addClass('bg-blue');
     $('#strand').val('tvl-he');
@@ -826,7 +826,7 @@
   {
     $('.modal-header').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
     $('.modal-header').addClass('bg-red-active');
-    $('#chosenStrand').html('HUMSS');
+    $('.chosenStrand').html('HUMSS');
     $('#enroll').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
     $('#enroll').addClass('bg-red-active');
     $('#strand').val('humss');
@@ -836,7 +836,7 @@
   {
     $('.modal-header').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
     $('.modal-header').addClass('bg-green-active');
-    $('#chosenStrand').html('STEM');
+    $('.chosenStrand').html('STEM');
     $('#enroll').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
     $('#enroll').addClass('bg-green-active');
     $('#strand').val('abm');
@@ -846,7 +846,7 @@
   {
     $('.modal-header').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
     $('.modal-header').addClass('bg-purple-active');
-    $('#chosenStrand').html('STEM');
+    $('.chosenStrand').html('STEM');
     $('#enroll').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
     $('#enroll').addClass('bg-purple-active');
     $('#strand').val('stem');
@@ -880,7 +880,13 @@
                 style:    'os',
                 selector: 'td:first-child'
               },
-              order: [[ 1, 'asc' ]]
+              order: [[ 1, 'asc' ]],
+              "searchable": false,
+              "bPaginate": false,
+              "bLengthChange": false,
+              "bFilter": false,
+              "bInfo": false,
+              "bAutoWidth": false
             });
 
             //$('#enroll').val(table.rows( { selected: true } ).data());
@@ -888,6 +894,9 @@
             $('#enroll').on('click',function()
             {
               var selected = table.rows( { selected: true } ).data();
+
+              selected.destroy();
+              
               var id = selected[0][1];
               var rslrn = "<?php echo $lrn ?>";
 

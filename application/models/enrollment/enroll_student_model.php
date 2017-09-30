@@ -19,6 +19,13 @@ class enroll_student_model extends CI_Model{
 		$query = $this->db->get($table)->result();
 		return $query;
 	}
+
+	public function getLastRow($table)
+	{
+		$row = $this->db->get($table)->last_row();
+		$lrn = $row->registered_student_lrn;
+		return $lrn;
+	}
 	
 
 }

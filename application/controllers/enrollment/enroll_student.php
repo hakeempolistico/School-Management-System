@@ -134,7 +134,7 @@ class enroll_student extends CI_Controller {
 
 		$this->global_model->insert('enrolled_students', $enrollInfo);
 
-		redirect('enrollment/register_student/after_register');
+		redirect('enrollment/enroll_student/after_enroll');
 	}
 
 	public function enroll()
@@ -143,6 +143,22 @@ class enroll_student extends CI_Controller {
 		$data = $this->parse->parsed();
 		$data['lrn'] =  $this->input->post('lrn');
 		$this->parser->parse('enrollment/page2', $data);
+	}
+
+	public function after_enroll()
+	{
+		$data = $this->parse->parsed();
+		$data['lastLrn'] = json_encode($this->enroll_student_model->getLastRow('enrolled_students'));
+		$this->parser->parse('enrollment/after_enroll', $data);
+	}
+
+	public function ajax()
+	{
+		$table = $this->input->post('table');
+		$set = $this->input->post('set');
+		$value = $this->input->post('value');
+		$records = json_encode($this->global_model->getRow($table, $set, $value));
+		echo $records;
 	}
 
 }
