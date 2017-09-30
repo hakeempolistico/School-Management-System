@@ -627,7 +627,7 @@
                 </thead>
               </table>
               <br>
-                <form id="enrollStudent" method="post" action="/sms/enrollment/enroll_student/submit">
+                <form id="enrollStudent" method="post" action="<?php echo base_url('enrollment/enroll_student/submit/'); ?>">
                   <input type="hidden" id="r_s_lrn" name="registered_student_lrn">
                   <input type="hidden" id="noteHidden" name="note">
                   <input type="hidden" id="section_id" name="section_id">
@@ -896,7 +896,7 @@
               var selected = table.rows( { selected: true } ).data();
 
               selected.destroy();
-              
+
               var id = selected[0][1];
               var rslrn = "<?php echo $lrn ?>";
 

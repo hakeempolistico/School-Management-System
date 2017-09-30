@@ -89,7 +89,7 @@ class enroll_student extends CI_Controller {
 			$lrn = $registeredStudents->lrn;
 			$id = $registeredStudents->id;
 
-			$action = '<form method="post" action="/sms/enrollment/enroll_student/enroll"><input type="hidden" name="lrn" value="'.$lrn.'"><button type="submit" class="btn btn-block btn-info btn-flat btn-xs buttonView" style="max-width: 100px; display:block;margin: auto;">Enroll</button></form>'; 
+			$action = '<form method="post" action="<?php echo base_url(\'enrollment/enroll_student/enroll/\'); ?>"><input type="hidden" name="lrn" value="'.$lrn.'"><button type="submit" class="btn btn-block btn-info btn-flat btn-xs buttonView" style="max-width: 100px; display:block;margin: auto;">Enroll</button></form>'; 
 
 
 			$fullName = $registeredStudents->first_name.' '.$registeredStudents->last_name;

@@ -377,7 +377,10 @@
               <h3 id="name" class="profile-username text-center" style="padding: 0 20px;">Adrielle Kristine Nicolette M. Escaro</h3>
 
               <a href="<?php echo site_url('enrollment/register_student'); ?>" class="btn btn-primary" style="width:100%; margin-bottom: 10px;">Register another student</a>
-              <button class="btn btn-primary" style="width:100%; margin-bottom: 10px;">Enroll this student</button>
+              <form method="post" action="<?php echo base_url('enrollment/enroll_student/enroll/'); ?>">
+                <input type="hidden" name="lrn" class="lrn">
+              <button type="submit" class="btn btn-primary" style="width:100%; margin-bottom: 10px;">Enroll this student</button>
+            </form>
             </div>
             <!-- /. col-->
 
@@ -510,6 +513,7 @@ $(document).ready(function(){
 
                 $('#name').html(result.first_name +" "+ result.middle_name + " " + result.last_name);
                 $('#lrn').html(result.lrn);
+                $('.lrn').val(result.lrn);
                 $('#contact').html(result.contact_number);
                 $('#birth_date').html(result.birth_date);
                 $('#birth_place').html(result.birth_place);
