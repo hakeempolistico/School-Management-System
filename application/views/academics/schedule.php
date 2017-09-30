@@ -370,7 +370,7 @@
                     {
                       echo "<option val='".$val->id."'>".$val->strand_code." ".substr($val->year_level, 6)."-". $val->section_name."</option>";
                     }
-                  ?>   
+                  ?>
                 </select> 
                     <span class="input-group-btn">
                       <button type="button" class="btn btn-info btn-flat">ENTER</button>
@@ -383,29 +383,65 @@
       
       
       <div class="row disabled">
+        
+      <!-- CLASS INFORMATION BOX -->
+      <div class="col-lg-4 col-xs-12">
+        <div class="hidden-print box box-solid">
+          <div class="box-header with-border">
+              <h4 id="trash" class="box-title">Class Information</h4>
+          </div>
+          <div class="box-body" style="padding: 0px 10px 0px 10px">
+            <h5 style="margin: 14px 0px 13px 0px"> <b> Strand  </b> <a class="pull-right"> STEM </a></h5>
+            <h5 style="margin: 14px 0px 13px 0px"> <b> Year & Section  </b> <a class="pull-right"> 11-A </a></h5>
+            <h5 style="margin: 14px 0px 13px 0px"> <b> Capacity  </b> <a class="pull-right"> 30/40</a></h5>
+          </div>
+        </div>
+      </div>
+
+      <!-- TRASH BIN BOX -->
         <div class="col-lg-4 col-xs-12">
-           <div class="hidden-print box box-solid">
+          <div class="hidden-print box box-solid">
             <div class="box-header with-border">
               <h4 id="trash" class="box-title">Drag Here To Trash</h4>
             </div>
-            <div class="box-body" style="padding: 10px">
+            <div class="box-body" style="padding: 5px">
               <div ondrop="dropTrash(event)" ondragover="allowDrop(event)" >
                   <h5 class="box-title text-center"><icon id = "icon" class="fa fa-trash-o fa-5x"/></h5>
               </div>
             </div>
-
           </div>
         </div>
-        
+
         <div class="col-lg-4 col-xs-12">
-        <div class="hidden-print box box-solid">
+          <div class="hidden-print box box-solid">
             <div class="box-header with-border">
-              <h3 class="box-title">Create Event</h3>
-              <h3 class="box-title pull-right">STEM 11-A</h3>
+              <h4 class="box-title">Actions Row</h4>
+            </div>
+            <div class="box-body" >
+              <center style="padding: 7px;">
+                <button style="width: 100px; margin-top: 3px" id="add" class="btn btn-sm btn-success">Add</button>
+                <button style="width: 100px; margin-top: 3px" id="remove" class="btn btn-sm btn-danger">Remove</button>
+                <button style="width: 100px; margin-top: 3px" id="removeAll" class="btn btn-sm btn-warning">Remove All</button>
+                <button style="width: 100px; margin-top: 3px" id="printBtn" class="btn btn-sm btn-primary">Print</button>
+                <button style="width: 100px; margin-top: 3px" id="saveBtn" class="btn btn-sm bg-purple">Save Sched</button>     
+                <button style="width: 100px; margin-top: 3px" id="clearBtn" class="btn btn-sm bg-purple">Clear</button>  
+              </center>                                     
+            </div>
+          </div>
+        </div>
+      
+    </div>
+
+      <div class="row disabled">
+        <!-- /.col -->
+        <div class="col-md-3">
+
+          <div class="hidden-print box box-solid">
+            <div class="box-header with-border">
+                <h4 id="trash" class="box-title">Create Event Here</h4>
             </div>
             <div class="box-body" style="padding: 18px 10px 17px 10px">
               <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
-                <!--<button type="button" id="color-chooser-btn" class="btn btn-info btn-block dropdown-toggle" data-toggle="dropdown">Color <span class="caret"></span></button>-->
                 <ul class="fc-color-picker" id="color-chooser">        
                     <li><a class="text-aqua" href="#"><i class="fa fa-square"></i></a></li>
                     <li><a class="text-blue" href="#"><i class="fa fa-square"></i></a></li>
@@ -421,70 +457,50 @@
               </div>
               <!-- /btn-group -->
               <div class="input-group">
-                <select id="new-event-subject" class="form-control select2"  data-placeholder="Select subject" style="width: 100%">
+                <select id="select-subject" class="form-control select2"  data-placeholder="Select Room" style="width: 100%">
                   <option></option>
                   <?php foreach ($subjects as $val) 
                     {
-                      echo "<option>".$val->name."</option>";
+                      echo "<option value='".$val->code."'>".$val->name."</option>";
+                    }
+                  ?>   
+                </select>
+                <select id="new-event-room" class="form-control select2"  data-placeholder="Select Room" style="width: 100%">
+                  <option></option>
+                  <?php foreach ($rooms as $val) 
+                    {
+                      echo "<option value='".$val->room_id."'>".$val->room_name."</option>";
                     }
                   ?>   
                 </select>
 
                 <div class="input-group-btn ">
-                  <button id="add-new-event" type="button" class="btn btn-primary btn-flat">Add</button>
+                  <button id="add-new-event" type="button" class="btn btn-primary btn-flat" style="height: 68px">Add</button>
                 </div>
                 <!-- /btn-group -->
               </div>
               <!-- /input-group -->
             </div>
           </div>
-      </div>
-
-        <div class="col-lg-4 col-xs-12">
-          <div class="hidden-print box box-solid" style="padding-top:6px; padding-bottom:6px;">
-            <div class="box-header with-border">
-              <h4 class="box-title">Actions Row</h4>
-            </div>
-            <div class="box-body">
-            <center>
-                <button style="width: 100px; margin-top: 3px" id="add" class="btn btn-success">Add</button>
-                <button style="width: 100px; margin-top: 3px" id="remove" class="btn btn-danger">Remove</button>
-                <button style="width: 100px; margin-top: 3px" id="removeAll" class="btn btn-warning">Remove All</button>
-                <button style="width: 100px; margin-top: 3px" id="printBtn" class="btn btn-primary">Print</button>
-                <button style="width: 100px; margin-top: 3px" id="saveBtn" class="btn bg-purple">Save Sched</button>         
-                <button style="width: 100px; margin-top: 3px" id="clearBtn" class="btn bg-purple">Clear</button>  
-            </center>                
-                             
-            </div>
-            <!-- /.box-body -->
-          </div>
-        
-      </div>
-      
-    </div>
-
-      <div class="row disabled">
-        <!-- /.col -->
-        <div class="col-md-3">
 
          
-
+          <!-- DRAGGABLE EVENTS -->
           <div class="box box-solid">
             <div class="box-header with-border">
-              <h4 class="box-title">Draggable Events <div class="box-title" style="font-size: 13px">(max of 4) </div></h4>
+              <h4 class="box-title">Draggable Events</h4>
             </div>
             <div class="box-body" >
               <div class="count object" id="0" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div>
               </div>
-              <div class="count object" id="0" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div>
+              <div class="count object bg-purple" id="1" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white;">Example Subject<br><div class="text-gray">Example Teacher</div>
               </div>
-              <div class="count object" id="0" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div>
+              <div class="count object bg-yellow" id="2" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white;">Example Subject<br><div class="text-gray">Example Teacher</div>
               </div>
-              <div class="count object" id="0" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div>
+              <div class="count object bg-red" id="3" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; ">Example Subject<br><div class="text-gray">Example Teacher</div>
               </div>
-              <div class="count object" id="0" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div>
+              <div class="count object bg-lime" id="4" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div>
               </div>
-              <div class="count object" id="0" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div>
+              <div class="count object bg-orange" id="5" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white;">Example Subject<br><div class="text-gray">Example Teacher</div>
               </div>
               <div id="external-events">
               </div>
