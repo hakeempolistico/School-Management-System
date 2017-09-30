@@ -55,7 +55,7 @@
       var event = $('<div />')
       event.addClass('external-event flat')
       if (val2.length != 0) {
-        event.html(val1+'<br><div class="text-gray">'+val2+'</div>')
+        event.html('<div class="val-subject">'+val1+'</div><div class="text-gray val-room">'+val2+'</div>')
       }
       else{
         event.html(val1)
@@ -103,57 +103,16 @@ function dropTrash(ev) {
 }
 
 
-  $('#removeAll').click(function(){
-    $('tbody tr').remove();
-  })
-  $('#remove').click(function(){
-     $('.selectedRow').remove();
-  })
-  $('#add').click(function(){
-    $('tbody').append('<tr class="tr-height"><td contenteditable="true"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td></tr>');
-      
-      $('td').click(function(){
-       var row_index = $(this).parent().index()+1; 
-       var hasClass=$("table tr:eq("+row_index+")").hasClass('selectedRow');
-       if(hasClass==true){
-          $("table tr:eq("+row_index+")").removeClass('selectedRow');
-          stopPropagation();
-       }else{
-          $("table tr:eq("+row_index+")").addClass('selectedRow');
-          stopPropagation();
-       }
-       
-      });
-
-  })
-
-  $('td').click(function(){
-   var row_index = $(this).parent().index()+1; 
-   var hasClass=$("table tr:eq("+row_index+")").hasClass('selectedRow');
-   if(hasClass==true){
-      $("table tr:eq("+row_index+")").removeClass('selectedRow'); stopPropagation();
-   }else{
-      $("table tr:eq("+row_index+")").addClass('selectedRow'); stopPropagation();
-   }
-   
-  });
-
-function printData()
-{
-   window.print();
-}
-
-$('#printBtn').on('click',function(){
-printData();
-});
+  
 
 var table; 
 var set;
+var sectionId;
 
 $(".custom").prop('disabled', true);
 
 $('#btn-enter').on('click',function(){
-  var sectionId = $('#select-class').val();
+  sectionId = $('#select-class').val();
   $("#select-room").val('').trigger('change');
 
   $.ajax({
@@ -194,3 +153,98 @@ $('#btn-enter').on('click',function(){
   });    
 })
 
+//ROW ACTIONS BOX
+$('#row-remove-all').click(function(){
+    $('tbody tr').remove();
+  })
+  $('#row-remove').click(function(){
+     $('.selectedRow').remove();
+  })
+  $('#row-add').click(function(){
+    $('tbody').append('<tr class="tr-height"><td contenteditable="true" class="time"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td></tr>');
+      
+      $('td').click(function(){
+       var row_index = $(this).parent().index()+1; 
+       var hasClass=$("table tr:eq("+row_index+")").hasClass('selectedRow');
+       if(hasClass==true){
+          $("table tr:eq("+row_index+")").removeClass('selectedRow');
+          stopPropagation();
+       }else{
+          $("table tr:eq("+row_index+")").addClass('selectedRow');
+          stopPropagation();
+       }
+       
+      });
+
+  })
+
+  $('td').click(function(){
+   var row_index = $(this).parent().index()+1; 
+   var hasClass=$("table tr:eq("+row_index+")").hasClass('selectedRow');
+   if(hasClass==true){
+      $("table tr:eq("+row_index+")").removeClass('selectedRow'); stopPropagation();
+   }else{
+      $("table tr:eq("+row_index+")").addClass('selectedRow'); stopPropagation();
+   }
+   
+  });
+
+function printData()
+{
+   window.print();
+}
+
+$('#row-print').on('click',function(){
+printData();
+});
+
+$('#row-save').on('click',function(){
+  $.ajax({
+      url: deleteScheduleUrl,
+      type: 'post',
+      dataType: 'json',
+      data: {'section_id' : sectionId},  
+      success: function(res){ 
+        console.log(res);
+      }
+    });
+  $('table').find('.object').each(function( index ) {
+    //console.log( index + ": " + $( this ).find('.val-subject').text() );
+    //console.log( index + ": " + $( this ).find('.val-room').text() );
+
+    var subject_code = $( this ).find('.val-subject').text();
+    var room_id = $( this ).find('.val-room').text();
+    var time = $(this).parents('tr').find('.time').html();
+    var timeSplit = time.split("-");
+    var time_start = timeSplit[0];
+    var time_end = timeSplit[1];
+    var day = $(this).closest('table').find('th').eq($(this).parents('td').index()).html();
+    var color = $(this).css("background-color")
+
+    /*console.log('Subject Code : ' + subject_code);
+    console.log('Room ID : ' + room_id);
+    console.log('Time Start : ' + time_start);
+    console.log('Time End : ' + time_end);
+    console.log('Day : ' + day);
+    console.log('Color : ' + color);*/
+
+    $.ajax({
+      url: addScheduleUrl,
+      type: 'post',
+      dataType: 'json',
+      data: {
+        'section_id' : sectionId,
+        'subject_code' : subject_code,
+        'room_id' : room_id,
+        'time_start' : time_start,
+        'time_end' : time_end,
+        'day' : day,
+        'color' : color
+      },  
+      success: function(res){ 
+        console.log(res);
+      }
+    });
+
+  });
+});
