@@ -364,16 +364,16 @@
     <div class="row">
       <div class="col-lg-4 col-xs-12">
         <div class="input-group margin" style="margin: 0 0 10px 0;">
-                <select id="new-event-subject" class="form-control select2"  data-placeholder="Select Class" style="width: 100%">
+                <select id="select-class" class="form-control select2"  data-placeholder="Select Class" style="width: 100%">
                   <option></option>
                   <?php foreach ($classes as $val) 
                     {
-                      echo "<option val='".$val->id."'>".$val->strand_code." ".substr($val->year_level, 6)."-". $val->section_name."</option>";
+                      echo "<option value='".$val->id."'>".$val->strand_code." ".substr($val->year_level, 6)."-". $val->section_name."</option>";
                     }
                   ?>
                 </select> 
                     <span class="input-group-btn">
-                      <button type="button" class="btn btn-info btn-flat">ENTER</button>
+                      <button id="btn-enter" type="button" class="btn btn-info btn-flat">ENTER</button>
                     </span>
               </div>
 
@@ -391,9 +391,9 @@
               <h4 id="trash" class="box-title">Class Information</h4>
           </div>
           <div class="box-body" style="padding: 0px 10px 0px 10px">
-            <h5 style="margin: 14px 0px 13px 0px"> <b> Strand  </b> <a class="pull-right"> STEM </a></h5>
-            <h5 style="margin: 14px 0px 13px 0px"> <b> Year & Section  </b> <a class="pull-right"> 11-A </a></h5>
-            <h5 style="margin: 14px 0px 13px 0px"> <b> Capacity  </b> <a class="pull-right"> 30/40</a></h5>
+            <h5 style="margin: 14px 0px 13px 0px"> <b> Strand  </b> <a id="class-strand" class="pull-right"> STRAND </a></h5>
+            <h5 style="margin: 14px 0px 13px 0px"> <b> Year & Section  </b> <a id="class-year-section" class="pull-right"> YEAR-SECTION </a></h5>
+            <h5 style="margin: 14px 0px 13px 0px"> <b> Capacity  </b> <a id="class-capacity" class="pull-right"> CAPACITY</a></h5>
           </div>
         </div>
       </div>
@@ -419,12 +419,12 @@
             </div>
             <div class="box-body" >
               <center style="padding: 7px;">
-                <button style="width: 100px; margin-top: 3px" id="add" class="btn btn-sm btn-success">Add</button>
-                <button style="width: 100px; margin-top: 3px" id="remove" class="btn btn-sm btn-danger">Remove</button>
-                <button style="width: 100px; margin-top: 3px" id="removeAll" class="btn btn-sm btn-warning">Remove All</button>
-                <button style="width: 100px; margin-top: 3px" id="printBtn" class="btn btn-sm btn-primary">Print</button>
-                <button style="width: 100px; margin-top: 3px" id="saveBtn" class="btn btn-sm bg-purple">Save Sched</button>     
-                <button style="width: 100px; margin-top: 3px" id="clearBtn" class="btn btn-sm bg-purple">Clear</button>  
+                <button style="width: 100px; margin-top: 3px" id="add" class="btn btn-sm btn-success custom">Add</button>
+                <button style="width: 100px; margin-top: 3px" id="remove" class="btn btn-sm btn-danger custom">Remove</button>
+                <button style="width: 100px; margin-top: 3px" id="removeAll" class="btn btn-sm btn-warning custom">Remove All</button>
+                <button style="width: 100px; margin-top: 3px" id="printBtn" class="btn btn-sm btn-primary custom">Print</button>
+                <button style="width: 100px; margin-top: 3px" id="saveBtn" class="btn btn-sm bg-purple custom">Save Sched</button>     
+                <button style="width: 100px; margin-top: 3px" id="clearBtn" class="btn btn-sm bg-purple custom">Clear</button>  
               </center>                                     
             </div>
           </div>
@@ -457,15 +457,10 @@
               </div>
               <!-- /btn-group -->
               <div class="input-group">
-                <select id="select-subject" class="form-control select2"  data-placeholder="Select Room" style="width: 100%">
+                <select id="select-subject" class="form-control select2 custom"  data-placeholder="Select Subjects" style="width: 100%">
                   <option></option>
-                  <?php foreach ($subjects as $val) 
-                    {
-                      echo "<option value='".$val->code."'>".$val->name."</option>";
-                    }
-                  ?>   
                 </select>
-                <select id="new-event-room" class="form-control select2"  data-placeholder="Select Room" style="width: 100%">
+                <select id="select-room" class="form-control select2 custom"  data-placeholder="Select Room" style="width: 100%">
                   <option></option>
                   <?php foreach ($rooms as $val) 
                     {
@@ -475,7 +470,7 @@
                 </select>
 
                 <div class="input-group-btn ">
-                  <button id="add-new-event" type="button" class="btn btn-primary btn-flat" style="height: 68px">Add</button>
+                  <button id="add-new-event" type="button" class="btn btn-primary btn-flat custom" style="height: 68px">Add</button>
                 </div>
                 <!-- /btn-group -->
               </div>
@@ -692,7 +687,8 @@
   //Initialize Select2 Elements
     $('.select2').select2()
 
-  var ajaxUrl = "<?php echo base_url("enrollment/manage_schedule/ajax"); ?>"
+  var getSectionUrl = "<?php echo base_url("academics/schedule/getSectionsDetails"); ?>"
+  var getSubjectsUrl = "<?php echo base_url("academics/schedule/getSubjects"); ?>"
 </script>
 </body>
 </html>

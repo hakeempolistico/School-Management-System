@@ -76,7 +76,7 @@
       $('#new-event-teacher').val('').trigger('change')
       
     })
-  })
+})
 
 function allowDrop(ev) {
     ev.preventDefault();
@@ -150,53 +150,47 @@ printData();
 var table; 
 var set;
 
-$('#select-class').on('change',function(){
-  table = "classes";
-  set = "id"
-  var value = $('#select-class').val();
-  $('#profile-box-class').show();
+$(".custom").prop('disabled', true);
+
+$('#btn-enter').on('click',function(){
+  var sectionId = $('#select-class').val();
+  $("#select-room").val('').trigger('change');
+
   $.ajax({
-            url: ajaxUrl,
-            type: 'post',
-            dataType: 'json', 
-            data: {'set' : set, 'table' : table, 'value' : value }, 
-            success: function(result){
-              console.log(result);
-              $.each(result, function(index, val) {
-                $('#profile-class-name').html(val.class_name);
-                $('#profile-class-grade').html(val.year);
-                $('#profile-class-capacity').html(val.occupants+'/'+val.capacity); 
-                var stat;
-                if(val.occupants >= val.capacity){
-                  stat="FULL";
-                }
-                else{
-                  stat="NOT FULL";
-                }
-                $('#profile-class-status').html(stat);
-                  if(stat == "NOT FULL"){
-                    $('#profile-class-status').removeClass('badge bg-red');
-                    $('#profile-class-status').addClass('badge bg-blue');
-                  }
-                  else{
-                    $('#profile-class-status').removeClass('badge bg-blue');
-                    $('#profile-class-status').addClass('badge bg-red');
-                  }
+    url: getSectionUrl,
+    type: 'post',
+    dataType: 'JSON',  
+    data: {'id': sectionId},
+    success: function(result){  
+      //console.log(result);
+      $('#class-strand').html(result[0].strand_code);
+      $('#class-year-section').html(result[0].year_level.substring(6) + '-' + result[0].section_name);
+      $('#class-capacity').html(result[0].capacity);
 
-                $.ajax({
-                    url: ajaxUrl,
-                    type: 'post',
-                    dataType: 'json', 
-                    data: {'set' : 'employee_id', 'table' : 'teachers', 'value' : val.adviser }, 
-                    success: function(result){    
-                       $.each(result, function(index, val) {
-                          $('#profile-class-adviser').html(val.first_name+' '+val.last_name);
-                       })           
-                      
-                    }
-                })
-              })
-            }
+      $(".custom").prop('disabled', false);
+
+      $.ajax({
+        url: getSubjectsUrl,
+        type: 'post',
+        dataType: 'json',
+        data: {'section_id': sectionId},  
+        success: function(res){  
+          //console.log(res);
+          $('#select-subject').find('option').remove();
+          $('#select-subject').append($('<option>', { 
+                value: null,
+                text : null
+            })).select2();
+          $.each(res, function( index, value ) {
+            //console.log('Section Code : '+value.section_code+' Section Name : '+ value.section_name);
+            $('#select-subject').append($('<option>', { 
+                value: value.section_code,
+                text : value.section_name
+            })).select2();
           });
-
+        }
+      }); 
+    } 
+  });    
 })
+
