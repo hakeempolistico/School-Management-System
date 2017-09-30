@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Search for Online Applications</title>
+  <title>Enroll Student</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -14,8 +14,8 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/Ionicons/css/ionicons.min.css">
   <!-- Select2 -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/select2/dist/css/select2.min.css">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <!-- iCheck for checkboxes and radio inputs -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/iCheck/all.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -30,7 +30,12 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-
+<style type="text/css">
+  .error {
+  color: red;
+  font-size: 14px;
+  }
+</style>
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
@@ -174,7 +179,7 @@
               <li class="footer"><a href="#">View all</a></li>
             </ul>
           </li>
-          
+                
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -217,8 +222,6 @@
               </li>
             </ul>
           </li>
-          <!-- Control Sidebar Toggle Button -->
-          
         </ul>
       </div>
     </nav>
@@ -261,20 +264,21 @@
                 <i class="fa fa-circle-o text-aqua"></i>
                 Dashboard
               </a>
-            </li>         
-            <li>
+            </li>
+            <li class="active">
               <a href="<?php echo site_url('enrollment/register_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Register Student
               </a>
             </li>
-            <li class="active">
+            <li>
               <a href="<?php echo site_url('enrollment/enroll_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   Enroll Student
               </a>
             </li>
           </ul>
+
         </li>
 
         <li class="treeview">
@@ -327,8 +331,8 @@
           
         </li>
       
-        <li class="header">LABELS</li>
-       
+        
+        <li class="header">LABELS</li>  
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -346,115 +350,245 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Search for Registered Students
-        <small>Pick one to enroll</small>
+        Enroll Student
+        <small>Success</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Enrollment</a></li>
-        <li class="active">Enroll Student</li>
+        <li>Register Student</li>
+        <li class="active">After Register</li>
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
-      <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">Registered Students</h3>
+      
+      <div class="callout callout-success">
+        <h4>Enrollment Complete!</h4>
+
+        <p>You have successfully enrolled <bold class="name">Adrielle Kristine Nicolette M. Escaro</bold> to <bold id="strand">STEM</bold>. Would you like to enroll another student?</p>
+      </div>
+
+      <div class="box box-default">
+        <div class="box-body box-profile" style=" padding: 20px;">
+          <div class="row">
+            <div class="col-md-4"><center>
+              <img src="<?php echo base_url('images/alt_picture.jpg');?>" class="img-circle" alt="<?php echo base_url('images/alt_picture.jpg');?>" style="width: 70%; margin-bottom: 10px;"></center>
+              <h3 class="profile-username text-center name" style="padding: 0 20px;">Adrielle Kristine Nicolette M. Escaro</h3>
+
+              <a href="<?php echo site_url('enrollment/enroll_student'); ?>" class="btn btn-primary" style="width:100%; margin-bottom: 10px;">Enroll another student</a>
             </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <table id="registeredStudentstable" class="table table-bordered table-hover">
-                <thead>
+            <!-- /. col-->
+
+            <div class="col-md-8">
+              <table class="table">
                 <tr>
-                  <th>LRN</th>
-                  <th>Name</th>
-                  <th>Date Registered</th>
-                  <th>Action</th>
+                  <td><b>LRN</b></td>
+                  <td><a id="lrn">SEE HOW DIRTY I CAN GET THEM</a></td>
                 </tr>
-                </thead>
-                <tfoot>
                 <tr>
-                  <th>LRN</th>
-                  <th>Name</th>
-                  <th>Date Registered</th>
-                  <th>Action</th>
+                  <td><b>Note</b></td>
+                  <td><a id="note">LETS BE ALONE TOGETHER</a></td>
                 </tr>
-                </tfoot>
+                <tr>
+                  <td><b>Section Name</b></td>
+                  <td><a id="section_name">TAKE IT ALL AWAY</a></td>
+                </tr>
+                <tr>
+                  <td><b>Academic Year</b></td>
+                  <td><a id="academic_year">OOOOOOOOOH</a></td>
+                </tr>
               </table>
             </div>
-            <!-- /.box-body -->
+            <!-- /.col -->
           </div>
-          <!-- /.box -->
+          <!-- /.row -->
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /. box -->
+
+
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
 
+  <!-- Footer -->
   {footer}
+  <!-- /.Footer -->
 
-  
-  <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
-  <div class="control-sidebar-bg"></div>
+
 </div>
 <!-- ./wrapper -->
-
-
 
 <!-- jQuery 3 -->
 <script src="<?php echo base_url(); ?>bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo base_url(); ?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- DataTables -->
-<script src="<?php echo base_url(); ?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<!-- Select2 -->
+<script src="<?php echo base_url(); ?>bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
-<!-- Select2 -->
-<script src="<?php echo base_url(); ?>bower_components/select2/dist/js/select2.full.min.js"></script>
+<!-- iCheck 1.0.1 -->
+<script src="<?php echo base_url(); ?>plugins/iCheck/icheck.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
-<!-- SlimScroll -->
-<script src="<?php echo base_url(); ?>bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- js ni adrii -->
+<script src="<?php echo base_url(); ?>js/forminput.js"></script>
+<!-- bootstrap datepicker -->
+<script src="<?php echo base_url(); ?>bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<!-- InputMask -->
+<script src="<?php echo base_url(); ?>plugins/input-mask/jquery.inputmask.js"></script>
+<script src="<?php echo base_url(); ?>plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+<script src="<?php echo base_url(); ?>plugins/input-mask/jquery.inputmask.extensions.js"></script>
 
 <script>
-  var getRecordsUrl = '<?php echo base_url("enrollment/enroll_student/populateTable"); ?>';
+$(document).ready(function(){ 
 
-  $('#registeredStudentstable').DataTable().destroy();
 
-  $('#registeredStudentstable').DataTable({
-    "columns": [
-        { "width": "25%" },
-        { "width": "25%" },
-        { "width": "25%" },
-        { "width": "25%" }
-        ],
-        "order": [] ,
-        "ajax": getRecordsUrl
+  var lastLrn = <?php echo $lastLrn;?>;
+  var ajaxUrl = "<?php echo base_url("enrollment/enroll_student/ajax"); ?>"
+
+  $.ajax({
+            url: ajaxUrl,
+            type: 'post',
+            dataType: 'json', 
+            data: {'value' : lastLrn, 'table': 'registered_students', 'set': 'lrn'}, 
+            success: function(result){
+              alert(result);
+
+                $('.name').html(result.first_name +" "+ result.middle_name + " " + result.last_name);
+
+            }
   });
-  /*var arrofobject = <?php echo $registeredStudents ?>;
 
-  $('table').DataTable();
-  $('#record').remove();
+  $.ajax({
+            url: ajaxUrl,
+            type: 'post',
+            dataType: 'json', 
+            data: {'value' : lastLrn, 'table': 'enrolled_students', 'set': 'registered_student_lrn'}, 
+            success: function(result){
 
-  $.each(arrofobject, function(index, val) {
-     var dregister = val.date_registered;
-     var dateTime = dregister.split(" ");
-     var date = dateTime[0];
-     var splitDate = date.split("-");
-     var y = splitDate[0];
-     var m = splitDate[1];
-     var d = splitDate[2];
-     var dash = "-";
-     var mdy = m+dash+d+dash+y;
+                $('#lrn').html(result.registered_student_lrn);
+                $('#note').html(result.note); 
 
-     console.log(mdy);
+                var section_id = result.section_id;
+                var academic_year_id = result.academic_year_id;
 
+                $.ajax({
+                          url: ajaxUrl,
+                          type: 'post',
+                          dataType: 'json', 
+                          data: {'value' : section_id, 'table': 'sections', 'set': 'id'}, 
+                          success: function(result){
 
-    $('tbody').append('<tr id="record"><td>'+val.lrn+'</td><td>'+val.first_name+' '+val.middle_name+' '+val.last_name+'</td><td>'+mdy+'</td> <td><a href="<?php echo site_url('enrollment/enroll_student/'+val.lrn+''); ?>" type="button" data-toggle="modal" data-target="#modal-default" class="btn btn-block btn-info btn-flat btn-xs buttonView" style="max-width: 100px; display:block;margin: auto;">View</a></td> </div> </tr>');
-  });*/
+                              var strand_code = result.strand_code;
+                              var year_level_id = result.year_level_id;
+                              var name = result.name;
+
+                              if (year_level_id == 1)
+                              {
+                                year_level_id = '11';
+                              } else 
+                              {
+                                year_level_id = '12';
+                              }
+
+                              $('#strand').html(strand_code);
+                              $('#section_name').html(strand_code+year_level_id+name);
+                            
+                            }
+                });
+
+                $.ajax({
+                          url: ajaxUrl,
+                          type: 'post',
+                          dataType: 'json', 
+                          data: {'value' : academic_year_id, 'table': 'academic_years', 'set': 'id'}, 
+                          success: function(result){
+
+                              $('#academic_year').html(result.year_start+'-'+result.year_end);
+                            
+                          }
+                });
+              
+              }
+  });
+
+  
+
+  $.ajax({
+            url: ajaxUrl,
+            type: 'post',
+            dataType: 'json', 
+            data: {'value' : lastLrn, 'table': 'parents', 'set': 'registered_student_lrn'}, 
+            success: function(result){
+
+                $('#father_name').html(result.father_name);
+                $('#father_contact').html(result.father_contact);
+                $('#mother_name').html(result.mother_name);
+                $('#mother_contact').html(result.mother_contact);
+              
+              }
+  });
+});
+</script>
+<script>
+
+    $('.flat-red').on('ifChecked', function(event){
+      var radioInput = $(this).val(); 
+      
+
+      if(radioInput == "Father"){
+        alert(radioInput);
+        $('#guardianInput').hide();
+        $('#inputGUARDIAN').val($('#inputFATHER').val());
+        $('#inputRELATIONSHIP').val(radioInput);
+        $('#inputGUARDIANCONTACT').val($('#inputFATHERCONTACT').val());
+
+      }else if(radioInput == "Mother"){
+        alert(radioInput);
+        $('#guardianInput').hide();
+        $('#inputGUARDIAN').val($('#inputMOTHER').val());
+        $('#inputRELATIONSHIP').val(radioInput);
+        $('#inputGUARDIANCONTACT').val($('#inputMOTHERCONTACT').val());
+
+      }else{
+        $('#guardianInput').show();
+        $('#inputGUARDIAN').val('');
+        $('#inputRELATIONSHIP').val('');
+        $('#inputGUARDIANCONTACT').val('');
+      }
+
+    });
+</script>
+<script>
+//Date picker
+    $('#datepicker').datepicker({
+      autoclose: true,
+      format: 'yyyy/mm/dd'
+    })
+
+    //iCheck for checkbox and radio inputs
+    $('input[type="radio"].minimal').iCheck({
+      radioClass   : 'iradio_minimal-blue'
+    })
+    //Red color scheme for iCheck
+    $('input[type="radio"].minimal-red').iCheck({
+      radioClass   : 'iradio_minimal-red'
+    })
+    //Flat red color scheme for iCheck
+    $('input[type="radio"].flat-red').iCheck({
+      radioClass   : 'iradio_flat-green'
+    })
+</script>
+<script type="text/javascript">
+  //Initialize Select2 Elements
+    $('.select2').select2();
+    
 </script>
 
 

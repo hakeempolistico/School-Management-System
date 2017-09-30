@@ -8,150 +8,158 @@ class enroll_student extends CI_Controller {
 	    parent::__construct();
 	    $this->sms_session->checkSession();
 	}
-	
-	public function index()
-	{	
-		$data = $this->parse->parsed();
-		$data['onlineRecords']  = json_encode($this->global_model->getRecords('registered_students'));
-		$this->parser->parse('enrollment/search', $data);
-	}
 
-	public function enroll()
+	public function index()
 	{
 		$data = $this->parse->parsed();
-		$this->parser->parse('enrollment/enroll_student', $data);
+		//$jjjj = $this->global_model->getRecords('registered_students');
+		//$jjjk = $jjjj['0']->lrn;
+
+		//print_r($jjjk); exit;
+		$this->parser->parse('enrollment/search', $data);
 	}
 
 	public function strands()
 	{
 		$data = $this->parse->parsed();
+		//$jjjj = $this->global_model->getRecords('registered_students');
+		//$jjjk = $jjjj['0']->lrn;
+
+		//print_r($jjjk); exit;
 		$this->parser->parse('enrollment/strand_selection', $data);
 	}
 
-	public function enrolled()
+	public function getSectionTable()
 	{
-		$data = $this->parse->parsed();
-		$this->parser->parse('enrollment/enrolled', $data);
-	}
+		$strand = $this->input->post('strand');
+		$year = $this->input->post('year_level_id');
 
-	public function search()
-	{	
-		$data = $this->parse->parsed();
-		$data['onlineRecords']  = json_encode($this->global_model->getRecords('registered_students'));
-		$this->parser->parse('enrollment/search', $data);
+		$records = $this->enroll_student_model->getSections('sections', 'strand_code', $strand, 'year_level_id', $year);
 
-	}
-
-	public function register_error()
-	{
-		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
-		$this->load->view('enrollment/enroll_student/enroll');
-	}
-
-	public function register()
-	{	
-		$required_message = array('required' => 'Field is required!');
-		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
-		$this->form_validation->set_rules('lrn', 'LRN', 'trim|required|min_length[3]|max_length[15]|is_unique[students.lrn]', $required_message);
-		$this->form_validation->set_rules('grade', 'Grade', 'trim|required|min_length[3]|max_length[15]', $required_message);
-		$this->form_validation->set_rules('first_name', 'First Name', 'trim|required|min_length[3]|max_length[40]', $required_message);
-		$this->form_validation->set_rules('middle_name', 'Middle Name', 'trim|min_length[3]|max_length[20]', $required_message);
-		$this->form_validation->set_rules('last_name', 'Last Name', 'trim|required|min_length[3]|max_length[20]', $required_message);
-		$this->form_validation->set_rules('sex', 'Sex', 'trim|required|min_length[3]|max_length[20]', $required_message);
-		$this->form_validation->set_rules('contact', 'Contact No', 'trim|required|min_length[3]|max_length[20]', $required_message);
-		$this->form_validation->set_rules('birth_date', 'Birthdate', 'trim|required|min_length[3]|max_length[20]', $required_message);
-		$this->form_validation->set_rules('birth_place', 'Birthplace', 'trim|required|min_length[3]|max_length[40]', $required_message);
-		$this->form_validation->set_rules('age', 'Age', 'trim|required|min_length[1]|max_length[5]', $required_message);
-		$this->form_validation->set_rules('mother_tongue', 'Mother Tongue', 'trim|required|min_length[3]|max_length[20]', $required_message);
-		$this->form_validation->set_rules('religion', 'Religion', 'trim|required|min_length[3]|max_length[30]', $required_message);
-		$this->form_validation->set_rules('street', 'House #, Street', 'trim|required|min_length[3]|max_length[40]', $required_message);
-		$this->form_validation->set_rules('barangay', 'Barangay', 'trim|required|min_length[3]|max_length[40]', $required_message);
-		$this->form_validation->set_rules('city', 'City', 'trim|required|min_length[3]|max_length[40]', $required_message);
-		$this->form_validation->set_rules('province', 'Province', 'trim|required|min_length[3]|max_length[30]', $required_message);
-		$this->form_validation->set_rules('father_name', 'Father\'s Name', 'trim|required|min_length[3]|max_length[100]', $required_message);
-		$this->form_validation->set_rules('mother_name', 'Mother\'s Name', 'trim|required|min_length[3]|max_length[100]', $required_message);
-		$this->form_validation->set_rules('father_contact', 'Father\'s Contact No', 'trim|required|min_length[3]|max_length[20]', $required_message);
-		$this->form_validation->set_rules('mother_contact', 'Mother\'s Contact No', 'trim|required|min_length[3]|max_length[20]', $required_message);
-		$this->form_validation->set_rules('guardian', 'Guardian Name', 'trim|required|min_length[3]|max_length[40]', $required_message);
-		$this->form_validation->set_rules('relationship', 'Relationship', 'trim|required|min_length[3]|max_length[40]', $required_message);
-		$this->form_validation->set_rules('guardian_contact', 'Guardian\'s Contact', 'trim|required|min_length[3]|max_length[20]', $required_message	);
-		$this->form_validation->set_rules('note', 'Note', 'trim|min_length[1]|max_length[200]', $required_message);
-				
-		if ($this->form_validation->run() == FALSE)
+		$data = [];
+		foreach ($records as $record) 
 		{
-			$data = $this->parse->parsed();
-		$this->parser->parse('enrollment/enroll_student', $data);
-		}
-		else
-		{
-			$this->load->model('enroll_model');
-			
-			if($this->input->post()) {
-				$data = $this->input->post();
-				$data2 = $this->input->post('requirement[]');
+			$id = $record->id;
+			$strand_code = $record->strand_code;  
+			$year_level_id = $record->year_level_id;
+			$name = $record->name;
+			$capacity = $record->capacity;
 
-				foreach($data2 as $val){
-					$dataReq = array(
-						'lrn' =>  $this->input->post('lrn'),
-						'requirement' => $val
-						);
-					$result = $this->global_model->insert('requirements', $dataReq);
-				}
 
-				unset($data['requirement']);
-				$result = $this->global_model->insert('students', $data);
+			$countRows = $this->global_model->count('enrolled_students', 'section_id', $id);
 
-				redirect('enrollment/enroll_student/strands');
+			$currentCapacity = $countRows.'/'.$capacity;
+
+			if ($year_level_id == 1){
+				$year_level_id = 11;
+			} else {
+				$year_level_id = 12;
 			}
+
+			if ($capacity != $countRows){
+				$status = '<center><span class="badge bg-light-blue">Open</span></center>';
+			} else {
+				$status = '<center><span class="badge bg-red">Full</span></center>';
+			}
+
+			$section = $strand_code.$year_level_id.$name;
+
+			$arr = array(
+				'',
+				$id,
+				$section,
+				$currentCapacity,
+				$status
+				);
+
+			$data[] = $arr;
+
 		}
+
+		echo json_encode($data);
+	}
+
+	public function populateTable()
+	{
+		$registeredStudents = $this->global_model->getRecords('registered_students');
+
+		$data = [];
+		foreach ($registeredStudents as $registeredStudents) 
+		{
+			$lrn = $registeredStudents->lrn;
+			$id = $registeredStudents->id;
+
+			$action = '<form method="post" action="/sms/enrollment/enroll_student/enroll"><input type="hidden" name="lrn" value="'.$lrn.'"><button type="submit" class="btn btn-block btn-info btn-flat btn-xs buttonView" style="max-width: 100px; display:block;margin: auto;">Enroll</button></form>'; 
+
+
+			$fullName = $registeredStudents->first_name.' '.$registeredStudents->last_name;
+
+			$dateRegistered = $registeredStudents->date_registered;
+			$explodedDateRegistered = explode(" ", $dateRegistered);
+			$explodedDate = explode("-", $explodedDateRegistered[0]);
+			$y = $explodedDate[0];
+			$m = $explodedDate[1];
+			$d = $explodedDate[2];
+			$newDate = $m.'-'.$d.'-'.$y;
+			
+			$arr = array(
+		        $lrn,
+		        $fullName,
+		        $newDate,
+		        $action
+		    );
+
+            $data['data'][] = $arr;
+		}
+
+		echo json_encode($data);
+	}
+
+	public function submit()
+	{
+		$year = date('Y');
+		$academic_year = $this->enroll_student_model->getAcademicYearId('academic_years', 'year_start', $year, 'id');
+
+		foreach ($academic_year as $val) {
+			$academic_year_id = $val->id;
+		}
+
+		$enrollInfo = array(
+			'id' => '',
+			'registered_student_lrn' => $this->input->post('registered_student_lrn'),
+			'note' => $this->input->post('note'),
+			'section_id' => $this->input->post('section_id'),
+			'academic_year_id' => $academic_year_id
+			);
+
+		$this->global_model->insert('enrolled_students', $enrollInfo);
+
+		redirect('enrollment/enroll_student/after_enroll');
+	}
+
+	public function enroll()
+	{
+		
+		$data = $this->parse->parsed();
+		$data['lrn'] =  $this->input->post('lrn');
+		$this->parser->parse('enrollment/page2', $data);
+	}
+
+	public function after_enroll()
+	{
+		$data = $this->parse->parsed();
+		$data['lastLrn'] = json_encode($this->enroll_student_model->getLastRow('enrolled_students'));
+		$this->parser->parse('enrollment/after_enroll', $data);
 	}
 
 	public function ajax()
 	{
 		$table = $this->input->post('table');
 		$set = $this->input->post('set');
-		$value = $this->input->post('lrn');
+		$value = $this->input->post('value');
 		$records = json_encode($this->global_model->getRow($table, $set, $value));
 		echo $records;
 	}
-
-	public function move()
-	{	
-		$this->load->model('enroll_model');
-			
-		if($this->input->post()) {
-			$data = $this->input->post();
-			$data2 = $this->input->post('requirement[]');
-
-			foreach($data2 as $val){
-				$dataReq = array(
-					'lrn' =>  $this->input->post('lrn'),
-					'requirement' => $val
-				);
-			$result = $this->global_model->insert('requirements', $dataReq);
-			}
-
-			unset($data['requirement']);
-			$result = $this->global_model->insert('students', $data);
-
-			$lrn = array('lrn' => $this->input->post('lrn'));
-			$this->global_model->delete('online_applicants', $lrn);
-
-
-			redirect('enrollment/enroll_student/strands');
-		}
-	}
-
-	public function average()
-	{
-		$arr = $this->input->post('subj[]');
-
-		$a = array_filter($arr);
-		$average = array_sum($a)/count($a);
-		
-		redirect('enrollment/enroll_student/strands', $average);
-	}
-
 
 }
 
