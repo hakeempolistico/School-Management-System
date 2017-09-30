@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/iCheck/all.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <!-- DataTable Select -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/select.dataTables.min">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -349,7 +351,7 @@
     <section class="content-header">
       <h1>
         Enroll Student
-        <small>lrn: <?php echo $id ?> </small>
+        <small>lrn: <?php echo $lrn ?> </small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Enrollment</a></li>
@@ -616,6 +618,8 @@
                 <table id="sectionsTable" class="table table-bordered table-hover">
                 <thead>
                 <tr>
+                  <th></th>
+                  <th>Section ID</th>
                   <th>Section</th>
                   <th>Capacity</th>
                   <th>Status</th>
@@ -623,10 +627,12 @@
                 </thead>
               </table>
               <br>
-                  <a href="<?php echo site_url('enrollment/enroll_student/enrolled') ?>">
+                <form id="enrollStudent" method="post" action="/sms/enrollment/enroll_student/submit">
+                  <input type="hidden" id="r_s_lrn" name="registered_student_lrn">
+                  <input type="hidden" id="noteHidden" name="note">
+                  <input type="hidden" id="section_id" name="section_id">
                   <button type="button" id="enroll" class="btn bg-green" style="width: 100%; height: 50px;">Enroll to STEM</button>
-                  </a>
-                </center>
+                  </form>
               </div>
               <!-- /.box-body -->
             </div>
@@ -644,13 +650,8 @@
 
 
       <!-- ######################## HIDDEN INPUTS ########################### -->
-      <form>
-        <input type="hidden" id="r_s_id" name="registered_student_id">
-        <input type="hidden" id="noteHidden" name="note">
-        <input type="hidden" id="section_id" name="section_id">
         <input type="hidden" id="strand" name="strand">
         <input type="hidden" id="year" name="year">
-      </form>
 
   </div>
   <!-- /.content-wrapper -->
@@ -673,6 +674,8 @@
 <!-- DataTables -->
 <script src="<?php echo base_url(); ?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<!-- DataTable Select -->
+<script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.select.min"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
@@ -795,7 +798,8 @@
     $('#chosenStrand').html('TVL-AS');
     $('#enroll').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
     $('#enroll').addClass('bg-yellow-active');
-    $('#strand').val('tvlas');
+    $('#strand').val('tvl-as');
+    ajax();
   });
 
   $('#gasdiv').click(function()
@@ -815,7 +819,7 @@
     $('#chosenStrand').html('TVL-HE');
     $('#enroll').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
     $('#enroll').addClass('bg-blue');
-    $('#strand').val('tvlhe');
+    $('#strand').val('tvl-he');
   });
 
   $('#humssdiv').on('click',function()
@@ -861,8 +865,40 @@
             data: {'strand': strand, 'year_level_id': year}, 
             success: function(result){
 
-            alert(result);
-                
+            //alert(result);
+
+            $('#sectionsTable').DataTable().destroy();
+
+            var table = $('#sectionsTable').DataTable({
+              "data": result,
+              columnDefs: [ {
+                orderable: false,
+                className: 'select-checkbox',
+                targets:   0
+              } ],
+              select: {
+                style:    'os',
+                selector: 'td:first-child'
+              },
+              order: [[ 1, 'asc' ]]
+            });
+
+            //$('#enroll').val(table.rows( { selected: true } ).data());
+
+            $('#enroll').on('click',function()
+            {
+              var selected = table.rows( { selected: true } ).data();
+              var id = selected[0][1];
+              var rslrn = "<?php echo $lrn ?>";
+
+              $('#r_s_lrn').val(rslrn);
+              $('#section_id').val(id);
+              $('#noteHidden').val($('#note').val());
+
+              console.log('registered_student_lrn: '+ $('#r_s_lrn').val() + ' section_id: ' +$('#section_id').val() + ' note: ' + $('#noteHidden').val());
+
+              $('#enrollStudent').submit();
+            });   
               
               }
   });   

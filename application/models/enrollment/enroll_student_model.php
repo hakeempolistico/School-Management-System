@@ -11,10 +11,12 @@ class enroll_student_model extends CI_Model{
 		return $query;
 	}
 
-	public function countRows($table, $set, $value)
+	public function getAcademicYearId($table, $set, $value, $id)
 	{
-		$this->db->where($set, $value); //section_id = value
-		$query = $this->db->get($table)->result(); //enrolled_students table
+		$this->db->select($id);
+		$this->db->where($set, $value);
+		
+		$query = $this->db->get($table)->result();
 		return $query;
 	}
 	
