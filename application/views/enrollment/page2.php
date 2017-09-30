@@ -19,7 +19,7 @@
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- DataTable Select -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/select.dataTables.min">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/select.dataTables.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -627,7 +627,7 @@
                 </thead>
               </table>
               <br>
-                <form id="enrollStudent" method="post" action="<?php echo base_url('enrollment/enroll_student/submit/'); ?>">
+                <form id="enrollStudent" method="post" action=<?php echo base_url('enrollment/enroll_student/submit/'); ?>>
                   <input type="hidden" id="r_s_lrn" name="registered_student_lrn">
                   <input type="hidden" id="noteHidden" name="note">
                   <input type="hidden" id="section_id" name="section_id">
@@ -675,7 +675,7 @@
 <script src="<?php echo base_url(); ?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <!-- DataTable Select -->
-<script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.select.min"></script>
+<script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.select.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
