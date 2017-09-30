@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2017 at 11:34 PM
+-- Generation Time: Oct 01, 2017 at 01:40 AM
 -- Server version: 5.7.11
 -- PHP Version: 7.0.4
 
@@ -69,7 +69,8 @@ INSERT INTO `addresses` (`id`, `registered_student_lrn`, `street`, `barangay`, `
 (2, 22222, 'Talaba st.', 'Baranggay Talaba', 'Bacoor', 'Cavite'),
 (3, 33333, 'Paco st', 'Barangay Paco', 'Paco city', 'Manila'),
 (4, 44444, 'Golden st.', 'Barangay Golden', 'Dasma', 'Cavite'),
-(5, 55555, 'Citta st,', 'Barangay Italia', 'Imus', 'Cavite');
+(5, 55555, 'Citta st,', 'Barangay Italia', 'Imus', 'Cavite'),
+(6, 14, '226-b', 'Talaba I', 'Bacoor City', 'Cavite');
 
 -- --------------------------------------------------------
 
@@ -115,13 +116,19 @@ CREATE TABLE `enrolled_students` (
   `id` int(50) NOT NULL,
   `registered_student_lrn` int(50) NOT NULL,
   `note` text NOT NULL,
-  `class_id` int(50) NOT NULL,
-  `strand_id` int(50) NOT NULL,
-  `year_level_id` int(50) NOT NULL,
+  `section_id` varchar(15) NOT NULL,
   `academic_year_id` int(50) NOT NULL,
   `date_enrolled` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `date_modified` int(11) NOT NULL
+  `date_modified` timestamp NOT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `enrolled_students`
+--
+
+INSERT INTO `enrolled_students` (`id`, `registered_student_lrn`, `note`, `section_id`, `academic_year_id`, `date_enrolled`, `date_modified`) VALUES
+(1, 0, '', '20', 1, '2017-09-30 15:03:05', '0000-00-00 00:00:00'),
+(2, 11111, '', '1', 1, '2017-09-30 15:27:59', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -146,7 +153,8 @@ INSERT INTO `guardians` (`id`, `registered_student_lrn`, `name`, `contact`, `rel
 (2, 22222, 'Mother Polistico', 'MotherPoli cont', 'Mother'),
 (3, 33333, 'Mother Guzman', 'MotherGuz conta', 'Mother'),
 (4, 44444, 'Mother Salva', 'MotherSalva con', 'Mother'),
-(5, 55555, 'Roman Ferrer', 'FatherFerrer co', 'Father');
+(5, 55555, 'Roman Ferrer', 'FatherFerrer co', 'Father'),
+(6, 14, 'Marissa Tomei', '0955-887-4822', 'Mother');
 
 -- --------------------------------------------------------
 
@@ -172,7 +180,8 @@ INSERT INTO `parents` (`id`, `registered_student_lrn`, `mother_name`, `mother_co
 (2, 22222, 'Mother Polistico', 'MotherPoli cont', 'Father Polistico', 'FatherPoli cont'),
 (3, 33333, 'Mother Guzman', 'MotherGuz conta', 'Father Guzman', 'FatherGuz conta'),
 (4, 44444, 'Mother Salva', 'MotherSalva con', 'Father Salva', 'FatherSalva con'),
-(5, 55555, 'fukIforgot Ferrer', 'MotherFerrer co', 'Roman Ferrer', 'FatherFerrer co');
+(5, 55555, 'fukIforgot Ferrer', 'MotherFerrer co', 'Roman Ferrer', 'FatherFerrer co'),
+(6, 14, 'Marissa Tomei', '0955-887-4822', 'Tom Cruise', '0955-887-4822');
 
 -- --------------------------------------------------------
 
@@ -207,7 +216,8 @@ INSERT INTO `registered_students` (`id`, `lrn`, `first_name`, `middle_name`, `la
 (2, 22222, 'Hakeem', 'Joshua', 'Polistico', 'Male', '09558874822', '1995-07-22', 'Hospital Bed', 22, 'Tagalog', 'Catholic', b'0', '2017-09-20 09:29:40', '0000-00-00 00:00:00'),
 (3, 33333, 'John', 'Patrick', 'Guzman', 'Male', '09333333333', '2017-09-05', 'Hospital Bed', 0, 'Tagalog', 'Catholic', b'0', '2017-09-20 09:32:58', '0000-00-00 00:00:00'),
 (4, 44444, 'Jasver', 'Anlouis', 'Salva', 'Female', '09444444444', '2017-09-22', 'Hospital Bed', 0, 'Tagalog', 'Catholic', b'0', '2017-09-20 09:35:08', '0000-00-00 00:00:00'),
-(5, 55555, 'Journacel', 'Urgel', 'Ferrer', 'Female', '09555555555', '1997-10-10', 'Hospital Bed', 19, 'Tagalog', 'Catholic', b'0', '2017-09-20 09:37:59', '0000-00-00 00:00:00');
+(5, 55555, 'Journacel', 'Urgel', 'Ferrer', 'Female', '09555555555', '1997-10-10', 'Hospital Bed', 19, 'Tagalog', 'Catholic', b'0', '2017-09-20 09:37:59', '0000-00-00 00:00:00'),
+(6, 14, 'Hakeem', '', 'Polistico', 'Male', '0955-887-4822', '2017-09-30', 'Mandaluyong City', 0, 'Filipino', 'Catholic', b'0', '2017-09-30 15:28:53', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -232,11 +242,16 @@ CREATE TABLE `rooms` (
   `id` int(100) NOT NULL,
   `room_id` varchar(50) NOT NULL,
   `room_name` varchar(50) NOT NULL,
-  `building` varchar(200) NOT NULL,
-  `class_id` int(11) DEFAULT NULL,
-  `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `date_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+  `building` varchar(200) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `rooms`
+--
+
+INSERT INTO `rooms` (`id`, `room_id`, `room_name`, `building`) VALUES
+(1, 'Lab101', 'Laboratory 1', 'College of Science'),
+(2, 'Lab102', 'Laboratory 2', 'College of Science');
 
 -- --------------------------------------------------------
 
@@ -246,13 +261,22 @@ CREATE TABLE `rooms` (
 
 CREATE TABLE `schedules` (
   `id` int(11) NOT NULL,
+  `section_id` int(11) NOT NULL,
+  `subject_code` varchar(50) NOT NULL,
   `room_id` int(11) NOT NULL,
-  `subject_id` int(11) NOT NULL,
-  `teacher_id` int(11) NOT NULL,
-  `time_start` time NOT NULL,
-  `time_end` time NOT NULL,
-  `day` enum('Monday','Tuesday','Wednesday','Thursday','Friday') NOT NULL
+  `time_start` varchar(5) NOT NULL,
+  `time_end` varchar(5) NOT NULL,
+  `day` varchar(20) NOT NULL,
+  `color` varchar(50) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `schedules`
+--
+
+INSERT INTO `schedules` (`id`, `section_id`, `subject_code`, `room_id`, `time_start`, `time_end`, `day`, `color`) VALUES
+(8, 7, 'CHM', 0, '7:00', '8:00', 'Tuesday', 'rgb(221, 75, 57)'),
+(15, 1, 'CHM', 0, '7:00', '8:00', 'Tuesday', 'rgb(60, 141, 188)');
 
 -- --------------------------------------------------------
 
@@ -278,7 +302,25 @@ INSERT INTO `sections` (`id`, `strand_code`, `year_level_id`, `name`, `capacity`
 (3, 'GAS', 2, 'A', 40),
 (4, 'GAS', 1, 'A', 40),
 (7, 'TVL-HE', 1, 'A', 45),
-(8, 'STEM', 1, 'C', 50);
+(11, 'STEM', 2, 'A', 40),
+(12, 'STEM', 2, 'B', 45),
+(13, 'GAS', 1, 'B', 45),
+(14, 'GAS', 2, 'B', 45),
+(15, 'HUMSS', 1, 'A', 40),
+(16, 'HUMSS', 2, 'A', 40),
+(17, 'ABM', 1, 'A', 40),
+(18, 'ABM', 2, 'A', 40),
+(19, 'TVL-HE', 2, 'A', 40),
+(20, 'TVL-AS', 1, 'A', 40),
+(21, 'TVL-AS', 2, 'A', 40),
+(22, 'HUMSS', 1, 'B', 45),
+(23, 'HUMSS', 2, 'B', 45),
+(24, 'ABM', 1, 'B', 45),
+(25, 'ABM', 2, 'B', 45),
+(26, 'TVL-HE', 2, 'B', 45),
+(27, 'TVL-HE', 1, 'B', 45),
+(28, 'TVL-AS', 1, 'B', 45),
+(29, 'TVL-AS', 2, 'B', 45);
 
 -- --------------------------------------------------------
 
@@ -372,7 +414,8 @@ INSERT INTO `teachers` (`id`, `employee_id`, `first_name`, `middle_name`, `last_
 (3, '0003', 'Rellmon', '', 'Ponce', 'Web Development', 'Teacher', 'Active'),
 (4, '0004', 'Fernando', '', 'Renegado', 'SAD', 'Department Head', 'Active'),
 (5, '0005', 'Sarah', '', 'Fortune', 'Physical Education', 'Teacher', 'Active'),
-(7, '001', 'James Kevin', 'Movera', 'Fernandez', 'Math', 'Professor', 'Active');
+(7, '001', 'James Kevin', 'Movera', 'Fernandez', 'Math', 'Professor', 'Active'),
+(8, '0006', 'Luxanna', 'Demacia', 'Crownguard', 'Physics', 'Head', 'Active');
 
 -- --------------------------------------------------------
 
@@ -443,7 +486,8 @@ ALTER TABLE `class_subjects`
 -- Indexes for table `enrolled_students`
 --
 ALTER TABLE `enrolled_students`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `registered_student_lrn` (`registered_student_lrn`);
 
 --
 -- Indexes for table `guardians`
@@ -538,7 +582,7 @@ ALTER TABLE `academic_years`
 -- AUTO_INCREMENT for table `addresses`
 --
 ALTER TABLE `addresses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `class_subjects`
 --
@@ -548,22 +592,22 @@ ALTER TABLE `class_subjects`
 -- AUTO_INCREMENT for table `enrolled_students`
 --
 ALTER TABLE `enrolled_students`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `guardians`
 --
 ALTER TABLE `guardians`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `parents`
 --
 ALTER TABLE `parents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `registered_students`
 --
 ALTER TABLE `registered_students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `requirements`
 --
@@ -573,17 +617,17 @@ ALTER TABLE `requirements`
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `schedules`
 --
 ALTER TABLE `schedules`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `sections`
 --
 ALTER TABLE `sections`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT for table `strands`
 --
@@ -603,7 +647,7 @@ ALTER TABLE `subjects`
 -- AUTO_INCREMENT for table `teachers`
 --
 ALTER TABLE `teachers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `users`
 --

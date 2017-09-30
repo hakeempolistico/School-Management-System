@@ -36,4 +36,39 @@ class schedule extends CI_Controller {
 		echo json_encode($row);
 	}
 
+	public function addSchedule()
+	{
+		$data = $this->input->post();
+		$row = $this->global_model->insert('schedules', $data);
+		echo json_encode($row);
+	}
+
+
+	public function deleteSchedule()
+	{
+		$data = $this->input->post();
+		$row = $this->global_model->delete('schedules',$data);
+		echo json_encode($row);
+	}
+
+	public function getSchedule()
+	{
+		/*"timeslot": {
+		    "7:00-8:00": [
+		      "monday" : "something",
+		      "tuesday" : "something",
+		      "wednesday" : "",
+		      "thursday" : "something",
+		      "friday" : ""
+		    ],
+		    "8:00 - 9:00" :
+		    {
+		      "monday" : "something",
+		      "tuesday" : "something",
+		      "wednesday" : "",
+		      "thursday" : "something",
+		      "friday" : ""
+		    }*/
+	}
+
 }
