@@ -372,7 +372,7 @@
             <!-- /.box-header -->
             <!-- form start -->
             <div class="box-body" style="padding-bottom: 20px;">
-              <form method="POST" action="/sms/enrollment/register_student/register/">
+              <form method="POST" action="<?php echo base_url('enrollment/register_student/register/'); ?>">
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
