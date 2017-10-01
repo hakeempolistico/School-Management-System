@@ -44,11 +44,11 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="<?php echo site_url('welcome/index2') ?>" class="logo">
+    <a href="<?php echo site_url('welcome/index2') ?>" class="logo" style="background: rgb(97, 22, 35)">
       {logo}
     </a>
     <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top">
+    <nav class="navbar navbar-static-top" style="background-color: #6C1827">
       <!-- Sidebar toggle button-->
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only">Toggle navigation</span>
@@ -58,128 +58,7 @@
       </a>
 
       <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-          <!-- Messages: style can be found in dropdown.less-->
-          <li class="dropdown messages-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-envelope-o"></i>
-              <span class="label label-success">4</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 4 messages</li>
-              <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                  <li><!-- start message -->
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="<?php echo base_url(); ?>dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Support Team
-                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                  <!-- end message -->
-                  <li>
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="<?php echo base_url(); ?>dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        AdminLTE Design Team
-                        <small><i class="fa fa-clock-o"></i> 2 hours</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="<?php echo base_url(); ?>dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Developers
-                        <small><i class="fa fa-clock-o"></i> Today</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="<?php echo base_url(); ?>dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Sales Department
-                        <small><i class="fa fa-clock-o"></i> Yesterday</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="<?php echo base_url(); ?>dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Reviewers
-                        <small><i class="fa fa-clock-o"></i> 2 days</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="footer"><a href="#">See All Messages</a></li>
-            </ul>
-          </li>
-          <!-- Notifications: style can be found in dropdown.less -->
-          <li class="dropdown notifications-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">10</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 10 notifications</li>
-              <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the
-                      page and may cause design problems
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-users text-red"></i> 5 new members joined
-                    </a>
-                  </li>
-
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-shopping-cart text-green"></i> 25 sales made
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-user text-red"></i> You changed your username
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="footer"><a href="#">View all</a></li>
-            </ul>
-          </li>
-          
+        <ul class="nav navbar-nav">          
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -188,7 +67,7 @@
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
-              <li class="user-header">
+              <li class="user-header" style="background-color: #6C1827">
                 <img src="<?php echo base_url('images/alt_picture.jpg');?>" class="img-circle" alt="<?php echo base_url('images/alt_picture.jpg');?>">
 
                 <p>
@@ -196,28 +75,13 @@
                   <small>Member since <?php echo $this->session->date_created ?></small>
                 </p>
               </li>
-              <!-- Menu Body -->
-              <li class="user-body">
-                <div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Friends</a>
-                  </div>
-                </div>
-                <!-- /.row -->
-              </li>
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="<?php echo site_url('login/logout')?>" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -254,7 +118,7 @@
             <i class="fa fa-files-o"></i>
             <span>Enrollment</span>
             <span class="pull-right-container">
-              <span class="label label-primary pull-right">4</span>
+              <span class="fa fa-angle-left pull-right"></span>
             </span>
           </a>
 
@@ -286,7 +150,7 @@
             <i class="fa fa-mortar-board"></i>
             <span>Academics</span>
             <span class="pull-right-container">
-              <span class="label label-primary pull-right">4</span>
+              <span class="fa fa-angle-left pull-right"></span>
             </span>
           </a>
 
@@ -331,8 +195,81 @@
           
         </li>
       
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-id-card"></i>
+            <span>Student Information</span>
+            <span class="pull-right-container">
+              <span class="label label-warning pull-right">soon</span>
+            </span>
+          </a>
+
+          <ul class="treeview-menu">
+            <li>
+              <a href="<?php echo site_url('enrollment/dashboard'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Student Details
+              </a>
+            </li>         
+            <li>
+              <a href="<?php echo site_url('enrollment/register_student'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Student Grades
+              </a>
+            </li>
+            <li>
+              <a href="<?php echo site_url('enrollment/enroll_student'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Student Promotion
+              </a>
+            </li>
+          </ul>          
+        </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-bar-chart"></i>
+            <span>Reports</span>
+            <span class="pull-right-container">
+              <span class="label label-warning pull-right">soon</span>
+            </span>
+          </a>
+
+          <ul class="treeview-menu">
+            <li>
+              <a href="<?php echo site_url('enrollment/dashboard'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Student Reports
+              </a>
+            </li>         
+            <li>
+              <a href="<?php echo site_url('enrollment/register_student'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Grade Reports
+              </a>
+            </li>            
+          </ul>          
+        </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-cog"></i>
+            <span>Settings</span>
+            <span class="pull-right-container">
+              <span class="label label-warning pull-right">soon</span>
+            </span>
+          </a>
+
+          <ul class="treeview-menu">
+            <li>
+              <a href="<?php echo site_url('enrollment/dashboard'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                User Management
+              </a>
+            </li>                               
+          </ul>          
+        </li>
         
-        <li class="header">LABELS</li>
       </ul>
 
         
@@ -391,9 +328,9 @@
               <h4 id="trash" class="box-title">Class Information</h4>
           </div>
           <div class="box-body" style="padding: 0px 10px 0px 10px">
-            <h5 style="margin: 14px 0px 13px 0px"> <b> Strand  </b> <a id="class-strand" class="pull-right"> STRAND </a></h5>
-            <h5 style="margin: 14px 0px 13px 0px"> <b> Year & Section  </b> <a id="class-year-section" class="pull-right"> YEAR-SECTION </a></h5>
-            <h5 style="margin: 14px 0px 13px 0px"> <b> Capacity  </b> <a id="class-capacity" class="pull-right"> CAPACITY</a></h5>
+            <h5 style="margin: 14px 0px 13px 0px"> <b> Strand  </b> <a id="class-strand" class="pull-right"> SELECT CLASS </a></h5>
+            <h5 style="margin: 14px 0px 13px 0px"> <b> Year & Section  </b> <a id="class-year-section" class="pull-right"> SELECT CLASS </a></h5>
+            <h5 style="margin: 14px 0px 13px 0px"> <b> Capacity  </b> <a id="class-capacity" class="pull-right"> SELECT CLASS</a></h5>
           </div>
         </div>
       </div>
@@ -419,12 +356,12 @@
             </div>
             <div class="box-body" >
               <center style="padding: 7px;">
-                <button style="width: 100px; margin-top: 3px" id="add" class="btn btn-sm btn-success custom">Add</button>
-                <button style="width: 100px; margin-top: 3px" id="remove" class="btn btn-sm btn-danger custom">Remove</button>
-                <button style="width: 100px; margin-top: 3px" id="removeAll" class="btn btn-sm btn-warning custom">Remove All</button>
-                <button style="width: 100px; margin-top: 3px" id="printBtn" class="btn btn-sm btn-primary custom">Print</button>
-                <button style="width: 100px; margin-top: 3px" id="saveBtn" class="btn btn-sm bg-purple custom">Save Sched</button>     
-                <button style="width: 100px; margin-top: 3px" id="clearBtn" class="btn btn-sm bg-purple custom">Clear</button>  
+                <button style="width: 100px; margin-top: 3px" id="row-add" class="btn btn-sm btn-success custom">Add</button>
+                <button style="width: 100px; margin-top: 3px" id="row-remove" class="btn btn-sm btn-danger custom">Remove</button>
+                <button style="width: 100px; margin-top: 3px" id="row-remove-all" class="btn btn-sm btn-warning custom">Remove All</button>
+                <button style="width: 100px; margin-top: 3px" id="row-print" class="btn btn-sm btn-primary custom">Print</button>
+                <button style="width: 100px; margin-top: 3px" id="row-save" class="btn btn-sm bg-purple custom">Save Sched</button>     
+                <button style="width: 100px; margin-top: 3px" id="row-clear" class="btn btn-sm bg-purple custom">Clear</button>  
               </center>                                     
             </div>
           </div>
@@ -442,17 +379,19 @@
             </div>
             <div class="box-body" style="padding: 18px 10px 17px 10px">
               <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
-                <ul class="fc-color-picker" id="color-chooser">        
-                    <li><a class="text-aqua" href="#"><i class="fa fa-square"></i></a></li>
-                    <li><a class="text-blue" href="#"><i class="fa fa-square"></i></a></li>
-                    <li><a class="text-light-blue" href="#"><i class="fa fa-square"></i></a></li>
-                    <li><a class="text-yellow" href="#"><i class="fa fa-square"></i></a></li>
-                    <li><a class="text-orange" href="#"><i class="fa fa-square"></i></a></li>
-                    <li><a class="text-green" href="#"><i class="fa fa-square"></i></a></li>
-                    <li><a class="text-lime" href="#"><i class="fa fa-square"></i></a></li>
-                    <li><a class="text-red" href="#"><i class="fa fa-square"></i></a></li>
-                    <li><a class="text-purple" href="#"><i class="fa fa-square"></i></a></li>
-                    <li><a class="text-fuchsia" href="#"><i class="fa fa-square"></i></a></li>                  
+                <ul class="fc-color-picker" id="color-chooser">
+                  <li><a class="text-aqua" href="#"><i class="fa fa-square"></i></a></li>
+                  <li><a class="text-blue" href="#"><i class="fa fa-square"></i></a></li>
+                  <li><a class="text-light-blue" href="#"><i class="fa fa-square"></i></a></li>
+                  <li><a class="text-teal" href="#"><i class="fa fa-square"></i></a></li>
+                  <li><a class="text-yellow" href="#"><i class="fa fa-square"></i></a></li>
+                  <li><a class="text-orange" href="#"><i class="fa fa-square"></i></a></li>
+                  <li><a class="text-green" href="#"><i class="fa fa-square"></i></a></li>
+                  <li><a class="text-lime" href="#"><i class="fa fa-square"></i></a></li>
+                  <li><a class="text-red" href="#"><i class="fa fa-square"></i></a></li>
+                  <li><a class="text-purple" href="#"><i class="fa fa-square"></i></a></li>
+                  <li><a class="text-fuchsia" href="#"><i class="fa fa-square"></i></a></li>
+                  <li><a class="text-navy" href="#"><i class="fa fa-square"></i></a></li>
                 </ul>
               </div>
               <!-- /btn-group -->
@@ -475,28 +414,17 @@
                 <!-- /btn-group -->
               </div>
               <!-- /input-group -->
+              <button id="add-vacant" type="button" class="btn btn-primary btn-flat custom" style="margin-top: 10px">Add Vacant</button>
+              <button id="add-break" type="button" class="btn btn-primary btn-flat custom pull-right" style="margin-top: 10px">Add Break</button>
             </div>
           </div>
 
-         
           <!-- DRAGGABLE EVENTS -->
           <div class="box box-solid">
             <div class="box-header with-border">
               <h4 class="box-title">Draggable Events</h4>
             </div>
             <div class="box-body" >
-              <div class="count object" id="0" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div>
-              </div>
-              <div class="count object bg-purple" id="1" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white;">Example Subject<br><div class="text-gray">Example Teacher</div>
-              </div>
-              <div class="count object bg-yellow" id="2" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white;">Example Subject<br><div class="text-gray">Example Teacher</div>
-              </div>
-              <div class="count object bg-red" id="3" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; ">Example Subject<br><div class="text-gray">Example Teacher</div>
-              </div>
-              <div class="count object bg-lime" id="4" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:#3c8dbc">Example Subject<br><div class="text-gray">Example Teacher</div>
-              </div>
-              <div class="count object bg-orange" id="5" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white;">Example Subject<br><div class="text-gray">Example Teacher</div>
-              </div>
               <div id="external-events">
               </div>
             </div>
@@ -523,7 +451,7 @@
                 <tbody>
                 <div id="tbody">
                 <tr class="tr-height">
-                  <td contenteditable='true'>6:00-7:00</td>
+                  <td contenteditable='true' class='time'>6:00-7:00</td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
@@ -531,7 +459,7 @@
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                 </tr>
                 <tr class="tr-height">
-                  <td contenteditable='true'>7:00-8:00</td>
+                  <td contenteditable='true' class='time'>7:00-8:00</td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
@@ -539,7 +467,7 @@
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                 </tr>
                 <tr class="tr-height">
-                  <td contenteditable='true'>8:00-9:00</td>
+                  <td contenteditable='true' class='time'>8:00-9:00</td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
@@ -547,7 +475,7 @@
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                 </tr>
                 <tr class="tr-height">
-                  <td contenteditable='true'>9:00-10:00</td>
+                  <td contenteditable='true' class='time'>9:00-10:00</td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
@@ -555,7 +483,7 @@
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                 </tr>
                 <tr class="tr-height">
-                  <td contenteditable='true'>10:00-11:00</td>
+                  <td contenteditable='true' class='time'>10:00-11:00</td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
@@ -563,7 +491,7 @@
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                 </tr>
                 <tr class="tr-height">
-                  <td contenteditable='true'>11:00-12:00</td>
+                  <td contenteditable='true' class='time'>11:00-12:00</td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
@@ -571,7 +499,7 @@
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                 </tr>
                 <tr class="tr-height">
-                  <td contenteditable='true'>12:00-1:00</td>
+                  <td contenteditable='true' class='time'>12:00-1:00</td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
@@ -579,7 +507,7 @@
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                 </tr>
                 <tr class="tr-height">
-                  <td contenteditable='true'>1:00-2:00</td>
+                  <td contenteditable='true' class='time'>1:00-2:00</td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
@@ -587,7 +515,7 @@
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                 </tr>
                 <tr class="tr-height">
-                  <td contenteditable='true'>2:00-3:00</td>
+                  <td contenteditable='true' class='time'>2:00-3:00</td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
@@ -595,7 +523,7 @@
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                 </tr>
                 <tr class="tr-height">
-                  <td contenteditable='true'>3:00-4:00</td>
+                  <td contenteditable='true' class='time'>3:00-4:00</td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
@@ -603,7 +531,7 @@
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                 </tr>
                 <tr class="tr-height">
-                  <td contenteditable='true'>4:00-5:00</td>
+                  <td contenteditable='true' class='time'>4:00-5:00</td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
@@ -611,7 +539,7 @@
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                 </tr>
                 <tr class="tr-height">
-                  <td contenteditable='true'>5:00-6:00</td>
+                  <td contenteditable='true' class='time'>5:00-6:00</td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
@@ -619,7 +547,7 @@
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                 </tr>
                 <tr class="tr-height">
-                  <td contenteditable='true'>6:00-7:00</td>
+                  <td contenteditable='true' class='time'>6:00-7:00</td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
@@ -689,6 +617,9 @@
 
   var getSectionUrl = "<?php echo base_url("academics/schedule/getSectionsDetails"); ?>"
   var getSubjectsUrl = "<?php echo base_url("academics/schedule/getSubjects"); ?>"
+  var addScheduleUrl = "<?php echo base_url("academics/schedule/addSchedule"); ?>"
+  var deleteScheduleUrl = "<?php echo base_url("academics/schedule/deleteSchedule"); ?>"
+  var getScheduleUrl = "<?php echo base_url("academics/schedule/getSchedule"); ?>"
 </script>
 </body>
 </html>
