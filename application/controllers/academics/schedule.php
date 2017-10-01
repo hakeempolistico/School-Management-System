@@ -53,22 +53,24 @@ class schedule extends CI_Controller {
 
 	public function getSchedule()
 	{
-		/*"timeslot": {
-		    "7:00-8:00": [
-		      "monday" : "something",
-		      "tuesday" : "something",
-		      "wednesday" : "",
-		      "thursday" : "something",
-		      "friday" : ""
-		    ],
-		    "8:00 - 9:00" :
-		    {
-		      "monday" : "something",
-		      "tuesday" : "something",
-		      "wednesday" : "",
-		      "thursday" : "something",
-		      "friday" : ""
-		    }*/
+		$post = $this->input->post();
+		$data = $this->schedule_model->getRecords('schedules', $post['section_id']);		
+		$timeslot = array();
+		$schedule_row;
+
+		foreach($data as $key=>$val) {
+			$time = $val->time_start.'-'.$val->time_end ;
+			$day = $val->day;
+
+			if(!in_array($time, $timeslot, true)){
+		        $timeslot[$time][$day]['subject'] = $val->subject_code;
+			    $timeslot[$time][$day]['room'] = $val->room_id;
+			    $timeslot[$time][$day]['color'] = $val->color;
+		    }
+		};
+
+		echo json_encode($timeslot);
 	}
+
 
 }

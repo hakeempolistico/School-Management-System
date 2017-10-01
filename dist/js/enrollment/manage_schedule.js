@@ -108,6 +108,7 @@ function dropTrash(ev) {
 var table; 
 var set;
 var sectionId;
+var room_id;
 
 $(".custom").prop('disabled', true);
 
@@ -115,6 +116,103 @@ $('#btn-enter').on('click',function(){
   sectionId = $('#select-class').val();
   $("#select-room").val('').trigger('change');
 
+  //POPULATE TABLE 
+  $.ajax({
+    url: getScheduleUrl,
+    type: 'post',
+    dataType: 'json',
+    data: {'section_id' : sectionId},  
+    success: function(res){ 
+      var i = 0;
+      $('tbody tr').remove();
+      console.log('----------');
+      $.each(res, function( index, value ) {
+        console.log(res);
+        var mon_obj = null;
+        var tue_obj = null;
+        var wed_obj = null;
+        var thur_obj = null;
+        var fri_obj = null;
+        if(value['Monday']['color']){
+          console.log('Monday Not Null')
+          mon_obj = '<div class="count object" id="'+i+'" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:'+value['Monday']['color']+'">'+
+          '<div class="val-subject">'+value['Monday']['subject']+'</div>'+
+          '<div class="text-gray val-room">'+value['Monday']['room']+'</div>'+
+          '</div>';
+          i++; 
+        }
+        if(value['Tuesday']['color']){
+          console.log('Tuesday Not Null')
+          tue_obj = '<div class="count object" id="'+i+'" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:'+value['Tuesday']['color']+'">'+
+          '<div class="val-subject">'+value['Tuesday']['subject']+'</div>'+
+          '<div class="text-gray val-room">'+value['Tuesday']['room']+'</div>'+
+          '</div>';
+          i++; 
+        }
+        if(value['Wednesday']['color']){
+          console.log('Wednesday Not Null')
+          wed_obj = '<div class="count object" id="'+i+'" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:'+value['Wednesday']['color']+'">'+
+          '<div class="val-subject">'+value['Wednesday']['subject']+'</div>'+
+          '<div class="text-gray val-room">'+value['Wednesday']['room']+'</div>'+
+          '</div>';
+          i++; 
+        }
+        if(value['Thursday']['color']){
+          console.log('Thursday Not Null')
+          thur_obj = '<div class="count object" id="'+i+'" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:'+value['Thursday']['color']+'">'+
+          '<div class="val-subject">'+value['Thursday']['subject']+'</div>'+
+          '<div class="text-gray val-room">'+value['Thursday']['room']+'</div>'+
+          '</div>';
+          i++; 
+        }
+        if(value['Friday']['color']){
+          console.log('Friday Not Null')
+          fri_obj = '<div class="count object" id="'+i+'" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:'+value['Friday']['color']+'">'+
+          '<div class="val-subject">'+value['Friday']['subject']+'</div>'+
+          '<div class="text-gray val-room">'+value['Friday']['room']+'</div>'+
+          '</div>';
+          i++; 
+        }
+        /*if(typeof value['Wednesday']['color'] !== 'undefined'){
+          console.log('Wednesday Null');
+        }
+        else{
+          var wed_obj = '<div class="count object" id="'+i+'" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:'+value['Wednesday']['color']+'">'+
+          '<div class="val-subject">'+value['Wednesday']['subject']+'</div>'+
+          '<div class="text-gray val-room">'+value['Wednesday']['room']+'</div>'+
+          '</div>';
+          i++;
+        }*/
+        
+        
+
+        $('tbody').append(
+          '<tr class="tr-height"><td contenteditable="true" class="time">'+index+'</td>'+
+          '<td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)">'+mon_obj+'</td>'+
+          '<td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)">'+tue_obj+'</td>'+
+          '<td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)">'+wed_obj+'</td>'+
+          '<td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)">'+thur_obj+'</td>'+
+          '<td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)">'+fri_obj+'</td></tr>');
+      
+        $('td').click(function(){
+         var row_index = $(this).parent().index()+1; 
+         var hasClass=$("table tr:eq("+row_index+")").hasClass('selectedRow');
+         if(hasClass==true){
+            $("table tr:eq("+row_index+")").removeClass('selectedRow');
+            stopPropagation();
+         }else{
+            $("table tr:eq("+row_index+")").addClass('selectedRow');
+            stopPropagation();
+         }
+         
+        });
+      });
+
+
+    }
+  });
+
+  //POPULATE SECTIONS SELECT
   $.ajax({
     url: getSectionUrl,
     type: 'post',
@@ -221,12 +319,13 @@ $('#row-save').on('click',function(){
     var day = $(this).closest('table').find('th').eq($(this).parents('td').index()).html();
     var color = $(this).css("background-color")
 
-    /*console.log('Subject Code : ' + subject_code);
+    console.log('Subject Code : ' + subject_code);
+    console.log('Section ID : ' + sectionId);
     console.log('Room ID : ' + room_id);
     console.log('Time Start : ' + time_start);
     console.log('Time End : ' + time_end);
     console.log('Day : ' + day);
-    console.log('Color : ' + color);*/
+    console.log('Color : ' + color);
 
     $.ajax({
       url: addScheduleUrl,
