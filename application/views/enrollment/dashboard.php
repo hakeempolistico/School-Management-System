@@ -52,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
      {logo}
     </a>
     <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top" style="background-color: #6C1827">
+    <nav class="navbar navbar-static-top" style="background-color: #6C1827" >
       <!-- Sidebar toggle button-->
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only">Toggle navigation</span>

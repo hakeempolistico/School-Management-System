@@ -51,7 +51,7 @@
 }
 </style>
 <body>
-  <div class="row" style="background: #6C1827;">
+  <div class="row" style="background: #6C1827; ">
     <div class="col-md-4">    
     </div>
     <div class="col-md-4 text-center">
