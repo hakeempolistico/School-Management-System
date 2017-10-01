@@ -118,7 +118,7 @@
             <i class="fa fa-files-o"></i>
             <span>Enrollment</span>
             <span class="pull-right-container">
-              <span class="label label-primary pull-right">4</span>
+              <span class="fa fa-angle-left pull-right"></span>
             </span>
           </a>
 
@@ -150,7 +150,7 @@
             <i class="fa fa-mortar-board"></i>
             <span>Academics</span>
             <span class="pull-right-container">
-              <span class="label label-primary pull-right">4</span>
+              <span class="fa fa-angle-left pull-right"></span>
             </span>
           </a>
 
@@ -195,8 +195,81 @@
           
         </li>
       
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-id-card"></i>
+            <span>Student Information</span>
+            <span class="pull-right-container">
+              <span class="label label-warning pull-right">soon</span>
+            </span>
+          </a>
+
+          <ul class="treeview-menu">
+            <li>
+              <a href="<?php echo site_url('enrollment/dashboard'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Student Details
+              </a>
+            </li>         
+            <li>
+              <a href="<?php echo site_url('enrollment/register_student'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Student Grades
+              </a>
+            </li>
+            <li>
+              <a href="<?php echo site_url('enrollment/enroll_student'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Student Promotion
+              </a>
+            </li>
+          </ul>          
+        </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-bar-chart"></i>
+            <span>Reports</span>
+            <span class="pull-right-container">
+              <span class="label label-warning pull-right">soon</span>
+            </span>
+          </a>
+
+          <ul class="treeview-menu">
+            <li>
+              <a href="<?php echo site_url('enrollment/dashboard'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Student Reports
+              </a>
+            </li>         
+            <li>
+              <a href="<?php echo site_url('enrollment/register_student'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Grade Reports
+              </a>
+            </li>            
+          </ul>          
+        </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-cog"></i>
+            <span>Settings</span>
+            <span class="pull-right-container">
+              <span class="label label-warning pull-right">soon</span>
+            </span>
+          </a>
+
+          <ul class="treeview-menu">
+            <li>
+              <a href="<?php echo site_url('enrollment/dashboard'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                User Management
+              </a>
+            </li>                               
+          </ul>          
+        </li>
         
-        <li class="header">LABELS</li>  
       </ul>
     </section>
     <!-- /.sidebar -->

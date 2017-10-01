@@ -145,7 +145,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </ul>          
         </li>
 
-          <li class="treeview">
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-mortar-board"></i>
             <span>Academics</span>
