@@ -70,11 +70,53 @@
       
       $('#external-events').prepend(event)
 
-
       //Remove event from text input
       $('#new-event-subject').val('').trigger('change')
       $('#new-event-teacher').val('').trigger('change')
       
+    })
+
+    $('#add-vacant').click(function (e) {
+      e.preventDefault()
+      //Get value and make sure it is not null
+      var val1 = 'VACANT'
+      //Create id variable
+      var i = $(".count").length;
+      i = i + 1;
+      //Create events
+      var event = $('<div />')
+      event.addClass('external-event flat')
+      event.html('<div class="val-subject">'+val1+'</div><div class="text-gray val-room">none</div>')
+      
+
+      event.attr('id', i )
+      event.attr('class','count object')
+      event.attr('draggable','true')
+      event.attr('ondragstart','drag(event)')
+      event.attr('style','resize: vertical; overflow: auto; color: black; background-color: grey;')
+      
+      $('#external-events').prepend(event)      
+    })
+    $('#add-break').click(function (e) {
+      e.preventDefault()
+      //Get value and make sure it is not null
+      var val1 = 'BREAK'
+      //Create id variable
+      var i = $(".count").length;
+      i = i + 1;
+      //Create events
+      var event = $('<div />')
+      event.addClass('external-event flat')
+      event.html('<div class="val-subject">'+val1+'</div><div class="text-gray val-room">none</div>')
+      
+
+      event.attr('id', i )
+      event.attr('class','count object')
+      event.attr('draggable','true')
+      event.attr('ondragstart','drag(event)')
+      event.attr('style','resize: vertical; overflow: auto; color: black; background-color: lightgrey;')
+      
+      $('#external-events').prepend(event)      
     })
 })
 
