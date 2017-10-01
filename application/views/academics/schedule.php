@@ -414,6 +414,8 @@
                 <!-- /btn-group -->
               </div>
               <!-- /input-group -->
+              <button id="add-vacant" type="button" class="btn btn-primary btn-flat custom" style="margin-top: 10px">Add Vacant</button>
+              <button id="add-break" type="button" class="btn btn-primary btn-flat custom pull-right" style="margin-top: 10px">Add Break</button>
             </div>
           </div>
 
