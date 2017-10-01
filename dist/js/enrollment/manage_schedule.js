@@ -42,8 +42,9 @@
     $('#add-new-event').click(function (e) {
       e.preventDefault()
       //Get value and make sure it is not null
-      var val1 = $('#new-event-subject').val()
-      var val2 = $('#new-event-teacher').val()
+      var val2 = $('#select-room').val()
+      var val1 = $('#select-subject').val()
+      
       if (val1.length == 0) {
         return
       }
@@ -54,7 +55,7 @@
       var event = $('<div />')
       event.addClass('external-event flat')
       if (val2.length != 0) {
-        event.html(val1+'<br><div class="text-gray">'+val2+'</div>')
+        event.html('<div class="val-subject">'+val1+'</div><div class="text-gray val-room">'+val2+'</div>')
       }
       else{
         event.html(val1)
@@ -75,7 +76,7 @@
       $('#new-event-teacher').val('').trigger('change')
       
     })
-  })
+})
 
 function allowDrop(ev) {
     ev.preventDefault();
@@ -102,14 +103,65 @@ function dropTrash(ev) {
 }
 
 
-  $('#removeAll').click(function(){
+  
+
+var table; 
+var set;
+var sectionId;
+
+$(".custom").prop('disabled', true);
+
+$('#btn-enter').on('click',function(){
+  sectionId = $('#select-class').val();
+  $("#select-room").val('').trigger('change');
+
+  $.ajax({
+    url: getSectionUrl,
+    type: 'post',
+    dataType: 'JSON',  
+    data: {'id': sectionId},
+    success: function(result){  
+      //console.log(result);
+      $('#class-strand').html(result[0].strand_code);
+      $('#class-year-section').html(result[0].year_level.substring(6) + '-' + result[0].section_name);
+      $('#class-capacity').html(result[0].capacity);
+
+      $(".custom").prop('disabled', false);
+
+      $.ajax({
+        url: getSubjectsUrl,
+        type: 'post',
+        dataType: 'json',
+        data: {'section_id': sectionId},  
+        success: function(res){  
+          //console.log(res);
+          $('#select-subject').find('option').remove();
+          $('#select-subject').append($('<option>', { 
+                value: null,
+                text : null
+            })).select2();
+          $.each(res, function( index, value ) {
+            //console.log('Section Code : '+value.section_code+' Section Name : '+ value.section_name);
+            $('#select-subject').append($('<option>', { 
+                value: value.section_code,
+                text : value.section_name
+            })).select2();
+          });
+        }
+      }); 
+    } 
+  });    
+})
+
+//ROW ACTIONS BOX
+$('#row-remove-all').click(function(){
     $('tbody tr').remove();
   })
-  $('#remove').click(function(){
+  $('#row-remove').click(function(){
      $('.selectedRow').remove();
   })
-  $('#add').click(function(){
-    $('tbody').append('<tr class="tr-height"><td contenteditable="true"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td></tr>');
+  $('#row-add').click(function(){
+    $('tbody').append('<tr class="tr-height"><td contenteditable="true" class="time"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td></tr>');
       
       $('td').click(function(){
        var row_index = $(this).parent().index()+1; 
@@ -142,60 +194,57 @@ function printData()
    window.print();
 }
 
-$('#printBtn').on('click',function(){
+$('#row-print').on('click',function(){
 printData();
 });
 
-var table; 
-var set;
-
-$('#select-class').on('change',function(){
-  table = "classes";
-  set = "id"
-  var value = $('#select-class').val();
-  $('#profile-box-class').show();
+$('#row-save').on('click',function(){
   $.ajax({
-            url: ajaxUrl,
-            type: 'post',
-            dataType: 'json', 
-            data: {'set' : set, 'table' : table, 'value' : value }, 
-            success: function(result){
-              console.log(result);
-              $.each(result, function(index, val) {
-                $('#profile-class-name').html(val.class_name);
-                $('#profile-class-grade').html(val.year);
-                $('#profile-class-capacity').html(val.occupants+'/'+val.capacity); 
-                var stat;
-                if(val.occupants >= val.capacity){
-                  stat="FULL";
-                }
-                else{
-                  stat="NOT FULL";
-                }
-                $('#profile-class-status').html(stat);
-                  if(stat == "NOT FULL"){
-                    $('#profile-class-status').removeClass('badge bg-red');
-                    $('#profile-class-status').addClass('badge bg-blue');
-                  }
-                  else{
-                    $('#profile-class-status').removeClass('badge bg-blue');
-                    $('#profile-class-status').addClass('badge bg-red');
-                  }
+      url: deleteScheduleUrl,
+      type: 'post',
+      dataType: 'json',
+      data: {'section_id' : sectionId},  
+      success: function(res){ 
+        console.log(res);
+      }
+    });
+  $('table').find('.object').each(function( index ) {
+    //console.log( index + ": " + $( this ).find('.val-subject').text() );
+    //console.log( index + ": " + $( this ).find('.val-room').text() );
 
-                $.ajax({
-                    url: ajaxUrl,
-                    type: 'post',
-                    dataType: 'json', 
-                    data: {'set' : 'employee_id', 'table' : 'teachers', 'value' : val.adviser }, 
-                    success: function(result){    
-                       $.each(result, function(index, val) {
-                          $('#profile-class-adviser').html(val.first_name+' '+val.last_name);
-                       })           
-                      
-                    }
-                })
-              })
-            }
-          });
+    var subject_code = $( this ).find('.val-subject').text();
+    var room_id = $( this ).find('.val-room').text();
+    var time = $(this).parents('tr').find('.time').html();
+    var timeSplit = time.split("-");
+    var time_start = timeSplit[0];
+    var time_end = timeSplit[1];
+    var day = $(this).closest('table').find('th').eq($(this).parents('td').index()).html();
+    var color = $(this).css("background-color")
 
-})
+    /*console.log('Subject Code : ' + subject_code);
+    console.log('Room ID : ' + room_id);
+    console.log('Time Start : ' + time_start);
+    console.log('Time End : ' + time_end);
+    console.log('Day : ' + day);
+    console.log('Color : ' + color);*/
+
+    $.ajax({
+      url: addScheduleUrl,
+      type: 'post',
+      dataType: 'json',
+      data: {
+        'section_id' : sectionId,
+        'subject_code' : subject_code,
+        'room_id' : room_id,
+        'time_start' : time_start,
+        'time_end' : time_end,
+        'day' : day,
+        'color' : color
+      },  
+      success: function(res){ 
+        console.log(res);
+      }
+    });
+
+  });
+});

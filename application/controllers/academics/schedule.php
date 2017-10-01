@@ -22,11 +22,53 @@ class schedule extends CI_Controller {
 		$this->parser->parse('academics/schedule', $data);
 	}
 
-	public function ajax()
+	public function getSectionsDetails()
 	{
-		$post = $this->input->post();
-		$row = $this->global_model->getRow($post['table'], $post['set'], $post['value']);
+		$data = $this->input->post();
+		$row = $this->schedule_model->getSectionDetails($data);
 		echo json_encode($row);
+	}
+
+	public function getSubjects()
+	{
+		$data = $this->input->post();
+		$row = $this->schedule_model->getSubjects($data);
+		echo json_encode($row);
+	}
+
+	public function addSchedule()
+	{
+		$data = $this->input->post();
+		$row = $this->global_model->insert('schedules', $data);
+		echo json_encode($row);
+	}
+
+
+	public function deleteSchedule()
+	{
+		$data = $this->input->post();
+		$row = $this->global_model->delete('schedules',$data);
+		echo json_encode($row);
+	}
+
+	public function getSchedule()
+	{
+		/*"timeslot": {
+		    "7:00-8:00": [
+		      "monday" : "something",
+		      "tuesday" : "something",
+		      "wednesday" : "",
+		      "thursday" : "something",
+		      "friday" : ""
+		    ],
+		    "8:00 - 9:00" :
+		    {
+		      "monday" : "something",
+		      "tuesday" : "something",
+		      "wednesday" : "",
+		      "thursday" : "something",
+		      "friday" : ""
+		    }*/
 	}
 
 }
