@@ -51,7 +51,7 @@
 }
 </style>
 <body>
-  <div class="row" style="background: #6C1827;">
+  <div class="row" style="background: #6C1827; ">
     <div class="col-md-4">    
     </div>
     <div class="col-md-4 text-center">
@@ -75,8 +75,8 @@
       <div class="col-md-12">
         <div class="form-group has-feedback">
           <input id="input_username" name="username" type="text" class="form-control" placeholder="Username" style="border-color: #6c1827; border-radius: 4px; height: 40px;">
-          <div class="text-danger" style="margin-top: -5px; margin-left: 5px;"><h6 id ="validation"><?php echo form_error('username'); ?></h6></div> 
-          <div class="text-danger" style="margin-top: -5px; margin-left: 5px;"><h6 id ="validation"><?php if(isset($userError)) echo $userError; ?></h6></div> 
+          <div class="text-white" style="margin-top: -5px; margin-left: 5px;"><h6 id ="validation"><?php echo form_error('username'); ?></h6></div> 
+          <div class="text-white" style="margin-top: -5px; margin-left: 5px;"><h6 id ="validation"><?php if(isset($userError)) echo $userError; ?></h6></div> 
           <span class="glyphicon glyphicon-user form-control-feedback"></span>
         </div>
         </div>
@@ -85,8 +85,8 @@
         <div class="col-md-12">
           <div class="form-group has-feedback">
             <input id="input_password" name="password" type="password" class="form-control" placeholder="Password" style="border-color: #6c1827; border-radius: 4px; height: 40px; margin-bottom: 20px;">
-            <div class="text-danger" style="margin-top: -5px; margin-left: 5px;"><h6 id ="validation"><?php echo form_error('password'); ?></h6></div> 
-            <div class="text-danger" style="margin-top: -5px; margin-left: 5px;"><h6 id ="validation"><?php if(isset($passError)) echo $passError; ?></h6></div>
+            <div class="text-white" style="margin-top: -5px; margin-left: 5px;"><h6 id ="validation"><?php echo form_error('password'); ?></h6></div> 
+            <div class="text-white" style="margin-top: -5px; margin-left: 5px;"><h6 id ="validation"><?php if(isset($passError)) echo $passError; ?></h6></div>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
         </div>
