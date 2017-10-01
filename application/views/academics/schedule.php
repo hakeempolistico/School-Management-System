@@ -379,17 +379,19 @@
             </div>
             <div class="box-body" style="padding: 18px 10px 17px 10px">
               <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
-                <ul class="fc-color-picker" id="color-chooser">        
-                    <li><a class="text-aqua" href="#"><i class="fa fa-square"></i></a></li>
-                    <li><a class="text-blue" href="#"><i class="fa fa-square"></i></a></li>
-                    <li><a class="text-light-blue" href="#"><i class="fa fa-square"></i></a></li>
-                    <li><a class="text-yellow" href="#"><i class="fa fa-square"></i></a></li>
-                    <li><a class="text-orange" href="#"><i class="fa fa-square"></i></a></li>
-                    <li><a class="text-green" href="#"><i class="fa fa-square"></i></a></li>
-                    <li><a class="text-lime" href="#"><i class="fa fa-square"></i></a></li>
-                    <li><a class="text-red" href="#"><i class="fa fa-square"></i></a></li>
-                    <li><a class="text-purple" href="#"><i class="fa fa-square"></i></a></li>
-                    <li><a class="text-fuchsia" href="#"><i class="fa fa-square"></i></a></li>                  
+                <ul class="fc-color-picker" id="color-chooser">
+                  <li><a class="text-aqua" href="#"><i class="fa fa-square"></i></a></li>
+                  <li><a class="text-blue" href="#"><i class="fa fa-square"></i></a></li>
+                  <li><a class="text-light-blue" href="#"><i class="fa fa-square"></i></a></li>
+                  <li><a class="text-teal" href="#"><i class="fa fa-square"></i></a></li>
+                  <li><a class="text-yellow" href="#"><i class="fa fa-square"></i></a></li>
+                  <li><a class="text-orange" href="#"><i class="fa fa-square"></i></a></li>
+                  <li><a class="text-green" href="#"><i class="fa fa-square"></i></a></li>
+                  <li><a class="text-lime" href="#"><i class="fa fa-square"></i></a></li>
+                  <li><a class="text-red" href="#"><i class="fa fa-square"></i></a></li>
+                  <li><a class="text-purple" href="#"><i class="fa fa-square"></i></a></li>
+                  <li><a class="text-fuchsia" href="#"><i class="fa fa-square"></i></a></li>
+                  <li><a class="text-navy" href="#"><i class="fa fa-square"></i></a></li>
                 </ul>
               </div>
               <!-- /btn-group -->
@@ -415,7 +417,6 @@
             </div>
           </div>
 
-         
           <!-- DRAGGABLE EVENTS -->
           <div class="box box-solid">
             <div class="box-header with-border">
@@ -616,6 +617,7 @@
   var getSubjectsUrl = "<?php echo base_url("academics/schedule/getSubjects"); ?>"
   var addScheduleUrl = "<?php echo base_url("academics/schedule/addSchedule"); ?>"
   var deleteScheduleUrl = "<?php echo base_url("academics/schedule/deleteSchedule"); ?>"
+  var getScheduleUrl = "<?php echo base_url("academics/schedule/getSchedule"); ?>"
 </script>
 </body>
 </html>
