@@ -26,7 +26,7 @@ class register_student extends CI_Controller {
 	{	
 		$required_message = array('required' => 'Field is required!');
 		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
-		$this->form_validation->set_rules('lrn', 'LRN', 'trim|required|min_length[3]|max_length[15]|is_unique[registered_students.lrn]', $required_message);
+		$this->form_validation->set_rules('lrn', 'LRN', 'trim|required|min_length[3]|max_length[15]|is_unique[students_info.lrn]', $required_message);
 		$this->form_validation->set_rules('first_name', 'First Name', 'trim|required|min_length[3]|max_length[40]', $required_message);
 		$this->form_validation->set_rules('middle_name', 'Middle Name', 'trim|min_length[3]|max_length[20]', $required_message);
 		$this->form_validation->set_rules('last_name', 'Last Name', 'trim|required|min_length[3]|max_length[20]', $required_message);
@@ -82,12 +82,12 @@ class register_student extends CI_Controller {
 				);		
 				
 
-				$id = $this->register_student_model->insert('registered_students', $studentInfo);
+				$lrn = $this->register_student_model->insert('students_info', $studentInfo);
 
 
 				$addressInfo = array(
 					'id' => '' ,
-					'registered_student_lrn' => $id,
+					'students_info_lrn' => $lrn,
 					'street' => $this->input->post('street') ,
 					'barangay' => $this->input->post('barangay') ,
 					'city' => $this->input->post('city') ,
@@ -99,24 +99,40 @@ class register_student extends CI_Controller {
 
 				$parentsInfo = array(
 					'id' => '' ,
-					'registered_student_lrn' => $id,
+					'students_info_lrn' => $lrn,
 					'mother_name' => $this->input->post('mother_name') ,
 					'mother_contact' => $this->input->post('mother_contact') ,
 					'father_name' => $this->input->post('father_name') ,
 					'father_contact' => $this->input->post('father_contact')
 				);	
 
-				$this->global_model->insert('parents', $parentsInfo);
+				$parentId = $this->register_student_model->insertGetContactId('parents', $parentsInfo);
 
 				$guardianInfo = array(
 					'id' => '' ,
-					'registered_student_lrn' => $id,
+					'students_info_lrn' => $lrn,
 					'name' => $this->input->post('guardian') ,
 					'contact' => $this->input->post('guardian_contact') ,
 					'relationship' => $this->input->post('relationship')
 				);	
 
-				$this->global_model->insert('guardians', $guardianInfo);
+				$guardianId = $this->register_student_model->insertGetContactId('guardians', $guardianInfo);
+
+				$studentContacts = array(
+					'id' => '' ,
+					'students_info_lrn' => $lrn,
+					'parents_id' => $parentId,
+					'guardian_id' => $guardianId 
+				);	
+
+				$this->global_model->insert('student_contacts', $studentContacts);
+
+				$regStudent = array(
+					'id' => '' ,
+					'students_info_lrn' => $lrn
+				);	
+
+				$this->global_model->insert('registered_students', $regStudent);
 
 				redirect('enrollment/register_student/after_register');
 
@@ -128,7 +144,7 @@ class register_student extends CI_Controller {
 	public function after_register()
 	{
 		$data = $this->parse->parsed();
-		$data['lastLrn'] = json_encode($this->register_student_model->getLastRow('registered_students'));
+		$data['lastLrn'] = json_encode($this->register_student_model->getLastRow('students_info'));
 		$this->parser->parse('enrollment/after_register', $data);
 	}
 
