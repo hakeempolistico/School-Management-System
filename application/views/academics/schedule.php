@@ -300,7 +300,7 @@
     <section class="content">
     <div class="row">
       <div class="col-lg-4 col-xs-12">
-        <div class="input-group margin" style="margin: 0 0 10px 0;">
+        <div class="input-group margin hidden-print" style="margin: 0 0 10px 0;" >
                 <select id="select-class" class="form-control select2"  data-placeholder="Select Class" style="width: 100%">
                   <option></option>
                   <?php foreach ($classes as $val) 
@@ -420,7 +420,7 @@
           </div>
 
           <!-- DRAGGABLE EVENTS -->
-          <div class="box box-solid">
+          <div class="box box-solid hidden-print">
             <div class="box-header with-border">
               <h4 class="box-title">Draggable Events</h4>
             </div>
@@ -438,6 +438,9 @@
               <!-- THE TABLE SCHEDULE -->
               <table  id="schedule" class="table table-bordered table-hover table-schedule">
                 <thead>
+                <tr>
+                  <th id="tbl-title" colspan="6" class="text-success">SELECT CLASS</th>
+                </tr>
                 <tr>
                   <th>Time</th>
                   <th>Monday</th>
@@ -556,16 +559,6 @@
                 </tr>
               </div>
               </tbody>
-                <tfoot>
-                <tr>
-                  <th>Time</th>
-                  <th>Monday</th>
-                  <th>Tuesday</th>
-                  <th>Wednesday</th>
-                  <th>Thursday</th>
-                  <th>Friday</th>
-                </tr>
-                </tfoot>
               </table>
 
             </div>
