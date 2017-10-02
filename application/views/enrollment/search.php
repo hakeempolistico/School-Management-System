@@ -363,8 +363,8 @@
 
   $('#registeredStudentstable').DataTable({
     "columns": [
-        { "width": "25%" },
-        { "width": "25%" },
+        { "width": "20%" },
+        { "width": "30%" },
         { "width": "25%" },
         { "width": "25%" }
         ],

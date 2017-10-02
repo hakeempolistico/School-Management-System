@@ -19,7 +19,7 @@
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- DataTable Select -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/select.dataTables.min">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/select.dataTables.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -325,17 +325,17 @@
                   </label>
                   <br>
                   <label>
-                    <input type="checkbox" class="minimal-red check11">
+                    <input type="checkbox" class="minimal-red check11" id="nso">
                     NSO Birth Certificate
                   </label>
                   <br>
                   <label>
-                    <input type="checkbox" class="minimal-red check11">
+                    <input type="checkbox" class="minimal-red check11" id="f137">
                     Form 137
                   </label>
                   <br>
                   <label>
-                    <input type="checkbox" class="minimal-red check11">
+                    <input type="checkbox" class="minimal-red check11" id="f138">
                     Form 138
                   </label>
 
@@ -358,29 +358,29 @@
 
                     <div class="col-md-3">
                       <div class="form-group">
-                        <label>ENG</label>
-                        <input type="text" class="form-control subject11" name="subj[]" id="eng11" style="margin-bottom: -10px;" disabled>
+                        <label>MATH</label>
+                        <input type="text" class="form-control subject11" name="subj[]" id="math" style="margin-bottom: -10px;" disabled>
                       </div>
                     </div>
 
                     <div class="col-md-3">
                       <div class="form-group">
-                        <label>MATH</label>
-                        <input type="text" class="form-control subject11" name="subj[]" id="math11"  style="margin-bottom: -10px;" disabled>
+                        <label>ENG</label>
+                        <input type="text" class="form-control subject11" name="subj[]" id="eng"  style="margin-bottom: -10px;" disabled>
                       </div>
                     </div>
 
                     <div class="col-md-3">
                       <div class="form-group">
                         <label>SCI</label>
-                        <input type="text" class="form-control subject11" name="subj[]" id="sci11"  style="margin-bottom: -10px;" disabled>
+                        <input type="text" class="form-control subject11" name="subj[]" id="sci"  style="margin-bottom: -10px;" disabled>
                       </div>
                     </div>
 
                     <div class="col-md-3">
                       <div class="form-group">
-                        <label>FIL</label>
-                        <input type="text" class="form-control subject11" name="subj[]" id="fil11"  style="margin-bottom: -10px;" disabled>
+                        <label>AP</label>
+                        <input type="text" class="form-control subject11" name="subj[]" id="ap"  style="margin-bottom: -10px;" disabled>
                       </div>
                     </div>
 
@@ -392,29 +392,29 @@
 
                     <div class="col-md-3">
                       <div class="form-group">
-                        <label>AP</label>
-                        <input type="text" class="form-control subject11" name="subj[]" id="ap11" style="margin-bottom: -10px;" disabled>
+                        <label>MAPEH</label>
+                        <input type="text" class="form-control subject11" name="subj[]" id="mapeh" style="margin-bottom: -10px;" disabled>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>VALUES</label>
+                        <input type="text" class="form-control subject11" name="subj[]" id="values" style="margin-bottom: -10px;" disabled>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>FIL</label>
+                        <input type="text" class="form-control subject11" name="subj[]" id="fil" style="margin-bottom: -10px;" disabled>
                       </div>
                     </div>
 
                     <div class="col-md-3">
                       <div class="form-group">
                         <label>TLE</label>
-                        <input type="text" class="form-control subject11" name="subj[]" id="tle11" style="margin-bottom: -10px;" disabled>
-                      </div>
-                    </div>
-
-                    <div class="col-md-3">
-                      <div class="form-group">
-                        <label>COMP</label>
-                        <input type="text" class="form-control subject11" name="subj[]" id="comp11" style="margin-bottom: -10px;" disabled>
-                      </div>
-                    </div>
-
-                    <div class="col-md-3">
-                      <div class="form-group">
-                        <label>MAPEH</label>
-                        <input type="text" class="form-control subject11" name="subj[]" id="mapeh11" style="margin-bottom: -10px;" disabled>
+                        <input type="text" class="form-control subject11" name="subj[]" id="tle" style="margin-bottom: -10px;" disabled>
                       </div>
                     </div>
 
@@ -564,10 +564,13 @@
                 </thead>
               </table>
               <br>
-                <form id="enrollStudent" method="post" action="<?php echo base_url('enrollment/enroll_student/submit/'); ?>">
-                  <input type="hidden" id="r_s_lrn" name="registered_student_lrn">
+                <form id="enrollStudent" method="post" action=<?php echo base_url('enrollment/enroll_student/submit/'); ?>>
+                  <input type="hidden" id="r_s_lrn" name="students_info_lrn">
                   <input type="hidden" id="noteHidden" name="note">
                   <input type="hidden" id="section_id" name="section_id">
+                  <input type="hidden" id="nsoHidden" name="requirements[]">
+                  <input type="hidden" id="f137Hidden" name="requirements[]">
+                  <input type="hidden" id="f138Hidden" name="requirements[]">
                   <button type="button" id="enroll" class="btn bg-green" style="width: 100%; height: 50px;">Enroll to <span class="chosenStrand"></span></button>
                   </form>
               </div>
@@ -612,7 +615,7 @@
 <script src="<?php echo base_url(); ?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <!-- DataTable Select -->
-<script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.select.min"></script>
+<script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.select.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
@@ -651,12 +654,23 @@
     checkboxClass: 'icheckbox_minimal-red'
   })
 
+  $('#nso').on('ifChecked', function (event) {
+    $('#nsoHidden').val('NSO Birth Certificate');
+  });
+
+  $('#f137').on('ifChecked', function (event) {
+    $('#f137Hidden').val('Form 137');
+  });
+
+  $('#f138').on('ifChecked', function (event) {
+    $('#f138Hidden').val('form 138');
+  });
+
 
   $('.checkAll11').on('ifChecked', function (event) {
       $('.check11').iCheck('check');
       $('.subject11').prop('disabled', false);
       $('#grades11').removeClass('text-muted');
-      $('#aStrands').css('display', 'block');
       triggeredByChild = false;
   });
 
@@ -685,46 +699,53 @@
   
 
   $("#ave11").click(function(){
-  var input1 = parseInt($('#eng11').val(),10);
-  console.log(input1);
-  var input2 = parseInt($('#math11').val(),10);
-  var input3 = parseInt($('#sci11').val(),10);
-  var input4 = parseInt($('#fil11').val(),10);
-  var input5 = parseInt($('#ap11').val(),10);
-  var input6 = parseInt($('#tle11').val(),10);
-  var input7 = parseInt($('#comp11').val(),10);
-  var input8 = parseInt($('#mapeh11').val(),10);
+    $('#aStrands').css('display', 'block');
+    var input1 = parseFloat(parseFloat($('#math').val()).toFixed(2));
+    console.log(input1);
+    var input2 = parseFloat(parseFloat($('#eng').val()).toFixed(2));
+    var input3 = parseFloat(parseFloat($('#sci').val()).toFixed(2));
+    var input4 = parseFloat(parseFloat($('#ap').val()).toFixed(2));
+    var input5 = parseFloat(parseFloat($('#mapeh').val()).toFixed(2));
+    var input6 = parseFloat(parseFloat($('#values').val()).toFixed(2));
+    var input7 = parseFloat(parseFloat($('#fil').val()).toFixed(2));
+    var input8 = parseFloat(parseFloat($('#tle').val()).toFixed(2));
 
-  if (isNaN(input1) || isNaN(input2) || isNaN(input3) || isNaN(input4) || isNaN(input5) || isNaN(input6) || isNaN(input7) || isNaN(input8)) {
-    $('#error').text('Inputs must be numbers');
-  } else {
-    $('#error').remove();
+    if (isNaN(input1) || isNaN(input2) || isNaN(input3) || isNaN(input4) || isNaN(input5) || isNaN(input6) || isNaN(input7) || isNaN(input8)) {
+      $('#error').text('Inputs must be numbers');
 
-      ave = (input1 + input2 + input3 + input4 + input5 + input6 + input7 +input8) / 8;
-      $('#avera').text(ave);
+    } else if (input1 > 100 || input2 > 100 || input3 > 100 || input4 > 100 || input5 > 100 || input6 > 100 || input7 > 100 || input8 > 100) 
+    {
+      $('#error').text('Inputs should be less than 100');
 
-      if (ave > 85){
-        $('.stembox').hide();
-        $('.abmbox').hide();
-        $('.humssbox').hide();
+    }else {
+      $('#error').remove();
 
-        $('#humssdiv').append('<div class="small-box bg-red-active color-palette humssbox" data-toggle="modal" data-target="#strand_selection" style="curor: pointer;"><div class="inner"><h3>HUMSS</h3><p>Humanities and<br> Social Sciences</p></div><div class="icon"><i class="fa fa-users"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
+        ave = (input1 + input2 + input3 + input4 + input5 + input6 + input7 +input8) / 8;
+        console.log(input1+' '+ input2+' '+input3+input4+' '+input5+input6+' '+input7+input8+' '+ave);
+        $('#avera').text(ave);
 
-        $('#abmdiv').append('<div class="small-box bg-green-active color-palette abmbox" data-toggle="modal" data-target="#strand_selection" style="cursor: pointer;"><div class="inner"><h3>ABM</h3><p>Accountancy and Business<br> Management</p></div><div class="icon"><i class="fa fa-briefcase"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
+        if (ave > 85){
+          $('.stembox').hide();
+          $('.abmbox').hide();
+          $('.humssbox').hide();
 
-        $('#stemdiv').append('<div class="small-box bg-purple-active color-palette stembox" data-toggle="modal" data-target="#strand_selection" style="cursor: pointer;"><div class="inner"><h3>STEM</h3><p>Science, Technology,<br> Engineering, and Mathematics</p></div><div class="icon"><i class="fa fa-flask"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
-      } else{
-        $('.stembox').hide();
-        $('.abmbox').hide();
-        $('.humssbox').hide();
+          $('#humssdiv').append('<div class="small-box bg-red-active color-palette humssbox" data-toggle="modal" data-target="#strand_selection" style="curor: pointer;"><div class="inner"><h3>HUMSS</h3><p>Humanities and<br> Social Sciences</p></div><div class="icon"><i class="fa fa-users"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
 
-        $('#humssdiv').append('<div class="small-box bg-gray color-palette humssbox" data-toggle="modal" data-target="#humss" style="curor: pointer;"><div class="inner"><h3>HUMSS</h3><p>Humanities and<br> Social Sciences</p></div><div class="icon"><i class="fa fa-users"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
+          $('#abmdiv').append('<div class="small-box bg-green-active color-palette abmbox" data-toggle="modal" data-target="#strand_selection" style="cursor: pointer;"><div class="inner"><h3>ABM</h3><p>Accountancy and Business<br> Management</p></div><div class="icon"><i class="fa fa-briefcase"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
 
-        $('#abmdiv').append('<div class="small-box bg-gray color-palette abmbox" data-toggle="modal" data-target="#abm" style="cursor: pointer;"><div class="inner"><h3>ABM</h3><p>Accountancy and Business<br> Management</p></div><div class="icon"><i class="fa fa-briefcase"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
+          $('#stemdiv').append('<div class="small-box bg-purple-active color-palette stembox" data-toggle="modal" data-target="#strand_selection" style="cursor: pointer;"><div class="inner"><h3>STEM</h3><p>Science, Technology,<br> Engineering, and Mathematics</p></div><div class="icon"><i class="fa fa-flask"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
+        } else{
+          $('.stembox').hide();
+          $('.abmbox').hide();
+          $('.humssbox').hide();
 
-        $('#stemdiv').append('<div class="small-box bg-gray color-palette stembox" data-toggle="modal" data-target="#stem" style="cursor: pointer;"><div class="inner"><h3>STEM</h3><p>Science, Technology,<br> Engineering, and Mathematics</p></div><div class="icon"><i class="fa fa-flask"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
+          $('#humssdiv').append('<div class="small-box bg-gray color-palette humssbox" data-toggle="modal" data-target="#humss" style="curor: pointer;"><div class="inner"><h3>HUMSS</h3><p>Humanities and<br> Social Sciences</p></div><div class="icon"><i class="fa fa-users"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
+
+          $('#abmdiv').append('<div class="small-box bg-gray color-palette abmbox" data-toggle="modal" data-target="#abm" style="cursor: pointer;"><div class="inner"><h3>ABM</h3><p>Accountancy and Business<br> Management</p></div><div class="icon"><i class="fa fa-briefcase"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
+
+          $('#stemdiv').append('<div class="small-box bg-gray color-palette stembox" data-toggle="modal" data-target="#stem" style="cursor: pointer;"><div class="inner"><h3>STEM</h3><p>Science, Technology,<br> Engineering, and Mathematics</p></div><div class="icon"><i class="fa fa-flask"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
+        }
       }
-    }
   });
 
 
@@ -747,6 +768,7 @@
     $('#enroll').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
     $('#enroll').addClass('bg-maroon');
     $('#strand').val('gas');
+    ajax();
   });
 
   $('#tvlhediv').on('click',function()
@@ -757,6 +779,7 @@
     $('#enroll').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
     $('#enroll').addClass('bg-blue');
     $('#strand').val('tvl-he');
+    ajax();
   });
 
   $('#humssdiv').on('click',function()
@@ -767,6 +790,7 @@
     $('#enroll').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
     $('#enroll').addClass('bg-red-active');
     $('#strand').val('humss');
+    ajax();
   });
 
   $('#abmdiv').on('click',function()
@@ -777,6 +801,7 @@
     $('#enroll').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
     $('#enroll').addClass('bg-green-active');
     $('#strand').val('abm');
+    ajax();
   });
 
   $('#stemdiv').on('click',function()
