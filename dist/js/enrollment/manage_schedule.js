@@ -50,7 +50,7 @@
       }
       //Create id variable
       var i = $(".count").length;
-      i = i + 1;
+      i = i ++;
       //Create events
       var event = $('<div />')
       event.addClass('external-event flat')
@@ -82,7 +82,7 @@
       var val1 = 'VACANT'
       //Create id variable
       var i = $(".count").length;
-      i = i + 1;
+      i = i++;
       //Create events
       var event = $('<div />')
       event.addClass('external-event flat')
@@ -103,7 +103,7 @@
       var val1 = 'BREAK'
       //Create id variable
       var i = $(".count").length;
-      i = i + 1;
+      i = i++;
       //Create events
       var event = $('<div />')
       event.addClass('external-event flat')
@@ -226,7 +226,7 @@ $('#btn-enter').on('click',function(){
           '<td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)">'+fri_obj+'</td></tr>');
       
         $('td').click(function(){
-         var row_index = $(this).parent().index()+1; 
+         var row_index = $(this).parent().index()+2; 
          var hasClass=$("table tr:eq("+row_index+")").hasClass('selectedRow');
          if(hasClass==true){
             $("table tr:eq("+row_index+")").removeClass('selectedRow');
@@ -296,7 +296,7 @@ $('#row-remove-all').click(function(){
     $('tbody').append('<tr class="tr-height"><td contenteditable="true" class="time"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td></tr>');
       
       $('td').click(function(){
-       var row_index = $(this).parent().index()+1; 
+       var row_index = $(this).parent().index()+2; 
        var hasClass=$("table tr:eq("+row_index+")").hasClass('selectedRow');
        if(hasClass==true){
           $("table tr:eq("+row_index+")").removeClass('selectedRow');
@@ -311,7 +311,7 @@ $('#row-remove-all').click(function(){
   })
 
   $('td').click(function(){
-   var row_index = $(this).parent().index()+1; 
+   var row_index = $(this).parent().index()+2; 
    var hasClass=$("table tr:eq("+row_index+")").hasClass('selectedRow');
    if(hasClass==true){
       $("table tr:eq("+row_index+")").removeClass('selectedRow'); stopPropagation();
@@ -337,7 +337,7 @@ $('#row-save').on('click',function(){
   //console.log('Object Length : '+row_length);
   //console.log('Row Length : '+object_length);
   if(object_length != row_calculate){
-    alert('table must be populated!');
+    alert('Table must be fully populated. Please fill up blank cell.');
     return;
   }
 
@@ -360,7 +360,7 @@ $('#row-save').on('click',function(){
           var timeSplit = time.split("-");
           var time_start = timeSplit[0];
           var time_end = timeSplit[1];
-          var day = $(this).closest('table').find('th').eq($(this).parents('td').index()).html();
+          var day = $(this).closest('table').find('th').eq($(this).parents('td').index()+1).html();
           var color = $(this).css("background-color")
 
           //console.log('Subject Code : ' + subject_code);
@@ -368,7 +368,7 @@ $('#row-save').on('click',function(){
           //console.log('Room ID : ' + room_id);
           //console.log('Time Start : ' + time_start);
           //console.log('Time End : ' + time_end);
-          //console.log('Day : ' + day);
+          console.log('Day : ' + day);
           //console.log('Color : ' + color);
 
           $.ajax({
