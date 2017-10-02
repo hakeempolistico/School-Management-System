@@ -393,9 +393,9 @@ $(document).ready(function(){
             url: ajaxUrl,
             type: 'post',
             dataType: 'json', 
-            data: {'value' : lastLrn, 'table': 'registered_students', 'set': 'lrn'}, 
+            data: {'value' : lastLrn, 'table': 'students_info', 'set': 'lrn'}, 
             success: function(result){
-              alert(result);
+              //alert(result);
 
                 $('.name').html(result.first_name +" "+ result.middle_name + " " + result.last_name);
 
@@ -406,10 +406,10 @@ $(document).ready(function(){
             url: ajaxUrl,
             type: 'post',
             dataType: 'json', 
-            data: {'value' : lastLrn, 'table': 'enrolled_students', 'set': 'registered_student_lrn'}, 
+            data: {'value' : lastLrn, 'table': 'enrolled_students', 'set': 'students_info_lrn'}, 
             success: function(result){
 
-                $('#lrn').html(result.registered_student_lrn);
+                $('#lrn').html(result.students_info_lrn);
                 $('#note').html(result.note); 
 
                 var section_id = result.section_id;
@@ -461,7 +461,7 @@ $(document).ready(function(){
             url: ajaxUrl,
             type: 'post',
             dataType: 'json', 
-            data: {'value' : lastLrn, 'table': 'parents', 'set': 'registered_student_lrn'}, 
+            data: {'value' : lastLrn, 'table': 'parents', 'set': 'students_info_lrn'}, 
             success: function(result){
 
                 $('#father_name').html(result.father_name);

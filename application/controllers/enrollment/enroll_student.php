@@ -86,13 +86,17 @@ class enroll_student extends CI_Controller {
 		$data = [];
 		foreach ($registeredStudents as $registeredStudents) 
 		{
-			$lrn = $registeredStudents->lrn;
+			$lrn = $registeredStudents->students_info_lrn;
 			$id = $registeredStudents->id;
 
-			$action = '<form method="post" action="<?php echo base_url(\'enrollment/enroll_student/enroll/\'); ?>"><input type="hidden" name="lrn" value="'.$lrn.'"><button type="submit" class="btn btn-block btn-info btn-flat btn-xs buttonView" style="max-width: 100px; display:block;margin: auto;">Enroll</button></form>'; 
+			$url = base_url('enrollment/enroll_student/enroll');
 
+			$action = '<form method="post" action="'.$url.'"><input type="hidden" name="lrn" value="'.$lrn.'"><button type="submit" class="btn btn-block btn-info btn-flat btn-xs buttonView" style="max-width: 100px; display:block;margin: auto;">Enroll</button></form>'; 
 
-			$fullName = $registeredStudents->first_name.' '.$registeredStudents->last_name;
+			$name = $this->global_model->getRow('students_info', 'lrn', $lrn);
+
+			$fullName = $name->first_name.' '.$name->last_name;
+
 
 			$dateRegistered = $registeredStudents->date_registered;
 			$explodedDateRegistered = explode(" ", $dateRegistered);
@@ -124,15 +128,32 @@ class enroll_student extends CI_Controller {
 			$academic_year_id = $val->id;
 		}
 
+		$students_info_lrn = $this->input->post('students_info_lrn');
 		$enrollInfo = array(
 			'id' => '',
-			'registered_student_lrn' => $this->input->post('registered_student_lrn'),
+			'students_info_lrn' => $students_info_lrn,
 			'note' => $this->input->post('note'),
 			'section_id' => $this->input->post('section_id'),
 			'academic_year_id' => $academic_year_id
 			);
 
+
 		$this->global_model->insert('enrolled_students', $enrollInfo);
+		$this->global_model->delete('registered_students', 'students_info_lrn', $students_info_lrn);
+
+		$reqs = $this->input->post('requirements');
+
+		foreach ($reqs as $req) 
+		{
+			$reqInfo = array(
+				'id' => '',
+				'enrolled_student_lrn' => $students_info_lrn,
+				'requirement' => $req
+			);
+
+			$this->global_model->insert('requirements', $reqInfo);
+
+		}
 
 		redirect('enrollment/enroll_student/after_enroll');
 	}

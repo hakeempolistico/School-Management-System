@@ -303,7 +303,7 @@
       <div class="callout callout-success">
         <h4>Enrollment Complete!</h4>
 
-        <p>You have successfully enrolled <bold>Adrielle Kristine Nicolette M. Escaro</bold> to <bold>STEM</bold>. Would you like to enroll another student?</p>
+        <p>You have successfully registered <bold class="name"></bold>.</p>
       </div>
 
       <div class="box box-default">
@@ -311,7 +311,7 @@
           <div class="row">
             <div class="col-md-4"><center>
               <img src="<?php echo base_url('images/alt_picture.jpg');?>" class="img-circle" alt="<?php echo base_url('images/alt_picture.jpg');?>" style="width: 70%; margin-bottom: 10px;"></center>
-              <h3 id="name" class="profile-username text-center" style="padding: 0 20px;">Adrielle Kristine Nicolette M. Escaro</h3>
+              <h3 class="profile-username text-center name" style="padding: 0 20px;"></h3>
 
               <a href="<?php echo site_url('enrollment/register_student'); ?>" class="btn btn-primary" style="width:100%; margin-bottom: 10px;">Register another student</a>
               <form method="post" action="<?php echo base_url('enrollment/enroll_student/enroll/'); ?>">
@@ -445,10 +445,10 @@ $(document).ready(function(){
             url: ajaxUrl,
             type: 'post',
             dataType: 'json', 
-            data: {'value' : lastLrn, 'table': 'registered_students', 'set': 'lrn'}, 
+            data: {'value' : lastLrn, 'table': 'students_info', 'set': 'lrn'}, 
             success: function(result){
 
-                $('#name').html(result.first_name +" "+ result.middle_name + " " + result.last_name);
+                $('.name').html(result.first_name +" "+ result.middle_name + " " + result.last_name);
                 $('#lrn').html(result.lrn);
                 $('.lrn').val(result.lrn);
                 $('#contact').html(result.contact_number);
@@ -468,7 +468,7 @@ $(document).ready(function(){
             url: ajaxUrl,
             type: 'post',
             dataType: 'json', 
-            data: {'value' : lastLrn, 'table': 'addresses', 'set': 'registered_student_lrn'}, 
+            data: {'value' : lastLrn, 'table': 'addresses', 'set': 'students_info_lrn'}, 
             success: function(result){
 
                 $('#street').html(result.street+", ");
@@ -483,7 +483,7 @@ $(document).ready(function(){
             url: ajaxUrl,
             type: 'post',
             dataType: 'json', 
-            data: {'value' : lastLrn, 'table': 'guardians', 'set': 'registered_student_lrn'}, 
+            data: {'value' : lastLrn, 'table': 'guardians', 'set': 'students_info_lrn'}, 
             success: function(result){
 
                 $('#guardian').html(result.name);
@@ -497,7 +497,7 @@ $(document).ready(function(){
             url: ajaxUrl,
             type: 'post',
             dataType: 'json', 
-            data: {'value' : lastLrn, 'table': 'parents', 'set': 'registered_student_lrn'}, 
+            data: {'value' : lastLrn, 'table': 'parents', 'set': 'students_info_lrn'}, 
             success: function(result){
 
                 $('#father_name').html(result.father_name);
