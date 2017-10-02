@@ -310,19 +310,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="box-body">                  
                     <div class="form-group" style="margin-bottom: 5px">
                       <label>Strand</label>
-                      <select id="select-strand" data-placeholder="select strand" class="form-control select2" style="width: 100%;">
+                      <select id="select-strand" data-placeholder="Select Strand" class="form-control select2" style="width: 100%;">
                         <option id="option-strand"></option>
                       </select>
                     </div>                   
                     <div class="form-group" style="margin-bottom: 5px">
                       <label>Year</label>
-                      <select id="select-year" data-placeholder="select year" class="form-control select2" style="width: 100%;">
+                      <select id="select-year" data-placeholder="Select Year" class="form-control select2" style="width: 100%;">
                         <option id="option-year"></option>
                       </select>
                     </div>                   
                     <div class="form-group" style="margin-bottom: 7px">
                       <label>Section</label>
-                      <select id="select-section" data-placeholder="select section" class="form-control select2" style="width: 100%;">
+                      <select id="select-section" data-placeholder="Select Section" class="form-control select2" style="width: 100%;">
                         <option id="option-section"></option>
                       </select>
                     </div> 
@@ -344,7 +344,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="col-xs-12 col-lg-6">
                       <div class="form-group" id="group-subject">
                         <label id="label-subject" for="subjectNameInput">Subject</label>
-                        <select id="select-subject" data-placeholder="select subject" class="subject-input form-control select2" style="width: 100%;">
+                        <select id="select-subject" data-placeholder="Select Subject" class="subject-input form-control select2" style="width: 100%;">
                           <option></option>
                         </select>
                       </div> 
@@ -353,7 +353,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="col-xs-12 col-lg-6">
                       <div class="form-group" id="group-teacher" >
                         <label id="label-teacher" for="subjectCodeInput">Teacher</label>
-                        <select id="select-teacher" data-placeholder="select teacher" class="teacher-input form-control select2" style="width: 100%;">
+                        <select id="select-teacher" data-placeholder="Select Seacher" class="teacher-input form-control select2" style="width: 100%;">
                           <option></option>
                         </select>
                       </div> 
