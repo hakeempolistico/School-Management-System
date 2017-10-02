@@ -58,7 +58,7 @@
         event.html('<div class="val-subject">'+val1+'</div><div class="text-gray val-room">'+val2+'</div>')
       }
       else{
-        event.html(val1)
+        return
       }
       
 
@@ -86,7 +86,7 @@
       //Create events
       var event = $('<div />')
       event.addClass('external-event flat')
-      event.html('<div class="val-subject ">'+val1+'</div><div class="text-gray val-room">none</div>')
+      event.html('<div class="val-subject ">'+val1+'</div><div class="text-gray val-room"></div>')
       
 
       event.attr('id', i )
@@ -107,7 +107,7 @@
       //Create events
       var event = $('<div />')
       event.addClass('external-event flat')
-      event.html('<div class="val-subject">'+val1+'</div><div class="text-gray val-room">none</div>')
+      event.html('<div class="val-subject">'+val1+'</div><div class="text-gray val-room"></div>')
       
 
       event.attr('id', i )
