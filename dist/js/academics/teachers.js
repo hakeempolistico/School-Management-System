@@ -18,9 +18,9 @@ var status;
 
 
 $(function () {
-   //$('.loading').show();
+   $('.loading').show();
    populateTable();
-   //$('.loading').delay(500).hide();
+   $('.loading').delay(500).hide();
 })
     
 
