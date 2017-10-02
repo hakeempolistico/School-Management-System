@@ -337,7 +337,7 @@ $('#row-save').on('click',function(){
   //console.log('Object Length : '+row_length);
   //console.log('Row Length : '+object_length);
   if(object_length != row_calculate){
-    alert('Table must be fully populated. Please fill up blank cell.');
+    alert('Table must be completed. Please fill up blank cell.');
     return;
   }
 
