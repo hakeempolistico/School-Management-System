@@ -18,9 +18,9 @@ var status;
 
 
 $(function () {
-   $('.loading').show();
+   //$('.loading').show();
    populateTable();
-   $('.loading').delay(500).hide();
+   //$('.loading').delay(500).hide();
 })
     
 
@@ -74,8 +74,7 @@ function populateTable(){
   $('#teachersTable').DataTable({
     "columns": [
         { "width": "20%" },
-        { "width": "20%" },
-        { "width": "20%" },
+        { "width": "40%" },
         { "width": "20%" },
         { "width": "20%" }
         ],
