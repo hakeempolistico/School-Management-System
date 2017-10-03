@@ -74,8 +74,7 @@ function populateTable(){
   $('#teachersTable').DataTable({
     "columns": [
         { "width": "20%" },
-        { "width": "20%" },
-        { "width": "20%" },
+        { "width": "40%" },
         { "width": "20%" },
         { "width": "20%" }
         ],

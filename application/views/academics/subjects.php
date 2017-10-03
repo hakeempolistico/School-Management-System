@@ -324,20 +324,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <div class="form-group"style="margin-bottom: 5px;">
                     <label for="code-input">Code</label>
                     <label for="name-input" class="text-danger">*</label>
-                    <input type="text" class="form-control" id="code-input" placeholder="subject code" required>
+                    <input type="text" class="form-control" id="code-input" placeholder="Subject Code" required>
                   </div>
                   <div class="form-group" style="margin-bottom: 5px;">
                     <label for="name-input">Name</label>
                     <label for="name-input" class="text-danger">*</label>
-                    <input type="text" class="form-control" id="name-input" placeholder="subject name" required>
+                    <input type="text" class="form-control" id="name-input" placeholder="Subject Name" required>
                   </div>
                   <div class="form-group" style="margin-bottom: 5px;">
                     <label for="type-input">Type</label>
-                    <input type="text" class="form-control" id="type-input" placeholder="subject type">
+                    <input type="text" class="form-control" id="type-input" placeholder="Subject Type">
                   </div>
                   <div class="form-group" style="margin-bottom: 7px;">
                     <label for="description-input">Description</label>
-                    <input type="text" class="form-control" id="description-input" placeholder="subject description">
+                    <input type="text" class="form-control" id="description-input" placeholder="Subject Description">
                   </div>
                   <button id="add-btn" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Add</button>
               </div>

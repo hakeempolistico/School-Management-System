@@ -372,7 +372,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="box-body box-profile flat">
               
 
-              <center><span class="fa fa-fw fa-briefcase fa-5x text-primary"></center>
+              <center><span class="fa fa-fw fa-star fa-5x text-primary"></center>
               <h3 class="profile-username text-center">Edit Strand</h3> 
 
               <ul class="list-group list-group-unbordered">

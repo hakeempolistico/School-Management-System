@@ -15,15 +15,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/Ionicons/css/ionicons.min.css">
-  <!-- Select2 -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/select2/dist/css/select2.min.css">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/skins/_all-skins.min.css">
+  <!-- Morris chart -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/morris.js/morris.css">
+  <!-- jvectormap -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/jvectormap/jquery-jvectormap.css">
+  <!-- Date Picker -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/bootstrap-daterangepicker/daterangepicker.css">
+  <!-- bootstrap wysihtml5 - text editor -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   <!-- Loading -->
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/loading.css">
 
@@ -35,25 +41,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <![endif]-->
 
   <!-- Google Font -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/googlefont.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-  <div hidden class="loading">Loading&#8230;</div>
+<div hidden class="loading">Loading&#8230;</div>
   <header class="main-header">
     <!-- Logo -->
     <a href="<?php echo site_url('/') ?>" class="logo" style="background: rgb(97, 22, 35)">
      {logo}
     </a>
     <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top" style="background-color: #6C1827">
+    <nav class="navbar navbar-static-top" style="background-color: #6C1827" >
       <!-- Sidebar toggle button-->
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
 
       <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">          
+        <ul class="nav navbar-nav">                                    
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -69,7 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                  <?php echo $this->session->first_name." ".$this->session->last_name." - ".$this->session->position ?>
                   <small>Member since <?php echo $this->session->date_created ?></small>
                 </p>
-              </li>
+              </li>              
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
@@ -118,42 +124,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </a>
 
           <ul class="treeview-menu">
-            <li>
+            <!-- <li>
               <a href="<?php echo site_url('enrollment/dashboard'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Dashboard
               </a>
-            </li> 
-            
+            </li>  -->        
             <li>
               <a href="<?php echo site_url('enrollment/register_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Register Student
-              <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
               </a>
-              <ul class="treeview-menu">
-                <li>
-                  <a href="<?php echo site_url('enrollment/register_student/form'); ?>">
-                    <i class="fa fa-circle-o"></i>
-                    Register Form
-                  </a>
-                </li>
-              </ul>
             </li>
-
             <li>
               <a href="<?php echo site_url('enrollment/enroll_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   Enroll Student
               </a>
             </li>
-          </ul>
-          
+          </ul>          
         </li>
 
-        <li class="active treeview">
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-mortar-board"></i>
             <span>Academics</span>
@@ -187,7 +179,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   Subjects
               </a>
             </li>
-            <li class="active">
+            <li>
               <a href="<?php echo site_url('academics/assign_subjects'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Assign Subjects
@@ -199,11 +191,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   Schedule
               </a>
             </li>
-          </ul>
-          
+          </ul>          
         </li>
-      
-        
+
         <li class="treeview">
           <a href="#">
             <i class="fa fa-id-card"></i>
@@ -278,110 +268,112 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </li>                               
           </ul>          
         </li>
-       
 
-        
       </ul>
     </section>
     <!-- /.sidebar -->
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- <div class="alert alert-success alert-dismissible flat">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <h4><i class="icon fa fa-bullhorn"></i> Day 1 of Enrollment is successful!</h4>
-        Congratulations! Job well done! Please do the same on Day 2 of Enrollment!
-     </div> -->
-     <div id="alert-box" class="alert alert-danger alert-dismissible flat" hidden>
-      <button type="button" class="close" aria-hidden="true">&times;</button>
-      <h4 id="alert-title"><i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!</h4>
-        <div id="alert-message">Subject code already used. Please use another one.</div>
-     </div>
+  <div class="content-wrapper">    
       
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Assign Subjects
-        <small>temporary message here</small>
+        My Profile
+        <small></small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="enrollment/dashboard"><i class="fa fa-mortar-board"></i> Academics</a></li>
-        <li class="active">Assign Subjects</li>
+        <li><a href="enrollment/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">My Profile</li>
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
+      
       <div class="row">
-        <div class="col-lg-4 col-xs-12">
-          <div class="box box-primary">
-              <div class="box-header">
-                <h3 class="box-title">Select class</h3>
-              </div>
-              <!-- /.box-header -->
-              <div class="box-body">                  
-                    <div class="form-group" style="margin-bottom: 5px">
-                      <label>Strand</label>
-                      <select id="select-strand" data-placeholder="Select Strand" class="form-control select2" style="width: 100%;">
-                        <option id="option-strand"></option>
-                      </select>
-                    </div>                   
-                    <div class="form-group" style="margin-bottom: 5px">
-                      <label>Year</label>
-                      <select id="select-year" data-placeholder="Select Year" class="form-control select2" style="width: 100%;">
-                        <option id="option-year"></option>
-                      </select>
-                    </div>                   
-                    <div class="form-group" style="margin-bottom: 7px">
-                      <label>Section</label>
-                      <select id="select-section" data-placeholder="Select Section" class="form-control select2" style="width: 100%;">
-                        <option id="option-section"></option>
-                      </select>
-                    </div> 
-                
-                <button id="confirm-btn" type="button" style="width: 100px" class="btn btn-sm btn-primary pull-right">Confirm</button>
-              </div>
-          </div>
-        </div>
+        <div class="col-md-3">
 
-        <div class="col-lg-8 col-xs-12">
+          <!-- Profile Image -->
           <div class="box box-primary">
-              <div class="box-header">
-                <h3 class="box-title" id="assign-subjects-title">Add Subjects</h3>
-                <h3 class="box-title pull-right"><button id="add-btn" class="btn btn-default btn-xs"><span class="fa fa-fw fa-plus"></span></button></h3>
-              </div>
-              <!-- /.box-header -->
-              <div class="box-body">
-                  <div class="row">
-                    <div class="col-xs-12 col-lg-6">
-                      <div class="form-group" id="group-subject">
-                        <label id="label-subject" for="subjectNameInput">Subject</label>
-                        <select id="select-subject" data-placeholder="Select Subject" class="subject-input form-control select2" style="width: 100%;">
-                          <option></option>
-                        </select>
-                      </div> 
-                    </div>
-                           
-                    <div class="col-xs-12 col-lg-6">
-                      <div class="form-group" id="group-teacher" >
-                        <label id="label-teacher" for="subjectCodeInput">Teacher</label>
-                        <select id="select-teacher" data-placeholder="Select Seacher" class="teacher-input form-control select2" style="width: 100%;">
-                          <option></option>
-                        </select>
-                      </div> 
-                    </div>
-                  </div>     
-                     
+            <div class="box-body box-profile">
+              <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url(); ?>dist/img/user4-128x128.jpg" alt="User profile picture">
 
-                <button id="save-btn" type="button" style="width: 100px" class="btn btn-block btn-primary pull-right">Save</button>  
+              <h3 class="profile-username text-center">Adrielle Escaro</h3>
+
+              <p class="text-muted text-center">Administrator</p>
+
+              <ul class="list-group list-group-unbordered">
+                <li class="list-group-item">
+                  <b>Employee ID</b> <a class="pull-right">00001</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Position</b> <a class="pull-right">Head Teacher</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Date Created</b> <a class="pull-right">2017-09-20 11:49:17</a>
+                </li>
+              </ul>
+
+              <!-- <a href="#" class="btn btn-primary btn-block"><b>Edit Profile</b></a> -->
             </div>
-
-
-            
+            <!-- /.box-body -->
           </div>
+          <!-- /.box -->
         </div>
-      </div>
+
+        <div class="col-md-9">
+          <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+              <!-- <li  class="active"><a href="#profile" data-toggle="tab">Profile</a></li> -->
+              <!-- <li><a href="#timeline" data-toggle="tab">Timeline</a></li> -->
+              <li class="active"><a href="#settings" data-toggle="tab">Settings</a></li>
+            </ul>
+            <div class="tab-content">
+              <!-- <div class="active tab-pane" id="profile">
+                <h4>Personal Info</h4>
+
+                
+              </div> -->
+              <!-- /.tab-pane -->
+              <div class="active tab-pane" id="settings">
+                <h4>Change Password</h4>
+                <form class="form-horizontal">
+                  <div class="form-group">
+                    <label for="inputCurPass" class="col-sm-2 control-label">Current</label>
+
+                    <div class="col-sm-10">
+                      <input type="password" class="form-control" id="inputCurPass" placeholder="Current Password">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputNewPass" class="col-sm-2 control-label">New</label>
+
+                    <div class="col-sm-10">
+                      <input type="password" class="form-control" id="inputEmail" placeholder="New Password">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputRetypeNew" class="col-sm-2 control-label">Re-type new</label>
+
+                    <div class="col-sm-10">
+                      <input type="password" class="form-control" id="inputRetypeNew" placeholder="Re-type new password">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <!-- /.tab-pane -->
+            </div>
+            </div>
+          </div>
+        </div>        
+      <!-- /.row -->
     </section>
     <!-- /.content -->
   </div>
@@ -393,28 +385,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url(); ?>bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo base_url(); ?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- ChartJS -->
+<script src="<?php echo base_url(); ?>bower_components/Chart.js/Chart.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
-<!-- Select2 -->
-<script src="<?php echo base_url(); ?>bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
-<!-- DataTables -->
-<script src="<?php echo base_url(); ?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<script src="<?php echo base_url('dist/js/academics/assign_subjects.js'); ?>"></script>
-
-<script>
-var getStrands = '<?php echo base_url('academics/assign_subjects/getStrands'); ?>';
-var getYears = '<?php echo base_url('academics/assign_subjects/getYears'); ?>';
-var getSection = '<?php echo base_url('academics/assign_subjects/getSection'); ?>';
-var getSubjects = '<?php echo base_url('academics/assign_subjects/getSubjects'); ?>';
-var getTeachers = '<?php echo base_url('academics/assign_subjects/getTeachers'); ?>';
-var addUrl = '<?php echo base_url('academics/assign_subjects/addClassSubjects'); ?>';
-var getClassSubjects = '<?php echo base_url('academics/assign_subjects/getClassSubjects'); ?>';
-var deleteUrl = '<?php echo base_url('academics/assign_subjects/deleteClassSubject'); ?>';
-</script>
+<!-- page script -->
+<script src="<?php echo base_url(); ?>dist/js/enrollment/dashboard.js"></script>
 </body>
 </html>
