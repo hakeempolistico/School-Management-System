@@ -47,7 +47,7 @@ class schedule extends CI_Controller {
 	public function deleteSchedule()
 	{
 		$data = $this->input->post();
-		$row = $this->global_model->delete('schedules',$data);
+		$row = $this->global_model->delete('schedules','section_id', $data['section_id']);
 		echo json_encode($row);
 	}
 
