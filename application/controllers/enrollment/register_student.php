@@ -157,6 +157,16 @@ class register_student extends CI_Controller {
 		echo $records;
 	}
 
+	public function form()
+	{
+		$data = $this->parse->parsed();
+		$this->parser->parse('enrollment/register_form', $data);
+	}
+
+	public function form_print()
+	{
+		$this->load->view('enrollment/form-print');
+	}
 	
 
 }
