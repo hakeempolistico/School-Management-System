@@ -320,27 +320,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="form-group" style="margin-bottom: 5px">
                   <label for="id-input">Employee ID</label>
                   <label for="name-input" class="text-danger">*</label>
-                  <input type="text" class="form-control" id="id-input">
+                  <input type="text" class="form-control" id="id-input" placeholder="Teacher Employee ID">
                 </div>
                 <div class="form-group" style="margin-bottom: 5px">
                   <label for="firstname-input">First Name</label>
-                  <input type="text" class="form-control" id="firstname-input">
+                  <input type="text" class="form-control" id="firstname-input" placeholder="Teacher First Name">
                 </div>
                 <div class="form-group" style="margin-bottom: 5px">
                   <label for="middlename-input">Middle Name</label>
-                  <input type="text" class="form-control" id="middlename-input">
+                  <input type="text" class="form-control" id="middlename-input" placeholder="Teacher Middle Name">
                 </div>
                 <div class="form-group" style="margin-bottom: 5px">
                   <label for="lastname-input">Last Name</label>
-                  <input type="text" class="form-control" id="lastname-input">
+                  <input type="text" class="form-control" id="lastname-input" placeholder="Teacher Last Name">
                 </div>
                 <div class="form-group" style="margin-bottom: 5px">
                   <label for="major-input">Major</label>
-                  <input type="text" class="form-control" id="major-input">
+                  <input type="text" class="form-control" id="major-input" placeholder="Teacher Major">
                 </div>
                 <div class="form-group" style="margin-bottom: 7px">
                   <label for="position-input">Position</label>
-                  <input type="text" class="form-control" id="position-input">
+                  <input type="text" class="form-control" id="position-input" placeholder="Teacher Position">
                 </div>
                 <button id="add-btn" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Add</button>
               </div>
@@ -358,8 +358,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <thead>
                 <tr>
                   <th>Employee ID</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
+                  <th>Name</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
@@ -367,10 +366,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <tfoot>
                 <tr>
                   <th>Employee ID</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Position</th>
+                  <th>Name</th>
                   <th>Status</th>
+                  <th>Action</th>
                 </tr>
                 </tfoot>
               </table>
@@ -388,7 +386,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="modal-content" >
               <div class="box box-primary">
             <div class="box-body box-profile flat">
-              <img class="profile-user-img img-responsive img-circle" src="http://sms.local/dist/img/user4-128x128.jpg" alt="<?php echo base_url('images/alt_picture.jpg');?>"> <br>
+              <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url('images/alt_picture.jpg');?>" alt="<?php echo base_url('images/alt_picture.jpg');?>"> <br>
               <a id="view-edit" class="btn btn-default btn-xs pull-right"><span class="fa fa-fw fa-pencil"></span></a>
               <ul class="list-group list-group-unbordered">
                 <li>
@@ -440,7 +438,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="modal-content" >
               <div class="box box-primary">
             <div class="box-body box-profile flat">
-              <img class="profile-user-img img-responsive img-circle" src="http://sms.local/dist/img/user4-128x128.jpg" alt="<?php echo base_url('images/alt_picture.jpg');?>"> <br>
+              <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url('images/alt_picture.jpg');?>" alt="<?php echo base_url('images/alt_picture.jpg');?>"> <br>
               <ul class="list-group list-group-unbordered">
                 <li>
                   <div class="form-group" style="margin-bottom: 5px;">

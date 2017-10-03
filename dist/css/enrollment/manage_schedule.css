@@ -14,7 +14,7 @@
 	font-size: 13px; color: black;
 }
 .selectedRow{
-	background:#f6f6f6;
+	background:#dddddd;
 }
 
 @media print { 
