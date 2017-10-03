@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Enroll Student</title>
+  <title>Register Student</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -129,12 +129,25 @@
                 Dashboard
               </a>
             </li>
-            <li class="active">
+            
+            <li class="active treeview">
               <a href="<?php echo site_url('enrollment/register_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Register Student
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
               </a>
+              <ul class="treeview-menu">
+                <li>
+                  <a href="<?php echo site_url('enrollment/register_student/form'); ?>">
+                    <i class="fa fa-circle-o"></i>
+                    Register Form
+                  </a>
+                </li>
+              </ul>
             </li>
+
             <li>
               <a href="<?php echo site_url('enrollment/enroll_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
