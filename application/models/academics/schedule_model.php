@@ -34,7 +34,7 @@ class schedule_model extends CI_Model{
 	public function getRecords($table, $section_id)
 	{
 		$this->db->where('section_id', $section_id);
-		$this->db->order_by("time_start", "asc");
+		$this->db->order_by("row", "asc");
 		$query = $this->db->get($table)->result();
 		return $query;
 	}

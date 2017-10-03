@@ -361,15 +361,17 @@ $('#row-save').on('click',function(){
           var time_start = timeSplit[0];
           var time_end = timeSplit[1];
           var day = $(this).closest('table').find('th').eq($(this).parents('td').index()+1).html();
-          var color = $(this).css("background-color")
+          var color = $(this).css("background-color");
+          var row = $(this).parents('tr').index();
 
           //console.log('Subject Code : ' + subject_code);
           //console.log('Section ID : ' + sectionId);
           //console.log('Room ID : ' + room_id);
           //console.log('Time Start : ' + time_start);
           //console.log('Time End : ' + time_end);
-          console.log('Day : ' + day);
+          //console.log('Day : ' + day);
           //console.log('Color : ' + color);
+          //console.log('Row : ' + $(this).parents('tr').index());
 
           $.ajax({
             url: addScheduleUrl,
@@ -382,7 +384,8 @@ $('#row-save').on('click',function(){
               'time_start' : time_start,
               'time_end' : time_end,
               'day' : day,
-              'color' : color
+              'color' : color,
+              'row' : row
             },  
             success: function(res){ 
               console.log(res);

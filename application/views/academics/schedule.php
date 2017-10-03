@@ -315,8 +315,8 @@
       <div class="col-xs-12 col-lg-12">
         <div class="alert alert-success alert-dismissible">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-          <h4><i class="icon fa fa-info"></i>Beginner's Guide</h4>
-          1. Select class. <br> 2. Add row. <br> 3. Input time under time column. <br> 4. Create event. Select subject. Select room. <br> 5. Drag event onto table. <br><br> <h4><i class="icon fa fa-check"></i>Note:</h4> *Time must be in military time. <br> *Time format: start-end (ex. 12:00-13:00) <br> *Must fill up table completely, no blank cells to be left.
+          <h4><i class="icon fa fa-info"></i>User's Guide</h4>
+          1. Select class. <br> 2. Add row. <br> 3. Input time under time column. <br> 4. Create event. Select subject. Select room. <br> 5. Drag event onto table. <br> 6. Then click <b>Save Sched</b>. *Table cells must be completely filled.
         </div>
       </div>
     </div>
