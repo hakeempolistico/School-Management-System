@@ -460,16 +460,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url(); ?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
-<script src="<?php echo base_url('dist/js/academics/strands.js'); ?>"></script>
 
 <script>
 
-  var addStrand = '<?php echo base_url('academics/strands/addStrand'); ?>';
-  var getRecordsUrl = '<?php echo base_url('academics/strands/ajaxGetRecords'); ?>';
-  var getRowUrl = '<?php echo base_url('academics/strands/ajaxGetRow'); ?>';
-  var updateUrl = '<?php echo base_url('academics/strands/ajaxUpdate'); ?>';
-  var countUrl = '<?php echo base_url('academics/strands/ajaxCountRow'); ?>';
-  var deleteRowUrl = '<?php echo base_url('academics/strands/ajaxDeleteRow'); ?>';
   
 </script>
 </body>
