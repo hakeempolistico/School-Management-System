@@ -326,18 +326,77 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="col-md-9">
           <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
-              <!-- <li  class="active"><a href="#profile" data-toggle="tab">Profile</a></li> -->
+              <li  class="active"><a href="#profile" data-toggle="tab">Profile</a></li>
               <!-- <li><a href="#timeline" data-toggle="tab">Timeline</a></li> -->
-              <li class="active"><a href="#settings" data-toggle="tab">Settings</a></li>
+              <li><a href="#settings" data-toggle="tab">Settings</a></li>
             </ul>
             <div class="tab-content">
-              <!-- <div class="active tab-pane" id="profile">
-                <h4>Personal Info</h4>
-
+              <div class="active tab-pane" id="profile">
                 
-              </div> -->
+                <div class="row">
+                <div class="col-md-12">
+                  <div class="box box-primary">
+                    <div class="box-header with-border">
+                      <h3 class="box-title">Personal Information</h3>
+
+                      <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                      </div>
+                      <!-- /.box-tools -->
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                      <div class="form-group">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <label>First Name</label>
+                              <input type="text" class="form-control">
+                            </div>
+                            <div class="col-md-4">
+                              <label>Middle Name</label>
+                              <input type="text" class="form-control">
+                            </div>
+                            <div class="col-md-4">
+                              <label>Last Name</label>
+                              <input type="text" class="form-control">
+                            </div>
+                          </div>
+                      </div>
+                      <!-- /.form-group -->
+                    </div>
+                    <!-- /.box-body -->
+                  </div>
+                  <!-- /.box -->
+                </div>
+                <!-- /.col -->
+                </div>
+
+                <div class="row">
+                <div class="col-md-12">
+                  <div class="box box-primary">
+                    <div class="box-header with-border">
+                      <h3 class="box-title">Personal Information</h3>
+
+                      <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                      </div>
+                      <!-- /.box-tools -->
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                      
+                    </div>
+                    <!-- /.box-body -->
+                  </div>
+                  <!-- /.box -->
+                </div>
+                <!-- /.col -->
+                </div>
+              </div>
               <!-- /.tab-pane -->
-              <div class="active tab-pane" id="settings">
+              <div class="tab-pane" id="settings">
                 <h4>Change Password</h4>
                 <form class="form-horizontal">
                   <div class="form-group">
