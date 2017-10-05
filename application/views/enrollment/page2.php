@@ -108,12 +108,6 @@
       
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">MAIN NAVIGATION</li>
-        <li>
-          <a href="<?php echo site_url('/'); ?>">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-          </a>
-        </li>
         <li class="active treeview">
           <a href="#">
             <i class="fa fa-files-o"></i>

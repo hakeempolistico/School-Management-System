@@ -122,12 +122,6 @@
           </a>
 
           <ul class="treeview-menu">
-            <li>
-              <a href="<?php echo site_url('enrollment/dashboard'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Dashboard
-              </a>
-            </li> 
             
             <li>
               <a href="<?php echo site_url('enrollment/register_student'); ?>">
