@@ -249,7 +249,7 @@
 
           <ul class="treeview-menu">
             <li>
-              <a href="<?php echo site_url('enrollment/dashboard'); ?>">
+              <a href="<?php echo site_url('reports/student_reports'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Student Reports
               </a>
