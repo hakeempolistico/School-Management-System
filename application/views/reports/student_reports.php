@@ -17,6 +17,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/select2/dist/css/select2.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/Ionicons/css/ionicons.min.css">
+  <!-- bootstrap datepicker -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- Theme style -->
@@ -424,19 +426,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <div id="group-lrn" class="col-lg-4 col-xs-12" hidden>
                     <div class="form-group" style="margin-bottom: 5px">
                       <label for="srtandCodeInput">LRN</label>
-                      <input type="text" name="lrn" class="form-control" id="code-input" placeholder="Student LRN">
+                      <input type="text" name="lrn" class="form-control" id="input-lrn" placeholder="Student LRN">
                     </div>       
                   </div> 
                   <div id="group-date" class="col-lg-4 col-xs-12" hidden>
                     <div class="form-group" style="margin-bottom: 5px">
                       <label for="srtandCodeInput">Date Enrolled</label>
-                      <input type="text" name="date_enrolled" class="form-control" id="code-input" placeholder="Date Enrolled">
+                      <div class="input-group date">
+                        <div class="input-group-addon">
+                          <i class="fa fa-calendar"></i>
+                        </div>
+                        <input type="text" name="date_enrolled" class="form-control pull-right" id="datepicker">
+                      </div>
                     </div>       
                   </div> 
                   <div id="group-age" class="col-lg-4 col-xs-12" hidden>
                     <div class="form-group" style="margin-bottom: 5px">
                       <label for="srtandCodeInput">Age</label>
-                      <input type="text" name="age" class="form-control" id="code-input" placeholder="Student Age">
+                      <input type="text" name="age" class="form-control" id="input-age" placeholder="Student Age">
                     </div>       
                   </div> 
                 </div>
@@ -448,19 +455,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <div class="col-lg-4 col-xs-12">
                     <div class="form-group" style="margin-bottom: 5px">
                       <label for="srtandCodeInput">First Name</label>
-                      <input type="text" name="first_name" class="form-control" id="code-input" placeholder="Student First Name">
+                      <input type="text" name="first_name" class="form-control" id="input-firstname" placeholder="Student First Name">
                     </div>       
                   </div> 
                   <div class="col-lg-4 col-xs-12">
                     <div class="form-group" style="margin-bottom: 5px">
                       <label for="srtandCodeInput">Middle Name</label>
-                      <input type="text" name="middle_name" class="form-control" id="code-input" placeholder="Student Middle Name">
+                      <input type="text" name="middle_name" class="form-control" id="input-middlename" placeholder="Student Middle Name">
                     </div>       
                   </div> 
                   <div class="col-lg-4 col-xs-12">
                     <div class="form-group" style="margin-bottom: 5px">
                       <label for="srtandCodeInput">Last Name</label>
-                      <input type="text" name="last_name" class="form-control" id="code-input" placeholder="Student Last Name">
+                      <input type="text" name="last_name" class="form-control" id="input-lastname" placeholder="Student Last Name">
                     </div>       
                   </div> 
                 </div>
@@ -473,25 +480,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <div class="col-lg-3 col-xs-12">
                     <div class="form-group" style="margin-bottom: 5px">
                       <label for="srtandCodeInput">Street</label>
-                      <input type="text" name="street" class="form-control" id="code-input" placeholder="Street">
+                      <input type="text" name="street" class="form-control" id="input-street" placeholder="Street">
                     </div>       
                   </div> 
                   <div class="col-lg-3 col-xs-12">
                     <div class="form-group" style="margin-bottom: 5px">
                       <label for="srtandCodeInput">Barangay</label>
-                      <input type="text" name="barangay" class="form-control" id="code-input" placeholder="Barangay">
+                      <input type="text" name="barangay" class="form-control" id="input-baranggay" placeholder="Barangay">
                     </div>       
                   </div> 
                   <div class="col-lg-3 col-xs-12">
                     <div class="form-group" style="margin-bottom: 5px">
                       <label for="srtandCodeInput">City</label>
-                      <input type="text" name="city" class="form-control" id="code-input" placeholder="City">
+                      <input type="text" name="city" class="form-control" id="input-city" placeholder="City">
                     </div>       
                   </div> 
                   <div class="col-lg-3 col-xs-12">
                     <div class="form-group" style="margin-bottom: 5px">
                       <label for="srtandCodeInput">Province</label>
-                      <input type="text" name="province" class="form-control" id="code-input" placeholder="Province">
+                      <input type="text" name="province" class="form-control" id="input-province" placeholder="Province">
                     </div>       
                   </div> 
                 </div>
@@ -503,7 +510,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="col-lg-4 col-xs-12">
                       <div class="form-group" style="margin-bottom: 5px">
                         <label for="srtandCodeInput">Religion</label>
-                        <input type="text" name = "Religion" class="form-control" id="code-input" placeholder="Religion">
+                        <input type="text" name = "Religion" class="form-control" id="input-religion" placeholder="Religion">
                       </div>       
                     </div> 
                   </div>
@@ -535,6 +542,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
+<!-- bootstrap datepicker -->
+<script src="<?php echo base_url(); ?>bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <!-- Select2 -->
 <script src="<?php echo base_url(); ?>bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- AdminLTE for demo purposes -->
@@ -545,6 +554,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 <script>
+//Date picker
+  $('#datepicker').datepicker({
+    autoclose: true
+  })
   $('.select2').select2();
   var getSection = '<?php echo base_url('academics/assign_subjects/getSection'); ?>';
 
@@ -585,6 +598,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       if(this.checked == false && $('#cb-section').is(':checked') == false && $('#cb-year').is(':checked') == false) {
         $('#row-class').hide();
       }
+      $('#select-strand').val('').trigger('change');
       $('#group-strand').hide();
     }
   });
@@ -598,6 +612,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       if(this.checked == false && $('#cb-strand').is(':checked') == false && $('#cb-year').is(':checked') == false) {
         $('#row-class').hide();
       }
+      $('#select-section').val('').trigger('change');
       $('#group-section').hide();
     }
   });
@@ -611,6 +626,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       if(this.checked == false && $('#cb-section').is(':checked') == false && $('#cb-strand').is(':checked') == false) {
         $('#row-class').hide();
       }
+      $('#select-year').val('').trigger('change');
       $('#group-year').hide();
     }
   });
@@ -624,6 +640,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       if(this.checked == false && $('#cb-date').is(':checked') == false && $('#cb-age').is(':checked') == false) {
         $('#row-lrn').hide();
       }
+      $('#input-lrn').val('');
       $('#group-lrn').hide();
     }
   });
@@ -637,6 +654,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       if(this.checked == false && $('#cb-lrn').is(':checked') == false && $('#cb-age').is(':checked') == false) {
         $('#row-lrn').hide();
       }
+      $('#datepicker').val('');
       $('#group-date').hide();
     }
   });
@@ -650,6 +668,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       if(this.checked == false && $('#cb-lrn').is(':checked') == false && $('#cb-date').is(':checked') == false) {
         $('#row-lrn').hide();
       }
+      $('#input-age').val('');
       $('#group-age').hide();
     }
   });
@@ -659,6 +678,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       $('#row-name').show();
     }
     else{
+      $('#input-firstname').val('');
+      $('#input-middlename').val('');
+      $('#input-lastname').val('');
       $('#row-name').hide();
     }
   });
@@ -668,6 +690,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       $('#row-address').show();
     }
     else{
+      $('#input-street').val('');
+      $('#input-baranggay').val('');
+      $('#input-city').val('');
+      $('#input-province').val('');
       $('#row-address').hide();
     }
   });
@@ -677,6 +703,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       $('#row-religion').show();
     }
     else{
+      $('#input-religion').val('');
       $('#row-religion').hide();
     }
   });
