@@ -124,28 +124,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </a>
 
           <ul class="treeview-menu">
-            <!-- <li>
-              <a href="<?php echo site_url('enrollment/dashboard'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Dashboard
-              </a>
-            </li>  -->
             <li>
               <a href="<?php echo site_url('enrollment/register_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Register Student
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-              <ul class="treeview-menu">
-                <li>
-                  <a href="<?php echo site_url('enrollment/register_student/form'); ?>">
-                    <i class="fa fa-circle-o"></i>
-                    Register Form
-                  </a>
-                </li>
-              </ul>
+              </a>              
             </li>
 
             <li>
