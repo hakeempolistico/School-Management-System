@@ -51,6 +51,7 @@
 }
 </style>
 <body>
+  <div class="login-container" style="height: 100%; background-color: #9E373B">
   <div class="row" style="background: #6C1827; ">
     <div class="col-md-4">    
     </div>
@@ -68,7 +69,7 @@
     </div>
   </div>
   <!-- /.row -->
-  <div class="row" style="background: #9E373B; height: 54.4%;">    
+  <div class="row" style="background: #9E373B;">    
     <div class="login-box" style="margin-top: 0px; padding-top: 5%; width: 360px; ">        
       <?php echo form_open('login/'); ?>
       <div class="row">
@@ -103,6 +104,7 @@
       <br>
       <a href="#" style="color: white;">I forgot my password</a><br>  
     </div>
+  </div>
   </div>
   <!-- /.login-box-body -->
 
