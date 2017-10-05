@@ -312,51 +312,147 @@
 
     <!-- Main content -->
     <section class="content">
-      
-      <div class="callout callout-success">
-        <h4>Enrollment Complete!</h4>
+      <div style="padding: 0 25px;">
+        <div class="callout callout-success">
+          <h4>Enrollment Complete!</h4>
 
-        <p>You have successfully enrolled <bold class="name">Adrielle Kristine Nicolette M. Escaro</bold> to <bold id="strand">STEM</bold>. Would you like to enroll another student?</p>
-      </div>
-
-      <div class="box box-default">
-        <div class="box-body box-profile" style=" padding: 20px;">
-          <div class="row">
-            <div class="col-md-4"><center>
-              <img src="<?php echo base_url('images/alt_picture.jpg');?>" class="img-circle" alt="<?php echo base_url('images/alt_picture.jpg');?>" style="width: 70%; margin-bottom: 10px;"></center>
-              <h3 class="profile-username text-center name" style="padding: 0 20px;">Adrielle Kristine Nicolette M. Escaro</h3>
-
-              <a href="<?php echo site_url('enrollment/enroll_student'); ?>" class="btn btn-primary" style="width:100%; margin-bottom: 10px;">Enroll another student</a>
-            </div>
-            <!-- /. col-->
-
-            <div class="col-md-8">
-              <table class="table">
-                <tr>
-                  <td><b>LRN</b></td>
-                  <td><a id="lrn">SEE HOW DIRTY I CAN GET THEM</a></td>
-                </tr>
-                <tr>
-                  <td><b>Note</b></td>
-                  <td><a id="note">LETS BE ALONE TOGETHER</a></td>
-                </tr>
-                <tr>
-                  <td><b>Section Name</b></td>
-                  <td><a id="section_name">TAKE IT ALL AWAY</a></td>
-                </tr>
-                <tr>
-                  <td><b>Academic Year</b></td>
-                  <td><a id="academic_year">OOOOOOOOOH</a></td>
-                </tr>
-              </table>
-            </div>
-            <!-- /.col -->
-          </div>
-          <!-- /.row -->
+          <p>You have successfully enrolled <bold class="name">Adrielle Kristine Nicolette M. Escaro</bold> to <bold class="strand">STEM</bold>.</p>
         </div>
-        <!-- /.box-body -->
+    </div>
+
+      <section class="invoice">
+      <!-- title row -->
+      <div class="row">
+        <div class="col-xs-12">
+          <h2 class="page-header">
+            <i class="fa fa-globe"></i> Araullo High School
+            <small class="pull-right"><b style="margin-right: 5px">Academic Year:</b> <p style="display: inline-block;" id="academic_year">2017-2018</p>&emsp;<b style="margin-right: 5px"> Date Enrolled:</b> <p style="display: inline-block;" id="date_enrolled">2/10/2014</p></small> 
+          </h2>
+        </div>
+        <!-- /.col -->
       </div>
-      <!-- /. box -->
+      <!-- info row -->
+      <div class="row invoice-info">
+        <div class="col-sm-4 invoice-col">
+          <b style="margin-right: 5px"> LRN: </b> <p style="display: inline-block;" id="lrn">14-038-014</p> <br>
+          <b style="margin-right: 5px"> Strand: </b> <p style="display: inline-block;" class="strand">STEM</p>
+          
+        </div>
+        <div class="col-sm-4 invoice-col">
+          <b style="margin-right: 5px"> Name: </b> <p style="display: inline-block;" class="name">HAKEEM ANDAYA POLISTICO</p> <br>
+          <b style="margin-right: 5px"> Year and Section: </b> <p style="display: inline-block;" id="section_name">11-A</p>
+        </div>
+        <div class="col-sm-4 invoice-col">
+          <b style="margin-right: 5px"> Sex: </b> <p style="display: inline-block;" id="sex">MALE</p>
+        </div>
+      </div>
+      <hr>
+      <!-- /.row -->
+
+      <!-- Table row -->
+      <div class="row">
+        <div class="col-xs-12 table-responsive">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>Subject Code</th>
+              <th>Subject Name</th>
+              <th>Time</th>
+              <th>Day</th>
+              <th>Room</th>
+            </tr>
+            </thead>
+            <tbody id="sched">
+            <tr>
+              <td>CHM</td>
+              <td>Chemistry 1</td>
+              <td>6:00-7:00</td>
+              <td>M/T/W/F</td>
+              <td>Laboratory 1</td>
+            </tr>
+            <tr>
+              <td>PHYS</td>
+              <td>Physics 1</td>
+              <td>6:00-7:00</td>
+              <td>M/T/TH/F</td>
+              <td>Laboratory 1</td>
+            </tr>
+            <tr>
+              <td>PHYS</td>
+              <td>Physics 1</td>
+              <td>6:00-7:00</td>
+              <td>M/T/TH/F</td>
+              <td>Laboratory 1</td>
+            </tr>
+            <tr>
+              <td>PHYS</td>
+              <td>Physics 1</td>
+              <td>6:00-7:00</td>
+              <td>M/T/TH/F</td>
+              <td>Laboratory 1</td>
+            </tr>
+            <tr>
+              <td>PHYS</td>
+              <td>Physics 1</td>
+              <td>6:00-7:00</td>
+              <td>M/T/TH/F</td>
+              <td>Laboratory 1</td>
+            </tr>
+            <tr>
+              <td>PHYS</td>
+              <td>Physics 1</td>
+              <td>6:00-7:00</td>
+              <td>M/T/TH/F</td>
+              <td>Laboratory 1</td>
+            </tr>
+            <tr>
+              <td>PHYS</td>
+              <td>Physics 1</td>
+              <td>6:00-7:00</td>
+              <td>M/T/TH/F</td>
+              <td>Laboratory 1</td>
+            </tr>
+            <tr>
+              <td>PHYS</td>
+              <td>Physics 1</td>
+              <td>6:00-7:00</td>
+              <td>M/T/TH/F</td>
+              <td>Laboratory 1</td>
+            </tr>
+            <tr>
+              <td>PHYS</td>
+              <td>Physics 1</td>
+              <td>6:00-7:00</td>
+              <td>M/T/TH/F</td>
+              <td>Laboratory 1</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+      <div class="row">
+        <!-- accepted payments column -->
+        <div class="col-xs-12">
+          <p class="lead">Note:</p>
+          <p class="text-muted well well-sm no-shadow" style="margin-top: -10px">
+            1 Minor offense. 2 major offense.
+          </p>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+      <!-- this row will not appear when printing -->
+      <div class="row no-print">
+        <div class="col-xs-12">
+          <button type="button" class="btn btn-success pull-right"><i class="fa fa-print"></i> Print</button>
+        </div>
+      </div>
+    </section>
+    <!-- /.content -->
 
 
     </section>
@@ -376,25 +472,12 @@
 <script src="<?php echo base_url(); ?>bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo base_url(); ?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- Select2 -->
-<script src="<?php echo base_url(); ?>bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
-<!-- iCheck 1.0.1 -->
-<script src="<?php echo base_url(); ?>plugins/iCheck/icheck.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
-<!-- js ni adrii -->
-<script src="<?php echo base_url(); ?>js/forminput.js"></script>
-<!-- bootstrap datepicker -->
-<script src="<?php echo base_url(); ?>bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-<!-- InputMask -->
-<script src="<?php echo base_url(); ?>plugins/input-mask/jquery.inputmask.js"></script>
-<script src="<?php echo base_url(); ?>plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
-<script src="<?php echo base_url(); ?>plugins/input-mask/jquery.inputmask.extensions.js"></script>
-
 <script>
 $(document).ready(function(){ 
 
@@ -412,6 +495,10 @@ $(document).ready(function(){
 
                 $('.name').html(result.first_name +" "+ result.middle_name + " " + result.last_name);
 
+                var sexDb = result.sex;
+                var sex = sexDb.toUpperCase();
+                $('#sex').html(sex);
+
             }
   });
 
@@ -427,6 +514,12 @@ $(document).ready(function(){
 
                 var section_id = result.section_id;
                 var academic_year_id = result.academic_year_id;
+                var db_date_enrolled = result.date_enrolled;
+
+                var dateTime = db_date_enrolled.split(" ");
+                var date_enrolled = dateTime[0];
+
+                $('#date_enrolled').html(date_enrolled);
 
                 $.ajax({
                           url: ajaxUrl,
@@ -435,7 +528,7 @@ $(document).ready(function(){
                           data: {'value' : section_id, 'table': 'sections', 'set': 'id'}, 
                           success: function(result){
 
-                              var strand_code = result.strand_code;
+                              strand_code = result.strand_code;
                               var year_level_id = result.year_level_id;
                               var name = result.name;
 
@@ -447,8 +540,8 @@ $(document).ready(function(){
                                 year_level_id = '12';
                               }
 
-                              $('#strand').html(strand_code);
-                              $('#section_name').html(strand_code+year_level_id+name);
+                              $('.strand').html(strand_code);
+                              $('#section_name').html(year_level_id+'-'+name);
                             
                             }
                 });
@@ -463,6 +556,20 @@ $(document).ready(function(){
                               $('#academic_year').html(result.year_start+'-'+result.year_end);
                             
                           }
+                });
+
+                $.ajax({
+                          url: ajaxUrl,
+                          type: 'post',
+                          dataType: 'json', 
+                          data: {'value' : section_id, 'table': 'schedules', 'set': 'section_id'}, 
+                          success: function(result){
+
+                              $.each(result, function( index, value ) {
+                                $('#sched').append('<td> ')//subject code etc
+                              });
+                            
+                            }
                 });
               
               }
