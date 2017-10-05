@@ -510,7 +510,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="col-lg-4 col-xs-12">
                       <div class="form-group" style="margin-bottom: 5px">
                         <label for="srtandCodeInput">Religion</label>
-                        <input type="text" name = "Religion" class="form-control" id="input-religion" placeholder="Religion">
+                        <input type="text" name = "religion" class="form-control" id="input-religion" placeholder="Religion">
                       </div>       
                     </div> 
                   </div>

@@ -7,7 +7,7 @@ class student_reports extends CI_Controller {
 	{
 	    parent::__construct();
 	    $this->sms_session->checkSession();
-	    $this->load->model('academics/strands_model');
+	    $this->load->model('reports/reports');
 	}
 	public function index()
 	{	
@@ -20,14 +20,36 @@ class student_reports extends CI_Controller {
 		$data = $this->input->post();
 		$arr = array();
 		foreach ($data as $key => $val) {
-			if($val){
+			if($key == 'lrn'){
+				$arr['enrolled_students.students_info_lrn'] = $val;
+			}
+			else if($val){
 				$arr[$key] = $val;
 			}
 		};
 
+		$report = $this->reports->getReports($arr);
+		$rep_arr = array();
+		foreach ($report as $key => $val) {
+			foreach ($val as $k => $value) {
+				if($k == 'academic_year_id'){
+					$rep_arr[$key][$k] = $this->reports->getAcademicYear($value);
+				}
+				else if($k == 'year_level_id'){
+					$rep_arr[$key]['year_level'] = $this->reports->getYearLevel($value);
+				}
+				else if($k == 'date_enrolled'){
+					$date = substr($value,0,9);
+					$rep_arr[$key][$k] = $date;
+				}
+				else{
+					$rep_arr[$key][$k] = $value;
+				}
+			}
+		};
 		echo '<pre>';
-		print_r($arr); 
-		echo '<pre>'; 
+		print_r($rep_arr);
+		echo '<pre>';
 
 	}
 
