@@ -18,8 +18,15 @@ class student_reports extends CI_Controller {
 	}
 	public function search(){
 		$data = $this->input->post();
+		$arr = array();
+		foreach ($data as $key => $val) {
+			if($val){
+				$arr[$key] = $val;
+			}
+		};
+
 		echo '<pre>';
-		print_r($data); 
+		print_r($arr); 
 		echo '<pre>'; 
 
 	}
