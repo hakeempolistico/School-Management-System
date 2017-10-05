@@ -13,12 +13,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/font-awesome/css/font-awesome.min.css">
-  <!-- Select2 -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/select2/dist/css/select2.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/Ionicons/css/ionicons.min.css">
-  <!-- bootstrap datepicker -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- Theme style -->
@@ -322,52 +318,121 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <!-- /.box-header -->
               <div class="box-body">
                 <div class="row">
-                  <div class="col-lg-12 col-xs-12">
-                    <h5><b> Class </b></h5>
+                  <div class="col-lg-3 col-xs-12">
+                    <h5 style="color: darkgrey"><b>Strand</b></h5>
+                    <h5><b>All</b></h5>
+                  </div>
+                  <div class="col-lg-3 col-xs-12">
+                    <h5 style="color: darkgrey"><b>Year</b></h5>
+                    <h5><b>All</b></h5>
+                  </div>
+                  <div class="col-lg-3 col-xs-12">
+                    <h5 style="color: darkgrey"><b>Section</b></h5>
+                    <h5><b>All</b></h5>
+                  </div>
+                </div>
+                <hr style="margin: 0px">
+                <div class="row">
+                  <div class="col-lg-3 col-xs-12">
+                    <h5 style="color: darkgrey"><b>LRN</b></h5>
+                    <h5><b>All</b></h5>
+                  </div>
+                  <div class="col-lg-3 col-xs-12">
+                    <h5 style="color: darkgrey"><b>Date Enrolled</b></h5>
+                    <h5><b>All</b></h5>
+                  </div>
+                  <div class="col-lg-3 col-xs-12">
+                    <h5 style="color: darkgrey"><b>Age</b></h5>
+                    <h5><b>All</b></h5>
+                  </div>
+                </div>
+                <hr style="margin: 0px">
+                <div class="row">
+                  <div class="col-lg-3 col-xs-12">
+                    <h5 style="color: darkgrey"><b>First Name</b></h5>
+                    <h5><b>All</b></h5>
+                  </div>
+                  <div class="col-lg-3 col-xs-12">
+                    <h5 style="color: darkgrey"><b>Middle Name</b></h5>
+                    <h5><b>All</b></h5>
+                  </div>
+                  <div class="col-lg-3 col-xs-12">
+                    <h5 style="color: darkgrey"><b>Last Name</b></h5>
+                    <h5><b>All</b></h5>
+                  </div>
+                </div>
+                <hr style="margin: 0px">
+                <div class="row">
+                  <div class="col-lg-3 col-xs-12">
+                    <h5 style="color: darkgrey"><b>Street</b></h5>
+                    <h5><b>All</b></h5>
+                  </div>
+                  <div class="col-lg-3 col-xs-12">
+                    <h5 style="color: darkgrey"><b>Barangay</b></h5>
+                    <h5><b>All</b></h5>
+                  </div>
+                  <div class="col-lg-3 col-xs-12">
+                    <h5 style="color: darkgrey"><b>City</b></h5>
+                    <h5><b>All</b></h5>
+                  </div>
+                  <div class="col-lg-3 col-xs-12">
+                    <h5 style="color: darkgrey"><b>Province</b></h5>
+                    <h5><b>All</b></h5>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 col-xs-12">
+          <div class="box box-primary">
+              <div class="box-header">
+                <div class="box-title">Column Display</div>
+                <div class="box-title text-gray" style="font-size: 15px">(max of 5)</div>
+              </div>
+              <!-- /.box-header -->
+              <div class="box-body">
+                <div class="row">
+                  <div class="col-lg-2 col-xs-12">
                     <div class="checkbox">
                       <label style="margin-right: 15px;">
                         <input id="cb-strand" type="checkbox">
-                        Strand
-                      </label>
-                      <label style="margin-right: 15px;">
-                        <input id="cb-year" type="checkbox">
-                        Year
-                      </label>
-                      <label style="margin-right: 15px;">
-                        <input id="cb-section" type="checkbox">
-                        Section
+                        LRN
                       </label>
                     </div>
                   </div>
-                </div>
-                <div class="row">
-                  <div class="col-lg-12 col-xs-12">
-                    <h5><b> Student Information </b></h5>
+                  <div class="col-lg-2 col-xs-12">
                     <div class="checkbox">
                       <label style="margin-right: 15px;">
-                        <input id="cb-lrn" type="checkbox">
-                        LRN
-                      </label>
-                      <label style="margin-right: 15px;">
-                        <input id="cb-date" type="checkbox">
-                        Date Enrolled
-                      </label>
-                      <label style="margin-right: 15px;">
-                        <input id="cb-age" type="checkbox">
-                        Age
-                      </label>
-                      <label style="margin-right: 15px;">
-                        <input id="cb-name" type="checkbox">
+                        <input id="cb-strand" type="checkbox">
                         Name
                       </label>
+                    </div>
+                  </div>
+                  <div class="col-lg-2 col-xs-12">
+                    <div class="checkbox">
                       <label style="margin-right: 15px;">
-                        <input id="cb-address" type="checkbox">
+                        <input id="cb-strand" type="checkbox">
+                        Contact
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-lg-2 col-xs-12">
+                    <div class="checkbox">
+                      <label style="margin-right: 15px;">
+                        <input id="cb-strand" type="checkbox">
+                        Birthdate
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-lg-2 col-xs-12">
+                    <div class="checkbox">
+                      <label style="margin-right: 15px;">
+                        <input id="cb-strand" type="checkbox">
                         Address
                       </label>
-                      <label style="margin-right: 15px;">
-                        <input id="cb-religion" type="checkbox">
-                        Religion
-                      </label>                      
                     </div>
                   </div>
                 </div>
@@ -380,147 +445,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="col-lg-12 col-xs-12">
           <div class="box box-primary">
               <div class="box-header">
-                <h3 class="box-title">Search Criteria</h3>
+                <h3 class="box-title">Search Results</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
-                <form method="post" action="<?php echo base_url('reports/student_reports/search');?>">
-                  <div id="row-class" hidden>
-                  <div class="row">
-                    <div id="group-strand" class="col-lg-4 col-xs-12" hidden>
-                      <div class="form-group" style="margin-bottom: 5px">
-                        <label>Strand</label>
-                        <select id="select-strand" name="strand_code" class="form-control select2" style="width: 100%;" data-placeholder="Select Strand">
-                          <option selected="selected"></option>
-                          <?php foreach ($strands as $key => $val) { ?>
-                            <option value="<?php echo $val->code ?>"><?php echo $val->name ?></option>
-                          <?php } ?>
-                        </select>
-                      </div> 
-                    </div>
-                    <div id="group-year" class="col-lg-4 col-xs-12" hidden>
-                      <div class="form-group" style="margin-bottom: 5px">
-                        <label>Year</label>
-                        <select id="select-year" name="year_level_id" class="form-control select2" style="width: 100%;" data-placeholder="Select Year">
-                          <option selected="selected"></option>
-                          <?php foreach ($years as $key => $val) { ?>
-                            <option value="<?php echo $val->id ?>"><?php echo $val->name ?></option>
-                          <?php } ?>
-                        </select>
-                      </div>  
-                    </div>
-                    <div id="group-section" class="col-lg-4 col-xs-12" hidden>
-                      <div class="form-group" style="margin-bottom: 5px">
-                        <label>Section</label>
-                        <select id="select-section" name="section_id" class="form-control select2" style="width: 100%;" data-placeholder="Select Section">
-                          <option selected="selected"></option>
-                        </select>
-                      </div>  
-                    </div>
-                  </div>
-                  <hr>
-                </div>                  
-
-                <div id="row-lrn" hidden>
-                  <div class="row">
-                  <div id="group-lrn" class="col-lg-4 col-xs-12" hidden>
-                    <div class="form-group" style="margin-bottom: 5px">
-                      <label for="srtandCodeInput">LRN</label>
-                      <input type="text" name="lrn" class="form-control" id="input-lrn" placeholder="Student LRN">
-                    </div>       
-                  </div> 
-                  <div id="group-date" class="col-lg-4 col-xs-12" hidden>
-                    <div class="form-group" style="margin-bottom: 5px">
-                      <label for="srtandCodeInput">Date Enrolled</label>
-                      <div class="input-group date">
-                        <div class="input-group-addon">
-                          <i class="fa fa-calendar"></i>
-                        </div>
-                        <input type="text" name="date_enrolled" class="form-control pull-right" id="datepicker">
-                      </div>
-                    </div>       
-                  </div> 
-                  <div id="group-age" class="col-lg-4 col-xs-12" hidden>
-                    <div class="form-group" style="margin-bottom: 5px">
-                      <label for="srtandCodeInput">Age</label>
-                      <input type="text" name="age" class="form-control" id="input-age" placeholder="Student Age">
-                    </div>       
-                  </div> 
-                </div>
-                <hr>
-              </div>
-
-                <div id="row-name" hidden>
-                <div class="row">
-                  <div class="col-lg-4 col-xs-12">
-                    <div class="form-group" style="margin-bottom: 5px">
-                      <label for="srtandCodeInput">First Name</label>
-                      <input type="text" name="first_name" class="form-control" id="input-firstname" placeholder="Student First Name">
-                    </div>       
-                  </div> 
-                  <div class="col-lg-4 col-xs-12">
-                    <div class="form-group" style="margin-bottom: 5px">
-                      <label for="srtandCodeInput">Middle Name</label>
-                      <input type="text" name="middle_name" class="form-control" id="input-middlename" placeholder="Student Middle Name">
-                    </div>       
-                  </div> 
-                  <div class="col-lg-4 col-xs-12">
-                    <div class="form-group" style="margin-bottom: 5px">
-                      <label for="srtandCodeInput">Last Name</label>
-                      <input type="text" name="last_name" class="form-control" id="input-lastname" placeholder="Student Last Name">
-                    </div>       
-                  </div> 
-                </div>
-                <hr>
-                </div>
-                
-
-                <div id="row-address" hidden >
-                <div class="row">
-                  <div class="col-lg-3 col-xs-12">
-                    <div class="form-group" style="margin-bottom: 5px">
-                      <label for="srtandCodeInput">Street</label>
-                      <input type="text" name="street" class="form-control" id="input-street" placeholder="Street">
-                    </div>       
-                  </div> 
-                  <div class="col-lg-3 col-xs-12">
-                    <div class="form-group" style="margin-bottom: 5px">
-                      <label for="srtandCodeInput">Barangay</label>
-                      <input type="text" name="barangay" class="form-control" id="input-baranggay" placeholder="Barangay">
-                    </div>       
-                  </div> 
-                  <div class="col-lg-3 col-xs-12">
-                    <div class="form-group" style="margin-bottom: 5px">
-                      <label for="srtandCodeInput">City</label>
-                      <input type="text" name="city" class="form-control" id="input-city" placeholder="City">
-                    </div>       
-                  </div> 
-                  <div class="col-lg-3 col-xs-12">
-                    <div class="form-group" style="margin-bottom: 5px">
-                      <label for="srtandCodeInput">Province</label>
-                      <input type="text" name="province" class="form-control" id="input-province" placeholder="Province">
-                    </div>       
-                  </div> 
-                </div>
-                <hr>
-                </div>
-                
-                <div id="row-religion" hidden>
-                  <div class="row">
-                    <div class="col-lg-4 col-xs-12">
-                      <div class="form-group" style="margin-bottom: 5px">
-                        <label for="srtandCodeInput">Religion</label>
-                        <input type="text" name = "religion" class="form-control" id="input-religion" placeholder="Religion">
-                      </div>       
-                    </div> 
-                  </div>
-                <hr>
-                </div>
-                
-                      
-                <button type="submit" id="add-btn" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Search</button>
-                </form>
-                
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>LRN</th>
+                  <th>Name</th>
+                  <th>Contact</th>
+                  <th>Birthdate</th>
+                  <th>Address</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>Trident</td>
+                  <td>Trident</td>
+                  <td>Trident</td>
+                  <td>Trident</td>
+                  <td>Trident</td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>LRN</th>
+                  <th>Name</th>
+                  <th>Contact</th>
+                  <th>Birthdate</th>
+                  <th>Address</th>
+                </tr>
+                </tfoot>
+              </table>                
               </div>
           </div>
         </div>
@@ -542,10 +499,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
-<!-- bootstrap datepicker -->
-<script src="<?php echo base_url(); ?>bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-<!-- Select2 -->
-<script src="<?php echo base_url(); ?>bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
 <!-- DataTables -->
@@ -554,159 +507,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 <script>
-//Date picker
-  $('#datepicker').datepicker({
-    autoclose: true
-  })
-  $('.select2').select2();
-  var getSection = '<?php echo base_url('academics/assign_subjects/getSection'); ?>';
-
-  $('#select-year').on('change',function(){
-   year_id = $('#select-year').val();
-   strand_code = $('#select-strand').val();
-
-   $('#select-section').find('option').remove();
-
-   $.ajax({
-      url: getSection,
-      type: 'post',
-      dataType: 'json',  
-      data: {'strand_code': strand_code, 'year_level_id': year_id},
-      success: function(result){
-        //console.log(result);
-          $('#select-section').append($('<option>', { 
-              value: null,
-              text : null
-          })).select2();
-
-        $.each(result, function( index, value ) {
-          $('#select-section').append($('<option>', { 
-              value: value.id,
-              text : value.name
-          })).select2();
-        });
-      }
-    });
-  }); 
-
-  $("#cb-strand").change(function() {
-    if(this.checked) {
-      $('#group-strand').show();
-      $('#row-class').show();
-    }
-    else{
-      if(this.checked == false && $('#cb-section').is(':checked') == false && $('#cb-year').is(':checked') == false) {
-        $('#row-class').hide();
-      }
-      $('#select-strand').val('').trigger('change');
-      $('#group-strand').hide();
-    }
-  });
-
-  $("#cb-section").change(function() {
-    if(this.checked) {
-      $('#group-section').show();
-      $('#row-class').show();
-    }
-    else{
-      if(this.checked == false && $('#cb-strand').is(':checked') == false && $('#cb-year').is(':checked') == false) {
-        $('#row-class').hide();
-      }
-      $('#select-section').val('').trigger('change');
-      $('#group-section').hide();
-    }
-  });
-
-  $("#cb-year").change(function() {
-    if(this.checked) {
-      $('#group-year').show();
-      $('#row-class').show();
-    }
-    else{
-      if(this.checked == false && $('#cb-section').is(':checked') == false && $('#cb-strand').is(':checked') == false) {
-        $('#row-class').hide();
-      }
-      $('#select-year').val('').trigger('change');
-      $('#group-year').hide();
-    }
-  });
-
-  $("#cb-lrn").change(function() {
-    if(this.checked) {
-      $('#group-lrn').show();
-      $('#row-lrn').show();
-    }
-    else{
-      if(this.checked == false && $('#cb-date').is(':checked') == false && $('#cb-age').is(':checked') == false) {
-        $('#row-lrn').hide();
-      }
-      $('#input-lrn').val('');
-      $('#group-lrn').hide();
-    }
-  });
-
-  $("#cb-date").change(function() {
-    if(this.checked) {
-      $('#group-date').show();
-      $('#row-lrn').show();
-    }
-    else{
-      if(this.checked == false && $('#cb-lrn').is(':checked') == false && $('#cb-age').is(':checked') == false) {
-        $('#row-lrn').hide();
-      }
-      $('#datepicker').val('');
-      $('#group-date').hide();
-    }
-  });
-
-  $("#cb-age").change(function() {
-    if(this.checked) {
-      $('#group-age').show();
-      $('#row-lrn').show();
-    }
-    else{
-      if(this.checked == false && $('#cb-lrn').is(':checked') == false && $('#cb-date').is(':checked') == false) {
-        $('#row-lrn').hide();
-      }
-      $('#input-age').val('');
-      $('#group-age').hide();
-    }
-  });
-
-  $("#cb-name").change(function() {
-    if(this.checked) {
-      $('#row-name').show();
-    }
-    else{
-      $('#input-firstname').val('');
-      $('#input-middlename').val('');
-      $('#input-lastname').val('');
-      $('#row-name').hide();
-    }
-  });
-
-  $("#cb-address").change(function() {
-    if(this.checked) {
-      $('#row-address').show();
-    }
-    else{
-      $('#input-street').val('');
-      $('#input-baranggay').val('');
-      $('#input-city').val('');
-      $('#input-province').val('');
-      $('#row-address').hide();
-    }
-  });
-
-  $("#cb-religion").change(function() {
-    if(this.checked) {
-      $('#row-religion').show();
-    }
-    else{
-      $('#input-religion').val('');
-      $('#row-religion').hide();
-    }
-  });
+$('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
   
 </script>
 </body>
