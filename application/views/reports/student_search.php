@@ -390,7 +390,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="box box-primary">
               <div class="box-header">
                 <div class="box-title">Column Display</div>
-                <div class="box-title text-gray" style="font-size: 15px">(max of 6)</div>
+                <div class="box-title text-gray" style="font-size: 15px">(max of 5)</div>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
@@ -399,7 +399,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="checkbox">
                       <label style="margin-right: 15px;">
                         <input id="cb-strand" type="checkbox">
-                        Strand
+                        LRN
                       </label>
                     </div>
                   </div>
@@ -407,7 +407,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="checkbox">
                       <label style="margin-right: 15px;">
                         <input id="cb-strand" type="checkbox">
-                        Strand
+                        Name
                       </label>
                     </div>
                   </div>
@@ -415,7 +415,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="checkbox">
                       <label style="margin-right: 15px;">
                         <input id="cb-strand" type="checkbox">
-                        Strand
+                        Contact
                       </label>
                     </div>
                   </div>
@@ -423,7 +423,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="checkbox">
                       <label style="margin-right: 15px;">
                         <input id="cb-strand" type="checkbox">
-                        Strand
+                        Birthdate
                       </label>
                     </div>
                   </div>
@@ -431,15 +431,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="checkbox">
                       <label style="margin-right: 15px;">
                         <input id="cb-strand" type="checkbox">
-                        Strand
-                      </label>
-                    </div>
-                  </div>
-                  <div class="col-lg-2 col-xs-12">
-                    <div class="checkbox">
-                      <label style="margin-right: 15px;">
-                        <input id="cb-strand" type="checkbox">
-                        Strand
+                        Address
                       </label>
                     </div>
                   </div>
