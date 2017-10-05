@@ -68,8 +68,7 @@ class teachers extends CI_Controller {
             	
                 $arr = array(
                     $value->employee_id,
-                    $value->first_name,
-                    $value->last_name,
+                    $value->first_name.' '.$value->middle_name.' '.$value->last_name,
                     $status,
                     $action
                 );

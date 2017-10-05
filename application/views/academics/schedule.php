@@ -35,8 +35,7 @@
   <![endif]-->
 
   <!-- Google Font -->
-  <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/googlefont.css">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -129,12 +128,25 @@
                 Dashboard
               </a>
             </li> 
+            
             <li>
               <a href="<?php echo site_url('enrollment/register_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Register Student
+              <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
               </a>
+              <ul class="treeview-menu">
+                <li>
+                  <a href="<?php echo site_url('enrollment/register_student/form'); ?>">
+                    <i class="fa fa-circle-o"></i>
+                    Register Form
+                  </a>
+                </li>
+              </ul>
             </li>
+
             <li>
               <a href="<?php echo site_url('enrollment/enroll_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
@@ -298,9 +310,20 @@
 
     <!-- Main content -->
     <section class="content">
+
+    <div class="row">
+      <div class="col-xs-12 col-lg-12">
+        <div class="alert alert-success alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <h4><i class="icon fa fa-info"></i>User's Guide</h4>
+          1. Select class. <br> 2. Add row. <br> 3. Input time under time column. <br> 4. Create event. Select subject. Select room. <br> 5. Drag event onto table. <br> 6. Then click <b>Save Sched</b>. *Table cells must be completely filled.
+        </div>
+      </div>
+    </div>
+
     <div class="row">
       <div class="col-lg-4 col-xs-12">
-        <div class="input-group margin" style="margin: 0 0 10px 0;">
+        <div class="input-group margin hidden-print" style="margin: 0 0 10px 0;" >
                 <select id="select-class" class="form-control select2"  data-placeholder="Select Class" style="width: 100%">
                   <option></option>
                   <?php foreach ($classes as $val) 
@@ -414,13 +437,13 @@
                 <!-- /btn-group -->
               </div>
               <!-- /input-group -->
-              <button id="add-vacant" type="button" class="btn btn-primary btn-flat custom" style="margin-top: 10px">Add Vacant</button>
-              <button id="add-break" type="button" class="btn btn-primary btn-flat custom pull-right" style="margin-top: 10px">Add Break</button>
+              <button id="add-vacant" type="button" class="btn btn-flat custom" style="margin-top: 10px; background-color: gray; color: white">Add Vacant</button>
+              <button id="add-break" type="button" class="btn btn-flat custom pull-right" style="margin-top: 10px; background-color: darkgray; color: white">Add Break</button>
             </div>
           </div>
 
           <!-- DRAGGABLE EVENTS -->
-          <div class="box box-solid">
+          <div class="box box-solid hidden-print">
             <div class="box-header with-border">
               <h4 class="box-title">Draggable Events</h4>
             </div>
@@ -438,6 +461,9 @@
               <!-- THE TABLE SCHEDULE -->
               <table  id="schedule" class="table table-bordered table-hover table-schedule">
                 <thead>
+                <tr>
+                  <th id="tbl-title" colspan="6" class="text-success">SELECT CLASS</th>
+                </tr>
                 <tr>
                   <th>Time</th>
                   <th>Monday</th>
@@ -556,16 +582,6 @@
                 </tr>
               </div>
               </tbody>
-                <tfoot>
-                <tr>
-                  <th>Time</th>
-                  <th>Monday</th>
-                  <th>Tuesday</th>
-                  <th>Wednesday</th>
-                  <th>Thursday</th>
-                  <th>Friday</th>
-                </tr>
-                </tfoot>
               </table>
 
             </div>

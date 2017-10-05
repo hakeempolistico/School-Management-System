@@ -50,7 +50,7 @@
       }
       //Create id variable
       var i = $(".count").length;
-      i = i + 1;
+      i = i ++;
       //Create events
       var event = $('<div />')
       event.addClass('external-event flat')
@@ -58,7 +58,7 @@
         event.html('<div class="val-subject">'+val1+'</div><div class="text-gray val-room">'+val2+'</div>')
       }
       else{
-        event.html(val1)
+        return
       }
       
 
@@ -82,18 +82,18 @@
       var val1 = 'VACANT'
       //Create id variable
       var i = $(".count").length;
-      i = i + 1;
+      i = i++;
       //Create events
       var event = $('<div />')
       event.addClass('external-event flat')
-      event.html('<div class="val-subject">'+val1+'</div><div class="text-gray val-room">none</div>')
+      event.html('<div class="val-subject ">'+val1+'</div><div class="text-gray val-room"></div>')
       
 
       event.attr('id', i )
       event.attr('class','count object')
       event.attr('draggable','true')
       event.attr('ondragstart','drag(event)')
-      event.attr('style','resize: vertical; overflow: auto; color: black; background-color: grey;')
+      event.attr('style','resize: vertical; overflow: auto; color: white; background-color: grey;')
       
       $('#external-events').prepend(event)      
     })
@@ -103,18 +103,18 @@
       var val1 = 'BREAK'
       //Create id variable
       var i = $(".count").length;
-      i = i + 1;
+      i = i++;
       //Create events
       var event = $('<div />')
       event.addClass('external-event flat')
-      event.html('<div class="val-subject">'+val1+'</div><div class="text-gray val-room">none</div>')
+      event.html('<div class="val-subject">'+val1+'</div><div class="text-gray val-room"></div>')
       
 
       event.attr('id', i )
       event.attr('class','count object')
       event.attr('draggable','true')
       event.attr('ondragstart','drag(event)')
-      event.attr('style','resize: vertical; overflow: auto; color: black; background-color: lightgrey;')
+      event.attr('style','resize: vertical; overflow: auto; color: white; background-color: darkgrey;')
       
       $('#external-events').prepend(event)      
     })
@@ -159,6 +159,7 @@ $('#btn-enter').on('click',function(){
   $("#select-room").val('').trigger('change');
 
   //POPULATE TABLE 
+  $('.loading').show();
   $.ajax({
     url: getScheduleUrl,
     type: 'post',
@@ -225,7 +226,7 @@ $('#btn-enter').on('click',function(){
           '<td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)">'+fri_obj+'</td></tr>');
       
         $('td').click(function(){
-         var row_index = $(this).parent().index()+1; 
+         var row_index = $(this).parent().index()+2; 
          var hasClass=$("table tr:eq("+row_index+")").hasClass('selectedRow');
          if(hasClass==true){
             $("table tr:eq("+row_index+")").removeClass('selectedRow');
@@ -238,11 +239,12 @@ $('#btn-enter').on('click',function(){
         });
       });
 
-
+    $('.loading').delay(500).hide();
     }
   });
 
   //POPULATE SECTIONS SELECT
+  $('.loading').show();
   $.ajax({
     url: getSectionUrl,
     type: 'post',
@@ -253,6 +255,7 @@ $('#btn-enter').on('click',function(){
       $('#class-strand').html(result[0].strand_code);
       $('#class-year-section').html(result[0].year_level.substring(6) + '-' + result[0].section_name);
       $('#class-capacity').html(result[0].capacity);
+      $('#tbl-title').html(result[0].strand_code+' '+result[0].year_level.substring(6) + '-' + result[0].section_name);
 
       $(".custom").prop('disabled', false);
 
@@ -277,6 +280,7 @@ $('#btn-enter').on('click',function(){
           });
         }
       }); 
+      $('.loading').delay(500).hide();
     } 
   });    
 })
@@ -292,7 +296,7 @@ $('#row-remove-all').click(function(){
     $('tbody').append('<tr class="tr-height"><td contenteditable="true" class="time"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td></tr>');
       
       $('td').click(function(){
-       var row_index = $(this).parent().index()+1; 
+       var row_index = $(this).parent().index()+2; 
        var hasClass=$("table tr:eq("+row_index+")").hasClass('selectedRow');
        if(hasClass==true){
           $("table tr:eq("+row_index+")").removeClass('selectedRow');
@@ -307,7 +311,7 @@ $('#row-remove-all').click(function(){
   })
 
   $('td').click(function(){
-   var row_index = $(this).parent().index()+1; 
+   var row_index = $(this).parent().index()+2; 
    var hasClass=$("table tr:eq("+row_index+")").hasClass('selectedRow');
    if(hasClass==true){
       $("table tr:eq("+row_index+")").removeClass('selectedRow'); stopPropagation();
@@ -327,53 +331,71 @@ printData();
 });
 
 $('#row-save').on('click',function(){
+  var object_length = $('table').find('.object').length;
+  var row_length = $('table').find('tr').length;
+  var row_calculate = (row_length - 2) * 5;
+  //console.log('Object Length : '+row_length);
+  //console.log('Row Length : '+object_length);
+  if(object_length != row_calculate){
+    alert('Table must be completed. Please fill up blank cell.');
+    return;
+  }
+
+  $('.loading').show();
   $.ajax({
       url: deleteScheduleUrl,
       type: 'post',
       dataType: 'json',
       data: {'section_id' : sectionId},  
       success: function(res){ 
-        console.log(res);
+        console.log('---');
+
+        $('table').find('.object').each(function( index ) {
+          //console.log( index + ": " + $( this ).find('.val-subject').text() );
+          //console.log( index + ": " + $( this ).find('.val-room').text() );
+
+          var subject_code = $( this ).find('.val-subject').text();
+          var room_id = $( this ).find('.val-room').text();
+          var time = $(this).parents('tr').find('.time').html();
+          var timeSplit = time.split("-");
+          var time_start = timeSplit[0];
+          var time_end = timeSplit[1];
+          var day = $(this).closest('table').find('th').eq($(this).parents('td').index()+1).html();
+          var color = $(this).css("background-color");
+          var row = $(this).parents('tr').index();
+
+          //console.log('Subject Code : ' + subject_code);
+          //console.log('Section ID : ' + sectionId);
+          //console.log('Room ID : ' + room_id);
+          //console.log('Time Start : ' + time_start);
+          //console.log('Time End : ' + time_end);
+          //console.log('Day : ' + day);
+          //console.log('Color : ' + color);
+          //console.log('Row : ' + $(this).parents('tr').index());
+
+          $.ajax({
+            url: addScheduleUrl,
+            type: 'post',
+            dataType: 'json',
+            data: {
+              'section_id' : sectionId,
+              'subject_code' : subject_code,
+              'room_id' : room_id,
+              'time_start' : time_start,
+              'time_end' : time_end,
+              'day' : day,
+              'color' : color,
+              'row' : row
+            },  
+            success: function(res){ 
+              console.log(res);
+            }
+          });
+
+        });
+        $('.loading').delay(500).hide();
       }
     });
-  $('table').find('.object').each(function( index ) {
-    //console.log( index + ": " + $( this ).find('.val-subject').text() );
-    //console.log( index + ": " + $( this ).find('.val-room').text() );
 
-    var subject_code = $( this ).find('.val-subject').text();
-    var room_id = $( this ).find('.val-room').text();
-    var time = $(this).parents('tr').find('.time').html();
-    var timeSplit = time.split("-");
-    var time_start = timeSplit[0];
-    var time_end = timeSplit[1];
-    var day = $(this).closest('table').find('th').eq($(this).parents('td').index()).html();
-    var color = $(this).css("background-color")
-
-    //console.log('Subject Code : ' + subject_code);
-    //console.log('Section ID : ' + sectionId);
-    //console.log('Room ID : ' + room_id);
-    //console.log('Time Start : ' + time_start);
-    //console.log('Time End : ' + time_end);
-    //console.log('Day : ' + day);
-    //console.log('Color : ' + color);
-
-    $.ajax({
-      url: addScheduleUrl,
-      type: 'post',
-      dataType: 'json',
-      data: {
-        'section_id' : sectionId,
-        'subject_code' : subject_code,
-        'room_id' : room_id,
-        'time_start' : time_start,
-        'time_end' : time_end,
-        'day' : day,
-        'color' : color
-      },  
-      success: function(res){ 
-        console.log(res);
-      }
-    });
-
-  });
+  
 });

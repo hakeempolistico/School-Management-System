@@ -15,8 +15,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/Ionicons/css/ionicons.min.css">
-  <!-- Select2 -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/select2/dist/css/select2.min.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- Theme style -->
@@ -163,7 +161,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </a>
 
           <ul class="treeview-menu">
-            <li>
+            <li class="active">
               <a href="<?php echo site_url('academics/strands'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Strands
@@ -187,7 +185,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   Subjects
               </a>
             </li>
-            <li class="active">
+            <li>
               <a href="<?php echo site_url('academics/assign_subjects'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Assign Subjects
@@ -203,7 +201,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           
         </li>
       
-        
         <li class="treeview">
           <a href="#">
             <i class="fa fa-id-card"></i>
@@ -278,8 +275,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </li>                               
           </ul>          
         </li>
-       
-
         
       </ul>
     </section>
@@ -302,88 +297,150 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Assign Subjects
-        <small>temporary message here</small>
+        Enrollment Form
+        <small>Sample enrollment form</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="enrollment/dashboard"><i class="fa fa-mortar-board"></i> Academics</a></li>
-        <li class="active">Assign Subjects</li>
+        <li class="active">Strands</li>
       </ol>
     </section>
 
     <!-- Main content -->
-    <section class="content">
+    <section class="invoice">
+      <!-- title row -->
       <div class="row">
-        <div class="col-lg-4 col-xs-12">
-          <div class="box box-primary">
-              <div class="box-header">
-                <h3 class="box-title">Select class</h3>
-              </div>
-              <!-- /.box-header -->
-              <div class="box-body">                  
-                    <div class="form-group" style="margin-bottom: 5px">
-                      <label>Strand</label>
-                      <select id="select-strand" data-placeholder="Select Strand" class="form-control select2" style="width: 100%;">
-                        <option id="option-strand"></option>
-                      </select>
-                    </div>                   
-                    <div class="form-group" style="margin-bottom: 5px">
-                      <label>Year</label>
-                      <select id="select-year" data-placeholder="Select Year" class="form-control select2" style="width: 100%;">
-                        <option id="option-year"></option>
-                      </select>
-                    </div>                   
-                    <div class="form-group" style="margin-bottom: 7px">
-                      <label>Section</label>
-                      <select id="select-section" data-placeholder="Select Section" class="form-control select2" style="width: 100%;">
-                        <option id="option-section"></option>
-                      </select>
-                    </div> 
-                
-                <button id="confirm-btn" type="button" style="width: 100px" class="btn btn-sm btn-primary pull-right">Confirm</button>
-              </div>
-          </div>
+        <div class="col-xs-12">
+          <h2 class="page-header">
+            <i class="fa fa-globe"></i> Araullo High School
+            <small class="pull-right"><b style="margin-right: 5px">Academic Year:</b> 2017-2018&emsp;<b style="margin-right: 5px"> Date Enrolled:</b> 2/10/2014</small> 
+          </h2>
         </div>
+        <!-- /.col -->
+      </div>
+      <!-- info row -->
+      <div class="row invoice-info">
+        <div class="col-sm-4 invoice-col">
+          <b style="margin-right: 5px"> LRN: </b> 14-038-014 <br>
+          <b style="margin-right: 5px"> Strand: </b> STEM
+          
+        </div>
+        <div class="col-sm-4 invoice-col">
+          <b style="margin-right: 5px"> Name: </b> HAKEEM ANDAYA POLISTICO <br>
+          <b style="margin-right: 5px"> Year and Section: </b> 11-A
+        </div>
+        <div class="col-sm-4 invoice-col">
+          <b style="margin-right: 5px"> Sex: </b> MALE
+        </div>
+      </div>
+      <hr>
+      <!-- /.row -->
 
-        <div class="col-lg-8 col-xs-12">
-          <div class="box box-primary">
-              <div class="box-header">
-                <h3 class="box-title" id="assign-subjects-title">Add Subjects</h3>
-                <h3 class="box-title pull-right"><button id="add-btn" class="btn btn-default btn-xs"><span class="fa fa-fw fa-plus"></span></button></h3>
-              </div>
-              <!-- /.box-header -->
-              <div class="box-body">
-                  <div class="row">
-                    <div class="col-xs-12 col-lg-6">
-                      <div class="form-group" id="group-subject">
-                        <label id="label-subject" for="subjectNameInput">Subject</label>
-                        <select id="select-subject" data-placeholder="Select Subject" class="subject-input form-control select2" style="width: 100%;">
-                          <option></option>
-                        </select>
-                      </div> 
-                    </div>
-                           
-                    <div class="col-xs-12 col-lg-6">
-                      <div class="form-group" id="group-teacher" >
-                        <label id="label-teacher" for="subjectCodeInput">Teacher</label>
-                        <select id="select-teacher" data-placeholder="Select Seacher" class="teacher-input form-control select2" style="width: 100%;">
-                          <option></option>
-                        </select>
-                      </div> 
-                    </div>
-                  </div>     
-                     
+      <!-- Table row -->
+      <div class="row">
+        <div class="col-xs-12 table-responsive">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>Subject Code</th>
+              <th>Subject Name</th>
+              <th>Time</th>
+              <th>Day</th>
+              <th>Room</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>CHM</td>
+              <td>Chemistry 1</td>
+              <td>6:00-7:00</td>
+              <td>M/T/W/F</td>
+              <td>Laboratory 1</td>
+            </tr>
+            <tr>
+              <td>PHYS</td>
+              <td>Physics 1</td>
+              <td>6:00-7:00</td>
+              <td>M/T/TH/F</td>
+              <td>Laboratory 1</td>
+            </tr>
+            <tr>
+              <td>PHYS</td>
+              <td>Physics 1</td>
+              <td>6:00-7:00</td>
+              <td>M/T/TH/F</td>
+              <td>Laboratory 1</td>
+            </tr>
+            <tr>
+              <td>PHYS</td>
+              <td>Physics 1</td>
+              <td>6:00-7:00</td>
+              <td>M/T/TH/F</td>
+              <td>Laboratory 1</td>
+            </tr>
+            <tr>
+              <td>PHYS</td>
+              <td>Physics 1</td>
+              <td>6:00-7:00</td>
+              <td>M/T/TH/F</td>
+              <td>Laboratory 1</td>
+            </tr>
+            <tr>
+              <td>PHYS</td>
+              <td>Physics 1</td>
+              <td>6:00-7:00</td>
+              <td>M/T/TH/F</td>
+              <td>Laboratory 1</td>
+            </tr>
+            <tr>
+              <td>PHYS</td>
+              <td>Physics 1</td>
+              <td>6:00-7:00</td>
+              <td>M/T/TH/F</td>
+              <td>Laboratory 1</td>
+            </tr>
+            <tr>
+              <td>PHYS</td>
+              <td>Physics 1</td>
+              <td>6:00-7:00</td>
+              <td>M/T/TH/F</td>
+              <td>Laboratory 1</td>
+            </tr>
+            <tr>
+              <td>PHYS</td>
+              <td>Physics 1</td>
+              <td>6:00-7:00</td>
+              <td>M/T/TH/F</td>
+              <td>Laboratory 1</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
 
-                <button id="save-btn" type="button" style="width: 100px" class="btn btn-block btn-primary pull-right">Save</button>  
-            </div>
+      <div class="row">
+        <!-- accepted payments column -->
+        <div class="col-xs-12">
+          <p class="lead">Note:</p>
+          <p class="text-muted well well-sm no-shadow" style="margin-top: -10px">
+            1 Minor offense. 2 major offense.
+          </p>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
 
-
-            
-          </div>
+      <!-- this row will not appear when printing -->
+      <div class="row no-print">
+        <div class="col-xs-12">
+          <button type="button" class="btn btn-success pull-right"><i class="fa fa-print"></i> Print</button>
         </div>
       </div>
     </section>
     <!-- /.content -->
+    <div class="clearfix"></div>
   </div>
   <!-- /.content-wrapper -->
   {footer}
@@ -397,24 +454,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
-<!-- Select2 -->
-<script src="<?php echo base_url(); ?>bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
 <!-- DataTables -->
 <script src="<?php echo base_url(); ?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<script src="<?php echo base_url('dist/js/academics/assign_subjects.js'); ?>"></script>
+
 
 <script>
-var getStrands = '<?php echo base_url('academics/assign_subjects/getStrands'); ?>';
-var getYears = '<?php echo base_url('academics/assign_subjects/getYears'); ?>';
-var getSection = '<?php echo base_url('academics/assign_subjects/getSection'); ?>';
-var getSubjects = '<?php echo base_url('academics/assign_subjects/getSubjects'); ?>';
-var getTeachers = '<?php echo base_url('academics/assign_subjects/getTeachers'); ?>';
-var addUrl = '<?php echo base_url('academics/assign_subjects/addClassSubjects'); ?>';
-var getClassSubjects = '<?php echo base_url('academics/assign_subjects/getClassSubjects'); ?>';
-var deleteUrl = '<?php echo base_url('academics/assign_subjects/deleteClassSubject'); ?>';
+
+  
 </script>
 </body>
 </html>

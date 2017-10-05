@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <![endif]-->
 
   <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/googlefont.css">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -121,13 +121,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <i class="fa fa-circle-o text-aqua"></i>
                 Dashboard
               </a>
-            </li> 
+            </li>
+             
             <li>
               <a href="<?php echo site_url('enrollment/register_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Register Student
+              <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
               </a>
+              <ul class="treeview-menu">
+                <li>
+                  <a href="<?php echo site_url('enrollment/register_student/form'); ?>">
+                    <i class="fa fa-circle-o"></i>
+                    Register Form
+                  </a>
+                </li>
+              </ul>
             </li>
+
             <li>
               <a href="<?php echo site_url('enrollment/enroll_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
@@ -311,20 +324,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <div class="form-group"style="margin-bottom: 5px;">
                     <label for="code-input">Code</label>
                     <label for="name-input" class="text-danger">*</label>
-                    <input type="text" class="form-control" id="code-input" placeholder="subject code" required>
+                    <input type="text" class="form-control" id="code-input" placeholder="Subject Code" required>
                   </div>
                   <div class="form-group" style="margin-bottom: 5px;">
                     <label for="name-input">Name</label>
                     <label for="name-input" class="text-danger">*</label>
-                    <input type="text" class="form-control" id="name-input" placeholder="subject name" required>
+                    <input type="text" class="form-control" id="name-input" placeholder="Subject Name" required>
                   </div>
                   <div class="form-group" style="margin-bottom: 5px;">
                     <label for="type-input">Type</label>
-                    <input type="text" class="form-control" id="type-input" placeholder="subject type">
+                    <input type="text" class="form-control" id="type-input" placeholder="Subject Type">
                   </div>
                   <div class="form-group" style="margin-bottom: 7px;">
                     <label for="description-input">Description</label>
-                    <input type="text" class="form-control" id="description-input" placeholder="subject description">
+                    <input type="text" class="form-control" id="description-input" placeholder="Subject Description">
                   </div>
                   <button id="add-btn" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Add</button>
               </div>
