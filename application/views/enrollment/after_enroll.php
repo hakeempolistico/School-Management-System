@@ -507,53 +507,56 @@ $(document).ready(function(){
                           data: {'value' : section_id, 'table': 'schedules', 'set': 'section_id'}, 
                           success: function(result){
                             //alert(JSON.stringify(result));
-
                             var subject_name;
-                            var day;
+                            var sched_day;
 
                             $.each(result, function( index, value ) {
                               //alert(JSON.stringify(value));
-
+                              var i = 0;
                               var subject_code = value.subject_code;
-                              var time = value.time_start+'-'+value.time_end;
-                              var room = value.room;
+                              var day = value.day;
 
-                              if (result.day == 'Monday'){
-                                day = 'M';
-                              } else if(result.day == 'Tuesday'){
-                                day = 'T';
-                              } else if(result.day == 'Wednesday'){
-                                day = 'W';
+                              if(subject_code == 'BREAK'){
+                                return;
+                              } else if(subject_code == 'VACANT'){
+                                return;
                               }
-                              else if(result.day == 'Thursday'){
-                                day = 'Th';
-                              }
-                              else if(result.day == 'Friday'){
-                                day = 'F';
-                              }
+                              var time = value.time_start+'-'+value.time_end;
+                              var room = value.room_id;
+
+                              
 
                               $.ajax({
                                       url: ajaxUrl,
                                       type: 'post',
                                       dataType: 'json', 
                                       data: {'value' : subject_code, 'table': 'subjects', 'set': 'code'}, 
-                                      success: function(result){
+                                      success: function(res){
 
-
-                                        //alert(result);
-                                        if (result = 'null'){
-                                          var subject_name = 'BREAK';
-                                        } else {
-                                          var subject_name = result.name;
-                                          
+                                        if (day == 'Monday'){
+                                          sched_day = 'M';
+                                        } else if(day == 'Tuesday'){
+                                          sched_day = 'T';
+                                        } else if(day == 'Wednesday'){
+                                          sched_day = 'W';
+                                        } else if(day == 'Thursday'){
+                                          sched_day = 'Th';
+                                        } else if(day == 'Friday'){
+                                          sched_day = 'F';
                                         }
+
+                                        if (res){
+                                          subject_name = res.name;
+                                        }
+                                        console.log(day);
+                                          $('#sched').append('<tr><td>'+subject_code+'</td><td>'+subject_name+'</td><td>'+time+'</td><td>'+sched_day+'</td><td>'+room+'</td></tr>');
                                       }
                               });
 
                               $('#schedRecord').hide();
 
-                              $('#sched').append('<tr><td>'+subject_code+'</td><td>'+subject_name+'</td><td>'+time+'</td><td>'+day+'</td><td>'+room+'</td></tr>');//subject code etc
-
+                              //subject code etc
+                              i++;
                             });
 
                             
