@@ -294,51 +294,91 @@
 
     <!-- Main content -->
     <section class="content">
-      
-      <div class="callout callout-success">
-        <h4>Enrollment Complete!</h4>
+      <div style="padding: 0 25px;">
+        <div class="callout callout-success">
+          <h4>Enrollment Complete!</h4>
 
-        <p>You have successfully enrolled <bold class="name">Adrielle Kristine Nicolette M. Escaro</bold> to <bold id="strand">STEM</bold>. Would you like to enroll another student?</p>
-      </div>
-
-      <div class="box box-default">
-        <div class="box-body box-profile" style=" padding: 20px;">
-          <div class="row">
-            <div class="col-md-4"><center>
-              <img src="<?php echo base_url('images/alt_picture.jpg');?>" class="img-circle" alt="<?php echo base_url('images/alt_picture.jpg');?>" style="width: 70%; margin-bottom: 10px;"></center>
-              <h3 class="profile-username text-center name" style="padding: 0 20px;">Adrielle Kristine Nicolette M. Escaro</h3>
-
-              <a href="<?php echo site_url('enrollment/enroll_student'); ?>" class="btn btn-primary" style="width:100%; margin-bottom: 10px;">Enroll another student</a>
-            </div>
-            <!-- /. col-->
-
-            <div class="col-md-8">
-              <table class="table">
-                <tr>
-                  <td><b>LRN</b></td>
-                  <td><a id="lrn">SEE HOW DIRTY I CAN GET THEM</a></td>
-                </tr>
-                <tr>
-                  <td><b>Note</b></td>
-                  <td><a id="note">LETS BE ALONE TOGETHER</a></td>
-                </tr>
-                <tr>
-                  <td><b>Section Name</b></td>
-                  <td><a id="section_name">TAKE IT ALL AWAY</a></td>
-                </tr>
-                <tr>
-                  <td><b>Academic Year</b></td>
-                  <td><a id="academic_year">OOOOOOOOOH</a></td>
-                </tr>
-              </table>
-            </div>
-            <!-- /.col -->
-          </div>
-          <!-- /.row -->
+          <p>You have successfully enrolled <bold class="name">Adrielle Kristine Nicolette M. Escaro</bold> to <bold class="strand">STEM</bold>.</p>
         </div>
-        <!-- /.box-body -->
+    </div>
+
+      <section class="invoice">
+      <!-- title row -->
+      <div class="row">
+        <div class="col-xs-12">
+          <h2 class="page-header">
+            <i class="fa fa-globe"></i> Araullo High School
+            <small class="pull-right"><b style="margin-right: 5px">Academic Year:</b> <p style="display: inline-block;" id="academic_year">2017-2018</p>&emsp;<b style="margin-right: 5px"> Date Enrolled:</b> <p style="display: inline-block;" id="date_enrolled">2/10/2014</p></small> 
+          </h2>
+        </div>
+        <!-- /.col -->
       </div>
-      <!-- /. box -->
+      <!-- info row -->
+      <div class="row invoice-info">
+        <div class="col-sm-4 invoice-col">
+          <b style="margin-right: 5px"> LRN: </b> <p style="display: inline-block;" id="lrn">14-038-014</p> <br>
+          <b style="margin-right: 5px"> Strand: </b> <p style="display: inline-block;" class="strand">STEM</p>
+          
+        </div>
+        <div class="col-sm-4 invoice-col">
+          <b style="margin-right: 5px"> Name: </b> <p style="display: inline-block;" class="name">HAKEEM ANDAYA POLISTICO</p> <br>
+          <b style="margin-right: 5px"> Year and Section: </b> <p style="display: inline-block;" id="section_name">11-A</p>
+        </div>
+        <div class="col-sm-4 invoice-col">
+          <b style="margin-right: 5px"> Sex: </b> <p style="display: inline-block;" id="sex">MALE</p>
+        </div>
+      </div>
+      <hr>
+      <!-- /.row -->
+
+      <!-- Table row -->
+      <div class="row">
+        <div class="col-xs-12 table-responsive">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>Subject Code</th>
+              <th>Subject Name</th>
+              <th>Time</th>
+              <th>Day</th>
+              <th>Room</th>
+            </tr>
+            </thead>
+            <tbody id="sched">
+            <tr id="schedRecord">
+              <td>CHM</td>
+              <td>Chemistry 1</td>
+              <td>6:00-7:00</td>
+              <td>M/T/W/F</td>
+              <td>Laboratory 1</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+      <div class="row">
+        <!-- accepted payments column -->
+        <div class="col-xs-12">
+          <p class="lead">Note:</p>
+          <p class="text-muted well well-sm no-shadow" style="margin-top: -10px">
+            1 Minor offense. 2 major offense.
+          </p>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+      <!-- this row will not appear when printing -->
+      <div class="row no-print">
+        <div class="col-xs-12">
+          <button type="button" class="btn btn-success pull-right"><i class="fa fa-print"></i> Print</button>
+        </div>
+      </div>
+    </section>
+    <!-- /.content -->
 
 
     </section>
@@ -379,11 +419,9 @@
 
 <script>
 $(document).ready(function(){ 
-
-
   var lastLrn = <?php echo $lastLrn;?>;
   var ajaxUrl = "<?php echo base_url("enrollment/enroll_student/ajax"); ?>"
-
+  var ajaxRowUrl = "<?php echo base_url("enrollment/enroll_student/ajaxRowUrl"); ?>"
   $.ajax({
             url: ajaxUrl,
             type: 'post',
@@ -391,25 +429,26 @@ $(document).ready(function(){
             data: {'value' : lastLrn, 'table': 'students_info', 'set': 'lrn'}, 
             success: function(result){
               //alert(result);
-
                 $('.name').html(result.first_name +" "+ result.middle_name + " " + result.last_name);
-
+                var sexDb = result.sex;
+                var sex = sexDb.toUpperCase();
+                $('#sex').html(sex);
             }
   });
-
   $.ajax({
             url: ajaxUrl,
             type: 'post',
             dataType: 'json', 
             data: {'value' : lastLrn, 'table': 'enrolled_students', 'set': 'students_info_lrn'}, 
             success: function(result){
-
                 $('#lrn').html(result.students_info_lrn);
                 $('#note').html(result.note); 
-
                 var section_id = result.section_id;
                 var academic_year_id = result.academic_year_id;
-
+                var db_date_enrolled = result.date_enrolled;
+                var dateTime = db_date_enrolled.split(" ");
+                var date_enrolled = dateTime[0];
+                $('#date_enrolled').html(date_enrolled);
                 $.ajax({
                           url: ajaxUrl,
                           type: 'post',
@@ -417,10 +456,9 @@ $(document).ready(function(){
                           data: {'value' : section_id, 'table': 'sections', 'set': 'id'}, 
                           success: function(result){
 
-                              var strand_code = result.strand_code;
+                              strand_code = result.strand_code;
                               var year_level_id = result.year_level_id;
                               var name = result.name;
-
                               if (year_level_id == 1)
                               {
                                 year_level_id = '11';
@@ -428,75 +466,93 @@ $(document).ready(function(){
                               {
                                 year_level_id = '12';
                               }
-
-                              $('#strand').html(strand_code);
-                              $('#section_name').html(strand_code+year_level_id+name);
+                              $('.strand').html(strand_code);
+                              $('#section_name').html(year_level_id+'-'+name);
                             
                             }
                 });
-
                 $.ajax({
                           url: ajaxUrl,
                           type: 'post',
                           dataType: 'json', 
                           data: {'value' : academic_year_id, 'table': 'academic_years', 'set': 'id'}, 
                           success: function(result){
-
                               $('#academic_year').html(result.year_start+'-'+result.year_end);
+                            
+                          }
+                });
+                //alert(section_id);
+                $.ajax({
+                          url: ajaxRowUrl,
+                          type: 'post',
+                          dataType: 'json', 
+                          data: {'value' : section_id, 'table': 'schedules', 'set': 'section_id'}, 
+                          success: function(result){
+                            //alert(JSON.stringify(result));
+                            var subject_name;
+                            var sched_day;
+
+                            $.each(result, function( index, value ) {
+                              //alert(JSON.stringify(value));
+                              var i = 0;
+                              var subject_code = value.subject_code;
+                              var day = value.day;
+
+                              if(subject_code == 'BREAK'){
+                                return;
+                              } else if(subject_code == 'VACANT'){
+                                return;
+                              }
+                              var time = value.time_start+'-'+value.time_end;
+                              var room = value.room_id;
+
+                              
+
+                              $.ajax({
+                                      url: ajaxUrl,
+                                      type: 'post',
+                                      dataType: 'json', 
+                                      data: {'value' : subject_code, 'table': 'subjects', 'set': 'code'}, 
+                                      success: function(res){
+
+                                        if (day == 'Monday'){
+                                          sched_day = 'M';
+                                        } else if(day == 'Tuesday'){
+                                          sched_day = 'T';
+                                        } else if(day == 'Wednesday'){
+                                          sched_day = 'W';
+                                        } else if(day == 'Thursday'){
+                                          sched_day = 'Th';
+                                        } else if(day == 'Friday'){
+                                          sched_day = 'F';
+                                        }
+
+                                        if (res){
+                                          subject_name = res.name;
+                                        }
+                                        console.log(day);
+                                          $('#sched').append('<tr><td>'+subject_code+'</td><td>'+subject_name+'</td><td>'+time+'</td><td>'+sched_day+'</td><td>'+room+'</td></tr>');
+                                      }
+                              });
+
+                              $('#schedRecord').hide();
+
+                              //subject code etc
+                              i++;
+                            });
+
+                            
                             
                           }
                 });
               
               }
   });
-
   
-
-  $.ajax({
-            url: ajaxUrl,
-            type: 'post',
-            dataType: 'json', 
-            data: {'value' : lastLrn, 'table': 'parents', 'set': 'students_info_lrn'}, 
-            success: function(result){
-
-                $('#father_name').html(result.father_name);
-                $('#father_contact').html(result.father_contact);
-                $('#mother_name').html(result.mother_name);
-                $('#mother_contact').html(result.mother_contact);
-              
-              }
-  });
+  
 });
 </script>
-<script>
 
-    $('.flat-red').on('ifChecked', function(event){
-      var radioInput = $(this).val(); 
-      
-
-      if(radioInput == "Father"){
-        alert(radioInput);
-        $('#guardianInput').hide();
-        $('#inputGUARDIAN').val($('#inputFATHER').val());
-        $('#inputRELATIONSHIP').val(radioInput);
-        $('#inputGUARDIANCONTACT').val($('#inputFATHERCONTACT').val());
-
-      }else if(radioInput == "Mother"){
-        alert(radioInput);
-        $('#guardianInput').hide();
-        $('#inputGUARDIAN').val($('#inputMOTHER').val());
-        $('#inputRELATIONSHIP').val(radioInput);
-        $('#inputGUARDIANCONTACT').val($('#inputMOTHERCONTACT').val());
-
-      }else{
-        $('#guardianInput').show();
-        $('#inputGUARDIAN').val('');
-        $('#inputRELATIONSHIP').val('');
-        $('#inputGUARDIANCONTACT').val('');
-      }
-
-    });
-</script>
 <script>
 //Date picker
     $('#datepicker').datepicker({
