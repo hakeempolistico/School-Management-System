@@ -182,6 +182,15 @@ class enroll_student extends CI_Controller {
 		echo $records;
 	}
 
+	public function ajaxRowUrl()
+	{
+		$table = $this->input->post('table');
+		$set = $this->input->post('set');
+		$value = $this->input->post('value');
+		$records = json_encode($this->enroll_student_model->getMultRows($table, $set, $value));
+		echo $records;
+	}
+
 }
 
 ?>

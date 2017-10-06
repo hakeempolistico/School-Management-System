@@ -26,6 +26,15 @@ class enroll_student_model extends CI_Model{
 		$lrn = $row->students_info_lrn;
 		return $lrn;
 	}
+
+	public function getMultRows($table, $set, $value)
+	{
+		$this->db->select('*');
+		$this->db->where($set, $value);
+
+		$query = $this->db->get($table)->result();
+		return $query;
+	}
 	
 
 }
