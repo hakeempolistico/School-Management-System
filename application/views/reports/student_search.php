@@ -317,69 +317,119 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </div>
               <!-- /.box-header -->
               <div class="box-body">
-                <div class="row">
-                  <div class="col-lg-3 col-xs-12">
-                    <h5 style="color: darkgrey"><b>Strand</b></h5>
-                    <h5><b>All</b></h5>
+                <?php if(isset($criteria['Strand']) || isset($criteria['Year Level']) || isset($criteria['Section'])) { ?>
+                  <div class="row">
+                    <?php if(isset($criteria['Strand'])) { ?>
+                      <div class="col-lg-3 col-xs-12">
+                        <h5 style="color: darkgrey"><b>Strand</b></h5>
+                        <h5><b><?php echo $criteria['Strand'];?></b></h5>
+                      </div>
+                    <?php } ?>
+                    <?php if(isset($criteria['Year Level'])) { ?>
+                      <div class="col-lg-3 col-xs-12">
+                        <h5 style="color: darkgrey"><b>Year</b></h5>
+                        <h5><b><?php echo $criteria['Year Level'];?></b></h5>
+                      </div>
+                    <?php } ?>
+                    <?php if(isset($criteria['Section'])) { ?>
+                      <div class="col-lg-3 col-xs-12">
+                        <h5 style="color: darkgrey"><b>Section</b></h5>
+                        <h5><b><?php echo $criteria['Section'];?></b></h5>
+                      </div>
+                    <?php } ?>
                   </div>
-                  <div class="col-lg-3 col-xs-12">
-                    <h5 style="color: darkgrey"><b>Year</b></h5>
-                    <h5><b>All</b></h5>
+                  <hr style="margin: 0px">
+                <?php } ?>
+
+                <?php if(isset($criteria['LRN']) || isset($criteria['Date Enrolled']) || isset($criteria['Age'])) { ?>
+                  <div class="row">
+                    <?php if(isset($criteria['LRN'])) { ?>
+                      <div class="col-lg-3 col-xs-12">
+                        <h5 style="color: darkgrey"><b>LRN</b></h5>
+                        <h5><b><?php echo $criteria['LRN'];?></b></h5>
+                      </div>
+                    <?php } ?>
+                    <?php if(isset($criteria['Date Enrolled'])) { ?>
+                      <div class="col-lg-3 col-xs-12">
+                        <h5 style="color: darkgrey"><b>Date Enrolled</b></h5>
+                        <h5><b><?php echo $criteria['Date Enrolled'];?></b></h5>
+                      </div>
+                    <?php } ?>
+                    <?php if(isset($criteria['Age'])) { ?>
+                      <div class="col-lg-3 col-xs-12">
+                        <h5 style="color: darkgrey"><b>Age</b></h5>
+                        <h5><b><?php echo $criteria['Age'];?></b></h5>
+                      </div>
+                    <?php } ?>
                   </div>
-                  <div class="col-lg-3 col-xs-12">
-                    <h5 style="color: darkgrey"><b>Section</b></h5>
-                    <h5><b>All</b></h5>
-                  </div>
-                </div>
                 <hr style="margin: 0px">
-                <div class="row">
-                  <div class="col-lg-3 col-xs-12">
-                    <h5 style="color: darkgrey"><b>LRN</b></h5>
-                    <h5><b>All</b></h5>
+                <?php } ?>
+
+                <?php if(isset($criteria['First Name']) || isset($criteria['Middle Name']) || isset($criteria['Last Name'])) { ?>
+                  <div class="row">
+                    <?php if(isset($criteria['First Name'])) { ?>
+                      <div class="col-lg-3 col-xs-12">
+                        <h5 style="color: darkgrey"><b>First Name</b></h5>
+                        <h5><b><?php echo $criteria['First Name'];?></b></h5>
+                      </div>
+                    <?php } ?>
+                    <?php if(isset($criteria['Middle Name'])) { ?>
+                      <div class="col-lg-3 col-xs-12">
+                        <h5 style="color: darkgrey"><b>Middle Name</b></h5>
+                        <h5><b><?php echo $criteria['Middle Name'];?></b></h5>
+                      </div>
+                    <?php } ?>
+                    <?php if(isset($criteria['Last Name'])) { ?>
+                      <div class="col-lg-3 col-xs-12">
+                        <h5 style="color: darkgrey"><b>Last Name</b></h5>
+                        <h5><b><?php echo $criteria['Last Name'];?></b></h5>
+                      </div>
+                    <?php } ?>
                   </div>
-                  <div class="col-lg-3 col-xs-12">
-                    <h5 style="color: darkgrey"><b>Date Enrolled</b></h5>
-                    <h5><b>All</b></h5>
+                  <hr style="margin: 0px">
+                <?php } ?>
+
+                <?php if(isset($criteria['Street']) || isset($criteria['Barangay']) || isset($criteria['City']) || isset($criteria['Province'])) { ?>
+                  <div class="row">
+                    <?php if(isset($criteria['Street'])) { ?>
+                      <div class="col-lg-3 col-xs-12">
+                        <h5 style="color: darkgrey"><b>Street</b></h5>
+                        <h5><b><?php echo $criteria['Street'];?></b></h5>
+                      </div>
+                    <?php } ?>
+                    <?php if(isset($criteria['Barangay'])) { ?>
+                      <div class="col-lg-3 col-xs-12">
+                        <h5 style="color: darkgrey"><b>Barangay</b></h5>
+                        <h5><b><?php echo $criteria['Barangay'];?></b></h5>
+                      </div>
+                    <?php } ?>
+                    <?php if(isset($criteria['City'])) { ?>
+                      <div class="col-lg-3 col-xs-12">
+                        <h5 style="color: darkgrey"><b>City</b></h5>
+                        <h5><b><?php echo $criteria['City'];?></b></h5>
+                      </div>
+                    <?php } ?>
+                    <?php if(isset($criteria['Province'])) { ?>
+                      <div class="col-lg-3 col-xs-12">
+                        <h5 style="color: darkgrey"><b>Province</b></h5>
+                        <h5><b><?php echo $criteria['Province'];?></b></h5>
+                      </div>
+                    <?php } ?>
                   </div>
-                  <div class="col-lg-3 col-xs-12">
-                    <h5 style="color: darkgrey"><b>Age</b></h5>
-                    <h5><b>All</b></h5>
+                  <hr style="margin: 0px">
+                <?php } ?>
+
+                <?php if(isset($criteria['Religion'])) { ?>
+                  <div class="row">
+                    <?php if(isset($criteria['Religion'])) { ?>
+                      <div class="col-lg-3 col-xs-12">
+                        <h5 style="color: darkgrey"><b>Religion</b></h5>
+                        <h5><b><?php echo $criteria['Religion'];?></b></h5>
+                      </div>
+                    <?php } ?>
                   </div>
-                </div>
-                <hr style="margin: 0px">
-                <div class="row">
-                  <div class="col-lg-3 col-xs-12">
-                    <h5 style="color: darkgrey"><b>First Name</b></h5>
-                    <h5><b>All</b></h5>
-                  </div>
-                  <div class="col-lg-3 col-xs-12">
-                    <h5 style="color: darkgrey"><b>Middle Name</b></h5>
-                    <h5><b>All</b></h5>
-                  </div>
-                  <div class="col-lg-3 col-xs-12">
-                    <h5 style="color: darkgrey"><b>Last Name</b></h5>
-                    <h5><b>All</b></h5>
-                  </div>
-                </div>
-                <hr style="margin: 0px">
-                <div class="row">
-                  <div class="col-lg-3 col-xs-12">
-                    <h5 style="color: darkgrey"><b>Street</b></h5>
-                    <h5><b>All</b></h5>
-                  </div>
-                  <div class="col-lg-3 col-xs-12">
-                    <h5 style="color: darkgrey"><b>Barangay</b></h5>
-                    <h5><b>All</b></h5>
-                  </div>
-                  <div class="col-lg-3 col-xs-12">
-                    <h5 style="color: darkgrey"><b>City</b></h5>
-                    <h5><b>All</b></h5>
-                  </div>
-                  <div class="col-lg-3 col-xs-12">
-                    <h5 style="color: darkgrey"><b>Province</b></h5>
-                    <h5><b>All</b></h5>
-                  </div>
-                </div>
+                <?php } ?>
+
               </div>
           </div>
         </div>
@@ -398,7 +448,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <div class="col-lg-2 col-xs-12">
                     <div class="checkbox">
                       <label style="margin-right: 15px;">
-                        <input id="cb-strand" type="checkbox">
+                        <input id="cb-lrn" type="checkbox" checked>
                         LRN
                       </label>
                     </div>
@@ -406,7 +456,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <div class="col-lg-2 col-xs-12">
                     <div class="checkbox">
                       <label style="margin-right: 15px;">
-                        <input id="cb-strand" type="checkbox">
+                        <input id="cb-name" type="checkbox" checked>
                         Name
                       </label>
                     </div>
@@ -414,7 +464,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <div class="col-lg-2 col-xs-12">
                     <div class="checkbox">
                       <label style="margin-right: 15px;">
-                        <input id="cb-strand" type="checkbox">
+                        <input id="cb-sex" type="checkbox" checked>
+                        Sex
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-lg-2 col-xs-12">
+                    <div class="checkbox">
+                      <label style="margin-right: 15px;">
+                        <input id="cb-contact" type="checkbox" checked>
                         Contact
                       </label>
                     </div>
@@ -422,7 +480,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <div class="col-lg-2 col-xs-12">
                     <div class="checkbox">
                       <label style="margin-right: 15px;">
-                        <input id="cb-strand" type="checkbox">
+                        <input id="cb-birthdate" type="checkbox" checked>
                         Birthdate
                       </label>
                     </div>
@@ -430,7 +488,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <div class="col-lg-2 col-xs-12">
                     <div class="checkbox">
                       <label style="margin-right: 15px;">
-                        <input id="cb-strand" type="checkbox">
+                        <input id="cb-address" type="checkbox" checked>
                         Address
                       </label>
                     </div>
@@ -454,24 +512,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <tr>
                   <th>LRN</th>
                   <th>Name</th>
+                  <th>Sex</th>
                   <th>Contact</th>
                   <th>Birthdate</th>
                   <th>Address</th>
                 </tr>
                 </thead>
                 <tbody>
+                <?php foreach ($result as $key => $val) { ?>
                 <tr>
-                  <td>Trident</td>
-                  <td>Trident</td>
-                  <td>Trident</td>
-                  <td>Trident</td>
-                  <td>Trident</td>
+                  <td><?php echo $val['lrn']; ?></td>
+                  <td><?php echo $val['first_name'].' '.$val['middle_name'].' '.$val['last_name']; ?></td>
+                  <td><?php echo $val['sex']; ?></td>
+                  <td><?php echo $val['contact_number']; ?></td>
+                  <td><?php echo $val['birth_date']; ?></td>
+                  <td><?php echo $val['street'].', '.$val['barangay'].', '.$val['city'].', '.$val['province']; ?></td>
                 </tr>
+                <?php } ?>
                 </tbody>
                 <tfoot>
                 <tr>
                   <th>LRN</th>
                   <th>Name</th>
+                  <th>Sex</th>
                   <th>Contact</th>
                   <th>Birthdate</th>
                   <th>Address</th>
@@ -508,14 +571,67 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <script>
 $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
-    })
-  
+  'paging'      : true,
+  'lengthChange': false,
+  'searching'   : false,
+  'ordering'    : true,
+  'info'        : true,
+  'autoWidth'   : false
+})
+
+$("#cb-lrn").change(function() {
+  if(this.checked) {
+    $('#example2').DataTable().column( 0 ).visible( true );
+  }
+  else if(!this.checked) {
+    $('#example2').DataTable().column( 0 ).visible( false );
+  }
+});
+
+$("#cb-name").change(function() {
+  if(this.checked) {
+    $('#example2').DataTable().column( 1 ).visible( true );
+  }
+  else if(!this.checked) {
+    $('#example2').DataTable().column( 1 ).visible( false );
+  }
+});
+
+$("#cb-sex").change(function() {
+  if(this.checked) {
+    $('#example2').DataTable().column( 2 ).visible( true );
+  }
+  else if(!this.checked) {
+    $('#example2').DataTable().column( 2 ).visible( false );
+  }
+});
+
+$("#cb-contact").change(function() {
+  if(this.checked) {
+    $('#example2').DataTable().column( 3 ).visible( true );
+  }
+  else if(!this.checked) {
+    $('#example2').DataTable().column( 3 ).visible( false );
+  }
+});
+
+$("#cb-birthdate").change(function() {
+  if(this.checked) {
+    $('#example2').DataTable().column( 4 ).visible( true );
+  }
+  else if(!this.checked) {
+    $('#example2').DataTable().column( 4 ).visible( false );
+  }
+});
+
+$("#cb-address").change(function() {
+  if(this.checked) {
+    $('#example2').DataTable().column( 4 ).visible( true );
+  }
+  else if(!this.checked) {
+    $('#example2').DataTable().column( 4 ).visible( false );
+  }
+});
 </script>
 </body>
 </html>

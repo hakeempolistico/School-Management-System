@@ -31,7 +31,12 @@ class reports extends CI_Model
 		$this->db->where('id', $val);
 		$data = $this->db->get('year_levels')->row();
 		return $data->name;
-
+	}
+	public function getSection($val)
+	{
+		$this->db->where('id', $val);
+		$data = $this->db->get('sections')->row();
+		return $data->name;
 	}
 }
 
