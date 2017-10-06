@@ -75,7 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <a href="<?php echo site_url('profile')?>" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
                   <a href="<?php echo site_url('login/logout')?>" class="btn btn-default btn-flat">Sign out</a>
@@ -121,28 +121,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
           <ul class="treeview-menu">
             <li>
-              <a href="<?php echo site_url('enrollment/dashboard'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Dashboard
-              </a>
-            </li> 
-            
-            <li>
               <a href="<?php echo site_url('enrollment/register_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Register Student
-              <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-              <ul class="treeview-menu">
-                <li>
-                  <a href="<?php echo site_url('enrollment/register_student/form'); ?>">
-                    <i class="fa fa-circle-o"></i>
-                    Register Form
-                  </a>
-                </li>
-              </ul>
+              </a>              
             </li>
 
             <li>
@@ -317,55 +299,70 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="col-lg-12 col-xs-12">
           <div class="box box-primary">
               <div class="box-header">
-                <h3 class="box-title">Search Criteria</h3>
+                <h3 class="box-title">Filter</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
                 <div class="row">
                   <div class="col-lg-12 col-xs-12">
+                    <div class="form-group" style="margin-bottom: 5px">
+                      <label>Filter Type</label>
+                      <select id="select-filter" name="strand_code" class="form-control select2" style="width: 100%;" data-placeholder="Select Filter Type">
+                        <option selected="selected"></option>
+                        <option value="1">All Search</option>
+                        <option value="2">Standard Search</option>
+                        <option value="3">Advanced Search</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <hr class="filter-standard" style="margin-bottom: 10px" hidden>
+                <div class="row filter-standard" hidden>
+                  <div class="col-lg-12 col-xs-12">
                     <h5><b> Class </b></h5>
                     <div class="checkbox">
                       <label style="margin-right: 15px;">
-                        <input id="cb-strand" type="checkbox">
+                        <input id="cb-strand" class="standar" type="checkbox">
                         Strand
                       </label>
                       <label style="margin-right: 15px;">
-                        <input id="cb-year" type="checkbox">
+                        <input id="cb-year" class="standar" type="checkbox">
                         Year
                       </label>
                       <label style="margin-right: 15px;">
-                        <input id="cb-section" type="checkbox">
+                        <input id="cb-section" class="standar" type="checkbox">
                         Section
                       </label>
                     </div>
                   </div>
                 </div>
-                <div class="row">
+                <hr class="filter-advanced" style="margin: 10px" hidden>
+                <div class="row filter-advanced" hidden>
                   <div class="col-lg-12 col-xs-12">
                     <h5><b> Student Information </b></h5>
                     <div class="checkbox">
                       <label style="margin-right: 15px;">
-                        <input id="cb-lrn" type="checkbox">
+                        <input id="cb-lrn" class="advanced" type="checkbox">
                         LRN
                       </label>
                       <label style="margin-right: 15px;">
-                        <input id="cb-date" type="checkbox">
+                        <input id="cb-date" class="advanced" type="checkbox">
                         Date Enrolled
                       </label>
                       <label style="margin-right: 15px;">
-                        <input id="cb-age" type="checkbox">
+                        <input id="cb-age" class="advanced" type="checkbox">
                         Age
                       </label>
                       <label style="margin-right: 15px;">
-                        <input id="cb-name" type="checkbox">
+                        <input id="cb-name" class="advanced" type="checkbox">
                         Name
                       </label>
                       <label style="margin-right: 15px;">
-                        <input id="cb-address" type="checkbox">
+                        <input id="cb-address" class="advanced" type="checkbox">
                         Address
                       </label>
                       <label style="margin-right: 15px;">
-                        <input id="cb-religion" type="checkbox">
+                        <input id="cb-religion" class="advanced" type="checkbox">
                         Religion
                       </label>                      
                     </div>
@@ -380,7 +377,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="col-lg-12 col-xs-12">
           <div class="box box-primary">
               <div class="box-header">
-                <h3 class="box-title">Search Criteria</h3>
+                <h3 class="box-title">Filter Criteria</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
@@ -560,6 +557,45 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   })
   $('.select2').select2();
   var getSection = '<?php echo base_url('academics/assign_subjects/getSection'); ?>';
+
+  $('#select-filter').on('change',function(){
+    if($(this).val() == 1){
+      $('.filter-standard').hide();
+      $('.filter-advanced').hide();
+      $(':checkbox').prop('checked', false); 
+
+      $('#row-class').hide();
+      $('#row-lrn').hide();
+      $('#row-lrn').hide();
+      $('#row-name').hide();
+      $('#row-address').hide();
+      $('#row-religion').hide();
+      $('#group-strand').hide();
+      $('#group-section').hide();
+      $('#group-year').hide();
+      $('#group-lrn').hide();
+      $('#group-date').hide();
+      $('#group-age').hide();
+    }
+    else if($(this).val() == 2){
+      $('.filter-standard').show();
+      $('.filter-advanced').hide();
+      $('.advanced:checkbox').prop('checked', false); 
+
+      $('#row-lrn').hide();
+      $('#row-lrn').hide();
+      $('#row-name').hide();
+      $('#row-address').hide();
+      $('#row-religion').hide();
+      $('#group-lrn').hide();
+      $('#group-date').hide();
+      $('#group-age').hide();
+    }
+    else if($(this).val() == 3){
+      $('.filter-standard').show();
+      $('.filter-advanced').show();
+    }
+  });
 
   $('#select-year').on('change',function(){
    year_id = $('#select-year').val();

@@ -79,7 +79,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <a href="<?php echo site_url('profile')?>" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
                   <a href="<?php echo site_url('login/logout')?>" class="btn btn-default btn-flat">Sign out</a>
@@ -236,7 +236,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
           <ul class="treeview-menu">
             <li>
-              <a href="<?php echo site_url('enrollment/dashboard'); ?>">
+              <a href="<?php echo site_url('reports/student_reports'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Student Reports
               </a>
@@ -293,7 +293,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <section class="content">
       
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-4">
 
           <!-- Profile Image -->
           <div class="box box-primary">
@@ -323,50 +323,151 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!-- /.box -->
         </div>
 
-        <div class="col-md-9">
+        <div class="col-md-8">
           <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
-              <!-- <li  class="active"><a href="#profile" data-toggle="tab">Profile</a></li> -->
+              <li  class="active"><a href="#profile" data-toggle="tab">Profile</a></li>
               <!-- <li><a href="#timeline" data-toggle="tab">Timeline</a></li> -->
-              <li class="active"><a href="#settings" data-toggle="tab">Settings</a></li>
+              <li><a href="#settings" data-toggle="tab">Settings</a></li>
             </ul>
             <div class="tab-content">
-              <!-- <div class="active tab-pane" id="profile">
-                <h4>Personal Info</h4>
-
-                
-              </div> -->
+              <div class="active tab-pane" id="profile">
+                <div class="row">
+                  <div class="col-md-12">
+                    <label>Personal Information</label>
+                    <table class="table table-striped">
+                      <thead>
+                        <td></td>
+                        <td></td>
+                      </thead>
+                        <tr>
+                          <td>Admission Date</td>
+                          <td>June 15, 2016</td>
+                        </tr>
+                        <tr>
+                          <td>LRN</td>
+                          <td>000912332998</td>
+                        </tr>                
+                        <tr>
+                          <td>Sex</td>
+                          <td>Female</td>                        
+                        </tr>
+                        <tr>
+                          <td>Birthdate</td>
+                          <td>February 11, 1999</td>
+                          </tr>
+                        <tr>
+                          <td>Mobile Number</td>
+                          <td>09991232147</td>
+                        </tr>
+                        <tr>
+                          <td>Email</td>
+                          <td>someone@example.com</td>
+                        </tr>
+                    </table>
+                  </div>
+                  <!-- /.col -->
+                </div><hr>
+                <!-- /.row-->
+                <div class="row">
+                  <div class="col-md-12">
+                  <label>Parent/Guardian Information</label>
+                    <table class="table table-striped">
+                      <thead>
+                        <td></td>
+                        <td></td>
+                      </thead>
+                        <tr>
+                          <td>Mother Name</td>
+                          <td>Mother Teresa</td>
+                        </tr>
+                        <tr>
+                          <td>Mother Phone</td>
+                          <td>09991218658</td>
+                        </tr>                
+                        <tr>
+                          <td>Father Name</td>
+                          <td>Father Dad</td>                        
+                        </tr>
+                        <tr>
+                          <td>Father Phone</td>
+                          <td>09179925764</td>
+                          </tr>
+                        <tr>
+                          <td>Guardian Name</td>
+                          <td>Mother Teresa</td>
+                        </tr>
+                        <tr>
+                          <td>Guardian Relationship</td>
+                          <td>Mother</td>
+                        </tr>
+                        <tr>
+                          <td>Guardian Address</td>
+                          <td>069 Lost Village, NotFound St., Nowhere City</td>
+                        </tr>
+                    </table>
+                  </div>
+                  <!-- /.col -->
+                </div>
+              </div>
               <!-- /.tab-pane -->
-              <div class="active tab-pane" id="settings">
-                <h4>Change Password</h4>
-                <form class="form-horizontal">
-                  <div class="form-group">
-                    <label for="inputCurPass" class="col-sm-2 control-label">Current</label>
+              <div class="tab-pane" id="settings">
+                <div class="row">
+                  <div class="col-md-12">
+                    <label>Account Information</label>
+                    <table class="table table-striped">
+                      <thead>
+                        <td></td>
+                        <td></td>
+                      </thead>
+                        <tr>
+                          <td>Date Created</td>
+                          <td>September 17, 2017</td>
+                        </tr>
+                        <tr>
+                          <td>Username</td>
+                          <td>admin</td>
+                        </tr>
+                        <tr>
+                          <td>Password</td>
+                          <td><a href="#">Change Password</a></td>
+                        </tr>                                        
+                    </table>
+                  </div>
+                </div><hr>
+                <div class="row">
+                  <div class="col-md-12">
+                    <label>Change Password</label>
+                    <form class="form-horizontal">
+                      <div class="form-group">
+                        <label for="inputCurPass" class="col-sm-2 control-label">Current</label>
 
-                    <div class="col-sm-10">
-                      <input type="password" class="form-control" id="inputCurPass" placeholder="Current Password">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputNewPass" class="col-sm-2 control-label">New</label>
+                        <div class="col-sm-10">
+                          <input type="password" class="form-control" id="inputCurPass" placeholder="Current Password">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="inputNewPass" class="col-sm-2 control-label">New</label>
 
-                    <div class="col-sm-10">
-                      <input type="password" class="form-control" id="inputEmail" placeholder="New Password">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputRetypeNew" class="col-sm-2 control-label">Re-type new</label>
+                        <div class="col-sm-10">
+                          <input type="password" class="form-control" id="inputEmail" placeholder="New Password">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="inputRetypeNew" class="col-sm-2 control-label">Re-type new</label>
 
-                    <div class="col-sm-10">
-                      <input type="password" class="form-control" id="inputRetypeNew" placeholder="Re-type new password">
-                    </div>
+                        <div class="col-sm-10">
+                          <input type="password" class="form-control" id="inputRetypeNew" placeholder="Re-type new password">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                          <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </div>
+                      </div>
+                    </form>
                   </div>
-                  <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                      <button type="submit" class="btn btn-primary">Save Changes</button>
-                    </div>
-                  </div>
-                </form>
+                </div>
               </div>
               <!-- /.tab-pane -->
             </div>
