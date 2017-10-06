@@ -37,16 +37,19 @@ class student_reports extends CI_Controller {
 					$criteria['LRN'] = $val;
 				}
 				if($key == 'year_level_id'){
-					$criteria['Year Level'] = $val;
+					$criteria['Year Level'] = $this->reports->getYearLevel($val);
 				}
 				if($key == 'section_id'){
-					$criteria['Section'] = $val;
+					$criteria['Section'] = $this->reports->getSection($val);
 				}
 				if($key == 'strand_code'){
 					$criteria['Strand'] = $val;
 				}
 				if($key == 'date_enrolled'){
 					$criteria['Date Enrolled'] = $val;
+				}
+				if($key == 'age'){
+					$criteria['Age'] = $val;
 				}
 				if($key == 'first_name'){
 					$criteria['First Name'] = $val;
@@ -93,15 +96,17 @@ class student_reports extends CI_Controller {
 					$rep_arr[$key][$k] = $value;
 				}
 			}
-		};
-		/*echo '<pre>';
+		};/*
+		echo '<pre>';
 		print_r($rep_arr);
 		echo '<pre>';
 		exit;*/
 
 		$data = $this->parse->parsed();
 		$data['criteria'] = $criteria;
+		$data['result'] = $rep_arr;
 		$this->parser->parse('reports/student_search', $data);
 	}
 
 }
+//lrn, first_name, middle_name, last_name, contact_number, birthdate, street, barangay, city, province
