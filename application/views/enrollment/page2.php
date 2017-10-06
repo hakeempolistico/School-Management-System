@@ -664,7 +664,6 @@
 
   $('.checkAll11').on('ifChecked', function (event) {
       $('.check11').iCheck('check');
-      $('.subject11').prop('disabled', false);
       $('#grades11').removeClass('text-muted');
       triggeredByChild = false;
   });
@@ -685,6 +684,7 @@
   });
 
   $('.check11').on('ifChecked', function(event){
+      $('.subject11').prop('disabled', false);
       if ($('.check11').filter(':checked').length == $('.check11').length) {
         $('.checkAll11').iCheck('check');
 
