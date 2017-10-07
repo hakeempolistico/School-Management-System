@@ -175,8 +175,7 @@ class enroll_student extends CI_Controller {
 
 	public function reg_form()
 	{
-		//$lastLrn = $this->input->post('value');
-		$lastLrn = '14';
+		$lastLrn = $this->input->post('value');
 		$after_enroll = array();
 
 		$nameRow = $this->global_model->getRow('students_info', 'lrn', $lastLrn);
@@ -214,13 +213,24 @@ class enroll_student extends CI_Controller {
 	    foreach ($schedulesTable as $row) 
 	    {
 	    	$subject_code = $row->subject_code; //SUBJECT_CODE
+	    	$subject_name = '';
 
-	    	$subjectRow = $this->global_model->getRow('subjects', 'code', $subject_code);
-	    	$subject_name = $subjectRow->name; //SUBJECT_NAME
+	    	$subjectRow =$this->global_model->getRow('subjects', 'code', $subject_code);
+
+			if($subjectRow){
+				
+	    		$subject_name = $subjectRow->name; //SUBJECT_NAME
+			}
 
 	    	$time = $row->time_start.'-'.$row->time_end; //TIME
 	    	$room = $row->room_id; //ROOM
 	    	$day = $row->day;
+
+	    	if($subject_code == 'BREAK'){
+	            return;
+	          } else if($subject_code == 'VACANT'){
+	            return;
+	          }
 
 	    	if ($day == 'Monday'){
               $sched_day = 'M';  //SCHED_DAY M
