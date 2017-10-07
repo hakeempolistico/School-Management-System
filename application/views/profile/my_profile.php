@@ -327,14 +327,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
               <li  class="active"><a href="#profile" data-toggle="tab">Profile</a></li>
-              <!-- <li><a href="#timeline" data-toggle="tab">Timeline</a></li> -->
+              <li><a href="#subjects" data-toggle="tab">Subjects</a></li>
               <li><a href="#settings" data-toggle="tab">Settings</a></li>
             </ul>
             <div class="tab-content">
               <div class="active tab-pane" id="profile">
                 <div class="row">
                   <div class="col-md-12">
-                    <label>Personal Information</label>
+                    <label>Personal Information (student display)</label>
                     <table class="table table-striped">
                       <thead>
                         <td></td>
@@ -369,6 +369,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <!-- /.col -->
                 </div><hr>
                 <!-- /.row-->
+
                 <div class="row">
                   <div class="col-md-12">
                   <label>Parent/Guardian Information</label>
@@ -408,13 +409,112 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </table>
                   </div>
                   <!-- /.col -->
-                </div>
+                </div><hr>
+                <!-- /.row-->
+                <div class="row">
+                  <div class="col-md-12">
+                    <label>Personal Information (teacher display)</label>
+                    <table class="table table-striped">
+                      <thead>
+                        <td></td>
+                        <td></td>
+                      </thead>
+                        <tr>
+                          <td>Major</td>
+                          <td>Mathematics</td>
+                        </tr>               
+                        <tr>
+                          <td>Sex</td>
+                          <td>Female</td>                        
+                        </tr>
+                        <tr>
+                          <td>Birthdate</td>
+                          <td>February 11, 1999</td>
+                          </tr>
+                        <tr>
+                          <td>Mobile Number</td>
+                          <td>09991232147</td>
+                        </tr>
+                        <tr>
+                          <td>Email</td>
+                          <td>someone@example.com</td>
+                        </tr>
+                    </table>
+                  </div>
+                  <!-- /.col -->
+                </div><hr>
+                <!-- /.row-->
+              </div>
+              <!-- /.tab-pane -->
+              <div class="tab-pane" id="subjects">
+                <div class="row">
+                  <div class="col-md-12">
+                    <label>Subjects (student display)</label>
+                    <table class="table table-striped">
+                      <thead>
+                        <th>Subjects</th>
+                        <th>Teacher</th>
+                      </thead>
+                        <tr>
+                          <td>General Mathemactics</td>
+                          <td>James Kevin Movera Fernandez</td>
+                        </tr>
+                        <tr>
+                          <td>World Literature</td>
+                          <td>Robert Madrilejos</td>
+                        </tr>                
+                        <tr>
+                          <td>Physics</td>
+                          <td>Luxannas Demacia Crownguard</td>                        
+                        </tr>
+                        <tr>
+                          <td>Oral Communication</td>
+                          <td>Regina Araojo</td>
+                        </tr>
+                    </table>
+                  </div>
+                  <!-- /.col -->
+                </div><hr>
+                <!-- /.row-->
+                <div class="row">
+                  <div class="col-md-12">
+                    <label>Subjects (teacher display)</label>
+                    <table class="table table-striped">
+                      <thead>
+                        <th>Class</th>
+                        <th>Subjects</th>
+                      </thead>
+                        <tr>
+                          <td>STEM-1A</td>
+                          <td>General Mathemactics</td>
+                        </tr>
+                        <tr>
+                          <td>STEM-1B</td>
+                          <td>General Mathematics</td>
+                        </tr>                
+                        <tr>
+                          <td>GAS-1A</td>
+                          <td>General Mathematics</td>                        
+                        </tr>
+                        <tr>
+                          <td>ABM-1A</td>
+                          <td>General Mathematics</td>
+                          </tr>
+                        <tr>
+                          <td>HUMSS-1A</td>
+                          <td>General Mathematics</td>
+                        </tr>
+                    </table>
+                  </div>
+                  <!-- /.col -->
+                </div><hr>
+                <!-- /.row-->
               </div>
               <!-- /.tab-pane -->
               <div class="tab-pane" id="settings">
                 <div class="row">
                   <div class="col-md-12">
-                    <label>Account Information</label>
+                    <label>Account Information (admin display)</label>
                     <table class="table table-striped">
                       <thead>
                         <td></td>
@@ -434,7 +534,59 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </tr>                                        
                     </table>
                   </div>
+                  <!-- /.col-->
                 </div><hr>
+                <!-- /.row-->
+                <div class="row">
+                  <div class="col-md-12">
+                    <label>Account Information (student display)</label>
+                    <table class="table table-striped">
+                      <thead>
+                        <td></td>
+                        <td></td>
+                      </thead>
+                        <tr>
+                          <td>Date Created</td>
+                          <td>September 17, 2017</td>
+                        </tr>
+                        <tr>
+                          <td>Username</td>
+                          <td>student</td>
+                        </tr>
+                        <tr>
+                          <td>Password</td>
+                          <td><a href="#">Change Password</a></td>
+                        </tr>                                        
+                    </table>
+                  </div>
+                  <!-- /.col-->
+                </div><hr>
+                <!-- /.row-->
+                <div class="row">
+                  <div class="col-md-12">
+                    <label>Account Information (teacher display)</label>
+                    <table class="table table-striped">
+                      <thead>
+                        <td></td>
+                        <td></td>
+                      </thead>
+                        <tr>
+                          <td>Date Created</td>
+                          <td>September 17, 2017</td>
+                        </tr>
+                        <tr>
+                          <td>Username</td>
+                          <td>teacher</td>
+                        </tr>
+                        <tr>
+                          <td>Password</td>
+                          <td><a href="#">Change Password</a></td>
+                        </tr>                                        
+                    </table>
+                  </div>
+                  <!-- /.col-->
+                </div><hr>
+                <!-- /.row-->
                 <div class="row">
                   <div class="col-md-12">
                     <label>Change Password</label>
