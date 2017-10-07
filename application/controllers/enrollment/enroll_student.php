@@ -256,8 +256,17 @@ class enroll_student extends CI_Controller {
 		    		if($subject_code == $value[0]){
 		    			//echo $value[3];
 		    			$arr[$key][3] = $value[3].'/'.$sched_day;
+
+		    			if($time == $value[2]){
+		    			}else{
 		    			$arr[$key][2] = $value[2].'/'.$time;
+		    			}
+
+		    			if($room == $value[4]){
+		    			}else{
 		    			$arr[$key][4] = $value[4].'/'.$room;
+		    			}
+
 		    			break;
 		    		}
 		    		else{
