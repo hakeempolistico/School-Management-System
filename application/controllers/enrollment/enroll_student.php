@@ -250,16 +250,27 @@ class enroll_student extends CI_Controller {
 		    		$room
 		    	);
 
-		    	$arr[] = $sched;
+		    	foreach ($arr as $key => $value) {
+		    		if($subject_code == $value[0]){
+		    			//echo $value[3];
+		    			$arr[$key][3] = $value[3].'/'.$sched_day;
+		    			$arr[$key][2] = $value[2].'/'.$time;
+		    			$arr[$key][4] = $value[4].'/'.$room;
+		    			break;
+		    		}
+		    	}
+
+		    	$arr[] = $sched;	    	
+
 	        }
 
 	    }
-
 
 		echo '<pre>'; 
 		print_r($arr);
 		echo '<pre>'; 
 		exit;
+
 	}
 
 	public function ajaxRowUrl()
