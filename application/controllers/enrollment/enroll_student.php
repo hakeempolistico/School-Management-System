@@ -253,30 +253,19 @@ class enroll_student extends CI_Controller {
 		    	
 		    	if($arr){
 		    		foreach ($arr as $key => $value) {
-		    		if($subject_code == $value[0]){
-		    			//echo $value[3];
-		    			$arr[$key][3] = $value[3].'/'.$sched_day;
-
-		    			if($time == $value[2]){
-		    			}else{
-		    			$arr[$key][2] = $value[2].'/'.$time;
-		    			}
-
-		    			if($room == $value[4]){
-		    			}else{
-		    			$arr[$key][4] = $value[4].'/'.$room;
-		    			}
-
-		    			break;
-		    		}
-		    		else{
-		    			$arr[] = $sched;	   
-		    			break;
-		    		}
+			    		if($subject_code == $value[0]){
+			    			$arr[$key][3] = $value[3].'/'.$sched_day;
+			    			$arr[$key][2] = $value[2].'/'.$time;
+			    			$arr[$key][4] = $value[4].'/'.$room;
+			    			break;
+			    		}
+			    		else {
+			    			$arr[] = $sched;	
+			    		}
 		    		}
 		    	}
 		    	else{
-		    		$arr[] = $sched;	   
+		    		$arr[] = $sched;	
 		    	}
 		    	
 
@@ -285,6 +274,17 @@ class enroll_student extends CI_Controller {
 	        }
 
 	    }
+
+	    foreach ($arr as $key => $value) {
+	    	$allTime = explode("/",$value[2]);
+	    	$allRoom = explode("/",$value[4]);
+	    	if(count(array_unique($allTime) == 1)){
+	    		$arr[$key][2] = $allTime[0];
+	    	};
+	    	if(count(array_unique($allRoom) == 1)){
+	    		$arr[$key][4] = $allRoom[0];
+	    	};
+	    };
 
 		echo '<pre>'; 
 		print_r($arr);
