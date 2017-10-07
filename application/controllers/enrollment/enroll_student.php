@@ -175,7 +175,7 @@ class enroll_student extends CI_Controller {
 
 	public function reg_form()
 	{
-		$lastLrn = $this->input->post('value');
+		$lastLrn = '14';
 		$after_enroll = array();
 
 		$nameRow = $this->global_model->getRow('students_info', 'lrn', $lastLrn);
@@ -226,33 +226,33 @@ class enroll_student extends CI_Controller {
 	    	$room = $row->room_id; //ROOM
 	    	$day = $row->day;
 
-	    	if($subject_code == 'BREAK'){
-	            return;
-	          } else if($subject_code == 'VACANT'){
-	            return;
-	          }
+	    	if($subject_code == 'BREAK' || $subject_code == 'VACANT' ){
 
-	    	if ($day == 'Monday'){
-              $sched_day = 'M';  //SCHED_DAY M
-            } else if($day == 'Tuesday'){
-              $sched_day = 'T';  //SCHED_DAY T
-            } else if($day == 'Wednesday'){
-              $sched_day = 'W';  //SCHED_DAY W
-            } else if($day == 'Thursday'){
-              $sched_day = 'Th';  //SCHED_DAY TH
-            } else if($day == 'Friday'){
-              $sched_day = 'F';  //SCHED_DAY F
-            }
+	          } 
+	        else{
+	        	if ($day == 'Monday'){
+	              $sched_day = 'M';  //SCHED_DAY M
+	            } else if($day == 'Tuesday'){
+	              $sched_day = 'T';  //SCHED_DAY T
+	            } else if($day == 'Wednesday'){
+	              $sched_day = 'W';  //SCHED_DAY W
+	            } else if($day == 'Thursday'){
+	              $sched_day = 'Th';  //SCHED_DAY TH
+	            } else if($day == 'Friday'){
+	              $sched_day = 'F';  //SCHED_DAY F
+	            }
 
-	    	$sched = array(
-	    		$subject_code,
-	    		$subject_name,
-	    		$time,
-	    		$sched_day,
-	    		$room
-	    	);
+		    	$sched = array(
+		    		$subject_code,
+		    		$subject_name,
+		    		$time,
+		    		$sched_day,
+		    		$room
+		    	);
 
-	    	$arr[] = $sched;
+		    	$arr[] = $sched;
+	        }
+
 	    }
 
 
