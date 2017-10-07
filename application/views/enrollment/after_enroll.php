@@ -420,133 +420,16 @@
 <script>
 $(document).ready(function(){ 
   var lastLrn = <?php echo $lastLrn;?>;
-  var ajaxUrl = "<?php echo base_url("enrollment/enroll_student/ajax"); ?>"
+  var ajaxUrl = "<?php echo base_url("enrollment/enroll_student/reg_form"); ?>"
   var ajaxRowUrl = "<?php echo base_url("enrollment/enroll_student/ajaxRowUrl"); ?>"
   $.ajax({
             url: ajaxUrl,
             type: 'post',
             dataType: 'json', 
-            data: {'value' : lastLrn, 'table': 'students_info', 'set': 'lrn'}, 
+            data: {'value' : lastLrn}, 
             success: function(result){
               //alert(result);
-                $('.name').html(result.first_name +" "+ result.middle_name + " " + result.last_name);
-                var sexDb = result.sex;
-                var sex = sexDb.toUpperCase();
-                $('#sex').html(sex);
             }
-  });
-  $.ajax({
-            url: ajaxUrl,
-            type: 'post',
-            dataType: 'json', 
-            data: {'value' : lastLrn, 'table': 'enrolled_students', 'set': 'students_info_lrn'}, 
-            success: function(result){
-                $('#lrn').html(result.students_info_lrn);
-                $('#note').html(result.note); 
-                var section_id = result.section_id;
-                var academic_year_id = result.academic_year_id;
-                var db_date_enrolled = result.date_enrolled;
-                var dateTime = db_date_enrolled.split(" ");
-                var date_enrolled = dateTime[0];
-                $('#date_enrolled').html(date_enrolled);
-                $.ajax({
-                          url: ajaxUrl,
-                          type: 'post',
-                          dataType: 'json', 
-                          data: {'value' : section_id, 'table': 'sections', 'set': 'id'}, 
-                          success: function(result){
-
-                              strand_code = result.strand_code;
-                              var year_level_id = result.year_level_id;
-                              var name = result.name;
-                              if (year_level_id == 1)
-                              {
-                                year_level_id = '11';
-                              } else 
-                              {
-                                year_level_id = '12';
-                              }
-                              $('.strand').html(strand_code);
-                              $('#section_name').html(year_level_id+'-'+name);
-                            
-                            }
-                });
-                $.ajax({
-                          url: ajaxUrl,
-                          type: 'post',
-                          dataType: 'json', 
-                          data: {'value' : academic_year_id, 'table': 'academic_years', 'set': 'id'}, 
-                          success: function(result){
-                              $('#academic_year').html(result.year_start+'-'+result.year_end);
-                            
-                          }
-                });
-                //alert(section_id);
-                $.ajax({
-                          url: ajaxRowUrl,
-                          type: 'post',
-                          dataType: 'json', 
-                          data: {'value' : section_id, 'table': 'schedules', 'set': 'section_id'}, 
-                          success: function(result){
-                            //alert(JSON.stringify(result));
-                            var subject_name;
-                            var sched_day;
-
-                            $.each(result, function( index, value ) {
-                              //alert(JSON.stringify(value));
-                              var i = 0;
-                              var subject_code = value.subject_code;
-                              var day = value.day;
-
-                              if(subject_code == 'BREAK'){
-                                return;
-                              } else if(subject_code == 'VACANT'){
-                                return;
-                              }
-                              var time = value.time_start+'-'+value.time_end;
-                              var room = value.room_id;
-
-                              
-
-                              $.ajax({
-                                      url: ajaxUrl,
-                                      type: 'post',
-                                      dataType: 'json', 
-                                      data: {'value' : subject_code, 'table': 'subjects', 'set': 'code'}, 
-                                      success: function(res){
-
-                                        if (day == 'Monday'){
-                                          sched_day = 'M';
-                                        } else if(day == 'Tuesday'){
-                                          sched_day = 'T';
-                                        } else if(day == 'Wednesday'){
-                                          sched_day = 'W';
-                                        } else if(day == 'Thursday'){
-                                          sched_day = 'Th';
-                                        } else if(day == 'Friday'){
-                                          sched_day = 'F';
-                                        }
-
-                                        if (res){
-                                          subject_name = res.name;
-                                        }
-                                        console.log(day);
-                                          $('#sched').append('<tr><td>'+subject_code+'</td><td>'+subject_name+'</td><td>'+time+'</td><td>'+sched_day+'</td><td>'+room+'</td></tr>');
-                                      }
-                              });
-
-                              $('#schedRecord').hide();
-
-                              //subject code etc
-                              i++;
-                            });
-
-                            
-                            
-                          }
-                });
-              
-              }
   });
   
   

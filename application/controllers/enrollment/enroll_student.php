@@ -173,13 +173,78 @@ class enroll_student extends CI_Controller {
 		$this->parser->parse('enrollment/after_enroll', $data);
 	}
 
-	public function ajax()
+	public function reg_form()
 	{
-		$table = $this->input->post('table');
-		$set = $this->input->post('set');
-		$value = $this->input->post('value');
-		$records = json_encode($this->global_model->getRow($table, $set, $value));
-		echo $records;
+		$lastLrn = $this->input->post('value');
+		$after_enroll = array();
+
+		$nameRow = $this->global_model->getRow('students_info', 'lrn', $lastLrn);
+		$after_enroll['name'] = $nameRow->first_name.' '.$nameRow->middle_name.' '.$nameRow->last_name;  //NAME
+		$after_enroll['sex'] = strtoupper($nameRow->sex);  //SEX
+
+		$enrolledRow = $this->global_model->getRow('enrolled_students', 'students_info_lrn', $lastLrn);
+		$after_enroll['students_info_lrn'] = $enrolledRow->students_info_lrn; //LRN
+		$note = $enrolledRow->note;
+		$section_id = $enrolledRow->section_id;
+        $academic_year_id = $enrolledRow->academic_year_id;
+        $db_date_enrolled = $enrolledRow->date_enrolled;
+        $dateTime = explode(" ", $db_date_enrolled);
+        $after_enroll['date_enrolled'] = $dateTime[0]; //DATE_ENROLLED
+
+        $sectionRow = $this->global_model->getRow('sections', 'id', $section_id);
+        $after_enroll['strand_code'] = $sectionRow->strand_code; //STRAND
+        $year_level_id = $sectionRow->year_level_id;
+
+        if ($year_level_id == 1)
+	    {
+	        $after_enroll['year_level'] = '11';  //YEAR_LEVEL 11
+	    } else 
+	    {
+	        $after_enroll['year_level'] = '12';  //YEAR_LEVEL 12
+	    }
+
+	    $academicYearRow = $this->global_model->getRow('academic_years', 'id', $academic_year_id);
+	    $after_enroll['academic_year'] = $academicYearRow->year_start.'-'.$academicYearRow->year_end;  //ACADEMIC_YEAR
+
+	    $schedulesTable = $this->enroll_student_model->getMultRows('schedules', 'section_id', $section_id); 
+
+	    $arr =[];
+	    foreach ($schedulesTable as $row) 
+	    {
+	    	$subject_code = $row->subject_code; //SUBJECT_CODE
+
+	    	$subjectRow = $this->global_model->getRow('subjects', 'code', $subject_code);
+	    	$subject_name = $subjectRow->name; //SUBJECT_NAME
+
+	    	$time = $row->time_start.'-'.$row->time_end; //TIME
+	    	$room = $row->room_id; //ROOM
+	    	$day = $row->day;
+
+	    	if ($day == 'Monday'){
+              $sched_day = 'M';  //SCHED_DAY M
+            } else if(day == 'Tuesday'){
+              $sched_day = 'T';  //SCHED_DAY T
+            } else if(day == 'Wednesday'){
+              $sched_day = 'W';  //SCHED_DAY W
+            } else if(day == 'Thursday'){
+              $sched_day = 'Th';  //SCHED_DAY TH
+            } else if(day == 'Friday'){
+              $sched_day = 'F';  //SCHED_DAY F
+            }
+
+	    	$sched = array(
+	    		$subject_code,
+	    		$subject_name,
+	    		$time,
+	    		$sched_day,
+	    		$room
+	    	);
+
+	    	$arr[] = $sched;
+	    }
+
+
+		print_r($arr); exit;
 	}
 
 	public function ajaxRowUrl()
