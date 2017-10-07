@@ -175,7 +175,8 @@ class enroll_student extends CI_Controller {
 
 	public function reg_form()
 	{
-		$lastLrn = $this->input->post('value');
+		//$lastLrn = $this->input->post('value');
+		$lastLrn = '14';
 		$after_enroll = array();
 
 		$nameRow = $this->global_model->getRow('students_info', 'lrn', $lastLrn);
@@ -208,6 +209,7 @@ class enroll_student extends CI_Controller {
 
 	    $schedulesTable = $this->enroll_student_model->getMultRows('schedules', 'section_id', $section_id); 
 
+
 	    $arr =[];
 	    foreach ($schedulesTable as $row) 
 	    {
@@ -222,13 +224,13 @@ class enroll_student extends CI_Controller {
 
 	    	if ($day == 'Monday'){
               $sched_day = 'M';  //SCHED_DAY M
-            } else if(day == 'Tuesday'){
+            } else if($day == 'Tuesday'){
               $sched_day = 'T';  //SCHED_DAY T
-            } else if(day == 'Wednesday'){
+            } else if($day == 'Wednesday'){
               $sched_day = 'W';  //SCHED_DAY W
-            } else if(day == 'Thursday'){
+            } else if($day == 'Thursday'){
               $sched_day = 'Th';  //SCHED_DAY TH
-            } else if(day == 'Friday'){
+            } else if($day == 'Friday'){
               $sched_day = 'F';  //SCHED_DAY F
             }
 
@@ -244,7 +246,10 @@ class enroll_student extends CI_Controller {
 	    }
 
 
-		print_r($arr); exit;
+		echo '<pre>'; 
+		print_r($arr);
+		echo '<pre>'; 
+		exit;
 	}
 
 	public function ajaxRowUrl()
