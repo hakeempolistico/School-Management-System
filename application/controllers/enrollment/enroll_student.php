@@ -250,7 +250,9 @@ class enroll_student extends CI_Controller {
 		    		$room
 		    	);
 
-		    	foreach ($arr as $key => $value) {
+		    	
+		    	if($arr){
+		    		foreach ($arr as $key => $value) {
 		    		if($subject_code == $value[0]){
 		    			//echo $value[3];
 		    			$arr[$key][3] = $value[3].'/'.$sched_day;
@@ -258,9 +260,18 @@ class enroll_student extends CI_Controller {
 		    			$arr[$key][4] = $value[4].'/'.$room;
 		    			break;
 		    		}
+		    		else{
+		    			$arr[] = $sched;	   
+		    			break;
+		    		}
+		    		}
 		    	}
+		    	else{
+		    		$arr[] = $sched;	   
+		    	}
+		    	
 
-		    	$arr[] = $sched;	    	
+		    	 	
 
 	        }
 
