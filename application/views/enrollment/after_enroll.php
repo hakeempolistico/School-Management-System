@@ -294,7 +294,7 @@
 
     <!-- Main content -->
     <section class="content">
-      <div style="padding: 0 25px;">
+      <div class="hidden-print" style="padding: 0 25px;">
         <div class="callout callout-success">
           <h4>Enrollment Complete!</h4>
 
@@ -376,7 +376,7 @@
       <!-- this row will not appear when printing -->
       <div class="row no-print">
         <div class="col-xs-12">
-          <button type="button" class="btn btn-success pull-right"><i class="fa fa-print"></i> Print</button>
+          <button type="button" id="row-print" class="btn btn-success pull-right"><i class="fa fa-print"></i> Print</button>
         </div>
       </div>
     </section>
@@ -418,7 +418,16 @@
 <script src="<?php echo base_url(); ?>plugins/input-mask/jquery.inputmask.js"></script>
 <script src="<?php echo base_url(); ?>plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
 <script src="<?php echo base_url(); ?>plugins/input-mask/jquery.inputmask.extensions.js"></script>
+<script type="text/javascript">
+  function printData()
+{
+   window.print();
+}
 
+$('#row-print').on('click',function(){
+printData();
+});
+</script>
 <script>
 //Date picker
     $('#datepicker').datepicker({
