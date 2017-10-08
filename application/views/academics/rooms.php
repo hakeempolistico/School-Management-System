@@ -333,18 +333,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <th>Action</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tfoot>
                 <tr>
-                  <td>Lab 1</td>
-                  <td>Laboratory 1</td>
-                  <td>Science</td>                  
-                  <td>
-                    <a href="#" class="btn btn-success btn-xs"><span class="fa fa-fw fa-pencil"></span></a>
-                    <a href="#" class="btn btn-danger btn-xs"><span class="fa fa-fw fa-remove"></span></a>
-                  </td>
-                </tr>
-                </tbody>
-                <tfoot>                
+                  <th>Number</th>    
+                  <th>Name</th>
+                  <th>Building</th>              
+                  <th>Action</th>
+                </tr>                
                 </tfoot>
               </table>
             </div>

@@ -43,7 +43,10 @@ $(function () {
                   url: addRoom,
                   type: 'post',
                   dataType: 'json',  
-                  data: {'room_id': id, 'room_name' : name, 'building' : building},
+                  data: {
+                    'room_id': id, 
+                    'room_name' : name, 
+                    'building' : building},
                   success: function(result){
                     console.log(result);
                     // $('#alert-box').addClass('alert-success').removeClass('alert-danger');
@@ -77,7 +80,11 @@ $(function () {
         url: updateUrl,
         type: 'post',
         dataType: 'json', 
-        data: {'room_id' : newId, 'room_name': newName, 'building': newBuilding, 'set': room_id }, 
+        data: {
+          'room_id' : newId, 
+          'room_name': newName, 
+          'building': newBuilding, 
+          'set': room_id }, 
         success: function(result){
           console.log(result);
           populateTable();
@@ -146,8 +153,8 @@ function populateTable(){
   });
 
 
-//   $("#strands-table").on("click", "tr td .delete-btn", function(){
-//       code = $(this).parents('tr').find('td:first').html();
-//   });
+  $("#rooms-table").on("click", "tr td .delete-btn", function(){
+      id = $(this).parents('tr').find('td:first').html();
+  });
   
 // }
