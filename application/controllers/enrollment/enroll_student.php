@@ -169,7 +169,130 @@ class enroll_student extends CI_Controller {
 	public function after_enroll()
 	{
 		$data = $this->parse->parsed();
-		$data['lastLrn'] = json_encode($this->enroll_student_model->getLastRow('enrolled_students'));
+		$lastLrn = $this->enroll_student_model->getLastRow('enrolled_students');
+
+		$nameRow = $this->global_model->getRow('students_info', 'lrn', $lastLrn);
+		$data['name'] = $nameRow->first_name.' '.$nameRow->middle_name.' '.$nameRow->last_name;  //NAME
+		$data['sex'] = strtoupper($nameRow->sex);  //SEX
+
+		$enrolledRow = $this->global_model->getRow('enrolled_students', 'students_info_lrn', $lastLrn);
+		$data['students_info_lrn'] = $enrolledRow->students_info_lrn; //LRN
+		$note = $enrolledRow->note;
+		$section_id = $enrolledRow->section_id;
+        $academic_year_id = $enrolledRow->academic_year_id;
+        $db_date_enrolled = $enrolledRow->date_enrolled;
+        $dateTime = explode(" ", $db_date_enrolled);
+        $data['date_enrolled'] = $dateTime[0]; //DATE_ENROLLED
+
+        $sectionRow = $this->global_model->getRow('sections', 'id', $section_id);
+        $data['strand_code'] = $sectionRow->strand_code; //STRAND
+        $year_level_id = $sectionRow->year_level_id;
+        $sec_name = $sectionRow->name;
+
+
+        if ($year_level_id == 1)
+	    {
+	        $year_level = '11';  //YEAR_LEVEL 11
+	    } else 
+	    {
+	        $year_level = '12';  //YEAR_LEVEL 12
+	    }
+
+	    $data['section_name'] = $year_level.'-'.$sec_name; //SECTION YEAR AND NAME
+
+	    $academicYearRow = $this->global_model->getRow('academic_years', 'id', $academic_year_id);
+	    $data['academic_year'] = $academicYearRow->year_start.'-'.$academicYearRow->year_end;  //ACADEMIC_YEAR
+
+	    $schedulesTable = $this->enroll_student_model->getMultRows('schedules', 'section_id', $section_id); 
+
+
+	    $data['arr'] =[];
+
+		    		$ttt = [];
+	    foreach ($schedulesTable as $row) 
+	    {
+	    	$subject_code = $row->subject_code; //SUBJECT_CODE
+	    	$subject_name = '';
+
+	    	$subjectRow =$this->global_model->getRow('subjects', 'code', $subject_code);
+
+			if($subjectRow){
+				
+	    		$subject_name = $subjectRow->name; //SUBJECT_NAME
+			}
+
+	    	$time = $row->time_start.'-'.$row->time_end; //TIME
+	    	$room = $row->room_id; //ROOM
+	    	$day = $row->day;
+
+	    	if($subject_code == 'BREAK' || $subject_code == 'VACANT' ){
+
+	          } 
+	        else{
+	        	if ($day == 'Monday'){
+	              $sched_day = 'M';  //SCHED_DAY M
+	            } else if($day == 'Tuesday'){
+	              $sched_day = 'T';  //SCHED_DAY T
+	            } else if($day == 'Wednesday'){
+	              $sched_day = 'W';  //SCHED_DAY W
+	            } else if($day == 'Thursday'){
+	              $sched_day = 'Th';  //SCHED_DAY TH
+	            } else if($day == 'Friday'){
+	              $sched_day = 'F';  //SCHED_DAY F
+	            }
+
+		    	$sched = array(
+		    		$subject_code,
+		    		$subject_name,
+		    		$time,
+		    		$sched_day,
+		    		$room
+		    	);
+
+		    	
+		    	if($data['arr']){
+		    		foreach ($data['arr'] as $key => $value) {
+
+			    		if($subject_code == $value[0]){
+			    			$data['arr'][$key][3] = $value[3].'/'.$sched_day;
+			    			$data['arr'][$key][2] = $value[2].'/'.$time;
+			    			$data['arr'][$key][4] = $value[4].'/'.$room;
+
+			    			$ttt[] = $subject_code;			    			
+			    			break;
+			    		}
+			    		else {
+			    			$data['arr'][] = $sched;	
+			    		}
+		    		}
+		    	}
+		    	else{
+
+		    		$data['arr'][] = $sched;	
+		    	}
+		    	
+
+		    	 	
+
+	        }
+
+	    }
+
+	    foreach ($data['arr'] as $key => $value) {
+	    	$allTime = explode("/",$value[2]);
+	    	$allRoom = explode("/",$value[4]);
+	    	if(count(array_unique($allTime) == 1)){
+	    		$data['arr'][$key][2] = $allTime[0];
+	    	};
+	    	if(count(array_unique($allRoom) == 1)){
+	    		$data['arr'][$key][4] = $allRoom[0];
+	    	};
+	    };
+	    // echo '<pre>';
+	    // print_r($data['arr']);
+	    // echo '</pre>';
+	    // exit;
+
 		$this->parser->parse('enrollment/after_enroll', $data);
 	}
 
@@ -193,6 +316,7 @@ class enroll_student extends CI_Controller {
 
         $sectionRow = $this->global_model->getRow('sections', 'id', $section_id);
         $after_enroll['strand_code'] = $sectionRow->strand_code; //STRAND
+        $after_enroll['strand_code'] = $sectionRow->name; //STRAND
         $year_level_id = $sectionRow->year_level_id;
 
         if ($year_level_id == 1)
@@ -210,6 +334,8 @@ class enroll_student extends CI_Controller {
 
 
 	    $arr =[];
+
+		    		$ttt = [];
 	    foreach ($schedulesTable as $row) 
 	    {
 	    	$subject_code = $row->subject_code; //SUBJECT_CODE
@@ -253,10 +379,13 @@ class enroll_student extends CI_Controller {
 		    	
 		    	if($arr){
 		    		foreach ($arr as $key => $value) {
+
 			    		if($subject_code == $value[0]){
 			    			$arr[$key][3] = $value[3].'/'.$sched_day;
 			    			$arr[$key][2] = $value[2].'/'.$time;
 			    			$arr[$key][4] = $value[4].'/'.$room;
+
+			    			$ttt[] = $subject_code;			    			
 			    			break;
 			    		}
 			    		else {
@@ -265,6 +394,7 @@ class enroll_student extends CI_Controller {
 		    		}
 		    	}
 		    	else{
+
 		    		$arr[] = $sched;	
 		    	}
 		    	
@@ -285,6 +415,7 @@ class enroll_student extends CI_Controller {
 	    		$arr[$key][4] = $allRoom[0];
 	    	};
 	    };
+
 
 		echo '<pre>'; 
 		print_r($arr);

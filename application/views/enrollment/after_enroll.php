@@ -298,7 +298,7 @@
         <div class="callout callout-success">
           <h4>Enrollment Complete!</h4>
 
-          <p>You have successfully enrolled <bold class="name">Adrielle Kristine Nicolette M. Escaro</bold> to <bold class="strand">STEM</bold>.</p>
+          <p>You have successfully enrolled <bold><?php echo $name ?></bold> to <bold><?php echo $strand_code ?></bold>.</p>
         </div>
     </div>
 
@@ -308,7 +308,7 @@
         <div class="col-xs-12">
           <h2 class="page-header">
             <i class="fa fa-globe"></i> Araullo High School
-            <small class="pull-right"><b style="margin-right: 5px">Academic Year:</b> <p style="display: inline-block;" id="academic_year">2017-2018</p>&emsp;<b style="margin-right: 5px"> Date Enrolled:</b> <p style="display: inline-block;" id="date_enrolled">2/10/2014</p></small> 
+            <small class="pull-right"><b style="margin-right: 5px">Academic Year:</b> <p style="display: inline-block;"><?php echo $academic_year ?></p>&emsp;<b style="margin-right: 5px"> Date Enrolled:</b> <p style="display: inline-block;"><?php echo $date_enrolled ?></p></small> 
           </h2>
         </div>
         <!-- /.col -->
@@ -316,16 +316,16 @@
       <!-- info row -->
       <div class="row invoice-info">
         <div class="col-sm-4 invoice-col">
-          <b style="margin-right: 5px"> LRN: </b> <p style="display: inline-block;" id="lrn">14-038-014</p> <br>
-          <b style="margin-right: 5px"> Strand: </b> <p style="display: inline-block;" class="strand">STEM</p>
+          <b style="margin-right: 5px"> LRN: </b> <p style="display: inline-block;"><?php echo $students_info_lrn ?></p> <br>
+          <b style="margin-right: 5px"> Strand: </b> <p style="display: inline-block;"><?php echo $strand_code ?></p>
           
         </div>
         <div class="col-sm-4 invoice-col">
-          <b style="margin-right: 5px"> Name: </b> <p style="display: inline-block;" class="name">HAKEEM ANDAYA POLISTICO</p> <br>
-          <b style="margin-right: 5px"> Year and Section: </b> <p style="display: inline-block;" id="section_name">11-A</p>
+          <b style="margin-right: 5px"> Name: </b> <p style="display: inline-block;"><?php echo $name ?></p> <br>
+          <b style="margin-right: 5px"> Year and Section: </b> <p style="display: inline-block;"><?php echo $section_name ?></p>
         </div>
         <div class="col-sm-4 invoice-col">
-          <b style="margin-right: 5px"> Sex: </b> <p style="display: inline-block;" id="sex">MALE</p>
+          <b style="margin-right: 5px"> Sex: </b> <p style="display: inline-block;"><?php echo $sex ?></p>
         </div>
       </div>
       <hr>
@@ -344,14 +344,16 @@
               <th>Room</th>
             </tr>
             </thead>
-            <tbody id="sched">
-            <tr id="schedRecord">
-              <td>CHM</td>
-              <td>Chemistry 1</td>
-              <td>6:00-7:00</td>
-              <td>M/T/W/F</td>
-              <td>Laboratory 1</td>
-            </tr>
+            <tbody>
+            <?php foreach($arr as $td): ?>
+              <tr>    
+                <td><?php echo $td[0]; ?></td>
+                <td><?php echo $td[1]; ?></td>
+                <td><?php echo $td[2]; ?></td>
+                <td><?php echo $td[3]; ?></td>
+                <td><?php echo $td[4]; ?></td>
+              </tr>
+          <?php endforeach; ?>
             </tbody>
           </table>
         </div>
@@ -416,25 +418,6 @@
 <script src="<?php echo base_url(); ?>plugins/input-mask/jquery.inputmask.js"></script>
 <script src="<?php echo base_url(); ?>plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
 <script src="<?php echo base_url(); ?>plugins/input-mask/jquery.inputmask.extensions.js"></script>
-
-<script>
-$(document).ready(function(){ 
-  var lastLrn = <?php echo $lastLrn;?>;
-  var ajaxUrl = "<?php echo base_url("enrollment/enroll_student/reg_form"); ?>"
-  var ajaxRowUrl = "<?php echo base_url("enrollment/enroll_student/ajaxRowUrl"); ?>"
-  $.ajax({
-            url: ajaxUrl,
-            type: 'post',
-            dataType: 'json', 
-            data: {'value' : lastLrn}, 
-            success: function(result){
-              //alert(result);
-            }
-  });
-  
-  
-});
-</script>
 
 <script>
 //Date picker
