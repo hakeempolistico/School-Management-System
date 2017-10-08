@@ -672,7 +672,6 @@
       if (!triggeredByChild) {
           $('.check11').iCheck('uncheck');
       }
-      $('.subject11').prop('disabled', true);
       $('#grades11').addClass('text-muted');
       $('#aStrands').css('display', 'none');
       triggeredByChild = false;
@@ -683,8 +682,16 @@
       $('.checkAll11').iCheck('uncheck');
   });
 
+   $('.check11').on('ifChanged', function (event) {
+      if ($('.check11').filter(':checked').length > 0) {
+        $('.subject11').prop('disabled', false);
+
+      } else {
+        $('.subject11').prop('disabled', true);
+      }
+  });
+
   $('.check11').on('ifChecked', function(event){
-      $('.subject11').prop('disabled', false);
       if ($('.check11').filter(':checked').length == $('.check11').length) {
         $('.checkAll11').iCheck('check');
 
