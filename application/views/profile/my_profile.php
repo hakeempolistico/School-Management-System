@@ -276,6 +276,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">    
+     <div id="alert-box" class="alert alert-danger alert-dismissible flat" hidden>
+      <button type="button" class="close" aria-hidden="true">&times;</button>
+      <h4 id="alert-title"><i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!</h4>
+        <div id="alert-message">Subject code already used. Please use another one.</div>
+     </div>
       
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -298,7 +303,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!-- Profile Image -->
           <div class="box box-primary">
             <div class="box-body box-profile">
-              <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url(); ?>dist/img/user4-128x128.jpg" alt="User profile picture">
+              <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url('images/alt_picture.jpg'); ?>" alt="User profile picture">
 
               <h3 class="profile-username text-center">Adrielle Escaro</h3>
 
@@ -306,13 +311,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
               <ul class="list-group list-group-unbordered">
                 <li class="list-group-item">
-                  <b>Employee ID</b> <a class="pull-right">00001</a>
+                  <b>
+                    <?php if($this->session->position == 'Administrator' || $this->session->position == 'Teacher') { echo 'Employee ID';} else { echo 'LRN';}?>
+                  </b> <a class="pull-right"><?php echo $this->session->employee_id;?></a>
                 </li>
                 <li class="list-group-item">
-                  <b>Position</b> <a class="pull-right">Head Teacher</a>
+                  <b>Position</b> <a class="pull-right"><?php echo $this->session->position;?></a>
                 </li>
                 <li class="list-group-item">
-                  <b>Date Created</b> <a class="pull-right">2017-09-20 11:49:17</a>
+                  <b>Status</b> <a class="pull-right badge bg-blue">Active</a>
                 </li>
               </ul>
 
@@ -327,12 +334,48 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
               <li  class="active"><a href="#profile" data-toggle="tab">Profile</a></li>
-              <li><a href="#subjects" data-toggle="tab">Subjects</a></li>
+              <?php if($this->session->position == 'Student' || $this->session->position == 'Teacher') { ?><li><a href="#subjects" data-toggle="tab">Subjects</a></li>
+              <?php } ?>
               <li><a href="#settings" data-toggle="tab">Settings</a></li>
             </ul>
             <div class="tab-content">
               <div class="active tab-pane" id="profile">
-                <div class="row">
+
+                <?php if($this->session->position == 'Administrator' || $this->session->position == 'Teacher') { ?>
+                  <div class="row" style="margin-top: 10px">
+                    <div class="col-md-12">
+                      <label>Personal Information</label>
+                      <table class="table table-striped">
+                        <thead>
+                          <td></td>
+                          <td></td>
+                        </thead>   
+                          <tr>
+                            <td>Major</td>
+                            <td><?php echo $this->session->major;?></td>                        
+                          </tr>          
+                          <tr>
+                            <td>Sex</td>
+                            <td><?php echo $this->session->sex;?></td>                        
+                          </tr>
+                          <tr>
+                            <td>Birthdate</td>
+                            <td><?php echo date("M j, Y", strtotime($this->session->birthdate));?></td>
+                            </tr>
+                          <tr>
+                            <td>Contact Number</td>
+                            <td><?php echo $this->session->contact_no;?></td>
+                          </tr>
+                          <tr>
+                            <td>Email</td>
+                            <td><?php echo $this->session->email;?></td>
+                          </tr>
+                      </table>
+                    </div>
+                  </div>
+                <?php } ?>
+
+                <!-- <div class="row">
                   <div class="col-md-12">
                     <label>Personal Information (student display)</label>
                     <table class="table table-striped">
@@ -366,9 +409,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </tr>
                     </table>
                   </div>
-                  <!-- /.col -->
-                </div><hr>
-                <!-- /.row-->
+                </div>
 
                 <div class="row">
                   <div class="col-md-12">
@@ -408,42 +449,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </tr>
                     </table>
                   </div>
-                  <!-- /.col -->
-                </div><hr>
-                <!-- /.row-->
-                <div class="row">
-                  <div class="col-md-12">
-                    <label>Personal Information (teacher display)</label>
-                    <table class="table table-striped">
-                      <thead>
-                        <td></td>
-                        <td></td>
-                      </thead>
-                        <tr>
-                          <td>Major</td>
-                          <td>Mathematics</td>
-                        </tr>               
-                        <tr>
-                          <td>Sex</td>
-                          <td>Female</td>                        
-                        </tr>
-                        <tr>
-                          <td>Birthdate</td>
-                          <td>February 11, 1999</td>
-                          </tr>
-                        <tr>
-                          <td>Mobile Number</td>
-                          <td>09991232147</td>
-                        </tr>
-                        <tr>
-                          <td>Email</td>
-                          <td>someone@example.com</td>
-                        </tr>
-                    </table>
-                  </div>
-                  <!-- /.col -->
-                </div><hr>
-                <!-- /.row-->
+                </div> -->
+
               </div>
               <!-- /.tab-pane -->
               <div class="tab-pane" id="subjects">
@@ -514,7 +521,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="tab-pane" id="settings">
                 <div class="row">
                   <div class="col-md-12">
-                    <label>Account Information (admin display)</label>
+                    <label>Account Information</label>
                     <table class="table table-striped">
                       <thead>
                         <td></td>
@@ -522,72 +529,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       </thead>
                         <tr>
                           <td>Date Created</td>
-                          <td>September 17, 2017</td>
+                          <td><?php $dc = explode(" ",$this->session->date_created); echo date("M j, Y", strtotime($dc[0])); ?></td>
                         </tr>
                         <tr>
                           <td>Username</td>
-                          <td>admin</td>
+                          <td><?php echo $this->session->username;?></td>
                         </tr>
                         <tr>
                           <td>Password</td>
-                          <td><a href="#">Change Password</a></td>
+                          <td><a href="#" id="link-change">Change Password</a></td>
                         </tr>                                        
                     </table>
                   </div>
                   <!-- /.col-->
-                </div><hr>
-                <!-- /.row-->
-                <div class="row">
-                  <div class="col-md-12">
-                    <label>Account Information (student display)</label>
-                    <table class="table table-striped">
-                      <thead>
-                        <td></td>
-                        <td></td>
-                      </thead>
-                        <tr>
-                          <td>Date Created</td>
-                          <td>September 17, 2017</td>
-                        </tr>
-                        <tr>
-                          <td>Username</td>
-                          <td>student</td>
-                        </tr>
-                        <tr>
-                          <td>Password</td>
-                          <td><a href="#">Change Password</a></td>
-                        </tr>                                        
-                    </table>
-                  </div>
-                  <!-- /.col-->
-                </div><hr>
-                <!-- /.row-->
-                <div class="row">
-                  <div class="col-md-12">
-                    <label>Account Information (teacher display)</label>
-                    <table class="table table-striped">
-                      <thead>
-                        <td></td>
-                        <td></td>
-                      </thead>
-                        <tr>
-                          <td>Date Created</td>
-                          <td>September 17, 2017</td>
-                        </tr>
-                        <tr>
-                          <td>Username</td>
-                          <td>teacher</td>
-                        </tr>
-                        <tr>
-                          <td>Password</td>
-                          <td><a href="#">Change Password</a></td>
-                        </tr>                                        
-                    </table>
-                  </div>
-                  <!-- /.col-->
-                </div><hr>
-                <!-- /.row-->
-                <div class="row">
+                </div>
+
+                <hr class="change-password" hidden>
+                <div class="row change-password" hidden>
                   <div class="col-md-12">
                     <label>Change Password</label>
                     <form class="form-horizontal">
@@ -595,26 +553,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <label for="inputCurPass" class="col-sm-2 control-label">Current</label>
 
                         <div class="col-sm-10">
-                          <input type="password" class="form-control" id="inputCurPass" placeholder="Current Password">
+                          <input type="password" class="form-control" id="input-current" placeholder="Current Password">
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="inputNewPass" class="col-sm-2 control-label">New</label>
 
                         <div class="col-sm-10">
-                          <input type="password" class="form-control" id="inputEmail" placeholder="New Password">
+                          <input type="password" class="form-control" id="input-new" placeholder="New Password">
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="inputRetypeNew" class="col-sm-2 control-label">Re-type new</label>
 
                         <div class="col-sm-10">
-                          <input type="password" class="form-control" id="inputRetypeNew" placeholder="Re-type new password">
+                          <input type="password" class="form-control" id="input-retype" placeholder="Re-type new password">
                         </div>
                       </div>
+                      <input type="hidden" id="input-username" value="<?php echo $this->session->username;?>">
                       <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                          <button type="submit" class="btn btn-primary">Save Changes</button>
+                          <button id="btn-save" type="submit" class="btn btn-sm pull-right btn-primary">Save Changes</button>
                         </div>
                       </div>
                     </form>
@@ -648,5 +607,56 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
 <!-- page script -->
 <script src="<?php echo base_url(); ?>dist/js/enrollment/dashboard.js"></script>
+
+<script>
+  $('#link-change').click(function(){
+    $('.change-password').show();
+  })
+  var changeUrl = '<?php echo base_url('profile/change_password');?>';
+
+  $('#btn-save').click(function(){
+
+  var username = $('#input-username').val();
+  var current = $('#input-current').val();
+  var new_pass = $('#input-new').val();
+  var retype = $('#input-retype').val();
+
+  $('.loading').show();
+    $.ajax({
+      url: changeUrl,
+      type: 'post',
+      dataType: 'json', 
+      data: {'username' : username, 'current' : current, 'new' : new_pass, 'retype' : retype  }, 
+      success: function(result){
+        console.log(result);
+        if(result == true){
+          $('#input-current').val('');
+          $('#input-new').val('');
+          $('#input-retype').val('');
+
+
+          $('#alert-box').addClass('alert-success').removeClass('alert-danger');
+          $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-check"></i> SUCCESS MESSAGE!');
+          $('#alert-message').html('Password updated.');
+          $('#alert-box').slideDown(1000);
+          $('#alert-box').delay( 2000 ).slideUp(1000);
+        }
+        else if(result == false){
+          $('#input-current').val('');
+          $('#input-new').val('');
+          $('#input-retype').val('');
+
+
+          $('#alert-box').slideDown(1000);
+          $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!');
+          $('#alert-message').html('Incorrect input.');
+          $('#alert-box').delay( 1500 ).slideUp(1000);
+        }
+
+        $('.loading').delay(500).hide();
+      }
+    });   
+  })
+</script>
 </body>
 </html>
