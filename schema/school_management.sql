@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 03, 2017 at 10:30 PM
+-- Generation Time: Oct 08, 2017 at 10:11 PM
 -- Server version: 5.7.11
 -- PHP Version: 7.0.4
 
@@ -71,7 +71,8 @@ INSERT INTO `addresses` (`id`, `students_info_lrn`, `street`, `barangay`, `city`
 (4, 44444, 'Golden st.', 'Barangay Golden', 'Dasma', 'Cavite'),
 (5, 55555, 'Citta st,', 'Barangay Italia', 'Imus', 'Cavite'),
 (6, 66666, 'LA street', 'Baranggay LA', 'LA city', 'LA province'),
-(7, 14, '226-b', 'Talaba I', 'Bacoor City', 'Cavity');
+(7, 14, '226-b', 'Talaba I', 'Bacoor City', 'Cavity'),
+(8, 14038014, '226B', 'Talaba I', 'Bacoor City', 'Cavite');
 
 -- --------------------------------------------------------
 
@@ -105,7 +106,10 @@ INSERT INTO `class_subjects` (`id`, `section_id`, `subject_id`, `teacher_id`, `d
 (103, 2, 2, 1, '2017-09-21 09:41:32', '0000-00-00 00:00:00'),
 (328, 1, 3, 3, '2017-09-21 10:20:04', '0000-00-00 00:00:00'),
 (327, 1, 2, 2, '2017-09-21 10:20:04', '0000-00-00 00:00:00'),
-(326, 1, 5, 5, '2017-09-21 10:20:04', '0000-00-00 00:00:00');
+(326, 1, 5, 5, '2017-09-21 10:20:04', '0000-00-00 00:00:00'),
+(332, 20, 3, 3, '2017-10-07 15:09:52', '0000-00-00 00:00:00'),
+(333, 20, 1, 1, '2017-10-07 15:09:52', '0000-00-00 00:00:00'),
+(334, 20, 2, 2, '2017-10-07 15:09:52', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -129,7 +133,10 @@ CREATE TABLE `enrolled_students` (
 
 INSERT INTO `enrolled_students` (`id`, `students_info_lrn`, `note`, `section_id`, `academic_year_id`, `date_enrolled`, `date_modified`) VALUES
 (1, 66666, 'Champagne, coccaine, gasoline', '20', 1, '2017-10-02 03:16:54', '0000-00-00 00:00:00'),
-(2, 14, 'Well Noted', '20', 1, '2017-10-02 07:06:07', '0000-00-00 00:00:00');
+(2, 14, 'Well Noted', '20', 1, '2017-10-02 07:06:07', '0000-00-00 00:00:00'),
+(3, 14038014, '', '20', 1, '2017-10-03 14:38:00', '0000-00-00 00:00:00'),
+(4, 11111, '', '1', 1, '2017-10-07 06:43:00', '0000-00-00 00:00:00'),
+(5, 55555, '', '1', 1, '2017-10-08 06:26:42', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -156,7 +163,8 @@ INSERT INTO `guardians` (`id`, `students_info_lrn`, `name`, `contact`, `relation
 (4, 44444, 'Mother Salva', 'MotherSalva con', 'Mother'),
 (5, 55555, 'Roman Ferrer', 'FatherFerrer co', 'Father'),
 (6, 66666, 'Father Urie', '092222', 'Father'),
-(7, 14, 'Marissa Tomei', '0955-887-4822', 'Mother');
+(7, 14, 'Marissa Tomei', '0955-887-4822', 'Mother'),
+(8, 14038014, 'Marissa Tomei', '0955-887-4822', 'Mother');
 
 -- --------------------------------------------------------
 
@@ -184,7 +192,8 @@ INSERT INTO `parents` (`id`, `students_info_lrn`, `mother_name`, `mother_contact
 (4, 44444, 'Mother Salva', 'MotherSalva con', 'Father Salva', 'FatherSalva con'),
 (5, 55555, 'fukIforgot Ferrer', 'MotherFerrer co', 'Roman Ferrer', 'FatherFerrer co'),
 (6, 66666, 'Mother Urie', '0944444', 'Father Urie', '092222'),
-(7, 14, 'Marissa Tomei', '0955-887-4822', 'Tom Cruise', '0955-887-4822');
+(7, 14, 'Marissa Tomei', '0955-887-4822', 'Tom Cruise', '0955-887-4822'),
+(8, 14038014, 'Marissa Tomei', '0955-887-4822', 'Tom Cruise', '0955-887-4822');
 
 -- --------------------------------------------------------
 
@@ -203,11 +212,9 @@ CREATE TABLE `registered_students` (
 --
 
 INSERT INTO `registered_students` (`id`, `students_info_lrn`, `date_registered`) VALUES
-(1, '11111', '2017-09-20 01:17:57'),
 (2, '22222', '2017-09-20 01:29:40'),
 (3, '33333', '2017-09-20 01:32:58'),
 (4, '44444', '2017-09-20 01:35:08'),
-(5, '55555', '2017-09-20 01:37:59'),
 (7, '14', '2017-10-02 07:03:03');
 
 -- --------------------------------------------------------
@@ -233,7 +240,16 @@ INSERT INTO `requirements` (`id`, `enrolled_student_lrn`, `requirement`, `date_g
 (3, '66666', 'form 138', '2017-10-02 03:16:54'),
 (4, '14', 'NSO Birth Certificate', '2017-10-02 07:06:07'),
 (5, '14', 'Form 137', '2017-10-02 07:06:07'),
-(6, '14', 'form 138', '2017-10-02 07:06:07');
+(6, '14', 'form 138', '2017-10-02 07:06:07'),
+(7, '14038014', 'NSO Birth Certificate', '2017-10-03 14:38:00'),
+(8, '14038014', 'Form 137', '2017-10-03 14:38:00'),
+(9, '14038014', 'form 138', '2017-10-03 14:38:00'),
+(10, '11111', 'NSO Birth Certificate', '2017-10-07 06:43:00'),
+(11, '11111', 'Form 137', '2017-10-07 06:43:01'),
+(12, '11111', 'form 138', '2017-10-07 06:43:01'),
+(13, '55555', 'NSO Birth Certificate', '2017-10-08 06:26:42'),
+(14, '55555', 'Form 137', '2017-10-08 06:26:42'),
+(15, '55555', 'form 138', '2017-10-08 06:26:42');
 
 -- --------------------------------------------------------
 
@@ -285,6 +301,12 @@ INSERT INTO `schedules` (`id`, `section_id`, `subject_code`, `room_id`, `time_st
 (921, 3, 'WOLT', 'Lab101', '12:00', '1:00', 'Thursday', 'rgb(240, 18, 190)', 2),
 (922, 3, 'WOLT', 'Lab101', '12:00', '1:00', 'Wednesday', 'rgb(96, 92, 168)', 2),
 (923, 3, 'WOLT', 'Lab101', '12:00', '1:00', 'Friday', 'rgb(0, 31, 63)', 2),
+(924, 1, 'CHM', 'Lab101', '8:00', '9:00', 'Thursday', 'rgb(0, 115, 183)', 0),
+(925, 1, 'CHM', 'Lab101', '8:00', '9:00', 'Tuesday', 'rgb(57, 204, 204)', 0),
+(929, 1, 'CHM', 'Lab101', '8:00', '9:00', 'Friday', 'rgb(0, 192, 239)', 0),
+(928, 1, 'CHM', 'Lab101', '9:00', '10:00', 'Tuesday', 'rgb(221, 75, 57)', 1),
+(927, 1, 'CHM', 'Lab101', '8:00', '9:00', 'Wednesday', 'rgb(60, 141, 188)', 0),
+(926, 1, 'CHM', 'Lab101', '8:00', '9:00', 'Monday', 'rgb(243, 156, 18)', 0),
 (917, 3, 'BREAK', '', '8:00', '9:00', 'Thursday', 'rgb(169, 169, 169)', 1),
 (916, 3, 'BREAK', '', '8:00', '9:00', 'Wednesday', 'rgb(169, 169, 169)', 1),
 (915, 3, 'BREAK', '', '8:00', '9:00', 'Tuesday', 'rgb(169, 169, 169)', 1),
@@ -293,7 +315,26 @@ INSERT INTO `schedules` (`id`, `section_id`, `subject_code`, `room_id`, `time_st
 (912, 3, 'VACANT', '', '7:00', '8:00', 'Tuesday', 'rgb(128, 128, 128)', 0),
 (911, 3, 'BREAK', '', '8:00', '9:00', 'Monday', 'rgb(169, 169, 169)', 1),
 (910, 3, 'VACANT', '', '7:00', '8:00', 'Thursday', 'rgb(128, 128, 128)', 0),
-(909, 3, 'VACANT', '', '7:00', '8:00', 'Monday', 'rgb(128, 128, 128)', 0);
+(909, 3, 'VACANT', '', '7:00', '8:00', 'Monday', 'rgb(128, 128, 128)', 0),
+(930, 1, 'CHM', 'Lab101', '9:00', '10:00', 'Wednesday', 'rgb(96, 92, 168)', 1),
+(931, 1, 'CHM', 'Lab101', '9:00', '10:00', 'Monday', 'rgb(1, 255, 112)', 1),
+(932, 1, 'CHM', 'Lab101', '9:00', '10:00', 'Thursday', 'rgb(240, 18, 190)', 1),
+(933, 1, 'CHM', 'Lab101', '9:00', '10:00', 'Friday', 'rgb(0, 31, 63)', 1),
+(934, 1, 'VACANT', '', '10:00', '11:00', 'Monday', 'rgb(128, 128, 128)', 2),
+(935, 1, 'VACANT', '', '10:00', '11:00', 'Tuesday', 'rgb(128, 128, 128)', 2),
+(936, 1, 'VACANT', '', '10:00', '11:00', 'Thursday', 'rgb(128, 128, 128)', 2),
+(937, 1, 'VACANT', '', '10:00', '11:00', 'Wednesday', 'rgb(128, 128, 128)', 2),
+(938, 1, 'VACANT', '', '10:00', '11:00', 'Friday', 'rgb(128, 128, 128)', 2),
+(1003, 20, 'CHM', 'Lab101', '8:00', '9:00', 'Friday', 'rgb(0, 115, 183)', 1),
+(1001, 20, 'CHM', 'Lab101', '8:00', '9:00', 'Wednesday', 'rgb(60, 141, 188)', 1),
+(1002, 20, 'CHM', 'Lab101', '8:00', '9:00', 'Thursday', 'rgb(0, 192, 239)', 1),
+(1000, 20, 'CHM', 'Lab101', '8:00', '9:00', 'Tuesday', 'rgb(240, 18, 190)', 1),
+(996, 20, 'WOLT', 'Lab101', '7:00', '8:00', 'Thursday', 'rgb(96, 92, 168)', 0),
+(997, 20, 'WOLT', 'Lab101', '7:00', '8:00', 'Wednesday', 'rgb(221, 75, 57)', 0),
+(998, 20, 'CHM', 'Lab101', '8:00', '9:00', 'Monday', 'rgb(0, 166, 90)', 1),
+(999, 20, 'WOLT', 'Lab101', '7:00', '8:00', 'Tuesday', 'rgb(57, 204, 204)', 0),
+(995, 20, 'WOLT', 'Lab101', '7:00', '8:00', 'Friday', 'rgb(240, 18, 190)', 0),
+(994, 20, 'WOLT', 'Lab101', '7:00', '8:00', 'Monday', 'rgb(243, 156, 18)', 0);
 
 -- --------------------------------------------------------
 
@@ -337,7 +378,8 @@ INSERT INTO `sections` (`id`, `strand_code`, `year_level_id`, `name`, `capacity`
 (26, 'TVL-HE', 2, 'B', 45),
 (27, 'TVL-HE', 1, 'B', 45),
 (28, 'TVL-AS', 1, 'B', 45),
-(29, 'TVL-AS', 2, 'B', 45);
+(29, 'TVL-AS', 2, 'B', 45),
+(30, 'STEM', 1, 'C', 40);
 
 -- --------------------------------------------------------
 
@@ -398,7 +440,8 @@ INSERT INTO `students_info` (`id`, `lrn`, `first_name`, `middle_name`, `last_nam
 (4, 44444, 'Jasver', 'Anlouis', 'Salva', 'Female', '09444444444', '2017-09-22', 'Hospital Bed', 0, 'Tagalog', 'Catholic', b'0', '2017-09-20 01:35:08', '2017-09-20 01:35:08'),
 (5, 55555, 'Journacel', 'Urgel', 'Ferrer', 'Female', '09555555555', '1997-10-10', 'Hospital Bed', 19, 'Tagalog', 'Catholic', b'0', '2017-09-20 01:37:59', '2017-09-20 01:37:59'),
 (6, 66666, 'Brendon', 'Pogi', 'Urie', 'Male', '09666666666', '1998-07-29', 'Los Angeles', 19, 'English', 'no one knows', b'0', '2017-10-02 03:16:21', '2017-10-02 03:16:21'),
-(7, 14, 'Hakeem', 'Andaya', 'Polistico', 'Male', '0955-887-4822', '1994-07-22', 'Mandaluyong City', 23, 'Filipino', 'Roman Catholic', b'0', '2017-10-02 07:03:03', '2017-10-02 07:03:03');
+(7, 14, 'Hakeem', 'Andaya', 'Polistico', 'Male', '0955-887-4822', '1994-07-22', 'Mandaluyong City', 23, 'Filipino', 'Roman Catholic', b'0', '2017-10-02 07:03:03', '2017-10-02 07:03:03'),
+(8, 14038014, 'Hakeem', 'Andaya', 'Polistico', 'Male', '0955-887-4822', '1994-07-22', 'Mandaluyong City', 23, 'Filipino', 'Roman Catholic', b'0', '2017-10-03 14:37:34', '2017-10-03 14:37:34');
 
 -- --------------------------------------------------------
 
@@ -424,7 +467,8 @@ INSERT INTO `student_contacts` (`id`, `students_info_lrn`, `parents_id`, `guardi
 (4, '44444', 4, 4),
 (5, '55555', 5, 5),
 (6, '66666', 6, 6),
-(7, '14', 7, 7);
+(7, '14', 7, 7),
+(8, '14038014', 8, 8);
 
 -- --------------------------------------------------------
 
@@ -492,21 +536,28 @@ INSERT INTO `teachers` (`id`, `employee_id`, `first_name`, `middle_name`, `last_
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
+  `employee_id` varchar(100) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `first_name` varchar(100) NOT NULL,
   `last_name` varchar(100) NOT NULL,
   `position` varchar(50) NOT NULL,
+  `sex` varchar(10) NOT NULL,
+  `birthdate` varchar(50) NOT NULL,
+  `contact_no` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `major` varchar(50) NOT NULL,
   `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `date_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+  `date_modified` timestamp NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `first_name`, `last_name`, `position`, `date_created`, `date_modified`) VALUES
-(1, 'admin', 'admin', 'Adrielle', 'Escaro', 'Admin', '2017-09-19 19:49:17', '2017-09-19 19:49:17');
+INSERT INTO `users` (`id`, `employee_id`, `username`, `password`, `first_name`, `last_name`, `position`, `sex`, `birthdate`, `contact_no`, `email`, `major`, `date_created`, `date_modified`) VALUES
+(1, '14-038-027', 'admin', 'admin', 'Adrielle', 'Escaro', 'Administrator', 'Female', '1998/06/24', '0935-515-6653', 'adrielle.escaro@tup.edu.ph', 'English', '2017-09-19 19:49:17', '2017-09-19 19:49:17'),
+(2, '14-038-014', '14-038-014', 'password', 'Hakeem', 'Polistico', 'Teacher', 'Male', '1994/07/22', '0955-887-4822', 'hakeem.polistico@tup.edu.ph', 'Mathematics', '2017-10-07 13:10:18', '2017-10-07 13:10:18');
 
 -- --------------------------------------------------------
 
@@ -634,7 +685,8 @@ ALTER TABLE `teachers`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `employee_id` (`employee_id`,`username`);
 
 --
 -- Indexes for table `year_levels`
@@ -655,37 +707,37 @@ ALTER TABLE `academic_years`
 -- AUTO_INCREMENT for table `addresses`
 --
 ALTER TABLE `addresses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `class_subjects`
 --
 ALTER TABLE `class_subjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=332;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=335;
 --
 -- AUTO_INCREMENT for table `enrolled_students`
 --
 ALTER TABLE `enrolled_students`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `guardians`
 --
 ALTER TABLE `guardians`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `parents`
 --
 ALTER TABLE `parents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `registered_students`
 --
 ALTER TABLE `registered_students`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `requirements`
 --
 ALTER TABLE `requirements`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `rooms`
 --
@@ -695,12 +747,12 @@ ALTER TABLE `rooms`
 -- AUTO_INCREMENT for table `schedules`
 --
 ALTER TABLE `schedules`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=924;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1004;
 --
 -- AUTO_INCREMENT for table `sections`
 --
 ALTER TABLE `sections`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT for table `strands`
 --
@@ -710,12 +762,12 @@ ALTER TABLE `strands`
 -- AUTO_INCREMENT for table `students_info`
 --
 ALTER TABLE `students_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `student_contacts`
 --
 ALTER TABLE `student_contacts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `subjects`
 --
@@ -730,7 +782,7 @@ ALTER TABLE `teachers`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `year_levels`
 --
