@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.0
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 08, 2017 at 10:11 PM
--- Server version: 5.7.11
--- PHP Version: 7.0.4
+-- Generation Time: Oct 09, 2017 at 10:15 AM
+-- Server version: 10.1.22-MariaDB
+-- PHP Version: 7.1.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -83,8 +85,8 @@ INSERT INTO `addresses` (`id`, `students_info_lrn`, `street`, `barangay`, `city`
 CREATE TABLE `class_subjects` (
   `id` int(11) NOT NULL,
   `section_id` int(11) NOT NULL,
-  `subject_id` int(11) NOT NULL,
-  `teacher_id` int(11) NOT NULL,
+  `subject_id` varchar(50) NOT NULL,
+  `teacher_id` varchar(11) NOT NULL,
   `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `date_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -94,22 +96,10 @@ CREATE TABLE `class_subjects` (
 --
 
 INSERT INTO `class_subjects` (`id`, `section_id`, `subject_id`, `teacher_id`, `date_created`, `date_modified`) VALUES
-(3, 9, 9, 1, '2017-09-21 02:33:15', '0000-00-00 00:00:00'),
-(4, 9, 9, 5, '2017-09-21 02:33:15', '0000-00-00 00:00:00'),
-(331, 1, 1, 1, '2017-09-21 10:20:04', '0000-00-00 00:00:00'),
-(219, 3, 3, 7, '2017-09-21 10:01:27', '0000-00-00 00:00:00'),
-(330, 1, 5, 5, '2017-09-21 10:20:04', '0000-00-00 00:00:00'),
-(218, 3, 3, 1, '2017-09-21 10:01:27', '0000-00-00 00:00:00'),
-(217, 3, 3, 4, '2017-09-21 10:01:27', '0000-00-00 00:00:00'),
-(329, 1, 4, 4, '2017-09-21 10:20:04', '0000-00-00 00:00:00'),
-(104, 2, 2, 3, '2017-09-21 09:41:32', '0000-00-00 00:00:00'),
-(103, 2, 2, 1, '2017-09-21 09:41:32', '0000-00-00 00:00:00'),
-(328, 1, 3, 3, '2017-09-21 10:20:04', '0000-00-00 00:00:00'),
-(327, 1, 2, 2, '2017-09-21 10:20:04', '0000-00-00 00:00:00'),
-(326, 1, 5, 5, '2017-09-21 10:20:04', '0000-00-00 00:00:00'),
-(332, 20, 3, 3, '2017-10-07 15:09:52', '0000-00-00 00:00:00'),
-(333, 20, 1, 1, '2017-10-07 15:09:52', '0000-00-00 00:00:00'),
-(334, 20, 2, 2, '2017-10-07 15:09:52', '0000-00-00 00:00:00');
+(364, 1, 'PHYS', '0002', '2017-10-09 08:12:46', '0000-00-00 00:00:00'),
+(363, 1, 'PHYS', '0003', '2017-10-09 08:12:46', '0000-00-00 00:00:00'),
+(362, 1, 'CHM', '0001', '2017-10-09 08:12:46', '0000-00-00 00:00:00'),
+(361, 1, 'ALGB', '0006', '2017-10-09 08:12:46', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -124,7 +114,7 @@ CREATE TABLE `enrolled_students` (
   `section_id` varchar(15) NOT NULL,
   `academic_year_id` int(50) NOT NULL,
   `date_enrolled` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `date_modified` timestamp NOT NULL ON UPDATE CURRENT_TIMESTAMP
+  `date_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -301,12 +291,8 @@ INSERT INTO `schedules` (`id`, `section_id`, `subject_code`, `room_id`, `time_st
 (921, 3, 'WOLT', 'Lab101', '12:00', '1:00', 'Thursday', 'rgb(240, 18, 190)', 2),
 (922, 3, 'WOLT', 'Lab101', '12:00', '1:00', 'Wednesday', 'rgb(96, 92, 168)', 2),
 (923, 3, 'WOLT', 'Lab101', '12:00', '1:00', 'Friday', 'rgb(0, 31, 63)', 2),
-(924, 1, 'CHM', 'Lab101', '8:00', '9:00', 'Thursday', 'rgb(0, 115, 183)', 0),
-(925, 1, 'CHM', 'Lab101', '8:00', '9:00', 'Tuesday', 'rgb(57, 204, 204)', 0),
-(929, 1, 'CHM', 'Lab101', '8:00', '9:00', 'Friday', 'rgb(0, 192, 239)', 0),
-(928, 1, 'CHM', 'Lab101', '9:00', '10:00', 'Tuesday', 'rgb(221, 75, 57)', 1),
-(927, 1, 'CHM', 'Lab101', '8:00', '9:00', 'Wednesday', 'rgb(60, 141, 188)', 0),
-(926, 1, 'CHM', 'Lab101', '8:00', '9:00', 'Monday', 'rgb(243, 156, 18)', 0),
+(1013, 1, 'CHM', 'Lab101', '9:00', '10:00', 'Friday', 'rgb(0, 31, 63)', 1),
+(1012, 1, 'CHM', 'Lab101', '9:00', '10:00', 'Thursday', 'rgb(240, 18, 190)', 1),
 (917, 3, 'BREAK', '', '8:00', '9:00', 'Thursday', 'rgb(169, 169, 169)', 1),
 (916, 3, 'BREAK', '', '8:00', '9:00', 'Wednesday', 'rgb(169, 169, 169)', 1),
 (915, 3, 'BREAK', '', '8:00', '9:00', 'Tuesday', 'rgb(169, 169, 169)', 1),
@@ -316,15 +302,14 @@ INSERT INTO `schedules` (`id`, `section_id`, `subject_code`, `room_id`, `time_st
 (911, 3, 'BREAK', '', '8:00', '9:00', 'Monday', 'rgb(169, 169, 169)', 1),
 (910, 3, 'VACANT', '', '7:00', '8:00', 'Thursday', 'rgb(128, 128, 128)', 0),
 (909, 3, 'VACANT', '', '7:00', '8:00', 'Monday', 'rgb(128, 128, 128)', 0),
-(930, 1, 'CHM', 'Lab101', '9:00', '10:00', 'Wednesday', 'rgb(96, 92, 168)', 1),
-(931, 1, 'CHM', 'Lab101', '9:00', '10:00', 'Monday', 'rgb(1, 255, 112)', 1),
-(932, 1, 'CHM', 'Lab101', '9:00', '10:00', 'Thursday', 'rgb(240, 18, 190)', 1),
-(933, 1, 'CHM', 'Lab101', '9:00', '10:00', 'Friday', 'rgb(0, 31, 63)', 1),
-(934, 1, 'VACANT', '', '10:00', '11:00', 'Monday', 'rgb(128, 128, 128)', 2),
-(935, 1, 'VACANT', '', '10:00', '11:00', 'Tuesday', 'rgb(128, 128, 128)', 2),
-(936, 1, 'VACANT', '', '10:00', '11:00', 'Thursday', 'rgb(128, 128, 128)', 2),
-(937, 1, 'VACANT', '', '10:00', '11:00', 'Wednesday', 'rgb(128, 128, 128)', 2),
-(938, 1, 'VACANT', '', '10:00', '11:00', 'Friday', 'rgb(128, 128, 128)', 2),
+(1011, 1, 'CHM', 'Lab101', '8:00', '9:00', 'Monday', 'rgb(243, 156, 18)', 0),
+(1010, 1, 'CHM', 'Lab101', '9:00', '10:00', 'Monday', 'rgb(1, 255, 112)', 1),
+(1009, 1, 'CHM', 'Lab101', '9:00', '10:00', 'Tuesday', 'rgb(221, 75, 57)', 1),
+(1008, 1, 'CHM', 'Lab101', '9:00', '10:00', 'Wednesday', 'rgb(96, 92, 168)', 1),
+(1007, 1, 'CHM', 'Lab101', '8:00', '9:00', 'Wednesday', 'rgb(60, 141, 188)', 0),
+(1006, 1, 'CHM', 'Lab101', '8:00', '9:00', 'Thursday', 'rgb(0, 115, 183)', 0),
+(1005, 1, 'CHM', 'Lab101', '8:00', '9:00', 'Friday', 'rgb(0, 192, 239)', 0),
+(1004, 1, 'CHM', 'Lab101', '8:00', '9:00', 'Tuesday', 'rgb(57, 204, 204)', 0),
 (1003, 20, 'CHM', 'Lab101', '8:00', '9:00', 'Friday', 'rgb(0, 115, 183)', 1),
 (1001, 20, 'CHM', 'Lab101', '8:00', '9:00', 'Wednesday', 'rgb(60, 141, 188)', 1),
 (1002, 20, 'CHM', 'Lab101', '8:00', '9:00', 'Thursday', 'rgb(0, 192, 239)', 1),
@@ -378,8 +363,7 @@ INSERT INTO `sections` (`id`, `strand_code`, `year_level_id`, `name`, `capacity`
 (26, 'TVL-HE', 2, 'B', 45),
 (27, 'TVL-HE', 1, 'B', 45),
 (28, 'TVL-AS', 1, 'B', 45),
-(29, 'TVL-AS', 2, 'B', 45),
-(30, 'STEM', 1, 'C', 40);
+(29, 'TVL-AS', 2, 'B', 45);
 
 -- --------------------------------------------------------
 
@@ -434,14 +418,14 @@ CREATE TABLE `students_info` (
 --
 
 INSERT INTO `students_info` (`id`, `lrn`, `first_name`, `middle_name`, `last_name`, `sex`, `contact_number`, `birth_date`, `birth_place`, `age`, `mother_tongue`, `religion`, `online_applicant`, `date_registered`, `date_modified`) VALUES
-(1, 11111, 'Adrielle Kristine Nicolette', 'Mestiola', 'Escaro', 'Female', '09355156653', '1998-06-24', 'Quezon City', 19, 'Tagalog', 'Catholic', b'0', '2017-09-20 01:17:57', '2017-09-20 01:17:57'),
-(2, 22222, 'Hakeem', 'Joshua', 'Polistico', 'Male', '09558874822', '1995-07-22', 'Hospital Bed', 22, 'Tagalog', 'Catholic', b'0', '2017-09-20 01:29:40', '2017-09-20 01:29:40'),
-(3, 33333, 'John', 'Patrick', 'Guzman', 'Male', '09333333333', '2017-09-05', 'Hospital Bed', 0, 'Tagalog', 'Catholic', b'0', '2017-09-20 01:32:58', '2017-09-20 01:32:58'),
-(4, 44444, 'Jasver', 'Anlouis', 'Salva', 'Female', '09444444444', '2017-09-22', 'Hospital Bed', 0, 'Tagalog', 'Catholic', b'0', '2017-09-20 01:35:08', '2017-09-20 01:35:08'),
-(5, 55555, 'Journacel', 'Urgel', 'Ferrer', 'Female', '09555555555', '1997-10-10', 'Hospital Bed', 19, 'Tagalog', 'Catholic', b'0', '2017-09-20 01:37:59', '2017-09-20 01:37:59'),
-(6, 66666, 'Brendon', 'Pogi', 'Urie', 'Male', '09666666666', '1998-07-29', 'Los Angeles', 19, 'English', 'no one knows', b'0', '2017-10-02 03:16:21', '2017-10-02 03:16:21'),
-(7, 14, 'Hakeem', 'Andaya', 'Polistico', 'Male', '0955-887-4822', '1994-07-22', 'Mandaluyong City', 23, 'Filipino', 'Roman Catholic', b'0', '2017-10-02 07:03:03', '2017-10-02 07:03:03'),
-(8, 14038014, 'Hakeem', 'Andaya', 'Polistico', 'Male', '0955-887-4822', '1994-07-22', 'Mandaluyong City', 23, 'Filipino', 'Roman Catholic', b'0', '2017-10-03 14:37:34', '2017-10-03 14:37:34');
+(1, 11111, 'Adrielle Kristine Nicolette', 'Mestiola', 'Escaro', 'Female', '09355156653', '1998-06-24', 'Quezon City', 19, 'Tagalog', 'Catholic', b'1111111111111111111111111111111', '2017-09-20 01:17:57', '2017-09-20 01:17:57'),
+(2, 22222, 'Hakeem', 'Joshua', 'Polistico', 'Male', '09558874822', '1995-07-22', 'Hospital Bed', 22, 'Tagalog', 'Catholic', b'1111111111111111111111111111111', '2017-09-20 01:29:40', '2017-09-20 01:29:40'),
+(3, 33333, 'John', 'Patrick', 'Guzman', 'Male', '09333333333', '2017-09-05', 'Hospital Bed', 0, 'Tagalog', 'Catholic', b'1111111111111111111111111111111', '2017-09-20 01:32:58', '2017-09-20 01:32:58'),
+(4, 44444, 'Jasver', 'Anlouis', 'Salva', 'Female', '09444444444', '2017-09-22', 'Hospital Bed', 0, 'Tagalog', 'Catholic', b'1111111111111111111111111111111', '2017-09-20 01:35:08', '2017-09-20 01:35:08'),
+(5, 55555, 'Journacel', 'Urgel', 'Ferrer', 'Female', '09555555555', '1997-10-10', 'Hospital Bed', 19, 'Tagalog', 'Catholic', b'1111111111111111111111111111111', '2017-09-20 01:37:59', '2017-09-20 01:37:59'),
+(6, 66666, 'Brendon', 'Pogi', 'Urie', 'Male', '09666666666', '1998-07-29', 'Los Angeles', 19, 'English', 'no one knows', b'1111111111111111111111111111111', '2017-10-02 03:16:21', '2017-10-02 03:16:21'),
+(7, 14, 'Hakeem', 'Andaya', 'Polistico', 'Male', '0955-887-4822', '1994-07-22', 'Mandaluyong City', 23, 'Filipino', 'Roman Catholic', b'1111111111111111111111111111111', '2017-10-02 07:03:03', '2017-10-02 07:03:03'),
+(8, 14038014, 'Hakeem', 'Andaya', 'Polistico', 'Male', '0955-887-4822', '1994-07-22', 'Mandaluyong City', 23, 'Filipino', 'Roman Catholic', b'1111111111111111111111111111111', '2017-10-03 14:37:34', '2017-10-03 14:37:34');
 
 -- --------------------------------------------------------
 
@@ -525,7 +509,6 @@ INSERT INTO `teachers` (`id`, `employee_id`, `first_name`, `middle_name`, `last_
 (3, '0003', 'Rellmon', '', 'Ponce', 'Web Development', 'Teacher', 'Active'),
 (4, '0004', 'Fernando', '', 'Renegado', 'SAD', 'Department Head', 'Active'),
 (5, '0005', 'Sarah', '', 'Fortune', 'Physical Education', 'Teacher', 'Active'),
-(7, '001', 'James Kevin', 'Movera', 'Fernandez', 'Math', 'Professor', 'Active'),
 (8, '0006', 'Luxannas', 'Demacia', 'Crownguard', 'Physics', 'Head', 'Active');
 
 -- --------------------------------------------------------
@@ -548,7 +531,7 @@ CREATE TABLE `users` (
   `email` varchar(100) NOT NULL,
   `major` varchar(50) NOT NULL,
   `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `date_modified` timestamp NOT NULL
+  `date_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -557,7 +540,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `employee_id`, `username`, `password`, `first_name`, `last_name`, `position`, `sex`, `birthdate`, `contact_no`, `email`, `major`, `date_created`, `date_modified`) VALUES
 (1, '14-038-027', 'admin', 'admin', 'Adrielle', 'Escaro', 'Administrator', 'Female', '1998/06/24', '0935-515-6653', 'adrielle.escaro@tup.edu.ph', 'English', '2017-09-19 19:49:17', '2017-09-19 19:49:17'),
-(2, '14-038-014', '14-038-014', 'password', 'Hakeem', 'Polistico', 'Teacher', 'Male', '1994/07/22', '0955-887-4822', 'hakeem.polistico@tup.edu.ph', 'Mathematics', '2017-10-07 13:10:18', '2017-10-07 13:10:18');
+(2, '0003', '0003', 'password', 'Rellmon', 'Ponce', 'Teacher', 'Male', '1994/07/22', '0955-887-4822', 'rellmon.ponce@tup.edu.ph', 'Mathematics', '2017-10-07 13:10:18', '2017-10-07 13:10:18');
 
 -- --------------------------------------------------------
 
@@ -712,7 +695,7 @@ ALTER TABLE `addresses`
 -- AUTO_INCREMENT for table `class_subjects`
 --
 ALTER TABLE `class_subjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=335;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=365;
 --
 -- AUTO_INCREMENT for table `enrolled_students`
 --
@@ -742,12 +725,12 @@ ALTER TABLE `requirements`
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `schedules`
 --
 ALTER TABLE `schedules`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1004;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1014;
 --
 -- AUTO_INCREMENT for table `sections`
 --
@@ -757,7 +740,7 @@ ALTER TABLE `sections`
 -- AUTO_INCREMENT for table `strands`
 --
 ALTER TABLE `strands`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `students_info`
 --
@@ -772,7 +755,7 @@ ALTER TABLE `student_contacts`
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `teachers`
 --
@@ -787,7 +770,8 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `year_levels`
 --
 ALTER TABLE `year_levels`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
