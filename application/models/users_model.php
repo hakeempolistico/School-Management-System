@@ -61,6 +61,32 @@ class users_model extends CI_Model{
 
 	}
 
+	public function getSubjects($employee_id)
+	{
+		$this->db->where('teacher_id', $employee_id);
+		$this->db->join('sections', 'sections.id = class_subjects.section_id');
+		return $this->db->get('class_subjects')->result();
+	}
+
+	public function getClass($id)
+	{
+		$this->db->select('sections.name as section, year_levels.name as year_level, sections.strand_code');
+		$this->db->where('sections.id', $id);
+		$this->db->join('year_levels', 'year_levels.id = sections.year_level_id');
+		$data = $this->db->get('sections')->result();
+		foreach ($data as $key => $val) {
+			$res = $val->strand_code.' '.substr($val->year_level,6).'-'.$val->section;
+		}
+		return $res;
+	}
+
+	public function getSubject($code)
+	{
+		$this->db->where('code', $code);
+		$data = $this->db->get('subjects')->result();
+		return $data[0]->name;
+	}
+
 }
 
 ?>

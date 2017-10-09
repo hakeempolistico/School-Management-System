@@ -460,7 +460,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </div>
               <!-- /.tab-pane -->
               <div class="tab-pane" id="subjects">
-                <div class="row">
+                <!-- <div class="row">
                   <div class="col-md-12">
                     <label>Subjects (student display)</label>
                     <table class="table table-striped">
@@ -486,43 +486,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </tr>
                     </table>
                   </div>
-                  <!-- /.col -->
-                </div><hr>
-                <!-- /.row-->
-                <div class="row">
+                </div><hr>-->
+                <div class="row" style="margin-top: 10px">
                   <div class="col-md-12">
-                    <label>Subjects (teacher display)</label>
-                    <table class="table table-striped">
-                      <thead>
-                        <th>Class</th>
-                        <th>Subjects</th>
-                      </thead>
+                    <label>Class Subjects</label>
+                    <table class="table table-striped"  style="margin-top: 15px">
+                      <?php if($subjects) { foreach ($subjects as $key => $val) { ?>
                         <tr>
-                          <td>STEM-1A</td>
-                          <td>General Mathemactics</td>
+                          <td><?php echo $val['class']; ?></td>
+                          <td><?php echo $val['subject']; ?></td>
                         </tr>
+                      <?php }; } else{ ?>
                         <tr>
-                          <td>STEM-1B</td>
-                          <td>General Mathematics</td>
-                        </tr>                
-                        <tr>
-                          <td>GAS-1A</td>
-                          <td>General Mathematics</td>                        
+                          <td>NO SUBJECTS ASSIGNED</td>
                         </tr>
-                        <tr>
-                          <td>ABM-1A</td>
-                          <td>General Mathematics</td>
-                          </tr>
-                        <tr>
-                          <td>HUMSS-1A</td>
-                          <td>General Mathematics</td>
-                        </tr>
+                      <?php } ?>
                     </table>
                   </div>
-                  <!-- /.col -->
-                </div><hr>
-                <!-- /.row-->
+                </div>
               </div>
+
               <!-- /.tab-pane -->
               <div class="tab-pane" id="settings">
                 <div class="row">
