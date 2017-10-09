@@ -434,7 +434,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   var getRecordsUrl = '<?php echo base_url('academics/rooms/ajaxGetRecords'); ?>';
   var getRowUrl = '<?php echo base_url('academics/rooms/ajaxGetRow'); ?>';
   var updateUrl = '<?php echo base_url('academics/rooms/ajaxUpdate'); ?>';
-  // var countUrl = '<?php echo base_url('academics/strands/ajaxCountRow'); ?>';
+  var countUrl = '<?php echo base_url('academics/strands/ajaxCountRow'); ?>';
   var deleteRowUrl = '<?php echo base_url('academics/rooms/ajaxDeleteRow'); ?>';
 
  
