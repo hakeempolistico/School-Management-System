@@ -30,7 +30,7 @@ class teachers extends CI_Controller {
 		$table = $this->input->post('table');	
 		$data = $this->input->post();
 		unset($data['table']);
-		$result = $this->global_model->delete($table, $data);
+		$result = $this->global_model->deleteRow($table, $data);
 		echo json_encode($result);
 	}
 	public function ajaxUpdate(){

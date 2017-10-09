@@ -1,39 +1,23 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class strands extends CI_Controller {
+class rooms extends CI_Controller {
 
 	public function __construct()
 	{
 	    parent::__construct();
 	    $this->sms_session->checkSession();
-	    $this->load->model('academics/strands_model');
+	    $this->load->model('academics/rooms_model');
 	}
 	public function index()
 	{	
 		$data = $this->parse->parsed();
-        $this->parser->parse('academics/strands', $data);
+        $this->parser->parse('academics/rooms', $data);
 	}
-	public function ajaxCountRow()
+	public function addRoom()
 	{
 		$data = $this->input->post();
-		$result = $this->global_model->count($data['table'], $data['set'], $data['value']);
-		echo json_encode($result);
-	}
-	public function ajaxDeleteRow(){
-		$data = $this->input->post();
-		$result = $this->global_model->deleteRow('strands',$data);
-		echo json_encode($result);
-	}
-	public function ajaxUpdate(){
-		$data = $this->input->post();
-		$result = $this->strands_model->update('strands', $data);
-		echo json_encode($result);
-	}
-	public function addStrand()
-	{
-		$data = $this->input->post();
-		echo $this->global_model->insert('strands', $data);
+		echo $this->global_model->insert('rooms', $data);
 	}
 	public function ajaxGetRow()
 	{
@@ -41,8 +25,18 @@ class strands extends CI_Controller {
 		$result = $this->global_model->getRow($data['table'], $data['set'], $data['value']);
 		echo json_encode($result);
 	}
+	public function ajaxUpdate(){
+		$data = $this->input->post();
+		$result = $this->rooms_model->update('rooms', $data);
+		echo json_encode($result);
+	}
+	public function ajaxDeleteRow(){
+		$data = $this->input->post();
+		$result = $this->global_model->deleteRow('rooms', $data);
+		echo json_encode($result);
+	}
 	public function ajaxGetRecords(){
-		$result = $this->global_model->getRecords('strands', 'desc', 'id');
+		$result = $this->global_model->getRecords('rooms', 'desc', 'id');
 		$action = "<center>
                     <button data-toggle='modal' data-target='#modal-edit' class='btn btn-default btn-xs edit-btn'><span class='fa fa-fw fa-pencil'></span></button>                    
                     <button data-toggle='modal' data-target='#modal-delete' class='btn btn-default btn-xs delete-btn'><span class='fa fa-fw fa-remove'></span></button>                
@@ -52,13 +46,14 @@ class strands extends CI_Controller {
         foreach ($result as $value)
             {	            	
                 $arr = array(
-                    $value->code,
-                    $value->name,
+                    $value->room_id,
+                    $value->room_name,
+                    $value->building,
                     $action
                 );
                 $data['data'][] = $arr;
             }
 		echo json_encode($data);
 	}
-
+	
 }

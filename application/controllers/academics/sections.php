@@ -36,7 +36,7 @@ class sections extends CI_Controller {
 	}
 	public function ajaxDeleteRow(){
 		$data = $this->input->post();
-		$result = $this->global_model->delete('sections',$data);
+		$result = $this->global_model->deleteRow('sections',$data);
 		echo json_encode($result);
 	}
 	public function ajaxInsert(){

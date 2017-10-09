@@ -158,6 +158,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 Teachers
               </a>
             </li>
+            <li>
+              <a href="<?php echo site_url('academics/rooms'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Rooms
+              </a>
+            </li>
             <li class="active">
               <a href="<?php echo site_url('academics/sections'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
