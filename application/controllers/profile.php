@@ -13,7 +13,15 @@ class profile extends CI_Controller{
 
 	public function index()
 	{	
+		$subjects = $this->users_model->getSubjects($this->session->employee_id);
+		$arr = array();
+		foreach ($subjects as $key => $val) {
+			$arr[$key]['class'] = $this->users_model->getClass($val->section_id);
+			$arr[$key]['subject'] = $this->users_model->getSubject($val->subject_id);
+		}
+
 		$data = $this->parse->parsed();
+		$data['subjects'] = $arr;
         $this->parser->parse('profile/my_profile', $data);
 	}
 
