@@ -31,8 +31,8 @@ class schedule extends CI_Controller {
 
 	public function getSubjects()
 	{
-		$data = $this->input->post();
-		$row = $this->schedule_model->getSubjects($data);
+		$section_id = $this->input->post('section_id');
+		$row = $this->schedule_model->getSubjects($section_id);
 		echo json_encode($row);
 	}
 
