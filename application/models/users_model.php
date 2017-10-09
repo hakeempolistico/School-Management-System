@@ -74,7 +74,6 @@ class users_model extends CI_Model{
 		$this->db->where('sections.id', $id);
 		$this->db->join('year_levels', 'year_levels.id = sections.year_level_id');
 		$data = $this->db->get('sections')->result();
-		$class;
 		foreach ($data as $key => $val) {
 			$res = $val->strand_code.' '.substr($val->year_level,6).'-'.$val->section;
 		}

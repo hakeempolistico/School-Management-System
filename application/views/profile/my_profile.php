@@ -487,25 +487,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </table>
                   </div>
                 </div><hr>-->
-                <div class="row">
+                <div class="row" style="margin-top: 10px">
                   <div class="col-md-12">
-                    <label>Subjects</label>
-                    <table class="table table-striped">
-                      <thead>
-                        <th>Class</th>
-                        <th>Subjects</th>
-                      </thead>
-                      <?php foreach ($subjects as $key => $val) { ?>
+                    <label>Class Subjects</label>
+                    <table class="table table-striped"  style="margin-top: 15px">
+                      <?php if($subjects) { foreach ($subjects as $key => $val) { ?>
                         <tr>
                           <td><?php echo $val['class']; ?></td>
                           <td><?php echo $val['subject']; ?></td>
+                        </tr>
+                      <?php }; } else{ ?>
+                        <tr>
+                          <td>NO SUBJECTS ASSIGNED</td>
                         </tr>
                       <?php } ?>
                     </table>
                   </div>
                 </div>
               </div>
-              
+
               <!-- /.tab-pane -->
               <div class="tab-pane" id="settings">
                 <div class="row">
