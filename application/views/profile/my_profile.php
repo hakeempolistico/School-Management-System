@@ -311,9 +311,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="box-body box-profile">
               <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url('images/alt_picture.jpg'); ?>" alt="User profile picture">
 
-              <h3 class="profile-username text-center">Adrielle Escaro</h3>
+              <h3 class="profile-username text-center"><?php echo $this->session->first_name.' '.$this->session->middle_name.' '.$this->session->last_name ;?></h3>
 
-              <p class="text-muted text-center">Administrator</p>
+              <p class="text-muted text-center"><?php echo $this->session->position;?></p>
 
               <ul class="list-group list-group-unbordered">
                 <li class="list-group-item">
