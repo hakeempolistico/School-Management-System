@@ -27,7 +27,7 @@ class subjects extends CI_Controller {
 	}
 	public function ajaxDeleteRow(){
 		$data = $this->input->post();
-		$result = $this->global_model->delete('subjects',$data);
+		$result = $this->global_model->deleteRow('subjects',$data);
 		echo json_encode($result);
 	}
 	public function ajaxGetRow(){
