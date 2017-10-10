@@ -1,12 +1,9 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Dashboard</title>
+  <title>School Management | Dashboard</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -277,11 +274,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <div class="alert alert-success alert-dismissible flat">
+    <!-- <div class="alert alert-success alert-dismissible flat">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <h4><i class="icon fa fa-bullhorn"></i> Day 1 of Enrollment is successful!</h4>
         Congratulations! Job well done! Please do the same on Day 2 of Enrollment!
-     </div>
+     </div> -->
       
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -290,8 +287,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="enrollment/dashboard"><i class="fa fa-dashboard"></i> Enrollment</a></li>
-        <li class="active">Dashboard</li>
+        <li><a href="enrollment/dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <!-- <li class="active">Dashboard</li> -->
       </ol>
     </section>
 
