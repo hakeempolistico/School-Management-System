@@ -385,42 +385,15 @@
                   </tr>
                   </thead>
                   <tbody>
+                  <?php foreach ($students_enrolled as $key => $val) { ?>
                   <tr>
-                    <td><a href="<?php echo base_url(); ?>pages/examples/invoice.html">14-038-014</a></td>
-                    <td>Hakeem A. Polistico</td>
+                    <td><a href="<?php echo base_url(); ?>pages/examples/invoice.html"><?php echo $val->lrn; ?></a></td>
+                    <td><?php echo $val->first_name.' '.$val->middle_name.' '.$val->last_name ; ?></td>
                     <td>
-                      <div class="sparkbar" data-color="#00a65a" data-height="20">TVL-Automotive Servicing</div>
+                      <div class="sparkbar" data-color="#00a65a" data-height="20"><?php echo $val->strand_name; ?></div>
                     </td>
                   </tr>
-                  <tr>
-                    <td><a href="<?php echo base_url(); ?>pages/examples/invoice.html">14-038-027</a></td>
-                    <td>Adrielle Kristine Nicolette M. Escaro </td>
-                    <td>
-                      <div class="sparkbar" data-color="#f39c12" data-height="20">TVL-Cookery</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="<?php echo base_url(); ?>pages/examples/invoice.html">14-038-016</a></td>
-                    <td>Jasver Salva</td>
-                    <td>
-                      <div class="sparkbar" data-color="#f56954" data-height="20">TVL-Cookery</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="<?php echo base_url(); ?>pages/examples/invoice.html">14-038-015</a></td>
-                    <td>Marc Dominic I. Terrobias</td>
-                    <td>
-                      <div class="sparkbar" data-color="#f56954" data-height="20">TVL-Automotive Servicing</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="<?php echo base_url(); ?>pages/examples/invoice.html">14-038-069</a></td>
-                    <td>Patrick Guzman</td>
-                    <td>
-                      <div class="sparkbar" data-color="#f56954" data-height="20">TVL-Automotive Servicing</div>
-                    </td>
-                  </tr>
-
+                  <?php } ?>
                   </tbody>
                 </table>
               </div>
