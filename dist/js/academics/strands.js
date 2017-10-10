@@ -24,12 +24,14 @@ $(function () {
               strandCount = result;
 
               if(code == null || code.trim() === ''){
+                $('#alert-box').addClass('alert-danger').removeClass('alert-success');
                 $('#alert-box').slideDown(1000);
                 $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!');
                 $('#alert-message').html('Please fill up subject code.');
                 $('#alert-box').delay( 1500 ).slideUp(1000);
               }
               else if(strandCount > 0){
+                $('#alert-box').addClass('alert-danger').removeClass('alert-success');
                 $('#alert-box').slideDown(1000);
                 $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!');
                 $('#alert-message').html('Strand code is already used. Please use another one.');

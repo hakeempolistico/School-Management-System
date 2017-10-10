@@ -76,24 +76,28 @@ $(function () {
               sectionCount = result;
 
               if(strand_code == null || strand_code.trim() === ''){
+                $('#alert-box').addClass('alert-danger').removeClass('alert-success');
                 $('#alert-box').slideDown(1000);
                 $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!');
                 $('#alert-message').html('Please select section strand.');
                 $('#alert-box').delay( 1500 ).slideUp(1000);
               }
               else if(year_level_id == null || year_level_id.trim() === ''){
+                $('#alert-box').addClass('alert-danger').removeClass('alert-success');
                 $('#alert-box').slideDown(1000);
                 $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!');
                 $('#alert-message').html('Please please select year level.');
                 $('#alert-box').delay( 1500 ).slideUp(1000);
               }
               else if(name == null || name.trim() === ''){
+                $('#alert-box').addClass('alert-danger').removeClass('alert-success');
                 $('#alert-box').slideDown(1000);
                 $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!');
                 $('#alert-message').html('Please fill up section name.');
                 $('#alert-box').delay( 1500 ).slideUp(1000);
               }
               else if(sectionCount > 0){
+                $('#alert-box').addClass('alert-danger').removeClass('alert-success');
                 $('#alert-box').slideDown(1000);
                 $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!');
                 $('#alert-message').html('Section name is already used. Please use another one.');
