@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>School Management | Schedule</title>
+  <title>Manage Schedule</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -159,6 +159,12 @@
               <a href="<?php echo site_url('academics/teachers'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Teachers
+              </a>
+            </li>
+            <li>
+              <a href="<?php echo site_url('academics/rooms'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Rooms
               </a>
             </li>
             <li>

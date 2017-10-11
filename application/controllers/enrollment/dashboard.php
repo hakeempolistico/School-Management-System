@@ -7,6 +7,7 @@ class dashboard extends CI_Controller {
 	{
 	    parent::__construct();
 	    $this->sms_session->checkSession();
+	    $this->load->model('dashboard_model');
 	}
 
 	public function index()
@@ -17,11 +18,12 @@ class dashboard extends CI_Controller {
 		$data['roomsCount'] = $this->global_model->count('rooms');
 		$data['subjectsCount'] = $this->global_model->count('subjects');
 		$data['enrolledStudentsCount'] = $this->global_model->count('enrolled_students');
-		
+		$data['students_enrolled'] = $this->dashboard_model->getStudents();
+		foreach ($data['students_enrolled'] as $key => $val) {
+			$code = $this->dashboard_model->getStrand($val->section_id);
+			$data['students_enrolled'][$key]->strand_name = $code;
+		};
     	$this->parser->parse('enrollment/dashboard', $data);
-
-		
-
 	}
 
 }

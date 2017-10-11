@@ -1,12 +1,9 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Dashboard</title>
+  <title>Manage Teachers</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -155,6 +152,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <a href="<?php echo site_url('academics/teachers'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Teachers
+              </a>
+            </li>
+            <li>
+              <a href="<?php echo site_url('academics/rooms'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Rooms
               </a>
             </li>
             <li>

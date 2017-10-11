@@ -32,6 +32,13 @@ class global_model extends CI_Model{
 		return $query;
 	}
 
+	public function deleteRow($table, $where)
+	{	
+		$this->db->where($where);
+		$query = $this->db->delete($table);
+		return $query;
+	}
+
 	public function count($table, $set=null, $value=null, $set2=null, $value2=null, $set3=null, $value3=null)
 	{
 		if($set != null && $value != null){

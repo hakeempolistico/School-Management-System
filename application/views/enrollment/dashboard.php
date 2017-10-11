@@ -1,12 +1,9 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Dashboard</title>
+  <title>School Management | Dashboard</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -163,6 +160,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </a>
             </li>
             <li>
+              <a href="<?php echo site_url('academics/rooms'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Rooms
+              </a>
+            </li>
+            <li>
               <a href="<?php echo site_url('academics/sections'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Sections
@@ -271,11 +274,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <div class="alert alert-success alert-dismissible flat">
+    <!-- <div class="alert alert-success alert-dismissible flat">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <h4><i class="icon fa fa-bullhorn"></i> Day 1 of Enrollment is successful!</h4>
         Congratulations! Job well done! Please do the same on Day 2 of Enrollment!
-     </div>
+     </div> -->
       
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -284,8 +287,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="enrollment/dashboard"><i class="fa fa-dashboard"></i> Enrollment</a></li>
-        <li class="active">Dashboard</li>
+        <li><a href="enrollment/dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <!-- <li class="active">Dashboard</li> -->
       </ol>
     </section>
 
@@ -382,42 +385,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   </tr>
                   </thead>
                   <tbody>
+                  <?php foreach ($students_enrolled as $key => $val) { ?>
                   <tr>
-                    <td><a href="<?php echo base_url(); ?>pages/examples/invoice.html">14-038-014</a></td>
-                    <td>Hakeem A. Polistico</td>
+                    <td><a href="<?php echo base_url(); ?>pages/examples/invoice.html"><?php echo $val->lrn; ?></a></td>
+                    <td><?php echo $val->first_name.' '.$val->middle_name.' '.$val->last_name ; ?></td>
                     <td>
-                      <div class="sparkbar" data-color="#00a65a" data-height="20">TVL-Automotive Servicing</div>
+                      <div class="sparkbar" data-color="#00a65a" data-height="20"><?php echo $val->strand_name; ?></div>
                     </td>
                   </tr>
-                  <tr>
-                    <td><a href="<?php echo base_url(); ?>pages/examples/invoice.html">14-038-027</a></td>
-                    <td>Adrielle Kristine Nicolette M. Escaro </td>
-                    <td>
-                      <div class="sparkbar" data-color="#f39c12" data-height="20">TVL-Cookery</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="<?php echo base_url(); ?>pages/examples/invoice.html">14-038-016</a></td>
-                    <td>Jasver Salva</td>
-                    <td>
-                      <div class="sparkbar" data-color="#f56954" data-height="20">TVL-Cookery</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="<?php echo base_url(); ?>pages/examples/invoice.html">14-038-015</a></td>
-                    <td>Marc Dominic I. Terrobias</td>
-                    <td>
-                      <div class="sparkbar" data-color="#f56954" data-height="20">TVL-Automotive Servicing</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="<?php echo base_url(); ?>pages/examples/invoice.html">14-038-069</a></td>
-                    <td>Patrick Guzman</td>
-                    <td>
-                      <div class="sparkbar" data-color="#f56954" data-height="20">TVL-Automotive Servicing</div>
-                    </td>
-                  </tr>
-
+                  <?php } ?>
                   </tbody>
                 </table>
               </div>

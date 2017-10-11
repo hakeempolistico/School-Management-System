@@ -39,7 +39,7 @@ class assign_subjects extends CI_Controller {
 	}
 
 	public function deleteClassSubject(){	
-		$this->global_model->delete('class_subjects', $this->input->post());
+		$this->global_model->deleteRow('class_subjects', $this->input->post());
 	}
 
 	public function getClassSubjects(){	

@@ -1,12 +1,9 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Dashboard</title>
+  <title>Manage Rooms</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -144,7 +141,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </a>
 
           <ul class="treeview-menu">
-            <li class="active">
+            <li>
               <a href="<?php echo site_url('academics/strands'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Strands
@@ -154,6 +151,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <a href="<?php echo site_url('academics/teachers'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Teachers
+              </a>
+            </li>
+            <li class="active">
+              <a href="<?php echo site_url('academics/rooms'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Rooms
               </a>
             </li>
             <li>
@@ -333,18 +336,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <th>Action</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tfoot>
                 <tr>
-                  <td>Lab 1</td>
-                  <td>Laboratory 1</td>
-                  <td>Science</td>                  
-                  <td>
-                    <a href="#" class="btn btn-success btn-xs"><span class="fa fa-fw fa-pencil"></span></a>
-                    <a href="#" class="btn btn-danger btn-xs"><span class="fa fa-fw fa-remove"></span></a>
-                  </td>
-                </tr>
-                </tbody>
-                <tfoot>                
+                  <th>Number</th>    
+                  <th>Name</th>
+                  <th>Building</th>              
+                  <th>Action</th>
+                </tr>                
                 </tfoot>
               </table>
             </div>
@@ -433,7 +431,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   var getRecordsUrl = '<?php echo base_url('academics/rooms/ajaxGetRecords'); ?>';
   var getRowUrl = '<?php echo base_url('academics/rooms/ajaxGetRow'); ?>';
   var updateUrl = '<?php echo base_url('academics/rooms/ajaxUpdate'); ?>';
-  // var countUrl = '<?php echo base_url('academics/strands/ajaxCountRow'); ?>';
+  var countUrl = '<?php echo base_url('academics/strands/ajaxCountRow'); ?>';
   var deleteRowUrl = '<?php echo base_url('academics/rooms/ajaxDeleteRow'); ?>';
 
  

@@ -59,7 +59,7 @@ $(function () {
 
         $.each(result, function( index, value ) {
           $('#select-subject').append($('<option>', { 
-              value: value.id,
+              value: value.code,
               text : value.name
           })).select2();
         });
@@ -77,7 +77,7 @@ $(function () {
 
         $.each(result, function( index, value ) {
           $('#select-teacher').append($('<option>', { 
-              value: value.id,
+              value: value.employee_id,
               text : value.first_name+' '+value.last_name
           })).select2();
         });

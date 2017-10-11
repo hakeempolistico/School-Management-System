@@ -22,7 +22,7 @@ class strands extends CI_Controller {
 	}
 	public function ajaxDeleteRow(){
 		$data = $this->input->post();
-		$result = $this->global_model->delete('strands',$data);
+		$result = $this->global_model->deleteRow('strands',$data);
 		echo json_encode($result);
 	}
 	public function ajaxUpdate(){

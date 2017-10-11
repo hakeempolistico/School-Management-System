@@ -19,6 +19,12 @@ class rooms extends CI_Controller {
 		$data = $this->input->post();
 		echo $this->global_model->insert('rooms', $data);
 	}
+	public function ajaxCountRow()
+	{
+		$data = $this->input->post();
+		$result = $this->global_model->count($data['table'], $data['set'], $data['value']);
+		echo json_encode($result);
+	}
 	public function ajaxGetRow()
 	{
 		$data = $this->input->post();
@@ -32,7 +38,7 @@ class rooms extends CI_Controller {
 	}
 	public function ajaxDeleteRow(){
 		$data = $this->input->post();
-		$result = $this->global_model->delete('rooms', $data);
+		$result = $this->global_model->deleteRow('rooms', $data);
 		echo json_encode($result);
 	}
 	public function ajaxGetRecords(){

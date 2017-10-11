@@ -18,47 +18,53 @@ $(function () {
     var building = $('#building-input').val();
 
     $('.loading').show();
-    // $.ajax({
-    //         url: countUrl,
-    //         type: 'post',
-    //         dataType: 'json', 
-    //         data: {'table' : 'strands', 'set' : 'code', 'value' : code  }, 
-    //         success: function(result){
-    //           strandCount = result;
+    $.ajax({
+            url: countUrl,
+            type: 'post',
+            dataType: 'json', 
+            data: {'table' : 'rooms', 'set' : 'room_id', 'value' : id  }, 
+            success: function(result){
+              roomCount = result;
 
-    //           if(code == null || code.trim() === ''){
-    //             $('#alert-box').slideDown(1000);
-    //             $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!');
-    //             $('#alert-message').html('Please fill up subject code.');
-    //             $('#alert-box').delay( 1500 ).slideUp(1000);
-    //           }
+              if(id == null || id.trim() === ''){
+                $('#alert-box').slideDown(1000);
+                $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!');
+                $('#alert-message').html('Please fill up room number.');
+                $('#alert-box').delay( 1500 ).slideUp(1000);
+              }
     //           else if(strandCount > 0){
     //             $('#alert-box').slideDown(1000);
     //             $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!');
     //             $('#alert-message').html('Strand code is already used. Please use another one.');
     //             $('#alert-box').delay( 1500 ).slideUp(1000);
     //           }
-    //           else{
+              else{
                 $.ajax({
                   url: addRoom,
                   type: 'post',
                   dataType: 'json',  
-                  data: {'room_id': id, 'room_name' : name, 'building' : building},
+                  data: {
+                    'room_id': id, 
+                    'room_name' : name, 
+                    'building' : building},
                   success: function(result){
                     console.log(result);
-                    // $('#alert-box').addClass('alert-success').removeClass('alert-danger');
-                    // $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-check"></i> SUCCESS MESSAGE!');
-                    // $('#alert-message').html('Added <br> Strand code: '+code+ ' <br> Strand name: ' + name );
-                    // $('#alert-box').slideDown(1000);
-                    // $('#alert-box').delay( 2000 ).slideUp(1000);
+                    $('#alert-box').addClass('alert-success').removeClass('alert-danger');
+                    $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-check"></i> SUCCESS MESSAGE!');
+                    $('#alert-message').html('Added <br> Room Number: '+id+ ' <br> Room name: ' + name+ ' <br> Building: ' + building );
+                    $('#alert-box').slideDown(1000);
+                    $('#alert-box').delay( 2000 ).slideUp(1000);
+                    $('#number-input').val('');
+                    $('#name-input').val('');
+                    $('#building-input').val('');
                     populateTable();
                   }
                 });
-          //     }
+              }
 
               $('.loading').delay(500).hide();
-          //   }
-          // });     
+            }
+        });     
 
   })
 
@@ -77,7 +83,11 @@ $(function () {
         url: updateUrl,
         type: 'post',
         dataType: 'json', 
-        data: {'room_id' : newId, 'room_name': newName, 'building': newBuilding, 'set': room_id }, 
+        data: {
+          'room_id' : newId, 
+          'room_name': newName, 
+          'building': newBuilding, 
+          'set': room_id }, 
         success: function(result){
           console.log(result);
           populateTable();
@@ -146,8 +156,8 @@ function populateTable(){
   });
 
 
-//   $("#strands-table").on("click", "tr td .delete-btn", function(){
-//       code = $(this).parents('tr').find('td:first').html();
-//   });
+  $("#rooms-table").on("click", "tr td .delete-btn", function(){
+      id = $(this).parents('tr').find('td:first').html();
+  });
   
 // }
