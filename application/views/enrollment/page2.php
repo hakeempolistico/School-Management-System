@@ -759,6 +759,7 @@
 
   $('#tvlasdiv').click(function()
   {
+    $('#strand').val('');
     $('.modal-header').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
     $('.modal-header').addClass('bg-yellow-active');
     $('.chosenStrand').html('TVL-AS');
@@ -770,6 +771,7 @@
 
   $('#gasdiv').click(function()
   {
+    $('#strand').val('');
     $('.modal-header').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
     $('.modal-header').addClass('bg-maroon');
     $('.chosenStrand').html('GAS');
@@ -781,6 +783,7 @@
 
   $('#tvlhediv').on('click',function()
   {
+    $('#strand').val('');
     $('.modal-header').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
     $('.modal-header').addClass('bg-blue');
     $('.chosenStrand').html('TVL-HE');
@@ -792,6 +795,7 @@
 
   $('#humssdiv').on('click',function()
   {
+    $('#strand').val('');
     $('.modal-header').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
     $('.modal-header').addClass('bg-red-active');
     $('.chosenStrand').html('HUMSS');
@@ -803,17 +807,19 @@
 
   $('#abmdiv').on('click',function()
   {
+    $('#strand').val('');
     $('.modal-header').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
-    $('.modal-header').addClass('bg-green-active');
-    $('.chosenStrand').html('STEM');
+    $('.modal-header').addClass('bg-green');
+    $('.chosenStrand').html('ABM');
     $('#enroll').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
-    $('#enroll').addClass('bg-green-active');
+    $('#enroll').addClass('bg-green');
     $('#strand').val('abm');
     ajax();
   });
 
   $('#stemdiv').on('click',function()
   {
+    $('#strand').val('');
     $('.modal-header').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
     $('.modal-header').addClass('bg-purple-active');
     $('.chosenStrand').html('STEM');
@@ -866,7 +872,7 @@
               var selected = table.rows( { selected: true } ).data();
 
               selected.destroy();
-
+              console.log(selected);
               var id = selected[0][1];
               var silrn = "<?php echo $lrn ?>";
 

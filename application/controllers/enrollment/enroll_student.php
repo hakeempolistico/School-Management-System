@@ -19,6 +19,12 @@ class enroll_student extends CI_Controller {
 		$this->parser->parse('enrollment/search', $data);
 	}
 
+	public function enrolled_students()
+	{
+		$data = $this->parse->parsed();
+		$this->parser->parse('enrollment/enrolled_students', $data);
+	}
+
 	public function strands()
 	{
 		$data = $this->parse->parsed();
@@ -111,6 +117,43 @@ class enroll_student extends CI_Controller {
 		        $fullName,
 		        $newDate,
 		        $action
+		    );
+
+            $data['data'][] = $arr;
+		}
+
+		echo json_encode($data);
+	}
+
+	public function populateTable2()
+	{
+		$enrolledStudents = $this->global_model->getRecords('enrolled_students');
+
+		$data = [];
+		foreach ($enrolledStudents as $enrolledStudents) 
+		{
+			$lrn = $enrolledStudents->students_info_lrn;
+			$id = $enrolledStudents->id;
+
+
+			$name = $this->global_model->getRow('students_info', 'lrn', $lrn);
+
+			$fullName = $name->first_name.' '.$name->last_name;
+
+
+			$dateEnrolled = $enrolledStudents->date_enrolled;
+			$explodedDateEnrolled = explode(" ", $dateEnrolled);
+			$explodedDate = explode("-", $explodedDateEnrolled[0]);
+			$y = $explodedDate[0];
+			$m = $explodedDate[1];
+			$d = $explodedDate[2];
+			$newDate = $m.'-'.$d.'-'.$y;
+			
+			$arr = array(
+				$id,
+		        $lrn,
+		        $fullName,
+		        $newDate
 		    );
 
             $data['data'][] = $arr;
