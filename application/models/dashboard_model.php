@@ -27,7 +27,7 @@ class dashboard_model extends CI_Model{
 		$res = $this->db->get()->result();
 		return $res[0]->name;
 	}
-
+	
 }
 
 ?>
