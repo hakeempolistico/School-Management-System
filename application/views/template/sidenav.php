@@ -66,7 +66,7 @@
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
-        <li class="treeview">
+        <li class="treeview <?php if(isset($active) && substr($active,0,10) =='enrollment') { echo 'active';} ; ?>">
           <a href="#">
             <i class="fa fa-files-o"></i>
             <span>Enrollment</span>
@@ -76,14 +76,14 @@
           </a>
 
           <ul class="treeview-menu">
-            <li>
+            <li class="<?php if(isset($active) && $active =='enrollment/register_student') { echo 'active';} ; ?>">
               <a href="<?php echo site_url('enrollment/register_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Register Student
               </a>              
             </li>
 
-            <li>
+            <li class="<?php if(isset($active) && $active =='enrollment/enroll_student') { echo 'active';} ; ?>">
               <a href="<?php echo site_url('enrollment/enroll_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   Enroll Student
@@ -92,7 +92,7 @@
           </ul>          
         </li>
 
-        <li class="treeview">
+        <li class="treeview <?php if(isset($active) && substr($active,0,9) =='academics') { echo 'active';} ; ?>">
           <a href="#">
             <i class="fa fa-mortar-board"></i>
             <span>Academics</span>
@@ -102,43 +102,43 @@
           </a>
 
           <ul class="treeview-menu">
-            <li>
+            <li class="<?php if(isset($active) && $active =='academics/strands') { echo 'active';} ; ?>">
               <a href="<?php echo site_url('academics/strands'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Strands
               </a>
             </li>
-            <li>
+            <li class="<?php if(isset($active) && $active =='academics/teachers') { echo 'active';} ; ?>">
               <a href="<?php echo site_url('academics/teachers'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Teachers
               </a>
             </li>
-            <li>
+            <li class="<?php if(isset($active) && $active =='academics/rooms') { echo 'active';} ; ?>">
               <a href="<?php echo site_url('academics/rooms'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Rooms
               </a>
             </li>
-            <li>
+            <li class="<?php if(isset($active) && $active =='academics/sections') { echo 'active';} ; ?>">
               <a href="<?php echo site_url('academics/sections'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Sections
               </a>
             </li>          
-            <li>
+            <li class="<?php if(isset($active) && $active =='academics/subjects') { echo 'active';} ; ?>">
               <a href="<?php echo site_url('academics/subjects'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   Subjects
               </a>
             </li>
-            <li>
+            <li class="<?php if(isset($active) && $active =='academics/assign_subjects') { echo 'active';} ; ?>">
               <a href="<?php echo site_url('academics/assign_subjects'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Assign Subjects
               </a>
             </li>
-            <li>
+            <li class="<?php if(isset($active) && $active =='academics/schedule') { echo 'active';} ; ?>">
               <a href="<?php echo site_url('academics/schedule'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   Schedule
