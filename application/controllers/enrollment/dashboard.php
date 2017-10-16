@@ -23,6 +23,10 @@ class dashboard extends CI_Controller {
 			$code = $this->dashboard_model->getStrand($val->section_id);
 			$data['students_enrolled'][$key]->strand_name = $code;
 		};
+
+		$data['activate'] = 'dashboard';
+		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
+		
     	$this->parser->parse('enrollment/dashboard', $data);
 	}
 

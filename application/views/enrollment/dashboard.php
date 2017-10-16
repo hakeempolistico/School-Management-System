@@ -44,7 +44,7 @@
 <div class="wrapper">
 <div hidden class="loading">Loading&#8230;</div>
   
-  <?php $data['active'] = 'dashboard'; $this->load->view('template/sidenav', $data) ?>
+  <?=$template?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
