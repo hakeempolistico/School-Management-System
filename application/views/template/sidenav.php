@@ -205,23 +205,28 @@
 
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-cog"></i>
-            <span>Settings</span>
+            <i class="fa fa-user-plus"></i>
+            <span>User Management</span>
             <span class="pull-right-container">
               <span class="label label-warning pull-right">soon</span>
             </span>
-          </a>
-
-          <ul class="treeview-menu">
-            <li>
-              <a href="<?php echo site_url('enrollment/dashboard'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                User Management
-              </a>
-            </li>                               
-          </ul>          
+          </a>         
         </li>
 
+      </ul>
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">INFORMATION NAVIGATION</li>
+        <li class="">
+          <a href="<?php echo site_url('/'); ?>">
+            <i class="fa  fa-bug"></i> <span>Developers</span>
+          </a>
+        </li> 
+        <li class="">
+          <a href="<?php echo site_url('/'); ?>">
+            <i class="fa  fa-info-circle"></i> <span>About</span>
+          </a>
+        </li>     
       </ul>
     </section>
     <!-- /.sidebar -->
