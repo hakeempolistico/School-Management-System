@@ -217,8 +217,8 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">INFORMATION NAVIGATION</li>
-        <li class="">
-          <a href="<?php echo site_url('/'); ?>">
+        <li class="<?php echo (isset($active) && $active =='developers' ? 'active' : null) ; ?>">
+          <a href="<?php echo site_url('information/developers'); ?>">
             <i class="fa  fa-bug"></i> <span>Developers</span>
           </a>
         </li> 
