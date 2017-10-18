@@ -14,6 +14,8 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/Ionicons/css/ionicons.min.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <!-- Pace style -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/pace/pace.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -180,6 +182,8 @@
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
+<!-- PACE -->
+<script src="<?php echo base_url(); ?>bower_components/PACE/pace.min.js"></script>
 <!-- DataTables -->
 <script src="<?php echo base_url(); ?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
@@ -187,6 +191,10 @@
 <script src="<?php echo base_url('dist/js/academics/strands.js'); ?>"></script>
 
 <script>
+
+  $(document).ajaxStart(function () {
+    Pace.restart()
+  })
 
   var addStrand = '<?php echo base_url('academics/strands/addStrand'); ?>';
   var getRecordsUrl = '<?php echo base_url('academics/strands/ajaxGetRecords'); ?>';
