@@ -19,6 +19,10 @@ class schedule extends CI_Controller {
 		$data['rooms'] = $this->global_model->getRecords('rooms');			
 		$data['subjects'] = $this->global_model->getRecords('subjects');		
 		$data['classes'] = $this->schedule_model->getClass();		
+
+		$data['active'] = 'academics/schedule';
+		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
+
 		$this->parser->parse('academics/schedule', $data);
 	}
 

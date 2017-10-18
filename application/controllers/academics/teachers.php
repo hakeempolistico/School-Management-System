@@ -13,8 +13,11 @@ class teachers extends CI_Controller {
 	public function index()
 	{	
 		$data = $this->parse->parsed();
+
+		$data['active'] = 'academics/teachers';
+		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
+
         $this->parser->parse('academics/teachers', $data);
-		$this->sms_session->checkSession();
 	}
 	public function ajaxCountRow(){
 		$data = $this->input->post();

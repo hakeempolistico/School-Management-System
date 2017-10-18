@@ -15,6 +15,10 @@ class assign_subjects extends CI_Controller {
 		$data = $this->parse->parsed();
 		$data['teachers'] = $this->global_model->getRecords('teachers');
 		$data['subjects'] = $this->global_model->getRecords('subjects');
+
+		$data['active'] = 'academics/assign_subjects';
+		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
+
         $this->parser->parse('academics/assign_subjects', $data);
 	}
 

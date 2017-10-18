@@ -12,6 +12,10 @@ class strands extends CI_Controller {
 	public function index()
 	{	
 		$data = $this->parse->parsed();
+
+		$data['active'] = 'academics/strands';
+		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
+
         $this->parser->parse('academics/strands', $data);
 	}
 	public function ajaxCountRow()

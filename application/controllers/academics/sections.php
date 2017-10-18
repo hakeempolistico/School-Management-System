@@ -13,6 +13,10 @@ class sections extends CI_Controller {
 	public function index()
 	{	
 		$data = $this->parse->parsed();
+
+		$data['active'] = 'academics/sections';
+		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
+
         $this->parser->parse('academics/sections', $data);
 	}
 	public function getStrands()

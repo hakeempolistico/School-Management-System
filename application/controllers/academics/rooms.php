@@ -12,6 +12,10 @@ class rooms extends CI_Controller {
 	public function index()
 	{	
 		$data = $this->parse->parsed();
+
+		$data['active'] = 'academics/rooms';
+		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
+
         $this->parser->parse('academics/rooms', $data);
 	}
 	public function addRoom()
