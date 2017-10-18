@@ -18,14 +18,11 @@ var status;
 
 
 $(function () {
-   $('.loading').show();
    populateTable();
-   $('.loading').delay(500).hide();
 })
     
 
     function updateRow(){ 
-      $('.loading').show();
       $.ajax({
                 url: countUrl,
                 type: 'post',
@@ -61,7 +58,6 @@ $(function () {
                       }
                     }); 
                   } 
-                $('.loading').delay(500).hide();
                 }
       }); 
 
@@ -144,7 +140,6 @@ $("#add-btn").click(function(){
     var major = $('#major-input').val();
     var position = $('#position-input').val();
 
-    $('.loading').show();
     $.ajax({
             url: countUrl,
             type: 'post',
@@ -201,8 +196,6 @@ $("#add-btn").click(function(){
                   }
                 }); 
               }
-
-              $('.loading').delay(500).hide();
             }
           
           });     
@@ -275,7 +268,6 @@ $('#edit-update').click(function(){
 //DELETE MODAL
 
 $('#delete-confirm').click(function(){
-  $('.loading').show();
   $.ajax({
             url: deleteRowUrl,
             type: 'post',
@@ -284,7 +276,6 @@ $('#delete-confirm').click(function(){
             success: function(result){
               console.log(result);
               populateTable();
-              $('.loading').delay(500).hide();
             }
           }); 
 })

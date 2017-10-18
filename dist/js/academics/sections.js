@@ -8,7 +8,6 @@ $(function () {
   
 
     $('#sectionsTable').DataTable()
-    $('.loading').show();
     populateTable();
 
     //ADD SECTION BOX
@@ -49,8 +48,6 @@ $(function () {
       }
     }); 
 
-    $('.loading').delay(500).hide();
-
     $('#btn-add').click(function(){
       strand_code = $('#select-strand').val();
       year_level_id = $('#select-year').val();
@@ -58,7 +55,6 @@ $(function () {
       capacity = $('#input-capacity').val();
 
       var sectionCount;
-      $('.loading').show();
       $.ajax({
             url: countUrl,
             type: 'post',
@@ -129,7 +125,6 @@ $(function () {
                   }
                 }); 
               }
-              $('.loading').delay(500).hide();
             }
           });     
     })
@@ -145,7 +140,6 @@ $(function () {
 
     var sectionCount;
 
-      $('.loading').show();
       $.ajax({
             url: countUrl,
             type: 'post',
@@ -197,13 +191,11 @@ $(function () {
                   }
                 });  
               }
-              $('.loading').delay(500).hide();
             }
           });     
   })
 
   $('#delete-confirm').click(function(){
-    $('.loading').show();
     $.ajax({
       url: deleteRowUrl,
       type: 'post',
@@ -212,7 +204,6 @@ $(function () {
       success: function(result){
         console.log(result);
         populateTable();
-        $('.loading').delay(500).hide();
       }
     }); 
   })
