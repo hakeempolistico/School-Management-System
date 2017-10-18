@@ -83,15 +83,15 @@
           </div>
           <div class="box-footer no-padding">
             <ul class="nav nav-stacked">
-              <li><a href="#">Course <span class="pull-right text-red">BS in Information System</span></a></li>
-              <li><a href="#">School <span class="pull-right text-red">Technological University of the Philippines</span></a></li>
+              <li><a href="#" style="cursor: default;">Course <span class="pull-right text-red">BS in Information System</span></a></li>
+              <li><a href="#" style="cursor: default;">School <span class="pull-right text-red">Technological University of the Philippines</span></a></li>
               <li>
-                <a href="#">Accounts 
+                <a href="#" style="cursor: default;">Accounts 
                   <span class="pull-right text-red">
-                    <i class="fa fa-twitter" style="margin-right: 5px"></i>
-                    <i class="fa fa-facebook" style="margin-right: 5px"></i>
-                    <i class="fa fa-instagram" style="margin-right: 5px"></i>
-                    <i class="fa fa-github" style="margin-right: 5px"></i>
+                    <i class="fa fa-twitter" style="margin-right: 10px; cursor: pointer;"></i>
+                    <i class="fa fa-facebook" style="margin-right: 10px; cursor: pointer;"></i>
+                    <i class="fa fa-instagram" style="margin-right: 10px; cursor: pointer;"></i>
+                    <i class="fa fa-github" style="margin-right: 10px; cursor: pointer;"></i>
                   </span>
                 </a>
               </li>
@@ -115,15 +115,15 @@
           </div>
           <div class="box-footer no-padding">
             <ul class="nav nav-stacked">
-              <li><a href="#">Course <span class="pull-right text-purple">BS in Information System</span></a></li>
-              <li><a href="#">School <span class="pull-right text-purple">Technological University of the Philippines</span></a></li>
+              <li><a href="#" style="cursor: default;">Course <span class="pull-right text-purple">BS in Information System</span></a></li>
+              <li><a href="#" style="cursor: default;">School <span class="pull-right text-purple">Technological University of the Philippines</span></a></li>
               <li>
-                <a href="#">Accounts 
+                <a href="#" style="cursor: default;">Accounts 
                   <span class="pull-right text-purple">
-                    <i class="fa fa-twitter" style="margin-right: 5px"></i>
-                    <i class="fa fa-facebook" style="margin-right: 5px"></i>
-                    <i class="fa fa-instagram" style="margin-right: 5px"></i>
-                    <i class="fa fa-github" style="margin-right: 5px"></i>
+                    <i class="fa fa-twitter" style="margin-right: 10px; cursor: pointer;"></i>
+                    <i class="fa fa-facebook" style="margin-right: 10px; cursor: pointer;"></i>
+                    <i class="fa fa-instagram" style="margin-right: 10px; cursor: pointer;"></i>
+                    <i class="fa fa-github" style="margin-right: 10px; cursor: pointer;"></i>
                   </span>
                 </a>
               </li>
@@ -137,7 +137,7 @@
         <!-- Widget: user widget style 1 -->
         <div class="box box-widget widget-user-2">
           <!-- Add the bg color to the header using any of the bg-* classes -->
-          <div class="widget-user-header bg-blue">
+          <div class="widget-user-header bg-green">
             <div class="widget-user-image">
               <img class="img-circle" src="http://localhost/sms/images/alt_picture.jpg" alt="User Avatar">
             </div>
@@ -147,15 +147,15 @@
           </div>
           <div class="box-footer no-padding">
             <ul class="nav nav-stacked">
-              <li><a href="#">Course <span class="pull-right text-blue">BS in Information System</span></a></li>
-              <li><a href="#">School <span class="pull-right text-blue">Technological University of the Philippines</span></a></li>
+              <li><a href="#" style="cursor: default;">Course <span class="pull-right text-green">BS in Information System</span></a></li>
+              <li><a href="#" style="cursor: default;">School <span class="pull-right text-green">Technological University of the Philippines</span></a></li>
               <li>
-                <a href="#">Accounts 
-                  <span class="pull-right text-blue">
-                    <i class="fa fa-twitter" style="margin-right: 5px"></i>
-                    <i class="fa fa-facebook" style="margin-right: 5px"></i>
-                    <i class="fa fa-instagram" style="margin-right: 5px"></i>
-                    <i class="fa fa-github" style="margin-right: 5px"></i>
+                <a href="#" style="cursor: default;">Accounts 
+                  <span class="pull-right text-green">
+                    <i class="fa fa-twitter" style="margin-right: 10px; cursor: pointer;"></i>
+                    <i class="fa fa-facebook" style="margin-right: 10px; cursor: pointer;"></i>
+                    <i class="fa fa-instagram" style="margin-right: 10px; cursor: pointer;"></i>
+                    <i class="fa fa-github" style="margin-right: 10px; cursor: pointer;"></i>
                   </span>
                 </a>
               </li>
