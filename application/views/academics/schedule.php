@@ -8,10 +8,10 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Pace style -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/pace/pace.min.css">
   <!-- Select2 -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/select2/dist/css/select2.min.css">
-  <!-- Loading -->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/loading.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
@@ -26,20 +26,12 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/skins/_all-skins.min.css">
   <!-- Page style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/enrollment/manage_schedule.css">
-
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
   <!-- Google Font -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/googlefont.css">
+  
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-<div hidden class="loading">Loading&#8230;</div>
   
   <?=$template?>
 
@@ -369,6 +361,8 @@
 <script src="<?php echo base_url(); ?>bower_components/jquery-ui/jquery-ui.min.js"></script>
 <!-- Slimscroll -->
 <script src="<?php echo base_url(); ?>bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- PACE -->
+<script src="<?php echo base_url(); ?>bower_components/PACE/pace.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
@@ -384,6 +378,10 @@
 <script type="text/javascript">
   //Initialize Select2 Elements
     $('.select2').select2()
+
+  $(document).ajaxStart(function () {
+    Pace.restart()
+  })
 
   var getSectionUrl = "<?php echo base_url("academics/schedule/getSectionsDetails"); ?>"
   var getSubjectsUrl = "<?php echo base_url("academics/schedule/getSubjects"); ?>"

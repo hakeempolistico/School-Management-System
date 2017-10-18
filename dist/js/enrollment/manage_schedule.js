@@ -159,7 +159,6 @@ $('#btn-enter').on('click',function(){
   $("#select-room").val('').trigger('change');
 
   //POPULATE TABLE 
-  $('.loading').show();
   $.ajax({
     url: getScheduleUrl,
     type: 'post',
@@ -238,13 +237,10 @@ $('#btn-enter').on('click',function(){
          
         });
       });
-
-    $('.loading').delay(500).hide();
     }
   });
 
   //POPULATE SECTIONS SELECT
-  $('.loading').show();
   $.ajax({
     url: getSectionUrl,
     type: 'post',
@@ -280,7 +276,6 @@ $('#btn-enter').on('click',function(){
           });
         }
       }); 
-      $('.loading').delay(500).hide();
     } 
   });    
 })
@@ -341,7 +336,6 @@ $('#row-save').on('click',function(){
     return;
   }
 
-  $('.loading').show();
   $.ajax({
       url: deleteScheduleUrl,
       type: 'post',
@@ -393,7 +387,6 @@ $('#row-save').on('click',function(){
           });
 
         });
-        $('.loading').delay(500).hide();
       }
     });
 

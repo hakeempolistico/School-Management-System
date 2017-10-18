@@ -17,7 +17,6 @@ $(function () {
     var name = $('#name-input').val();
     var building = $('#building-input').val();
 
-    $('.loading').show();
     $.ajax({
             url: countUrl,
             type: 'post',
@@ -61,8 +60,6 @@ $(function () {
                   }
                 });
               }
-
-              $('.loading').delay(500).hide();
             }
         });     
 
@@ -74,11 +71,6 @@ $(function () {
     newName = $('#edit-name').val();
     newBuilding = $('#edit-building').val();
 
-    // if(newCode == null || newCode.trim() === ''){
-    //   alert('Strand code cannot be empty!')
-    // }
-    // else{
-    //   $('.loading').show();
       $.ajax({
         url: updateUrl,
         type: 'post',
@@ -91,18 +83,14 @@ $(function () {
         success: function(result){
           console.log(result);
           populateTable();
-          // $('.loading').delay(500).hide();
         }
       }); 
-    // }
-
   })
 
 
 })
 
 $('#delete-confirm').click(function(){
-  // $('.loading').show();
   $.ajax({
     url: deleteRowUrl,
     type: 'post',
@@ -111,7 +99,6 @@ $('#delete-confirm').click(function(){
     success: function(result){
       console.log(result);
       populateTable();
-      // $('.loading').delay(500).hide();
     }
   }); 
 })
@@ -135,7 +122,6 @@ function populateTable(){
   $("#rooms-table").on("click", "tr td .edit-btn", function(){
 
     room_id = $(this).parents('tr').find('td:first').html();
-    // $('.loading').show();
 
     $.ajax({
             url: getRowUrl,
@@ -149,7 +135,6 @@ function populateTable(){
               $( "#edit-id" ).val(result.room_id);
               $( "#edit-name" ).val(result.room_name);
               $( "#edit-building" ).val(result.building);
-              // $('.loading').delay(500).hide();
               console.log(result);
             }
           });   
@@ -160,4 +145,3 @@ function populateTable(){
       id = $(this).parents('tr').find('td:first').html();
   });
   
-// }
