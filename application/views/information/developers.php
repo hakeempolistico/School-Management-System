@@ -72,23 +72,23 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
               <div class="active item">
-                <img src="http://localhost/sms/images/in.png" alt="New York">
+                <img src="<?php echo base_url('images/in.png')?>" alt="New York">
               </div>
 
               <div class="item">
-                <img src="http://localhost/sms/images/in2.png" alt="New York">
+                <img src="<?php echo base_url('images/in2.png')?>" alt="New York">
               </div>
 
               <div class="item">
-                <img src="http://localhost/sms/images/in3.png" alt="New York">
+                <img src="<?php echo base_url('images/in3.png')?>" alt="New York">
               </div>
 
               <div class="item">
-                <img src="http://localhost/sms/images/in4.png" alt="New York">
+                <img src="<?php echo base_url('images/in4.png')?>" alt="New York">
               </div>
 
               <div class="item">
-                <img src="http://localhost/sms/images/in5.png" alt="New York">
+                <img src="<?php echo base_url('images/in5.png')?>" alt="New York">
               </div>
             </div>
 
@@ -126,7 +126,7 @@
           <!-- Add the bg color to the header using any of the bg-* classes -->
           <div class="widget-user-header bg-red">
             <div class="widget-user-image">
-              <img class="img-circle" src="http://localhost/sms/images/alt_picture.jpg" alt="User Avatar">
+              <img class="img-circle" src="<?php echo base_url('images/alt_picture.jpg');?>" alt="User Avatar">
             </div>
             <!-- /.widget-user-image -->
             <h3 class="widget-user-username">Hakeem Polistico</h3>
@@ -159,10 +159,10 @@
           <!-- Add the bg color to the header using any of the bg-* classes -->
           <div class="widget-user-header bg-purple">
             <div class="widget-user-image">
-              <img class="img-circle" src="http://localhost/sms/images/alt_picture.jpg" alt="User Avatar">
+              <img class="img-circle" src="<?php echo base_url('images/alt_picture.jpg');?>" alt="User Avatar">
             </div>
             <!-- /.widget-user-image -->
-            <h3 class="widget-user-username">Adrielle Nicolette Escaro</h3>
+            <h3 class="widget-user-username">Adrielle Escaro</h3>
             <h5 class="widget-user-desc">Lead Developer</h5>
           </div>
           <div class="box-footer no-padding">
@@ -191,7 +191,7 @@
           <!-- Add the bg color to the header using any of the bg-* classes -->
           <div class="widget-user-header bg-green">
             <div class="widget-user-image">
-              <img class="img-circle" src="http://localhost/sms/images/alt_picture.jpg" alt="User Avatar">
+              <img class="img-circle" src="<?php echo base_url('images/alt_picture.jpg');?>" alt="User Avatar">
             </div>
             <!-- /.widget-user-image -->
             <h3 class="widget-user-username">Jasver Anlouise Salva</h3>
