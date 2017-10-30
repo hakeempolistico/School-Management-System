@@ -253,11 +253,20 @@
 
         <div class="modal fade in" id="modal-delete">
           <div class="modal-dialog" style="max-width: 320px">
-            <div class="box box-primary">
-              <div class="box-body box-profile flat ">
+            <div class="box box-danger">
+              <div class="box-header with-border" style="cursor: move; margin: 0px;">
+                <i class="fa fa-warning text-danger"></i>
+
+                <h3 class="box-title text-danger">Warning</h3>
+                <!-- tools box -->
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-dismiss="modal"><i class="fa fa-times text-danger"></i></button>
+                </div>
+                <!-- /. tools -->
+              </div>
+              <div class="box-body box-profile flat" style="margin-top: -10px">
                 <h4>Are you sure you want to delete record?</h4>
-                <button id="delete-confirm" data-dismiss="modal" type="button" style="width: 75px" class="btn btn-block btn-primary btn-sm pull-right">Confirm</button>
-                <button data-dismiss="modal" type="button" style="width: 75px" class="btn btn-sm btn-block btn-danger">Cancel</button>
+                <button id="delete-confirm" data-dismiss="modal" type="button" style="width: 75px" class="btn btn-block btn-danger btn-sm pull-right">Confirm</button>
               </div>
             </div>
           </div>
