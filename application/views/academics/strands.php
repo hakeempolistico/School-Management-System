@@ -111,34 +111,35 @@
 
         <div class="modal fade" id="modal-edit">
           <div class="modal-dialog" style="max-width: 400px">
-            <div class="modal-content" >
-              <div class="box box-primary">
-            <div class="box-body box-profile flat">
-              
+            <div class="box box-primary">
+              <div class="box-header with-border" style="cursor: move; margin: 0px;">
+                <i class="fa fa-pencil"></i>
 
-              <center><span class="fa fa-fw fa-star fa-5x text-primary"></center>
-              <h3 class="profile-username text-center">Edit Strand</h3> 
+                <h3 class="box-title">Edit Strand</h3>
+                <!-- tools box -->
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-dismiss="modal"><i class="fa fa-times text-danger"></i></button>
+                </div>
+                <!-- /. tools -->
+              </div>
 
-              <ul class="list-group list-group-unbordered">
-                <li>
-                  <div class="form-group" style="margin-bottom: 5px;">
-                    <label for="edit-code">Code</label>                    
-                    <label for="edit-code" class="text-danger">*</label>
-                    <input type="text" class="form-control" id="edit-code">
-                  </div>
-                  <div class="form-group" style="margin-bottom: 5px;">
-                    <label for="edit-status">Name</label>
-                    <input type="text" class="form-control" id="edit-name">
-                  </div>
-                  <a href="#" class="btn btn-sm btn-danger pull-left" data-dismiss="modal" style="width: 100px">Close</a>                
-                  <button id="edit-update" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Update</button>                 
-                </li>   
-              </ul>
-            </div>
-            <!-- /.box-body -->
+              <div class="box-body box-profile flat">
+                <ul class="list-group list-group-unbordered">
+                  <li>
+                    <div class="form-group" style="margin-bottom: 5px;">
+                      <label for="edit-code">Code</label>                    
+                      <label for="edit-code" class="text-danger">*</label>
+                      <input type="text" class="form-control" id="edit-code">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 5px;">
+                      <label for="edit-status">Name</label>
+                      <input type="text" class="form-control" id="edit-name">
+                    </div>             
+                    <button id="edit-update" type="button" style="width: 100px;" class="btn btn-sm btn-block btn-primary pull-right">Update</button>                 
+                  </li>   
+                </ul>
+              </div>
           </div>
-            </div>
-            <!-- /.modal-content -->
           </div>
           <!-- /.modal-dialog -->
         </div>

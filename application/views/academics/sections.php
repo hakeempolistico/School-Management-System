@@ -134,48 +134,49 @@
 
         <div class="modal fade" id="modal-edit">
           <div class="modal-dialog" style="max-width: 400px">
-            <div class="modal-content" >
               <div class="box box-primary">
-            <div class="box-body box-profile flat">
-              
+                <div class="box-header with-border" style="cursor: move; margin: 0px;">
+                  <i class="fa fa-pencil"></i>
 
-              <center><span class="fa fa-fw fa-briefcase fa-5x text-primary"></center>
-              <h3 class="profile-username text-center">Edit Strand</h3> 
-
-              <ul class="list-group list-group-unbordered">
-                <li>
-                  <div class="form-group">
-                    <label>Strands</label>
-                    <label class="text-danger">*</label>
-                    <select id="edit-strand" data-placeholder="Section Strand" class="form-control select2" style="width:100%;">
-                      <option></option>
-                    </select>
+                  <h3 class="box-title">Edit Sections</h3>
+                  <!-- tools box -->
+                  <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-dismiss="modal"><i class="fa fa-times text-danger"></i></button>
                   </div>
-                  <div class="form-group">
-                    <label>Year</label>
-                    <label class="text-danger">*</label>
-                    <select id="edit-year" data-placeholder="Section Year Level" class="form-control select2" style="width:100%;">
-                      <option></option>
-                    </select>
-                  </div>                  
-                  <div class="form-group" style="margin-bottom: 5px;">
-                    <label for="edit-name">Name</label>                    
-                    <label for="edit-name" class="text-danger">*</label>
-                    <input type="text" class="form-control" id="edit-name">
-                  </div>
-                  <div class="form-group" style="margin-bottom: 5px;">
-                    <label for="edit-capacity">Capacity</label>
-                    <input type="number" class="form-control" id="edit-capacity">
-                  </div>
-                  <a href="#" class="btn btn-sm btn-danger pull-left" data-dismiss="modal" style="width: 100px">Close</a>                
-                  <button id="edit-update" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Update</button>                 
-                </li>   
-              </ul>
-            </div>
+                  <!-- /. tools -->
+                </div>
+                <div class="box-body box-profile flat">
+                  <ul class="list-group list-group-unbordered">
+                    <li>
+                      <div class="form-group">
+                        <label>Strands</label>
+                        <label class="text-danger">*</label>
+                        <select id="edit-strand" data-placeholder="Section Strand" class="form-control select2" style="width:100%;">
+                          <option></option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label>Year</label>
+                        <label class="text-danger">*</label>
+                        <select id="edit-year" data-placeholder="Section Year Level" class="form-control select2" style="width:100%;">
+                          <option></option>
+                        </select>
+                      </div>                  
+                      <div class="form-group" style="margin-bottom: 5px;">
+                        <label for="edit-name">Name</label>                    
+                        <label for="edit-name" class="text-danger">*</label>
+                        <input type="text" class="form-control" id="edit-name">
+                      </div>
+                      <div class="form-group" style="margin-bottom: 5px;">
+                        <label for="edit-capacity">Capacity</label>
+                        <input type="number" class="form-control" id="edit-capacity">
+                      </div>                
+                      <button id="edit-update" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Update</button>                 
+                    </li>   
+                  </ul>
+                </div>
             <!-- /.box-body -->
           </div>
-            </div>
-            <!-- /.modal-content -->
           </div>
           <!-- /.modal-dialog -->
         </div>

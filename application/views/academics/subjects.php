@@ -136,15 +136,24 @@
         <div class="modal fade in" id="modal-view">
           <div class="modal-dialog" style="max-width: 400px">
               <div class="box box-primary">
-            <div class="box-body box-profile flat ">
 
-              <center><span class="fa fa-fw fa-book fa-5x text-primary"></center>
-              <h3 class="profile-username text-center">View Subject</h3>
-              <a id="view-edit" class="btn btn-default btn-xs pull-right"><span class="fa fa-fw fa-pencil"></span></a>
+              <div class="box-header with-border" style="cursor: move; margin: 0px;">
+                <i class="fa fa-search"></i>
+
+                <h3 class="box-title text-info">View Subject</h3>
+                <!-- tools box -->
+                <div class="box-tools pull-right">
+                  <button id="view-edit" type="button" class="btn btn-box-tool" ><i class="fa fa-pencil text-info"></i></button>
+                  <button type="button" class="btn btn-box-tool" data-dismiss="modal"><i class="fa fa-times text-danger"></i></button>
+                </div>
+                <!-- /. tools -->
+              </div>
+
+            <div class="box-body box-profile flat ">
 
               <ul class="list-group list-group-unbordered">
                 <li>
-                <div class="form-group"style="margin-bottom: 5px;">
+                <div class="form-group">
                   <label for="view-code">Code</label>
                   <input type="text" class="form-control" id="view-code" placeholder="subject code" value="Subject Code">
                 </div>
@@ -159,8 +168,7 @@
                 <div class="form-group">
                   <label for="view-description">Description</label>
                   <textarea type="text" class="form-control" id="view-description" placeholder="subject description">Subject Description </textarea>
-                </div>
-                <a href="#" class="btn btn-sm btn-danger pull-left" data-dismiss="modal" style="width: 100px">Close</a>                
+                </div>                
                 <button id="view-update" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Update</button>
                  
                 </li>                
@@ -174,17 +182,21 @@
         </div>
 
         <div class="modal fade in" id="modal-edit">
-          <div class="modal-dialog" style="max-width: 400px">
+          <div class="modal-dialog" style="max-width: 400px">              
             <div class="box box-primary">
+              <div class="box-header with-border" style="cursor: move; margin: 0px;">
+                <i class="fa fa-pencil"></i>
+                <h3 class="box-title">Edit Subject</h3>
+                <!-- tools box -->
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-dismiss="modal"><i class="fa fa-times text-danger"></i></button>
+                </div>
+                <!-- /. tools -->
+              </div>
               <div class="box-body box-profile flat ">
-
-              <center><span class="fa fa-fw fa-book fa-5x text-primary"></center>
-              <h3 class="profile-username text-center">Edit Subject</h3> 
-
-
               <ul class="list-group list-group-unbordered">
                 <li>
-                <div class="form-group"style="margin-bottom: 5px;">
+                <div class="form-group" style="margin-bottom: 5px;">
                   <label for="edit-code">Code</label>
                   <input type="text" class="form-control" id="edit-code" placeholder="subject code">
                 </div>
@@ -192,7 +204,7 @@
                   <label for="edit-name">Name</label>
                   <input type="text" class="form-control" id="edit-name" placeholder="subject name">
                 </div>
-                <div class="form-group"style="margin-bottom: 5px;">
+                <div class="form-group" style="margin-bottom: 5px;">
                   <label for="edit-type">Type</label>
                   <input type="text" class="form-control" id="edit-type" placeholder="subject type">
                 </div>
@@ -200,8 +212,7 @@
                   <label for="edit-description">Description</label>
                   <textarea type="text" class="form-control" id="edit-description" placeholder="subject description" value="THIS IS DESCRIPTION SECTION"> </textarea>
                 </div>
-                <a href="#" class="btn btn-sm btn-danger pull-left" data-dismiss="modal" style="width: 100px">Close</a>
-                <button id="edit-update" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Update</button>
+                <button id="edit-update" type="button" style="width: 100px; margin-top: -10px;" class="btn btn-sm btn-block btn-primary pull-right">Update</button>
                  
                 </li>                
               </ul>
