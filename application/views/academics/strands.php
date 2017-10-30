@@ -124,7 +124,7 @@
               </div>
 
               <div class="box-body box-profile flat">
-                <ul class="list-group list-group-unbordered">
+                <ul class="list-group list-group-unbordered" style="list-style: none;">
                   <li>
                     <div class="form-group" style="margin-bottom: 5px;">
                       <label for="edit-code">Code</label>                    
@@ -135,7 +135,7 @@
                       <label for="edit-status">Name</label>
                       <input type="text" class="form-control" id="edit-name">
                     </div>             
-                    <button id="edit-update" type="button" style="width: 100px;" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-save"></i> &nbsp; Save</button>                 
+                    <button id="edit-update" type="button" style="width: 100px; margin: 10px;" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-save"></i> &nbsp; Save</button>                 
                   </li>   
                 </ul>
               </div>
@@ -159,7 +159,7 @@
               </div>
               <div class="box-body box-profile flat" style="margin-top: -10px">
                 <h4>Are you sure you want to delete record?</h4>
-                <button id="delete-confirm" data-dismiss="modal" type="button" style="width: 75px" class="btn btn-block btn-danger btn-sm pull-right">Confirm</button>
+                <button id="delete-confirm" data-dismiss="modal" type="button" style="width: 75px; margin: 10px;" class="btn btn-block btn-danger btn-sm pull-right">Confirm</button>
               </div>
             </div>
           </div>
