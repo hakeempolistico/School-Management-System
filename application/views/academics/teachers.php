@@ -97,7 +97,7 @@
                   <label for="position-input">Position</label>
                   <input type="text" class="form-control" id="position-input" placeholder="Teacher Position">
                 </div>
-                <button id="add-btn" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Add</button>
+                <button id="add-btn" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-plus"></i> &nbsp; Add</button>
               </div>
           </div>
         </div>
@@ -138,11 +138,20 @@
 
       <div class="modal fade" id="modal-view">
           <div class="modal-dialog" style="max-width: 400px">
-            <div class="modal-content" >
               <div class="box box-primary">
+                <div class="box-header with-border" style="cursor: move; margin: 0px;">
+                <i class="fa fa-search"></i>
+
+                <h3 class="box-title text-info">View Teacher</h3>
+                <!-- tools box -->
+                <div class="box-tools pull-right">
+                  <button id="view-edit" type="button" class="btn btn-box-tool" ><i class="fa fa-pencil text-info"></i></button>
+                  <button type="button" class="btn btn-box-tool" data-dismiss="modal"><i class="fa fa-times text-danger"></i></button>
+                </div>
+                <!-- /. tools -->
+              </div>
             <div class="box-body box-profile flat">
               <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url('images/alt_picture.jpg');?>" alt="<?php echo base_url('images/alt_picture.jpg');?>"> <br>
-              <a id="view-edit" class="btn btn-default btn-xs pull-right"><span class="fa fa-fw fa-pencil"></span></a>
               <ul class="list-group list-group-unbordered">
                 <li>
                 <div class="form-group" style="margin-bottom: 5px;">
@@ -173,16 +182,13 @@
                   <label for="view-status">Status</label>
                   <input type="text" class="form-control" id="view-status">
                 </div>
-                <a href="#" class="btn btn-sm btn-danger pull-left" data-dismiss="modal" style="width: 100px">Close</a>                
-                <button id="view-update" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Update</button>
+                <button id="view-update" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-save"></i> &nbsp; Save</button>
                  
                 </li>   
               </ul>
             </div>
             <!-- /.box-body -->
           </div>
-            </div>
-            <!-- /.modal-content -->
           </div>
           <!-- /.modal-dialog -->
         </div>
@@ -190,8 +196,18 @@
 
       <div class="modal fade" id="modal-edit">
           <div class="modal-dialog" style="max-width: 400px">
-            <div class="modal-content" >
               <div class="box box-primary">
+                <div class="box-header with-border" style="cursor: move; margin: 0px;">
+                <i class="fa fa-pencil"></i>
+
+                <h3 class="box-title text-info">Edit Teacher</h3>
+                <!-- tools box -->
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-dismiss="modal"><i class="fa fa-times text-danger"></i></button>
+                </div>
+                <!-- /. tools -->
+              </div>
+
             <div class="box-body box-profile flat">
               <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url('images/alt_picture.jpg');?>" alt="<?php echo base_url('images/alt_picture.jpg');?>"> <br>
               <ul class="list-group list-group-unbordered">
@@ -223,16 +239,13 @@
                   <div class="form-group" style="margin-bottom: 5px;">
                     <label for="edit-status">Status</label>
                     <input type="text" class="form-control" id="edit-status">
-                  </div>
-                  <a href="#" class="btn btn-sm btn-danger pull-left" data-dismiss="modal" style="width: 100px">Close</a>                
-                  <button id="edit-update" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Update</button>                 
+                  </div>                  
+                  <button id="edit-update" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-save"></i> &nbsp; Save</button>                 
                 </li>   
               </ul>
             </div>
             <!-- /.box-body -->
           </div>
-            </div>
-            <!-- /.modal-content -->
           </div>
           <!-- /.modal-dialog -->
         </div>

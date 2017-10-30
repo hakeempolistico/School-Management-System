@@ -85,7 +85,7 @@
                   <label for="buildingNameInput">Building</label>
                   <input type="text" class="form-control" id="building-input" placeholder="Building">
                 </div>               
-                <button type="button" id="add-btn" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Add</button>
+                <button type="button" id="add-btn" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-plus"></i> &nbsp; Add</button>
               </div>
           </div>
         </div>
@@ -124,14 +124,20 @@
 
         <div class="modal fade" id="modal-edit">
           <div class="modal-dialog" style="max-width: 400px">
-            <div class="modal-content" >
               <div class="box box-primary">
+
+              <div class="box-header with-border" style="cursor: move; margin: 0px;">
+                <i class="fa fa-pencil"></i>
+
+                <h3 class="box-title">Edit Rooms</h3>
+                <!-- tools box -->
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-dismiss="modal"><i class="fa fa-times text-danger"></i></button>
+                </div>
+                <!-- /. tools -->
+              </div>
+
             <div class="box-body box-profile flat">
-              
-
-              <center><span class="fa fa-fw fa-star fa-5x text-primary"></center>
-              <h3 class="profile-username text-center">Edit Room</h3> 
-
               <ul class="list-group list-group-unbordered">
                 <li>
                   <div class="form-group" style="margin-bottom: 5px;">
@@ -146,16 +152,13 @@
                   <div class="form-group" style="margin-bottom: 5px;">
                     <label for="edit-status">Building</label>
                     <input type="text" class="form-control" id="edit-building">
-                  </div>
-                  <a href="#" class="btn btn-sm btn-danger pull-left" data-dismiss="modal" style="width: 100px">Close</a>                
-                  <button id="edit-update" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Update</button>                 
+                  </div>                
+                  <button id="edit-update" type="button" style="width: 100px; " class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-save"></i> &nbsp; Save</button>                 
                 </li>   
               </ul>
             </div>
             <!-- /.box-body -->
           </div>
-            </div>
-            <!-- /.modal-content -->
           </div>
           <!-- /.modal-dialog -->
         </div>

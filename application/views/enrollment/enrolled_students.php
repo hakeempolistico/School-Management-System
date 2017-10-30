@@ -284,8 +284,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Search for Registered Students
-        <small>Pick one to enroll</small>
+        Enrolled Students
+        <!-- <small>Pick one to enroll</small> -->
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Enrollment</a></li>
