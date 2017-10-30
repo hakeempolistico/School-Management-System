@@ -85,7 +85,7 @@
                   <label for="buildingNameInput">Building</label>
                   <input type="text" class="form-control" id="building-input" placeholder="Building">
                 </div>               
-                <button type="button" id="add-btn" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Add</button>
+                <button type="button" id="add-btn" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-plus"></i> &nbsp; Add</button>
               </div>
           </div>
         </div>
@@ -153,7 +153,7 @@
                     <label for="edit-status">Building</label>
                     <input type="text" class="form-control" id="edit-building">
                   </div>                
-                  <button id="edit-update" type="button" style="width: 100px; " class="btn btn-sm btn-block btn-primary pull-right">Update</button>                 
+                  <button id="edit-update" type="button" style="width: 100px; " class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-save"></i> &nbsp; Save</button>                 
                 </li>   
               </ul>
             </div>

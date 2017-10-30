@@ -97,7 +97,7 @@
                   <label for="input-capacity">Capacity</label>
                   <input type="number" class="form-control" id="input-capacity" placeholder="Section Capacity">
                 </div>                
-                <button id="btn-add" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Add</button>
+                <button id="btn-add" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-plus"></i> &nbsp; Add</button>
               </div>
           </div>
         </div>
@@ -171,7 +171,7 @@
                         <label for="edit-capacity">Capacity</label>
                         <input type="number" class="form-control" id="edit-capacity">
                       </div>                
-                      <button id="edit-update" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Update</button>                 
+                      <button id="edit-update" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-save"></i> &nbsp; Save</button>                 
                     </li>   
                   </ul>
                 </div>

@@ -95,7 +95,7 @@
                     <label for="description-input">Description</label>
                     <input type="text" class="form-control" id="description-input" placeholder="Subject Description">
                   </div>
-                  <button id="add-btn" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Add</button>
+                  <button id="add-btn" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-plus"></i> &nbsp; Add</button>
               </div>
           </div>
         </div>
@@ -169,7 +169,7 @@
                   <label for="view-description">Description</label>
                   <textarea type="text" class="form-control" id="view-description" placeholder="subject description">Subject Description </textarea>
                 </div>                
-                <button id="view-update" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Update</button>
+                <button id="view-update" type="button" style="width: 100px; margin-top: -10px;" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-save"></i> &nbsp; Save</button>
                  
                 </li>                
               </ul>
@@ -212,7 +212,7 @@
                   <label for="edit-description">Description</label>
                   <textarea type="text" class="form-control" id="edit-description" placeholder="subject description" value="THIS IS DESCRIPTION SECTION"> </textarea>
                 </div>
-                <button id="edit-update" type="button" style="width: 100px; margin-top: -10px;" class="btn btn-sm btn-block btn-primary pull-right">Update</button>
+                <button id="edit-update" type="button" style="width: 100px; margin-top: -10px;" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-save"></i> &nbsp; Save</button>
                  
                 </li>                
               </ul>
