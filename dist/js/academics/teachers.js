@@ -68,9 +68,15 @@ function populateTable(){
   $('#teachersTable').DataTable().destroy();
 
   $('#teachersTable').DataTable({
+        "columns": [
+            { "width": "20%" },
+            { "width": "55%" },
+            { "width": "10%" },
+            { "width": "15%" }
+            ],
         "order": [] ,
         "ajax": getRecordsUrl,
-        "scrollX": true
+        "responsive": true
   });
 
   $("#teachersTable").on("click", "tr td .view-btn", function(){

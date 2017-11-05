@@ -52,21 +52,21 @@ class teachers extends CI_Controller {
 	}
 	public function ajaxGetRecords(){
 		$result = $this->global_model->getRecords('teachers', 'desc', 'id');
-		$action = "<center>
+		$action = "
                     <button data-toggle='modal' id='view-btn' data-target='#modal-schedule' class='btn btn-default btn-xs view-btn'><span class='fa fa-fw fa-clock-o'></span></button>
                     <button data-toggle='modal' id='view-btn' data-target='#modal-view' class='btn btn-default btn-xs view-btn'><span class='fa fa-fw fa-search'></span></button>                  
                     <button data-toggle='modal' data-target='#modal-delete' class='btn btn-default btn-xs delete-btn'><span class='fa fa-fw fa-remove'></span></button>                
-                  </center>";
+                  ";
 
 		$data = [];
         foreach ($result as $value)
             {	
             	$status=null;
             	if($value->status == 'Active'){
-            		$status = '<center><span class="badge bg-light-blue">'.$value->status.'</span></center>';
+            		$status = '<span class="badge bg-light-blue">'.$value->status.'</span>';
             	}
             	else if($value->status == 'Inactive'){
-            		$status = '<center><span class="badge bg-red">'.$value->status.'</span></center>';
+            		$status = '<span class="badge bg-red">'.$value->status.'</span>';
             	}
             	
                 $arr = array(
