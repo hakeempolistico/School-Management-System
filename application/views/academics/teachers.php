@@ -136,6 +136,70 @@
 
       </div>
 
+      <div class="modal fade" id="modal-schedule">
+          <div class="modal-dialog" style="max-width: 400px">
+              <div class="box box-primary">
+                <div class="box-header with-border" style="cursor: move; margin: 0px;">
+                <i class="fa fa-clock-o"></i>
+
+                <h3 class="box-title text-info">Schedule</h3>
+                <!-- tools box -->
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-dismiss="modal"><i class="fa fa-times text-danger"></i></button>
+                </div>
+                <!-- /. tools -->
+              </div>
+            <div class="box-body box-profile flat">
+              <table class="table table-striped">
+                <thead>
+                  <td><b>Class</b></td>
+                  <td><b>Subject</b></td>
+                  <td><b>Day/Time</b></td>
+                </thead>
+                <tr>
+                  <td>STEM 11-A</td>
+                  <td>English 1</td>
+                  <td>Mon/9-11</td>
+                </tr>
+                <tr>
+                  <td>STEM 12-A</td>
+                  <td>English 2</td>
+                  <td>Mon/11-2</td>
+                </tr>
+                <tr>
+                  <td>STEM 12-A</td>
+                  <td>English 2</td>
+                  <td>Mon/11-2</td>
+                </tr>
+                <tr>
+                  <td>STEM 12-A</td>
+                  <td>English 2</td>
+                  <td>Mon/11-2</td>
+                </tr>
+                <tr>
+                  <td>STEM 12-A</td>
+                  <td>English 2</td>
+                  <td>Mon/11-2</td>
+                </tr>
+                <tr>
+                  <td>STEM 12-A</td>
+                  <td>English 2</td>
+                  <td>Mon/11-2</td>
+                </tr>
+                <tfoot>
+                  <td><b>Class</b></td>
+                  <td><b>Subject</b></td>
+                  <td><b>Day/Time</b></td>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
       <div class="modal fade" id="modal-view">
           <div class="modal-dialog" style="max-width: 400px">
               <div class="box box-primary">
@@ -182,65 +246,8 @@
                   <label for="view-status">Status</label>
                   <input type="text" class="form-control" id="view-status">
                 </div>
-                <button id="view-update" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-save"></i> &nbsp; Save</button>
+                <button id="view-update" data-dismiss="modal" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-save"></i> &nbsp; Save</button>
                  
-                </li>   
-              </ul>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          </div>
-          <!-- /.modal-dialog -->
-        </div>
-        <!-- /.modal -->
-
-      <div class="modal fade" id="modal-edit">
-          <div class="modal-dialog" style="max-width: 400px">
-              <div class="box box-primary">
-                <div class="box-header with-border" style="cursor: move; margin: 0px;">
-                <i class="fa fa-pencil"></i>
-
-                <h3 class="box-title text-info">Edit Teacher</h3>
-                <!-- tools box -->
-                <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-box-tool" data-dismiss="modal"><i class="fa fa-times text-danger"></i></button>
-                </div>
-                <!-- /. tools -->
-              </div>
-
-            <div class="box-body box-profile flat">
-              <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url('images/alt_picture.jpg');?>" alt="<?php echo base_url('images/alt_picture.jpg');?>"> <br>
-              <ul class="list-group list-group-unbordered">
-                <li>
-                  <div class="form-group" style="margin-bottom: 5px;">
-                    <label for="edit-id">Employee ID</label>
-                    <input type="text" class="form-control" id="edit-id">
-                  </div>
-                    <div class="form-group" style="margin-bottom: 5px;">
-                    <label for="edit-firstname">First Name</label>
-                    <input type="text" class="form-control" id="edit-firstname">
-                  </div>
-                  <div class="form-group" style="margin-bottom: 5px;">
-                    <label for="edit-middlename">Middle Name</label>
-                    <input type="text" class="form-control" id="edit-middlename">
-                  </div>
-                  <div class="form-group" style="margin-bottom: 5px;">
-                    <label for="edit-lastname">Last Name</label>
-                    <input type="text" class="form-control" id="edit-lastname">
-                  </div>
-                  <div class="form-group" style="margin-bottom: 5px;">
-                    <label for="edit-major">Major</label>
-                    <input type="text" class="form-control" id="edit-major">
-                  </div>
-                  <div class="form-group" style="margin-bottom: 5px;">
-                    <label for="edit-position">Position</label>
-                    <input type="text" class="form-control" id="edit-position">
-                  </div>
-                  <div class="form-group" style="margin-bottom: 5px;">
-                    <label for="edit-status">Status</label>
-                    <input type="text" class="form-control" id="edit-status">
-                  </div>                  
-                  <button id="edit-update" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-save"></i> &nbsp; Save</button>                 
                 </li>   
               </ul>
             </div>

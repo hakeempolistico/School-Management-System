@@ -118,7 +118,9 @@ function populateTable(){
         { "width": "20%" }
         ],
         "order": [] ,
-        "ajax": getRecordsUrl
+        "ajax": getRecordsUrl,
+        "scrollX": true,
+        'autoWidth':  false
   });
 
   $("#subjectsTable").on("click", "tr td .view-btn", function(){
