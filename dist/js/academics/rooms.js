@@ -115,7 +115,9 @@ function populateTable(){
     //     { "width": "10%" }
     // ],
         "order": [] ,
-        "ajax": getRecordsUrl
+        "ajax": getRecordsUrl,
+        "scrollX": true,
+        'autoWidth':  false
   });
   }
 

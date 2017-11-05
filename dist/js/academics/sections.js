@@ -229,7 +229,9 @@ function populateTable(){
         { "width": "12%" }
     ],
         "order": [] ,
-        "ajax": getRecordsUrl
+        "ajax": getRecordsUrl,
+        "scrollX": true,
+        'autoWidth':  false
   });
 
   $("#table-sections").on("click", "tr td .edit-btn", function(){

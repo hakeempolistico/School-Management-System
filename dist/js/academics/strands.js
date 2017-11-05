@@ -111,7 +111,9 @@ function populateTable(){
         { "width": "10%" }
     ],
         "order": [] ,
-        "ajax": getRecordsUrl
+        "ajax": getRecordsUrl,
+        "scrollX": true,
+        'autoWidth':  false
   });
 
   $("#strands-table").on("click", "tr td .edit-btn", function(){
