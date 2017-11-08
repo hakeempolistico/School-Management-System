@@ -111,7 +111,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="teachersTable" class="table table-bordered table-striped display nowrap"  cellspacing="0" width="100%">
+              <table id="teachersTable" class="table table-bordered table-striped display nowrap" cellspacing="0" width="100%">
                 <thead>
                 <tr>
                   <th>Employee ID</th>
@@ -142,7 +142,7 @@
           <div class="modal-dialog" style="max-width: 400px">
               <div class="box box-primary">
                 <div class="box-header with-border" style="cursor: move; margin: 0px;">
-                <i class="fa fa-clock-o"></i>
+                <i class="fa fa-clock-o text-info"></i>
 
                 <h3 class="box-title text-info">Schedule</h3>
                 <!-- tools box -->
@@ -206,7 +206,7 @@
           <div class="modal-dialog" style="max-width: 400px">
               <div class="box box-primary">
                 <div class="box-header with-border" style="cursor: move; margin: 0px;">
-                <i class="fa fa-search"></i>
+                <i class="fa fa-search text-info"></i>
 
                 <h3 class="box-title text-info">View Teacher</h3>
                 <!-- tools box -->

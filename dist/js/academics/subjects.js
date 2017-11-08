@@ -86,14 +86,6 @@ $('#view-update').click(function(){
   
 })
 
-$('#edit-update').click(function(){
-  name = $( "#edit-name" ).val();
-  newCode = $( "#edit-code" ).val();
-  type = $( "#edit-type" ).val();
-  description = $( "#edit-description" ).val();
-  updateRow(); 
-})
-
 $('#delete-confirm').click(function(){
   $.ajax({
             url: deleteRowUrl,
@@ -114,13 +106,14 @@ function populateTable(){
 
   $('#subjectsTable').DataTable({
     "columns": [
-        null, null, null,
-        { "width": "20%" }
+        { "width": "20%" }, 
+        { "width": "50%" }, 
+        { "width": "20%" },
+        { "width": "10%" }
         ],
         "order": [] ,
         "ajax": getRecordsUrl,
-        "scrollX": true,
-        'autoWidth':  false
+        "responsive": true
   });
 
   $("#subjectsTable").on("click", "tr td .view-btn", function(){
@@ -148,24 +141,6 @@ function populateTable(){
           });   
   });
 
-  $("#subjectsTable").on("click", "tr td .edit-btn", function(){
-
-    subjectCode = $(this).parents('tr').find('td:first').html();
-
-    $.ajax({
-            url: getRowUrl,
-            type: 'post',
-            dataType: 'json', 
-            data: {'table' : 'subjects', 'set': 'code', 'value': subjectCode}, 
-            success: function(result){          
-              code = result.code;
-              $( "#edit-name" ).val(result.name);
-              $( "#edit-code" ).val(result.code);
-              $( "#edit-type" ).val(result.type);
-              $( "#edit-description" ).val(result.description);
-            }
-          });   
-  });
 
   $("#subjectsTable").on("click", "tr td .delete-btn", function(){
 

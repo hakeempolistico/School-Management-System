@@ -14,6 +14,8 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/Ionicons/css/ionicons.min.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/fixedHeader.dataTables.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/responsive.dataTables.min.css">
   <!-- Pace style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/pace/pace.min.css">
   <!-- Theme style -->
@@ -86,7 +88,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="strands-table" class="table table-bordered table-striped">
+              <table id="strands-table" class="table table-bordered table-striped  display nowrap" cellspacing="0" width="100%">
                 <thead>
                 <tr>
                   <th>Code</th>    
@@ -187,6 +189,8 @@
 <!-- DataTables -->
 <script src="<?php echo base_url(); ?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.fixedHeader.min.js"></script>
+<script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.responsive.min.js"></script>
 
 <script src="<?php echo base_url('dist/js/academics/strands.js'); ?>"></script>
 
