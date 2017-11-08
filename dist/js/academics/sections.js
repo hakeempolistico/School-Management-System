@@ -230,8 +230,7 @@ function populateTable(){
     ],
         "order": [] ,
         "ajax": getRecordsUrl,
-        "scrollX": true,
-        'autoWidth':  false
+        "responsive": true
   });
 
   $("#table-sections").on("click", "tr td .edit-btn", function(){

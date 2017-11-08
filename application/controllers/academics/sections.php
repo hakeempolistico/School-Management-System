@@ -56,10 +56,10 @@ class sections extends CI_Controller {
 		$data = [];
         foreach ($result as $value)
             {	
-            	$action = "<center>
-                    <button data-toggle='modal' data-target='#modal-edit' class='btn btn-default btn-xs edit-btn'><span class='fa fa-fw fa-pencil'></span></button>                    
-                    <button data-toggle='modal' data-target='#modal-delete' data-id='".$value->id."' class='btn btn-default btn-xs delete-btn'><span class='fa fa-fw fa-remove'></span></button>                
-                  </center>";
+            	$action = "
+                    <button data-toggle='modal' data-target='#modal-edit' class='btn btn-default btn-xs edit-btn'><span class='fa fa-fw fa-pencil text-info'></span></button>                    
+                    <button data-toggle='modal' data-target='#modal-delete' data-id='".$value->id."' class='btn btn-default btn-xs delete-btn text-danger'><span class='fa fa-fw fa-remove'></span></button>                
+                  		";
 
                 $arr = array(
                     $value->strand_code,
