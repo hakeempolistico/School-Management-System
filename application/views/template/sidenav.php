@@ -89,6 +89,13 @@
                   Enroll Student
               </a>
             </li>
+
+            <li class="<?php echo (isset($active) && $active =='enrollment/student_list' ? 'active' : null); ?>">
+              <a href="<?php echo site_url('enrollment/student_list'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                  Student List
+              </a>
+            </li>
           </ul>          
         </li>
 
