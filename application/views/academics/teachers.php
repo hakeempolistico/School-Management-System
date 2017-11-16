@@ -139,12 +139,12 @@
       </div>
 
       <div class="modal fade" id="modal-schedule">
-          <div class="modal-dialog" style="max-width: 400px">
-              <div class="box box-primary">
+          <div class="modal-dialog" style="max-width: 900px">
+              <div class="box box-success">
                 <div class="box-header with-border" style="cursor: move; margin: 0px;">
-                <i class="fa fa-clock-o text-info"></i>
+                <i class="fa fa-clock-o text-success"></i>
 
-                <h3 class="box-title text-info">Schedule</h3>
+                <h3 class="box-title text-success">Schedule</h3>
                 <!-- tools box -->
                 <div class="box-tools pull-right">
                   <button type="button" class="btn btn-box-tool" data-dismiss="modal"><i class="fa fa-times text-danger"></i></button>
@@ -152,48 +152,59 @@
                 <!-- /. tools -->
               </div>
             <div class="box-body box-profile flat">
-              <table class="table table-striped">
-                <thead>
+              <div class="table-responsive">
+              <table id="table-sched" class="table table-striped display nowrap" cellspacing="0" width="100%" >
+                <thead class="bg-green">
                   <td><b>Class</b></td>
                   <td><b>Subject</b></td>
-                  <td><b>Day/Time</b></td>
+                  <td><b>Day</b></td>
+                  <td><b>Time</b></td>
+                  <td><b>Room</b></td>
                 </thead>
                 <tr>
                   <td>STEM 11-A</td>
                   <td>English 1</td>
-                  <td>Mon/9-11</td>
+                  <td>Mon/Tue/Wed/Thur/Fri</td>
+                  <td>9-11/1-2/2-3/3-4/ 4-5</td>
+                  <td>Room 221</td>
                 </tr>
                 <tr>
                   <td>STEM 12-A</td>
                   <td>English 2</td>
-                  <td>Mon/11-2</td>
+                  <td>Mon/Tue/Fri</td>
+                  <td>9-11/1-2/4-5</td>
+                  <td>Room 222</td>
                 </tr>
                 <tr>
                   <td>STEM 12-A</td>
                   <td>English 2</td>
-                  <td>Mon/11-2</td>
+                  <td>Mon/Tue/Fri</td>
+                  <td>9-11/1-2/4-5</td>
+                  <td>Room 223</td>
                 </tr>
                 <tr>
                   <td>STEM 12-A</td>
                   <td>English 2</td>
-                  <td>Mon/11-2</td>
+                  <td>Mon/Tue/Fri</td>
+                  <td>9-11/1-2/4-5</td>
+                  <td>Room 224</td>
                 </tr>
                 <tr>
                   <td>STEM 12-A</td>
                   <td>English 2</td>
-                  <td>Mon/11-2</td>
+                  <td>Mon/Tue/Fri</td>
+                  <td>9-11/1-2/4-5</td>
+                  <td>Room 224</td>
                 </tr>
                 <tr>
                   <td>STEM 12-A</td>
                   <td>English 2</td>
-                  <td>Mon/11-2</td>
+                  <td>Mon/Tue/Fri</td>
+                  <td>9-11/1-2/4-5</td>
+                  <td>Room 224</td>
                 </tr>
-                <tfoot>
-                  <td><b>Class</b></td>
-                  <td><b>Subject</b></td>
-                  <td><b>Day/Time</b></td>
-                </tfoot>
               </table>
+            </div>
             </div>
             <!-- /.box-body -->
           </div>

@@ -5,6 +5,25 @@ var newId;
 var newName;
 var newBuilding;
 
+$(document).ready(function() {
+    $('#table-schedule').DataTable( {
+        responsive: true,
+        ordering: false,
+        paging: false,
+        info: false,
+        searching: false,
+        autoWidth: true,
+        columns: [
+          { "width": "25%" },
+          null,
+          null,
+          null,
+          null,
+          null
+        ],  
+    } );
+} );
+
 $(function () {
   $('#rooms-table').DataTable()
   
@@ -111,13 +130,14 @@ function populateTable(){
     "columns": [
         { "width": "10%" },
         { "width": "20%" },
-        { "width": "60%" },
-        { "width": "10%" }
+        { "width": "55%" },
+        { "width": "15%" }
     ],
         "order": [] ,
         "ajax": getRecordsUrl,
         "responsive": true
   });
+
   }
 
   $("#rooms-table").on("click", "tr td .edit-btn", function(){
@@ -144,5 +164,17 @@ function populateTable(){
 
   $("#rooms-table").on("click", "tr td .delete-btn", function(){
       id = $(this).parents('tr').find('td:first').html();
+  });
+  
+  $("#rooms-table").on("click", "tr td .view-btn", function(){
+      
+      $('#table-sched').DataTable({
+          info : false,
+          paging : false,
+          searching : false,
+          order : false,
+          "responsive": true
+      });
+
   });
   
