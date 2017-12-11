@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/Ionicons/css/ionicons.min.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/fixedHeader.dataTables.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/responsive.dataTables.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -107,7 +109,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="subjectsTable" class="table table-bordered table-striped">
+              <table id="subjectsTable" class="table table-bordered table-striped display nowrap" cellspacing="0" width="100%">
                 <thead>
                 <tr>
                   <th>Code</th>
@@ -181,49 +183,6 @@
           <!-- /.modal-dialog -->
         </div>
 
-        <div class="modal fade in" id="modal-edit">
-          <div class="modal-dialog" style="max-width: 400px">              
-            <div class="box box-primary">
-              <div class="box-header with-border" style="cursor: move; margin: 0px;">
-                <i class="fa fa-pencil"></i>
-                <h3 class="box-title">Edit Subject</h3>
-                <!-- tools box -->
-                <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-box-tool" data-dismiss="modal"><i class="fa fa-times text-danger"></i></button>
-                </div>
-                <!-- /. tools -->
-              </div>
-              <div class="box-body box-profile flat ">
-              <ul class="list-group list-group-unbordered">
-                <li>
-                <div class="form-group" style="margin-bottom: 5px;">
-                  <label for="edit-code">Code</label>
-                  <input type="text" class="form-control" id="edit-code" placeholder="subject code">
-                </div>
-                  <div class="form-group" style="margin-bottom: 5px;">
-                  <label for="edit-name">Name</label>
-                  <input type="text" class="form-control" id="edit-name" placeholder="subject name">
-                </div>
-                <div class="form-group" style="margin-bottom: 5px;">
-                  <label for="edit-type">Type</label>
-                  <input type="text" class="form-control" id="edit-type" placeholder="subject type">
-                </div>
-                <div class="form-group">
-                  <label for="edit-description">Description</label>
-                  <textarea type="text" class="form-control" id="edit-description" placeholder="subject description" value="THIS IS DESCRIPTION SECTION"> </textarea>
-                </div>
-                <button id="edit-update" type="button" style="width: 100px; margin-top: -10px;" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-save"></i> &nbsp; Save</button>
-                 
-                </li>                
-              </ul>
-             
-            </div>
-            <!-- /.box-body -->
-          </div>
-        </div>
-          <!-- /.modal-dialog -->
-      </div>
-
         <div class="modal fade in" id="modal-delete">
           <div class="modal-dialog" style="max-width: 320px">
             <div class="box box-danger">
@@ -279,6 +238,8 @@
 <!-- DataTables -->
 <script src="<?php echo base_url(); ?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.fixedHeader.min.js"></script>
+<script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.responsive.min.js"></script>
 
 <script>
 

@@ -108,14 +108,15 @@ function populateTable(){
   $('#rooms-table').DataTable().destroy();
 
     $('#rooms-table').DataTable({
-    // "columns": [
-    //     { "width": "10%" },
-    //     { "width": "20%" },
-    //     { "width": "60%" },
-    //     { "width": "10%" }
-    // ],
+    "columns": [
+        { "width": "10%" },
+        { "width": "20%" },
+        { "width": "60%" },
+        { "width": "10%" }
+    ],
         "order": [] ,
-        "ajax": getRecordsUrl
+        "ajax": getRecordsUrl,
+        "responsive": true
   });
   }
 

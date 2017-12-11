@@ -68,14 +68,15 @@ function populateTable(){
   $('#teachersTable').DataTable().destroy();
 
   $('#teachersTable').DataTable({
-    "columns": [
-        { "width": "20%" },
-        { "width": "40%" },
-        { "width": "20%" },
-        { "width": "20%" }
-        ],
+        "columns": [
+            { "width": "20%" },
+            { "width": "55%" },
+            { "width": "10%" },
+            { "width": "15%" }
+            ],
         "order": [] ,
-        "ajax": getRecordsUrl
+        "ajax": getRecordsUrl,
+        "responsive": true
   });
 
   $("#teachersTable").on("click", "tr td .view-btn", function(){
@@ -98,28 +99,6 @@ function populateTable(){
               $( "#view-major" ).val(result.major);
               $( "#view-position" ).val(result.position);
               $( "#view-status" ).val(result.status);
-            }
-          });   
-  });
-
-  $("#teachersTable").on("click", "tr td .edit-btn", function(){
-
-    employee_id = $(this).parents('tr').find('td:first').html();
-
-    $.ajax({
-            url: getRowUrl,
-            type: 'post',
-            dataType: 'json', 
-            data: {'table' : 'teachers', 'set': 'employee_id', 'value': employee_id}, 
-            success: function(result){          
-              employee_id = result.employee_id;
-              $( "#edit-id" ).val(result.employee_id);
-              $( "#edit-firstname" ).val(result.first_name);
-              $( "#edit-middlename" ).val(result.middle_name);
-              $( "#edit-lastname" ).val(result.last_name);
-              $( "#edit-major" ).val(result.major);
-              $( "#edit-position" ).val(result.position);
-              $( "#edit-status" ).val(result.status);
             }
           });   
   });
@@ -252,18 +231,6 @@ $('#view-update').click(function(){
   
 })
 
-//EDIT MODAL
-
-$('#edit-update').click(function(){
-  new_empoyee_id = $( "#edit-id" ).val();
-  first_name = $( "#edit-firstname" ).val();
-  middle_name = $( "#edit-middlename" ).val();
-  last_name = $( "#edit-lastname" ).val();
-  major = $( "#edit-major" ).val();
-  position = $( "#edit-position" ).val();
-  status = $( "#edit-status" ).val();
-  updateRow();
-})
 
 //DELETE MODAL
 
