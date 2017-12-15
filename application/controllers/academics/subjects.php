@@ -15,6 +15,8 @@ class subjects extends CI_Controller {
 
 		$data['active'] = 'academics/subjects';
 		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
+		$data['title'] = 'Subjects';
+		$data['header'] = $this->load->view('template/header', $data, TRUE);
 
         $this->parser->parse('academics/subjects', $data);
 	}

@@ -16,6 +16,8 @@ class sections extends CI_Controller {
 
 		$data['active'] = 'academics/sections';
 		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
+		$data['title'] = 'Sections';
+		$data['header'] = $this->load->view('template/header', $data, TRUE);
 
         $this->parser->parse('academics/sections', $data);
 	}

@@ -15,6 +15,8 @@ class strands extends CI_Controller {
 
 		$data['active'] = 'academics/strands';
 		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
+		$data['title'] = 'Strands';
+		$data['header'] = $this->load->view('template/header', $data, TRUE);
 
         $this->parser->parse('academics/strands', $data);
 	}
