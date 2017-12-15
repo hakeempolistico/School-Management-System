@@ -18,13 +18,7 @@ class enroll_student extends CI_Controller {
 		//print_r($jjjk); exit;
 		$this->parser->parse('enrollment/search', $data);
 	}
-
-	public function enrolled_students()
-	{
-		$data = $this->parse->parsed();
-		$this->parser->parse('enrollment/enrolled_students', $data);
-	}
-
+	
 	public function strands()
 	{
 		$data = $this->parse->parsed();

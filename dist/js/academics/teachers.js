@@ -79,6 +79,14 @@ function populateTable(){
         "responsive": true
   });
 
+  $('#table-sched').DataTable({
+        info : false,
+        paging : false,
+        searching : false,
+        order : false,
+        "responsive": true
+  });
+
   $("#teachersTable").on("click", "tr td .view-btn", function(){
 
     hide();

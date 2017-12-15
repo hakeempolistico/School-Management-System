@@ -22,6 +22,8 @@ class schedule extends CI_Controller {
 
 		$data['active'] = 'academics/schedule';
 		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
+		$data['title'] = 'Schedule';
+		$data['header'] = $this->load->view('template/header', $data, TRUE);
 
 		$this->parser->parse('academics/schedule', $data);
 	}
