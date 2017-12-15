@@ -18,6 +18,8 @@ class assign_subjects extends CI_Controller {
 
 		$data['active'] = 'academics/assign_subjects';
 		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
+		$data['title'] = 'Assign Subjects';
+		$data['header'] = $this->load->view('template/header', $data, TRUE);
 
         $this->parser->parse('academics/assign_subjects', $data);
 	}

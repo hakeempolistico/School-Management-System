@@ -16,6 +16,8 @@ class teachers extends CI_Controller {
 
 		$data['active'] = 'academics/teachers';
 		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
+		$data['title'] = 'Teachers';
+		$data['header'] = $this->load->view('template/header', $data, TRUE);
 
         $this->parser->parse('academics/teachers', $data);
 	}

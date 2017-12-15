@@ -15,6 +15,8 @@ class rooms extends CI_Controller {
 
 		$data['active'] = 'academics/rooms';
 		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
+		$data['title'] = 'Rooms';
+		$data['header'] = $this->load->view('template/header', $data, TRUE);
 
         $this->parser->parse('academics/rooms', $data);
 	}

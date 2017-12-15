@@ -1,35 +1,8 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Manage Schedule</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <!-- Pace style -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/pace/pace.min.css">
-  <!-- Select2 -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/select2/dist/css/select2.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/font-awesome/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/Ionicons/css/ionicons.min.css">
-  <!-- fullCalendar -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/fullcalendar/dist/fullcalendar.min.css">
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/AdminLTE.min.css">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/skins/_all-skins.min.css">
-  <!-- Page style -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/enrollment/manage_schedule.css">
-  <!-- Google Font -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/googlefont.css">
-  
-</head>
+
+<?=$header?>
+
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
   
@@ -56,16 +29,6 @@
 
     <!-- Main content -->
     <section class="content">
-
-    <div class="row">
-      <div class="col-xs-12 col-lg-12">
-        <div class="alert alert-success alert-dismissible">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-          <h4><i class="icon fa fa-info"></i>User's Guide</h4>
-          1. Select class. <br> 2. Add row. <br> 3. Input time under time column. <br> 4. Create event. Select subject. Select room. <br> 5. Drag event onto table. <br> 6. Then click <b>Save Sched</b>. *Table cells must be completely filled.
-        </div>
-      </div>
-    </div>
 
     <div class="row">
       <div class="col-lg-4 col-xs-12">
@@ -97,9 +60,9 @@
               <h4 id="trash" class="box-title">Class Information</h4>
           </div>
           <div class="box-body" style="padding: 0px 10px 0px 10px">
-            <h5 style="margin: 14px 0px 13px 0px"> <b> Strand  </b> <a id="class-strand" class="pull-right"> SELECT CLASS </a></h5>
-            <h5 style="margin: 14px 0px 13px 0px"> <b> Year & Section  </b> <a id="class-year-section" class="pull-right"> SELECT CLASS </a></h5>
-            <h5 style="margin: 14px 0px 13px 0px"> <b> Capacity  </b> <a id="class-capacity" class="pull-right"> SELECT CLASS</a></h5>
+            <h5 style="margin: 14px 0px 13px 0px"> <b> Strand  </b> <a id="class-strand" class="pull-right"> --- </a></h5>
+            <h5 style="margin: 14px 0px 13px 0px"> <b> Year & Section  </b> <a id="class-year-section" class="pull-right"> --- </a></h5>
+            <h5 style="margin: 14px 0px 13px 0px"> <b> Capacity  </b> <a id="class-capacity" class="pull-right"> --- </a></h5>
           </div>
         </div>
       </div>
@@ -208,7 +171,7 @@
               <table  id="schedule" class="table table-bordered table-hover table-schedule">
                 <thead>
                 <tr>
-                  <th id="tbl-title" colspan="6" class="text-success">SELECT CLASS</th>
+                  <th id="tbl-title" colspan="6" class="text-success">---</th>
                 </tr>
                 <tr>
                   <th>Time</th>
