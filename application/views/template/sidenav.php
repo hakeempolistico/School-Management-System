@@ -160,18 +160,18 @@
           </ul>          
         </li>
 
-        <li class="treeview">
+        <li class="treeview <?php echo (isset($active) && substr($active,0,12) =='student_info' ? 'active' : null); ?>">
           <a href="#">
             <i class="fa fa-id-card"></i>
             <span>Student Information</span>
             <span class="pull-right-container">
-              <span class="label label-warning pull-right">soon</span>
+              <span class="fa fa-angle-left pull-right"></span>
             </span>
           </a>
 
           <ul class="treeview-menu">
-            <li>
-              <a href="<?php echo site_url('enrollment/dashboard'); ?>">
+            <li class="<?php echo (isset($active) && $active =='student_info/student_details' ? 'active' : null) ; ?>">
+              <a href="<?php echo site_url('student_info/student_details'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Student Details
               </a>
