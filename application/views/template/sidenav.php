@@ -152,7 +152,7 @@
             <i class="fa fa-id-card"></i>
             <span>Student Information</span>
             <span class="pull-right-container">
-              <span class="label label-warning pull-right">soon</span>
+              <span class="fa fa-angle-left pull-right"></span>
             </span>
           </a>
 
