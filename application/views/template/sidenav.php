@@ -170,12 +170,12 @@
                 Student Details
               </a>
             </li>         
-            <li>
+            <!-- <li>
               <a href="<?php echo site_url('enrollment/register_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Student Grades
               </a>
-            </li>
+            </li> -->
             <li>
               <a href="<?php echo site_url('enrollment/enroll_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
@@ -183,6 +183,13 @@
               </a>
             </li>
           </ul>          
+        </li>
+        
+        <li class="<?php echo (isset($active) && $active =='grades/grade_student' ? 'active' : null); ?>">
+          <a href="<?php echo site_url('grades/grade_student'); ?>">
+            <i class="fa fa-file"></i>
+            <span>Grades Management</span>
+          </a>
         </li>
 
         <li class="treeview">
