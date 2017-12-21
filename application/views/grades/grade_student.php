@@ -139,8 +139,8 @@
                     <td>Polistico, Hakeem A.</td>
                     <td><input type="" name=""></td>
                     <td>
-                      <button class='btn btn-default btn-xs'><span class='fa fa-fw fa-check'></span></button>
-                      <button class='btn btn-default btn-xs'><span class='fa fa-fw fa-edit'></span></button>
+                      <button class='btn btn-default btn-xs'><span class='fa fa-fw fa-check text-success'></span></button>
+                      <button class='btn btn-default btn-xs'><span class='fa fa-fw fa-edit text-info'></span></button>
                     </td>
                   </tr>
                 </tbody>
