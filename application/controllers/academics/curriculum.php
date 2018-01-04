@@ -44,8 +44,8 @@ class curriculum extends CI_Controller {
 		echo json_encode($this->global_model->getRecords('teachers'));
 	}
 
-	public function deleteClassSubject(){	
-		$this->global_model->deleteRow('class_subjects', $this->input->post());
+	public function deleteCurrSubject(){	
+		$this->global_model->deleteMultiple('curriculum', $this->input->post());
 	}
 
 	public function getClassSubjects(){	
@@ -54,9 +54,10 @@ class curriculum extends CI_Controller {
 
 	public function addClassSubjects(){
 		$data = array(
-			"teacher_id" => $this->input->post('teacher_id'),
-			"section_id" => $this->input->post('section_id'),
-			"subject_id" => $this->input->post('subject_id')
+			"year_level_id" => $this->input->post('year_level_id'),
+			"strand_id" => $this->input->post('strand_id'),
+			"subject_code" => $this->input->post('subject_code'),
+			"semester" => $this->input->post('semester')
 		);
 
 		$this->global_model->insert($this->input->post('table'),$data);

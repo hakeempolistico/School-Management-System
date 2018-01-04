@@ -49,20 +49,20 @@
                         <label>Strand</label>
                         <select id="select-strand" data-placeholder="Select Strand" class="form-control select2" style="width: 100%;">
                           <option></option>
-                          <option value="STEM">STEM</option>
-                          <option value="ABM">ABM</option>
-                          <option value="HUMSS">HUMSS</option>
-                          <option value="GAS">GAS</option>
-                          <option value="TVL-AS">TVL-AS</option>
-                          <option value="TVL-HE">TVL-HE</option>
+                          <option value="1">STEM</option>
+                          <option value="2">GAS</option>
+                          <option value="3">HUMSS</option>
+                          <option value="4">TVL-HE</option>
+                          <option value="5">TVL-AS</option>
+                          <option value="6">ABM</option>
                         </select>
                       </div>                   
                       <div class="form-group" style="margin-bottom: 5px">
                         <label>Year</label>
                         <select id="select-year" data-placeholder="Select Year" class="form-control select2" style="width: 100%;">
                           <option></option>
-                          <option value="Grade 11">Grade 11</option>
-                          <option value="Grade 12">Grade 12</option>
+                          <option value="1">Grade 11</option>
+                          <option value="2">Grade 12</option>
                         </select>
                       </div>                   
                       <div class="form-group" style="margin-bottom: 7px">
@@ -74,7 +74,7 @@
                         </select>
                       </div> 
                   
-                  <button id="confirm-btn" type="button" style="width: 100px" class="btn btn-sm btn-primary pull-right">Confirm</button>
+                  <button id="btn-confirm" type="button" style="width: 100px" class="btn btn-sm btn-primary pull-right">Confirm</button>
                 </div>
               </div>
               <!-- /.tab-pane -->
@@ -222,7 +222,7 @@
         <div class="col-lg-7 col-xs-12">
           <div class="box box-primary">
               <div class="box-header">
-                <h3 class="box-title" id="assign-subjects-title">Add Subjects</h3>
+                <h3 class="box-title" id="assign-subjects-title">STEM 11 First Semester</h3>
                 <h3 class="box-title pull-right"><button id="add-btn" class="btn btn-default btn-xs"><span class="fa fa-fw fa-plus"></span></button></h3>
               </div>
               <!-- /.box-header -->
@@ -236,39 +236,13 @@
                         </select>
                       </div> 
                     </div>
-                  </div>  
-                  <div class="row">
-                    <div class="col-xs-12 col-lg-12">
-                      <div class="form-group" id="group-subject">
-                        <label id="label-subject" for="subjectNameInput">Subject</label>
-                        <select id="select-subject" data-placeholder="Select Subject" class="subject-input form-control select2" style="width: 100%;">
-                          <option></option>
-                        </select>
-                      </div> 
-                    </div>
-                  </div>  
-                  <div class="row">
-                    <div class="col-xs-12 col-lg-12">
-                      <div class="form-group" id="group-subject">
-                        <label id="label-subject" for="subjectNameInput">Subject</label>
-                        <select id="select-subject" data-placeholder="Select Subject" class="subject-input form-control select2" style="width: 100%;">
-                          <option></option>
-                        </select>
-                      </div> 
-                    </div>
-                  </div>  
-                  <div class="row">
-                    <div class="col-xs-12 col-lg-12">
-                      <div class="form-group" id="group-subject">
-                        <label id="label-subject" for="subjectNameInput">Subject</label>
-                        <select id="select-subject" data-placeholder="Select Subject" class="subject-input form-control select2" style="width: 100%;">
-                          <option></option>
-                        </select>
-                      </div> 
-                    </div>
-                  </div>
+                  </div> 
                 <button id="save-btn" type="button" style="width: 100px" class="btn btn-block btn-primary pull-right">Save</button>  
             </div>
+
+            <div id="box-overlay" class="overlay">
+            </div>
+
           </div>
         </div>
       </div>
@@ -307,6 +281,10 @@
 <script src="<?php echo base_url('dist/js/academics/curriculum.js'); ?>"></script>
 
 <script>
+
+var getSubjects = '<?php echo base_url('academics/curriculum/getSubjects'); ?>';
+var addUrl = '<?php echo base_url('academics/curriculum/addClassSubjects'); ?>';
+var deleteUrl = '<?php echo base_url('academics/curriculum/deleteCurrSubject'); ?>';
 
   $(function () {
     $('#table-list').DataTable({
