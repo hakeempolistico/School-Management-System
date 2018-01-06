@@ -2,8 +2,6 @@ $(function () {
     //Initialize Select2 Elements
     $('.select2').select2();
 
-
-
     $('#select-year').prop('disabled', true);
     $('#select-section').prop('disabled', true);
 
