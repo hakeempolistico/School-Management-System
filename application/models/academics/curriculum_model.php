@@ -10,7 +10,7 @@ class curriculum_model extends CI_Model{
 
 	public function getClassSubjects($data){	
 	$this->db->where($data);
-	$query = $this->db->get('class_subjects')->result();
+	$query = $this->db->get('curriculum')->result();
 	return $query;
 	}
 

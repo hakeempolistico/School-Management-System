@@ -240,7 +240,7 @@
                       </div>
                     </div>
                   </div> 
-                <button id="save-btn" type="button" style="width: 100px" class="btn btn-block btn-primary pull-right">Save</button>  
+                <button id="save-btn" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Save</button>  
             </div>
 
             <div id="box-overlay" class="overlay">
@@ -288,6 +288,7 @@
 var getSubjects = '<?php echo base_url('academics/curriculum/getSubjects'); ?>';
 var addUrl = '<?php echo base_url('academics/curriculum/addClassSubjects'); ?>';
 var deleteUrl = '<?php echo base_url('academics/curriculum/deleteCurrSubject'); ?>';
+var getClassSubjects = '<?php echo base_url('academics/curriculum/getClassSubjects'); ?>';
 
   $(function () {
     $('#table-list').DataTable({

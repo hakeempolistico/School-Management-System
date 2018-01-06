@@ -36,7 +36,33 @@ $(function () {
     		var sem_text = $('#select-sem').select2('data');
 
     		$('#assign-subjects-title').text(strand_text[0].text+' '+year_text[0].text+' '+sem_text[0].text);
+
+        $('.clone').remove();
+        $.ajax({
+        url: getClassSubjects,
+        type: 'post',
+        dataType: 'json',  
+        data: {'strand_id': strand_id, 'year_level_id': year_id, 'semester': semester},
+        success: function(result){
+          console.log(result);
+          var x = result.length;
+          for(var i=0; i<x-1; i++){  
+            $( "#set" ).clone().attr("style", "margin-top: 10px;").addClass('clone').appendTo('.append');
+            $('.select2').select2();
+            $('.select2').next().next().remove();
+            $('.btn-close').on('click', function(){
+              this.closest('.set').remove();
+            });
+          }
+
+          for(var i=0; i<x; i++){
+            $( ".subject-input:eq("+i+")" ).val(result[i].subject_code).trigger('change');   
+          }
+        }
+        });
     	}
+
+      
     })
 
     $('#add-btn').on('click', function(){
