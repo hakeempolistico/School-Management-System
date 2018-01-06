@@ -38,6 +38,11 @@ class global_model extends CI_Model{
 		$query = $this->db->delete($table);
 		return $query;
 	}
+	public function deleteMultiple($table, $where)
+	{	
+		$query = $this->db->delete($table, $where);
+		return $query;
+	}
 
 	public function count($table, $set=null, $value=null, $set2=null, $value2=null, $set3=null, $value3=null)
 	{

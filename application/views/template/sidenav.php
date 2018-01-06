@@ -138,6 +138,12 @@
                 <i class="fa fa-circle-o text-aqua"></i>
                   Subjects
               </a>
+            </li>          
+            <li class="<?php echo (isset($active) && $active =='academics/curriculum' ? 'active' : null) ; ?>">
+              <a href="<?php echo site_url('academics/curriculum'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                  Curriculum
+              </a>
             </li>
             <li class="<?php echo (isset($active) && $active =='academics/assign_subjects' ? 'active' : null) ; ?>">
               <a href="<?php echo site_url('academics/assign_subjects'); ?>">
