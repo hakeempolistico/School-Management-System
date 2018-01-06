@@ -40,8 +40,16 @@ $(function () {
     })
 
     $('#add-btn').on('click', function(){
-      $( "#label-subject" ).clone().attr("style", "margin-top: 10px;").addClass('clone').insertAfter("#select-subject");
-      $( "#select-subject" ).clone().insertBefore("#select-subject").addClass('cloneInput').select2();
+      //$( "#label-subject" ).clone().attr("style", "margin-top: 10px;").addClass('clone').insertAfter("#select-subject");
+      //$( "#btn-close" ).clone().attr("style", "margin-top: 10px; cursor: pointer;").addClass('clone').insertAfter("#select-subject");
+      //$( "#select-subject" ).clone().insertBefore("#select-subject").addClass('cloneInput').select2();
+      $( "#set" ).clone().attr("style", "margin-top: 10px;").addClass('clone').appendTo('.append');
+      $('.select2').select2();
+      $('.select2').next().next().remove();
+      $('.btn-close').on('click', function(){
+        this.closest('.set').remove();
+      });
+
     })
 
     $('#save-btn').on('click', function(){

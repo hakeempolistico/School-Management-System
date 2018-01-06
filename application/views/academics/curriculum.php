@@ -226,15 +226,18 @@
                 <h3 class="box-title pull-right"><button id="add-btn" class="btn btn-default btn-xs"><span class="fa fa-fw fa-plus"></span></button></h3>
               </div>
               <!-- /.box-header -->
-              <div class="box-body">
+              <div class="box-body new-box">
                   <div class="row">
-                    <div class="col-xs-12 col-lg-12">
-                      <div class="form-group" id="group-subject">
-                        <label id="label-subject" for="subjectNameInput">Subject</label>
-                        <select id="select-subject" data-placeholder="Select Subject" class="subject-input form-control select2" style="width: 100%;">
-                          <option></option>
-                        </select>
-                      </div> 
+                    <div class="col-xs-12 col-lg-12 append">
+                      <div id="set" class="set">
+                        <div class="form-group" id="group-subject">
+                          <label id="label-subject" for="subjectNameInput">Subject</label>
+                          <label id="btn-close" class="btn-close pull-right text-red" style="cursor: pointer"><i class="fa fa-times"></i></label>
+                          <select id="select-subject" data-placeholder="Select Subject" class="subject-input form-control select2" style="width: 100%;">
+                            <option></option>
+                          </select>
+                        </div> 
+                      </div>
                     </div>
                   </div> 
                 <button id="save-btn" type="button" style="width: 100px" class="btn btn-block btn-primary pull-right">Save</button>  
