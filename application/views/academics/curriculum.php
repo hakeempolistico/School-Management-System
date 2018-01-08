@@ -222,7 +222,7 @@
         <div class="col-lg-7 col-xs-12">
           <div class="box box-primary">
               <div class="box-header">
-                <h3 class="box-title" id="assign-subjects-title">STEM 11 First Semester</h3>
+                <h3 class="box-title" id="assign-subjects-title">--</h3>
                 <h3 class="box-title pull-right"><button id="add-btn" class="btn btn-default btn-xs"><span class="fa fa-fw fa-plus"></span></button></h3>
               </div>
               <!-- /.box-header -->

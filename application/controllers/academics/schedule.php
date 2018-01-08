@@ -18,6 +18,8 @@ class schedule extends CI_Controller {
 		$data['teachers'] = $this->global_model->getRecords('teachers');		
 		$data['rooms'] = $this->global_model->getRecords('rooms');			
 		$data['subjects'] = $this->global_model->getRecords('subjects');		
+		$data['year_levels'] = $this->global_model->getRecords('year_levels');		
+		$data['strands'] = $this->global_model->getRecords('strands');		
 		$data['classes'] = $this->schedule_model->getClass();		
 
 		$data['active'] = 'academics/schedule';

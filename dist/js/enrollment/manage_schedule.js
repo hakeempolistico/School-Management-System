@@ -44,6 +44,7 @@
       //Get value and make sure it is not null
       var val2 = $('#select-room').val()
       var val1 = $('#select-subject').val()
+      var val3 = $('#select-teacher').select2('data')
       
       if (val1.length == 0) {
         return
@@ -55,7 +56,7 @@
       var event = $('<div />')
       event.addClass('external-event flat')
       if (val2.length != 0) {
-        event.html('<div class="val-subject">'+val1+'</div><div class="text-gray val-room">'+val2+'</div>')
+        event.html('<div class="val-subject">'+val1+'</div><div class="text-gray val-room">'+val2+'</div><div style="color: silver;">'+val3[0].text+'</div>')
       }
       else{
         return
@@ -147,10 +148,7 @@ function dropTrash(ev) {
 
   
 
-var table; 
-var set;
-var sectionId;
-var room_id;
+var table, set, sectionId, room_id, strand_code, year_level_id, semester; 
 
 $(".custom").prop('disabled', true);
 
@@ -240,7 +238,7 @@ $('#btn-enter').on('click',function(){
     }
   });
 
-  //POPULATE SECTIONS SELECT
+  //POPULATE SUBJECT SELECT
   $.ajax({
     url: getSectionUrl,
     type: 'post',

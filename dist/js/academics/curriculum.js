@@ -35,9 +35,10 @@ $(function () {
     		var year_text = $('#select-year').select2('data');
     		var sem_text = $('#select-sem').select2('data');
 
-    		$('#assign-subjects-title').text(strand_text[0].text+' '+year_text[0].text+' '+sem_text[0].text);
+    		$('#assign-subjects-title').text(strand_text[0].text+' - '+year_text[0].text+' - '+sem_text[0].text);
 
         $('.clone').remove();
+        $( "#select-subject" ).val(null).trigger("change");
         $.ajax({
         url: getClassSubjects,
         type: 'post',
