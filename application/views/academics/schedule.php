@@ -33,7 +33,7 @@
     <div class="row">
       <div class="col-lg-3 col-xs-12">
         <div class="form-group">
-          <label for="exampleInputEmail1">Strand</label>
+          <label>Strand</label>
           <select id="select-strand" class="form-control select2"  data-placeholder="Select Strand" style="width: 100%">
             <option></option>
             <?php foreach ($strands as $val) 
@@ -43,8 +43,10 @@
             ?>
           </select> 
         </div>
+      
         <div class="form-group">
-          <label for="exampleInputEmail1">Class</label>
+          <label>Semester</label>
+          <div class="input-group margin hidden-print" style="margin: 0 0 10px 0;" >
           <select id="select-class" class="form-control select2"  data-placeholder="Select Strand" style="width: 100%">
             <option></option>
             <?php foreach ($classes as $val) 
@@ -53,13 +55,17 @@
               }
             ?>
           </select> 
+              <span class="input-group-btn">
+                <button id="btn-enter" type="button" class="btn btn-info btn-flat">ENTER</button>
+              </span>
+        </div>
         </div>
       </div>
 
       <div class="col-lg-3 col-xs-12">
         <div class="form-group">
-          <label for="exampleInputEmail1">Year</label>
-          <select id="select-class" class="form-control select2"  data-placeholder="Select Year" style="width: 100%">
+          <label>Year</label>
+          <select id="select-year" class="form-control select2"  data-placeholder="Select Year" style="width: 100%">
             <option></option>
             <?php foreach ($year_levels as $val) 
               {
@@ -72,28 +78,21 @@
 
       <div class="col-lg-3 col-xs-12">
         <div class="form-group">
-          <label for="exampleInputEmail1">Section</label>
-          <select id="select-class" class="form-control select2"  data-placeholder="Select Section" style="width: 100%">
+          <label>Section</label>
+          <select id="select-section" class="form-control select2"  data-placeholder="Select Section" style="width: 100%">
           <option></option>
-          <option value="First Semester">First Semester</option>
-          <option value="Second Semester">Second Semester</option>
         </select>
         </div>
       </div>
 
       <div class="col-lg-3 col-xs-12">
         <div class="form-group">
-          <label for="exampleInputEmail1">Semester</label>
-          <div class="input-group margin hidden-print" style="margin: 0 0 10px 0;" >
-          <select id="select-class" class="form-control select2"  data-placeholder="Select Class" style="width: 100%">
-            <option></option>
-            <option value="First Semester">First Semester</option>
-            <option value="Second Semester">Second Semester</option>
-          </select> 
-              <span class="input-group-btn">
-                <button id="btn-enter" type="button" class="btn btn-info btn-flat">ENTER</button>
-              </span>
-        </div>
+          <label>Semester</label>
+          <select id="select-semester" class="form-control select2"  data-placeholder="Select Section" style="width: 100%">
+          <option></option>
+          <option value="First Semester">First Semester</option>
+          <option value="Second Semester">Second Semester</option>
+        </select>
         </div>
       </div>
     </div>
@@ -404,7 +403,9 @@
   })
 
   var getSectionUrl = "<?php echo base_url("academics/schedule/getSectionsDetails"); ?>"
+  var getSectionsUrl = "<?php echo base_url("academics/schedule/getSections"); ?>"
   var getSubjectsUrl = "<?php echo base_url("academics/schedule/getSubjects"); ?>"
+  var getSubjects = "<?php echo base_url("academics/schedule/getSubjectsDetails"); ?>"
   var addScheduleUrl = "<?php echo base_url("academics/schedule/addSchedule"); ?>"
   var deleteScheduleUrl = "<?php echo base_url("academics/schedule/deleteSchedule"); ?>"
   var getScheduleUrl = "<?php echo base_url("academics/schedule/getSchedule"); ?>"
