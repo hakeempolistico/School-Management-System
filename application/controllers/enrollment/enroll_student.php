@@ -12,7 +12,7 @@ class enroll_student extends CI_Controller {
 	public function index()
 	{
 		$data = $this->parse->parsed();
-		$data['active'] = 'enrollment/search';
+		$data['active'] = 'enrollment/enroll_student';
 		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
 		$this->parser->parse('enrollment/search', $data);
 	}
