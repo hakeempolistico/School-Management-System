@@ -12,10 +12,8 @@ class enroll_student extends CI_Controller {
 	public function index()
 	{
 		$data = $this->parse->parsed();
-		//$jjjj = $this->global_model->getRecords('registered_students');
-		//$jjjk = $jjjj['0']->lrn;
-
-		//print_r($jjjk); exit;
+		$data['active'] = 'enrollment/search';
+		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
 		$this->parser->parse('enrollment/search', $data);
 	}
 	

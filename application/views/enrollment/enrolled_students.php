@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/Ionicons/css/ionicons.min.css">
+  <!-- Pace style -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/pace/pace.min.css">
   <!-- Select2 -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/select2/dist/css/select2.min.css">
   <!-- DataTables -->
@@ -119,8 +121,16 @@
 <script src="<?php echo base_url(); ?>bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
+<!-- PACE -->
+<script src="<?php echo base_url(); ?>bower_components/PACE/pace.min.js"></script>
 <!-- SlimScroll -->
 <script src="<?php echo base_url(); ?>bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+
+<script>
+  $(document).ajaxStart(function () {
+    Pace.restart()
+  })
+</script>
 
 <script>
   var getRecordsUrl = '<?php echo base_url("enrollment/enroll_student/populateTable2"); ?>';
