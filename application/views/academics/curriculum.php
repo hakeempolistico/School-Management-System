@@ -49,12 +49,12 @@
                         <label>Strand</label>
                         <select id="select-strand" data-placeholder="Select Strand" class="form-control select2" style="width: 100%;">
                           <option></option>
-                          <option value="1">STEM</option>
-                          <option value="2">GAS</option>
-                          <option value="3">HUMSS</option>
-                          <option value="4">TVL-HE</option>
-                          <option value="5">TVL-AS</option>
-                          <option value="6">ABM</option>
+                          <option value="STEM">STEM</option>
+                          <option value="GAS">GAS</option>
+                          <option value="HUMSS">HUMSS</option>
+                          <option value="TVL-HE">TVL-HE</option>
+                          <option value="TVL-AS">TVL-AS</option>
+                          <option value="ABM">ABM</option>
                         </select>
                       </div>                   
                       <div class="form-group" style="margin-bottom: 5px">
@@ -222,7 +222,7 @@
         <div class="col-lg-7 col-xs-12">
           <div class="box box-primary">
               <div class="box-header">
-                <h3 class="box-title" id="assign-subjects-title">STEM 11 First Semester</h3>
+                <h3 class="box-title" id="assign-subjects-title">--</h3>
                 <h3 class="box-title pull-right"><button id="add-btn" class="btn btn-default btn-xs"><span class="fa fa-fw fa-plus"></span></button></h3>
               </div>
               <!-- /.box-header -->

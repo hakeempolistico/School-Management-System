@@ -53,14 +53,9 @@ class curriculum extends CI_Controller {
 	}
 
 	public function addClassSubjects(){
-		$data = array(
-			"year_level_id" => $this->input->post('year_level_id'),
-			"strand_id" => $this->input->post('strand_id'),
-			"subject_code" => $this->input->post('subject_code'),
-			"semester" => $this->input->post('semester')
-		);
+		$data = $this->input->post();
 
-		$this->global_model->insert($this->input->post('table'),$data);
+		$this->global_model->insert('curriculum',$data);
 	}
 
 }

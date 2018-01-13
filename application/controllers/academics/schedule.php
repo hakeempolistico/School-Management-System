@@ -18,6 +18,8 @@ class schedule extends CI_Controller {
 		$data['teachers'] = $this->global_model->getRecords('teachers');		
 		$data['rooms'] = $this->global_model->getRecords('rooms');			
 		$data['subjects'] = $this->global_model->getRecords('subjects');		
+		$data['year_levels'] = $this->global_model->getRecords('year_levels');		
+		$data['strands'] = $this->global_model->getRecords('strands');		
 		$data['classes'] = $this->schedule_model->getClass();		
 
 		$data['active'] = 'academics/schedule';
@@ -40,6 +42,16 @@ class schedule extends CI_Controller {
 		$section_id = $this->input->post('section_id');
 		$row = $this->schedule_model->getSubjects($section_id);
 		echo json_encode($row);
+	}
+	public function getSubjectsDetails()
+	{
+		$row = $this->schedule_model->getSubjectsDetails($this->input->post());
+		echo json_encode($row);
+	}
+	public function getSections()
+	{
+		$sections = $this->schedule_model->getSections($this->input->post());
+		echo json_encode($sections);
 	}
 
 	public function addSchedule()
