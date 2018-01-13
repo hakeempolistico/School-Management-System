@@ -2,7 +2,6 @@
 <html>
 
 <?=$header?>
-
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
   
@@ -43,23 +42,7 @@
             ?>
           </select> 
         </div>
-      
-        <!-- <div class="form-group">
-          <label>Semester</label>
-          <div class="input-group margin hidden-print" style="margin: 0 0 10px 0;" >
-          <select id="select-class" class="form-control select2"  data-placeholder="Select Strand" style="width: 100%">
-            <option></option>
-            <?php foreach ($classes as $val) 
-              {
-                echo "<option value='".$val->id."'>".$val->strand_code." ".substr($val->year_level, 6)."-". $val->section_name."</option>";
-              }
-            ?>
-          </select> 
-              <span class="input-group-btn">
-                <button id="btn-enter" type="button" class="btn btn-info btn-flat">ENTER</button>
-              </span>
-        </div>
-        </div> -->
+              
       </div>
 
       <div class="col-lg-3 col-xs-12">
@@ -102,7 +85,7 @@
       <div class="row disabled">
         
       <!-- CLASS INFORMATION BOX -->
-      <div class="col-lg-4 col-xs-12">
+      <div class="col-lg-3 col-xs-12">
         <div class="hidden-print box box-solid">
           <div class="box-header with-border">
               <h3 id="trash" class="box-title" style="font-size: 17px;">Class Information</h3>
@@ -116,10 +99,10 @@
       </div>
 
       <!-- TRASH BIN BOX -->
-        <div class="col-lg-4 col-xs-12">
+        <div class="col-lg-3 col-xs-12">
           <div class="hidden-print box box-solid">
             <div class="box-header with-border">
-              <h3 id="trash" class="box-title" style="font-size: 17px;">Drag Here To Trash</h3>
+              <h3 id="trash" class="box-title" style="font-size: 17px;">Trash</h3>
             </div>
             <div class="box-body" style="padding: 5px">
               <div ondrop="dropTrash(event)" ondragover="allowDrop(event)" >
@@ -129,20 +112,45 @@
           </div>
         </div>
 
-        <div class="col-lg-4 col-xs-12">
+        <div class="col-lg-3 col-xs-12">
           <div class="hidden-print box box-solid">
             <div class="box-header with-border">
-              <h3 class="box-title" style="font-size: 17px;">Actions Row</h3>
+              <h3 class="box-title" style="font-size: 17px;">Actions</h3>
             </div>
             <div class="box-body" >
               <center style="padding: 7px;">
-                <button style="width: 100px; margin-top: 3px" id="row-add" class="btn btn-sm btn-success custom">Add</button>
-                <button style="width: 100px; margin-top: 3px" id="row-remove" class="btn btn-sm btn-danger custom">Remove</button>
+                <!-- <button style="width: 100px; margin-top: 3px" id="row-add" class="btn btn-sm btn-success custom" data-toggle="modal" data-target="#modal-default">Add</button>
+                <button style="width: 100px; margin-top: 3px" id="row-remove" class="btn btn-sm btn-danger custom">Remove</button> -->
                 <button style="width: 100px; margin-top: 3px" id="row-remove-all" class="btn btn-sm btn-warning custom">Remove All</button>
                 <button style="width: 100px; margin-top: 3px" id="row-print" class="btn btn-sm btn-primary custom">Print</button>
                 <button style="width: 100px; margin-top: 3px" id="row-save" class="btn btn-sm bg-purple custom">Save Sched</button>     
                 <button style="width: 100px; margin-top: 3px" id="row-clear" class="btn btn-sm bg-purple custom">Clear</button>  
               </center>                                     
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-xs-12">
+          <div class="hidden-print box box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title" style="font-size: 17px;">Add</h3>
+            </div>
+            <div class="box-body" style="padding: 14px 10px" >
+              <!-- time Picker -->
+              <div class="bootstrap-timepicker" style="margin-bottom: -12px">
+                <div class="form-group">
+                  <div class="input-group">
+                    <input type="text" class="form-control timepicker">
+                    <input type="text" class="form-control timepicker">
+
+                    <div class="input-group-btn" >
+                      <button style="height: 68px" type="button" class="btn btn-info btn-flat"><i class="fa fa-fw fa-plus"></i></button>
+                    </div>
+                  </div>
+                  <!-- /.input group -->
+                </div>
+                <!-- /.form group -->
+              </div>                                    
             </div>
           </div>
         </div>
@@ -187,17 +195,9 @@
                     }
                   ?>   
                 </select>
-                <select id="select-teacher" class="form-control select2 custom"  data-placeholder="Select Teacher" style="width: 100%">
-                  <option></option>
-                  <?php foreach ($teachers as $val) 
-                    {
-                      echo "<option value='".$val->id."'>".$val->first_name.' '.$val->last_name."</option>";
-                    }
-                  ?>   
-                </select>
 
                 <div class="input-group-btn ">
-                  <button id="add-new-event" type="button" class="btn btn-primary btn-flat custom" style="height: 102px">Add</button>
+                  <button id="add-new-event" type="button" class="btn btn-primary btn-flat custom" style="height: 68px">Add</button>
                 </div>
                 <!-- /btn-group -->
               </div>
@@ -382,6 +382,8 @@
 <script src="<?php echo base_url(); ?>bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- PACE -->
 <script src="<?php echo base_url(); ?>bower_components/PACE/pace.min.js"></script>
+<!-- bootstrap time picker -->
+<script src="<?php echo base_url(); ?>plugins/timepicker/bootstrap-timepicker.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
@@ -397,6 +399,10 @@
 <script type="text/javascript">
   //Initialize Select2 Elements
     $('.select2').select2()
+    //Timepicker
+    $('.timepicker').timepicker({
+      showInputs: false
+    })
 
   $(document).ajaxStart(function () {
     Pace.restart()
