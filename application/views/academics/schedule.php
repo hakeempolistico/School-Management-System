@@ -44,7 +44,7 @@
           </select> 
         </div>
       
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label>Semester</label>
           <div class="input-group margin hidden-print" style="margin: 0 0 10px 0;" >
           <select id="select-class" class="form-control select2"  data-placeholder="Select Strand" style="width: 100%">
@@ -59,7 +59,7 @@
                 <button id="btn-enter" type="button" class="btn btn-info btn-flat">ENTER</button>
               </span>
         </div>
-        </div>
+        </div> -->
       </div>
 
       <div class="col-lg-3 col-xs-12">
@@ -105,7 +105,7 @@
       <div class="col-lg-4 col-xs-12">
         <div class="hidden-print box box-solid">
           <div class="box-header with-border">
-              <h4 id="trash" class="box-title">Class Information</h4>
+              <h3 id="trash" class="box-title" style="font-size: 17px;">Class Information</h3>
           </div>
           <div class="box-body" style="padding: 0px 10px 0px 10px">
             <h5 style="margin: 14px 0px 13px 0px"> <b> Strand  </b> <a id="class-strand" class="pull-right"> --- </a></h5>
@@ -119,7 +119,7 @@
         <div class="col-lg-4 col-xs-12">
           <div class="hidden-print box box-solid">
             <div class="box-header with-border">
-              <h4 id="trash" class="box-title">Drag Here To Trash</h4>
+              <h3 id="trash" class="box-title" style="font-size: 17px;">Drag Here To Trash</h3>
             </div>
             <div class="box-body" style="padding: 5px">
               <div ondrop="dropTrash(event)" ondragover="allowDrop(event)" >
@@ -132,7 +132,7 @@
         <div class="col-lg-4 col-xs-12">
           <div class="hidden-print box box-solid">
             <div class="box-header with-border">
-              <h4 class="box-title">Actions Row</h4>
+              <h3 class="box-title" style="font-size: 17px;">Actions Row</h3>
             </div>
             <div class="box-body" >
               <center style="padding: 7px;">
@@ -155,7 +155,7 @@
 
           <div class="hidden-print box box-solid">
             <div class="box-header with-border">
-                <h4 id="trash" class="box-title">Create Event Here</h4>
+                <h3 id="trash" class="box-title" style="font-size: 17px;">Create Event Here</h3>
             </div>
             <div class="box-body" style="padding: 18px 10px 17px 10px">
               <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
@@ -210,7 +210,7 @@
           <!-- DRAGGABLE EVENTS -->
           <div class="box box-solid hidden-print">
             <div class="box-header with-border">
-              <h4 class="box-title">Draggable Events</h4>
+              <h3 class="box-title" style="font-size: 17px;">Draggable Events</h3>
             </div>
             <div class="box-body" >
               <div id="external-events">
@@ -227,7 +227,7 @@
               <table  id="schedule" class="table table-bordered table-hover table-schedule">
                 <thead>
                 <tr>
-                  <th id="tbl-title" colspan="6" class="text-success">---</th>
+                  <th id="tbl-title" colspan="6" class="text-success">Schedule</th>
                 </tr>
                 <tr>
                   <th>Time</th>
