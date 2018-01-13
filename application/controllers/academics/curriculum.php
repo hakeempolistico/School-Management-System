@@ -1,13 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class assign_subjects extends CI_Controller {
+class curriculum extends CI_Controller {
 
 	public function __construct()
 	{
 	    parent::__construct();
 	    $this->sms_session->checkSession();
-	    $this->load->model('academics/assign_subjects_model');	
+	    $this->load->model('academics/curriculum_model');	
 	}
 
 	public function index()
@@ -16,12 +16,12 @@ class assign_subjects extends CI_Controller {
 		$data['teachers'] = $this->global_model->getRecords('teachers');
 		$data['subjects'] = $this->global_model->getRecords('subjects');
 
-		$data['active'] = 'academics/assign_subjects';
+		$data['active'] = 'academics/curriculum';
 		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
-		$data['title'] = 'Assign Subjects';
+		$data['title'] = 'Curriculum';
 		$data['header'] = $this->load->view('template/header', $data, TRUE);
 
-        $this->parser->parse('academics/assign_subjects', $data);
+        $this->parser->parse('academics/curriculum', $data);
 	}
 
 	public function getStrands(){		
@@ -33,7 +33,7 @@ class assign_subjects extends CI_Controller {
 	}
 
 	public function getSection(){			
-		echo json_encode($this->assign_subjects_model->getSections($this->input->post()));
+		echo json_encode($this->curriculum_model->getSections($this->input->post()));
 	}
 
 	public function getSubjects(){	
@@ -44,30 +44,18 @@ class assign_subjects extends CI_Controller {
 		echo json_encode($this->global_model->getRecords('teachers'));
 	}
 
-	public function deleteClassSubject(){	
-		$this->global_model->deleteRow('class_subjects', $this->input->post());
+	public function deleteCurrSubject(){	
+		$this->global_model->deleteMultiple('curriculum', $this->input->post());
 	}
 
 	public function getClassSubjects(){	
-		echo json_encode($this->assign_subjects_model->getClassSubjects($this->input->post()));
-	}
-
-	public function getCurrSubjects(){	
-		echo json_encode($this->assign_subjects_model->getCurrSubjects($this->input->post()));
-	}
-
-	public function getSubjectName(){	
-		echo json_encode($this->global_model->getRecord('subjects', $this->input->post()));
+		echo json_encode($this->curriculum_model->getClassSubjects($this->input->post()));
 	}
 
 	public function addClassSubjects(){
-		$data = array(
-			"teacher_id" => $this->input->post('teacher_id'),
-			"section_id" => $this->input->post('section_id'),
-			"subject_id" => $this->input->post('subject_id')
-		);
+		$data = $this->input->post();
 
-		$this->global_model->insert('class_subjects',$this->input->post());
+		$this->global_model->insert('curriculum',$data);
 	}
 
 }

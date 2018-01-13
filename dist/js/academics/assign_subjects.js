@@ -2,8 +2,6 @@ $(function () {
     //Initialize Select2 Elements
     $('.select2').select2();
 
-
-
     $('#select-year').prop('disabled', true);
     $('#select-section').prop('disabled', true);
 
@@ -48,9 +46,14 @@ $(function () {
       dataType: 'json',  
       success: function(result){
         //console.log(result);
-
         $.each(result, function( index, value ) {
-          $('#select-subject').append($('<option>', { 
+          $('#select-subject-1st').append($('<option>', { 
+              value: value.code,
+              text : value.name
+          })).select2();
+        });
+        $.each(result, function( index, value ) {
+          $('#select-subject-2nd').append($('<option>', { 
               value: value.code,
               text : value.name
           })).select2();
@@ -66,7 +69,13 @@ $(function () {
         //console.log(result);
 
         $.each(result, function( index, value ) {
-          $('#select-teacher').append($('<option>', { 
+          $('#select-teacher-1st').append($('<option>', { 
+              value: value.employee_id,
+              text : value.first_name+' '+value.last_name
+          })).select2();
+        });
+        $.each(result, function( index, value ) {
+          $('#select-teacher-2nd').append($('<option>', { 
               value: value.employee_id,
               text : value.first_name+' '+value.last_name
           })).select2();
@@ -75,12 +84,7 @@ $(function () {
       }
     }); 
 
-    $('.subject-input').prop('disabled', true);
-    $('.teacher-input').prop('disabled', true);
-    $('#add-btn').prop('disabled', true);
-    $('#save-btn').prop('disabled', true);
     $('#confirm-btn').prop('disabled', true);
-
 
     $('#select-strand').on('change',function(){
        $('#select-section').find('option').remove();
@@ -126,69 +130,141 @@ $(function () {
       $( "#select-subject" ).val(null).trigger("change");
       $( "#select-teacher" ).val(null).trigger("change");
 
-      $('.subject-input').prop('disabled', false);
-      $('.teacher-input').prop('disabled', false);
-      $('#add-btn').prop('disabled', false);
-      $('#save-btn').prop('disabled', false); 
+      $('.overlay').hide();
 
       $.ajax({
-          url: getClassSubjects,
-          type: 'post',
-          dataType: 'json',  
-          data: {'section_id': section_id},
-          success: function(result){
+        url: getClassSubjects,
+        type: 'post',
+        dataType: 'json',  
+        data: {'section_id' : section_id},
+        success: function(result){
+          if(result.length!=0){
             //console.log(result);
-            var x = result.length;
-            var y = result.length-1;
-            for(var i=0; i<x-1; i++){
-              $( "#label-subject" ).clone().attr("style", "margin-top: 10px;").addClass('clone').insertAfter("#select-subject");
-              $( "#select-subject" ).clone().insertBefore("#select-subject").addClass('cloneInput').select2();
-
-              $( "#label-teacher" ).clone().attr("style", "margin-top: 10px;").addClass('clone').insertAfter("#select-teacher");
-              $( "#select-teacher" ).clone().insertBefore("#select-teacher").addClass('cloneInput').select2();    
-            }
-            for(var i=0; i<x; i++){
-              $( ".subject-input:eq("+i+")" ).val(result[i].subject_id).trigger('change');
-              $( ".teacher-input:eq("+i+")" ).val(result[i].teacher_id).trigger('change');    
-            }
-            //$('.cloneInput').removeAttr('id');
-            var strand_value = $('#select-strand').select2('data');
-            var year_value = $('#select-year').select2('data');
-            var section_value = $('#select-section').select2('data');
-            var year_val;
-            if(year_value[0]['text'] == 'Grade 11'){
-              year_val = '11';
-            }
-            else if(year_value[0]['text'] == 'Grade 12'){
-              year_val = '12';
-            }
-            $('#assign-subjects-title').html(strand_value[0]['id']+' '+year_val+'-'+section_value[0]['text'])
+            //GET First Semester Subjects and Teachers
+            $.ajax({
+              url: getClassSubjects,
+              type: 'post',
+              dataType: 'json',  
+              data: {'section_id' : section_id, 'semester' : 'First Semester'},
+              success: function(res){
+                console.log(res);
+                var x = res.length;
+                for(var i=0; i<x-1; i++){
+                  duplicate(1);
+                }
+                for(var i=0; i<x; i++){
+                  $( ".subject-input-1:eq("+i+")" ).val(res[i].subject_id).trigger('change');
+                  $( ".subject-input-1:eq("+i+")" ).prop('disabled', true);
+                  $( ".teacher-input-1:eq("+i+")" ).val(res[i].teacher_id).trigger('change');
+                }
+              }
+            });
+            //GET Second Semester Subjects and Teachers
+            $.ajax({
+              url: getClassSubjects,
+              type: 'post',
+              dataType: 'json',  
+              data: {'section_id' : section_id, 'semester' : 'Second Semester'},
+              success: function(res){
+                console.log(res);
+                var x = res.length;
+                for(var i=0; i<x-1; i++){
+                  duplicate(2);
+                }
+                for(var i=0; i<x; i++){
+                  $( ".subject-input-2:eq("+i+")" ).val(res[i].subject_id).trigger('change');
+                  $( ".subject-input-2:eq("+i+")" ).prop('disabled', true);
+                  $( ".teacher-input-2:eq("+i+")" ).val(res[i].teacher_id).trigger('change');
+                }
+              }
+            });
           }
-        });
+
+          else{
+            $( ".subject-input-1" ).val("").trigger("change");
+            $( ".teacher-input-1" ).val("").trigger("change");
+            $( ".subject-input-2" ).val("").trigger("change");
+            $( ".teacher-input-2" ).val("").trigger("change");
+            
+            $.ajax({
+              url: getCurrSubjects,
+              type: 'post',
+              dataType: 'json',  
+              data: {'strand_code': $('#select-strand').val(), 'year_level_id' : $('#select-year').val(), 'semester' : 'First Semester'},
+              success: function(res){
+                //console.log(result);
+                var x = res.length;
+                var y = res.length-1;
+
+                for(var i=0; i<x-1; i++){
+                  duplicate(1);  
+                }
+                for(var i=0; i<x; i++){
+                  $( ".subject-input-1:eq("+i+")" ).val(res[i].subject_code).trigger('change');
+                  $( ".subject-input-1:eq("+i+")" ).prop('disabled', true);
+                }
+              }
+            });
+            
+            $.ajax({
+              url: getCurrSubjects,
+              type: 'post',
+              dataType: 'json',  
+              data: {'strand_code': $('#select-strand').val(), 'year_level_id' : $('#select-year').val(), 'semester' : 'Second Semester'},
+              success: function(res){
+                //console.log(res);
+                var x = res.length;
+                var y = res.length-1;
+
+                for(var i=0; i<x-1; i++){
+                  duplicate(2);  
+                }
+
+                for(var i=0; i<x; i++){
+                  $( ".subject-input-2:eq("+i+")" ).val(res[i].subject_code).trigger('change');
+                  $( ".subject-input-2:eq("+i+")" ).prop('disabled', true);
+                  $( ".teacher-input-2:eq("+i+")" ).val(res[i].teacher_id).trigger('change');    
+                }
+              }
+            });
+          }
+        }
+      });
 
     })
 
 
     //ADD SUBJECT-TEACHER BOX
 
-    $('#add-btn').on('click', function(){
-      $( "#label-subject" ).clone().attr("style", "margin-top: 10px;").addClass('clone').insertAfter("#select-subject");
-      $( "#select-subject" ).clone().insertBefore("#select-subject").addClass('cloneInput').select2();
-      $( "#label-teacher" ).clone().attr("style", "margin-top: 10px;").addClass('clone').insertAfter("#select-teacher");
-      $( "#select-teacher" ).clone().insertBefore("#select-teacher").addClass('cloneInput').select2();
-    })
+    function duplicate(set){
+      $( "#set-"+set ).clone().attr("style", "margin-top: 10px;").addClass('clone').appendTo('.append-to-'+set);
+      $('.select2').select2();
+      $('.select2').next().next().remove();
+      $('.btn-close').on('click', function(){
+        this.closest('.set').remove();
+      });
+    }
 
     $('#save-btn').on('click', function(){
-      var subjects = [];
-      var teachers = [];
+      var subjects_1 = [];
+      var teachers_1 = [];
+      var subjects_2 = [];
+      var teachers_2 = [];
       var section_id = $('#select-section').val();
-      $('.subject-input').each(function(index, elem) {
-        subjects.push($(elem).val());
+      $('.subject-input-1').each(function(index, elem) {
+        subjects_1.push($(elem).val());
       })
-      $('.teacher-input').each(function(index, elem) {
-        teachers.push($(elem).val());
+      $('.teacher-input-1').each(function(index, elem) {
+        teachers_1.push($(elem).val());
       })
-      var x = subjects.length;
+      $('.subject-input-2').each(function(index, elem) {
+        subjects_2.push($(elem).val());
+      })
+      $('.teacher-input-2').each(function(index, elem) {
+        teachers_2.push($(elem).val());
+      })
+      var x = subjects_1.length;
+      var y = subjects_2.length;
 
       $.ajax({
             url: deleteUrl,
@@ -197,12 +273,24 @@ $(function () {
             success: function(result){
               //console.log(result);
               for(var i=0; i<x; i++){
-                console.log(teachers[i] +' : '+ subjects[i]);
-                console.log(subjects);
+                //console.log(teachers[i] +' : '+ subjects[i]);
+                //console.log(subjects);
                 $.ajax({
                   url: addUrl,
                   type: 'post', 
-                  data: {'table' : 'class_subjects', 'teacher_id' : teachers[i], 'subject_id' : subjects[i], 'section_id' :  section_id}, 
+                  data: {'teacher_id' : teachers_1[i], 'subject_id' : subjects_1[i], 'section_id' :  section_id, 'semester' : 'First Semester'}, 
+                  success: function(result){
+                    //console.log(result);
+                  }
+                }); 
+              }
+              for(var i=0; i<y; i++){
+                //console.log(teachers[i] +' : '+ subjects[i]);
+                //console.log(subjects);
+                $.ajax({
+                  url: addUrl,
+                  type: 'post', 
+                  data: {'teacher_id' : teachers_2[i], 'subject_id' : subjects_2[i], 'section_id' :  section_id, 'semester' : 'Second Semester'}, 
                   success: function(result){
                     //console.log(result);
                   }

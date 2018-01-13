@@ -22,6 +22,11 @@ class schedule_model extends CI_Model{
 	    $this->db->join('year_levels as b', 'a.year_level_id = b.id') ;
 		return $this->db->get()->result();
 	}
+	public function getSections($data){
+		$this->db->where($data);
+		$this->db->from('sections');
+		return $this->db->get()->result();
+	}
 	public function getSubjects($section_id){	
 		$this->db->select('a.id');
 		$this->db->select('b.code as section_code');
@@ -29,6 +34,11 @@ class schedule_model extends CI_Model{
 		$this->db->where('a.section_id', $section_id);
 	    $this->db->from('class_subjects as a');
 	    $this->db->join('subjects as b', 'a.subject_id = b.code') ;
+		return $this->db->get()->result();
+	}
+	public function getSubjectsDetails($data){
+		$this->db->where($data);
+	    $this->db->from('curriculum');
 		return $this->db->get()->result();
 	}
 	public function getRecords($table, $section_id)

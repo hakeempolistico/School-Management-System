@@ -70,37 +70,60 @@
         <div class="col-lg-8 col-xs-12">
           <div class="box box-primary">
               <div class="box-header">
-                <h3 class="box-title" id="assign-subjects-title">Add Subjects</h3>
-                <h3 class="box-title pull-right"><button id="add-btn" class="btn btn-default btn-xs"><span class="fa fa-fw fa-plus"></span></button></h3>
+                <h3 class="box-title" id="assign-subjects-title">First Semester</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
-                  <div class="row">
-                    <div class="col-xs-12 col-lg-6">
-                      <div class="form-group" id="group-subject">
-                        <label id="label-subject" for="subjectNameInput">Subject</label>
-                        <select id="select-subject" data-placeholder="Select Subject" class="subject-input form-control select2" style="width: 100%;">
-                          <option></option>
-                        </select>
-                      </div> 
+                  <div class="row append-to-1">
+                    <div id="set-1">
+                      <div class="col-xs-6 col-lg-6"> 
+                        <div class="form-group" id="group-subject">
+                          <label id="label-subject-1st" for="subjectNameInput">Subject</label>
+                          <select id="select-subject-1st" data-placeholder="Select Subject" class="subject-input-1 form-control select2" style="width: 100%;">
+                            <option></option>
+                          </select>
+                        </div>  
+                      </div>                          
+                      <div class="col-xs-6 col-lg-6">
+                        <div class="form-group" id="group-teacher" >
+                          <label id="label-teacher-1st" for="subjectCodeInput">Teacher</label>
+                          <select id="select-teacher-1st" data-placeholder="Select Seacher" class="teacher-input-1 form-control select2" style="width: 100%;">
+                            <option></option>
+                          </select>
+                        </div> 
+                      </div>
                     </div>
-                           
-                    <div class="col-xs-12 col-lg-6">
-                      <div class="form-group" id="group-teacher" >
-                        <label id="label-teacher" for="subjectCodeInput">Teacher</label>
-                        <select id="select-teacher" data-placeholder="Select Seacher" class="teacher-input form-control select2" style="width: 100%;">
-                          <option></option>
-                        </select>
-                      </div> 
-                    </div>
-                  </div>     
-                     
-
-                <button id="save-btn" type="button" style="width: 100px" class="btn btn-block btn-primary pull-right">Save</button>  
+                  </div> 
             </div>
-
-
-            
+            <hr style="margin: 5px 10px">
+              <div class="box-header">
+                <h3 class="box-title" id="assign-subjects-title">Second Semester</h3>
+              </div>
+              <!-- /.box-header -->
+              <div class="box-body">
+                  <div class="row append-to-2">
+                    <div id="set-2">
+                      <div class="col-xs-6 col-lg-6"> 
+                        <div class="form-group" id="group-subject">
+                          <label id="label-subject-2nd" for="subjectNameInput">Subject</label>
+                          <select id="select-subject-2nd" data-placeholder="Select Subject" class="subject-input-2 form-control select2" style="width: 100%;">
+                          <option></option> 
+                          </select>
+                        </div>  
+                      </div>                          
+                      <div class="col-xs-6 col-lg-6">
+                        <div class="form-group" id="group-teacher" >
+                          <label id="label-teacher-2nd" for="subjectCodeInput">Teacher</label>
+                          <select id="select-teacher-2nd" data-placeholder="Select Seacher" class="teacher-input-2 form-control select2" style="width: 100%;">
+                            <option></option>
+                          </select>
+                        </div> 
+                      </div>
+                    </div>
+                  </div> 
+                <button id="save-btn" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Save</button>    
+            </div>
+                  <div class="overlay"> </div>
           </div>
         </div>
       </div>
@@ -140,9 +163,11 @@ var getStrands = '<?php echo base_url('academics/assign_subjects/getStrands'); ?
 var getYears = '<?php echo base_url('academics/assign_subjects/getYears'); ?>';
 var getSection = '<?php echo base_url('academics/assign_subjects/getSection'); ?>';
 var getSubjects = '<?php echo base_url('academics/assign_subjects/getSubjects'); ?>';
+var getSubjectName = '<?php echo base_url('academics/assign_subjects/getSubjectName'); ?>';
 var getTeachers = '<?php echo base_url('academics/assign_subjects/getTeachers'); ?>';
 var addUrl = '<?php echo base_url('academics/assign_subjects/addClassSubjects'); ?>';
 var getClassSubjects = '<?php echo base_url('academics/assign_subjects/getClassSubjects'); ?>';
+var getCurrSubjects = '<?php echo base_url('academics/assign_subjects/getCurrSubjects'); ?>';
 var deleteUrl = '<?php echo base_url('academics/assign_subjects/deleteClassSubject'); ?>';
 </script>
 </body>

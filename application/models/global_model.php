@@ -25,6 +25,13 @@ class global_model extends CI_Model{
 		return $query;
 	}
 
+	public function getRecord($table, $where)
+	{
+		$this->db->where($where);
+		$query = $this->db->get($table)->row();
+		return $query;
+	}
+
 	public function delete($table, $set, $value)
 	{	
 		$this->db->where($set, $value);
@@ -36,6 +43,11 @@ class global_model extends CI_Model{
 	{	
 		$this->db->where($where);
 		$query = $this->db->delete($table);
+		return $query;
+	}
+	public function deleteMultiple($table, $where)
+	{	
+		$query = $this->db->delete($table, $where);
 		return $query;
 	}
 
