@@ -12,6 +12,8 @@ class register_student extends CI_Controller {
 	public function index()
 	{
 		$data = $this->parse->parsed();
+		$data['active'] = 'enrollment/register_student';
+		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
 		$this->parser->parse('enrollment/register_student', $data);
 	}
 
@@ -47,6 +49,7 @@ class register_student extends CI_Controller {
 		$this->form_validation->set_rules('guardian', 'Guardian Name', 'trim|required|min_length[3]|max_length[40]', $required_message);
 		$this->form_validation->set_rules('relationship', 'Relationship', 'trim|required|min_length[3]|max_length[40]', $required_message);
 		$this->form_validation->set_rules('guardian_contact', 'Guardian\'s Contact', 'trim|required|min_length[3]|max_length[20]', $required_message);
+		$this->form_validation->set_rules('guardian_address', 'Guardian\'s Address', 'trim|required|min_length[3]|max_length[255]', $required_message);
 				
 		if ($this->form_validation->run() == FALSE)
 		{
@@ -113,7 +116,8 @@ class register_student extends CI_Controller {
 					'students_info_lrn' => $lrn,
 					'name' => $this->input->post('guardian') ,
 					'contact' => $this->input->post('guardian_contact') ,
-					'relationship' => $this->input->post('relationship')
+					'relationship' => $this->input->post('relationship'),
+					'address' => $this->input->post('guardian_address')
 				);	
 
 				$guardianId = $this->register_student_model->insertGetContactId('guardians', $guardianInfo);
