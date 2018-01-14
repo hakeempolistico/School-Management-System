@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/Ionicons/css/ionicons.min.css">
+  <!-- ANIMATE CSS -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/animate.css/animate.css">
   <!-- Pace style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/pace/pace.min.css">
   <!-- Select2 -->

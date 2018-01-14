@@ -9,18 +9,7 @@
   <?=$template?>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- <div class="alert alert-success alert-dismissible flat">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <h4><i class="icon fa fa-bullhorn"></i> Day 1 of Enrollment is successful!</h4>
-        Congratulations! Job well done! Please do the same on Day 2 of Enrollment!
-     </div> -->
-     <div id="alert-box" class="alert alert-danger alert-dismissible flat" hidden>
-      <button type="button" class="close" aria-hidden="true">&times;</button>
-      <h4 id="alert-title"><i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!</h4>
-        <div id="alert-message">Subject code already used. Please use another one.</div>
-     </div>
-      
+  <div class="content-wrapper">      
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -160,6 +149,8 @@
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
+<!-- BOOTSTRAP NOTIF -->
+<script src="<?php echo base_url(); ?>bower_components/bootstrap-notify-3.1.3/dist/bootstrap-notify.js"></script>
 <!-- PACE -->
 <script src="<?php echo base_url(); ?>bower_components/PACE/pace.min.js"></script>
 <!-- DataTables -->
