@@ -45,10 +45,23 @@ $(function () {
               roomCount = result;
 
               if(id == null || id.trim() === ''){
-                $('#alert-box').slideDown(1000);
-                $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!');
-                $('#alert-message').html('Please fill up room number.');
-                $('#alert-box').delay( 1500 ).slideUp(1000);
+                $.notify({
+                  title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+                  message: "Please fill up Room No."
+                },{
+                  type: 'danger',
+                  animate: {
+                    enter: 'animated fadeInUp',
+                    exit: 'animated fadeOutRight'
+                  },
+                  placement: {
+                    from: "top",
+                    align: "right"
+                  },
+                  offset: 20,
+                  spacing: 10,
+                  z_index: 1031,
+                });
               }
     //           else if(strandCount > 0){
     //             $('#alert-box').slideDown(1000);
@@ -67,11 +80,23 @@ $(function () {
                     'building' : building},
                   success: function(result){
                     console.log(result);
-                    $('#alert-box').addClass('alert-success').removeClass('alert-danger');
-                    $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-check"></i> SUCCESS MESSAGE!');
-                    $('#alert-message').html('Added <br> Room Number: '+id+ ' <br> Room name: ' + name+ ' <br> Building: ' + building );
-                    $('#alert-box').slideDown(1000);
-                    $('#alert-box').delay( 2000 ).slideUp(1000);
+                      $.notify({
+                        title: '<strong><i class="icon fa fa-ban"></i>SUCCESS!</strong>',
+                        message: "Room added."
+                      },{
+                        type: 'success',
+                        animate: {
+                          enter: 'animated fadeInUp',
+                          exit: 'animated fadeOutRight'
+                        },
+                        placement: {
+                          from: "top",
+                          align: "right"
+                        },
+                        offset: 20,
+                        spacing: 10,
+                        z_index: 1031,
+                      });
                     $('#number-input').val('');
                     $('#name-input').val('');
                     $('#building-input').val('');
@@ -102,6 +127,23 @@ $(function () {
         success: function(result){
           console.log(result);
           populateTable();
+          $.notify({
+            title: '<strong><i class="icon fa fa-ban"></i>SUCCESS!</strong>',
+            message: "Room updated."
+          },{
+            type: 'success',
+            animate: {
+              enter: 'animated fadeInUp',
+              exit: 'animated fadeOutRight'
+            },
+            placement: {
+              from: "top",
+              align: "right"
+            },
+            offset: 20,
+            spacing: 10,
+            z_index: 1031,
+          });
         }
       }); 
   })
@@ -118,6 +160,23 @@ $('#delete-confirm').click(function(){
     success: function(result){
       console.log(result);
       populateTable();
+      $.notify({
+        title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+        message: "Room ID : " + id + " delete."
+      },{
+        type: 'danger',
+        animate: {
+          enter: 'animated fadeInUp',
+          exit: 'animated fadeOutRight'
+        },
+        placement: {
+          from: "top",
+          align: "right"
+        },
+        offset: 20,
+        spacing: 10,
+        z_index: 1031,
+      });
     }
   }); 
 })

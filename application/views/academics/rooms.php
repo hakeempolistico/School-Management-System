@@ -9,18 +9,7 @@
   <?=$template?>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- <div class="alert alert-success alert-dismissible flat">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <h4><i class="icon fa fa-bullhorn"></i> Day 1 of Enrollment is successful!</h4>
-        Congratulations! Job well done! Please do the same on Day 2 of Enrollment!
-     </div> -->
-     <div id="alert-box" class="alert alert-danger alert-dismissible flat" hidden>
-      <button type="button" class="close" aria-hidden="true">&times;</button>
-      <h4 id="alert-title"><i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!</h4>
-        <div id="alert-message">Subject code already used. Please use another one.</div>
-     </div>
-      
+  <div class="content-wrapper">      
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -39,7 +28,7 @@
         <div class="col-lg-4 col-xs-12">
           <div class="box box-primary">
               <div class="box-header">
-                <h3 class="box-title">Add Rooms</h3>
+                <h3 class="box-title text-primary"><i class="fa fa-plus"></i> Add Rooms</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
@@ -64,7 +53,7 @@
 
           <div class="box box-primary">
             <div class="box-header">
-              <h3 class="box-title">Rooms List</h3>
+              <h3 class="box-title text-primary"><i class="fa fa-university"></i> Rooms List</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -243,6 +232,8 @@
 <script src="<?php echo base_url(); ?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
+<!-- BOOTSTRAP NOTIF -->
+<script src="<?php echo base_url(); ?>bower_components/bootstrap-notify-3.1.3/dist/bootstrap-notify.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
 <!-- PACE -->

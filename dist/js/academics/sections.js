@@ -72,32 +72,80 @@ $(function () {
               sectionCount = result;
 
               if(strand_code == null || strand_code.trim() === ''){
-                $('#alert-box').addClass('alert-danger').removeClass('alert-success');
-                $('#alert-box').slideDown(1000);
-                $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!');
-                $('#alert-message').html('Please select section strand.');
-                $('#alert-box').delay( 1500 ).slideUp(1000);
+                $.notify({
+                  title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+                  message: "Please select section Strand."
+                },{
+                  type: 'danger',
+                  animate: {
+                    enter: 'animated fadeInUp',
+                    exit: 'animated fadeOutRight'
+                  },
+                  placement: {
+                    from: "top",
+                    align: "right"
+                  },
+                  offset: 20,
+                  spacing: 10,
+                  z_index: 1031,
+                });
               }
               else if(year_level_id == null || year_level_id.trim() === ''){
-                $('#alert-box').addClass('alert-danger').removeClass('alert-success');
-                $('#alert-box').slideDown(1000);
-                $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!');
-                $('#alert-message').html('Please please select year level.');
-                $('#alert-box').delay( 1500 ).slideUp(1000);
+                $.notify({
+                  title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+                  message: "Please select Year Level."
+                },{
+                  type: 'danger',
+                  animate: {
+                    enter: 'animated fadeInUp',
+                    exit: 'animated fadeOutRight'
+                  },
+                  placement: {
+                    from: "top",
+                    align: "right"
+                  },
+                  offset: 20,
+                  spacing: 10,
+                  z_index: 1031,
+                });
               }
               else if(name == null || name.trim() === ''){
-                $('#alert-box').addClass('alert-danger').removeClass('alert-success');
-                $('#alert-box').slideDown(1000);
-                $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!');
-                $('#alert-message').html('Please fill up section name.');
-                $('#alert-box').delay( 1500 ).slideUp(1000);
+                $.notify({
+                  title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+                  message: "Please fill up section name."
+                },{
+                  type: 'danger',
+                  animate: {
+                    enter: 'animated fadeInUp',
+                    exit: 'animated fadeOutRight'
+                  },
+                  placement: {
+                    from: "top",
+                    align: "right"
+                  },
+                  offset: 20,
+                  spacing: 10,
+                  z_index: 1031,
+                });
               }
               else if(sectionCount > 0){
-                $('#alert-box').addClass('alert-danger').removeClass('alert-success');
-                $('#alert-box').slideDown(1000);
-                $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!');
-                $('#alert-message').html('Section name is already used. Please use another one.');
-                $('#alert-box').delay( 1500 ).slideUp(1000);
+                $.notify({
+                  title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+                  message: "Section Name already used."
+                },{
+                  type: 'danger',
+                  animate: {
+                    enter: 'animated fadeInUp',
+                    exit: 'animated fadeOutRight'
+                  },
+                  placement: {
+                    from: "top",
+                    align: "right"
+                  },
+                  offset: 20,
+                  spacing: 10,
+                  z_index: 1031,
+                });
               }
               else{
                 $.ajax({
@@ -114,14 +162,23 @@ $(function () {
                   success: function(result){
                     //console.log(result);              
                     populateTable();
-
-                    $('#alert-box').addClass('alert-success').removeClass('alert-danger');
-                    $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-check"></i> SUCCESS MESSAGE!');
-                    $('#alert-message').html(
-                      'Added '+
-                      '<br> Section Name: '+name+ 
-                      '<br> Capacity: '+capacity);
-                    $('#alert-box').slideDown(1000).delay( 2000 ).slideUp(1000);
+                    $.notify({
+                      title: '<strong><i class="icon fa fa-check"></i>SUCCESS!</strong>',
+                      message: "Section added."
+                    },{
+                      type: 'success',
+                      animate: {
+                        enter: 'animated fadeInUp',
+                        exit: 'animated fadeOutRight'
+                      },
+                      placement: {
+                        from: "top",
+                        align: "right"
+                      },
+                      offset: 20,
+                      spacing: 10,
+                      z_index: 1031,
+                    });
                   }
                 }); 
               }
@@ -156,17 +213,81 @@ $(function () {
             success: function(result){
               sectionCount = result;
 
-              if(strand_code == null || strand_code.trim() === ''){
-                alert('Please select section strand.');
+              if(strand_code == null || strand_code.trim() === ''){              
+                $.notify({
+                  title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+                  message: "Please select section strand."
+                },{
+                  type: 'danger',
+                  animate: {
+                    enter: 'animated fadeInUp',
+                    exit: 'animated fadeOutRight'
+                  },
+                  placement: {
+                    from: "top",
+                    align: "right"
+                  },
+                  offset: 20,
+                  spacing: 10,
+                  z_index: 1031,
+                });
               }
               else if(year_level == null || year_level === ''){
-                alert('Please select year level.');
+                $.notify({
+                  title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+                  message: "Please select year level."
+                },{
+                  type: 'danger',
+                  animate: {
+                    enter: 'animated fadeInUp',
+                    exit: 'animated fadeOutRight'
+                  },
+                  placement: {
+                    from: "top",
+                    align: "right"
+                  },
+                  offset: 20,
+                  spacing: 10,
+                  z_index: 1031,
+                });
               }
               else if(name == null || name.trim() === ''){
-                alert('Please fill up section name.');
+                $.notify({
+                  title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+                  message: "Please fill up section name."
+                },{
+                  type: 'danger',
+                  animate: {
+                    enter: 'animated fadeInUp',
+                    exit: 'animated fadeOutRight'
+                  },
+                  placement: {
+                    from: "top",
+                    align: "right"
+                  },
+                  offset: 20,
+                  spacing: 10,
+                  z_index: 1031,
+                });
               }
               else if(sectionCount > 0 && name != newName){
-                alert('Section name alreay used. Please use another one.');
+                $.notify({
+                  title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+                  message: "Section name already used."
+                },{
+                  type: 'danger',
+                  animate: {
+                    enter: 'animated fadeInUp',
+                    exit: 'animated fadeOutRight'
+                  },
+                  placement: {
+                    from: "top",
+                    align: "right"
+                  },
+                  offset: 20,
+                  spacing: 10,
+                  z_index: 1031,
+                });
               }
               else{
                 $.ajax({
@@ -188,6 +309,23 @@ $(function () {
                     year_level = newYear;
                     name = newName;
                     capacity = newCapacity;
+                    $.notify({
+                      title: '<strong><i class="icon fa fa-check"></i>SUCCESS!</strong>',
+                      message: "Section updated."
+                    },{
+                      type: 'success',
+                      animate: {
+                        enter: 'animated fadeInUp',
+                        exit: 'animated fadeOutRight'
+                      },
+                      placement: {
+                        from: "top",
+                        align: "right"
+                      },
+                      offset: 20,
+                      spacing: 10,
+                      z_index: 1031,
+                    });
                   }
                 });  
               }
@@ -204,18 +342,29 @@ $(function () {
       success: function(result){
         console.log(result);
         populateTable();
+        $.notify({
+          title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+          message: "Section ID : " + id + " delete."
+        },{
+          type: 'danger',
+          animate: {
+            enter: 'animated fadeInUp',
+            exit: 'animated fadeOutRight'
+          },
+          placement: {
+            from: "top",
+            align: "right"
+          },
+          offset: 20,
+          spacing: 10,
+          z_index: 1031,
+        });
       }
     }); 
   })
-
-
-
-
 })
 
-
 //POPULATE TABLE 
-
 function populateTable(){
   
   $('#table-sections').DataTable().destroy();

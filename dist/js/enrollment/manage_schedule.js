@@ -44,7 +44,6 @@
       //Get value and make sure it is not null
       var val2 = $('#select-room').val()
       var val1 = $('#select-subject').val()
-      var val3 = $('#select-teacher').select2('data')
       
       if (val1.length == 0) {
         return
@@ -56,7 +55,7 @@
       var event = $('<div />')
       event.addClass('external-event flat')
       if (val2.length != 0) {
-        event.html('<div class="val-subject">'+val1+'</div><div class="text-gray val-room">'+val2+'</div><div style="color: silver;">'+val3[0].text+'</div>')
+        event.html('<div class="val-subject">'+val1+'</div><div class="text-gray val-room">'+val2+'</div>')
       }
       else{
         return
@@ -69,7 +68,7 @@
       event.attr('ondragstart','drag(event)')
       event.attr('style','resize: vertical; overflow: auto; color: white; background-color:'+currColor)
       
-      $('#external-events').prepend(event)
+      $('.external-events').prepend(event)
 
       //Remove event from text input
       $('#new-event-subject').val('').trigger('change')
@@ -109,7 +108,6 @@
       var event = $('<div />')
       event.addClass('external-event flat')
       event.html('<div class="val-subject">'+val1+'</div><div class="text-gray val-room"></div>')
-      
 
       event.attr('id', i )
       event.attr('class','count object')
@@ -148,7 +146,7 @@ function dropTrash(ev) {
 
   
 
-var table, set, sectionId, room_id, strand_code, year_level_id, semester; 
+var table, set, sectionId = null, room_id, strand_code = null, year_level_id = null, semester = null; 
 
 $(".custom").prop('disabled', true);
 
@@ -156,39 +154,37 @@ function getSections() {
   strand_code = $('#select-strand').val();
   year_level_id = $('#select-year').val();
   sectionId = null;
-  if(strand_code != null && year_level_id != null){
+  if(strand_code && year_level_id){
     $.ajax({
       url: getSectionsUrl,
       type: 'post',
       dataType: 'JSON',  
       data: {'year_level_id': year_level_id, 'strand_code' : strand_code},
       success: function(result){  
-        console.log(result);
+        //console.log(result);
         $('#select-section').find('option').remove();
         $('#select-section').append($('<option>', { 
             value: null,
             text : null
         })).select2();
         $.each(result, function( index, value ) {
-              //console.log(index + ' : ' + value);
-              $('#select-section').append($('<option>', { 
-                  value: value.id,
-                  text : value.name
-              })).select2();
-            });
-
+          //console.log(index + ' : ' + value);
+          $('#select-section').append($('<option>', { 
+              value: value.id,
+              text : value.name
+          })).select2();
+        });
       } 
     });
   }
 }
 
 $('#select-semester').on('change', function(){
-  semester = $(this).val();
   getCurrSubjects();
 })
 $('#select-section').on('change', function(){
-  sectionId = $(this).val();
   getCurrSubjects();
+  updateClassInfo();
 })
 //POPULATE SECTION SELECT 
 $('#select-year').on('change', function(){
@@ -201,8 +197,11 @@ $('#select-strand').on('change', function(){
 })
 
 function getCurrSubjects(){
-  if(sectionId != null && year_level_id != null && strand_code != null && semester != null){
-    //console.log(strand_code + ' : ' + year_level_id + ' : ' + sectionId + ' : ' +semester);
+  strand_code = $('#select-strand').val();
+  year_level_id = $('#select-year').val();
+  semester = $('#select-semester').val();
+  sectionId = $('#select-section').val();
+  if(sectionId && strand_code && year_level_id && semester){
     $(".custom").prop('disabled', false);
     $.ajax({
       url: getSubjects,
@@ -225,7 +224,7 @@ function getCurrSubjects(){
         });
       } 
     });
-    updateClassInfo();
+    getSchedules();
   }
 }
 
@@ -247,9 +246,10 @@ function updateClassInfo(){
   });
 }
 
+function getSchedules(){
+  sectionId = $('#select-section').val();
 
-$('#btn-enter').on('click',function(){
-  sectionId = $('#select-class').val();
+  console.log(sectionId + ' : ' + semester);
   $("#select-room").val('').trigger('change');
 
   //POPULATE TABLE 
@@ -257,11 +257,15 @@ $('#btn-enter').on('click',function(){
     url: getScheduleUrl,
     type: 'post',
     dataType: 'json',
-    data: {'section_id' : sectionId},  
+    data: {'section_id' : sectionId, 'semester' : semester}, 
     success: function(res){ 
       var i = 0;
       $('tbody tr').remove();
-      console.log('----------');
+      
+      if(res){
+        console.log(res);
+        console.log(res.length);
+      }
       $.each(res, function( index, value ) {
         //console.log(res);
         var mon_obj = null;
@@ -310,16 +314,16 @@ $('#btn-enter').on('click',function(){
           i++; 
         }    
         
-        $('tbody').append(
-          '<tr class="tr-height"><td contenteditable="true" class="time">'+index+'</td>'+
+        $('#schedule').find('tbody').append(
+          '<tr class="tr-height"><td class="col-time">'+index+'</td>'+
           '<td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)">'+mon_obj+'</td>'+
           '<td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)">'+tue_obj+'</td>'+
           '<td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)">'+wed_obj+'</td>'+
           '<td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)">'+thur_obj+'</td>'+
           '<td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)">'+fri_obj+'</td></tr>');
       
-        $('td').click(function(){
-         var row_index = $(this).parent().index()+2; 
+        /*$('td').click(function(){
+         var row_index = $(this).parent().index()-2; 
          var hasClass=$("table tr:eq("+row_index+")").hasClass('selectedRow');
          if(hasClass==true){
             $("table tr:eq("+row_index+")").removeClass('selectedRow');
@@ -329,50 +333,13 @@ $('#btn-enter').on('click',function(){
             stopPropagation();
          }
          
-        });
+        });*/
       });
+
+      console.log($('.col-time').length);
     }
   });
-
-  //POPULATE SUBJECT SELECT
-  $.ajax({
-    url: getSectionUrl,
-    type: 'post',
-    dataType: 'JSON',  
-    data: {'id': sectionId},
-    success: function(result){  
-      //console.log(result);
-      $('#class-strand').html(result[0].strand_code);
-      $('#class-year-section').html(result[0].year_level.substring(6) + '-' + result[0].section_name);
-      $('#class-capacity').html(result[0].capacity);
-      $('#tbl-title').html(result[0].strand_code+' '+result[0].year_level.substring(6) + '-' + result[0].section_name);
-
-      $(".custom").prop('disabled', false);
-
-      $.ajax({
-        url: getSubjectsUrl,
-        type: 'post',
-        dataType: 'json',
-        data: {'section_id': sectionId},  
-        success: function(res){  
-          //console.log(res);
-          $('#select-subject').find('option').remove();
-          $('#select-subject').append($('<option>', { 
-                value: null,
-                text : null
-            })).select2();
-          $.each(res, function( index, value ) {
-            //console.log('Section Code : '+value.section_code+' Section Name : '+ value.section_name);
-            $('#select-subject').append($('<option>', { 
-                value: value.section_code,
-                text : value.section_name
-            })).select2();
-          });
-        }
-      }); 
-    } 
-  });    
-})
+}
 
 //ROW ACTIONS BOX
 $('#row-remove-all').click(function(){
@@ -381,9 +348,13 @@ $('#row-remove-all').click(function(){
   $('#row-remove').click(function(){
      $('.selectedRow').remove();
   })
+
   $('#row-add').click(function(){
-    $('tbody').append('<tr class="tr-height"><td contenteditable="true" class="time"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td></tr>');
-      
+    var ts = $('#time-start').val();
+    var te = $('#time-end').val();
+    if(ts && te && ts.length == 5 && te.length == 5){
+      //console.log(ts + ' : ' + te);
+      $('tbody').append('<tr class="tr-height"><td class="time">'+$('#time-start').val().slice(0, 5)+'-'+ $('#time-end').val().slice(0, 5) +'</td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td></tr>');
       $('td').click(function(){
        var row_index = $(this).parent().index()+2; 
        var hasClass=$("table tr:eq("+row_index+")").hasClass('selectedRow');
@@ -394,9 +365,8 @@ $('#row-remove-all').click(function(){
           $("table tr:eq("+row_index+")").addClass('selectedRow');
           stopPropagation();
        }
-       
       });
-
+    }
   })
 
   $('td').click(function(){
@@ -434,7 +404,7 @@ $('#row-save').on('click',function(){
       url: deleteScheduleUrl,
       type: 'post',
       dataType: 'json',
-      data: {'section_id' : sectionId},  
+      data: {'section_id' : sectionId, 'semester' : semester},  
       success: function(res){ 
         console.log('---');
 
@@ -467,6 +437,7 @@ $('#row-save').on('click',function(){
             dataType: 'json',
             data: {
               'section_id' : sectionId,
+              'semester' : semester,
               'subject_code' : subject_code,
               'room_id' : room_id,
               'time_start' : time_start,
@@ -477,6 +448,7 @@ $('#row-save').on('click',function(){
             },  
             success: function(res){ 
               console.log(res);
+              console.log(semester);
             }
           });
 

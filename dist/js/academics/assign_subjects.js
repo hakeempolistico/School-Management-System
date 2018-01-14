@@ -273,6 +273,52 @@ $(function () {
             success: function(result){
               //console.log(result);
               for(var i=0; i<x; i++){
+                if(!teachers_1[i]){
+                  console.log('return');
+                  $.notify({
+                    title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+                    message: "Please fill up all teacher input."
+                  },{
+                    type: 'danger',
+                    animate: {
+                      enter: 'animated fadeInUp',
+                      exit: 'animated fadeOutRight'
+                    },
+                    placement: {
+                      from: "top",
+                      align: "right"
+                    },
+                    offset: 20,
+                    spacing: 10,
+                    z_index: 1031,
+                  });
+                  return;
+                }
+              };
+              for(var i=0; i<y; i++){
+                if(!teachers_2[i]){
+                  console.log('return 2');
+                  $.notify({
+                    title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+                    message: "Please fill up all teacher input."
+                  },{
+                    type: 'danger',
+                    animate: {
+                      enter: 'animated fadeInUp',
+                      exit: 'animated fadeOutRight'
+                    },
+                    placement: {
+                      from: "top",
+                      align: "right"
+                    },
+                    offset: 20,
+                    spacing: 10,
+                    z_index: 1031,
+                  });
+                  return;
+                }
+              };
+              for(var i=0; i<x; i++){
                 //console.log(teachers[i] +' : '+ subjects[i]);
                 //console.log(subjects);
                 $.ajax({
@@ -296,12 +342,24 @@ $(function () {
                   }
                 }); 
               }
-              
-              $('#alert-box').addClass('alert-success').removeClass('alert-danger');
-              $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-check"></i> SUCCESS MESSAGE!');
-              $('#alert-message').html('Assigned subjects added.');
-              $('#alert-box').slideDown(1000);
-              $('#alert-box').delay( 2000 ).slideUp(1000);
+
+              $.notify({
+                title: '<strong><i class="icon fa fa-check"></i>SUCCESS!</strong>',
+                message: "Saved."
+              },{
+                type: 'success',
+                animate: {
+                  enter: 'animated fadeInUp',
+                  exit: 'animated fadeOutRight'
+                },
+                placement: {
+                  from: "top",
+                  align: "right"
+                },
+                offset: 20,
+                spacing: 10,
+                z_index: 1031,
+              });
             }
           }); 
 
