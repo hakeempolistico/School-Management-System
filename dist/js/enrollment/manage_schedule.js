@@ -68,7 +68,7 @@
       event.attr('ondragstart','drag(event)')
       event.attr('style','resize: vertical; overflow: auto; color: white; background-color:'+currColor)
       
-      $('#external-events').prepend(event)
+      $('.external-events').prepend(event)
 
       //Remove event from text input
       $('#new-event-subject').val('').trigger('change')
@@ -108,7 +108,6 @@
       var event = $('<div />')
       event.addClass('external-event flat')
       event.html('<div class="val-subject">'+val1+'</div><div class="text-gray val-room"></div>')
-      
 
       event.attr('id', i )
       event.attr('class','count object')
@@ -315,16 +314,16 @@ function getSchedules(){
           i++; 
         }    
         
-        $('tbody').append(
-          '<tr class="tr-height"><td contenteditable="true" class="time">'+index+'</td>'+
+        $('#schedule').find('tbody').append(
+          '<tr class="tr-height"><td class="col-time">'+index+'</td>'+
           '<td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)">'+mon_obj+'</td>'+
           '<td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)">'+tue_obj+'</td>'+
           '<td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)">'+wed_obj+'</td>'+
           '<td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)">'+thur_obj+'</td>'+
           '<td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)">'+fri_obj+'</td></tr>');
       
-        $('td').click(function(){
-         var row_index = $(this).parent().index()+2; 
+        /*$('td').click(function(){
+         var row_index = $(this).parent().index()-2; 
          var hasClass=$("table tr:eq("+row_index+")").hasClass('selectedRow');
          if(hasClass==true){
             $("table tr:eq("+row_index+")").removeClass('selectedRow');
@@ -334,8 +333,10 @@ function getSchedules(){
             stopPropagation();
          }
          
-        });
+        });*/
       });
+
+      console.log($('.col-time').length);
     }
   });
 }
@@ -347,9 +348,13 @@ $('#row-remove-all').click(function(){
   $('#row-remove').click(function(){
      $('.selectedRow').remove();
   })
+
   $('#row-add').click(function(){
-    $('tbody').append('<tr class="tr-height"><td contenteditable="true" class="time"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td></tr>');
-      
+    var ts = $('#time-start').val();
+    var te = $('#time-end').val();
+    if(ts && te && ts.length == 5 && te.length == 5){
+      //console.log(ts + ' : ' + te);
+      $('tbody').append('<tr class="tr-height"><td class="time">'+$('#time-start').val().slice(0, 5)+'-'+ $('#time-end').val().slice(0, 5) +'</td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td><td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td></tr>');
       $('td').click(function(){
        var row_index = $(this).parent().index()+2; 
        var hasClass=$("table tr:eq("+row_index+")").hasClass('selectedRow');
@@ -360,9 +365,8 @@ $('#row-remove-all').click(function(){
           $("table tr:eq("+row_index+")").addClass('selectedRow');
           stopPropagation();
        }
-       
       });
-
+    }
   })
 
   $('td').click(function(){

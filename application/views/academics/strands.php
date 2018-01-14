@@ -39,7 +39,7 @@
         <div class="col-lg-4 col-xs-12">
           <div class="box box-primary">
               <div class="box-header">
-                <h3 class="box-title">Add Strands</h3>
+                <h3 class="box-title text-primary"><i class="fa fa-plus"></i> Add Strands</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
@@ -60,7 +60,7 @@
 
           <div class="box box-primary">
             <div class="box-header">
-              <h3 class="box-title">Strand List</h3>
+              <h3 class="box-title text-primary"><i class="fa fa-tag"></i> Strand List</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

@@ -39,7 +39,7 @@
         <div class="col-lg-4 col-xs-12">
           <div class="box box-primary">
               <div class="box-header">
-                <h3 class="box-title">Add Sections</h3>
+                <h3 class="box-title text-primary"><i class="fa fa-plus"></i> Add Sections</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
@@ -74,7 +74,7 @@
 
           <div class="box box-primary">
             <div class="box-header">
-              <h3 class="box-title">Strand List</h3>
+              <h3 class="box-title text-primary"><i class="fa fa-star"></i> Strand List</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

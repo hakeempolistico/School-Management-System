@@ -39,7 +39,7 @@
         <div class="col-lg-4 col-xs-12">
           <div class="box box-primary">
               <div class="box-header">
-                <h3 class="box-title">Select class</h3>
+                <h3 class="box-title text-primary"><i class="fa fa-plus"></i> Select class</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">                  
@@ -70,7 +70,7 @@
         <div class="col-lg-8 col-xs-12">
           <div class="box box-primary">
               <div class="box-header">
-                <h3 class="box-title" id="assign-subjects-title">First Semester</h3>
+                <h3 class="box-title text-primary" id="assign-subjects-title"><i class="fa fa-leaf"></i> First Semester</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
@@ -97,7 +97,7 @@
             </div>
             <hr style="margin: 5px 10px">
               <div class="box-header">
-                <h3 class="box-title" id="assign-subjects-title">Second Semester</h3>
+                <h3 class="box-title text-primary" id="assign-subjects-title"><i class="fa fa-leaf"></i>Second Semester</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">

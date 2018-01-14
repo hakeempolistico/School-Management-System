@@ -40,7 +40,7 @@
         <div class="col-lg-4 col-xs-12">
           <div class="box box-primary">
               <div class="box-header">
-                <h3 class="box-title">Add Teacher</h3>
+                <h3 class="box-title text-primary"><i class="fa fa-plus"></i> Add Teacher</h3>
               </div>
               <div class="box-body">
                 <div class="form-group" style="margin-bottom: 5px">
@@ -76,7 +76,7 @@
 
           <div class="box box-primary">
             <div class="box-header">
-              <h3 class="box-title">Teacher List</h3>
+              <h3 class="box-title text-primary"><i class="fa fa-mortar-board"></i> Teacher List</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

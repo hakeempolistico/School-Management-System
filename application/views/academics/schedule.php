@@ -88,7 +88,7 @@
       <div class="col-lg-3 col-xs-12">
         <div class="hidden-print box box-solid">
           <div class="box-header with-border">
-              <h3 id="trash" class="box-title" style="font-size: 17px;">Class Information</h3>
+              <h3 id="trash" class="box-title text-success" style="font-size: 15px;"><i class="fa fa-fw fa-info"></i> Class Information</h3>
           </div>
           <div class="box-body" style="padding: 0px 10px 0px 10px">
             <h5 style="margin: 14px 0px 13px 0px"> <b> Strand  </b> <a id="class-strand" class="pull-right"> --- </a></h5>
@@ -102,7 +102,7 @@
         <div class="col-lg-3 col-xs-12">
           <div class="hidden-print box box-solid">
             <div class="box-header with-border">
-              <h3 id="trash" class="box-title" style="font-size: 17px;">Trash</h3>
+              <h3 id="trash" class="box-title text-success" style="font-size: 15px;"><i class="fa fa-fw fa-trash"></i> Trash</h3>
             </div>
             <div class="box-body" style="padding: 5px">
               <div ondrop="dropTrash(event)" ondragover="allowDrop(event)" >
@@ -115,7 +115,7 @@
         <div class="col-lg-3 col-xs-12">
           <div class="hidden-print box box-solid">
             <div class="box-header with-border">
-              <h3 class="box-title" style="font-size: 17px;">Actions</h3>
+              <h3 class="box-title text-success" style="font-size: 15px;"><i class="fa fa-fw fa-hand-pointer-o"></i> Actions</h3>
             </div>
             <div class="box-body" >
               <center style="padding: 7px;">
@@ -133,18 +133,17 @@
         <div class="col-lg-3 col-xs-12">
           <div class="hidden-print box box-solid">
             <div class="box-header with-border">
-              <h3 class="box-title" style="font-size: 17px;">Add</h3>
+              <h3 class="box-title text-success" style="font-size: 15px;"> <i class="fa fa-fw fa-clock-o"></i> Add Row</h3>
             </div>
             <div class="box-body" style="padding: 14px 10px" >
               <!-- time Picker -->
               <div class="bootstrap-timepicker" style="margin-bottom: -12px">
                 <div class="form-group">
                   <div class="input-group">
-                    <input type="text" class="form-control timepicker">
-                    <input type="text" class="form-control timepicker">
-
+                    <input id="time-start" type="text" class="form-control" placeholder="Time Start (hh:mm)">
+                    <input id="time-end" type="text" class="form-control" placeholder="Time End (hh:mm)">
                     <div class="input-group-btn" >
-                      <button style="height: 68px" type="button" class="btn btn-info btn-flat"><i class="fa fa-fw fa-plus"></i></button>
+                      <button id="row-add" style="height: 68px" type="button" class="btn btn-info btn-flat"><i class="fa fa-fw fa-plus"></i></button>
                     </div>
                   </div>
                   <!-- /.input group -->
@@ -160,10 +159,10 @@
       <div class="row disabled">
         <!-- /.col -->
         <div class="col-md-3">
-
+        <!-- CREATE EVENT -->
           <div class="hidden-print box box-solid">
             <div class="box-header with-border">
-                <h3 id="trash" class="box-title" style="font-size: 17px;">Create Event Here</h3>
+                <h3 id="trash" class="box-title text-success" style="font-size: 15px;"> <i class="fa fa-fw fa-calendar-plus-o"></i> Create Event Here</h3>
             </div>
             <div class="box-body" style="padding: 18px 10px 17px 10px">
               <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
@@ -177,6 +176,8 @@
                   <li><a class="text-green" href="#"><i class="fa fa-square"></i></a></li>
                   <li><a class="text-lime" href="#"><i class="fa fa-square"></i></a></li>
                   <li><a class="text-red" href="#"><i class="fa fa-square"></i></a></li>
+                  <li><a class="text-maroon" href="#"><i class="fa fa-square"></i></a></li>
+                  <li><a class="text-danger" href="#"><i class="fa fa-square"></i></a></li>
                   <li><a class="text-purple" href="#"><i class="fa fa-square"></i></a></li>
                   <li><a class="text-fuchsia" href="#"><i class="fa fa-square"></i></a></li>
                   <li><a class="text-navy" href="#"><i class="fa fa-square"></i></a></li>
@@ -206,14 +207,13 @@
               <button id="add-break" type="button" class="btn btn-flat custom pull-right" style="margin-top: 10px; background-color: darkgray; color: white">Add Break</button>
             </div>
           </div>
-
           <!-- DRAGGABLE EVENTS -->
           <div class="box box-solid hidden-print">
             <div class="box-header with-border">
-              <h3 class="box-title" style="font-size: 17px;">Draggable Events</h3>
+              <h3 class="box-title text-success" style="font-size: 15px;"> <i class="fa fa-fw fa-calendar-check-o"></i> Draggable Events</h3>
             </div>
             <div class="box-body" >
-              <div id="external-events">
+              <div id="external-events" class="external-events">
               </div>
             </div>
           </div>
@@ -227,7 +227,7 @@
               <table  id="schedule" class="table table-bordered table-hover table-schedule">
                 <thead>
                 <tr>
-                  <th id="tbl-title" colspan="6" class="text-success">Schedule</th>
+                  <th id="tbl-title" colspan="6" class="text-success"> <i class="fa fa-fw fa-calendar"></i> Schedule</th>
                 </tr>
                 <tr>
                   <th>Time</th>
@@ -242,7 +242,7 @@
                 <tbody>
                 <div id="tbody">
                 <tr class="tr-height">
-                  <td contenteditable='true' class='time'>6:00-7:00</td>
+                  <td class='time'>6:00 - 7:00</td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
@@ -250,7 +250,7 @@
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                 </tr>
                 <tr class="tr-height">
-                  <td contenteditable='true' class='time'>7:00-8:00</td>
+                  <td class='time'>7:00 - 8:00 </td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
@@ -258,7 +258,7 @@
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                 </tr>
                 <tr class="tr-height">
-                  <td contenteditable='true' class='time'>8:00-9:00</td>
+                  <td class='time'>8:00 - 9:00 </td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
@@ -266,7 +266,7 @@
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                 </tr>
                 <tr class="tr-height">
-                  <td contenteditable='true' class='time'>9:00-10:00</td>
+                  <td class='time'>9:00 - 10:00 </td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
@@ -274,7 +274,7 @@
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                 </tr>
                 <tr class="tr-height">
-                  <td contenteditable='true' class='time'>10:00-11:00</td>
+                  <td class='time'>10:00 - 11:00 </td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
@@ -282,7 +282,7 @@
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                 </tr>
                 <tr class="tr-height">
-                  <td contenteditable='true' class='time'>11:00-12:00</td>
+                  <td class='time'>11:00 - 12:00 </td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
@@ -290,7 +290,7 @@
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                 </tr>
                 <tr class="tr-height">
-                  <td contenteditable='true' class='time'>12:00-1:00</td>
+                  <td class='time'>12:00 - 1:00 </td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
@@ -298,7 +298,7 @@
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                 </tr>
                 <tr class="tr-height">
-                  <td contenteditable='true' class='time'>1:00-2:00</td>
+                  <td class='time'>1:00 - 2:00</td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
@@ -306,7 +306,7 @@
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                 </tr>
                 <tr class="tr-height">
-                  <td contenteditable='true' class='time'>2:00-3:00</td>
+                  <td class='time'>2:00 - 3:00 </td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
@@ -314,7 +314,7 @@
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                 </tr>
                 <tr class="tr-height">
-                  <td contenteditable='true' class='time'>3:00-4:00</td>
+                  <td class='time'>3:00 - 4:00 </td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
@@ -322,7 +322,7 @@
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                 </tr>
                 <tr class="tr-height">
-                  <td contenteditable='true' class='time'>4:00-5:00</td>
+                  <td class='time'>4:00 - 5:00 </td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
@@ -330,7 +330,7 @@
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                 </tr>
                 <tr class="tr-height">
-                  <td contenteditable='true' class='time'>5:00-6:00</td>
+                  <td class='time'>5:00 - 6:00 </td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
@@ -338,7 +338,7 @@
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                 </tr>
                 <tr class="tr-height">
-                  <td contenteditable='true' class='time'>6:00-7:00</td>
+                  <td class='time'>6:00 - 7:00 </td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                   <td id="td-padding" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
@@ -401,7 +401,7 @@
     $('.select2').select2()
     //Timepicker
     $('.timepicker').timepicker({
-      showInputs: false
+      showInputs: false,
     })
 
   $(document).ajaxStart(function () {

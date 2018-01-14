@@ -44,7 +44,7 @@
         <div class="col-lg-4 col-xs-12">
           <div class="box box-primary">
               <div class="box-header">
-                <h3 class="box-title">Add Subjects</h3>
+                <h3 class="box-title text-primary"><i class="fa fa-plus"></i> Add Subjects</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
@@ -74,7 +74,7 @@
 
           <div class="box box-primary">
             <div class="box-header">
-              <h3 class="box-title">Subject List</h3>
+              <h3 class="box-title text-primary"> <i class="fa fa-book"></i> Subject List</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
