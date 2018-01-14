@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2018 at 09:43 PM
+-- Generation Time: Jan 10, 2018 at 01:52 AM
 -- Server version: 5.7.11
 -- PHP Version: 7.0.4
 
@@ -103,7 +103,7 @@ INSERT INTO `class_subjects` (`id`, `section_id`, `subject_id`, `teacher_id`, `d
 CREATE TABLE `curriculum` (
   `id` int(11) NOT NULL,
   `subject_code` varchar(200) NOT NULL,
-  `strand_id` int(11) NOT NULL,
+  `strand_code` varchar(100) NOT NULL,
   `year_level_id` int(11) NOT NULL,
   `semester` varchar(50) NOT NULL,
   `date_created` timestamp NOT NULL,
@@ -114,44 +114,9 @@ CREATE TABLE `curriculum` (
 -- Dumping data for table `curriculum`
 --
 
-INSERT INTO `curriculum` (`id`, `subject_code`, `strand_id`, `year_level_id`, `semester`, `date_created`, `date_modified`) VALUES
-(110, 'CHM', 1, 2, 'First Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(108, 'ALG', 1, 2, 'First Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(109, 'PHY', 1, 2, 'First Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(131, 'ALG', 1, 1, 'First Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(130, 'WOLT', 1, 1, 'First Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(57, 'RES', 1, 1, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(56, 'PHY', 1, 1, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(55, 'ALG', 1, 1, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(54, 'SCI', 1, 1, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(53, 'WOLT', 1, 1, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(52, 'CHM', 1, 1, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(58, 'PHY', 2, 2, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(59, 'SCI', 2, 2, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(60, 'RES', 2, 2, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(61, 'ALG', 2, 2, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(62, 'CHM', 2, 2, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(63, 'WOLT', 2, 2, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(64, 'RES', 4, 1, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(65, 'PHY', 4, 1, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(66, 'SCI', 4, 1, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(67, 'CHM', 4, 1, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(68, 'ALG', 4, 1, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(69, 'WOLT', 4, 1, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(70, 'WOLT', 4, 2, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(71, 'PHY', 4, 2, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(72, 'CHM', 4, 2, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(73, 'ALG', 4, 2, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(74, 'SCI', 4, 2, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(75, 'RES', 4, 2, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(86, 'SCI', 6, 2, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(85, 'WOLT', 6, 2, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(84, 'ALG', 6, 2, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(83, 'RES', 6, 2, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(82, 'CHM', 6, 2, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(87, 'PHY', 6, 2, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(111, 'RES', 1, 2, 'First Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(129, 'SCI', 1, 1, 'First Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO `curriculum` (`id`, `subject_code`, `strand_code`, `year_level_id`, `semester`, `date_created`, `date_modified`) VALUES
+(6, 'CHM', 'STEM', 1, 'First Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(5, 'SCI', 'STEM', 1, 'First Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -313,6 +278,7 @@ INSERT INTO `rooms` (`id`, `room_id`, `room_name`, `building`) VALUES
 CREATE TABLE `schedules` (
   `id` int(11) NOT NULL,
   `section_id` int(11) NOT NULL,
+  `semester` varchar(100) NOT NULL,
   `subject_code` varchar(50) NOT NULL,
   `room_id` varchar(50) NOT NULL,
   `time_start` varchar(5) NOT NULL,
@@ -326,43 +292,43 @@ CREATE TABLE `schedules` (
 -- Dumping data for table `schedules`
 --
 
-INSERT INTO `schedules` (`id`, `section_id`, `subject_code`, `room_id`, `time_start`, `time_end`, `day`, `color`, `row`) VALUES
-(106, 1, 'CHM', 'Lab103', '4:00', '5:00', 'Wednesday', 'rgb(255, 133, 27)', 4),
-(104, 1, 'CHM', 'Lab103', '4:00', '5:00', 'Thursday', 'rgb(255, 133, 27)', 4),
-(105, 1, 'CHM', 'Lab103', '4:00', '5:00', 'Tuesday', 'rgb(255, 133, 27)', 4),
-(103, 1, 'CHM', 'Lab103', '4:00', '5:00', 'Friday', 'rgb(255, 133, 27)', 4),
-(102, 1, 'BREAK', '', '3:00', '4:00', 'Thursday', 'rgb(169, 169, 169)', 3),
-(100, 1, 'WOLT', 'Room 105', '6:00', '7:00', 'Friday', 'rgb(0, 192, 239)', 6),
-(101, 1, 'BREAK', '', '5:00', '6:00', 'Monday', 'rgb(169, 169, 169)', 5),
-(99, 1, 'WOLT', 'Room 105', '6:00', '7:00', 'Thursday', 'rgb(0, 192, 239)', 6),
-(98, 1, 'WOLT', 'Room 105', '6:00', '7:00', 'Wednesday', 'rgb(0, 192, 239)', 6),
-(97, 1, 'BREAK', '', '5:00', '6:00', 'Friday', 'rgb(169, 169, 169)', 5),
-(96, 1, 'BREAK', '', '5:00', '6:00', 'Tuesday', 'rgb(169, 169, 169)', 5),
-(95, 1, 'BREAK', '', '5:00', '6:00', 'Thursday', 'rgb(169, 169, 169)', 5),
-(94, 1, 'WOLT', 'Room 105', '6:00', '7:00', 'Tuesday', 'rgb(0, 192, 239)', 6),
-(93, 1, 'WOLT', 'Room 105', '6:00', '7:00', 'Monday', 'rgb(0, 192, 239)', 6),
-(91, 1, 'BREAK', '', '3:00', '4:00', 'Friday', 'rgb(169, 169, 169)', 3),
-(92, 1, 'BREAK', '', '5:00', '6:00', 'Wednesday', 'rgb(169, 169, 169)', 5),
-(90, 1, 'CHM', 'Lab103', '4:00', '5:00', 'Monday', 'rgb(255, 133, 27)', 4),
-(88, 1, 'BREAK', '', '3:00', '4:00', 'Tuesday', 'rgb(169, 169, 169)', 3),
-(89, 1, 'BREAK', '', '3:00', '4:00', 'Thursday', 'rgb(169, 169, 169)', 3),
-(87, 1, 'BREAK', '', '3:00', '4:00', 'Wednesday', 'rgb(169, 169, 169)', 3),
-(86, 1, 'WOLT', 'Room 105', '12:00', '3:00', 'Thursday', 'rgb(0, 192, 239)', 2),
-(85, 1, 'BREAK', '', '3:00', '4:00', 'Monday', 'rgb(169, 169, 169)', 3),
-(84, 1, 'WOLT', 'Room 105', '12:00', '3:00', 'Friday', 'rgb(0, 192, 239)', 2),
-(83, 1, 'WOLT', 'Room 105', '12:00', '3:00', 'Wednesday', 'rgb(0, 192, 239)', 2),
-(82, 1, 'WOLT', 'Room 105', '12:00', '3:00', 'Tuesday', 'rgb(0, 192, 239)', 2),
-(81, 1, 'WOLT', 'Room 105', '12:00', '3:00', 'Monday', 'rgb(0, 192, 239)', 2),
-(80, 1, 'VACANT', '', '9:00', '12:00', 'Friday', 'rgb(128, 128, 128)', 1),
-(79, 1, 'VACANT', '', '9:00', '12:00', 'Thursday', 'rgb(128, 128, 128)', 1),
-(78, 1, 'VACANT', '', '9:00', '12:00', 'Tuesday', 'rgb(128, 128, 128)', 1),
-(77, 1, 'VACANT', '', '9:00', '12:00', 'Wednesday', 'rgb(128, 128, 128)', 1),
-(76, 1, 'CHM', 'Lab102', '7:00', '9:00', 'Thursday', 'rgb(255, 133, 27)', 0),
-(75, 1, 'CHM', 'Lab102', '7:00', '9:00', 'Wednesday', 'rgb(255, 133, 27)', 0),
-(74, 1, 'CHM', 'Lab102', '7:00', '9:00', 'Friday', 'rgb(255, 133, 27)', 0),
-(73, 1, 'VACANT', '', '9:00', '12:00', 'Monday', 'rgb(128, 128, 128)', 1),
-(72, 1, 'CHM', 'Lab102', '7:00', '9:00', 'Monday', 'rgb(255, 133, 27)', 0),
-(71, 1, 'CHM', 'Lab102', '7:00', '9:00', 'Tuesday', 'rgb(255, 133, 27)', 0);
+INSERT INTO `schedules` (`id`, `section_id`, `semester`, `subject_code`, `room_id`, `time_start`, `time_end`, `day`, `color`, `row`) VALUES
+(106, 1, '', 'CHM', 'Lab103', '4:00', '5:00', 'Wednesday', 'rgb(255, 133, 27)', 4),
+(104, 1, '', 'CHM', 'Lab103', '4:00', '5:00', 'Thursday', 'rgb(255, 133, 27)', 4),
+(105, 1, '', 'CHM', 'Lab103', '4:00', '5:00', 'Tuesday', 'rgb(255, 133, 27)', 4),
+(103, 1, '', 'CHM', 'Lab103', '4:00', '5:00', 'Friday', 'rgb(255, 133, 27)', 4),
+(102, 1, '', 'BREAK', '', '3:00', '4:00', 'Thursday', 'rgb(169, 169, 169)', 3),
+(100, 1, '', 'WOLT', 'Room 105', '6:00', '7:00', 'Friday', 'rgb(0, 192, 239)', 6),
+(101, 1, '', 'BREAK', '', '5:00', '6:00', 'Monday', 'rgb(169, 169, 169)', 5),
+(99, 1, '', 'WOLT', 'Room 105', '6:00', '7:00', 'Thursday', 'rgb(0, 192, 239)', 6),
+(98, 1, '', 'WOLT', 'Room 105', '6:00', '7:00', 'Wednesday', 'rgb(0, 192, 239)', 6),
+(97, 1, '', 'BREAK', '', '5:00', '6:00', 'Friday', 'rgb(169, 169, 169)', 5),
+(96, 1, '', 'BREAK', '', '5:00', '6:00', 'Tuesday', 'rgb(169, 169, 169)', 5),
+(95, 1, '', 'BREAK', '', '5:00', '6:00', 'Thursday', 'rgb(169, 169, 169)', 5),
+(94, 1, '', 'WOLT', 'Room 105', '6:00', '7:00', 'Tuesday', 'rgb(0, 192, 239)', 6),
+(93, 1, '', 'WOLT', 'Room 105', '6:00', '7:00', 'Monday', 'rgb(0, 192, 239)', 6),
+(91, 1, '', 'BREAK', '', '3:00', '4:00', 'Friday', 'rgb(169, 169, 169)', 3),
+(92, 1, '', 'BREAK', '', '5:00', '6:00', 'Wednesday', 'rgb(169, 169, 169)', 5),
+(90, 1, '', 'CHM', 'Lab103', '4:00', '5:00', 'Monday', 'rgb(255, 133, 27)', 4),
+(88, 1, '', 'BREAK', '', '3:00', '4:00', 'Tuesday', 'rgb(169, 169, 169)', 3),
+(89, 1, '', 'BREAK', '', '3:00', '4:00', 'Thursday', 'rgb(169, 169, 169)', 3),
+(87, 1, '', 'BREAK', '', '3:00', '4:00', 'Wednesday', 'rgb(169, 169, 169)', 3),
+(86, 1, '', 'WOLT', 'Room 105', '12:00', '3:00', 'Thursday', 'rgb(0, 192, 239)', 2),
+(85, 1, '', 'BREAK', '', '3:00', '4:00', 'Monday', 'rgb(169, 169, 169)', 3),
+(84, 1, '', 'WOLT', 'Room 105', '12:00', '3:00', 'Friday', 'rgb(0, 192, 239)', 2),
+(83, 1, '', 'WOLT', 'Room 105', '12:00', '3:00', 'Wednesday', 'rgb(0, 192, 239)', 2),
+(82, 1, '', 'WOLT', 'Room 105', '12:00', '3:00', 'Tuesday', 'rgb(0, 192, 239)', 2),
+(81, 1, '', 'WOLT', 'Room 105', '12:00', '3:00', 'Monday', 'rgb(0, 192, 239)', 2),
+(80, 1, '', 'VACANT', '', '9:00', '12:00', 'Friday', 'rgb(128, 128, 128)', 1),
+(79, 1, '', 'VACANT', '', '9:00', '12:00', 'Thursday', 'rgb(128, 128, 128)', 1),
+(78, 1, '', 'VACANT', '', '9:00', '12:00', 'Tuesday', 'rgb(128, 128, 128)', 1),
+(77, 1, '', 'VACANT', '', '9:00', '12:00', 'Wednesday', 'rgb(128, 128, 128)', 1),
+(76, 1, '', 'CHM', 'Lab102', '7:00', '9:00', 'Thursday', 'rgb(255, 133, 27)', 0),
+(75, 1, '', 'CHM', 'Lab102', '7:00', '9:00', 'Wednesday', 'rgb(255, 133, 27)', 0),
+(74, 1, '', 'CHM', 'Lab102', '7:00', '9:00', 'Friday', 'rgb(255, 133, 27)', 0),
+(73, 1, '', 'VACANT', '', '9:00', '12:00', 'Monday', 'rgb(128, 128, 128)', 1),
+(72, 1, '', 'CHM', 'Lab102', '7:00', '9:00', 'Monday', 'rgb(255, 133, 27)', 0),
+(71, 1, '', 'CHM', 'Lab102', '7:00', '9:00', 'Tuesday', 'rgb(255, 133, 27)', 0);
 
 -- --------------------------------------------------------
 
@@ -736,7 +702,7 @@ ALTER TABLE `class_subjects`
 -- AUTO_INCREMENT for table `curriculum`
 --
 ALTER TABLE `curriculum`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `enrolled_students`
 --

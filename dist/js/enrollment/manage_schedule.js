@@ -44,6 +44,7 @@
       //Get value and make sure it is not null
       var val2 = $('#select-room').val()
       var val1 = $('#select-subject').val()
+      var val3 = $('#select-teacher').select2('data')
       
       if (val1.length == 0) {
         return
@@ -55,7 +56,7 @@
       var event = $('<div />')
       event.addClass('external-event flat')
       if (val2.length != 0) {
-        event.html('<div class="val-subject">'+val1+'</div><div class="text-gray val-room">'+val2+'</div>')
+        event.html('<div class="val-subject">'+val1+'</div><div class="text-gray val-room">'+val2+'</div><div style="color: silver;">'+val3[0].text+'</div>')
       }
       else{
         return
@@ -147,12 +148,105 @@ function dropTrash(ev) {
 
   
 
-var table; 
-var set;
-var sectionId;
-var room_id;
+var table, set, sectionId, room_id, strand_code, year_level_id, semester; 
 
 $(".custom").prop('disabled', true);
+
+function getSections() {
+  strand_code = $('#select-strand').val();
+  year_level_id = $('#select-year').val();
+  sectionId = null;
+  if(strand_code != null && year_level_id != null){
+    $.ajax({
+      url: getSectionsUrl,
+      type: 'post',
+      dataType: 'JSON',  
+      data: {'year_level_id': year_level_id, 'strand_code' : strand_code},
+      success: function(result){  
+        console.log(result);
+        $('#select-section').find('option').remove();
+        $('#select-section').append($('<option>', { 
+            value: null,
+            text : null
+        })).select2();
+        $.each(result, function( index, value ) {
+              //console.log(index + ' : ' + value);
+              $('#select-section').append($('<option>', { 
+                  value: value.id,
+                  text : value.name
+              })).select2();
+            });
+
+      } 
+    });
+  }
+}
+
+$('#select-semester').on('change', function(){
+  semester = $(this).val();
+  getCurrSubjects();
+})
+$('#select-section').on('change', function(){
+  sectionId = $(this).val();
+  getCurrSubjects();
+})
+//POPULATE SECTION SELECT 
+$('#select-year').on('change', function(){
+  getSections();
+  getCurrSubjects();
+})
+$('#select-strand').on('change', function(){
+  getSections();
+  getCurrSubjects();
+})
+
+function getCurrSubjects(){
+  if(sectionId != null && year_level_id != null && strand_code != null && semester != null){
+    //console.log(strand_code + ' : ' + year_level_id + ' : ' + sectionId + ' : ' +semester);
+    $(".custom").prop('disabled', false);
+    $.ajax({
+      url: getSubjects,
+      type: 'post',
+      dataType: 'JSON',  
+      data: {'year_level_id': year_level_id, 'strand_code' : strand_code, 'semester' : semester},
+      success: function(result){  
+        //console.log(result);
+        $('#select-subject').find('option').remove();
+        $('#select-subject').append($('<option>', { 
+              value: null,
+              text : null
+          })).select2();
+        $.each(result, function( index, value ) {
+              //console.log(index + ' : ' + value);
+          $('#select-subject').append($('<option>', { 
+              value: value.subject_code,
+              text : value.subject_code
+          })).select2();
+        });
+      } 
+    });
+    updateClassInfo();
+  }
+}
+
+function updateClassInfo(){
+  var years = $('#select-year').select2('data');
+  var section = $('#select-section').select2('data');
+
+  $.ajax({
+    url: getSectionsUrl,
+    type: 'post',
+    dataType: 'JSON',  
+    data: {'year_level_id': year_level_id, 'strand_code' : strand_code, 'name' : section[0].text},
+    success: function(result){  
+      //console.log(result);
+      $('#class-strand').html(strand_code);
+      $('#class-year-section').html(years[0].text + ' - ' + section[0].text);
+      $('#class-capacity').html(result[0].capacity);
+    } 
+  });
+}
+
 
 $('#btn-enter').on('click',function(){
   sectionId = $('#select-class').val();
@@ -240,7 +334,7 @@ $('#btn-enter').on('click',function(){
     }
   });
 
-  //POPULATE SECTIONS SELECT
+  //POPULATE SUBJECT SELECT
   $.ajax({
     url: getSectionUrl,
     type: 'post',

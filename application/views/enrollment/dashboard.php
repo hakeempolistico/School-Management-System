@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/Ionicons/css/ionicons.min.css">
+  <!-- ANIMATE CSS -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/animate.css/animate.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -176,7 +178,7 @@
             <!-- /.box-body -->
             <div class="box-footer clearfix">
               <a href="<?php echo site_url('enrollment/register_student')?>" class="btn btn-sm btn-info btn-flat pull-left">Add Student</a>
-              <a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">View All Students</a>
+              <a href="javascript:void(0)" id="trial" class="btn btn-sm btn-default btn-flat pull-right">View All Students</a>
             </div>
             <!-- /.box-footer -->
           </div>
@@ -197,6 +199,8 @@
 <script src="<?php echo base_url(); ?>bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo base_url(); ?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- BOOTSTRAP NOTIF -->
+<script src="<?php echo base_url(); ?>bower_components/bootstrap-notify-3.1.3/dist/bootstrap-notify.js"></script>
 <!-- ChartJS -->
 <script src="<?php echo base_url(); ?>bower_components/Chart.js/Chart.js"></script>
 <!-- FastClick -->
@@ -207,5 +211,31 @@
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
 <!-- page script -->
 <script src="<?php echo base_url(); ?>dist/js/enrollment/dashboard.js"></script>
+
+
+
+<script type="text/javascript">
+$(function(){
+  $("#trial").on("click",function(){
+    $.notify({
+      title: '<strong>MY BRUDDAH</strong>',
+      message: "DO U KNO DA WAE?"
+    },{
+      type: 'danger',
+      animate: {
+        enter: 'animated fadeInUp',
+        exit: 'animated fadeOutRight'
+      },
+      placement: {
+        from: "top",
+        align: "right"
+      },
+      offset: 20,
+      spacing: 10,
+      z_index: 1031,
+    });
+  });
+});
+</script>
 </body>
 </html>

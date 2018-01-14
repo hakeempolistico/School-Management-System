@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Pace style -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/pace/pace.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/Ionicons/css/ionicons.min.css">
   <!-- Select2 -->
@@ -32,8 +34,18 @@
   <![endif]-->
 <style type="text/css">
   .error {
-  color: red;
-  font-size: 14px;
+    color: red;
+    font-size: 14px;
+  }
+  #inputGUARDIANADDRESS {
+    width: 200px;
+    -webkit-transition: width .35s ease-in-out;
+    transition: width .35s ease-in-out;
+    border: none;
+    border-bottom: 1.9px solid #bdbdbd;
+  }
+  #inputGUARDIANADDRESS:focus {
+    width: 90%;
   }
 </style>
   <!-- Google Font -->
@@ -42,240 +54,7 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
-  <header class="main-header">
-    <!-- Logo -->
-    <a href="<?php echo site_url('/') ?>" class="logo" style="background: rgb(97, 22, 35)">
-      {logo}
-    </a>
-    <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top" style="background-color: #6C1827">
-      <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
-
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">                          
-          <!-- User Account: style can be found in dropdown.less -->
-          <li class="dropdown user user-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="<?php echo base_url('images/alt_picture.jpg');?>" class="user-image" alt="<?php echo base_url('images/alt_picture.jpg');?>">
-              <span class="hidden-xs"><?php echo $this->session->first_name." ".$this->session->last_name ?></span>
-            </a>
-            <ul class="dropdown-menu">
-              <!-- User image -->
-              <li class="user-header" style="background-color: #6C1827">
-                <img src="<?php echo base_url('images/alt_picture.jpg');?>" class="img-circle" alt="<?php echo base_url('images/alt_picture.jpg');?>">
-
-                <p>
-                 <?php echo $this->session->first_name." ".$this->session->last_name." - ".$this->session->position ?>
-                  <small>Member since <?php echo $this->session->date_created ?></small>
-                </p>
-              </li>              
-              <!-- Menu Footer-->
-              <li class="user-footer">
-                <div class="pull-left">
-                  <a href="<?php echo site_url('profile')?>" class="btn btn-default btn-flat">Profile</a>
-                </div>
-                <div class="pull-right">
-                  <a href="<?php echo site_url('login/logout')?>" class="btn btn-default btn-flat">Sign out</a>
-                </div>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-  <!-- Left side column. contains the logo and sidebar -->
-  <aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-      <!-- Sidebar user panel -->
-      <div class="user-panel">
-        <div class="pull-left image">
-          <img src="<?php echo base_url('images/alt_picture.jpg');?>" class="img-circle" alt="<?php echo base_url('images/alt_picture.jpg');?>">
-        </div>
-        <div class="pull-left info">
-          <p><?php echo $this->session->first_name." ".$this->session->last_name ?></p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-        </div>
-      </div>
-      
-      <!-- sidebar menu: : style can be found in sidebar.less -->
-      <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">MAIN NAVIGATION</li>
-        <li>
-          <a href="<?php echo site_url('/'); ?>">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-          </a>
-        </li>
-        <li class="active treeview">
-          <a href="#">
-            <i class="fa fa-files-o"></i>
-            <span>Enrollment</span>
-            <span class="pull-right-container">
-              <span class="fa fa-angle-left pull-right"></span>
-            </span>
-          </a>
-
-          <ul class="treeview-menu">
-            <li>
-              <a href="<?php echo site_url('enrollment/register_student'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Register Student
-              </a>              
-            </li>
-
-            <li>
-              <a href="<?php echo site_url('enrollment/enroll_student'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                  Enroll Student
-              </a>
-            </li>
-          </ul>
-
-        </li>
-
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-mortar-board"></i>
-            <span>Academics</span>
-            <span class="pull-right-container">
-              <span class="fa fa-angle-left pull-right"></span>
-            </span>
-          </a>
-
-          <ul class="treeview-menu">
-            <li>
-              <a href="<?php echo site_url('academics/strands'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Strands
-              </a>
-            </li>
-            <li>
-              <a href="<?php echo site_url('academics/teachers'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Teachers
-              </a>
-            </li>
-            <li>
-              <a href="<?php echo site_url('academics/rooms'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Rooms
-              </a>
-            </li>
-            <li>
-              <a href="<?php echo site_url('academics/sections'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Sections
-              </a>
-            </li>          
-            <li>
-              <a href="<?php echo site_url('academics/subjects'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                  Subjects
-              </a>
-            </li>
-            <li>
-              <a href="<?php echo site_url('academics/assign_subjects'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Assign Subjects
-              </a>
-            </li>
-            <li>
-              <a href="<?php echo site_url('academics/schedule'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                  Schedule
-              </a>
-            </li>
-          </ul>
-          
-        </li>
-      
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-id-card"></i>
-            <span>Student Information</span>
-            <span class="pull-right-container">
-              <span class="label label-warning pull-right">soon</span>
-            </span>
-          </a>
-
-          <ul class="treeview-menu">
-            <li>
-              <a href="<?php echo site_url('enrollment/dashboard'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Student Details
-              </a>
-            </li>         
-            <li>
-              <a href="<?php echo site_url('enrollment/register_student'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Student Grades
-              </a>
-            </li>
-            <li>
-              <a href="<?php echo site_url('enrollment/enroll_student'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Student Promotion
-              </a>
-            </li>
-          </ul>          
-        </li>
-
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-bar-chart"></i>
-            <span>Reports</span>
-            <span class="pull-right-container">
-              <span class="label label-warning pull-right">soon</span>
-            </span>
-          </a>
-
-          <ul class="treeview-menu">
-            <li>
-              <a href="<?php echo site_url('reports/student_reports'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Student Reports
-              </a>
-            </li>         
-            <li>
-              <a href="<?php echo site_url('enrollment/register_student'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Grade Reports
-              </a>
-            </li>            
-          </ul>          
-        </li>
-
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-cog"></i>
-            <span>Settings</span>
-            <span class="pull-right-container">
-              <span class="label label-warning pull-right">soon</span>
-            </span>
-          </a>
-
-          <ul class="treeview-menu">
-            <li>
-              <a href="<?php echo site_url('enrollment/dashboard'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                User Management
-              </a>
-            </li>                               
-          </ul>          
-        </li>
-        
-      </ul>
-    </section>
-    <!-- /.sidebar -->
-  </aside>
-
+  <?=$template?>
 
 
   <!-- Content Wrapper. Contains page content -->
@@ -507,7 +286,6 @@
                       <?php echo form_error('guardian'); ?>
                     </div>
                   </div>
-                  <!-- /.col -->
 
                   <div class="col-md-4">
                     <div class="form-group">
@@ -516,7 +294,6 @@
                       <?php echo form_error('relationship'); ?>
                     </div>
                   </div>
-                  <!-- /.col --> 
 
                   <div class="col-md-4">
                     <div class="form-group">
@@ -525,8 +302,37 @@
                       <?php echo form_error('guardian_contact'); ?>
                     </div>
                   </div>
-                  <!-- /.col -->
                 </div>
+                <!-- /.row -->
+
+                <div class="row" style="margin-bottom: -10px;">
+                  <div class="col-md-3">
+                    <label>Guardian Address<span class="text-red">*</span></label>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                        <input type="radio" name="r3" class="flat-red parent" value="StudentAddress" <?php echo  set_radio('r3', 'StudentAddress'); ?> >   Student address
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="radio" name="r3" class="flat-red other" value="Other2" <?php echo  set_radio('r3', 'Other2'); ?> >
+                        <input type="text" id="inputGUARDIANADDRESS" value="<?php echo set_value('guardian_address'); ?>" placeholder="Other" name="guardian_address" >
+                        <?php echo form_error('guardian_address'); ?>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.row -->
+
+                <!-- <div hidden id="guardianAddressInput" class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Guardian Address<span class="text-red">*</span></label>
+                      <input type="text" class="form-control" id="inputGUARDIANADDRESS" value="<?php echo set_value('guardian_address'); ?>" placeholder="Guardian's Address" name="guardian_address">
+                      <?php echo form_error('guardian_address'); ?>
+                    </div>
+                  </div>
+                </div> -->
                 <!-- /.row -->
 
                 <hr>
@@ -575,11 +381,17 @@
 <script src="<?php echo base_url(); ?>js/forminput.js"></script>
 <!-- bootstrap datepicker -->
 <script src="<?php echo base_url(); ?>bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<!-- PACE -->
+<script src="<?php echo base_url(); ?>bower_components/PACE/pace.min.js"></script>
 <!-- InputMask -->
 <script src="<?php echo base_url(); ?>plugins/input-mask/jquery.inputmask.js"></script>
 <script src="<?php echo base_url(); ?>plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
 <script src="<?php echo base_url(); ?>plugins/input-mask/jquery.inputmask.extensions.js"></script>
-
+<script>
+  $(document).ajaxStart(function () {
+    Pace.restart()
+  })
+</script>
 <script>
   var dateString = $('#guardianInput').hide();
   var today = new Date();
@@ -609,14 +421,27 @@
         $('#inputRELATIONSHIP').val(radioInput);
         $('#inputGUARDIANCONTACT').val($('#inputMOTHERCONTACT').val());
 
+      }else if(radioInput == "StudentAddress"){
+        $('#guardianAddressInput').hide();
+        $('#inputGUARDIANADDRESS').val('');
+        $('#inputGUARDIANADDRESS').val($('#inputSTREET').val()+', '+$('#inputBARANGAY').val()+', '+$('#inputCITY').val()+', '+$('#inputPROVINCE').val());
+        // console.log($('#inputGUARDIANADDRESS').val());
+
+      }else if(radioInput == "Other2"){
+        $('#inputGUARDIANADDRESS').focus();
+        $('#inputGUARDIANADDRESS').val('');
+        console.log($('#inputGUARDIANADDRESS').val());
+
       }else{
         $('#guardianInput').show();
         $('#inputGUARDIAN').val('');
         $('#inputRELATIONSHIP').val('');
         $('#inputGUARDIANCONTACT').val('');
+        $('#inputGUARDIANADDRESS').val('');
       }
 
     });
+
 </script>
 <script>
 //Date picker

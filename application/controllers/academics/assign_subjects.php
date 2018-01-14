@@ -52,6 +52,14 @@ class assign_subjects extends CI_Controller {
 		echo json_encode($this->assign_subjects_model->getClassSubjects($this->input->post()));
 	}
 
+	public function getCurrSubjects(){	
+		echo json_encode($this->assign_subjects_model->getCurrSubjects($this->input->post()));
+	}
+
+	public function getSubjectName(){	
+		echo json_encode($this->global_model->getRecord('subjects', $this->input->post()));
+	}
+
 	public function addClassSubjects(){
 		$data = array(
 			"teacher_id" => $this->input->post('teacher_id'),
@@ -59,7 +67,7 @@ class assign_subjects extends CI_Controller {
 			"subject_id" => $this->input->post('subject_id')
 		);
 
-		$this->global_model->insert($this->input->post('table'),$data);
+		$this->global_model->insert('class_subjects',$this->input->post());
 	}
 
 }
