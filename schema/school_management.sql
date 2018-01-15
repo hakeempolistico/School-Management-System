@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 10, 2018 at 01:52 AM
+-- Generation Time: Jan 15, 2018 at 02:05 PM
 -- Server version: 5.7.11
 -- PHP Version: 7.0.4
 
@@ -78,21 +78,23 @@ CREATE TABLE `class_subjects` (
   `section_id` int(11) NOT NULL,
   `subject_id` varchar(50) NOT NULL,
   `teacher_id` varchar(11) NOT NULL,
+  `semester` varchar(100) NOT NULL,
   `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `date_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+  `date_modified` timestamp NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `class_subjects`
 --
 
-INSERT INTO `class_subjects` (`id`, `section_id`, `subject_id`, `teacher_id`, `date_created`, `date_modified`) VALUES
-(30, 1, 'PHY', '0002', '2017-12-18 13:04:02', '0000-00-00 00:00:00'),
-(7, 8, 'WOLT', '0003', '2017-10-12 04:38:06', '0000-00-00 00:00:00'),
-(6, 8, 'CHM', '0002', '2017-10-12 04:38:06', '0000-00-00 00:00:00'),
-(29, 1, 'PHY', '0001', '2017-12-18 13:04:02', '0000-00-00 00:00:00'),
-(28, 1, 'ALG', '0004', '2017-12-18 13:04:02', '0000-00-00 00:00:00'),
-(27, 1, 'CHM', '0001', '2017-12-18 13:04:02', '0000-00-00 00:00:00');
+INSERT INTO `class_subjects` (`id`, `section_id`, `subject_id`, `teacher_id`, `semester`, `date_created`, `date_modified`) VALUES
+(28, 1, 'ALG', '0003', 'Second Semester', '2018-01-15 04:56:16', '0000-00-00 00:00:00'),
+(26, 1, 'TECH', '0004', 'Second Semester', '2018-01-15 04:56:16', '0000-00-00 00:00:00'),
+(27, 1, 'SCI', '0005', 'Second Semester', '2018-01-15 04:56:16', '0000-00-00 00:00:00'),
+(25, 1, 'WOLT', '0005', 'First Semester', '2018-01-15 04:56:16', '0000-00-00 00:00:00'),
+(24, 1, 'RES', '0001', 'First Semester', '2018-01-15 04:56:16', '0000-00-00 00:00:00'),
+(23, 1, 'PHY', '0003', 'First Semester', '2018-01-15 04:56:16', '0000-00-00 00:00:00'),
+(22, 1, 'CHM', '0002', 'First Semester', '2018-01-15 04:56:16', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -115,8 +117,13 @@ CREATE TABLE `curriculum` (
 --
 
 INSERT INTO `curriculum` (`id`, `subject_code`, `strand_code`, `year_level_id`, `semester`, `date_created`, `date_modified`) VALUES
-(6, 'CHM', 'STEM', 1, 'First Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(5, 'SCI', 'STEM', 1, 'First Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(1, 'RES', 'STEM', 1, 'First Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2, 'WOLT', 'STEM', 1, 'First Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3, 'CHM', 'STEM', 1, 'First Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(4, 'PHY', 'STEM', 1, 'First Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(5, 'ALG', 'STEM', 1, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(6, 'TECH', 'STEM', 1, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(7, 'SCI', 'STEM', 1, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -267,7 +274,8 @@ INSERT INTO `rooms` (`id`, `room_id`, `room_name`, `building`) VALUES
 (2, 'Lab102', 'Laboratory 102', 'College of Industrial Engineering'),
 (3, 'Lab103', 'Laboratory 103', 'CAFA'),
 (4, 'Room 104', 'Room 104', 'College of Engineering'),
-(5, 'Room 105', 'Room 105', 'CLA');
+(5, 'Room 105', 'Room 105', 'CLA'),
+(7, 'Lab104', 'Laboratory 104', 'COS');
 
 -- --------------------------------------------------------
 
@@ -328,7 +336,42 @@ INSERT INTO `schedules` (`id`, `section_id`, `semester`, `subject_code`, `room_i
 (74, 1, '', 'CHM', 'Lab102', '7:00', '9:00', 'Friday', 'rgb(255, 133, 27)', 0),
 (73, 1, '', 'VACANT', '', '9:00', '12:00', 'Monday', 'rgb(128, 128, 128)', 1),
 (72, 1, '', 'CHM', 'Lab102', '7:00', '9:00', 'Monday', 'rgb(255, 133, 27)', 0),
-(71, 1, '', 'CHM', 'Lab102', '7:00', '9:00', 'Tuesday', 'rgb(255, 133, 27)', 0);
+(71, 1, '', 'CHM', 'Lab102', '7:00', '9:00', 'Tuesday', 'rgb(255, 133, 27)', 0),
+(107, 2, 'First Semester', 'SCI', 'Lab101', '6:00', '7:00', 'Tuesday', 'rgb(57, 204, 204)', 0),
+(108, 2, 'First Semester', 'SCI', 'Lab101', '6:00', '7:00', 'Wednesday', 'rgb(60, 141, 188)', 0),
+(109, 2, 'First Semester', 'SCI', 'Lab101', '6:00', '7:00', 'Friday', 'rgb(0, 192, 239)', 0),
+(110, 2, 'First Semester', 'SCI', 'Lab101', '6:00', '7:00', 'Monday', 'rgb(243, 156, 18)', 0),
+(111, 2, 'First Semester', 'RES', 'Lab101', '7:00', '8:00', 'Monday', 'rgb(0, 166, 90)', 1),
+(112, 2, 'First Semester', 'SCI', 'Lab101', '6:00', '7:00', 'Thursday', 'rgb(0, 115, 183)', 0),
+(113, 2, 'First Semester', 'RES', 'Lab101', '7:00', '8:00', 'Tuesday', 'rgb(1, 255, 112)', 1),
+(114, 2, 'First Semester', 'RES', 'Lab101', '7:00', '8:00', 'Wednesday', 'rgb(221, 75, 57)', 1),
+(115, 2, 'First Semester', 'RES', 'Lab101', '7:00', '8:00', 'Thursday', 'rgb(96, 92, 168)', 1),
+(116, 2, 'First Semester', 'RES', 'Lab101', '7:00', '8:00', 'Friday', 'rgb(240, 18, 190)', 1),
+(247, 1, 'First Semester', 'CHM', 'Lab103', '11:00', '12:00', 'Friday', 'rgb(1, 255, 112)', 2),
+(246, 1, 'First Semester', 'CHM', 'Lab103', '11:00', '12:00', 'Thursday', 'rgb(216, 27, 96)', 2),
+(245, 1, 'First Semester', 'CHM', 'Lab103', '11:00', '12:00', 'Wednesday', 'rgb(221, 75, 57)', 2),
+(244, 1, 'First Semester', 'CHM', 'Lab103', '11:00', '12:00', 'Monday', 'rgb(1, 255, 112)', 2),
+(240, 1, 'First Semester', 'WOLT', 'Lab102', '10:00', '11:00', 'Friday', 'rgb(240, 18, 190)', 1),
+(241, 1, 'First Semester', 'WOLT', 'Lab102', '10:00', '11:00', 'Wednesday', 'rgb(132, 53, 52)', 1),
+(242, 1, 'First Semester', 'CHM', 'Lab103', '11:00', '12:00', 'Tuesday', 'rgb(132, 53, 52)', 2),
+(243, 1, 'First Semester', 'WOLT', 'Lab102', '10:00', '11:00', 'Thursday', 'rgb(96, 92, 168)', 1),
+(239, 1, 'First Semester', 'WOLT', 'Lab102', '10:00', '11:00', 'Monday', 'rgb(221, 75, 57)', 1),
+(238, 1, 'First Semester', 'WOLT', 'Lab102', '10:00', '11:00', 'Tuesday', 'rgb(216, 27, 96)', 1),
+(237, 1, 'First Semester', 'RES', 'Lab101', '09:00', '10:00', 'Friday', 'rgb(0, 192, 239)', 0),
+(236, 1, 'First Semester', 'RES', 'Lab101', '09:00', '10:00', 'Thursday', 'rgb(0, 115, 183)', 0),
+(235, 1, 'First Semester', 'RES', 'Lab101', '09:00', '10:00', 'Wednesday', 'rgb(60, 141, 188)', 0),
+(234, 1, 'First Semester', 'RES', 'Lab101', '09:00', '10:00', 'Tuesday', 'rgb(57, 204, 204)', 0),
+(233, 1, 'First Semester', 'RES', 'Lab101', '09:00', '10:00', 'Monday', 'rgb(243, 156, 18)', 0),
+(197, 1, 'Second Semester', 'TECH', 'Lab104', '07:00', '08:00', 'Monday', 'rgb(221, 75, 57)', 0),
+(198, 1, 'Second Semester', 'TECH', 'Lab104', '07:00', '08:00', 'Wednesday', 'rgb(132, 53, 52)', 0),
+(199, 1, 'Second Semester', 'TECH', 'Lab104', '07:00', '08:00', 'Tuesday', 'rgb(216, 27, 96)', 0),
+(200, 1, 'Second Semester', 'ALG', 'Lab104', '08:00', '09:00', 'Monday', 'rgb(243, 156, 18)', 1),
+(201, 1, 'Second Semester', 'TECH', 'Lab104', '07:00', '08:00', 'Friday', 'rgb(240, 18, 190)', 0),
+(202, 1, 'Second Semester', 'TECH', 'Lab104', '07:00', '08:00', 'Thursday', 'rgb(96, 92, 168)', 0),
+(203, 1, 'Second Semester', 'ALG', 'Lab104', '08:00', '09:00', 'Tuesday', 'rgb(57, 204, 204)', 1),
+(204, 1, 'Second Semester', 'ALG', 'Lab104', '08:00', '09:00', 'Wednesday', 'rgb(60, 141, 188)', 1),
+(205, 1, 'Second Semester', 'ALG', 'Lab104', '08:00', '09:00', 'Friday', 'rgb(0, 166, 90)', 1),
+(206, 1, 'Second Semester', 'ALG', 'Lab104', '08:00', '09:00', 'Thursday', 'rgb(0, 192, 239)', 1);
 
 -- --------------------------------------------------------
 
@@ -366,7 +409,8 @@ INSERT INTO `sections` (`id`, `strand_code`, `year_level_id`, `name`, `capacity`
 (15, 'HUMSS', 1, 'B', 45),
 (16, 'TVL-HE', 1, 'B', 45),
 (17, 'TVL-AS', 1, 'B', 45),
-(18, 'ABM', 1, 'B', 45);
+(18, 'ABM', 1, 'B', 45),
+(20, 'STEM', 1, 'C', 40);
 
 -- --------------------------------------------------------
 
@@ -477,7 +521,8 @@ INSERT INTO `subjects` (`id`, `code`, `name`, `type`, `description`, `date_creat
 (3, 'WOLT', 'World Literature', 'English', 'English 11', NULL, NULL),
 (4, 'RES', 'Research', 'English', 'English 12', NULL, NULL),
 (5, 'ALG', 'Algebra', 'Math', 'Math 11', NULL, NULL),
-(6, 'SCI', 'General Science', 'Science', 'General Science and Technology', NULL, NULL);
+(6, 'SCI', 'General Science', 'Science', 'General Science and Technology', NULL, NULL),
+(8, 'TECH', 'Technology', 'Science', 'Science and Technology', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -697,12 +742,12 @@ ALTER TABLE `addresses`
 -- AUTO_INCREMENT for table `class_subjects`
 --
 ALTER TABLE `class_subjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT for table `curriculum`
 --
 ALTER TABLE `curriculum`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `enrolled_students`
 --
@@ -732,22 +777,22 @@ ALTER TABLE `requirements`
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `schedules`
 --
 ALTER TABLE `schedules`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=248;
 --
 -- AUTO_INCREMENT for table `sections`
 --
 ALTER TABLE `sections`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `strands`
 --
 ALTER TABLE `strands`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `students_info`
 --
@@ -762,12 +807,12 @@ ALTER TABLE `student_contacts`
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `teachers`
 --
 ALTER TABLE `teachers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `users`
 --

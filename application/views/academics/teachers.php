@@ -133,42 +133,42 @@
                 <tr>
                   <td>STEM 11-A</td>
                   <td>English 1</td>
-                  <td>Mon/Tue/Wed/Thur/Fri</td>
+                  <td>M/T/W/Th/F</td>
                   <td>9-11/1-2/2-3/3-4/ 4-5</td>
                   <td>Room 221</td>
                 </tr>
                 <tr>
                   <td>STEM 12-A</td>
                   <td>English 2</td>
-                  <td>Mon/Tue/Fri</td>
+                  <td>M/T/F</td>
                   <td>9-11/1-2/4-5</td>
                   <td>Room 222</td>
                 </tr>
                 <tr>
                   <td>STEM 12-A</td>
                   <td>English 2</td>
-                  <td>Mon/Tue/Fri</td>
+                  <td>M/T/F</td>
                   <td>9-11/1-2/4-5</td>
                   <td>Room 223</td>
                 </tr>
                 <tr>
                   <td>STEM 12-A</td>
                   <td>English 2</td>
-                  <td>Mon/Tue/Fri</td>
+                  <td>M/T/F</td>
                   <td>9-11/1-2/4-5</td>
                   <td>Room 224</td>
                 </tr>
                 <tr>
                   <td>STEM 12-A</td>
                   <td>English 2</td>
-                  <td>Mon/Tue/Fri</td>
+                  <td>M/T/F</td>
                   <td>9-11/1-2/4-5</td>
                   <td>Room 224</td>
                 </tr>
                 <tr>
                   <td>STEM 12-A</td>
                   <td>English 2</td>
-                  <td>Mon/Tue/Fri</td>
+                  <td>M/T/F</td>
                   <td>9-11/1-2/4-5</td>
                   <td>Room 224</td>
                 </tr>
