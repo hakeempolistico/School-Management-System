@@ -380,6 +380,8 @@
 <script src="<?php echo base_url(); ?>bower_components/jquery-ui/jquery-ui.min.js"></script>
 <!-- Slimscroll -->
 <script src="<?php echo base_url(); ?>bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- BOOTSTRAP NOTIF -->
+<script src="<?php echo base_url(); ?>bower_components/bootstrap-notify-3.1.3/dist/bootstrap-notify.js"></script>
 <!-- PACE -->
 <script src="<?php echo base_url(); ?>bower_components/PACE/pace.min.js"></script>
 <!-- bootstrap time picker -->

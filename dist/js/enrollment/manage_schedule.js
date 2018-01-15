@@ -367,6 +367,63 @@ $('#row-remove-all').click(function(){
        }
       });
     }
+    else if(!ts){
+      $.notify({
+        title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+        message: "Please fill up time start (hh:mm)."
+      },{
+        type: 'danger',
+        animate: {
+          enter: 'animated fadeInUp',
+          exit: 'animated fadeOutRight'
+        },
+        placement: {
+          from: "top",
+          align: "right"
+        },
+        offset: 20,
+        spacing: 10,
+        z_index: 1031,
+      });
+    }
+    else if(!te){
+      $.notify({
+        title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+        message: "Please fill up time end (hh:mm)."
+      },{
+        type: 'danger',
+        animate: {
+          enter: 'animated fadeInUp',
+          exit: 'animated fadeOutRight'
+        },
+        placement: {
+          from: "top",
+          align: "right"
+        },
+        offset: 20,
+        spacing: 10,
+        z_index: 1031,
+      });
+    }
+    else{
+      $.notify({
+        title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+        message: "Please input format correctly (hh:mm)."
+      },{
+        type: 'danger',
+        animate: {
+          enter: 'animated fadeInUp',
+          exit: 'animated fadeOutRight'
+        },
+        placement: {
+          from: "top",
+          align: "right"
+        },
+        offset: 20,
+        spacing: 10,
+        z_index: 1031,
+      });
+    }
   })
 
   $('td').click(function(){
@@ -396,7 +453,23 @@ $('#row-save').on('click',function(){
   //console.log('Object Length : '+row_length);
   //console.log('Row Length : '+object_length);
   if(object_length != row_calculate){
-    alert('Table must be completed. Please fill up blank cell.');
+    $.notify({
+      title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+      message: "Please fill up blank cell."
+    },{
+      type: 'danger',
+      animate: {
+        enter: 'animated fadeInUp',
+        exit: 'animated fadeOutRight'
+      },
+      placement: {
+        from: "top",
+        align: "right"
+      },
+      offset: 20,
+      spacing: 10,
+      z_index: 1031,
+    });
     return;
   }
 
@@ -409,8 +482,6 @@ $('#row-save').on('click',function(){
         console.log('---');
 
         $('table').find('.object').each(function( index ) {
-          //console.log( index + ": " + $( this ).find('.val-subject').text() );
-          //console.log( index + ": " + $( this ).find('.val-room').text() );
 
           var subject_code = $( this ).find('.val-subject').text();
           var room_id = $( this ).find('.val-room').text();
@@ -421,15 +492,6 @@ $('#row-save').on('click',function(){
           var day = $(this).closest('table').find('th').eq($(this).parents('td').index()+1).html();
           var color = $(this).css("background-color");
           var row = $(this).parents('tr').index();
-
-          //console.log('Subject Code : ' + subject_code);
-          //console.log('Section ID : ' + sectionId);
-          //console.log('Room ID : ' + room_id);
-          //console.log('Time Start : ' + time_start);
-          //console.log('Time End : ' + time_end);
-          //console.log('Day : ' + day);
-          //console.log('Color : ' + color);
-          //console.log('Row : ' + $(this).parents('tr').index());
 
           $.ajax({
             url: addScheduleUrl,
@@ -452,6 +514,24 @@ $('#row-save').on('click',function(){
             }
           });
 
+        });
+
+        $.notify({
+          title: '<strong><i class="icon fa fa-check"></i>SUCCESS!</strong>',
+          message: "Schedule saved."
+        },{
+          type: 'success',
+          animate: {
+            enter: 'animated fadeInUp',
+            exit: 'animated fadeOutRight'
+          },
+          placement: {
+            from: "top",
+            align: "right"
+          },
+          offset: 20,
+          spacing: 10,
+          z_index: 1031,
         });
       }
     });
