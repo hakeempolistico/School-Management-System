@@ -183,7 +183,7 @@
               </a>
             </li> -->
             <li>
-              <a href="<?php echo site_url('enrollment/enroll_student'); ?>">
+              <a href="#">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Student Promotion
               </a>

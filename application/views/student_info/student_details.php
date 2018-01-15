@@ -69,7 +69,7 @@
               <h3 class="box-title">Students</h3>
             </div>
             <div class="box-body">
-              <table id = "studentList" class="table table-bordered table-striped">
+              <table id = "studentList" class="table table-bordered table-striped" >
                 <thead>
                   <tr>
                     <th>LRN</th>
@@ -81,25 +81,21 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>123112312</td>
-                    <td>Escaro, Adrielle Kristine Nicolette M.</td>
-                    <td>STEM</td>
-                    <td>Grade 11</td>
-                    <td>A</td>
-                    <td>
-                      <button class='btn btn-default btn-xs' data-toggle='modal' data-target='#modal-sched'><span class='fa fa-fw fa-clock-o'></span></button>
-                      <button class='btn btn-default btn-xs' data-toggle='modal' data-target='#modal-view'><span class='fa fa-fw fa-search text-info'></span></button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>144231231</td>
-                    <td>Polistico, Hakeem A.</td>
-                    <td>STEM</td>
-                    <td>Grade 11</td>
-                    <td>A</td>
-                    <td><button class='btn btn-default btn-xs data-toggle='modal' data-target='#modal-view''><span class='fa fa-fw fa-search'></span></button></td>
-                  </tr>
+                  <?php foreach($student_details as $val) {?>
+                    <tr>
+                      <td><?php echo $val->students_info_lrn; ?></td>
+                      <td><?php echo $val->full_name; ?></td>
+                      <td><?php echo $val->strand; ?></td>
+                      <td><?php echo $val->grade; ?></td>
+                      <td><?php echo $val->section; ?></td>
+                      <td>
+                        <center>
+                          <button class='btn btn-default btn-xs btn-schedule' data-toggle='modal' data-target='#modal-sched'><span class='fa fa-fw fa-clock-o'></span></button>
+                          <button class='btn btn-default btn-xs btn-view' data-toggle='modal' data-target='#modal-view'><span class='fa fa-fw fa-search text-info'></span></button>
+                        </center>
+                      </td>
+                    </tr>
+                  <?php } ?>
                 </tbody>
                 <tfoot>
                   
@@ -127,7 +123,7 @@
               </div>
             <div class="box-body box-profile flat">
               <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url('images/alt_picture.jpg');?>" alt="<?php echo base_url('images/alt_picture.jpg');?>"> <br>
-              <center><h4>Adrielle Kristine Nicolette M. Escaro</h4></center>
+              <center><h4 id="full-name">Adrielle Kristine Nicolette M. Escaro</h4></center>
               
               <table class="table table-striped table-bordered">
                       <!-- <thead>
@@ -136,35 +132,31 @@
                       </thead> -->
                         <tr>
                           <td style="width: 50%">Admission Date</td>
-                          <td>June 15, 2016</td>
+                          <td id="admission-date">June 15, 2016</td>
                         </tr>
                         <tr>
                           <td>LRN</td>
-                          <td>000912332998</td>
+                          <td id="lrn">000912332998</td>
                         </tr>                
                         <tr>
                           <td>Sex</td>
-                          <td>Female</td>                        
+                          <td id="sex">Female</td>                        
                         </tr>
                         <tr>
                           <td>Birthdate</td>
-                          <td>February 11, 1999</td>
+                          <td id="birthdate">February 11, 1999</td>
                           </tr>
                         <tr>
-                          <td>Mobile Number</td>
-                          <td>09991232147</td>
-                        </tr>
-                        <tr>
-                          <td>Email</td>
-                          <td>someone@example.com</td>
+                          <td>Contact Number</td>
+                          <td id="contact-no">09991232147</td>
                         </tr>
                         <tr>
                           <td>Guardian</td>
-                          <td>Daenerys Targaryen</td>
+                          <td id="guardian">Daenerys Targaryen</td>
                         </tr>
                         <tr>
-                          <td>Guardian Phone</td>
-                          <td>09167892313</td>
+                          <td>Guardian's Contact</td>
+                          <td id="guardian-contact">09167892313</td>
                         </tr>
                     </table>
             </div>
@@ -257,9 +249,13 @@
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
 <!-- page script -->
-<script src="<?php echo base_url(); ?>dist/js/enrollment/dashboard.js"></script>
+<script src="<?php echo base_url(); ?>dist/js/student_information/student_details.js"></script>
 
 <script>
+
+  var getStudentInfoUrl = '<?php echo base_url('student_info/student_details/getStudentInfo'); ?>';
+  var getGuardianInfoUrl = '<?php echo base_url('student_info/student_details/getGuardianInfo'); ?>';
+
   $(function () {
     $('#studentList').DataTable()
     

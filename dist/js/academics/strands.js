@@ -193,17 +193,17 @@ function populateTable(){
     strand_code = $(this).parents('tr').find('td:first').html();
 
     $.ajax({
-            url: getRowUrl,
-            type: 'post',
-            dataType: 'json', 
-            data: {'table' : 'strands', 'set': 'code', 'value': strand_code}, 
-            success: function(result){  
-              code = result.code;
-              name = result.name;
-              $( "#edit-code" ).val(result.code);
-              $( "#edit-name" ).val(result.name);
-            }
-          });   
+      url: getRowUrl,
+      type: 'post',
+      dataType: 'json', 
+      data: {'table' : 'strands', 'set': 'code', 'value': strand_code}, 
+      success: function(result){  
+        code = result.code;
+        name = result.name;
+        $( "#edit-code" ).val(result.code);
+        $( "#edit-name" ).val(result.name);
+      }
+    });   
   });
 
 
