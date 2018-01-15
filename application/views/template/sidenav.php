@@ -193,7 +193,7 @@
         
         <li class="<?php echo (isset($active) && $active =='grades/grade_student' ? 'active' : null); ?>">
           <a href="<?php echo site_url('grades/grade_student'); ?>">
-            <i class="fa fa-file"></i>
+            <i class="fa fa-file-o"></i>
             <span>Grades Management</span>
           </a>
         </li>

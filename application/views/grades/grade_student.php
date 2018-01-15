@@ -66,15 +66,24 @@
         <div class="col-md-12">
           <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-tile"></h3>
-              <div class="box-tools pull-right">
+              <h4 class="box-tile">Select shit</h4>
+              <!-- <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse">
                   <i class="fa fa-minus"></i>
                 </button>
-              </div>
+              </div> -->
             </div>
             <div class="box-body">
-              <div class="col-xs-12 col-lg-4">
+              <div class="col-xs-12 col-lg-3">
+                  <div class="form-group">
+                    <label>Semester</label>
+                      <select class="subject-input form-control select2" style="width: 100%;">
+                        <option>1st Semester</option>
+                        <option>2nd Semester</option>
+                      </select>
+                  </div> 
+              </div>
+              <div class="col-xs-12 col-lg-3">
                   <div class="form-group">
                     <label>Quarter</label>
                       <select class="subject-input form-control select2" style="width: 100%;">
@@ -83,7 +92,7 @@
                       </select>
                   </div> 
               </div>
-              <div class="col-xs-12 col-lg-4">
+              <div class="col-xs-12 col-lg-3">
                   <div class="form-group">
                     <label>Subject</label>
                       <select class="subject-input form-control select2" style="width: 100%;">
@@ -92,7 +101,7 @@
                       </select>
                   </div> 
               </div>
-              <div class="col-xs-12 col-lg-4">
+              <div class="col-xs-12 col-lg-3">
                   <div class="form-group">
                     <label>Section</label>
                       <select class="subject-input form-control select2" style="width: 100%;">
@@ -106,15 +115,15 @@
           <!-- /.box -->
           <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-tile"></h3>
-              <div class="box-tools pull-right">
+              <h4 class="box-tile">Enter Grade for: <b>1st QUARTER </b>| <b>MATH1 </b> | <b>STEM-1A</b></h4>
+              <!-- <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse">
                   <i class="fa fa-minus"></i>
                 </button>
-              </div>
+              </div> -->
             </div>
             <div class="box-body">
-              <h4>Enter Grade for: <b>1st QUARTER </b>| <b>MATH1 </b> | <b>STEM-1A</b></h4><br>
+              <br>
               <table id = "studentList1" class="table table-bordered">
                 <thead>
                   <tr>
@@ -143,11 +152,49 @@
                       <button class='btn btn-default btn-xs'><span class='fa fa-fw fa-edit text-info'></span></button>
                     </td>
                   </tr>
+                  <tr>
+                    <td>144231231</td>
+                    <td>Polistico, Hakeem A.</td>
+                    <td><input type="" name=""></td>
+                    <td>
+                      <button class='btn btn-default btn-xs'><span class='fa fa-fw fa-check text-success'></span></button>
+                      <button class='btn btn-default btn-xs'><span class='fa fa-fw fa-edit text-info'></span></button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>144231231</td>
+                    <td>Polistico, Hakeem A.</td>
+                    <td><input type="" name=""></td>
+                    <td>
+                      <button class='btn btn-default btn-xs'><span class='fa fa-fw fa-check text-success'></span></button>
+                      <button class='btn btn-default btn-xs'><span class='fa fa-fw fa-edit text-info'></span></button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>144231231</td>
+                    <td>Polistico, Hakeem A.</td>
+                    <td><input type="" name=""></td>
+                    <td>
+                      <button class='btn btn-default btn-xs'><span class='fa fa-fw fa-check text-success'></span></button>
+                      <button class='btn btn-default btn-xs'><span class='fa fa-fw fa-edit text-info'></span></button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>144231231</td>
+                    <td>Polistico, Hakeem A.</td>
+                    <td><input type="" name=""></td>
+                    <td>
+                      <button class='btn btn-default btn-xs'><span class='fa fa-fw fa-check text-success'></span></button>
+                      <button class='btn btn-default btn-xs'><span class='fa fa-fw fa-edit text-info'></span></button>
+                    </td>
+                  </tr>
                 </tbody>
                 <tfoot>
                   
                 </tfoot>
-              </table>
+              </table><hr>
+              
+              <button class='btn btn-success pull-right'>Submit<!-- <span class='fa fa-fw fa-check'></span> --></button>
             </div>
           </div>
           <!-- /.box -->
@@ -182,6 +229,9 @@
 <script>
   $(function () {
     $('#studentList1').DataTable()
+    {
+      'paging' : false
+    }
     
   })
 </script>
