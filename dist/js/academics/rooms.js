@@ -204,20 +204,20 @@ function populateTable(){
     room_id = $(this).parents('tr').find('td:first').html();
 
     $.ajax({
-            url: getRowUrl,
-            type: 'post',
-            dataType: 'json', 
-            data: {'table' : 'rooms', 'set': 'room_id', 'value': room_id}, 
-            success: function(result){  
-              id = result.id;
-              name = result.name;
-              building = result.building;
-              $( "#edit-id" ).val(result.room_id);
-              $( "#edit-name" ).val(result.room_name);
-              $( "#edit-building" ).val(result.building);
-              console.log(result);
-            }
-          });   
+      url: getRowUrl,
+      type: 'post',
+      dataType: 'json', 
+      data: {'table' : 'rooms', 'set': 'room_id', 'value': room_id}, 
+      success: function(result){  
+        id = result.id;
+        name = result.name;
+        building = result.building;
+        $( "#edit-id" ).val(result.room_id);
+        $( "#edit-name" ).val(result.room_name);
+        $( "#edit-building" ).val(result.building);
+        console.log(result);
+      }
+    });   
   });
 
 
@@ -225,15 +225,23 @@ function populateTable(){
       id = $(this).parents('tr').find('td:first').html();
   });
   
-  $("#rooms-table").on("click", "tr td .view-btn", function(){
-      
-      $('#table-sched').DataTable({
-          info : false,
-          paging : false,
-          searching : false,
-          order : false,
-          "responsive": true
-      });
+  $("#rooms-table").on("click", "tr td .schedule-btn", function(){
+
+      console.log($(this).parents('tr').find('td:first').html());
+      $.ajax({
+        url: getScheduleUrl,
+        type: 'post',
+        dataType: 'json', 
+        data: {'room_id' : $(this).parents('tr').find('td:first').html()}, 
+        success: function(result){  
+          console.log(result);
+          $('#table-sched tbody').html('');
+          $.each(result, function( index, value ) {
+            $('#table-sched tbody').append('<tr> <td>'+value.class +' </td> <td> '+value.subject_code +'</td> <td>'+value.day +' </td> <td>'+value.time +' </td> </tr>');
+          });
+        }
+      }); 
 
   });
+
   

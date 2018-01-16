@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>School Management | Dashboard</title>
+  <title>School Management | Student Details</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -64,9 +64,9 @@
     <section class="content">
       <div class="row">
         <div class="col-md-12">
-          <div class="box">
+          <div class="box box-primary">
             <div class="box-header">
-              <h3 class="box-title">Students</h3>
+              <h3 class="box-title text-info"><i class="fa fa-graduation-cap"></i> Students</h3>
             </div>
             <div class="box-body">
               <table id = "studentList" class="table table-bordered table-striped" >
@@ -123,7 +123,7 @@
               </div>
             <div class="box-body box-profile flat">
               <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url('images/alt_picture.jpg');?>" alt="<?php echo base_url('images/alt_picture.jpg');?>"> <br>
-              <center><h4 id="full-name">Adrielle Kristine Nicolette M. Escaro</h4></center>
+              <center><h4 id="full-name">--</h4></center>
               
               <table class="table table-striped table-bordered">
                       <!-- <thead>
@@ -132,31 +132,31 @@
                       </thead> -->
                         <tr>
                           <td style="width: 50%">Admission Date</td>
-                          <td id="admission-date">June 15, 2016</td>
+                          <td id="admission-date">--</td>
                         </tr>
                         <tr>
                           <td>LRN</td>
-                          <td id="lrn">000912332998</td>
+                          <td id="lrn">--</td>
                         </tr>                
                         <tr>
                           <td>Sex</td>
-                          <td id="sex">Female</td>                        
+                          <td id="sex">--</td>                        
                         </tr>
                         <tr>
                           <td>Birthdate</td>
-                          <td id="birthdate">February 11, 1999</td>
+                          <td id="birthdate">--</td>
                           </tr>
                         <tr>
                           <td>Contact Number</td>
-                          <td id="contact-no">09991232147</td>
+                          <td id="contact-no">--</td>
                         </tr>
                         <tr>
                           <td>Guardian</td>
-                          <td id="guardian">Daenerys Targaryen</td>
+                          <td id="guardian">--</td>
                         </tr>
                         <tr>
                           <td>Guardian's Contact</td>
-                          <td id="guardian-contact">09167892313</td>
+                          <td id="guardian-contact">--</td>
                         </tr>
                     </table>
             </div>
