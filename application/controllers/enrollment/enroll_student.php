@@ -24,6 +24,8 @@ class enroll_student extends CI_Controller {
 		//$jjjk = $jjjj['0']->lrn;
 
 		//print_r($jjjk); exit;
+		$data['active'] = 'enrollment/enroll_student';
+		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
 		$this->parser->parse('enrollment/strand_selection', $data);
 	}
 
@@ -197,6 +199,8 @@ class enroll_student extends CI_Controller {
 	{
 		
 		$data = $this->parse->parsed();
+		$data['active'] = 'enrollment/enroll_student';
+		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
 		$data['lrn'] =  $this->input->post('lrn');
 		$this->parser->parse('enrollment/page2', $data);
 	}
@@ -328,6 +332,8 @@ class enroll_student extends CI_Controller {
 	    // echo '</pre>';
 	    // exit;
 
+	    $data['active'] = 'enrollment/enroll_student';
+		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
 		$this->parser->parse('enrollment/after_enroll', $data);
 	}
 
