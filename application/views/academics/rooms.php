@@ -103,50 +103,13 @@
                   <td><b>Subject</b></td>
                   <td><b>Day</b></td>
                   <td><b>Time</b></td>
-                  <td><b>Room</b></td>
                 </thead>
-                <tr>
-                  <td>STEM 11-A</td>
-                  <td>English 1</td>
-                  <td>Mon/Tue/Wed/Thur/Fri</td>
-                  <td>9-11/1-2/2-3/3-4/ 4-5</td>
-                  <td>Room 221</td>
-                </tr>
-                <tr>
-                  <td>STEM 12-A</td>
-                  <td>English 2</td>
-                  <td>Mon/Tue/Fri</td>
-                  <td>9-11/1-2/4-5</td>
-                  <td>Room 222</td>
-                </tr>
-                <tr>
-                  <td>STEM 12-A</td>
-                  <td>English 2</td>
-                  <td>Mon/Tue/Fri</td>
-                  <td>9-11/1-2/4-5</td>
-                  <td>Room 223</td>
-                </tr>
-                <tr>
-                  <td>STEM 12-A</td>
-                  <td>English 2</td>
-                  <td>Mon/Tue/Fri</td>
-                  <td>9-11/1-2/4-5</td>
-                  <td>Room 224</td>
-                </tr>
-                <tr>
-                  <td>STEM 12-A</td>
-                  <td>English 2</td>
-                  <td>Mon/Tue/Fri</td>
-                  <td>9-11/1-2/4-5</td>
-                  <td>Room 224</td>
-                </tr>
-                <tr>
-                  <td>STEM 12-A</td>
-                  <td>English 2</td>
-                  <td>Mon/Tue/Fri</td>
-                  <td>9-11/1-2/4-5</td>
-                  <td>Room 224</td>
-                </tr>
+                <tbody>
+                  <td class="temp">STEM Grade 11-A</td>
+                  <td class="temp">Math/Sci/Eng</td>
+                  <td class="temp">Wed/Thur/Fri</td>
+                  <td class="temp">9-10/11-1/10-1</td>
+                </tbody>
               </table>
             </div>
             </div>
@@ -260,6 +223,7 @@
   var updateUrl = '<?php echo base_url('academics/rooms/ajaxUpdate'); ?>';
   var countUrl = '<?php echo base_url('academics/strands/ajaxCountRow'); ?>';
   var deleteRowUrl = '<?php echo base_url('academics/rooms/ajaxDeleteRow'); ?>';  
+  var getScheduleUrl = '<?php echo base_url('academics/rooms/getSchedule'); ?>';  
  
   
 </script>

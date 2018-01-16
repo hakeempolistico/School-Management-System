@@ -12,6 +12,8 @@ class student_reports extends CI_Controller {
 	public function index()
 	{	
 		$data = $this->parse->parsed();
+		$data['active'] = 'reports/student_reports';
+		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
 		$data['strands'] = $this->global_model->getRecords('strands');
 		$data['years'] = $this->global_model->getRecords('year_levels');
         $this->parser->parse('reports/student_reports', $data);
@@ -103,6 +105,8 @@ class student_reports extends CI_Controller {
 		exit;*/
 
 		$data = $this->parse->parsed();
+		$data['active'] = 'reports/student_reports';
+		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
 		$data['criteria'] = $criteria;
 		$data['result'] = $rep_arr;
 		$this->parser->parse('reports/student_search', $data);

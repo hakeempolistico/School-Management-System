@@ -25,6 +25,13 @@ class global_model extends CI_Model{
 		return $query;
 	}
 
+	public function getRows($table, $where)
+	{
+		$this->db->where($where);
+		$query = $this->db->get($table)->result();
+		return $query;
+	}
+
 	public function getRecord($table, $where)
 	{
 		$this->db->where($where);

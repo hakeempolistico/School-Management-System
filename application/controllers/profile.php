@@ -22,6 +22,8 @@ class profile extends CI_Controller{
 
 		$data = $this->parse->parsed();
 		$data['subjects'] = $arr;
+		$data['active'] = 'profile';
+		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
         $this->parser->parse('profile/my_profile', $data);
 	}
 

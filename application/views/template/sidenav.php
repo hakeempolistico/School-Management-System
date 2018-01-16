@@ -183,7 +183,7 @@
               </a>
             </li> -->
             <li>
-              <a href="<?php echo site_url('enrollment/enroll_student'); ?>">
+              <a href="#">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Student Promotion
               </a>
@@ -196,19 +196,23 @@
             <i class="fa fa-file"></i>
             <span>Grades Management</span>
           </a>
+        </li>      
+
+        <li class="<?php echo (isset($active) && $active =='audit_trail' ? 'active' : null); ?>">
+          <a href="<?php echo site_url('audit_trail'); ?>">
+            <i class="fa fa-history"></i>
+            <span>Audit Trail</span>
+          </a>
         </li>
 
-        <li class="treeview">
+        <li class="treeview <?php echo (isset($active) && substr($active,0,7) =='reports' ? 'active' : null); ?>">
           <a href="#">
             <i class="fa fa-bar-chart"></i>
             <span>Reports</span>
-            <span class="pull-right-container">
-              <span class="label label-warning pull-right">soon</span>
-            </span>
           </a>
 
           <ul class="treeview-menu">
-            <li>
+            <li class="<?php echo (isset($active) && $active =='reports/student_reports' ? 'active' : null) ; ?>">
               <a href="<?php echo site_url('reports/student_reports'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Student Reports
@@ -218,6 +222,9 @@
               <a href="<?php echo site_url('enrollment/register_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Grade Reports
+              <span class="pull-right-container">
+                <span class="label label-warning pull-right">soon</span>
+              </span>
               </a>
             </li>            
           </ul>          

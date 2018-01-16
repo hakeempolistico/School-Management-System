@@ -76,7 +76,7 @@
 
           <div class="box box-primary">
             <div class="box-header">
-              <h3 class="box-title text-primary"><i class="fa fa-mortar-board"></i> Teacher List</h3>
+              <h3 class="box-title text-primary"><i class="fa fa-users"></i> Teacher List</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
