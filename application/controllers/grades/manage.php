@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class grade_student extends CI_Controller {
+class manage extends CI_Controller {
 
 	public function __construct()
 	{
@@ -24,10 +24,10 @@ class grade_student extends CI_Controller {
 		// 	$data['students_enrolled'][$key]->strand_name = $code;
 		// };
 
-		$data['active'] = 'grades/grade_student';
+		$data['active'] = 'grades/manage';
 		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
 
-    	$this->parser->parse('grades/grade_student', $data);
+    	$this->parser->parse('grades/manage', $data);
 	}
 
 }
