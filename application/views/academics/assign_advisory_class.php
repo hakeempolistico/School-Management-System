@@ -107,7 +107,7 @@
               </div>
               <!-- /.box-header -->
               <div class="box-body">
-                  <table id = "studentList1" class="table table-bordered table-hover">
+                  <table id = "example" class="table table-bordered table-hover">
                 <thead>
                   <tr>
                     <th></th>
@@ -122,12 +122,12 @@
                     <td>ENGLISH</td>
                   </tr>
                   <tr>
-                    <td><input type="checkbox" name=""></td>
+                    <td><input type="checkbox" class="minimal" name=""></td>
                     <td>Hakeem Polistico</td>
                     <td>MATH</td>
                   </tr>
                   <tr>
-                    <td><input type="checkbox" name=""></td>
+                    <td><input type="checkbox" class="minimal" name=""></td>
                     <td>Jasver Anlouise Salva</td>
                     <td>Laziness</td>
                   </tr>               
@@ -176,6 +176,10 @@
 
 <script>
   $(function (){
+
+    $('#example').DataTable( {
+             
+    } );
 
     $('input[type="checkbox"].minimal').iCheck({
       checkboxClass: 'icheckbox_minimal-blue'
