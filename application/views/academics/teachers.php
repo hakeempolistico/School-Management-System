@@ -242,19 +242,19 @@
 
         <div class="modal fade in" id="modal-delete">
           <div class="modal-dialog" style="max-width: 320px">
-            <div class="box box-danger">
+            <div id="box-delete" class="box box-danger">
               <div class="box-header with-border" style="cursor: move; margin: 0px;">
-                <i class="fa fa-warning text-danger"></i>
+                <i id="box-delete-icon" class="fa fa-warning text-danger"></i>
 
                 <h3 class="box-title text-danger">Warning</h3>
                 <!-- tools box -->
                 <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-box-tool" data-dismiss="modal"><i class="fa fa-times text-danger"></i></button>
+                  <button id="box-delete-btn" type="button" class="btn btn-box-tool" data-dismiss="modal"><i class="fa fa-times text-danger"></i></button>
                 </div>
                 <!-- /. tools -->
               </div>
               <div class="box-body box-profile flat" style="margin-top: -10px">
-                <h4>Are you sure you want to delete record?</h4>
+                <h4 id="text-status">Are you sure you want to delete record?</h4>
                 <button id="delete-confirm" data-dismiss="modal" type="button" style="width: 75px" class="btn btn-block btn-danger btn-sm pull-right">Confirm</button>
               </div>
             </div>
@@ -289,15 +289,24 @@
 <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.fixedHeader.min.js"></script>
 <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.responsive.min.js"></script>
 
-<script src="<?php echo base_url('dist/js/academics/teachers.js'); ?>"></script>
   
 <script>
 
   $(document).ajaxStart(function () {
     Pace.restart()
-  })
-  
+  });
+</script>
+<script>
+  var getRecordsUrl = '<?php echo base_url('academics/teachers/ajaxGetRecords'); ?>';
+  var countUrl = '<?php echo base_url('academics/teachers/ajaxCountRow'); ?>';
+  var addUrl = '<?php echo base_url('academics/teachers/ajaxInsert'); ?>';
+  var updateUrl = '<?php echo base_url('academics/teachers/ajaxUpdate'); ?>';
+  var getRowUrl = '<?php echo base_url('academics/teachers/ajaxGetRow'); ?>';
+  var deleteRowUrl = '<?php echo base_url('academics/teachers/ajaxDeleteRow'); ?>';
+
 </script>
 
+
+<script src="<?php echo base_url('dist/js/academics/teachers.js'); ?>"></script>
 </body>
 </html>
