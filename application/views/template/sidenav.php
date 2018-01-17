@@ -191,11 +191,29 @@
           </ul>          
         </li>
         
-        <li class="<?php echo (isset($active) && $active =='grades/grade_student' ? 'active' : null); ?>">
-          <a href="<?php echo site_url('grades/grade_student'); ?>">
+        <li class="treeview <?php echo (isset($active) && substr($active,0,6) =='grades' ? 'active' : null); ?>">
+          <a href="">
             <i class="fa fa-file-o"></i>
             <span>Grades Management</span>
+            <span class="pull-right-container">
+              <span class="fa fa-angle-left pull-right"></span>
+            </span>
           </a>
+
+          <ul class="treeview-menu">
+            <li class="<?php echo (isset($active) && $active =='grades/view' ? 'active' : null); ?>">
+              <a href="<?php echo site_url('grades/view'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                View
+              </a>
+            </li>         
+            <li class="<?php echo (isset($active) && $active =='grades/grade_student' ? 'active' : null); ?>">
+              <a href="<?php echo site_url('grades/grade_student'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Manage
+              </a>
+            </li>
+          </ul>
         </li>
 
         <li class="treeview">

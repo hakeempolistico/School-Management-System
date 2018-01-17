@@ -66,7 +66,7 @@
         <div class="col-md-12">
           <div class="box">
             <div class="box-header with-border">
-              <h4 class="box-tile">Select shit</h4>
+              <h3 class="box-title">Select Criteria</h3>
               <!-- <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse">
                   <i class="fa fa-minus"></i>
@@ -115,7 +115,7 @@
           <!-- /.box -->
           <div class="box">
             <div class="box-header with-border">
-              <h4 class="box-tile">Enter Grade for: <b>1st QUARTER </b>| <b>MATH1 </b> | <b>STEM-1A</b></h4>
+              <h3 class="box-title">Enter Grade for: <b>1st QUARTER </b>| <b>MATH1 </b> | <b>STEM-1A</b></h3>
               <!-- <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse">
                   <i class="fa fa-minus"></i>
@@ -194,10 +194,32 @@
                 </tfoot>
               </table><hr>
               
-              <button class='btn btn-success pull-right'>Submit<!-- <span class='fa fa-fw fa-check'></span> --></button>
+              <button class='btn btn-primary pull-right' data-toggle="modal" data-target="#modal-default">Submit<!-- <span class='fa fa-fw fa-check'></span> --></button>
             </div>
           </div>
           <!-- /.box -->
+          <div class="modal fade" id="modal-default">
+          <div class="modal-dialog" style="width: 400px;">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Confirm Action</h4>
+              </div>
+              <div class="modal-body">
+                <h4 style="margin-top: -8px;"><b>ARE YOU SURE?</b></h4>
+                <p>The entered grades cannot be changed once submitted.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Confirm</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
         </div>
       </div>
       
