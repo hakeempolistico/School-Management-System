@@ -178,7 +178,7 @@
             <!-- /.box-body -->
             <div class="box-footer clearfix">
               <a href="<?php echo site_url('enrollment/register_student')?>" class="btn btn-sm btn-info btn-flat pull-left">Add Student</a>
-              <a href="javascript:void(0)" id="trial" class="btn btn-sm btn-default btn-flat pull-right">View All Students</a>
+              <a href="<?php echo site_url('enrollment/student_list')?>" id="trial" class="btn btn-sm btn-default btn-flat pull-right">View All Students</a>
             </div>
             <!-- /.box-footer -->
           </div>

@@ -40,7 +40,7 @@
         <div class="col-lg-4 col-xs-12">
           <div class="box box-primary">
               <div class="box-header">
-                <h3 class="box-title">Add Teacher</h3>
+                <h3 class="box-title text-primary"><i class="fa fa-plus"></i> Add Teacher</h3>
               </div>
               <div class="box-body">
                 <div class="form-group" style="margin-bottom: 5px">
@@ -76,7 +76,7 @@
 
           <div class="box box-primary">
             <div class="box-header">
-              <h3 class="box-title">Teacher List</h3>
+              <h3 class="box-title text-primary"><i class="fa fa-users"></i> Teacher List</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -133,42 +133,42 @@
                 <tr>
                   <td>STEM 11-A</td>
                   <td>English 1</td>
-                  <td>Mon/Tue/Wed/Thur/Fri</td>
+                  <td>M/T/W/Th/F</td>
                   <td>9-11/1-2/2-3/3-4/ 4-5</td>
                   <td>Room 221</td>
                 </tr>
                 <tr>
                   <td>STEM 12-A</td>
                   <td>English 2</td>
-                  <td>Mon/Tue/Fri</td>
+                  <td>M/T/F</td>
                   <td>9-11/1-2/4-5</td>
                   <td>Room 222</td>
                 </tr>
                 <tr>
                   <td>STEM 12-A</td>
                   <td>English 2</td>
-                  <td>Mon/Tue/Fri</td>
+                  <td>M/T/F</td>
                   <td>9-11/1-2/4-5</td>
                   <td>Room 223</td>
                 </tr>
                 <tr>
                   <td>STEM 12-A</td>
                   <td>English 2</td>
-                  <td>Mon/Tue/Fri</td>
+                  <td>M/T/F</td>
                   <td>9-11/1-2/4-5</td>
                   <td>Room 224</td>
                 </tr>
                 <tr>
                   <td>STEM 12-A</td>
                   <td>English 2</td>
-                  <td>Mon/Tue/Fri</td>
+                  <td>M/T/F</td>
                   <td>9-11/1-2/4-5</td>
                   <td>Room 224</td>
                 </tr>
                 <tr>
                   <td>STEM 12-A</td>
                   <td>English 2</td>
-                  <td>Mon/Tue/Fri</td>
+                  <td>M/T/F</td>
                   <td>9-11/1-2/4-5</td>
                   <td>Room 224</td>
                 </tr>
@@ -228,7 +228,7 @@
                   <label for="view-status">Status</label>
                   <input type="text" class="form-control" id="view-status">
                 </div>
-                <button id="view-update" data-dismiss="modal" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-save"></i> &nbsp; Save</button>
+                <button id="view-update" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-save"></i> &nbsp; Save</button>
                  
                 </li>   
               </ul>
@@ -242,19 +242,19 @@
 
         <div class="modal fade in" id="modal-delete">
           <div class="modal-dialog" style="max-width: 320px">
-            <div class="box box-danger">
+            <div id="box-delete" class="box box-danger">
               <div class="box-header with-border" style="cursor: move; margin: 0px;">
-                <i class="fa fa-warning text-danger"></i>
+                <i id="box-delete-icon" class="fa fa-warning text-danger"></i>
 
                 <h3 class="box-title text-danger">Warning</h3>
                 <!-- tools box -->
                 <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-box-tool" data-dismiss="modal"><i class="fa fa-times text-danger"></i></button>
+                  <button id="box-delete-btn" type="button" class="btn btn-box-tool" data-dismiss="modal"><i class="fa fa-times text-danger"></i></button>
                 </div>
                 <!-- /. tools -->
               </div>
               <div class="box-body box-profile flat" style="margin-top: -10px">
-                <h4>Are you sure you want to delete record?</h4>
+                <h4 id="text-status">Are you sure you want to delete record?</h4>
                 <button id="delete-confirm" data-dismiss="modal" type="button" style="width: 75px" class="btn btn-block btn-danger btn-sm pull-right">Confirm</button>
               </div>
             </div>
@@ -275,6 +275,8 @@
 <script src="<?php echo base_url(); ?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
+<!-- BOOTSTRAP NOTIF -->
+<script src="<?php echo base_url(); ?>bower_components/bootstrap-notify-3.1.3/dist/bootstrap-notify.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
@@ -287,15 +289,24 @@
 <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.fixedHeader.min.js"></script>
 <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.responsive.min.js"></script>
 
-<script src="<?php echo base_url('dist/js/academics/teachers.js'); ?>"></script>
   
 <script>
 
   $(document).ajaxStart(function () {
     Pace.restart()
-  })
-  
+  });
+</script>
+<script>
+  var getRecordsUrl = '<?php echo base_url('academics/teachers/ajaxGetRecords'); ?>';
+  var countUrl = '<?php echo base_url('academics/teachers/ajaxCountRow'); ?>';
+  var addUrl = '<?php echo base_url('academics/teachers/ajaxInsert'); ?>';
+  var updateUrl = '<?php echo base_url('academics/teachers/ajaxUpdate'); ?>';
+  var getRowUrl = '<?php echo base_url('academics/teachers/ajaxGetRow'); ?>';
+  var deleteRowUrl = '<?php echo base_url('academics/teachers/ajaxDeleteRow'); ?>';
+
 </script>
 
+
+<script src="<?php echo base_url('dist/js/academics/teachers.js'); ?>"></script>
 </body>
 </html>

@@ -1,20 +1,4 @@
-var i;
-var new_empoyee_id;
-var employee_id;
-var first_name;
-var middle_name;
-var last_name;
-var position;
-var major;
-var status;
-
-
-  var getRecordsUrl = 'teachers/ajaxGetRecords';
-  var countUrl = "teachers/ajaxCountRow";
-  var addUrl = "teachers/ajaxInsert";
-  var updateUrl = "teachers/ajaxUpdate";
-  var getRowUrl = "teachers/ajaxGetRow";
-  var deleteRowUrl = "teachers/ajaxDeleteRow";
+var i, new_empoyee_id, employee_id, first_name, middle_name, last_name, position, major, status, activeStatus;
 
 
 $(function () {
@@ -31,10 +15,42 @@ $(function () {
                 success: function(result){
                   var employeeCount = result;    
                   if (new_empoyee_id == null || new_empoyee_id.trim() === ''){
-                    alert('Employee ID cannot be empty');
+                    $.notify({
+                      title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+                      message: "Employee ID cannot be empty."
+                    },{
+                      type: 'danger',
+                      animate: {
+                        enter: 'animated fadeInUp',
+                        exit: 'animated fadeOutRight'
+                      },
+                      placement: {
+                        from: "top",
+                        align: "right"
+                      },
+                      offset: 20,
+                      spacing: 10,
+                      z_index: 1031,
+                    });
                   }
                   else if(employeeCount > 0 && employee_id != new_empoyee_id){
-                    alert('Employee ID already exist');
+                    $.notify({
+                      title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+                      message: "Employee ID already exist."
+                    },{
+                      type: 'danger',
+                      animate: {
+                        enter: 'animated fadeInUp',
+                        exit: 'animated fadeOutRight'
+                      },
+                      placement: {
+                        from: "top",
+                        align: "right"
+                      },
+                      offset: 20,
+                      spacing: 10,
+                      z_index: 1031,
+                    });
                   }
                   else{
                     $.ajax({
@@ -55,6 +71,23 @@ $(function () {
                         console.log(result);
                         hide();
                         populateTable();
+                        $.notify({
+                          title: '<strong><i class="icon fa fa-check"></i>SUCCESS!</strong>',
+                          message: "Teacher info updated."
+                        },{
+                          type: 'success',
+                          animate: {
+                            enter: 'animated fadeInUp',
+                            exit: 'animated fadeOutRight'
+                          },
+                          placement: {
+                            from: "top",
+                            align: "right"
+                          },
+                          offset: 20,
+                          spacing: 10,
+                          z_index: 1031,
+                        });
                       }
                     }); 
                   } 
@@ -113,6 +146,23 @@ function populateTable(){
 
   $("#teachersTable").on("click", "tr td .delete-btn", function(){
       employee_id = $(this).parents('tr').find('td:first').html();
+      active_status = $(this).parents('tr').find('td:nth-child(3)').find('span').html();
+      //console.log(status);
+
+      if(active_status=='active'){
+        $('#box-delete').removeClass('box-success').removeClass('box-danger').addClass('box-danger');
+        $('#box-delete-icon').removeClass('text-success').removeClass('text-danger').addClass('text-danger');
+        $('#box-delete-btn').removeClass('text-success').removeClass('text-danger').addClass('text-danger');
+        $('#delete-confirm').removeClass('btn-danger').removeClass('btn-success').addClass('btn-danger');
+        $('#text-status').html('Are you sure you want to inactivate record?');
+      }
+      else if(active_status=='inactive'){
+        $('#box-delete').removeClass('box-success').removeClass('box-danger').addClass('box-success');
+        $('#box-delete-icon').removeClass('text-success').removeClass('text-danger').addClass('text-success');
+        $('#box-delete-btn').removeClass('text-success').removeClass('text-danger').addClass('text-success');
+        $('#delete-confirm').removeClass('btn-danger').removeClass('btn-success').addClass('btn-success');
+        $('#text-status').html('Are you sure you want to activate record?');
+      }
   });
   
 }
@@ -135,18 +185,42 @@ $("#add-btn").click(function(){
             success: function(result){
               var idCount = result;    
               if (id == null || id.trim() === ''){
-                $('#alert-box').slideDown(1000);
-                $('#alert-box').addClass('alert-danger').removeClass('alert-success');
-                $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!');
-                $('#alert-message').html('Please fill up subject code.');
-                $('#alert-box').delay( 1500 ).slideUp(1000);
+                $.notify({
+                  title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+                  message: "Please fill up Employee ID."
+                },{
+                  type: 'danger',
+                  animate: {
+                    enter: 'animated fadeInUp',
+                    exit: 'animated fadeOutRight'
+                  },
+                  placement: {
+                    from: "top",
+                    align: "right"
+                  },
+                  offset: 20,
+                  spacing: 10,
+                  z_index: 1031,
+                });
               }
               else if(idCount > 0){
-                $('#alert-box').slideDown(1000);
-                $('#alert-box').addClass('alert-danger').removeClass('alert-success');
-                $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-check-warning"></i> ERROR MESSAGE!');
-                $('#alert-message').html('Subject code in in use. Please try another one.');
-                $('#alert-box').delay( 1500 ).slideUp(1000);
+                $.notify({
+                  title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+                  message: "Employee ID in use."
+                },{
+                  type: 'danger',
+                  animate: {
+                    enter: 'animated fadeInUp',
+                    exit: 'animated fadeOutRight'
+                  },
+                  placement: {
+                    from: "top",
+                    align: "right"
+                  },
+                  offset: 20,
+                  spacing: 10,
+                  z_index: 1031,
+                });
               }
               else{
                 $.ajax({
@@ -171,15 +245,24 @@ $("#add-btn").click(function(){
                     $('#lastname-input').val('');
                     $('#major-input').val('');
                     $('#position-input').val('');
-                    $('#alert-box').slideDown(1000);
-                    $('#alert-box').addClass('alert-success').removeClass('alert-danger');
-                    $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-check"></i> SUCCESS MESSAGE!');
-                    $('#alert-message').html(
-                      'Added <br> Employee ID: '+id+ 
-                      '<br> Teacher: '+first_name+' '+middle_name+' '+last_name+ 
-                      '<br> Subject Major: ' + major + 
-                      '<br> Position: ' + position);
-                    $('#alert-box').delay( 2000 ).slideUp(1000);
+                    
+                    $.notify({
+                      title: '<strong><i class="icon fa fa-ban"></i>SUCCESS!</strong>',
+                      message: "Employee added."
+                    },{
+                      type: 'success',
+                      animate: {
+                        enter: 'animated fadeInUp',
+                        exit: 'animated fadeOutRight'
+                      },
+                      placement: {
+                        from: "top",
+                        align: "right"
+                      },
+                      offset: 20,
+                      spacing: 10,
+                      z_index: 1031,
+                    });
                   }
                 }); 
               }
@@ -243,14 +326,62 @@ $('#view-update').click(function(){
 //DELETE MODAL
 
 $('#delete-confirm').click(function(){
+  var setStat;
+  if(active_status=='active'){
+    setStat='inactive';
+  }
+  else if(active_status=='inactive'){
+    setStat='active';
+  }
   $.ajax({
-            url: deleteRowUrl,
-            type: 'post',
-            dataType: 'json', 
-            data: {'table':'teachers', 'employee_id': employee_id }, 
-            success: function(result){
-              console.log(result);
-              populateTable();
-            }
-          }); 
+    url: updateUrl,
+    type: 'post',
+    dataType: 'json', 
+    data: {'table' : 'teachers', 'status': setStat, 'set': employee_id }, 
+    success: function(result){
+      console.log(result);
+      populateTable();
+
+      if(setStat=='inactive'){
+        $.notify({
+          title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+          message: "Employee: " + employee_id + " set to inactive."
+        },{
+          type: 'danger',
+          animate: {
+            enter: 'animated fadeInUp',
+            exit: 'animated fadeOutRight'
+          },
+          placement: {
+            from: "top",
+            align: "right"
+          },
+          offset: 20,
+          spacing: 10,
+          delay: 5000,
+          z_index: 1031,
+        });     
+      }
+      else if(setStat=='active'){
+        $.notify({
+          title: '<strong><i class="icon fa fa-check"></i>SUCCESS!</strong>',
+          message: "Employee: " + employee_id + " set to active."
+        },{
+          type: 'success',
+          animate: {
+            enter: 'animated fadeInUp',
+            exit: 'animated fadeOutRight'
+          },
+          placement: {
+            from: "top",
+            align: "right"
+          },
+          offset: 20,
+          spacing: 10,
+          delay: 5000,
+          z_index: 1031,
+        });     
+      }
+    }
+  }); 
 })

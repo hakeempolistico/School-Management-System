@@ -9,18 +9,7 @@
   <?=$template?>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- <div class="alert alert-success alert-dismissible flat">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <h4><i class="icon fa fa-bullhorn"></i> Day 1 of Enrollment is successful!</h4>
-        Congratulations! Job well done! Please do the same on Day 2 of Enrollment!
-     </div> -->
-     <div id="alert-box" class="alert alert-danger alert-dismissible flat" hidden>
-      <button type="button" class="close" aria-hidden="true">&times;</button>
-      <h4 id="alert-title"><i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!</h4>
-        <div id="alert-message">Subject code already used. Please use another one.</div>
-     </div>
-      
+  <div class="content-wrapper">      
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -39,7 +28,7 @@
         <div class="col-lg-4 col-xs-12">
           <div class="box box-primary">
               <div class="box-header">
-                <h3 class="box-title">Add Strands</h3>
+                <h3 class="box-title text-primary"><i class="fa fa-plus"></i> Add Strands</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
@@ -60,7 +49,7 @@
 
           <div class="box box-primary">
             <div class="box-header">
-              <h3 class="box-title">Strand List</h3>
+              <h3 class="box-title text-primary"><i class="fa fa-tag"></i> Strand List</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -69,6 +58,7 @@
                 <tr>
                   <th>Code</th>    
                   <th>Name</th>              
+                  <th>Strands</th>              
                   <th>Action</th>
                 </tr>
                 </thead>
@@ -76,6 +66,7 @@
                 <tr>
                   <th>Code</th>    
                   <th>Name</th>              
+                  <th>Strands</th>              
                   <th>Action</th>
                 </tr>                
                 </tfoot>
@@ -124,19 +115,19 @@
         <!-- /.modal -->
         <div class="modal fade in" id="modal-delete">
           <div class="modal-dialog" style="max-width: 320px">
-            <div class="box box-danger">
+            <div id="box-delete" class="box box-danger">
               <div class="box-header with-border" style="cursor: move; margin: 0px;">
-                <i class="fa fa-warning text-danger"></i>
+                <i id="box-delete-icon" class="fa fa-warning text-danger"></i>
 
                 <h3 class="box-title text-danger">Warning</h3>
                 <!-- tools box -->
                 <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-box-tool" data-dismiss="modal"><i class="fa fa-times text-danger"></i></button>
+                  <button type="button" class="btn btn-box-tool" data-dismiss="modal"><i id="box-delete-btn" class="fa fa-times text-danger"></i></button>
                 </div>
                 <!-- /. tools -->
               </div>
               <div class="box-body box-profile flat" style="margin-top: -10px">
-                <h4>Are you sure you want to delete record?</h4>
+                <h4 id="text-status">Are you sure you want todelete record?</h4>
                 <button id="delete-confirm" data-dismiss="modal" type="button" style="width: 75px; margin: 10px;" class="btn btn-block btn-danger btn-sm pull-right">Confirm</button>
               </div>
             </div>
@@ -160,6 +151,8 @@
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
+<!-- BOOTSTRAP NOTIF -->
+<script src="<?php echo base_url(); ?>bower_components/bootstrap-notify-3.1.3/dist/bootstrap-notify.js"></script>
 <!-- PACE -->
 <script src="<?php echo base_url(); ?>bower_components/PACE/pace.min.js"></script>
 <!-- DataTables -->

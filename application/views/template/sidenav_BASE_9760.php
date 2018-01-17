@@ -183,7 +183,7 @@
               </a>
             </li> -->
             <li>
-              <a href="#">
+              <a href="<?php echo site_url('enrollment/enroll_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Student Promotion
               </a>
@@ -191,45 +191,24 @@
           </ul>          
         </li>
         
-        <li class="treeview <?php echo (isset($active) && substr($active,0,6) =='grades' ? 'active' : null); ?>">
-          <a href="">
-            <i class="fa fa-file-o"></i>
+        <li class="<?php echo (isset($active) && $active =='grades/grade_student' ? 'active' : null); ?>">
+          <a href="<?php echo site_url('grades/grade_student'); ?>">
+            <i class="fa fa-file"></i>
             <span>Grades Management</span>
-            <span class="pull-right-container">
-              <span class="fa fa-angle-left pull-right"></span>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class="<?php echo (isset($active) && $active =='grades/view' ? 'active' : null); ?>">
-              <a href="<?php echo site_url('grades/view'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                View
-              </a>
-            </li>         
-            <li class="<?php echo (isset($active) && $active =='grades/grade_student' ? 'active' : null); ?>">
-              <a href="<?php echo site_url('grades/grade_student'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Manage
-              </a>
-            </li>
-          </ul>
-        </li>      
-
-        <li class="<?php echo (isset($active) && $active =='audit_trail' ? 'active' : null); ?>">
-          <a href="<?php echo site_url('audit_trail'); ?>">
-            <i class="fa fa-history"></i>
-            <span>Audit Trail</span>
           </a>
         </li>
 
-        <li class="treeview <?php echo (isset($active) && substr($active,0,7) =='reports' ? 'active' : null); ?>">
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-bar-chart"></i>
             <span>Reports</span>
+            <span class="pull-right-container">
+              <span class="label label-warning pull-right">soon</span>
+            </span>
           </a>
 
           <ul class="treeview-menu">
-            <li class="<?php echo (isset($active) && $active =='reports/student_reports' ? 'active' : null) ; ?>">
+            <li>
               <a href="<?php echo site_url('reports/student_reports'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Student Reports
@@ -239,38 +218,19 @@
               <a href="<?php echo site_url('enrollment/register_student'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Grade Reports
-              <span class="pull-right-container">
-                <span class="label label-warning pull-right">soon</span>
-              </span>
               </a>
             </li>            
           </ul>          
         </li>
 
-        
-        <li class="treeview <?php echo (isset($active) && substr($active,0,8) =='settings' ? 'active' : null); ?>">
+        <li class="treeview">
           <a href="#">
-            <i class="fa fa-gear"></i>
-            <span>Settings</span>
+            <i class="fa fa-user-plus"></i>
+            <span>User Management</span>
             <span class="pull-right-container">
-              <span class="fa fa-angle-left pull-right"></span>
+              <span class="label label-warning pull-right">soon</span>
             </span>
-          </a>
-
-          <ul class="treeview-menu">
-            <li class="<?php echo (isset($active) && $active =='settings/user_management' ? 'active' : null) ; ?>">
-              <a href="<?php echo site_url('student_info/student_details'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                User Management
-              </a>
-            </li>         
-            <li>
-              <a href="<?php echo site_url('settings/lock'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                lock
-              </a>
-            </li>
-          </ul>          
+          </a>         
         </li>
 
       </ul>

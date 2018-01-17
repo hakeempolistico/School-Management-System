@@ -39,13 +39,61 @@ function updateRow(){
             success: function(result){
               var codeCount = result;    
               if (newCode == null || newCode.trim() === ''){
-                alert('Subject code cannot be empty');
+                $.notify({
+                  title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+                  message: "Please fill up subject code.."
+                },{
+                  type: 'danger',
+                  animate: {
+                    enter: 'animated fadeInUp',
+                    exit: 'animated fadeOutRight'
+                  },
+                  placement: {
+                    from: "top",
+                    align: "right"
+                  },
+                  offset: 20,
+                  spacing: 10,
+                  z_index: 1031,
+                });
               }
               else if(codeCount > 0 && code != newCode){
-                alert('Subject code already exist');
+                $.notify({
+                  title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+                  message: "Subject Code already exist."
+                },{
+                  type: 'danger',
+                  animate: {
+                    enter: 'animated fadeInUp',
+                    exit: 'animated fadeOutRight'
+                  },
+                  placement: {
+                    from: "top",
+                    align: "right"
+                  },
+                  offset: 20,
+                  spacing: 10,
+                  z_index: 1031,
+                });
               }
               else if (name == null || name.trim() === ''){
-                alert('Subject name cannot be empty');
+                $.notify({
+                  title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+                  message: "Please fill up Subject Name."
+                },{
+                  type: 'danger',
+                  animate: {
+                    enter: 'animated fadeInUp',
+                    exit: 'animated fadeOutRight'
+                  },
+                  placement: {
+                    from: "top",
+                    align: "right"
+                  },
+                  offset: 20,
+                  spacing: 10,
+                  z_index: 1031,
+                });
               }
               else{
                 $.ajax({
@@ -54,9 +102,26 @@ function updateRow(){
                   dataType: 'json', 
                   data: {'name' : name, 'code': newCode, 'type': type, 'description': description, 'set': subjectCode }, 
                   success: function(result){
-                    console.log(result);
+                    //console.log(result);
                     hide();
                     populateTable();
+                      $.notify({
+                        title: '<strong><i class="icon fa fa-check"></i>SUCCESS!</strong>',
+                        message: "Subject added."
+                      },{
+                        type: 'success',
+                        animate: {
+                          enter: 'animated fadeInUp',
+                          exit: 'animated fadeOutRight'
+                        },
+                        placement: {
+                          from: "top",
+                          align: "right"
+                        },
+                        offset: 20,
+                        spacing: 10,
+                        z_index: 1031,
+                      });
                   }
                 }); 
               }
@@ -93,8 +158,25 @@ $('#delete-confirm').click(function(){
             dataType: 'json', 
             data: {'code': subjectCode }, 
             success: function(result){
-              console.log(result);
+              //console.log(result);
               populateTable();
+              $.notify({
+                title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+                message: "Subject Code : " + subjectCode + " deleted."
+              },{
+                type: 'danger',
+                animate: {
+                  enter: 'animated fadeInUp',
+                  exit: 'animated fadeOutRight'
+                },
+                placement: {
+                  from: "top",
+                  align: "right"
+                },
+                offset: 20,
+                spacing: 10,
+                z_index: 1031,
+              });
             }
           }); 
 })
@@ -172,25 +254,61 @@ function populateTable(){
             success: function(result){
               var codeCount = result;    
               if (code == null || code.trim() === ''){
-                $('#alert-box').addClass('alert-danger').removeClass('alert-success');
-                $('#alert-box').slideDown(1000);
-                $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!');
-                $('#alert-message').html('Please fill up subject code.');
-                $('#alert-box').delay( 1500 ).slideUp(1000);
+                $.notify({
+                  title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+                  message: "Please fill up subject code."
+                },{
+                  type: 'danger',
+                  animate: {
+                    enter: 'animated fadeInUp',
+                    exit: 'animated fadeOutRight'
+                  },
+                  placement: {
+                    from: "top",
+                    align: "right"
+                  },
+                  offset: 20,
+                  spacing: 10,
+                  z_index: 1031,
+                });
               }
               else if(codeCount > 0){
-                $('#alert-box').slideDown(1000);
-                $('#alert-box').addClass('alert-danger').removeClass('alert-success');
-                $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!');
-                $('#alert-message').html('Subject code in in use. Please try another one.');
-                $('#alert-box').delay( 1500 ).slideUp(1000);
+                $.notify({
+                  title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+                  message: "Subject Code already used."
+                },{
+                  type: 'danger',
+                  animate: {
+                    enter: 'animated fadeInUp',
+                    exit: 'animated fadeOutRight'
+                  },
+                  placement: {
+                    from: "top",
+                    align: "right"
+                  },
+                  offset: 20,
+                  spacing: 10,
+                  z_index: 1031,
+                });
               }
               else if (name == null || name.trim() === ''){
-                $('#alert-box').addClass('alert-danger').removeClass('alert-success');
-                $('#alert-box').slideDown(1000);
-                $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!');
-                $('#alert-message').html('Please fill up subject name.');
-                $('#alert-box').delay( 1500 ).slideUp(1000);
+                $.notify({
+                  title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+                  message: "Please fill up subject name."
+                },{
+                  type: 'danger',
+                  animate: {
+                    enter: 'animated fadeInUp',
+                    exit: 'animated fadeOutRight'
+                  },
+                  placement: {
+                    from: "top",
+                    align: "right"
+                  },
+                  offset: 20,
+                  spacing: 10,
+                  z_index: 1031,
+                });
               }
               else{
                 $.ajax({
@@ -199,17 +317,29 @@ function populateTable(){
                   dataType: 'json', 
                   data: {'name' : name, 'code': code, 'type': type, 'description': description }, 
                   success: function(result){
-                    console.log(result);              
+                    //console.log(result);              
                     populateTable();
                     $('#name-input').val('');
                     $('#code-input').val('');
                     $('#type-input').val('');
                     $('#description-input').val('');
-                    $('#alert-box').slideDown(1000);
-                    $('#alert-box').addClass('alert-success').removeClass('alert-danger');
-                    $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-check"></i> SUCCESS MESSAGE!');
-                    $('#alert-message').html('Added <br> Subject code: '+code+ ' <br> Subject name:' + name );
-                    $('#alert-box').delay( 2000 ).slideUp(1000);
+                    $.notify({
+                      title: '<strong><i class="icon fa fa-check"></i>SUCCESS!</strong>',
+                      message: "Subject added."
+                    },{
+                      type: 'success',
+                      animate: {
+                        enter: 'animated fadeInUp',
+                        exit: 'animated fadeOutRight'
+                      },
+                      placement: {
+                        from: "top",
+                        align: "right"
+                      },
+                      offset: 20,
+                      spacing: 10,
+                      z_index: 1031,
+                    });
                   }
                 }); 
               }

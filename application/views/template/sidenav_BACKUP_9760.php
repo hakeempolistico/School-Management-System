@@ -199,6 +199,8 @@
               <span class="fa fa-angle-left pull-right"></span>
             </span>
           </a>
+<<<<<<< HEAD
+
           <ul class="treeview-menu">
             <li class="<?php echo (isset($active) && $active =='grades/view' ? 'active' : null); ?>">
               <a href="<?php echo site_url('grades/view'); ?>">
@@ -213,6 +215,7 @@
               </a>
             </li>
           </ul>
+=======
         </li>      
 
         <li class="<?php echo (isset($active) && $active =='audit_trail' ? 'active' : null); ?>">
@@ -220,6 +223,7 @@
             <i class="fa fa-history"></i>
             <span>Audit Trail</span>
           </a>
+>>>>>>> 2bafa5372179c2b7a7cfa61c6aa03c9ef256c5c8
         </li>
 
         <li class="treeview <?php echo (isset($active) && substr($active,0,7) =='reports' ? 'active' : null); ?>">

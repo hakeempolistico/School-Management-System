@@ -9,18 +9,7 @@
   <?=$template?>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- <div class="alert alert-success alert-dismissible flat">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <h4><i class="icon fa fa-bullhorn"></i> Day 1 of Enrollment is successful!</h4>
-        Congratulations! Job well done! Please do the same on Day 2 of Enrollment!
-     </div> -->
-     <div id="alert-box" class="alert alert-danger alert-dismissible flat" hidden>
-      <button type="button" class="close" aria-hidden="true">&times;</button>
-      <h4 id="alert-title"><i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!</h4>
-        <div id="alert-message">Subject code already used. Please use another one.</div>
-     </div>
-      
+  <div class="content-wrapper">      
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -39,7 +28,7 @@
         <div class="col-lg-4 col-xs-12">
           <div class="box box-primary">
               <div class="box-header">
-                <h3 class="box-title">Add Rooms</h3>
+                <h3 class="box-title text-primary"><i class="fa fa-plus"></i> Add Rooms</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
@@ -64,7 +53,7 @@
 
           <div class="box box-primary">
             <div class="box-header">
-              <h3 class="box-title">Rooms List</h3>
+              <h3 class="box-title text-primary"><i class="fa fa-university"></i> Rooms List</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -114,50 +103,13 @@
                   <td><b>Subject</b></td>
                   <td><b>Day</b></td>
                   <td><b>Time</b></td>
-                  <td><b>Room</b></td>
                 </thead>
-                <tr>
-                  <td>STEM 11-A</td>
-                  <td>English 1</td>
-                  <td>Mon/Tue/Wed/Thur/Fri</td>
-                  <td>9-11/1-2/2-3/3-4/ 4-5</td>
-                  <td>Room 221</td>
-                </tr>
-                <tr>
-                  <td>STEM 12-A</td>
-                  <td>English 2</td>
-                  <td>Mon/Tue/Fri</td>
-                  <td>9-11/1-2/4-5</td>
-                  <td>Room 222</td>
-                </tr>
-                <tr>
-                  <td>STEM 12-A</td>
-                  <td>English 2</td>
-                  <td>Mon/Tue/Fri</td>
-                  <td>9-11/1-2/4-5</td>
-                  <td>Room 223</td>
-                </tr>
-                <tr>
-                  <td>STEM 12-A</td>
-                  <td>English 2</td>
-                  <td>Mon/Tue/Fri</td>
-                  <td>9-11/1-2/4-5</td>
-                  <td>Room 224</td>
-                </tr>
-                <tr>
-                  <td>STEM 12-A</td>
-                  <td>English 2</td>
-                  <td>Mon/Tue/Fri</td>
-                  <td>9-11/1-2/4-5</td>
-                  <td>Room 224</td>
-                </tr>
-                <tr>
-                  <td>STEM 12-A</td>
-                  <td>English 2</td>
-                  <td>Mon/Tue/Fri</td>
-                  <td>9-11/1-2/4-5</td>
-                  <td>Room 224</td>
-                </tr>
+                <tbody>
+                  <td class="temp">STEM Grade 11-A</td>
+                  <td class="temp">Math/Sci/Eng</td>
+                  <td class="temp">Wed/Thur/Fri</td>
+                  <td class="temp">9-10/11-1/10-1</td>
+                </tbody>
               </table>
             </div>
             </div>
@@ -243,6 +195,8 @@
 <script src="<?php echo base_url(); ?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
+<!-- BOOTSTRAP NOTIF -->
+<script src="<?php echo base_url(); ?>bower_components/bootstrap-notify-3.1.3/dist/bootstrap-notify.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
 <!-- PACE -->
@@ -269,6 +223,7 @@
   var updateUrl = '<?php echo base_url('academics/rooms/ajaxUpdate'); ?>';
   var countUrl = '<?php echo base_url('academics/strands/ajaxCountRow'); ?>';
   var deleteRowUrl = '<?php echo base_url('academics/rooms/ajaxDeleteRow'); ?>';  
+  var getScheduleUrl = '<?php echo base_url('academics/rooms/getSchedule'); ?>';  
  
   
 </script>

@@ -45,10 +45,23 @@ $(function () {
               roomCount = result;
 
               if(id == null || id.trim() === ''){
-                $('#alert-box').slideDown(1000);
-                $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!');
-                $('#alert-message').html('Please fill up room number.');
-                $('#alert-box').delay( 1500 ).slideUp(1000);
+                $.notify({
+                  title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+                  message: "Please fill up Room No."
+                },{
+                  type: 'danger',
+                  animate: {
+                    enter: 'animated fadeInUp',
+                    exit: 'animated fadeOutRight'
+                  },
+                  placement: {
+                    from: "top",
+                    align: "right"
+                  },
+                  offset: 20,
+                  spacing: 10,
+                  z_index: 1031,
+                });
               }
     //           else if(strandCount > 0){
     //             $('#alert-box').slideDown(1000);
@@ -67,11 +80,23 @@ $(function () {
                     'building' : building},
                   success: function(result){
                     console.log(result);
-                    $('#alert-box').addClass('alert-success').removeClass('alert-danger');
-                    $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-check"></i> SUCCESS MESSAGE!');
-                    $('#alert-message').html('Added <br> Room Number: '+id+ ' <br> Room name: ' + name+ ' <br> Building: ' + building );
-                    $('#alert-box').slideDown(1000);
-                    $('#alert-box').delay( 2000 ).slideUp(1000);
+                      $.notify({
+                        title: '<strong><i class="icon fa fa-ban"></i>SUCCESS!</strong>',
+                        message: "Room added."
+                      },{
+                        type: 'success',
+                        animate: {
+                          enter: 'animated fadeInUp',
+                          exit: 'animated fadeOutRight'
+                        },
+                        placement: {
+                          from: "top",
+                          align: "right"
+                        },
+                        offset: 20,
+                        spacing: 10,
+                        z_index: 1031,
+                      });
                     $('#number-input').val('');
                     $('#name-input').val('');
                     $('#building-input').val('');
@@ -102,6 +127,23 @@ $(function () {
         success: function(result){
           console.log(result);
           populateTable();
+          $.notify({
+            title: '<strong><i class="icon fa fa-ban"></i>SUCCESS!</strong>',
+            message: "Room updated."
+          },{
+            type: 'success',
+            animate: {
+              enter: 'animated fadeInUp',
+              exit: 'animated fadeOutRight'
+            },
+            placement: {
+              from: "top",
+              align: "right"
+            },
+            offset: 20,
+            spacing: 10,
+            z_index: 1031,
+          });
         }
       }); 
   })
@@ -118,6 +160,23 @@ $('#delete-confirm').click(function(){
     success: function(result){
       console.log(result);
       populateTable();
+      $.notify({
+        title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+        message: "Room ID : " + id + " delete."
+      },{
+        type: 'danger',
+        animate: {
+          enter: 'animated fadeInUp',
+          exit: 'animated fadeOutRight'
+        },
+        placement: {
+          from: "top",
+          align: "right"
+        },
+        offset: 20,
+        spacing: 10,
+        z_index: 1031,
+      });
     }
   }); 
 })
@@ -145,20 +204,20 @@ function populateTable(){
     room_id = $(this).parents('tr').find('td:first').html();
 
     $.ajax({
-            url: getRowUrl,
-            type: 'post',
-            dataType: 'json', 
-            data: {'table' : 'rooms', 'set': 'room_id', 'value': room_id}, 
-            success: function(result){  
-              id = result.id;
-              name = result.name;
-              building = result.building;
-              $( "#edit-id" ).val(result.room_id);
-              $( "#edit-name" ).val(result.room_name);
-              $( "#edit-building" ).val(result.building);
-              console.log(result);
-            }
-          });   
+      url: getRowUrl,
+      type: 'post',
+      dataType: 'json', 
+      data: {'table' : 'rooms', 'set': 'room_id', 'value': room_id}, 
+      success: function(result){  
+        id = result.id;
+        name = result.name;
+        building = result.building;
+        $( "#edit-id" ).val(result.room_id);
+        $( "#edit-name" ).val(result.room_name);
+        $( "#edit-building" ).val(result.building);
+        console.log(result);
+      }
+    });   
   });
 
 
@@ -166,15 +225,23 @@ function populateTable(){
       id = $(this).parents('tr').find('td:first').html();
   });
   
-  $("#rooms-table").on("click", "tr td .view-btn", function(){
-      
-      $('#table-sched').DataTable({
-          info : false,
-          paging : false,
-          searching : false,
-          order : false,
-          "responsive": true
-      });
+  $("#rooms-table").on("click", "tr td .schedule-btn", function(){
+
+      console.log($(this).parents('tr').find('td:first').html());
+      $.ajax({
+        url: getScheduleUrl,
+        type: 'post',
+        dataType: 'json', 
+        data: {'room_id' : $(this).parents('tr').find('td:first').html()}, 
+        success: function(result){  
+          console.log(result);
+          $('#table-sched tbody').html('');
+          $.each(result, function( index, value ) {
+            $('#table-sched tbody').append('<tr> <td>'+value.class +' </td> <td> '+value.subject_code +'</td> <td>'+value.day +' </td> <td>'+value.time +' </td> </tr>');
+          });
+        }
+      }); 
 
   });
+
   

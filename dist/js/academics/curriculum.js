@@ -62,6 +62,25 @@ $(function () {
         }
         });
     	}
+      else{
+        $.notify({
+          title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+          message: "Please select Strand, Year and Semester."
+        },{
+          type: 'danger',
+          animate: {
+            enter: 'animated fadeInUp',
+            exit: 'animated fadeOutRight'
+          },
+          placement: {
+            from: "top",
+            align: "right"
+          },
+          offset: 20,
+          spacing: 10,
+          z_index: 1031,
+        });
+      }
 
       
     })
@@ -89,23 +108,56 @@ $(function () {
             data: {'strand_code' :  strand_code, 'semester' : semester, 'year_level_id' : year_id}, 
             success: function(result){
               //console.log(result);
-              console.log(strand_code + ' : ' + semester + ' : ' +year_id);
+              for(var i=0; i<x; i++){
+                if(!subjects[i]){
+                  //console.log('return');
+                  $.notify({
+                    title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+                    message: "Please fill up all subjects."
+                  },{
+                    type: 'danger',
+                    animate: {
+                      enter: 'animated fadeInUp',
+                      exit: 'animated fadeOutRight'
+                    },
+                    placement: {
+                      from: "top",
+                      align: "right"
+                    },
+                    offset: 20,
+                    spacing: 10,
+                    z_index: 1031,
+                  });
+                  return;
+                }
+              }
               for(var i=0; i<x; i++){
                 $.ajax({
                   url: addUrl,
                   type: 'post', 
                   data: {'subject_code' : subjects[i], 'strand_code' :  strand_code, 'year_level_id' : year_id, 'semester' : semester }, 
                   success: function(result){
-                    console.log(result);
+                    //console.log('saved');
                   }
                 }); 
               }
-              
-              /*$('#alert-box').addClass('alert-success').removeClass('alert-danger');
-              $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-check"></i> SUCCESS MESSAGE!');
-              $('#alert-message').html('Assigned subjects added.');
-              $('#alert-box').slideDown(1000);
-              $('#alert-box').delay( 2000 ).slideUp(1000);*/
+              $.notify({
+                title: '<strong><i class="icon fa fa-check"></i>SUCCESS!</strong>',
+                message: "Curriculum saved."
+              },{
+                type: 'success',
+                animate: {
+                  enter: 'animated fadeInUp',
+                  exit: 'animated fadeOutRight'
+                },
+                placement: {
+                  from: "top",
+                  align: "right"
+                },
+                offset: 20,
+                spacing: 10,
+                z_index: 1031,
+              });
             }
           }); 
 

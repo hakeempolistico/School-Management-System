@@ -64,15 +64,13 @@ class schedule extends CI_Controller {
 
 	public function deleteSchedule()
 	{
-		$data = $this->input->post();
-		$row = $this->global_model->delete('schedules','section_id', $data['section_id']);
+		$row = $this->global_model->deleteRows('schedules', $this->input->post());
 		echo json_encode($row);
 	}
 
 	public function getSchedule()
 	{
-		$post = $this->input->post();
-		$data = $this->schedule_model->getRecords('schedules', $post['section_id']);		
+		$data = $this->schedule_model->getRecords('schedules', $this->input->post());		
 		$timeslot = array();
 		$schedule_row;
 

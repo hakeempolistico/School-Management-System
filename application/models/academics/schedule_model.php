@@ -41,9 +41,9 @@ class schedule_model extends CI_Model{
 	    $this->db->from('curriculum');
 		return $this->db->get()->result();
 	}
-	public function getRecords($table, $section_id)
+	public function getRecords($table, $where)
 	{
-		$this->db->where('section_id', $section_id);
+		$this->db->where($where);
 		$this->db->order_by("row", "asc");
 		$query = $this->db->get($table)->result();
 		return $query;
