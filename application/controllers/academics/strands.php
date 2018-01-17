@@ -34,7 +34,7 @@ class strands extends CI_Controller {
 	public function ajaxUpdate(){
 		$data = $this->input->post();
 		$result = $this->strands_model->update('strands', $data);
-		echo json_encode($result);
+		echo json_encode($data);
 	}
 	public function addStrand()
 	{
@@ -49,15 +49,25 @@ class strands extends CI_Controller {
 	}
 	public function ajaxGetRecords(){
 		$result = $this->global_model->getRecords('strands', 'desc', 'id');
-		$action = "<button data-toggle='modal' data-target='#modal-edit' class='btn btn-default btn-xs edit-btn'><span class='fa fa-fw fa-pencil text-info'></span></button>                    
-                    <button data-toggle='modal' data-target='#modal-delete' class='btn btn-default btn-xs delete-btn'><span class='fa fa-fw fa-remove text-danger'></span></button>";
 
 		$data = [];
         foreach ($result as $value)
             {	            	
+            	$status=null;
+            	if($value->status == 'active'){
+            		$status = '<span class="badge bg-light-blue">'.$value->status.'</span>';
+					$action = "<button data-toggle='modal' data-target='#modal-edit' class='btn btn-default btn-xs edit-btn'><span class='fa fa-fw fa-pencil text-info'></span></button>                    
+			                    <button data-toggle='modal' data-target='#modal-delete' class='btn btn-default btn-xs delete-btn'><span class='fa fa-fw fa-remove text-danger'></span></button>";
+            	}
+            	else if($value->status == 'inactive'){
+            		$status = '<span class="badge bg-red">'.$value->status.'</span>';
+					$action = "<button data-toggle='modal' data-target='#modal-edit' class='btn btn-default btn-xs edit-btn'><span class='fa fa-fw fa-pencil text-info'></span></button>                    
+			                    <button data-toggle='modal' data-target='#modal-delete' class='btn btn-default btn-xs delete-btn'><span class='fa fa-fw fa-check text-success'></span></button>";
+            	}
                 $arr = array(
                     $value->code,
                     $value->name,
+                    $status,
                     $action
                 );
                 $data['data'][] = $arr;

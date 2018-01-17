@@ -1,20 +1,4 @@
-var i;
-var new_empoyee_id;
-var employee_id;
-var first_name;
-var middle_name;
-var last_name;
-var position;
-var major;
-var status;
-
-
-  var getRecordsUrl = 'teachers/ajaxGetRecords';
-  var countUrl = "teachers/ajaxCountRow";
-  var addUrl = "teachers/ajaxInsert";
-  var updateUrl = "teachers/ajaxUpdate";
-  var getRowUrl = "teachers/ajaxGetRow";
-  var deleteRowUrl = "teachers/ajaxDeleteRow";
+var i, new_empoyee_id, employee_id, first_name, middle_name, last_name, position, major, status, activeStatus;
 
 
 $(function () {
@@ -162,6 +146,23 @@ function populateTable(){
 
   $("#teachersTable").on("click", "tr td .delete-btn", function(){
       employee_id = $(this).parents('tr').find('td:first').html();
+      active_status = $(this).parents('tr').find('td:nth-child(3)').find('span').html();
+      //console.log(status);
+
+      if(active_status=='active'){
+        $('#box-delete').removeClass('box-success').removeClass('box-danger').addClass('box-danger');
+        $('#box-delete-icon').removeClass('text-success').removeClass('text-danger').addClass('text-danger');
+        $('#box-delete-btn').removeClass('text-success').removeClass('text-danger').addClass('text-danger');
+        $('#delete-confirm').removeClass('btn-danger').removeClass('btn-success').addClass('btn-danger');
+        $('#text-status').html('Are you sure you want to inactivate record?');
+      }
+      else if(active_status=='inactive'){
+        $('#box-delete').removeClass('box-success').removeClass('box-danger').addClass('box-success');
+        $('#box-delete-icon').removeClass('text-success').removeClass('text-danger').addClass('text-success');
+        $('#box-delete-btn').removeClass('text-success').removeClass('text-danger').addClass('text-success');
+        $('#delete-confirm').removeClass('btn-danger').removeClass('btn-success').addClass('btn-success');
+        $('#text-status').html('Are you sure you want to activate record?');
+      }
   });
   
 }
@@ -325,31 +326,62 @@ $('#view-update').click(function(){
 //DELETE MODAL
 
 $('#delete-confirm').click(function(){
+  var setStat;
+  if(active_status=='active'){
+    setStat='inactive';
+  }
+  else if(active_status=='inactive'){
+    setStat='active';
+  }
   $.ajax({
-    url: deleteRowUrl,
+    url: updateUrl,
     type: 'post',
     dataType: 'json', 
-    data: {'table':'teachers', 'employee_id': employee_id }, 
+    data: {'table' : 'teachers', 'status': setStat, 'set': employee_id }, 
     success: function(result){
       console.log(result);
       populateTable();
-      $.notify({
-        title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
-        message: "Employee ID : " + employee_id + " delete."
-      },{
-        type: 'danger',
-        animate: {
-          enter: 'animated fadeInUp',
-          exit: 'animated fadeOutRight'
-        },
-        placement: {
-          from: "top",
-          align: "right"
-        },
-        offset: 20,
-        spacing: 10,
-        z_index: 1031,
-      });
+
+      if(setStat=='inactive'){
+        $.notify({
+          title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+          message: "Employee: " + employee_id + " set to inactive."
+        },{
+          type: 'danger',
+          animate: {
+            enter: 'animated fadeInUp',
+            exit: 'animated fadeOutRight'
+          },
+          placement: {
+            from: "top",
+            align: "right"
+          },
+          offset: 20,
+          spacing: 10,
+          delay: 5000,
+          z_index: 1031,
+        });     
+      }
+      else if(setStat=='active'){
+        $.notify({
+          title: '<strong><i class="icon fa fa-check"></i>SUCCESS!</strong>',
+          message: "Employee: " + employee_id + " set to active."
+        },{
+          type: 'success',
+          animate: {
+            enter: 'animated fadeInUp',
+            exit: 'animated fadeOutRight'
+          },
+          placement: {
+            from: "top",
+            align: "right"
+          },
+          offset: 20,
+          spacing: 10,
+          delay: 5000,
+          z_index: 1031,
+        });     
+      }
     }
   }); 
 })

@@ -42,10 +42,10 @@ class rooms extends CI_Controller {
 			//$result = array_merge_recursive((array) $result,(array) $res[$key]);
 		}
 
-		echo json_encode($res);
-		/*echo '<pre>'; 
+		//echo json_encode($res);
+		echo '<pre>'; 
 		print_r($res);
-		echo '<pre>';*/
+		echo '<pre>';
 	}
 	public function addRoom()
 	{
