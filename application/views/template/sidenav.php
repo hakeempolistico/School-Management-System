@@ -157,6 +157,13 @@
                   Schedule
               </a>
             </li>
+
+            <li class="<?php echo (isset($active) && $active =='academics/assign_advisory_class' ? 'active' : null) ; ?>">
+              <a href="<?php echo site_url('academics/assign_advisory_class'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                  Assign Advisory Class
+              </a>
+            </li>
           </ul>          
         </li>
 
@@ -191,6 +198,15 @@
           </ul>          
         </li>
 
+        <li class="<?php echo (isset($active) && $active =='advisory/advisory_class' ? 'active' : null); ?>">
+          <a href="<?php echo site_url('advisory/advisory_class'); ?>">
+            <i class="fa fa-file"></i>
+            <span>Advisory Class</span>
+          </a>
+        </li>
+
+        <li class="<?php echo (isset($active) && $active =='grades/grade_student' ? 'active' : null); ?>">
+          <a href="<?php echo site_url('grades/grade_student'); ?>">
         <li class="treeview <?php echo (isset($active) && substr($active,0,6) =='grades' ? 'active' : null); ?>">
           <a href="">
             <i class="fa fa-file"></i>
