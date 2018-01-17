@@ -54,21 +54,26 @@ class teachers extends CI_Controller {
 	}
 	public function ajaxGetRecords(){
 		$result = $this->global_model->getRecords('teachers', 'desc', 'id');
-		$action = "
-                    <button data-toggle='modal' id='view-btn' data-target='#modal-schedule' class='btn btn-default btn-xs view-btn'><span class='fa fa-fw fa-clock-o text-success'></span></button>
-                    <button data-toggle='modal' id='view-btn' data-target='#modal-view' class='btn btn-default btn-xs view-btn'><span class='fa fa-fw fa-search text-info'></span></button>                  
-                    <button data-toggle='modal' data-target='#modal-delete' class='btn btn-default btn-xs delete-btn'><span class='fa fa-fw fa-remove text-danger'></span></button>                
-                  ";
 
 		$data = [];
         foreach ($result as $value)
             {	
             	$status=null;
-            	if($value->status == 'Active'){
+            	if($value->status == 'active'){
             		$status = '<span class="badge bg-light-blue">'.$value->status.'</span>';
+					$action = "
+                    <button data-toggle='modal' id='view-btn' data-target='#modal-schedule' class='btn btn-default btn-xs view-btn'><span class='fa fa-fw fa-clock-o text-success'></span></button>
+                    <button data-toggle='modal' id='view-btn' data-target='#modal-view' class='btn btn-default btn-xs view-btn'><span class='fa fa-fw fa-search text-info'></span></button>                  
+                    <button data-toggle='modal' data-target='#modal-delete' class='btn btn-default btn-xs delete-btn'><span class='fa fa-fw fa-remove text-danger'></span></button>                
+                  ";
             	}
-            	else if($value->status == 'Inactive'){
+            	else if($value->status == 'inactive'){
             		$status = '<span class="badge bg-red">'.$value->status.'</span>';
+					$action = "
+                    <button data-toggle='modal' id='view-btn' data-target='#modal-schedule' class='btn btn-default btn-xs view-btn'><span class='fa fa-fw fa-clock-o text-success'></span></button>
+                    <button data-toggle='modal' id='view-btn' data-target='#modal-view' class='btn btn-default btn-xs view-btn'><span class='fa fa-fw fa-search text-info'></span></button>                  
+                    <button data-toggle='modal' data-target='#modal-delete' class='btn btn-default btn-xs delete-btn'><span class='fa fa-fw fa-check text-success'></span></button>                
+                  ";
             	}
             	
                 $arr = array(

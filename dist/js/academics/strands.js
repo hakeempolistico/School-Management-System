@@ -1,7 +1,4 @@
-var code;
-var name;
-var newCode;
-var newName;
+var code, name, newCode, newName, status;
 
 $(function () {
   $('#strands-table').DataTable()
@@ -142,32 +139,61 @@ $(function () {
 })
 
 $('#delete-confirm').click(function(){
+  var setStat;
+  if(status=='active'){
+    setStat='inactive';
+  }
+  else if(status=='inactive'){
+    setStat='active';
+  }
   $.ajax({
-    url: deleteRowUrl,
+    url: updateUrl,
     type: 'post',
     dataType: 'json', 
-    data: {'code': code }, 
+    data: {'set': code, 'status' : setStat }, 
     success: function(result){
       console.log(result);
       populateTable();
-        $.notify({
-          title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
-          message: "Strand deleted: " + code + "."
-        },{
-          type: 'danger',
-          animate: {
-            enter: 'animated fadeInUp',
-            exit: 'animated fadeOutRight'
-          },
-          placement: {
-            from: "top",
-            align: "right"
-          },
-          offset: 20,
-          spacing: 10,
-          delay: 5000,
-          z_index: 1031,
-        });
+        if(setStat=='inactive'){
+          $.notify({
+            title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+            message: "Strand: " + code + " set to inactive."
+          },{
+            type: 'danger',
+            animate: {
+              enter: 'animated fadeInUp',
+              exit: 'animated fadeOutRight'
+            },
+            placement: {
+              from: "top",
+              align: "right"
+            },
+            offset: 20,
+            spacing: 10,
+            delay: 5000,
+            z_index: 1031,
+          });     
+        }
+        else if(setStat=='active'){
+          $.notify({
+            title: '<strong><i class="icon fa fa-check"></i>SUCCESS!</strong>',
+            message: "Strand: " + code + " set to active."
+          },{
+            type: 'success',
+            animate: {
+              enter: 'animated fadeInUp',
+              exit: 'animated fadeOutRight'
+            },
+            placement: {
+              from: "top",
+              align: "right"
+            },
+            offset: 20,
+            spacing: 10,
+            delay: 5000,
+            z_index: 1031,
+          });     
+        }
     }
   }); 
 })
@@ -180,7 +206,8 @@ function populateTable(){
   $('#strands-table').DataTable({
     "columns": [
         { "width": "30%" },
-        { "width": "60%" },
+        { "width": "50%" },
+        { "width": "10%" },
         { "width": "10%" }
     ],
         "order": [] ,
@@ -209,6 +236,22 @@ function populateTable(){
 
   $("#strands-table").on("click", "tr td .delete-btn", function(){
       code = $(this).parents('tr').find('td:first').html();
+      status = $(this).parents('tr').find('td:nth-child(3)').find('span').html();
+      console.log(status);
+      if(status=='active'){
+        $('#box-delete').removeClass('box-success').removeClass('box-danger').addClass('box-danger');
+        $('#box-delete-icon').removeClass('text-success').removeClass('text-danger').addClass('text-danger');
+        $('#box-delete-btn').removeClass('text-success').removeClass('text-danger').addClass('text-danger');
+        $('#delete-confirm').removeClass('btn-danger').removeClass('btn-success').addClass('btn-danger');
+        $('#text-status').html('Are you sure you want to inactivate record?');
+      }
+      else if(status=='inactive'){
+        $('#box-delete').removeClass('box-success').removeClass('box-danger').addClass('box-success');
+        $('#box-delete-icon').removeClass('text-success').removeClass('text-danger').addClass('text-success');
+        $('#box-delete-btn').removeClass('text-success').removeClass('text-danger').addClass('text-success');
+        $('#delete-confirm').removeClass('btn-danger').removeClass('btn-success').addClass('btn-success');
+        $('#text-status').html('Are you sure you want to activate record?');
+      }
   });
   
 }
