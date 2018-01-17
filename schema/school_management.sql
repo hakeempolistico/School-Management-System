@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 15, 2018 at 02:05 PM
+-- Generation Time: Jan 18, 2018 at 12:34 AM
 -- Server version: 5.7.11
 -- PHP Version: 7.0.4
 
@@ -39,7 +39,8 @@ CREATE TABLE `academic_years` (
 --
 
 INSERT INTO `academic_years` (`id`, `year_start`, `year_end`, `date_created`, `date_modified`) VALUES
-(1, 2017, 2018, '2017-10-12 04:51:42', '2017-10-12 04:51:42');
+(1, 2017, 2018, '2017-10-12 04:51:42', '2017-10-12 04:51:42'),
+(2, 2018, 2019, '2018-01-15 07:44:47', '2018-01-15 07:44:47');
 
 -- --------------------------------------------------------
 
@@ -65,7 +66,8 @@ INSERT INTO `addresses` (`id`, `students_info_lrn`, `street`, `barangay`, `city`
 (2, 14038014, 'Monumento st.', 'Bago Bantay', 'Quezon City', 'Province'),
 (3, 14038001, 'Street', 'Brgy', 'City', 'Province'),
 (4, 14038002, 'Address Street', 'Address Brgy', 'Address City', 'Address Province'),
-(5, 14038003, 'Street', 'Brgy', 'City', 'Province');
+(5, 14038003, 'Street', 'Brgy', 'City', 'Province'),
+(6, 14038019, 'Street', 'Brgy', 'City', 'Province');
 
 -- --------------------------------------------------------
 
@@ -83,19 +85,6 @@ CREATE TABLE `class_subjects` (
   `date_modified` timestamp NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `class_subjects`
---
-
-INSERT INTO `class_subjects` (`id`, `section_id`, `subject_id`, `teacher_id`, `semester`, `date_created`, `date_modified`) VALUES
-(28, 1, 'ALG', '0003', 'Second Semester', '2018-01-15 04:56:16', '0000-00-00 00:00:00'),
-(26, 1, 'TECH', '0004', 'Second Semester', '2018-01-15 04:56:16', '0000-00-00 00:00:00'),
-(27, 1, 'SCI', '0005', 'Second Semester', '2018-01-15 04:56:16', '0000-00-00 00:00:00'),
-(25, 1, 'WOLT', '0005', 'First Semester', '2018-01-15 04:56:16', '0000-00-00 00:00:00'),
-(24, 1, 'RES', '0001', 'First Semester', '2018-01-15 04:56:16', '0000-00-00 00:00:00'),
-(23, 1, 'PHY', '0003', 'First Semester', '2018-01-15 04:56:16', '0000-00-00 00:00:00'),
-(22, 1, 'CHM', '0002', 'First Semester', '2018-01-15 04:56:16', '0000-00-00 00:00:00');
-
 -- --------------------------------------------------------
 
 --
@@ -111,19 +100,6 @@ CREATE TABLE `curriculum` (
   `date_created` timestamp NOT NULL,
   `date_modified` timestamp NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `curriculum`
---
-
-INSERT INTO `curriculum` (`id`, `subject_code`, `strand_code`, `year_level_id`, `semester`, `date_created`, `date_modified`) VALUES
-(1, 'RES', 'STEM', 1, 'First Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2, 'WOLT', 'STEM', 1, 'First Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3, 'CHM', 'STEM', 1, 'First Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(4, 'PHY', 'STEM', 1, 'First Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(5, 'ALG', 'STEM', 1, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(6, 'TECH', 'STEM', 1, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(7, 'SCI', 'STEM', 1, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -149,7 +125,8 @@ INSERT INTO `enrolled_students` (`id`, `students_info_lrn`, `note`, `section_id`
 (1, 14038014, '', '1', 1, '2017-10-12 04:51:47', '0000-00-00 00:00:00'),
 (2, 14, '', '5', 1, '2017-10-12 05:19:45', '0000-00-00 00:00:00'),
 (3, 14038002, '', '5', 1, '2017-10-12 06:35:53', '0000-00-00 00:00:00'),
-(4, 14038001, '', '1', 1, '2017-10-25 09:47:01', '0000-00-00 00:00:00');
+(4, 14038001, '', '1', 1, '2017-10-25 09:47:01', '0000-00-00 00:00:00'),
+(5, 14038003, '', '1', 2, '2018-01-15 07:45:27', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -200,7 +177,8 @@ INSERT INTO `parents` (`id`, `students_info_lrn`, `mother_name`, `mother_contact
 (2, 14038014, 'Anne Curtis', '0955-887-4822', 'Vong Navarro', '0955-887-4822'),
 (3, 14038001, 'Anne Curtis', '0955-887-4822', 'Tom Cruise', '0955-887-4822'),
 (4, 14038002, 'Marissa Tomei', '0955-887-4822', 'Tom Cruise', '0955-887-4822'),
-(5, 14038003, 'Marissa Tomei', '0955-887-4822', 'Tom Cruise', '0955-887-4822');
+(5, 14038003, 'Marissa Tomei', '0955-887-4822', 'Tom Cruise', '0955-887-4822'),
+(6, 14038019, 'Mother Maiden Name', '123123123', 'Daddy', '912312312');
 
 -- --------------------------------------------------------
 
@@ -213,13 +191,6 @@ CREATE TABLE `registered_students` (
   `students_info_lrn` varchar(15) NOT NULL,
   `date_registered` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `registered_students`
---
-
-INSERT INTO `registered_students` (`id`, `students_info_lrn`, `date_registered`) VALUES
-(5, '14038003', '2017-10-12 05:08:38');
 
 -- --------------------------------------------------------
 
@@ -250,7 +221,10 @@ INSERT INTO `requirements` (`id`, `enrolled_student_lrn`, `requirement`, `date_g
 (9, '14038002', '', '2017-10-12 06:35:53'),
 (10, '14038001', '', '2017-10-25 09:47:01'),
 (11, '14038001', '', '2017-10-25 09:47:01'),
-(12, '14038001', 'form 138', '2017-10-25 09:47:01');
+(12, '14038001', 'form 138', '2017-10-25 09:47:01'),
+(13, '14038003', 'NSO Birth Certificate', '2018-01-15 07:45:27'),
+(14, '14038003', 'Form 137', '2018-01-15 07:45:27'),
+(15, '14038003', 'form 138', '2018-01-15 07:45:27');
 
 -- --------------------------------------------------------
 
@@ -295,83 +269,6 @@ CREATE TABLE `schedules` (
   `color` varchar(50) NOT NULL,
   `row` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `schedules`
---
-
-INSERT INTO `schedules` (`id`, `section_id`, `semester`, `subject_code`, `room_id`, `time_start`, `time_end`, `day`, `color`, `row`) VALUES
-(106, 1, '', 'CHM', 'Lab103', '4:00', '5:00', 'Wednesday', 'rgb(255, 133, 27)', 4),
-(104, 1, '', 'CHM', 'Lab103', '4:00', '5:00', 'Thursday', 'rgb(255, 133, 27)', 4),
-(105, 1, '', 'CHM', 'Lab103', '4:00', '5:00', 'Tuesday', 'rgb(255, 133, 27)', 4),
-(103, 1, '', 'CHM', 'Lab103', '4:00', '5:00', 'Friday', 'rgb(255, 133, 27)', 4),
-(102, 1, '', 'BREAK', '', '3:00', '4:00', 'Thursday', 'rgb(169, 169, 169)', 3),
-(100, 1, '', 'WOLT', 'Room 105', '6:00', '7:00', 'Friday', 'rgb(0, 192, 239)', 6),
-(101, 1, '', 'BREAK', '', '5:00', '6:00', 'Monday', 'rgb(169, 169, 169)', 5),
-(99, 1, '', 'WOLT', 'Room 105', '6:00', '7:00', 'Thursday', 'rgb(0, 192, 239)', 6),
-(98, 1, '', 'WOLT', 'Room 105', '6:00', '7:00', 'Wednesday', 'rgb(0, 192, 239)', 6),
-(97, 1, '', 'BREAK', '', '5:00', '6:00', 'Friday', 'rgb(169, 169, 169)', 5),
-(96, 1, '', 'BREAK', '', '5:00', '6:00', 'Tuesday', 'rgb(169, 169, 169)', 5),
-(95, 1, '', 'BREAK', '', '5:00', '6:00', 'Thursday', 'rgb(169, 169, 169)', 5),
-(94, 1, '', 'WOLT', 'Room 105', '6:00', '7:00', 'Tuesday', 'rgb(0, 192, 239)', 6),
-(93, 1, '', 'WOLT', 'Room 105', '6:00', '7:00', 'Monday', 'rgb(0, 192, 239)', 6),
-(91, 1, '', 'BREAK', '', '3:00', '4:00', 'Friday', 'rgb(169, 169, 169)', 3),
-(92, 1, '', 'BREAK', '', '5:00', '6:00', 'Wednesday', 'rgb(169, 169, 169)', 5),
-(90, 1, '', 'CHM', 'Lab103', '4:00', '5:00', 'Monday', 'rgb(255, 133, 27)', 4),
-(88, 1, '', 'BREAK', '', '3:00', '4:00', 'Tuesday', 'rgb(169, 169, 169)', 3),
-(89, 1, '', 'BREAK', '', '3:00', '4:00', 'Thursday', 'rgb(169, 169, 169)', 3),
-(87, 1, '', 'BREAK', '', '3:00', '4:00', 'Wednesday', 'rgb(169, 169, 169)', 3),
-(86, 1, '', 'WOLT', 'Room 105', '12:00', '3:00', 'Thursday', 'rgb(0, 192, 239)', 2),
-(85, 1, '', 'BREAK', '', '3:00', '4:00', 'Monday', 'rgb(169, 169, 169)', 3),
-(84, 1, '', 'WOLT', 'Room 105', '12:00', '3:00', 'Friday', 'rgb(0, 192, 239)', 2),
-(83, 1, '', 'WOLT', 'Room 105', '12:00', '3:00', 'Wednesday', 'rgb(0, 192, 239)', 2),
-(82, 1, '', 'WOLT', 'Room 105', '12:00', '3:00', 'Tuesday', 'rgb(0, 192, 239)', 2),
-(81, 1, '', 'WOLT', 'Room 105', '12:00', '3:00', 'Monday', 'rgb(0, 192, 239)', 2),
-(80, 1, '', 'VACANT', '', '9:00', '12:00', 'Friday', 'rgb(128, 128, 128)', 1),
-(79, 1, '', 'VACANT', '', '9:00', '12:00', 'Thursday', 'rgb(128, 128, 128)', 1),
-(78, 1, '', 'VACANT', '', '9:00', '12:00', 'Tuesday', 'rgb(128, 128, 128)', 1),
-(77, 1, '', 'VACANT', '', '9:00', '12:00', 'Wednesday', 'rgb(128, 128, 128)', 1),
-(76, 1, '', 'CHM', 'Lab102', '7:00', '9:00', 'Thursday', 'rgb(255, 133, 27)', 0),
-(75, 1, '', 'CHM', 'Lab102', '7:00', '9:00', 'Wednesday', 'rgb(255, 133, 27)', 0),
-(74, 1, '', 'CHM', 'Lab102', '7:00', '9:00', 'Friday', 'rgb(255, 133, 27)', 0),
-(73, 1, '', 'VACANT', '', '9:00', '12:00', 'Monday', 'rgb(128, 128, 128)', 1),
-(72, 1, '', 'CHM', 'Lab102', '7:00', '9:00', 'Monday', 'rgb(255, 133, 27)', 0),
-(71, 1, '', 'CHM', 'Lab102', '7:00', '9:00', 'Tuesday', 'rgb(255, 133, 27)', 0),
-(107, 2, 'First Semester', 'SCI', 'Lab101', '6:00', '7:00', 'Tuesday', 'rgb(57, 204, 204)', 0),
-(108, 2, 'First Semester', 'SCI', 'Lab101', '6:00', '7:00', 'Wednesday', 'rgb(60, 141, 188)', 0),
-(109, 2, 'First Semester', 'SCI', 'Lab101', '6:00', '7:00', 'Friday', 'rgb(0, 192, 239)', 0),
-(110, 2, 'First Semester', 'SCI', 'Lab101', '6:00', '7:00', 'Monday', 'rgb(243, 156, 18)', 0),
-(111, 2, 'First Semester', 'RES', 'Lab101', '7:00', '8:00', 'Monday', 'rgb(0, 166, 90)', 1),
-(112, 2, 'First Semester', 'SCI', 'Lab101', '6:00', '7:00', 'Thursday', 'rgb(0, 115, 183)', 0),
-(113, 2, 'First Semester', 'RES', 'Lab101', '7:00', '8:00', 'Tuesday', 'rgb(1, 255, 112)', 1),
-(114, 2, 'First Semester', 'RES', 'Lab101', '7:00', '8:00', 'Wednesday', 'rgb(221, 75, 57)', 1),
-(115, 2, 'First Semester', 'RES', 'Lab101', '7:00', '8:00', 'Thursday', 'rgb(96, 92, 168)', 1),
-(116, 2, 'First Semester', 'RES', 'Lab101', '7:00', '8:00', 'Friday', 'rgb(240, 18, 190)', 1),
-(247, 1, 'First Semester', 'CHM', 'Lab103', '11:00', '12:00', 'Friday', 'rgb(1, 255, 112)', 2),
-(246, 1, 'First Semester', 'CHM', 'Lab103', '11:00', '12:00', 'Thursday', 'rgb(216, 27, 96)', 2),
-(245, 1, 'First Semester', 'CHM', 'Lab103', '11:00', '12:00', 'Wednesday', 'rgb(221, 75, 57)', 2),
-(244, 1, 'First Semester', 'CHM', 'Lab103', '11:00', '12:00', 'Monday', 'rgb(1, 255, 112)', 2),
-(240, 1, 'First Semester', 'WOLT', 'Lab102', '10:00', '11:00', 'Friday', 'rgb(240, 18, 190)', 1),
-(241, 1, 'First Semester', 'WOLT', 'Lab102', '10:00', '11:00', 'Wednesday', 'rgb(132, 53, 52)', 1),
-(242, 1, 'First Semester', 'CHM', 'Lab103', '11:00', '12:00', 'Tuesday', 'rgb(132, 53, 52)', 2),
-(243, 1, 'First Semester', 'WOLT', 'Lab102', '10:00', '11:00', 'Thursday', 'rgb(96, 92, 168)', 1),
-(239, 1, 'First Semester', 'WOLT', 'Lab102', '10:00', '11:00', 'Monday', 'rgb(221, 75, 57)', 1),
-(238, 1, 'First Semester', 'WOLT', 'Lab102', '10:00', '11:00', 'Tuesday', 'rgb(216, 27, 96)', 1),
-(237, 1, 'First Semester', 'RES', 'Lab101', '09:00', '10:00', 'Friday', 'rgb(0, 192, 239)', 0),
-(236, 1, 'First Semester', 'RES', 'Lab101', '09:00', '10:00', 'Thursday', 'rgb(0, 115, 183)', 0),
-(235, 1, 'First Semester', 'RES', 'Lab101', '09:00', '10:00', 'Wednesday', 'rgb(60, 141, 188)', 0),
-(234, 1, 'First Semester', 'RES', 'Lab101', '09:00', '10:00', 'Tuesday', 'rgb(57, 204, 204)', 0),
-(233, 1, 'First Semester', 'RES', 'Lab101', '09:00', '10:00', 'Monday', 'rgb(243, 156, 18)', 0),
-(197, 1, 'Second Semester', 'TECH', 'Lab104', '07:00', '08:00', 'Monday', 'rgb(221, 75, 57)', 0),
-(198, 1, 'Second Semester', 'TECH', 'Lab104', '07:00', '08:00', 'Wednesday', 'rgb(132, 53, 52)', 0),
-(199, 1, 'Second Semester', 'TECH', 'Lab104', '07:00', '08:00', 'Tuesday', 'rgb(216, 27, 96)', 0),
-(200, 1, 'Second Semester', 'ALG', 'Lab104', '08:00', '09:00', 'Monday', 'rgb(243, 156, 18)', 1),
-(201, 1, 'Second Semester', 'TECH', 'Lab104', '07:00', '08:00', 'Friday', 'rgb(240, 18, 190)', 0),
-(202, 1, 'Second Semester', 'TECH', 'Lab104', '07:00', '08:00', 'Thursday', 'rgb(96, 92, 168)', 0),
-(203, 1, 'Second Semester', 'ALG', 'Lab104', '08:00', '09:00', 'Tuesday', 'rgb(57, 204, 204)', 1),
-(204, 1, 'Second Semester', 'ALG', 'Lab104', '08:00', '09:00', 'Wednesday', 'rgb(60, 141, 188)', 1),
-(205, 1, 'Second Semester', 'ALG', 'Lab104', '08:00', '09:00', 'Friday', 'rgb(0, 166, 90)', 1),
-(206, 1, 'Second Semester', 'ALG', 'Lab104', '08:00', '09:00', 'Thursday', 'rgb(0, 192, 239)', 1);
 
 -- --------------------------------------------------------
 
@@ -421,20 +318,23 @@ INSERT INTO `sections` (`id`, `strand_code`, `year_level_id`, `name`, `capacity`
 CREATE TABLE `strands` (
   `id` int(11) NOT NULL,
   `code` varchar(45) NOT NULL,
-  `name` varchar(60) NOT NULL
+  `name` varchar(60) NOT NULL,
+  `status` enum('active','inactive') NOT NULL DEFAULT 'active',
+  `date_created` timestamp NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `strands`
 --
 
-INSERT INTO `strands` (`id`, `code`, `name`) VALUES
-(1, 'STEM', 'Science, Technology, Engineering and Mathematics'),
-(2, 'GAS', 'General Academic Strand'),
-(3, 'HUMSS', 'Humanities and Social Sciences'),
-(4, 'TVL-HE', 'Technical Vocational and Livelihood - Home Economics'),
-(5, 'TVL-AS', 'Technical Vocational and Livelihood - Automative Services'),
-(6, 'ABM', 'Accounting and Business Management');
+INSERT INTO `strands` (`id`, `code`, `name`, `status`, `date_created`) VALUES
+(1, 'STEM', 'Science, Technology, Engineering and Mathematics', 'inactive', '2018-01-17 14:54:40'),
+(2, 'GAS', 'General Academic Strand', 'inactive', '0000-00-00 00:00:00'),
+(3, 'HUMSS', 'Humanities and Social Sciences', 'inactive', '0000-00-00 00:00:00'),
+(4, 'TVL-HE', 'Technical Vocational and Livelihood - Home Economics', 'active', '0000-00-00 00:00:00'),
+(5, 'TVL-AS', 'Technical Vocational and Livelihood - Automative Services', 'active', '0000-00-00 00:00:00'),
+(6, 'ABM', 'Accounting and Business Management', 'active', '0000-00-00 00:00:00'),
+(17, 'asd', 'asd', 'active', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -469,7 +369,8 @@ INSERT INTO `students_info` (`id`, `lrn`, `first_name`, `middle_name`, `last_nam
 (2, 14038014, 'Marc', 'Dominic', 'Terrobias', 'Male', '09222222222', '1998-10-13', 'Monumento City', 18, 'Filipino', 'Roman Catholic', b'0', '2017-10-12 04:47:46', '2017-10-12 04:47:46'),
 (3, 14038001, 'Justin', '', 'Encarnacion', 'Male', '09222222222', '1997-02-22', 'Kawit', 20, 'Filipino', 'Roman Catholic', b'0', '2017-10-12 04:49:23', '2017-10-12 04:49:23'),
 (4, 14038002, 'Shiela May', '', 'Morales', 'Female', '0955-887-4822', '2017-10-17', 'Mandaluyong City', 0, 'Filipino', 'Roman Catholic', b'0', '2017-10-12 05:07:05', '2017-10-12 05:07:05'),
-(5, 14038003, 'Jasver', '', 'Salva', 'Female', '0955-887-4822', '1998-10-12', 'Cavite', 19, 'Filipino', 'Roman Catholic', b'0', '2017-10-12 05:08:38', '2017-10-12 05:08:38');
+(5, 14038003, 'Jasver', '', 'Salva', 'Female', '0955-887-4822', '1998-10-12', 'Cavite', 19, 'Filipino', 'Roman Catholic', b'0', '2017-10-12 05:08:38', '2017-10-12 05:08:38'),
+(6, 14038019, 'Shan', '', 'Zulueta', 'Female', '12312312312', '2018-01-18', 'Mandaluyong City', 0, 'Filipino', 'Roman Catholic', b'0', '2018-01-16 07:09:16', '2018-01-16 07:09:16');
 
 -- --------------------------------------------------------
 
@@ -511,19 +412,6 @@ CREATE TABLE `subjects` (
   `date_modified` timestamp NULL DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `subjects`
---
-
-INSERT INTO `subjects` (`id`, `code`, `name`, `type`, `description`, `date_created`, `date_modified`) VALUES
-(1, 'CHM', 'Chemistry', 'Science', 'Science 11', NULL, NULL),
-(2, 'PHY', 'Physics', 'Science', 'Science 12', NULL, NULL),
-(3, 'WOLT', 'World Literature', 'English', 'English 11', NULL, NULL),
-(4, 'RES', 'Research', 'English', 'English 12', NULL, NULL),
-(5, 'ALG', 'Algebra', 'Math', 'Math 11', NULL, NULL),
-(6, 'SCI', 'General Science', 'Science', 'General Science and Technology', NULL, NULL),
-(8, 'TECH', 'Technology', 'Science', 'Science and Technology', NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -538,7 +426,7 @@ CREATE TABLE `teachers` (
   `last_name` varchar(50) NOT NULL,
   `major` varchar(50) NOT NULL,
   `position` varchar(50) NOT NULL,
-  `status` varchar(50) NOT NULL DEFAULT 'Active'
+  `status` enum('active','inactive') NOT NULL DEFAULT 'active'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -546,11 +434,11 @@ CREATE TABLE `teachers` (
 --
 
 INSERT INTO `teachers` (`id`, `employee_id`, `first_name`, `middle_name`, `last_name`, `major`, `position`, `status`) VALUES
-(1, '0001', 'Adrielle', 'Mestiola', 'Escaro', 'Computer', 'Teacher', 'Active'),
-(2, '0002', 'John', 'Patrick', 'Guzman', 'Social Science', 'Teacher', 'Active'),
-(3, '0003', 'Hannah', 'Patricia', 'Liao', 'Mathematics', 'Teacher', 'Active'),
-(4, '0004', 'Aljohn', '', 'Pangilinan', 'Science', 'Teacher', 'Active'),
-(5, '0005', 'May', 'B.', 'Garcia', 'SAD', 'Teacher', 'Active');
+(1, '0001', 'Adrielle', 'Mestiola', 'Escaro', 'Computer', 'Teacher', 'active'),
+(2, '0002', 'John', 'Patrick', 'Guzman', 'Social Science', 'Teacher', 'active'),
+(3, '0003', 'Hannah', 'Patricia', 'Liao', 'Mathematics', 'Teacher', 'inactive'),
+(4, '0004', 'Aljohn', '', 'Pangilinan', 'Science', 'Teacher', 'inactive'),
+(5, '0005', 'May', '', 'Garcia', 'SAD', 'Teacher', 'active');
 
 -- --------------------------------------------------------
 
@@ -732,27 +620,27 @@ ALTER TABLE `year_levels`
 -- AUTO_INCREMENT for table `academic_years`
 --
 ALTER TABLE `academic_years`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `addresses`
 --
 ALTER TABLE `addresses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `class_subjects`
 --
 ALTER TABLE `class_subjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `curriculum`
 --
 ALTER TABLE `curriculum`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `enrolled_students`
 --
 ALTER TABLE `enrolled_students`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `guardians`
 --
@@ -762,7 +650,7 @@ ALTER TABLE `guardians`
 -- AUTO_INCREMENT for table `parents`
 --
 ALTER TABLE `parents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `registered_students`
 --
@@ -772,7 +660,7 @@ ALTER TABLE `registered_students`
 -- AUTO_INCREMENT for table `requirements`
 --
 ALTER TABLE `requirements`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `rooms`
 --
@@ -782,7 +670,7 @@ ALTER TABLE `rooms`
 -- AUTO_INCREMENT for table `schedules`
 --
 ALTER TABLE `schedules`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=248;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `sections`
 --
@@ -792,12 +680,12 @@ ALTER TABLE `sections`
 -- AUTO_INCREMENT for table `strands`
 --
 ALTER TABLE `strands`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `students_info`
 --
 ALTER TABLE `students_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `student_contacts`
 --
@@ -812,7 +700,7 @@ ALTER TABLE `subjects`
 -- AUTO_INCREMENT for table `teachers`
 --
 ALTER TABLE `teachers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `users`
 --

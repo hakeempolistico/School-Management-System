@@ -102,7 +102,7 @@ function updateRow(){
                   dataType: 'json', 
                   data: {'name' : name, 'code': newCode, 'type': type, 'description': description, 'set': subjectCode }, 
                   success: function(result){
-                    console.log(result);
+                    //console.log(result);
                     hide();
                     populateTable();
                       $.notify({
@@ -158,11 +158,11 @@ $('#delete-confirm').click(function(){
             dataType: 'json', 
             data: {'code': subjectCode }, 
             success: function(result){
-              console.log(result);
+              //console.log(result);
               populateTable();
               $.notify({
                 title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
-                message: "Subject Code : " + subjectCode + " delete."
+                message: "Subject Code : " + subjectCode + " deleted."
               },{
                 type: 'danger',
                 animate: {
@@ -317,7 +317,7 @@ function populateTable(){
                   dataType: 'json', 
                   data: {'name' : name, 'code': code, 'type': type, 'description': description }, 
                   success: function(result){
-                    console.log(result);              
+                    //console.log(result);              
                     populateTable();
                     $('#name-input').val('');
                     $('#code-input').val('');
