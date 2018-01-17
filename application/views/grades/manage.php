@@ -3,11 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>School Management | Dashboard</title>
+  <title>School Management | Grades Management</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/select2/dist/css/select2.min.css"> 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
@@ -33,6 +35,13 @@
 
   <!-- Google Font -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/googlefont.css">
+  <style type="text/css">
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+  </style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -64,58 +73,62 @@
     <section class="content">
       <div class="row">
         <div class="col-md-12">
-          <div class="box">
-            <div class="box-header with-border">
-              <h3 class="box-tile"></h3>
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                  <i class="fa fa-minus"></i>
-                </button>
+          <div class="box box-primary">
+              <div class="box-header">
+                <h3 class="box-title text-primary"></i> Select Options</h3>
               </div>
-            </div>
-            <div class="box-body">
-              <div class="col-xs-12 col-lg-4">
-                  <div class="form-group">
-                    <label>Quarter</label>
-                      <select class="subject-input form-control select2" style="width: 100%;">
-                        <option>1st Quarter</option>
-                        <option>2nd Quarter</option>
-                      </select>
-                  </div> 
+              <!-- /.box-header -->
+              <div class="box-body">
+                <div class="col-xs-6 col-lg-3">
+                    <div class="form-group">
+                      <label>Semester</label>
+                        <select id="select-semester" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Semester">
+                          <option></option>
+                          <option>First Semester</option>
+                          <option>Second Semeerst</option>
+                        </select>
+                    </div> 
+                </div>
+                <div class="col-xs-6 col-lg-3">
+                    <div class="form-group">
+                      <label>Quarter</label>
+                        <select id="select-quarter" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Quarter">
+                          <option></option>
+                          <option>1st Quarter</option>
+                          <option>2nd Quarter</option>
+                        </select>
+                    </div> 
+                </div>
+                <div class="col-xs-6 col-lg-3">
+                    <div class="form-group">
+                      <label>Subject</label>
+                        <select id="select-subject" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Subject">
+                          <option></option>
+                          <option>Math 1</option>
+                          <option>Math 2</option>
+                        </select>
+                    </div> 
+                </div>
+                <div class="col-xs-6 col-lg-3">
+                    <div class="form-group">
+                      <label>Class</label>
+                        <select id="select-class" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Class">
+                          <option></option>
+                          <option>STEM-1A</option>
+                          <option>STEM-2A</option>
+                        </select>
+                    </div> 
+                </div> 
               </div>
-              <div class="col-xs-12 col-lg-4">
-                  <div class="form-group">
-                    <label>Subject</label>
-                      <select class="subject-input form-control select2" style="width: 100%;">
-                        <option>Math 1</option>
-                        <option>Math 2</option>
-                      </select>
-                  </div> 
-              </div>
-              <div class="col-xs-12 col-lg-4">
-                  <div class="form-group">
-                    <label>Section</label>
-                      <select class="subject-input form-control select2" style="width: 100%;">
-                        <option>STEM-1A</option>
-                        <option>STEM-2A</option>
-                      </select>
-                  </div> 
-              </div>
-            </div>
           </div>
-          <!-- /.box -->
-          <div class="box">
-            <div class="box-header with-border">
-              <h3 class="box-tile"></h3>
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                  <i class="fa fa-minus"></i>
-                </button>
+
+          <div id="table-grades" class="box box-primary" hidden>
+              <div class="box-header">
+                <h3 class="box-title text-primary">Enter Grade for: <b>1st Semester </b>| <b>1st QUARTER </b>| <b>MATH1 </b> | <b>STEM-1A</b></h3>
               </div>
-            </div>
-            <div class="box-body">
-              <h4>Enter Grade for: <b>1st QUARTER </b>| <b>MATH1 </b> | <b>STEM-1A</b></h4><br>
-              <table id = "studentList1" class="table table-bordered">
+              <!-- /.box-header -->
+              <div class="box-body">
+                <table id = "studentList1" class="table table-bordered">
                 <thead>
                   <tr>
                     <th>LRN</th>
@@ -128,19 +141,23 @@
                   <tr>
                     <td>123112312</td>
                     <td>Escaro, Adrielle Kristine Nicolette M.</td>
-                    <td><input type="" name=""></td>
+                    <td><input type="number"></td>
                     <td>
-                      <button class='btn btn-default btn-xs'><span class='fa fa-fw fa-check text-success'></span></button>
-                      <button class='btn btn-default btn-xs'><span class='fa fa-fw fa-edit text-info'></span></button>
+                      <center>
+                        <button class='btn btn-default btn-xs'><span class='fa fa-fw fa-check text-success'></span></button>
+                        <button class='btn btn-default btn-xs'><span class='fa fa-fw fa-edit text-info'></span></button>
+                      </center>
                     </td>
                   </tr>
                   <tr>
                     <td>144231231</td>
                     <td>Polistico, Hakeem A.</td>
-                    <td><input type="" name=""></td>
+                    <td><input type="number"></td>
                     <td>
-                      <button class='btn btn-default btn-xs'><span class='fa fa-fw fa-check text-success'></span></button>
-                      <button class='btn btn-default btn-xs'><span class='fa fa-fw fa-edit text-info'></span></button>
+                      <center>
+                        <button class='btn btn-default btn-xs'><span class='fa fa-fw fa-check text-success'></span></button>
+                        <button class='btn btn-default btn-xs'><span class='fa fa-fw fa-edit text-info'></span></button>
+                      </center>
                     </td>
                   </tr>
                 </tbody>
@@ -148,9 +165,8 @@
                   
                 </tfoot>
               </table>
-            </div>
+              </div>
           </div>
-          <!-- /.box -->
         </div>
       </div>
       
@@ -174,15 +190,17 @@
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
+<!-- Select2 -->
+<script src="<?php echo base_url(); ?>bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
 <!-- page script -->
-<script src="<?php echo base_url(); ?>dist/js/enrollment/dashboard.js"></script>
+<script src="<?php echo base_url(); ?>dist/js/grades/manage.js"></script>
 
 <script>
   $(function () {
-    $('#studentList1').DataTable()
-    
+    $('#studentList1').DataTable() 
+    $('.select2').select2();
   })
 </script>
 </body>
