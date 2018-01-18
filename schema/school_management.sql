@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 18, 2018 at 12:34 AM
+-- Generation Time: Jan 19, 2018 at 02:32 AM
 -- Server version: 5.7.11
 -- PHP Version: 7.0.4
 
@@ -236,20 +236,21 @@ CREATE TABLE `rooms` (
   `id` int(100) NOT NULL,
   `room_id` varchar(50) NOT NULL,
   `room_name` varchar(50) NOT NULL,
-  `building` varchar(200) NOT NULL
+  `building` varchar(200) NOT NULL,
+  `status` enum('active','inactive') NOT NULL DEFAULT 'active'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `rooms`
 --
 
-INSERT INTO `rooms` (`id`, `room_id`, `room_name`, `building`) VALUES
-(1, 'Lab101', 'Laboratory 101', 'College of Science'),
-(2, 'Lab102', 'Laboratory 102', 'College of Industrial Engineering'),
-(3, 'Lab103', 'Laboratory 103', 'CAFA'),
-(4, 'Room 104', 'Room 104', 'College of Engineering'),
-(5, 'Room 105', 'Room 105', 'CLA'),
-(7, 'Lab104', 'Laboratory 104', 'COS');
+INSERT INTO `rooms` (`id`, `room_id`, `room_name`, `building`, `status`) VALUES
+(1, 'Lab101', 'Laboratory 101', 'College of Science', 'active'),
+(2, 'Lab102', 'Laboratory 102', 'College of Industrial Engineering', 'active'),
+(3, 'Lab103', 'Laboratory 103', 'CAFA', 'active'),
+(4, 'Room 104', 'Room 104', 'College of Engineering', 'active'),
+(5, 'Room 105', 'Room 105', 'CLA', 'active'),
+(7, 'Lab104', 'Laboratory 104', 'COS', 'inactive');
 
 -- --------------------------------------------------------
 
@@ -281,33 +282,35 @@ CREATE TABLE `sections` (
   `strand_code` varchar(50) NOT NULL,
   `year_level_id` int(11) NOT NULL,
   `name` varchar(45) NOT NULL,
-  `capacity` int(2) NOT NULL
+  `capacity` int(2) NOT NULL,
+  `status` enum('active','inactive') NOT NULL DEFAULT 'active'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `sections`
 --
 
-INSERT INTO `sections` (`id`, `strand_code`, `year_level_id`, `name`, `capacity`) VALUES
-(1, 'STEM', 1, 'A', 40),
-(2, 'GAS', 1, 'A', 40),
-(3, 'HUMSS', 1, 'A', 40),
-(4, 'TVL-HE', 1, 'A', 40),
-(5, 'TVL-AS', 1, 'A', 40),
-(6, 'ABM', 1, 'A', 40),
-(7, 'ABM', 2, 'A', 45),
-(8, 'TVL-AS', 2, 'A', 45),
-(9, 'HUMSS', 2, 'A', 45),
-(10, 'GAS', 2, 'A', 45),
-(11, 'STEM', 2, 'A', 45),
-(12, 'TVL-HE', 2, 'A', 45),
-(13, 'STEM', 1, 'B', 45),
-(14, 'GAS', 1, 'B', 45),
-(15, 'HUMSS', 1, 'B', 45),
-(16, 'TVL-HE', 1, 'B', 45),
-(17, 'TVL-AS', 1, 'B', 45),
-(18, 'ABM', 1, 'B', 45),
-(20, 'STEM', 1, 'C', 40);
+INSERT INTO `sections` (`id`, `strand_code`, `year_level_id`, `name`, `capacity`, `status`) VALUES
+(1, 'STEM', 1, 'A', 40, 'inactive'),
+(2, 'GAS', 1, 'A', 40, 'active'),
+(3, 'HUMSS', 1, 'A', 40, 'active'),
+(4, 'TVL-HE', 1, 'A', 40, 'active'),
+(5, 'TVL-AS', 1, 'A', 40, 'active'),
+(6, 'ABM', 1, 'A', 40, 'active'),
+(7, 'ABM', 2, 'A', 45, 'active'),
+(8, 'TVL-AS', 2, 'A', 45, 'active'),
+(9, 'HUMSS', 2, 'A', 45, 'active'),
+(10, 'GAS', 2, 'A', 45, 'active'),
+(11, 'STEM', 2, 'A', 45, 'active'),
+(12, 'TVL-HE', 2, 'A', 45, 'active'),
+(13, 'STEM', 1, 'B', 45, 'active'),
+(14, 'GAS', 1, 'B', 45, 'active'),
+(15, 'HUMSS', 1, 'B', 45, 'active'),
+(16, 'TVL-HE', 1, 'B', 45, 'active'),
+(17, 'TVL-AS', 1, 'B', 45, 'active'),
+(18, 'ABM', 1, 'B', 45, 'active'),
+(20, 'STEM', 1, 'C', 40, 'active'),
+(21, 'STEM', 1, 'D', 40, 'active');
 
 -- --------------------------------------------------------
 
@@ -330,11 +333,12 @@ CREATE TABLE `strands` (
 INSERT INTO `strands` (`id`, `code`, `name`, `status`, `date_created`) VALUES
 (1, 'STEM', 'Science, Technology, Engineering and Mathematics', 'inactive', '2018-01-17 14:54:40'),
 (2, 'GAS', 'General Academic Strand', 'inactive', '0000-00-00 00:00:00'),
-(3, 'HUMSS', 'Humanities and Social Sciences', 'inactive', '0000-00-00 00:00:00'),
+(3, 'HUMSS', 'Humanities and Social Sciences', 'active', '0000-00-00 00:00:00'),
 (4, 'TVL-HE', 'Technical Vocational and Livelihood - Home Economics', 'active', '0000-00-00 00:00:00'),
 (5, 'TVL-AS', 'Technical Vocational and Livelihood - Automative Services', 'active', '0000-00-00 00:00:00'),
 (6, 'ABM', 'Accounting and Business Management', 'active', '0000-00-00 00:00:00'),
-(17, 'asd', 'asd', 'active', '0000-00-00 00:00:00');
+(17, 'asd', 'asd', 'inactive', '0000-00-00 00:00:00'),
+(18, '123', 'asd', 'inactive', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -408,9 +412,32 @@ CREATE TABLE `subjects` (
   `name` varchar(150) NOT NULL,
   `type` varchar(50) NOT NULL,
   `description` varchar(500) NOT NULL,
+  `status` enum('active','inactive') NOT NULL DEFAULT 'active',
   `date_created` timestamp NULL DEFAULT NULL,
   `date_modified` timestamp NULL DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `subjects`
+--
+
+INSERT INTO `subjects` (`id`, `code`, `name`, `type`, `description`, `status`, `date_created`, `date_modified`) VALUES
+(9, 'CS-1', 'Oral Communication', 'Core Subject', '', 'inactive', NULL, NULL),
+(10, 'CS-2', 'Personal Development', 'Core Subject', '', 'active', NULL, NULL),
+(11, 'CS-3', 'Introduction to the Philosophy of the Human Person', 'Core Subject', '', 'active', NULL, NULL),
+(12, 'CS-4', 'Komunikasyon at Pananaliksik sa Wika at Kulturang Pilipino', 'Core Subject', '', 'active', NULL, NULL),
+(13, 'CS-5', 'General Mathematics', 'Core Subject', '', 'active', NULL, NULL),
+(14, 'CS-6', 'Earth and Life Science', 'Core Subject', '', 'active', NULL, NULL),
+(15, 'CS-7', 'PE and Health 1', 'Core Subject', '', 'active', NULL, NULL),
+(16, 'SS-HUMSS-1', 'Philippine Politics and Governance', 'Specialized Subjects', '', 'active', NULL, NULL),
+(17, 'SS-HUMSS-2', 'Discipline and Ideas in the Social Sciences', 'Specialized Subjects', '', 'active', NULL, NULL),
+(18, 'SS-GAS-1', 'Elective 1 - General Biology 1', 'Specialized Subject', '', 'active', NULL, NULL),
+(19, 'SS-HE-1', 'Food and Beverages Services 1 and 2', 'Specialized Subjects', '', 'active', NULL, NULL),
+(20, 'SS-AUTOMOTIVE-1', 'Automotive Servicing 1 and 2', 'Specialized Subjects', '', 'active', NULL, NULL),
+(21, 'SS-GAS SS-ABM', 'Organization and Management', 'Specialized Subjects', '', 'active', NULL, NULL),
+(22, 'SS-ABM-1', 'Fundamentals of Accountancy, Business and Management 1', 'Specialized Subject', '', 'active', NULL, NULL),
+(23, 'SS-STEM-1', 'Precalculus', 'Specialized Subject', '', 'active', NULL, NULL),
+(24, 'SS-STEM-2', 'General Chemistry 1', 'Specialized Subject', '', 'active', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -665,7 +692,7 @@ ALTER TABLE `requirements`
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `schedules`
 --
@@ -675,12 +702,12 @@ ALTER TABLE `schedules`
 -- AUTO_INCREMENT for table `sections`
 --
 ALTER TABLE `sections`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `strands`
 --
 ALTER TABLE `strands`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `students_info`
 --
@@ -695,7 +722,7 @@ ALTER TABLE `student_contacts`
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `teachers`
 --

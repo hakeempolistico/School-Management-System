@@ -55,10 +55,22 @@ class subjects extends CI_Controller {
 		$data = [];
         foreach ($result as $key => $value)
             {
+            	$status=null;
+            	if($value->status == 'active'){
+            		$status = '<center><span class="badge bg-light-blue">'.$value->status.'</span></center>';
+					$action = "<center><button data-toggle='modal' id='view-btn' data-target='#modal-view' class='btn btn-default btn-xs view-btn'><span class='fa fa-fw fa-search text-info'></span></button>                    
+			                    <button data-toggle='modal' data-target='#modal-delete' class='btn btn-default btn-xs delete-btn'><span class='fa fa-fw fa-remove text-danger'></span></button></center>";
+            	}
+            	else if($value->status == 'inactive'){
+            		$status = '<center><span class="badge bg-red status">'.$value->status.'</span></center>';
+					$action = "<center><button data-toggle='modal' id='view-btn' data-target='#modal-view' class='btn btn-default btn-xs view-btn'><span class='fa fa-fw fa-search text-info'></span></button>                    
+			                    <button data-toggle='modal' data-target='#modal-delete' class='btn btn-default btn-xs delete-btn'><span class='fa fa-fw fa-check text-success'></span></button></center>";
+            	}
                 $arr = array(
                     $value->code,
                     $value->name,
                     $value->type,
+                    $status,
                     $action
                 );
                 $data['data'][] = $arr;

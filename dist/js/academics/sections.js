@@ -367,7 +367,7 @@ $(function () {
           if(setStat=='inactive'){
             $.notify({
               title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
-              message: "Strand: " + code + " set to inactive."
+              message: "Section: " + name + " set to inactive."
             },{
               type: 'danger',
               animate: {
@@ -387,7 +387,7 @@ $(function () {
           else if(setStat=='active'){
             $.notify({
               title: '<strong><i class="icon fa fa-check"></i>SUCCESS!</strong>',
-              message: "Strand: " + code + " set to active."
+              message: "Section: " + name + " set to active."
             },{
               type: 'success',
               animate: {

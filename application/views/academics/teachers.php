@@ -26,7 +26,7 @@
     <section class="content-header">
       <h1>
         Teachers
-        <small>temporary message here</small>
+        <small>Manage teachers.</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="enrollment/dashboard"><i class="fa fa-mortar-board"></i> Academics</a></li>
