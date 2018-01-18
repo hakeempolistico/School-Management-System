@@ -90,10 +90,6 @@
                   jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
                   quora plaxo ideeli hulu weebly balihoo...
                 </div>
-                <div class="timeline-footer">
-                  <a class="btn btn-primary btn-xs">Read more</a>
-                  <a class="btn btn-danger btn-xs">Delete</a>
-                </div>
               </div>
             </li>
             <!-- END timeline item -->
@@ -108,23 +104,6 @@
               </div>
             </li>
             <!-- END timeline item -->
-            <!-- timeline item -->
-            <li>
-              <i class="fa fa-graduation-cap bg-yellow"></i>
-
-              <div class="timeline-item">
-                <span class="time"><i class="fa fa-clock-o"></i> Jan 16, 2018 - 1:00pm</span>
-
-                <h3 class="timeline-header"><a href="#">Adrielle Escaro</a> knows de waeeeeeee!</h3>
-
-                <div class="timeline-body">
-                  Take me to your queen!
-                  I will spit on feyk queen! 
-                </div>
-              </div>
-            </li>
-            <!-- END timeline item -->
-            <!-- timeline item -->
             <li>
               <i class="fa fa-file bg-purple"></i>
 

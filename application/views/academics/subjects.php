@@ -71,7 +71,6 @@
                   <th>Action</th>
                 </tr>
                 </thead>
-                
                 <tfoot>
                 <tr>
                   <th>Code</th>

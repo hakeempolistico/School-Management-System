@@ -205,9 +205,9 @@ function populateTable(){
 
   $('#strands-table').DataTable({
     "columns": [
-        { "width": "30%" },
-        { "width": "50%" },
-        { "width": "10%" },
+        { "width": "20%" },
+        { "width": "65%" },
+        { "width": "5%" },
         { "width": "10%" }
     ],
         "order": [] ,
@@ -237,7 +237,7 @@ function populateTable(){
   $("#strands-table").on("click", "tr td .delete-btn", function(){
       code = $(this).parents('tr').find('td:first').html();
       status = $(this).parents('tr').find('td:nth-child(3)').find('span').html();
-      console.log(status);
+      //console.log(status);
       if(status=='active'){
         $('#box-delete').removeClass('box-success').removeClass('box-danger').addClass('box-danger');
         $('#box-delete-icon').removeClass('text-success').removeClass('text-danger').addClass('text-danger');

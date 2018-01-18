@@ -37,46 +37,12 @@
     <!-- Main content -->
     <section class="content">
       <div class="row">
-        <div class="col-lg-4 col-xs-12">
-          <div class="box box-primary">
-              <div class="box-header">
-                <h3 class="box-title text-primary"><i class="fa fa-plus"></i> Add Teacher</h3>
-              </div>
-              <div class="box-body">
-                <div class="form-group" style="margin-bottom: 5px">
-                  <label for="id-input">Employee ID</label>
-                  <label for="name-input" class="text-danger">*</label>
-                  <input type="text" class="form-control" id="id-input" placeholder="Teacher Employee ID">
-                </div>
-                <div class="form-group" style="margin-bottom: 5px">
-                  <label for="firstname-input">First Name</label>
-                  <input type="text" class="form-control" id="firstname-input" placeholder="Teacher First Name">
-                </div>
-                <div class="form-group" style="margin-bottom: 5px">
-                  <label for="middlename-input">Middle Name</label>
-                  <input type="text" class="form-control" id="middlename-input" placeholder="Teacher Middle Name">
-                </div>
-                <div class="form-group" style="margin-bottom: 5px">
-                  <label for="lastname-input">Last Name</label>
-                  <input type="text" class="form-control" id="lastname-input" placeholder="Teacher Last Name">
-                </div>
-                <div class="form-group" style="margin-bottom: 5px">
-                  <label for="major-input">Major</label>
-                  <input type="text" class="form-control" id="major-input" placeholder="Teacher Major">
-                </div>
-                <div class="form-group" style="margin-bottom: 7px">
-                  <label for="position-input">Position</label>
-                  <input type="text" class="form-control" id="position-input" placeholder="Teacher Position">
-                </div>
-                <button id="add-btn" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-plus"></i> &nbsp; Add</button>
-              </div>
-          </div>
-        </div>
-        <div class="col-lg-8 col-xs-12">
+        <div class="col-lg-12 col-xs-12">
 
           <div class="box box-primary">
             <div class="box-header">
               <h3 class="box-title text-primary"><i class="fa fa-users"></i> Teacher List</h3>
+              <button data-toggle="modal" data-target="#modal-add" class="pull-right btn btn-primary btn-xs edit-btn"><span class="fa fa-fw fa-plus"></span></button>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -85,6 +51,8 @@
                 <tr>
                   <th>Employee ID</th>
                   <th>Name</th>
+                  <th>Position</th>
+                  <th>Major</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
@@ -93,6 +61,8 @@
                 <tr>
                   <th>Employee ID</th>
                   <th>Name</th>
+                  <th>Position</th>
+                  <th>Major</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
@@ -224,10 +194,6 @@
                   <label for="view-position">Position</label>
                   <input type="text" class="form-control" id="view-position">
                 </div>
-                <div class="form-group" style="margin-bottom: 5px;">
-                  <label for="view-status">Status</label>
-                  <input type="text" class="form-control" id="view-status">
-                </div>
                 <button id="view-update" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-save"></i> &nbsp; Save</button>
                  
                 </li>   
@@ -239,6 +205,44 @@
           <!-- /.modal-dialog -->
         </div>
         <!-- /.modal -->
+
+      <div class="modal fade" id="modal-add">
+          <div class="modal-dialog" style="max-width: 400px">
+            <div class="box box-primary">
+                <div class="box-header">
+                  <h3 class="box-title text-primary"><i class="fa fa-plus"></i> Add Teacher</h3>
+                </div>
+                <div class="box-body">
+                  <div class="form-group" style="margin-bottom: 5px">
+                    <label for="id-input">Employee ID</label>
+                    <label for="name-input" class="text-danger">*</label>
+                    <input type="text" class="form-control" id="id-input" placeholder="Teacher Employee ID">
+                  </div>
+                  <div class="form-group" style="margin-bottom: 5px">
+                    <label for="firstname-input">First Name</label>
+                    <input type="text" class="form-control" id="firstname-input" placeholder="Teacher First Name">
+                  </div>
+                  <div class="form-group" style="margin-bottom: 5px">
+                    <label for="middlename-input">Middle Name</label>
+                    <input type="text" class="form-control" id="middlename-input" placeholder="Teacher Middle Name">
+                  </div>
+                  <div class="form-group" style="margin-bottom: 5px">
+                    <label for="lastname-input">Last Name</label>
+                    <input type="text" class="form-control" id="lastname-input" placeholder="Teacher Last Name">
+                  </div>
+                  <div class="form-group" style="margin-bottom: 5px">
+                    <label for="major-input">Major</label>
+                    <input type="text" class="form-control" id="major-input" placeholder="Teacher Major">
+                  </div>
+                  <div class="form-group" style="margin-bottom: 7px">
+                    <label for="position-input">Position</label>
+                    <input type="text" class="form-control" id="position-input" placeholder="Teacher Position">
+                  </div>
+                  <button id="add-btn" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-plus"></i> &nbsp; Add</button>
+                </div>
+            </div>
+          </div>
+        </div>
 
         <div class="modal fade in" id="modal-delete">
           <div class="modal-dialog" style="max-width: 320px">

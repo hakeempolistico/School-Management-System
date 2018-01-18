@@ -3,6 +3,7 @@ var year_level;
 var name;
 var capacity;
 var id;
+var status;
 
 $(function () {
   
@@ -333,32 +334,76 @@ $(function () {
           });     
   })
 
+  
   $('#delete-confirm').click(function(){
+    var setStat;
+    if(status=='active'){
+      setStat='inactive';
+    }
+    else if(status=='inactive'){
+      setStat='active';
+    }
+
+    if(year_level_id=='Grade 11'){
+      year_level_id = '1';
+    }
+    else if(year_level_id=='Grade 12'){
+      year_level_id = '2';
+    }
     $.ajax({
-      url: deleteRowUrl,
+      url: updateUrl,
       type: 'post',
       dataType: 'json', 
-      data: {'id': id}, 
+      data: {
+        'status' : setStat, 
+        'name': name, 
+        'set' : strand_code,
+        'set2' : year_level_id,
+        'set3': name 
+      }, 
       success: function(result){
         console.log(result);
         populateTable();
-        $.notify({
-          title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
-          message: "Section ID : " + id + " delete."
-        },{
-          type: 'danger',
-          animate: {
-            enter: 'animated fadeInUp',
-            exit: 'animated fadeOutRight'
-          },
-          placement: {
-            from: "top",
-            align: "right"
-          },
-          offset: 20,
-          spacing: 10,
-          z_index: 1031,
-        });
+          if(setStat=='inactive'){
+            $.notify({
+              title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+              message: "Strand: " + code + " set to inactive."
+            },{
+              type: 'danger',
+              animate: {
+                enter: 'animated fadeInUp',
+                exit: 'animated fadeOutRight'
+              },
+              placement: {
+                from: "top",
+                align: "right"
+              },
+              offset: 20,
+              spacing: 10,
+              delay: 5000,
+              z_index: 1031,
+            });     
+          }
+          else if(setStat=='active'){
+            $.notify({
+              title: '<strong><i class="icon fa fa-check"></i>SUCCESS!</strong>',
+              message: "Strand: " + code + " set to active."
+            },{
+              type: 'success',
+              animate: {
+                enter: 'animated fadeInUp',
+                exit: 'animated fadeOutRight'
+              },
+              placement: {
+                from: "top",
+                align: "right"
+              },
+              offset: 20,
+              spacing: 10,
+              delay: 5000,
+              z_index: 1031,
+            });     
+          }
       }
     }); 
   })
@@ -373,8 +418,9 @@ function populateTable(){
     "columns": [
         { "width": "22%" },
         { "width": "22%" },
-        { "width": "22%" },
-        { "width": "22%" },
+        { "width": "19%" },
+        { "width": "20%" },
+        { "width": "5%" },
         { "width": "12%" }
     ],
         "order": [] ,
@@ -442,7 +488,24 @@ function populateTable(){
 
   $("#table-sections").on("click", "tr td .delete-btn", function(){
       strand_code = $(this).parents('tr').find('td:first').html();
+      year_level_id = $(this).parents('tr').find('td:nth-child(2)').html();
+      name = $(this).parents('tr').find('td:nth-child(3)').html();
+      status = $(this).parents('tr').find('td:nth-child(5)').find('span').html();
       id = $(this).attr('data-id');
+      if(status=='active'){
+        $('#box-delete').removeClass('box-success').removeClass('box-danger').addClass('box-danger');
+        $('#box-delete-icon').removeClass('text-success').removeClass('text-danger').addClass('text-danger');
+        $('#box-delete-btn').removeClass('text-success').removeClass('text-danger').addClass('text-danger');
+        $('#delete-confirm').removeClass('btn-danger').removeClass('btn-success').addClass('btn-danger');
+        $('#text-status').html('Are you sure you want to inactivate record?');
+      }
+      else if(status=='inactive'){
+        $('#box-delete').removeClass('box-success').removeClass('box-danger').addClass('box-success');
+        $('#box-delete-icon').removeClass('text-success').removeClass('text-danger').addClass('text-success');
+        $('#box-delete-btn').removeClass('text-success').removeClass('text-danger').addClass('text-success');
+        $('#delete-confirm').removeClass('btn-danger').removeClass('btn-success').addClass('btn-success');
+        $('#text-status').html('Are you sure you want to activate record?');
+      }
   });
   
 }

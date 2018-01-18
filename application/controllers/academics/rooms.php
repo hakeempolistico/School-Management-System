@@ -76,19 +76,26 @@ class rooms extends CI_Controller {
 	}
 	public function ajaxGetRecords(){
 		$result = $this->global_model->getRecords('rooms', 'desc', 'id');
-		$action = "
-					<button data-toggle='modal' data-target='#modal-schedule' class='btn btn-default btn-xs schedule-btn'><span class='fa fa-fw fa-clock-o text-success'></span></button>
-                    <button data-toggle='modal' data-target='#modal-edit' class='btn btn-default btn-xs edit-btn'><span class='fa fa-fw fa-pencil text-info'></span></button>                    
-                    <button data-toggle='modal' data-target='#modal-delete' class='btn btn-default btn-xs delete-btn'><span class='fa fa-fw fa-remove text-danger'></span></button>                
-                  ";
 
 		$data = [];
         foreach ($result as $value)
-            {	            	
+            {	
+            	$status=null;
+            	if($value->status == 'active'){
+            		$status = '<center><span class="badge bg-light-blue status">'.$value->status.'</span></center>';
+					$action = "<center><button data-toggle='modal' data-target='#modal-schedule' class='btn btn-default btn-xs schedule-btn'><span class='fa fa-fw fa-clock-o text-success'></span></button><button data-toggle='modal' data-target='#modal-edit' class='btn btn-default btn-xs edit-btn'><span class='fa fa-fw fa-pencil text-info'></span></button>                    
+			                    <button data-toggle='modal' data-target='#modal-delete' class='btn btn-default btn-xs delete-btn'><span class='fa fa-fw fa-remove text-danger'></span></button></center>";
+            	}
+            	else if($value->status == 'inactive'){
+            		$status = '<center><span class="badge bg-red status">'.$value->status.'</span></center>';
+					$action = "<center><button data-toggle='modal' data-target='#modal-schedule' class='btn btn-default btn-xs schedule-btn'><span class='fa fa-fw fa-clock-o text-success'></span></button><button data-toggle='modal' data-target='#modal-edit' class='btn btn-default btn-xs edit-btn'><span class='fa fa-fw fa-pencil text-info'></span></button>                    
+			                    <button data-toggle='modal' data-target='#modal-delete' class='btn btn-default btn-xs delete-btn'><span class='fa fa-fw fa-check text-success'></span></button></center>";
+            	}            	
                 $arr = array(
                     $value->room_id,
                     $value->room_name,
                     $value->building,
+                    $status,
                     $action
                 );
                 $data['data'][] = $arr;
