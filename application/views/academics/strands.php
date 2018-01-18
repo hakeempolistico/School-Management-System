@@ -25,31 +25,12 @@
     <!-- Main content -->
     <section class="content">
       <div class="row">
-        <div class="col-lg-4 col-xs-12">
-          <div class="box box-primary">
-              <div class="box-header">
-                <h3 class="box-title text-primary"><i class="fa fa-plus"></i> Add Strands</h3>
-              </div>
-              <!-- /.box-header -->
-              <div class="box-body">
-                <div class="form-group" style="margin-bottom: 5px">
-                  <label for="srtandCodeInput">Code</label>
-                  <label for="srtandCodeInput" class="text-danger">*</label>
-                  <input type="text" class="form-control" id="code-input" placeholder="Strand Code">
-                </div> 
-                <div class="form-group" style="margin-bottom: 7px">
-                  <label for="strandNameInput">Name</label>
-                  <input type="text" class="form-control" id="name-input" placeholder="Strand Name">
-                </div>               
-                <button type="button" id="add-btn" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-plus"></i> &nbsp; Add</button>
-              </div>
-          </div>
-        </div>
-        <div class="col-lg-8 col-xs-12">
+        <div class="col-lg-12 col-xs-12">
 
           <div class="box box-primary">
             <div class="box-header">
               <h3 class="box-title text-primary"><i class="fa fa-tag"></i> Strand List</h3>
+              <button data-toggle="modal" data-target="#modal-add" class="pull-right btn btn-primary btn-xs edit-btn"><span class="fa fa-fw fa-plus"></span></button>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -110,9 +91,31 @@
               </div>
           </div>
           </div>
-          <!-- /.modal-dialog -->
         </div>
-        <!-- /.modal -->
+
+        <div class="modal fade" id="modal-add">
+          <div class="modal-dialog" style="max-width: 400px">
+            <div class="box box-primary">
+                <div class="box-header">
+                  <h3 class="box-title text-primary"><i class="fa fa-plus"></i> Add Strands</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                  <div class="form-group" style="margin-bottom: 5px">
+                    <label for="srtandCodeInput">Code</label>
+                    <label for="srtandCodeInput" class="text-danger">*</label>
+                    <input type="text" class="form-control" id="code-input" placeholder="Strand Code">
+                  </div> 
+                  <div class="form-group" style="margin-bottom: 7px">
+                    <label for="strandNameInput">Name</label>
+                    <input type="text" class="form-control" id="name-input" placeholder="Strand Name">
+                  </div>               
+                  <button type="button" id="add-btn" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-plus"></i> &nbsp; Add</button>
+                </div>
+            </div>
+          </div>
+        </div>
+
         <div class="modal fade in" id="modal-delete">
           <div class="modal-dialog" style="max-width: 320px">
             <div id="box-delete" class="box box-danger">

@@ -60,7 +60,7 @@ class teachers extends CI_Controller {
             {	
             	$status=null;
             	if($value->status == 'active'){
-            		$status = '<span class="badge bg-light-blue">'.$value->status.'</span>';
+            		$status = '<center><span class="badge bg-light-blue">'.$value->status.'</span></center>';
 					$action = "
                     <button data-toggle='modal' id='view-btn' data-target='#modal-schedule' class='btn btn-default btn-xs view-btn'><span class='fa fa-fw fa-clock-o text-success'></span></button>
                     <button data-toggle='modal' id='view-btn' data-target='#modal-view' class='btn btn-default btn-xs view-btn'><span class='fa fa-fw fa-search text-info'></span></button>                  
@@ -68,7 +68,7 @@ class teachers extends CI_Controller {
                   ";
             	}
             	else if($value->status == 'inactive'){
-            		$status = '<span class="badge bg-red">'.$value->status.'</span>';
+            		$status = '<center><span class="badge bg-red">'.$value->status.'</span></center>';
 					$action = "
                     <button data-toggle='modal' id='view-btn' data-target='#modal-schedule' class='btn btn-default btn-xs view-btn'><span class='fa fa-fw fa-clock-o text-success'></span></button>
                     <button data-toggle='modal' id='view-btn' data-target='#modal-view' class='btn btn-default btn-xs view-btn'><span class='fa fa-fw fa-search text-info'></span></button>                  
@@ -79,6 +79,8 @@ class teachers extends CI_Controller {
                 $arr = array(
                     $value->employee_id,
                     $value->first_name.' '.$value->middle_name.' '.$value->last_name,
+                    $value->position,
+                    $value->major,
                     $status,
                     $action
                 );

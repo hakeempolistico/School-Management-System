@@ -103,8 +103,10 @@ function populateTable(){
   $('#teachersTable').DataTable({
         "columns": [
             { "width": "20%" },
-            { "width": "55%" },
+            { "width": "40%" },
             { "width": "10%" },
+            { "width": "20%" },
+            { "width": "5%" },
             { "width": "15%" }
             ],
         "order": [] ,
@@ -139,7 +141,6 @@ function populateTable(){
               $( "#view-lastname" ).val(result.last_name);
               $( "#view-major" ).val(result.major);
               $( "#view-position" ).val(result.position);
-              $( "#view-status" ).val(result.status);
             }
           });   
   });
@@ -285,7 +286,6 @@ function show(){
   $( "#view-lastname" ).prop( "disabled", false );
   $( "#view-major" ).prop( "disabled", false );
   $( "#view-position" ).prop( "disabled", false );
-  $( "#view-status" ).prop( "disabled", false );
   $( "#view-update" ).show();
 }
 
@@ -297,7 +297,6 @@ function hide(){
     $( "#view-lastname" ).prop( "disabled", true );
     $( "#view-major" ).prop( "disabled", true );
     $( "#view-position" ).prop( "disabled", true );
-    $( "#view-status" ).prop( "disabled", true );
     $( "#view-update" ).hide();
 }
 
@@ -317,7 +316,6 @@ $('#view-update').click(function(){
   last_name = $( "#view-lastname" ).val();
   major = $( "#view-major" ).val();
   position = $( "#view-position" ).val();
-  status = $( "#view-status" ).val();
   updateRow();
   
 })
