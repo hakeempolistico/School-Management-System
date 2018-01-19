@@ -24,12 +24,12 @@ class curriculum extends CI_Controller {
         $this->parser->parse('academics/curriculum', $data);
 	}
 
-	public function getStrands(){		
-		echo json_encode($this->global_model->getRecords('strands'));
+	public function getStrands(){
+		echo json_encode($this->global_model->getActiveRecords('strands'));
 	}
 
 	public function getYears(){		
-		echo json_encode($this->global_model->getRecords('year_levels'));
+		echo json_encode($this->global_model->getActiveRecords('year_levels'));
 	}
 
 	public function getSection(){			
@@ -37,11 +37,7 @@ class curriculum extends CI_Controller {
 	}
 
 	public function getSubjects(){	
-		echo json_encode($this->global_model->getRecords('subjects'));
-	}
-
-	public function getTeachers(){	
-		echo json_encode($this->global_model->getRecords('teachers'));
+		echo json_encode($this->global_model->getActiveRecords('subjects'));
 	}
 
 	public function deleteCurrSubject(){	

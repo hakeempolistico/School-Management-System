@@ -15,11 +15,11 @@ class schedule extends CI_Controller {
 		$data = $this->parse->parsed();
 		$data['classesCount'] = $this->global_model->count('sections');
 		$data['classes'] = $this->global_model->getRecords('sections');		
-		$data['teachers'] = $this->global_model->getRecords('teachers');		
-		$data['rooms'] = $this->global_model->getRecords('rooms');			
+		$data['teachers'] = $this->global_model->getActiveRecords('teachers');		
+		$data['rooms'] = $this->global_model->getActiveRecords('rooms');			
 		$data['subjects'] = $this->global_model->getRecords('subjects');		
 		$data['year_levels'] = $this->global_model->getRecords('year_levels');		
-		$data['strands'] = $this->global_model->getRecords('strands');		
+		$data['strands'] = $this->global_model->getActiveRecords('strands');		
 		$data['classes'] = $this->schedule_model->getClass();		
 
 		$data['active'] = 'academics/schedule';
@@ -60,7 +60,6 @@ class schedule extends CI_Controller {
 		$row = $this->global_model->insert('schedules', $data);
 		echo json_encode($row);
 	}
-
 
 	public function deleteSchedule()
 	{

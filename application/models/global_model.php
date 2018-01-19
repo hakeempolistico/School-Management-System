@@ -18,6 +18,17 @@ class global_model extends CI_Model{
 		return $query;
 	}
 
+	public function getActiveRecords($table, $order_by=null, $set=null)
+	{
+		if($order_by != null && $set != null)
+		{
+		   $this->db->order_by($set, $order_by);
+		}
+		$this->db->where('status', 'active');
+		$query = $this->db->get($table)->result();
+		return $query;
+	}
+
 	public function getRow($table, $set, $value)
 	{
 		$this->db->where($set, $value);

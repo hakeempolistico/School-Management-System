@@ -18,6 +18,21 @@ $(function () {
         });
       }
     }); 
+    $.ajax({
+      url: getStrands,
+      type: 'post',
+      dataType: 'json',  
+      success: function(result){
+        //console.log(result);
+
+        $.each(result, function( index, value ) {
+          $('#select-strand').append($('<option>', { 
+              value: value.code,
+              text : value.code
+          })).select2();
+        });
+      }
+    }); 
 
     $('#btn-confirm').on('click', function(){ 
 
