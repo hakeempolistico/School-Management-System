@@ -21,6 +21,8 @@ class register_student extends CI_Controller {
 	{
 		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 		$data = $this->parse->parsed();
+		$data['active'] = 'enrollment/register_student';
+		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
 		$this->parser->parse('enrollment/register_student', $data);
 	}
 
@@ -54,6 +56,8 @@ class register_student extends CI_Controller {
 		if ($this->form_validation->run() == FALSE)
 		{
 			$data = $this->parse->parsed();
+			$data['active'] = 'enrollment/register_student';
+			$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
 			$this->parser->parse('enrollment/register_student', $data);
 		}
 		else
@@ -148,6 +152,8 @@ class register_student extends CI_Controller {
 	public function after_register()
 	{
 		$data = $this->parse->parsed();
+		$data['active'] = 'enrollment/register_student';
+		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
 		$data['lastLrn'] = json_encode($this->register_student_model->getLastRow('students_info'));
 		$this->parser->parse('enrollment/after_register', $data);
 	}
@@ -164,6 +170,8 @@ class register_student extends CI_Controller {
 	public function form()
 	{
 		$data = $this->parse->parsed();
+		$data['active'] = 'enrollment/register_student';
+		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
 		$this->parser->parse('enrollment/register_form', $data);
 	}
 

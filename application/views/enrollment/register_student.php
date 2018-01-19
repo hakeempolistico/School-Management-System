@@ -262,17 +262,17 @@
                   </div>
                   <div class="col-md-3">
                     <div class="form-group">
-                        <input type="radio" name="r3" class="flat-red parent" value="Father" <?php echo  set_radio('r3', 'Father'); ?> >   Father
+                        <input type="radio" name="r3" class="flat-red pipol parent" value="Father" <?php echo  set_radio('r3', 'Father'); ?> >   Father
                     </div>
                   </div>
                   <div class="col-md-3">
                     <div class="form-group">
-                        <input type="radio" name="r3" class="flat-red parent" value="Mother" <?php echo  set_radio('r3', 'Mother'); ?> >   Mother
+                        <input type="radio" name="r3" class="flat-red pipol parent" value="Mother" <?php echo  set_radio('r3', 'Mother'); ?> >   Mother
                     </div>
                   </div>
                   <div class="col-md-3">
                     <div class="form-group">
-                        <input type="radio" name="r3" class="flat-red other" value="Other" <?php echo  set_radio('r3', 'Other'); ?> >   Other
+                        <input type="radio" name="r3" class="flat-red pipol other" value="Other" <?php echo  set_radio('r3', 'Other'); ?> >   Other
                     </div>
                   </div>
                 </div>
@@ -311,16 +311,18 @@
                   </div>
                   <div class="col-md-3">
                     <div class="form-group">
-                        <input type="radio" name="r3" class="flat-red parent" value="StudentAddress" <?php echo  set_radio('r3', 'StudentAddress'); ?> >   Student address
+                        <input type="radio" name="r4" class="flat-red stuadd" value="StudentAddress" <?php echo  set_radio('r4', 'StudentAddress'); ?> >   Student address
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                        <input type="radio" name="r3" class="flat-red other" value="Other2" <?php echo  set_radio('r3', 'Other2'); ?> >
+                        <input type="radio" name="r4" class="flat-red stuadd" value="Other2" <?php echo  set_radio('r4', 'Other2'); ?> >
                         <input type="text" id="inputGUARDIANADDRESS" value="<?php echo set_value('guardian_address'); ?>" placeholder="Other" name="guardian_address" >
                         <?php echo form_error('guardian_address'); ?>
                     </div>
                   </div>
+
+                  
                 </div>
                 <!-- /.row -->
 
@@ -405,7 +407,7 @@
 
 <script>
 
-    $('.flat-red').on('ifChecked', function(event){
+    $('.pipol').on('ifChecked', function(event){
       var radioInput = $(this).val(); 
       
 
@@ -421,25 +423,31 @@
         $('#inputRELATIONSHIP').val(radioInput);
         $('#inputGUARDIANCONTACT').val($('#inputMOTHERCONTACT').val());
 
-      }else if(radioInput == "StudentAddress"){
-        $('#guardianAddressInput').hide();
-        $('#inputGUARDIANADDRESS').val('');
-        $('#inputGUARDIANADDRESS').val($('#inputSTREET').val()+', '+$('#inputBARANGAY').val()+', '+$('#inputCITY').val()+', '+$('#inputPROVINCE').val());
-        // console.log($('#inputGUARDIANADDRESS').val());
-
-      }else if(radioInput == "Other2"){
-        $('#inputGUARDIANADDRESS').focus();
-        $('#inputGUARDIANADDRESS').val('');
-        console.log($('#inputGUARDIANADDRESS').val());
-
       }else{
         $('#guardianInput').show();
         $('#inputGUARDIAN').val('');
         $('#inputRELATIONSHIP').val('');
         $('#inputGUARDIANCONTACT').val('');
-        $('#inputGUARDIANADDRESS').val('');
       }
 
+    });
+
+
+
+    $('.stuadd').on('ifChecked', function(event){
+      var radioInput2 = $(this).val(); 
+
+      if(radioInput2 == "StudentAddress"){
+        $('#guardianAddressInput').hide();
+        $('#other').blur();
+        $('#inputGUARDIANADDRESS').val('');
+        $('#inputGUARDIANADDRESS').val($('#inputSTREET').val()+', '+$('#inputBARANGAY').val()+', '+$('#inputCITY').val()+', '+$('#inputPROVINCE').val());
+        // console.log($('#inputGUARDIANADDRESS').val());
+
+      }else{
+        $('#inputGUARDIANADDRESS').focus();
+        $('#inputGUARDIANADDRESS').val();
+      }
     });
 
 </script>
