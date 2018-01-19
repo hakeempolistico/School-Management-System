@@ -149,6 +149,9 @@ function dropTrash(ev) {
 var table, set, sectionId = null, room_id, strand_code = null, year_level_id = null, semester = null; 
 
 $(".custom").prop('disabled', true);
+$('#select-year').prop('disabled', true);
+$('#select-section').prop('disabled', true);
+$('#select-semester').prop('disabled', true);
 
 function getSections() {
   strand_code = $('#select-strand').val();
@@ -181,19 +184,23 @@ function getSections() {
 
 $('#select-semester').on('change', function(){
   getCurrSubjects();
+  updateClassInfo();
 })
 $('#select-section').on('change', function(){
-  getCurrSubjects();
-  updateClassInfo();
+  $('#select-semester').prop('disabled', false);
 })
 //POPULATE SECTION SELECT 
 $('#select-year').on('change', function(){
   getSections();
-  getCurrSubjects();
+  $('#select-semester').prop('disabled', true);
+  $('#select-section').prop('disabled', false);
 })
 $('#select-strand').on('change', function(){
+  $('#select-year').prop('disabled', false);
+  $("#select-year").val('').trigger('change')
+  $('#select-section').prop('disabled', true);
+  $('#select-semester').prop('disabled', true);
   getSections();
-  getCurrSubjects();
 })
 
 function getCurrSubjects(){

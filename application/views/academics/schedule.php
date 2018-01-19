@@ -31,7 +31,7 @@
 
     <div class="row">
       <div class="col-lg-3 col-xs-12">
-        <div class="form-group">
+        <div class="form-group ">
           <label>Strand</label>
           <select id="select-strand" class="form-control select2"  data-placeholder="Select Strand" style="width: 100%">
             <option></option>
@@ -42,7 +42,6 @@
             ?>
           </select> 
         </div>
-              
       </div>
 
       <div class="col-lg-3 col-xs-12">

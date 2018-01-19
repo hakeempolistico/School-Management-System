@@ -25,38 +25,50 @@
     <!-- Main content -->
     <section class="content">
       <div class="row">
-        <div class="col-lg-4 col-xs-12">
+        <div class="col-lg-12 col-xs-12">
           <div class="box box-primary">
               <div class="box-header">
-                <h3 class="box-title text-primary" style="font-size: 17px;"><i class="fa fa-plus"></i> Select class</h3>
+                <h3 class="box-title text-primary" style="font-size: 17px;"><i class="fa fa-search"></i> Select class</h3>
               </div>
               <!-- /.box-header -->
-              <div class="box-body">                  
+              <div class="box-body">
+                <div class="row">   
+                  <div class="col-lg-4 col-xs-12">               
                     <div class="form-group" style="margin-bottom: 5px">
                       <label>Strand</label>
                       <select id="select-strand" data-placeholder="Select Strand" class="form-control select2" style="width: 100%;">
                         <option id="option-strand"></option>
                       </select>
-                    </div>                   
+                    </div>
+                  </div>   
+                  <div class="col-lg-4 col-xs-12">                
                     <div class="form-group" style="margin-bottom: 5px">
                       <label>Year</label>
                       <select id="select-year" data-placeholder="Select Year" class="form-control select2" style="width: 100%;">
                         <option id="option-year"></option>
                       </select>
-                    </div>                   
+                    </div>  
+                  </div>                 
+                  <div class="col-lg-4 col-xs-12">
                     <div class="form-group" style="margin-bottom: 7px">
                       <label>Section</label>
                       <select id="select-section" data-placeholder="Select Section" class="form-control select2" style="width: 100%;">
                         <option id="option-section"></option>
                       </select>
                     </div> 
-                
-                <button id="confirm-btn" type="button" style="width: 100px" class="btn btn-sm btn-primary pull-right">Confirm</button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-12 col-xs-12">
+                    <button id="confirm-btn" type="button" style="width: 100px" class="btn btn-sm btn-primary pull-right">Confirm</button>
+                  </div>
+                </div>
+
               </div>
           </div>
         </div>
 
-        <div class="col-lg-8 col-xs-12">
+        <div class="col-lg-12 col-xs-12">
           <div class="box box-primary">
               <div class="box-header">
                 <h3 class="box-title text-primary" style="font-size: 17px;" id="assign-subjects-title"><i class="fa fa-leaf"></i> First Semester</h3>
