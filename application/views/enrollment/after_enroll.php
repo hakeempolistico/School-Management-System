@@ -107,7 +107,7 @@
       <!-- Table row -->
       <div class="row">
         <div class="col-xs-12 table-responsive">
-          <table class="table table-striped">
+          <table class="table table-striped" style="font-size: 13px;">
             <thead>
             <tr>
               <th>Subject Code</th>

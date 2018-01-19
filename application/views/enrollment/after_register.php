@@ -77,89 +77,90 @@
       <div class="box box-default">
         <div class="box-body box-profile" style=" padding: 20px;">
           <div class="row">
-            <div class="col-md-4"><center>
-              <img src="<?php echo base_url('images/alt_picture.jpg');?>" class="img-circle" alt="<?php echo base_url('images/alt_picture.jpg');?>" style="width: 70%; margin-bottom: 10px;"></center>
+            <div class="col-md-12"><center>
+              <img src="<?php echo base_url('images/alt_picture.jpg');?>" class="img-circle" alt="<?php echo base_url('images/alt_picture.jpg');?>" style="width: 15%; margin-bottom: 10px;"></center>
               <h3 class="profile-username text-center name" style="padding: 0 20px;"></h3>
-
-              <a href="<?php echo site_url('enrollment/register_student'); ?>" class="btn btn-primary" style="width:100%; margin-bottom: 10px;">Register another student</a>
-              <form method="post" action="<?php echo base_url('enrollment/enroll_student/enroll/'); ?>">
-                <input type="hidden" name="lrn" class="lrn">
-              <button type="submit" class="btn btn-primary" style="width:100%; margin-bottom: 10px;">Enroll this student</button>
+              <center> 
+              </center>
             </form>
             </div>
             <!-- /. col-->
 
-            <div class="col-md-8">
-              <table class="table">
+            <div class="col-md-12">
+              <table class="table table-striped table-bordered">
                 <tr>
                   <td><b>LRN</b></td>
-                  <td><a id="lrn">SEE HOW DIRTY I CAN GET THEM</a></td>
+                  <td><a id="lrn">--</a></td>
                 </tr>
                 <tr>
                   <td><b>Contact No.</b></td>
-                  <td><a id="contact">LETS BE ALONE TOGETHER</a></td>
+                  <td><a id="contact">--</a></td>
                 </tr>
                 <tr>
                   <td><b>Birthdate</b></td>
-                  <td><a id="birth_date">TAKE IT ALL AWAY</a></td>
+                  <td><a id="birth_date">--</a></td>
                 </tr>
                 <tr>
                   <td><b>Birthplace</b></td>
-                  <td><a id="birth_place">OOOOOOOOOH</a></td>
+                  <td><a id="birth_place">--</a></td>
                 </tr>
                 <tr>
                   <td><b>Age</b></td>
-                  <td><a id="age">UH HUH</a></td>
+                  <td><a id="age">--</a></td>
                 </tr>
                 <tr>
                   <td><b>Mother Tongue</b></td>
-                  <td><a id="mother_tongue">HOW THE MIGHTY FALL IN LOVE</a></td>
+                  <td><a id="mother_tongue">--</a></td>
                 </tr>
                 <tr>
                   <td><b>Religion</b></td>
-                  <td><a id="religion">THE MIGHTY FALL</a></td>
+                  <td><a id="religion">--</a></td>
                 </tr>
                 <tr>
                   <td><b>Address</b></td>
-                  <td><a id="street">I</a><a id="barangay">MISS</a><a id="city">MISSING</a><a id="province">YOU</a></td>
+                  <td><a id="street">I</a><a id="barangay">--</a><a id="city">--</a><a id="province">--</a></td>
                 </tr>
                 <tr>
                   <td><b>Sex</b></td>
-                  <td><a id="sex">FEMALE</a></td>
+                  <td><a id="sex">--</a></td>
                 </tr>
                 <tr>
                   <td><b>Father's Name</b></td>
-                  <td><a id="father_name">SO PUT THE D IN DIRT NOW BABEH</a></td>
+                  <td><a id="father_name">--</a></td>
                 </tr>
                 <tr>
                   <td><b>Father's Contact No</b></td>
-                  <td><a id="father_contact">WE ARE ALIVE</a></td>
-                </tr>
+                  <td><a id="father_contact">--
                 <tr>
                   <td><b>Mother's Maiden Name</b></td>
-                  <td><a id="mother_name">FEEL MORE ALIVE</a></td>
+                  <td><a id="mother_name">--</a></td>
                 </tr>
                 <tr>
                   <td><b>Mother's Contact No</b></td>
-                  <td><a id="mother_contact">WE'RE THOSE IN RUINS</a></td>
+                  <td><a id="mother_contact">--</a></td>
                 </tr>
                 <tr>
                   <td><b>Guardian's Name</b></td>
-                  <td><a id="guardian">COME ON MAKE IT EASY</a></td>
+                  <td><a id="guardian">--</a></td>
                 </tr>
                 <tr>
                   <td><b>Guardian's Relationship</b></td>
-                  <td><a id="relationship">YOUNG VOLCANOES</a></td>
+                  <td><a id="relationship">--</a></td>
                 </tr>
                 <tr>
                   <td><b>Guardian's Contact No</b></td>
-                  <td><a id="guardian_contact">WE ARE LIKE YOUNG VOLCANOES</a></td>
+                  <td><a id="guardian_contact">--</a></td>
                 </tr>
                 <tr>
                   <td><b>Guardian's Address</b></td>
-                  <td><a id="guardian_address">FEELINGS ARE FATAL</a></td>
+                  <td><a id="guardian_address">--</a></td>
                 </tr>
               </table>
+                <form method="post" action="<?php echo base_url('enrollment/enroll_student/enroll/'); ?>">
+                  <input type="hidden" name="lrn" class="lrn">
+                <button type="submit" class="btn btn-success pull-right" style="width:20%; margin-bottom: 10px;"><i class="fa fa-fw fa-check"></i> Enroll this student</button>
+                </form>
+                <a href="<?php echo site_url('enrollment/register_student'); ?>" class="btn btn-primary" style="width:20%; margin-bottom: 10px;"><i class="fa fa-fw fa-arrow-left"></i> Register another student</a>
             </div>
             <!-- /.col -->
           </div>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Search for Online Applications</title>
+  <title>Enroll Student</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -41,242 +41,7 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
-  <header class="main-header">
-    <!-- Logo -->
-    <a href="<?php echo site_url('/') ?>" class="logo" style="background: rgb(97, 22, 35)">
-      {logo}
-    </a>
-    <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top" style="background-color: #6C1827">
-      <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
-
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">          
-          <!-- User Account: style can be found in dropdown.less -->
-          <li class="dropdown user user-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="<?php echo base_url('images/alt_picture.jpg');?>" class="user-image" alt="<?php echo base_url('images/alt_picture.jpg');?>">
-              <span class="hidden-xs"><?php echo $this->session->first_name." ".$this->session->last_name ?></span>
-            </a>
-            <ul class="dropdown-menu">
-              <!-- User image -->
-              <li class="user-header" style="background-color: #6C1827">
-                <img src="<?php echo base_url('images/alt_picture.jpg');?>" class="img-circle" alt="<?php echo base_url('images/alt_picture.jpg');?>">
-
-                <p>
-                 <?php echo $this->session->first_name." ".$this->session->last_name." - ".$this->session->position ?>
-                  <small>Member since <?php echo $this->session->date_created ?></small>
-                </p>
-              </li>
-              <!-- Menu Footer-->
-              <li class="user-footer">
-                <div class="pull-left">
-                  <a href="<?php echo site_url('profile')?>" class="btn btn-default btn-flat">Profile</a>
-                </div>
-                <div class="pull-right">
-                  <a href="<?php echo site_url('login/logout')?>" class="btn btn-default btn-flat">Sign out</a>
-                </div>
-              </li>
-            </ul>
-          </li>
-          <!-- Control Sidebar Toggle Button -->
-          
-        </ul>
-      </div>
-    </nav>
-  </header>
-  <!-- Left side column. contains the logo and sidebar -->
-  <aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-      <!-- Sidebar user panel -->
-      <div class="user-panel">
-        <div class="pull-left image">
-          <img src="<?php echo base_url('images/alt_picture.jpg');?>" class="img-circle" alt="<?php echo base_url('images/alt_picture.jpg');?>">
-        </div>
-        <div class="pull-left info">
-          <p><?php echo $this->session->first_name." ".$this->session->last_name ?></p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-        </div>
-      </div>
-      
-      <!-- sidebar menu: : style can be found in sidebar.less -->
-      <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">MAIN NAVIGATION</li>
-        <li>
-          <a href="<?php echo site_url('/'); ?>">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-          </a>
-        </li>
-        <li class="active treeview">
-          <a href="#">
-            <i class="fa fa-files-o"></i>
-            <span>Enrollment</span>
-            <span class="pull-right-container">
-              <span class="fa fa-angle-left pull-right"></span>
-            </span>
-          </a>
-
-          <ul class="treeview-menu">
-            <li>
-              <a href="<?php echo site_url('enrollment/register_student'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Register Student
-              </a>              
-            </li>
-
-            <li class="active">
-              <a href="<?php echo site_url('enrollment/enroll_student'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                  Enroll Student
-              </a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-mortar-board"></i>
-            <span>Academics</span>
-            <span class="pull-right-container">
-              <span class="fa fa-angle-left pull-right"></span>
-            </span>
-          </a>
-
-          <ul class="treeview-menu">
-            <li>
-              <a href="<?php echo site_url('academics/strands'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Strands
-              </a>
-            </li>
-            <li>
-              <a href="<?php echo site_url('academics/teachers'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Teachers
-              </a>
-            </li>
-            <li>
-              <a href="<?php echo site_url('academics/rooms'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Rooms
-              </a>
-            </li>
-            <li>
-              <a href="<?php echo site_url('academics/sections'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Sections
-              </a>
-            </li>          
-            <li>
-              <a href="<?php echo site_url('academics/subjects'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                  Subjects
-              </a>
-            </li>
-            <li>
-              <a href="<?php echo site_url('academics/assign_subjects'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Assign Subjects
-              </a>
-            </li>
-            <li>
-              <a href="<?php echo site_url('academics/schedule'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                  Schedule
-              </a>
-            </li>
-          </ul>
-          
-        </li>
-      
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-id-card"></i>
-            <span>Student Information</span>
-            <span class="pull-right-container">
-              <span class="label label-warning pull-right">soon</span>
-            </span>
-          </a>
-
-          <ul class="treeview-menu">
-            <li>
-              <a href="<?php echo site_url('enrollment/dashboard'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Student Details
-              </a>
-            </li>         
-            <li>
-              <a href="<?php echo site_url('enrollment/register_student'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Student Grades
-              </a>
-            </li>
-            <li>
-              <a href="<?php echo site_url('enrollment/enroll_student'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Student Promotion
-              </a>
-            </li>
-          </ul>          
-        </li>
-
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-bar-chart"></i>
-            <span>Reports</span>
-            <span class="pull-right-container">
-              <span class="label label-warning pull-right">soon</span>
-            </span>
-          </a>
-
-          <ul class="treeview-menu">
-            <li>
-              <a href="<?php echo site_url('reports/student_reports'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Student Reports
-              </a>
-            </li>         
-            <li>
-              <a href="<?php echo site_url('enrollment/register_student'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Grade Reports
-              </a>
-            </li>            
-          </ul>          
-        </li>
-
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-cog"></i>
-            <span>Settings</span>
-            <span class="pull-right-container">
-              <span class="label label-warning pull-right">soon</span>
-            </span>
-          </a>
-
-          <ul class="treeview-menu">
-            <li>
-              <a href="<?php echo site_url('enrollment/dashboard'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                User Management
-              </a>
-            </li>                               
-          </ul>          
-        </li>
-       
-      </ul>
-    </section>
-    <!-- /.sidebar -->
-  </aside>
-
-
+  <?=$template?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -422,8 +187,8 @@
                   </div>
                   <!-- /.row -->
                   <button class="btn btn-primary btn-flat pull-right subject" id="ave11" style="margin-top: 15px; width: 20%;">Go</button>
-                  <div id="error"></div>
-                  <div id="avera"></div>
+                  <div id="error" class="text-danger"></div>
+                  <div id="avera" class="text-info"></div>
                 </div>
                 <!-- /.inner -->
               </div>
@@ -628,8 +393,6 @@
 
 <script>
 
-  
-
   $('#grade11').on('click',function()
   {
     $('#yearLevel').remove();
@@ -707,7 +470,7 @@
   
 
   $("#ave11").click(function(){
-    $('#aStrands').css('display', 'block');
+    $('#avera').text('');
     var input1 = parseFloat(parseFloat($('#math').val()).toFixed(2));
     console.log(input1);
     var input2 = parseFloat(parseFloat($('#eng').val()).toFixed(2));
@@ -718,19 +481,27 @@
     var input7 = parseFloat(parseFloat($('#fil').val()).toFixed(2));
     var input8 = parseFloat(parseFloat($('#tle').val()).toFixed(2));
 
-    if (isNaN(input1) || isNaN(input2) || isNaN(input3) || isNaN(input4) || isNaN(input5) || isNaN(input6) || isNaN(input7) || isNaN(input8)) {
+    if(!input1 || !input2 || !input3 || !input4 || !input5 || !input6 || !input7 || !input8){
+      $('#error').text('Input blank spaces');
+    }
+    else if (isNaN(input1) || isNaN(input2) || isNaN(input3) || isNaN(input4) || isNaN(input5) || isNaN(input6) || isNaN(input7) || isNaN(input8)) {
       $('#error').text('Inputs must be numbers');
-
-    } else if (input1 > 100 || input2 > 100 || input3 > 100 || input4 > 100 || input5 > 100 || input6 > 100 || input7 > 100 || input8 > 100) 
+    } 
+    else if (input1 > 100 || input2 > 100 || input3 > 100 || input4 > 100 || input5 > 100 || input6 > 100 || input7 > 100 || input8 > 100) 
     {
       $('#error').text('Inputs should be less than 100');
-
-    }else {
-      $('#error').remove();
+    }
+    else if (input1<=64 || input2<=64 || input3<=64 || input4<=64 || input5<=64 || input6<=64 || input7<=64 || input8<=64) 
+    {
+      $('#error').text('Inputs should not be less than 65');
+    }
+    else {
+      $('#aStrands').css('display', 'block');
+      $('#error').text('');
 
         ave = (input1 + input2 + input3 + input4 + input5 + input6 + input7 +input8) / 8;
         console.log(input1+' '+ input2+' '+input3+input4+' '+input5+input6+' '+input7+input8+' '+ave);
-        $('#avera').text(ave);
+        $('#avera').text('General Average : ' + ave);
 
         if (ave > 85){
           $('.stembox').hide();
@@ -889,9 +660,6 @@
   });   
  }
  
-
-
-  
 </script>
 
 
