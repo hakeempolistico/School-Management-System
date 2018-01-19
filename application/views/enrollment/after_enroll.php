@@ -139,7 +139,7 @@
         <div class="col-xs-12">
           <p class="lead">Note:</p>
           <p class="text-muted well well-sm no-shadow" style="margin-top: -10px">
-            1 Minor offense. 2 major offense.
+            <?php echo $note ?>
           </p>
         </div>
         <!-- /.col -->

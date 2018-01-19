@@ -134,6 +134,16 @@ class enroll_student extends CI_Controller {
 
 			$fullName = $name->first_name.' '.$name->last_name;
 
+			$class = $this->global_model->getRow('sections', 'id', $enrolledStudents->section_id);
+			$c_strand = $class->strand_code;
+			if($class->year_level_id == 1){
+				$c_grade = 'Grade 11';
+			}
+			else{
+				$c_grade = 'Grade 12';
+			}
+			$c_section = $class->name;
+
 
 			$dateEnrolled = $enrolledStudents->date_enrolled;
 			$explodedDateEnrolled = explode(" ", $dateEnrolled);
@@ -144,9 +154,11 @@ class enroll_student extends CI_Controller {
 			$newDate = $m.'-'.$d.'-'.$y;
 			
 			$arr = array(
-				$id,
 		        $lrn,
 		        $fullName,
+				$c_strand,
+				$c_grade,
+				$c_section,
 		        $newDate
 		    );
 
@@ -216,7 +228,10 @@ class enroll_student extends CI_Controller {
 
 		$enrolledRow = $this->global_model->getRow('enrolled_students', 'students_info_lrn', $lastLrn);
 		$data['students_info_lrn'] = $enrolledRow->students_info_lrn; //LRN
-		$note = $enrolledRow->note;
+		$data['note'] = $enrolledRow->note;
+		if(!$enrolledRow->note){
+			$data['note'] = 'N/A';
+		}
 		$section_id = $enrolledRow->section_id;
         $academic_year_id = $enrolledRow->academic_year_id;
         $db_date_enrolled = $enrolledRow->date_enrolled;
