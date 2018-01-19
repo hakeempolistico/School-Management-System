@@ -114,14 +114,6 @@ function populateTable(){
         "responsive": true
   });
 
-  $('#table-sched').DataTable({
-        info : false,
-        paging : false,
-        searching : false,
-        order : false,
-        "responsive": true
-  });
-
   $("#teachersTable").on("click", "tr td .view-btn", function(){
 
     hide();
@@ -147,8 +139,7 @@ function populateTable(){
 
   $("#teachersTable").on("click", "tr td .delete-btn", function(){
       employee_id = $(this).parents('tr').find('td:first').html();
-      active_status = $(this).parents('tr').find('td:nth-child(3)').find('span').html();
-      //console.log(status);
+      active_status = $(this).parents('tr').find('td:nth-child(5)').find('span').html();
 
       if(active_status=='active'){
         $('#box-delete').removeClass('box-success').removeClass('box-danger').addClass('box-danger');

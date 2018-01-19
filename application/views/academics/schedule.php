@@ -122,7 +122,7 @@
                 <button style="width: 100px; margin-top: 3px" id="row-remove" class="btn btn-sm btn-danger custom">Remove</button> -->
                 <button style="width: 100px; margin-top: 3px" id="row-remove-all" class="btn btn-sm btn-warning custom">Remove All</button>
                 <button style="width: 100px; margin-top: 3px" id="row-print" class="btn btn-sm btn-primary custom">Print</button>
-                <button style="width: 100px; margin-top: 3px" id="row-save" class="btn btn-sm bg-purple custom">Save Sched</button>     
+                <button style="width: 100px; margin-top: 3px" id="row-save" class="btn btn-sm bg-purple custom">Save</button>     
                 <button style="width: 100px; margin-top: 3px" id="row-clear" class="btn btn-sm bg-purple custom">Clear</button>  
               </center>                                     
             </div>

@@ -247,7 +247,7 @@ class enroll_student extends CI_Controller {
 
 	    $data['arr'] =[];
 
-		    		$ttt = [];
+		$ttt = [];
 	    foreach ($schedulesTable as $row) 
 	    {
 	    	$subject_code = $row->subject_code; //SUBJECT_CODE
@@ -259,12 +259,24 @@ class enroll_student extends CI_Controller {
 				
 	    		$subject_name = $subjectRow->name; //SUBJECT_NAME
 			}
+			if(substr($row->time_start,3,2)=='00'){
+				$row->time_start = substr($row->time_start,0,2);
+				if(substr($row->time_start,0,1)=='0'){
+					$row->time_start = substr($row->time_start,1,1);
+				}
+			};
+			if(substr($row->time_end,3,2)=='00'){
+				$row->time_end = substr($row->time_end,0,2);
+				if(substr($row->time_end,0,1)=='0'){
+					$row->time_end = substr($row->time_end,1,1);
+				}
+			};
 
 	    	$time = $row->time_start.'-'.$row->time_end; //TIME
 	    	$room = $row->room_id; //ROOM
 	    	$day = $row->day;
 
-	    	if($subject_code == 'BREAK' || $subject_code == 'VACANT' ){
+	    	if($subject_code == 'BREAK' || $subject_code == 'VACANT' ){	
 
 	          } 
 	        else{
@@ -279,7 +291,6 @@ class enroll_student extends CI_Controller {
 	            } else if($day == 'Friday'){
 	              $sched_day = 'F';  //SCHED_DAY F
 	            }
-
 		    	$sched = array(
 		    		$subject_code,
 		    		$subject_name,
@@ -287,15 +298,16 @@ class enroll_student extends CI_Controller {
 		    		$sched_day,
 		    		$room
 		    	);
+		    	/*echo '<pre>';
+		    	print_r($sched);
+		    	echo '<pre>';*/
 
-		    	
 		    	if($data['arr']){
 		    		foreach ($data['arr'] as $key => $value) {
-
 			    		if($subject_code == $value[0]){
-			    			$data['arr'][$key][3] = $value[3].'/'.$sched_day;
-			    			$data['arr'][$key][2] = $value[2].'/'.$time;
-			    			$data['arr'][$key][4] = $value[4].'/'.$room;
+			    			$data['arr'][$key][3] = $sched_day.' / '.$value[3];
+			    			$data['arr'][$key][2] = $time.' / '.$value[2];
+			    			$data['arr'][$key][4] = $room.' / '.$value[4];
 
 			    			$ttt[] = $subject_code;			    			
 			    			break;
@@ -306,31 +318,66 @@ class enroll_student extends CI_Controller {
 		    		}
 		    	}
 		    	else{
-
 		    		$data['arr'][] = $sched;	
 		    	}
-		    	
-
-		    	 	
-
 	        }
-
 	    }
 
 	    foreach ($data['arr'] as $key => $value) {
-	    	$allTime = explode("/",$value[2]);
-	    	$allRoom = explode("/",$value[4]);
-	    	if(count(array_unique($allTime) == 1)){
+	    	$allTime = explode(" / ",$value[2]);
+	    	$allRoom = explode(" / ",$value[4]);
+	    	$allDay = explode(" / ",$value[3]);
+	    	/*if(count(array_unique($allTime) == 1)){
 	    		$data['arr'][$key][2] = $allTime[0];
-	    	};
+	    	};*/
 	    	if(count(array_unique($allRoom) == 1)){
 	    		$data['arr'][$key][4] = $allRoom[0];
-	    	};
+	    	}
+	    	if(count($allDay)==1){
+	    		unset($data['arr'][$key]);
+	    	}
 	    };
-	    // echo '<pre>';
-	    // print_r($data['arr']);
-	    // echo '</pre>';
-	    // exit;
+
+	    foreach ($data['arr'] as $key => $value) {
+	    	$allTime = explode(" / ",$value[2]);
+	    	$allDay = explode(" / ",$value[3]);
+	    	$try = array();
+	    	$try2 = array();
+	    	foreach ($allDay as $k => $val) {
+	    		if($val == 'F'){
+					array_unshift($try2, $val);
+					array_unshift($try, $allTime[$k]);
+	    		}
+	    	}
+	    	foreach ($allDay as $k => $val) {
+	    		if($val == 'Th'){
+					array_unshift($try2, $val);
+					array_unshift($try, $allTime[$k]);
+	    		}
+	    	}
+	    	foreach ($allDay as $k => $val) {
+	    		if($val == 'W'){
+					array_unshift($try2, $val);
+					array_unshift($try, $allTime[$k]);
+	    		}
+	    	}
+	    	foreach ($allDay as $k => $val) {
+	    		if($val == 'T'){
+					array_unshift($try2, $val);
+					array_unshift($try, $allTime[$k]);
+	    		}
+	    	}
+	    	foreach ($allDay as $k => $val) {
+	    		if($val == 'M'){
+					array_unshift($try2, $val);
+					array_unshift($try, $allTime[$k]);
+	    		}
+	    	}
+	    	$data['arr'][$key][2] = implode(" / ",$try);
+	    	$data['arr'][$key][3] = implode(" / ",$try2);
+	    };
+
+	    
 
 	    $data['active'] = 'enrollment/enroll_student';
 		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
