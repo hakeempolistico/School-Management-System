@@ -91,6 +91,12 @@ class global_model extends CI_Model{
 		return $query->num_rows();
 	}
 
+	public function updateRecord($table, $set, $where){
+		$this->db->set($set);
+		$this->db->where($where);
+		$this->db->update($table);
+	}
+
 }
 
 ?>

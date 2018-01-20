@@ -8,8 +8,12 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- ANIMATE CSS -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/animate.css/animate.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/select2/dist/css/select2.min.css"> 
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/Ionicons/css/ionicons.min.css">
   <!-- iCheck for checkboxes and radio inputs -->
@@ -23,8 +27,6 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-  <!-- Loading -->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/loading.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -57,14 +59,13 @@
         <!-- <small>Student Grades</small> -->
       </h1>
       <ol class="breadcrumb">
-        <li><a href="enrollment/dashboard"><i class="fa fa-user"></i> Advisory</a></li>
-        <li class="active">Advisory Class</li>
+        <li><a href="enrollment/dashboard"><i class="fa fa-graduation-cap"></i> Academics</a></li>
+        <li class="active">Assign Advisory</li>
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
-
       <div class="row">
         <div class="col-md-12">
           <div class="box box-primary">
@@ -75,6 +76,7 @@
               <table id= "advisory-table"class="table table-bordered table-striped display nowrap" cellspacing="0" width="100%">
                 <thead>
                 <tr>
+                  <th>Employee ID</th>
                   <th>Full Name</th>
                   <th>Advisory Class</th>
                   <th>Status</th>
@@ -82,21 +84,10 @@
                 </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Barnie Gestoso</td>
-                    <td>STEM-11A</td>
-                    <td><span class="badge bg-green status">assigned</span></td>
-                    <td><button data-toggle='modal' data-target='#modal-view' class='btn btn-default btn-xs'><span class='fa fa-fw fa-pencil text-info'></span></button></td>
-                  </tr>
-                  <tr>
-                    <td>Mary Angeline V. Garcia</td>
-                    <td></td>
-                    <td><span class="badge bg-red status">unassigned</span></td>
-                    <td><button data-toggle='modal' data-target='#modal-view' class='btn btn-default btn-xs'><span class='fa fa-fw fa-pencil text-info'></span></button></td>
-                  </tr>
                 </tbody>
                 <tfoot>
                 <tr>
+                  <th>Employee ID</th>
                   <th>Full Name</th>
                   <th>Advisory Class</th>
                   <th>Status</th>
@@ -110,12 +101,12 @@
       </div>
       <!-- modal-->
       <div class="modal" id="modal-view">
-        <div class="modal-dialog" style="width: 400px;">
+        <div class="modal-dialog" style="width: 500px;">
               <div class="box box-primary">
                 <div class="box-header with-border" style="cursor: move; margin: 0px;">
                 <i class="fa fa-edit text-info"></i>
 
-                <h3 class="box-title text-info">Edit</h3>
+                <h3 class="box-title text-info">Assign</h3>
                 <!-- tools box -->
                 <div class="box-tools pull-right">
                   
@@ -124,30 +115,31 @@
                 <!-- /. tools -->
               </div>
             <div class="box-body box-profile flat">
-              <h4><b>Teacher Name:</b> Barnie Gestoso <span class="badge bg-green status pull-right">assigned</span></h4><hr>
-              <div class="form-group" style="margin-bottom: 5px">
-                      <label>Semester</label>
-                      <select class="form-control select2" style="width: 100%;">
-                        <option>1st Semester</option>
-                        <option>2nd Semester</option>
-                      </select>
-                    </div>                   
-                    <div class="form-group" style="margin-bottom: 5px">
-                      <label>Grade</label>
-                      <select class="form-control select2" style="width: 100%;">
-                        <option>Grade 11</option>
-                        <option>Grade 12</option>
-                      </select>
-                    </div>                   
-                    <div class="form-group" style="margin-bottom: 7px">
-                      <label>Section</label>
-                      <select class="form-control select2" style="width: 100%;">
-                        <option>STEM-11A</option>
-                        <option>STEM-11B</option>
-                        <option>STEM-11C</option>
-                      </select>
-                    </div>
-                    <button type="button" style="width: 100px" class="btn btn-sm btn-primary pull-right">Save</button>
+              <h4 id="modal-status"><b>Teacher Name:</b> -- <span class="badge bg-green status pull-right">assigned</span></h4><hr>
+                <div class="form-group" style="margin-bottom: 5px">
+                  <label>Strand</label>
+                  <select id="select-strand" class="form-control select2" style="width: 100%;" data-placeholder="select strand">
+                    <option></option>
+                    <?php foreach($strandsInfo as $val) { ?>
+                    <option value="<?php echo $val->code;?>"><?php echo $val->code;?></option>
+                    <?php } ?>
+                  </select>
+                </div>  
+                <div class="form-group" style="margin-bottom: 5px">
+                  <label>Grade</label>
+                  <select id="select-year" class="form-control select2" style="width: 100%;" data-placeholder="select grade">
+                    <option></option>
+                    <option value="1">Grade 11</option>
+                    <option value="2">Grade 12</option>
+                  </select>
+                </div>                   
+                <div class="form-group" style="margin-bottom: 7px">
+                  <label>Section</label>
+                  <select id="select-section" class="form-control select2" style="width: 100%;" data-placeholder="select class">
+                    <option></option>
+                  </select>
+                </div>
+                <button id="btn-save" type="button" data-dismiss="modal" style="width: 100px" class="btn btn-sm btn-primary pull-right">Save</button>
             </div>
             <!-- /.box-body -->
           </div>
@@ -155,89 +147,6 @@
           <!-- /.modal-dialog -->
       </div>
 
-      <!-- <div class="row">
-        <div class="col-lg-4 col-xs-12">
-          <div class="box box-primary">
-              <div class="box-header">
-                <h3 class="box-title text-primary" style="font-size: 17px;"><i class="fa fa-plus"></i> Select class</h3>
-              </div>
-              
-              <div class="box-body">                  
-                    <div class="form-group" style="margin-bottom: 5px">
-                      <label>Semester</label>
-                      <select class="form-control select2" style="width: 100%;">
-                        <option>1st Semester</option>
-                        <option>2nd Semester</option>
-                      </select>
-                    </div>                   
-                    <div class="form-group" style="margin-bottom: 5px">
-                      <label>Grade</label>
-                      <select class="form-control select2" style="width: 100%;">
-                        <option>Grade 11</option>
-                        <option>Grade 12</option>
-                      </select>
-                    </div>                   
-                    <div class="form-group" style="margin-bottom: 7px">
-                      <label>Section</label>
-                      <select class="form-control select2" style="width: 100%;">
-                        <option>STEM-11A</option>
-                        <option>STEM-11B</option>
-                        <option>STEM-11C</option>
-                      </select>
-                    </div> 
-                
-                <button type="button" style="width: 100px" class="btn btn-sm btn-primary pull-right">Confirm</button>
-              </div>
-          </div>
-        </div>
-
-        <div class="col-lg-8 col-xs-12">
-          <div class="box box-primary">
-              <div class="box-header">
-                <h3 class="box-title text-primary" style="font-size: 17px;"><i class="fa fa-plus"></i> Select Teacher</h3>
-              </div>
-              
-              <div class="box-body">
-                  <table id = "example" class="table table-bordered table-hover">
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th>Full Name</th>
-                    <th>Major</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><input type="checkbox" class="minimal" name=""></td>
-                    <td>Adrielle Kristine Nicolette M. Escaro</td>
-                    <td>ENGLISH</td>
-                  </tr>
-                  <tr>
-                    <td><input type="checkbox" class="minimal" name=""></td>
-                    <td>Hakeem Polistico</td>
-                    <td>MATH</td>
-                  </tr>
-                  <tr>
-                    <td><input type="checkbox" class="minimal" name=""></td>
-                    <td>Jasver Anlouise Salva</td>
-                    <td>Laziness</td>
-                  </tr>               
-                </tbody>
-                <tfoot>
-                  
-                </tfoot>
-              </table>
-              <br>
-
-              <button type="button" style="width: 100px" class="btn btn-sm btn-primary pull-right">Assign</button>
-              </div>
-                        
-                                
-          </div>
-
-        </div>
-      </div>
-       -->
     </section>
     <!-- /.content -->
   </div>
@@ -249,34 +158,39 @@
 <script src="<?php echo base_url(); ?>bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo base_url(); ?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- BOOTSTRAP NOTIF -->
+<script src="<?php echo base_url(); ?>bower_components/bootstrap-notify-3.1.3/dist/bootstrap-notify.js"></script>
 <!-- DataTables -->
 <script src="<?php echo base_url(); ?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<!-- ChartJS -->
-<script src="<?php echo base_url(); ?>bower_components/Chart.js/Chart.js"></script>
 <!-- iCheck 1.0.1 -->
-<script src="<?php echo base_url(); ?>plugins/iCheck/icheck.min.js"></script>s
+<script src="<?php echo base_url(); ?>plugins/iCheck/icheck.min.js"></script>
+<!-- Select2 -->
+<script src="<?php echo base_url(); ?>bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
-<!-- page script -->
-<script src="<?php echo base_url(); ?>dist/js/enrollment/dashboard.js"></script>
 
 <script>
+var getSection = '<?php echo base_url('academics/assign_advisory_class/getSection'); ?>';
+var updateUrl = '<?php echo base_url('academics/assign_advisory_class/update'); ?>';
+var getRecordsUrl = '<?php echo base_url('academics/assign_advisory_class/ajaxGetRecords'); ?>';
+var checkSectionUrl = '<?php echo base_url('academics/assign_advisory_class/checkSection'); ?>';
+
   $(function (){
-
-    $('#advisory-table').DataTable( {
-             
-    } );
-
     $('input[type="checkbox"].minimal').iCheck({
       checkboxClass: 'icheckbox_minimal-blue'
     })
+
+    $('.select2').select2();
   })
 </script>
+
+<!-- page script -->
+<script src="<?php echo base_url(); ?>dist/js/academics/assign_advisory.js"></script>
 
 </body>
 </html>
