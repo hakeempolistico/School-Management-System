@@ -64,13 +64,104 @@
 
     <!-- Main content -->
     <section class="content">
+
       <div class="row">
+        <div class="col-md-12">
+          <div class="box box-primary">
+            <div class="box-header">
+              <h3 class="box-title text-primary" style="font-size: 17px;"><i class="fa fa-star"></i> Advisory Classes</h3>
+            </div>
+            <div class="box-body">
+              <table id= "advisory-table"class="table table-bordered table-striped display nowrap" cellspacing="0" width="100%">
+                <thead>
+                <tr>
+                  <th>Full Name</th>
+                  <th>Advisory Class</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Barnie Gestoso</td>
+                    <td>STEM-11A</td>
+                    <td><span class="badge bg-green status">assigned</span></td>
+                    <td><button data-toggle='modal' data-target='#modal-view' class='btn btn-default btn-xs'><span class='fa fa-fw fa-pencil text-info'></span></button></td>
+                  </tr>
+                  <tr>
+                    <td>Mary Angeline V. Garcia</td>
+                    <td></td>
+                    <td><span class="badge bg-red status">unassigned</span></td>
+                    <td><button data-toggle='modal' data-target='#modal-view' class='btn btn-default btn-xs'><span class='fa fa-fw fa-pencil text-info'></span></button></td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>Full Name</th>
+                  <th>Advisory Class</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>                
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- modal-->
+      <div class="modal" id="modal-view">
+        <div class="modal-dialog" style="width: 400px;">
+              <div class="box box-primary">
+                <div class="box-header with-border" style="cursor: move; margin: 0px;">
+                <i class="fa fa-edit text-info"></i>
+
+                <h3 class="box-title text-info">Edit</h3>
+                <!-- tools box -->
+                <div class="box-tools pull-right">
+                  
+                  <button type="button" class="btn btn-box-tool" data-dismiss="modal"><i class="fa fa-times text-danger"></i></button>
+                </div>
+                <!-- /. tools -->
+              </div>
+            <div class="box-body box-profile flat">
+              <h4><b>Teacher Name:</b> Barnie Gestoso <span class="badge bg-green status pull-right">assigned</span></h4><hr>
+              <div class="form-group" style="margin-bottom: 5px">
+                      <label>Semester</label>
+                      <select class="form-control select2" style="width: 100%;">
+                        <option>1st Semester</option>
+                        <option>2nd Semester</option>
+                      </select>
+                    </div>                   
+                    <div class="form-group" style="margin-bottom: 5px">
+                      <label>Grade</label>
+                      <select class="form-control select2" style="width: 100%;">
+                        <option>Grade 11</option>
+                        <option>Grade 12</option>
+                      </select>
+                    </div>                   
+                    <div class="form-group" style="margin-bottom: 7px">
+                      <label>Section</label>
+                      <select class="form-control select2" style="width: 100%;">
+                        <option>STEM-11A</option>
+                        <option>STEM-11B</option>
+                        <option>STEM-11C</option>
+                      </select>
+                    </div>
+                    <button type="button" style="width: 100px" class="btn btn-sm btn-primary pull-right">Save</button>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          </div>
+          <!-- /.modal-dialog -->
+      </div>
+
+      <!-- <div class="row">
         <div class="col-lg-4 col-xs-12">
           <div class="box box-primary">
               <div class="box-header">
                 <h3 class="box-title text-primary" style="font-size: 17px;"><i class="fa fa-plus"></i> Select class</h3>
               </div>
-              <!-- /.box-header -->
+              
               <div class="box-body">                  
                     <div class="form-group" style="margin-bottom: 5px">
                       <label>Semester</label>
@@ -105,7 +196,7 @@
               <div class="box-header">
                 <h3 class="box-title text-primary" style="font-size: 17px;"><i class="fa fa-plus"></i> Select Teacher</h3>
               </div>
-              <!-- /.box-header -->
+              
               <div class="box-body">
                   <table id = "example" class="table table-bordered table-hover">
                 <thead>
@@ -146,7 +237,7 @@
 
         </div>
       </div>
-      
+       -->
     </section>
     <!-- /.content -->
   </div>
@@ -177,7 +268,7 @@
 <script>
   $(function (){
 
-    $('#example').DataTable( {
+    $('#advisory-table').DataTable( {
              
     } );
 
