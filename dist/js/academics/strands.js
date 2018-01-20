@@ -253,5 +253,4 @@ function populateTable(){
         $('#text-status').html('Are you sure you want to activate record?');
       }
   });
-  
 }
