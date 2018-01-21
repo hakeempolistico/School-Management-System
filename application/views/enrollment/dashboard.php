@@ -27,44 +27,44 @@
       <div class="row">
         <div class="col-md-12">
           <!-- Application buttons -->
-          <div class="box">
+          <div class="box box-danger">
             <div class="box-header">
               <h3 class="box-title">Quick Access</h3>
             </div>
             <div class="box-body">
               <center>
-                <a class="btn btn-app flat">
-                  <i class="fa fa-files-o"></i> Enroll
+                <a href="<?php echo site_url('enrollment/register_student'); ?>" class="btn btn-app flat" >
+                  <i class="fa fa-files-o text-danger"></i> <div class="text-danger">Enroll</div>
                 </a>
-                <a class="btn btn-app flat">
-                  <i class="fa fa-clone"></i> Strands
+                <a href="<?php echo site_url('academics/strands'); ?>" class="btn btn-app flat">
+                  <i class="fa fa-clone text-danger"></i> <div class="text-danger">Strands</div>
                 </a>
-                <a class="btn btn-app flat">
-                  <i class="fa fa-university"></i> Rooms
+                <a href="<?php echo site_url('academics/rooms'); ?>" class="btn btn-app flat">
+                  <i class="fa fa-university text-danger"></i> <div class="text-danger">Rooms</div>
                 </a>
-                <a class="btn btn-app flat">
-                  <i class="fa fa-star"></i> Class
+                <a href="<?php echo site_url('academics/sections'); ?>" class="btn btn-app flat">
+                  <i class="fa fa-star text-danger"></i> <div class="text-danger">Class</div>
                 </a>
-                <a class="btn btn-app flat">
-                  <i class="fa fa-id-card"></i> Students
+                <a href="<?php echo site_url('student_info/student_details'); ?>" class="btn btn-app flat">
+                  <i class="fa fa-id-card text-danger"></i> <div class="text-danger">Students</div>
                 </a>
-                <a class="btn btn-app flat">
-                  <i class="fa fa-line-chart"></i> Grades
+                <a href="<?php echo site_url('grades/view'); ?>" class="btn btn-app flat">
+                  <i class="fa fa-line-chart text-danger"></i> <div class="text-danger">Grades</div>
                 </a>
-                <a class="btn btn-app flat">
-                  <i class="fa fa-history"></i> Audit Trail
+                <a href="<?php echo site_url('audit_trail'); ?>" class="btn btn-app flat">
+                  <i class="fa fa-history text-danger"></i> <div class="text-danger">Audit Trail</div>
                 </a>
-                <a class="btn btn-app flat">
-                  <i class="fa fa-bar-chart"></i> Reports
+                <a href="<?php echo site_url('reports/student_reports'); ?>" class="btn btn-app flat">
+                  <i class="fa fa-bar-chart text-danger"></i> <div class="text-danger">Reports</div>
                 </a>
-                <a class="btn btn-app flat">
-                  <i class="fa fa-gear"></i> Settings
+                <a href="<?php echo site_url('advisory/advisory_class'); ?>" class="btn btn-app flat">
+                  <i class="fa fa-star text-danger"></i> <div class="text-danger">Advisory</div>
                 </a>
-                <a class="btn btn-app flat">
-                  <i class="fa fa-lock"></i> Lock
+                <a href="#" class="btn btn-app flat">
+                  <i class="fa fa-lock text-danger"></i> <div class="text-danger">Lock</div>
                 </a>
-                <a class="btn btn-app flat">
-                  <i class="fa fa-star"></i> Advisory
+                <a href="#" class="btn btn-app flat">
+                  <i class="fa fa-gear text-danger"></i> <div class="text-danger">Settings</div>
                 </a>
               </center>
             </div>
@@ -82,7 +82,7 @@
             <div class="box-body">
               <div class="media">
                 <div class="media-left">
-                  <img src="<?php echo base_url('images/alt_picture.jpg');?>" alt="<?php echo base_url('images/alt_picture.jpg');?>" width="100px" style="border-width: 1px; border-style: solid; border-color: gainsboro;">
+                  <img src="<?php echo base_url('images/adrii.jpg');?>" alt="<?php echo base_url('images/alt_picture.jpg');?>" width="100px" style="border-width: 1px; border-style: solid; border-color: gainsboro;">
                 </div>
                 <div class="media-body" style="padding: 5px">
                   <h4 class="media-heading" style="font-family: Century Gothic;">Admin Adrii</h4>
@@ -97,12 +97,12 @@
             <div class="box-body">
               <div class="media">
                 <div class="media-left">
-                  <img src="<?php echo base_url('images/alt_picture.jpg');?>" alt="<?php echo base_url('images/alt_picture.jpg');?>" width="100px" style="border-width: 1px; border-style: solid; border-color: gainsboro;">
+                  <img src="<?php echo base_url('images/hakeem.jpg');?>" alt="<?php echo base_url('images/alt_picture.jpg');?>" width="100px" style="border-width: 1px; border-style: solid; border-color: gainsboro;">
                 </div>
                 <div class="media-body" style="padding: 5px">
-                  <h4 class="media-heading" style="font-family: Century Gothic;">Admin Jassy</h4>
+                  <h4 class="media-heading" style="font-family: Century Gothic;">Admin Hakeem</h4>
                   <p style="margin-bottom: 5px;"><i class="fa fa-fw fa-phone text-danger"></i> 0955-887-4822</p>
-                  <p style="margin-bottom: 5px;"><i class="fa fa-fw fa-envelope text-warning"></i> jasbears@gmail.com</p>
+                  <p style="margin-bottom: 5px;"><i class="fa fa-fw fa-envelope text-warning"></i> hjpolistico@gmail.com</p>
                   <p style="margin-bottom: -3px;"><i class="fa fa-fw fa-comment text-primary"></i> <a hpref="#">Quick Message</a> </p>
                 </div>
               </div>
@@ -115,13 +115,13 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Enrolled Students</span>
-              <span class="info-box-number">5,200</span>
+              <span class="info-box-number"><?php echo $enrolledStudentsCount; ?></span>
 
               <div class="progress">
-                <div class="progress-bar" style="width: 100%"></div>
+                <div class="progress-bar" style="width: <?php echo $graduatingPercent;?>%"></div>
               </div>
               <span class="progress-description">
-                    100% are active.
+                    <?php echo $graduatingPercent;?>% are graduating.
                   </span>
             </div>
             <!-- /.info-box-content -->
@@ -132,13 +132,13 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Teachers</span>
-              <span class="info-box-number">92,050</span>
+              <span class="info-box-number"><?php echo $teachersCount; ?></span>
 
               <div class="progress">
-                <div class="progress-bar" style="width: 70%"></div>
+                <div class="progress-bar" style="width: <?php echo $activeTeachersPercent;?>%"></div>
               </div>
               <span class="progress-description">
-                    70% are active.
+                    <?php echo $activeTeachersPercent;?>% are active.
                   </span>
             </div>
             <!-- /.info-box-content -->
@@ -149,13 +149,13 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Rooms</span>
-              <span class="info-box-number">114,381</span>
+              <span class="info-box-number"><?php echo $roomsCount; ?></span>
 
               <div class="progress">
-                <div class="progress-bar" style="width: 70%"></div>
+                <div class="progress-bar" style="width: <?php echo $activeRoomsPercent;?>%"></div>
               </div>
               <span class="progress-description">
-                    70% are occupied.
+                    <?php echo $activeRoomsPercent;?>% can be used.
                   </span>
             </div>
             <!-- /.info-box-content -->
@@ -166,13 +166,13 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Class</span>
-              <span class="info-box-number">163,921</span>
+              <span class="info-box-number"><?php echo $sectionsCount; ?></span>
 
               <div class="progress">
-                <div class="progress-bar" style="width: 90%"></div>
+                <div class="progress-bar" style="width: <?php echo $activeClassesPercent;?>%"></div>
               </div>
               <span class="progress-description">
-                    90 are full.
+                    <?php echo $activeClassesPercent;?>% are active.
                   </span>
             </div>
             <!-- /.info-box-content -->
@@ -182,13 +182,13 @@
 
         <div class="col-lg-8 col-xs-12">
 
-          <div class="box">
+          <div class="box box-danger">
             <div class="box-header with-border">
               <h3 class="box-title">Latest Students Enrolled</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body no-padding">
-              <table class="table table-bordered table-striped">
+            <div class="box-body">
+              <table class="table table-bordered">
                 <thead>
                 <tr>
                   <th>LRN</th>
@@ -216,12 +216,12 @@
           </div>
           <!-- /.box -->
 
-          <div class="box">
+          <div class="box box-danger">
             <div class="box-header with-border">
               <h3 class="box-title">Strand Status</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body no-padding">
+            <div class="box-body">
               <table class="table table-bordered">
                 <tr>
                   <th>Strand</th>
