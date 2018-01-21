@@ -32,105 +32,103 @@ function hide(){
 function updateRow(){ 
 
   $.ajax({
-            url: countUrl,
-            type: 'post',
-            dataType: 'json', 
-            data: {'table' : 'subjects', 'set' : 'code', 'value' : newCode  }, 
-            success: function(result){
-              var codeCount = result;    
-              if (newCode == null || newCode.trim() === ''){
-                $.notify({
-                  title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
-                  message: "Please fill up subject code.."
-                },{
-                  type: 'danger',
-                  animate: {
-                    enter: 'animated fadeInUp',
-                    exit: 'animated fadeOutRight'
-                  },
-                  placement: {
-                    from: "top",
-                    align: "right"
-                  },
-                  offset: 20,
-                  spacing: 10,
-                  z_index: 1031,
-                });
-              }
-              else if(codeCount > 0 && code != newCode){
-                $.notify({
-                  title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
-                  message: "Subject Code already exist."
-                },{
-                  type: 'danger',
-                  animate: {
-                    enter: 'animated fadeInUp',
-                    exit: 'animated fadeOutRight'
-                  },
-                  placement: {
-                    from: "top",
-                    align: "right"
-                  },
-                  offset: 20,
-                  spacing: 10,
-                  z_index: 1031,
-                });
-              }
-              else if (name == null || name.trim() === ''){
-                $.notify({
-                  title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
-                  message: "Please fill up Subject Name."
-                },{
-                  type: 'danger',
-                  animate: {
-                    enter: 'animated fadeInUp',
-                    exit: 'animated fadeOutRight'
-                  },
-                  placement: {
-                    from: "top",
-                    align: "right"
-                  },
-                  offset: 20,
-                  spacing: 10,
-                  z_index: 1031,
-                });
-              }
-              else{
-                $.ajax({
-                  url: updateUrl,
-                  type: 'post',
-                  dataType: 'json', 
-                  data: {'name' : name, 'code': newCode, 'type': type, 'description': description, 'set': subjectCode }, 
-                  success: function(result){
-                    //console.log(result);
-                    hide();
-                    populateTable();
-                      $.notify({
-                        title: '<strong><i class="icon fa fa-check"></i>SUCCESS!</strong>',
-                        message: "Subject added."
-                      },{
-                        type: 'success',
-                        animate: {
-                          enter: 'animated fadeInUp',
-                          exit: 'animated fadeOutRight'
-                        },
-                        placement: {
-                          from: "top",
-                          align: "right"
-                        },
-                        offset: 20,
-                        spacing: 10,
-                        z_index: 1031,
-                      });
-                  }
-                }); 
-              }
-
-
-            }
+    url: countUrl,
+    type: 'post',
+    dataType: 'json', 
+    data: {'table' : 'subjects', 'set' : 'code', 'value' : newCode  }, 
+    success: function(result){
+      var codeCount = result;    
+      if (newCode == null || newCode.trim() === ''){
+        $.notify({
+          title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+          message: "Please fill up subject code.."
+        },{
+          type: 'danger',
+          animate: {
+            enter: 'animated fadeInUp',
+            exit: 'animated fadeOutRight'
+          },
+          placement: {
+            from: "top",
+            align: "right"
+          },
+          offset: 20,
+          spacing: 10,
+          z_index: 1031,
+        });
+      }
+      else if(codeCount > 0 && code != newCode){
+        $.notify({
+          title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+          message: "Subject Code already exist."
+        },{
+          type: 'danger',
+          animate: {
+            enter: 'animated fadeInUp',
+            exit: 'animated fadeOutRight'
+          },
+          placement: {
+            from: "top",
+            align: "right"
+          },
+          offset: 20,
+          spacing: 10,
+          z_index: 1031,
+        });
+      }
+      else if (name == null || name.trim() === ''){
+        $.notify({
+          title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+          message: "Please fill up Subject Name."
+        },{
+          type: 'danger',
+          animate: {
+            enter: 'animated fadeInUp',
+            exit: 'animated fadeOutRight'
+          },
+          placement: {
+            from: "top",
+            align: "right"
+          },
+          offset: 20,
+          spacing: 10,
+          z_index: 1031,
+        });
+      }
+      else{
+        $.ajax({
+          url: updateUrl,
+          type: 'post',
+          dataType: 'json', 
+          data: {'name' : name, 'code': newCode, 'type': type, 'description': description, 'set': subjectCode }, 
+          success: function(result){
+            //console.log(result);
+            hide();
+            populateTable();
+              $.notify({
+                title: '<strong><i class="icon fa fa-check"></i>SUCCESS!</strong>',
+                message: "Subject added."
+              },{
+                type: 'success',
+                animate: {
+                  enter: 'animated fadeInUp',
+                  exit: 'animated fadeOutRight'
+                },
+                placement: {
+                  from: "top",
+                  align: "right"
+                },
+                offset: 20,
+                spacing: 10,
+                z_index: 1031,
+              });
+          }
+        }); 
+      }
+    }
   }); 
-
 }
+
 $('#view-edit').click(function(){
   
   if(i==0){
@@ -240,18 +238,18 @@ function populateTable(){
     subjectCode = $(this).parents('tr').find('td:first').html();
 
     $.ajax({
-            url: getRowUrl,
-            type: 'post',
-            dataType: 'json', 
-            data: {'table' : 'subjects', 'set': 'code', 'value': subjectCode}, 
-            success: function(result){          
-              code = result.code;
-              $( "#view-name" ).val(result.name);
-              $( "#view-code" ).val(result.code);
-              $( "#view-type" ).val(result.type);
-              $( "#view-description" ).val(result.description);
-            }
-          });   
+      url: getRowUrl,
+      type: 'post',
+      dataType: 'json', 
+      data: {'table' : 'subjects', 'set': 'code', 'value': subjectCode}, 
+      success: function(result){          
+        code = result.code;
+        $( "#view-name" ).val(result.name);
+        $( "#view-code" ).val(result.code);
+        $( "#view-type" ).val(result.type);
+        $( "#view-description" ).val(result.description);
+      }
+    });   
   });
 
 

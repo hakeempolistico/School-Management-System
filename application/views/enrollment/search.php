@@ -135,9 +135,9 @@
 
 <script>
   var getRecordsUrl = '<?php echo base_url("enrollment/enroll_student/populateTable"); ?>';
-
+  
   $('#registeredStudentstable').DataTable().destroy();
-
+  
   $('#registeredStudentstable').DataTable({
     "columns": [
         { "width": "20%" },
@@ -146,7 +146,10 @@
         { "width": "25%" }
         ],
         "order": [] ,
-        "ajax": getRecordsUrl
+        "ajax": getRecordsUrl,
+        "language": {
+           "loadingRecords": "No Data Available"
+        }
   });
 </script>
 

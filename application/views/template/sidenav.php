@@ -193,6 +193,9 @@
               <a href="#">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Student Promotion
+              <span class="pull-right-container">
+                <span class="label label-warning pull-right">soon</span>
+              </span>
               </a>
             </li>
           </ul>          
@@ -267,6 +270,9 @@
           <a href="#">
             <i class="fa fa-gear"></i>
             <span>Settings</span>
+              <span class="pull-right-container">
+                <span class="label label-warning pull-right">soon</span>
+              </span>
             <span class="pull-right-container">
               <span class="fa fa-angle-left pull-right"></span>
             </span>
