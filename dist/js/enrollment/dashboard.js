@@ -14,13 +14,13 @@ $(function () {
     //- PIE CHART -
     //-------------
     // Get context with jQuery - using jQuery's .get() method.
-    var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+    var pieChartCanvas = $('.pieChart').get(0).getContext('2d')
     var pieChart       = new Chart(pieChartCanvas)
     var PieData        = [
       {
         value    : 500,
-        color    : '#00c0ef',
-        highlight: '#00c0ef',
+        color    : 'red',
+        highlight: 'red',
         label    : 'Grade 11'
       },
       {

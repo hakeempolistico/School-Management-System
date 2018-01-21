@@ -29,7 +29,7 @@ class dashboard extends CI_Controller {
 		$data['title'] = 'Strands';
 		$data['header'] = $this->load->view('template/header', $data, TRUE);
 
-    	$this->parser->parse('enrollment/dashboard2', $data);
+    	$this->parser->parse('enrollment/dashboard', $data);
 	}
 
 }
