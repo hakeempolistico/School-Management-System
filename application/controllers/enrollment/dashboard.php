@@ -52,6 +52,46 @@ class dashboard extends CI_Controller {
 		$activeClasses = $this->global_model->getActiveRecords('sections');
 		$data['activeClassesPercent'] = round((count($activeClasses) / count($classes)) * 100);
 
+		//GET STRAND STATUS 
+		$activeStrands = $this->global_model->getActiveRecords('strands');
+		$e_students = $data['enrolled_students'];
+		foreach ($activeStrands as $k => $val) {
+			$sections = $this->global_model->getRows('sections', array('strand_code' => $val->code));
+			$stud_count = 0;
+			foreach ($e_students as $key => $value) {
+				if($this->global_model->getRow('sections', 'id' , $value->section_id)->strand_code == $val->code){
+					$stud_count = $stud_count + 1;
+				}
+			}
+			$val->stud_count = $stud_count;
+			$count = count($e_students);
+			$val->percent = round(($stud_count / $count) * 100);
+			$stud_count = 0;
+
+			if($val->code == 'STEM'){
+				$val->color='green';
+			}
+			if($val->code == 'ABM'){
+				$val->color='teal';
+			}
+			if($val->code == 'HUMSS'){
+				$val->color='maroon';
+			}
+			if($val->code == 'GAS'){
+				$val->color='aqua';
+			}
+			if($val->code == 'TVL-AS'){
+				$val->color='purple';
+			}
+			if($val->code == 'TVL-HE'){
+				$val->color='orange';
+			}
+		}
+		$data['strandStatus'] = $activeStrands;
+		/*echo '<pre>';
+		print_r($activeStrands);
+		echo '<pre>'; exit;*/
+
 		$data['active'] = 'dashboard';
 		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
 		$data['title'] = 'Strands';

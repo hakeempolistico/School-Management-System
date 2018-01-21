@@ -85,7 +85,7 @@
                   <img src="<?php echo base_url('images/adrii.jpg');?>" alt="<?php echo base_url('images/alt_picture.jpg');?>" width="100px" style="border-width: 1px; border-style: solid; border-color: gainsboro;">
                 </div>
                 <div class="media-body" style="padding: 5px">
-                  <h4 class="media-heading" style="font-family: Century Gothic;">Admin Adrii</h4>
+                  <h4 class="media-heading" style="font-family: Century Gothic;">Admin Adrielle</h4>
                   <p style="margin-bottom: 5px;"><i class="fa fa-fw fa-phone text-danger"></i> 0955-887-4822</p>
                   <p style="margin-bottom: 5px;"><i class="fa fa-fw fa-envelope text-warning"></i> niconicolette@gmail.com</p>
                   <p style="margin-bottom: -3px;"><i class="fa fa-fw fa-comment text-primary"></i> <a href="#">Quick Message</a> </p>
@@ -229,66 +229,18 @@
                   <th>Percent in total</th>
                   <th style="width: 10%">Label</th>
                 </tr>
+                <?php foreach ($strandStatus as $key => $val) { ?>
                 <tr>
-                  <td>STEM</td>
-                  <td>300</td>
+                  <td><?php echo $val->code;?></td>
+                  <td><?php echo $val->stud_count;?></td>
                   <td>
                     <div class="progress progress-xs progress-striped active">
-                      <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                      <div class="progress-bar progress-bar-danger" style="width: <?php echo $val->percent;?>%; background-color: <?php echo $val->color;?>;"></div>
                     </div>
                   </td>
-                  <td><span class="badge bg-red">55%</span></td>
+                  <td><span class="badge bg-<?php echo $val->color;?>"><?php echo $val->percent;?>%</span></td>
                 </tr>
-                <tr>
-                  <td>GAS</td>
-                  <td>200</td>
-                  <td>
-                    <div class="progress progress-xs progress-striped active">
-                      <div class="progress-bar progress-bar-purple" style="width: 70%; background-color: teal"></div>
-                    </div>
-                  </td>
-                  <td><span class="badge bg-teal">70%</span></td>
-                </tr>
-                <tr>
-                  <td>HUMMS</td>
-                  <td>800</td>
-                  <td>
-                    <div class="progress progress-xs progress-striped active">
-                      <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
-                    </div>
-                  </td>
-                  <td><span class="badge bg-light-blue">30%</span></td>
-                </tr>
-                <tr>
-                  <td>ABM</td>
-                  <td>510</td>
-                  <td>
-                    <div class="progress progress-xs progress-striped active">
-                      <div class="progress-bar progress-bar-violet" style="width: 90%;  background-color: orange"></div>
-                    </div>
-                  </td>
-                  <td><span class="badge bg-orange">90%</span></td>
-                </tr>
-                <tr>
-                  <td>TVL-AS</td>
-                  <td>1023</td>
-                  <td>
-                    <div class="progress progress-xs progress-striped active">
-                      <div class="progress-bar progress-bar-success" style="width: 90%;  background-color: purple"></div>
-                    </div>
-                  </td>
-                  <td><span class="badge bg-purple">90%</span></td>
-                </tr>
-                <tr>
-                  <td>TVL-HE</td>
-                  <td>80</td>
-                  <td>
-                    <div class="progress progress-xs progress-striped active">
-                      <div class="progress-bar progress-bar-info" style="width: 90%"></div>
-                    </div>
-                  </td>
-                  <td><span class="badge bg-light-blue">90%</span></td>
-                </tr>
+                <?php } ?>
               </table>
             </div>
             <!-- /.box-body -->
