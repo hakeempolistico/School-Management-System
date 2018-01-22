@@ -72,6 +72,7 @@ class strands extends CI_Controller {
                 );
                 $data['data'][] = $arr;
             }
+
 		echo json_encode($data);
 	}
 

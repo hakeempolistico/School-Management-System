@@ -90,7 +90,7 @@
                       <td><?php echo $val->section; ?></td>
                       <td>
                         <center>
-                          <button class='btn btn-default btn-xs btn-schedule' data-toggle='modal' data-target='#modal-sched'><span class='fa fa-fw fa-clock-o'></span></button>
+                          <button class='btn btn-default btn-xs btn-sched' data-toggle='modal' data-target='#modal-sched'><span class='fa fa-fw fa-clock-o'></span></button>
                           <button class='btn btn-default btn-xs btn-view' data-toggle='modal' data-target='#modal-view'><span class='fa fa-fw fa-search text-info'></span></button>
                         </center>
                       </td>
@@ -167,7 +167,7 @@
       </div>
       <!-- modal-->
       <div class="modal" id="modal-sched">
-        <div class="modal-dialog" style="width: 400px;">
+        <div class="modal-dialog" style="width: 850px;">
               <div class="box box-primary">
                 <div class="box-header with-border" style="cursor: move; margin: 0px;">
                 <i class="fa fa-clock-o text-info"></i>
@@ -181,44 +181,17 @@
                 <!-- /. tools -->
               </div>
             <div class="box-body box-profile flat">              
-              
-              <table class="table table-striped">
-                      <thead>
-                        <td><b>Subject</b></td>
-                        <td><b>Day/Time</b></td>
-                        <td><b>Professor</b></td>
-                      </thead>
-                        <tr>
-                          <td>MATH 1</td>
-                          <td>Mon/7-9</td>
-                          <td>Math Prof 1</td>
-                        </tr>
-                        <tr>
-                          <td>ENG 1</td>
-                          <td>Mon/11-12</td>
-                          <td>English Prof 1</td>
-                        </tr>                
-                        <tr>
-                          <td>CHEM 1</td>
-                          <td>Tue/8-10</td>    
-                          <td>Chem Prof 1</td>                   
-                        </tr>
-                        <tr>
-                          <td>PE 1</td>
-                          <td>Wed/7-9</td>
-                          <td>PE Prof 1</td>
-                          </tr>
-                        <tr>
-                          <td>FIL 1</td>
-                          <td>Wed/11-1</td>
-                          <td>Fil Prof 1</td>
-                        </tr>
-                      <tfoot>
-                        <td><b>Subject</b></td>
-                        <td><b>Day/Time</b></td>
-                        <td><b>Professor</b></td>
-                      </tfoot>
-                    </table>
+              <table id="table-sched" class="table table-striped">
+                <thead>
+                  <td><b>Subject Code</b></td>
+                  <td><b>Subject Name</b></td>
+                  <td><b>Time</b></td>
+                  <td><b>Day</b></td>
+                  <td><b>Room</b></td>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
             </div>
             <!-- /.box-body -->
           </div>
@@ -255,6 +228,7 @@
 
   var getStudentInfoUrl = '<?php echo base_url('student_info/student_details/getStudentInfo'); ?>';
   var getGuardianInfoUrl = '<?php echo base_url('student_info/student_details/getGuardianInfo'); ?>';
+  var getSchedUrl = '<?php echo base_url('student_info/student_details/getSched'); ?>';
 
   $(function () {
     $('#studentList').DataTable()
