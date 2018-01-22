@@ -47,6 +47,59 @@
   #inputGUARDIANADDRESS:focus {
     width: 90%;
   }
+
+  /* Latest compiled and minified CSS included as External Resource*/
+
+/* Optional theme */
+
+/*@import url('//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css');*/
+ body {
+    margin-top:30px;
+}
+.stepwizard-step p {
+    margin-top: 0px;
+    color:#666;
+}
+.stepwizard-row {
+    display: table-row;
+}
+.stepwizard {
+    display: table;
+    width: 100%;
+    position: relative;
+}
+.stepwizard-step button[disabled] {
+    /*opacity: 1 !important;
+    filter: alpha(opacity=100) !important;*/
+}
+.stepwizard .btn.disabled, .stepwizard .btn[disabled], .stepwizard fieldset[disabled] .btn {
+    opacity:1 !important;
+    color:#bbb;
+}
+.stepwizard-row:before {
+    top: 14px;
+    bottom: 0;
+    position: absolute;
+    content:" ";
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    z-index: 0;
+}
+.stepwizard-step {
+    display: table-cell;
+    text-align: center;
+    position: relative;
+}
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+}
 </style>
   <!-- Google Font -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/googlefont.css">
@@ -59,11 +112,6 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <div class="alert bg-navy alert-dismissible flat">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <h4><i class="icon fa fa-bullhorn"></i> Reminder!</h4>
-        Make sure to receive the necessary requirements for enrollment, otherwise the student won't be enrolled!
-     </div>
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -79,15 +127,12 @@
     <!-- Main content -->
     <section class="content">
       <div class="row">
-        
         <div class="col-md-12">
-          <div class="box box-info">
+          <!-- <div class="box box-info">
 
             <div class="box-header with-border">
               <h3 class="box-title">Student Information</h3>
             </div>
-            <!-- /.box-header -->
-            <!-- form start -->
             <div class="box-body" style="padding-bottom: 20px;">
               <form method="POST" action="<?php echo base_url('enrollment/register_student/register/'); ?>">
                 <div class="row">
@@ -99,7 +144,6 @@
                     </div>
                   </div>
                 </div>
-                <!-- /.row -->
 
                 <div class="form-group">
                   <label>Name<span class="text-red">*</span></label>
@@ -118,7 +162,6 @@
                       </div>
                     </div>
                 </div>
-                <!-- /.form-group -->
 
                 <div class="row">
                   <div class="col-md-6">
@@ -140,7 +183,6 @@
                     </div>
                   </div>
                 </div>
-                <!-- /.row -->
                 <hr>
                 <div class="row">
                   <div class="col-md-6">
@@ -155,7 +197,6 @@
                       <?php echo form_error('birth_date'); ?>
                     </div>
                   </div>
-                  <!-- /.col -->
 
                   <div class="col-md-6">
                     <div class="form-group">
@@ -164,9 +205,7 @@
                       <?php echo form_error('birth_place'); ?>
                     </div>
                   </div>
-                  <!-- /.col -->
                 </div>
-                <!-- /.row -->
 
                 <div class="form-group">
                   <label>Address<span class="text-red">*</span></label>
@@ -189,7 +228,6 @@
                     </div>
                   </div>
                 </div>
-                <!-- /.form-group -->
 
                 <div class="row">
                   <div class="col-md-6">
@@ -199,7 +237,6 @@
                       <?php echo form_error('mother_tongue'); ?>
                     </div>
                   </div>
-                  <!-- /.col -->
 
                   <div class="col-md-6">
                     <div class="form-group">
@@ -208,9 +245,7 @@
                       <?php echo form_error('religion'); ?>
                     </div>
                   </div>
-                  <!-- /.col -->
                 </div>
-                <!-- /.row -->
 
                 <hr>
                 <div class="row">
@@ -221,7 +256,6 @@
                       <?php echo form_error('father_name'); ?>
                     </div>
                   </div>
-                  <!-- /.col -->
 
                   <div class="col-md-6">
                     <div class="form-group">
@@ -230,9 +264,7 @@
                       <?php echo form_error('mother_name'); ?>
                     </div>
                   </div>
-                  <!-- /.col -->
                 </div>
-                <!-- /.row -->
 
                 <div class="row">
                   <div class="col-md-6">
@@ -242,7 +274,6 @@
                       <?php echo form_error('father_contact'); ?>
                     </div>
                   </div>
-                  <!-- /.col -->
 
                   <div class="col-md-6">
                     <div class="form-group">
@@ -251,11 +282,256 @@
                       <?php echo form_error('mother_contact'); ?>
                     </div>
                   </div>
-                  <!-- /.col -->
                 </div>
-                <!-- /.row -->
 
                 <hr>
+                <div class="row" style="margin-bottom: -10px;">
+                  <div class="col-md-3">
+                    <label>If Guardian is<span class="text-red">*</span></label>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                        <input type="radio" name="r3" class="flat-red pipol parent" value="Father" <?php echo  set_radio('r3', 'Father'); ?> >   Father
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                        <input type="radio" name="r3" class="flat-red pipol parent" value="Mother" <?php echo  set_radio('r3', 'Mother'); ?> >   Mother
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                        <input type="radio" name="r3" class="flat-red pipol other" value="Other" <?php echo  set_radio('r3', 'Other'); ?> >   Other
+                    </div>
+                  </div>
+                </div>
+
+                <div hidden id="guardianInput" class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Name<span class="text-red">*</span></label>
+                      <input type="text" class="form-control" id="inputGUARDIAN" value="<?php echo set_value('guardian'); ?>" placeholder="Guardian's Name" name="guardian">
+                      <?php echo form_error('guardian'); ?>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Relationship<span class="text-red">*</span></label>
+                      <input type="text" class="form-control" id="inputRELATIONSHIP" value="<?php echo set_value('relationship'); ?>" placeholder="Relationship with Guardian" name="relationship">
+                      <?php echo form_error('relationship'); ?>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Contact No.<span class="text-red">*</span></label>
+                      <input type="text" class="form-control" id="inputGUARDIANCONTACT" value="<?php echo set_value('guardian_contact'); ?>" placeholder="Guradian's Contact No." name="guardian_contact">
+                      <?php echo form_error('guardian_contact'); ?>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row" style="margin-bottom: -10px;">
+                  <div class="col-md-3">
+                    <label>Guardian Address<span class="text-red">*</span></label>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                        <input type="radio" name="r4" class="flat-red stuadd" value="StudentAddress" <?php echo  set_radio('r4', 'StudentAddress'); ?> >   Student address
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="radio" name="r4" class="flat-red stuadd" value="Other2" <?php echo  set_radio('r4', 'Other2'); ?> >
+                        <input type="text" id="inputGUARDIANADDRESS" value="<?php echo set_value('guardian_address'); ?>" placeholder="Other" name="guardian_address" >
+                        <?php echo form_error('guardian_address'); ?>
+                    </div>
+                  </div>                  
+                </div>
+
+                <hr>
+                
+                <button type="submit" class="btn btn-primary pull-right">Submit</button>
+
+              </form>
+            </div>
+          </div> -->
+
+          <div class="stepwizard">
+            <div class="stepwizard-row setup-panel">
+                <div class="stepwizard-step col-xs-3"> 
+                    <a href="#step-1" type="button" class="btn btn-success btn-circle">1</a>
+                    <p><small>Name</small></p>
+                </div>
+                <div class="stepwizard-step col-xs-3"> 
+                    <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+                    <p><small>Informtaion</small></p>
+                </div>
+                <div class="stepwizard-step col-xs-3"> 
+                    <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+                    <p><small>Address</small></p>
+                </div>
+                <div class="stepwizard-step col-xs-3"> 
+                    <a href="#step-4" type="button" class="btn btn-default btn-circle" disabled="disabled">4</a>
+                    <p><small>Guardian</small></p>
+                </div>
+            </div>
+          </div>
+          
+          <form role="form">
+            <div class="panel panel-primary setup-content" id="step-1">
+                <div class="panel-heading">
+                     <h3 class="panel-title">Name</h3>
+                </div>
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-lg-12 col-sm-12">
+                      <div class="form-group">
+                          <label class="control-label">LRN</label>
+                          <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Learner Reference Number" />
+                      </div>
+                    </div>
+
+                    <div class="col-lg-4 col-sm-12">
+                      <div class="form-group">
+                          <label class="control-label">First Name</label>
+                          <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter First Name" />
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-12">
+                      <div class="form-group">
+                          <label class="control-label">Middle Name</label>
+                          <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Middle Name" />
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-12">
+                      <div class="form-group">
+                          <label class="control-label">Last Name</label>
+                          <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Last Name" />
+                      </div>
+                    </div>
+                  </div>
+                    <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
+                </div>
+            </div>
+            
+            <div class="panel panel-primary setup-content" id="step-2">
+                <div class="panel-heading">
+                     <h3 class="panel-title">Information</h3>
+                </div>
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-lg-4 col-sm-12">
+                      <div class="form-group">
+                          <label class="control-label">Sex</label>
+                          <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Sex" />
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-12">
+                      <div class="form-group">
+                          <label class="control-label">Contact No</label>
+                          <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Contact Number" />
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-12">
+                      <div class="form-group">
+                          <label class="control-label">Birth Date</label>
+                          <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Birth Date" />
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-12">
+                      <div class="form-group">
+                          <label class="control-label">Birth Place</label>
+                          <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Birth Place" />
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-12">
+                      <div class="form-group">
+                          <label class="control-label">Mother Tongue</label>
+                          <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Mother Tongue" />
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-12">
+                      <div class="form-group">
+                          <label class="control-label">Religion</label>
+                          <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Religion" />
+                      </div>
+                    </div>
+                  </div>
+                    <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
+                </div>
+            </div>
+            
+            <div class="panel panel-primary setup-content" id="step-3">
+                <div class="panel-heading">
+                     <h3 class="panel-title">Address</h3>
+                </div>
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-lg-12 col-sm-12">
+                      <div class="form-group">
+                          <label class="control-label">Street No.</label>
+                          <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Street Number" />
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-12">
+                      <div class="form-group">
+                          <label class="control-label">Barangay</label>
+                          <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Barangay" />
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-12">
+                      <div class="form-group">
+                          <label class="control-label">City</label>
+                          <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter City" />
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-12">
+                      <div class="form-group">
+                          <label class="control-label">Province</label>
+                          <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Province" />
+                      </div>
+                    </div>
+                  </div>
+                    <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
+                </div>
+            </div>
+            
+            <div class="panel panel-primary setup-content" id="step-4">
+                <div class="panel-heading">
+                     <h3 class="panel-title">Guardian</h3>
+                </div>
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-lg-6 col-sm-12">
+                      <div class="form-group">
+                          <label class="control-label">Father's Name</label>
+                          <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Father's Name" />
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-12">
+                      <div class="form-group">
+                          <label class="control-label">Father's Contact</label>
+                          <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Father's Contact" />
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-12">
+                      <div class="form-group">
+                          <label class="control-label">Mother's Maiden Name</label>
+                          <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Mother's Maiden Name" />
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-12">
+                      <div class="form-group">
+                          <label class="control-label">Mother's Contact</label>
+                          <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Mother's Contact" />
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+
+
                 <div class="row" style="margin-bottom: -10px;">
                   <div class="col-md-3">
                     <label>If Guardian is<span class="text-red">*</span></label>
@@ -320,36 +596,15 @@
                         <input type="text" id="inputGUARDIANADDRESS" value="<?php echo set_value('guardian_address'); ?>" placeholder="Other" name="guardian_address" >
                         <?php echo form_error('guardian_address'); ?>
                     </div>
-                  </div>
-
-                  
+                  </div>                  
                 </div>
-                <!-- /.row -->
-
-                <!-- <div hidden id="guardianAddressInput" class="row">
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <label>Guardian Address<span class="text-red">*</span></label>
-                      <input type="text" class="form-control" id="inputGUARDIANADDRESS" value="<?php echo set_value('guardian_address'); ?>" placeholder="Guardian's Address" name="guardian_address">
-                      <?php echo form_error('guardian_address'); ?>
-                    </div>
-                  </div>
-                </div> -->
-                <!-- /.row -->
-
-                <hr>
-                
-
-                <button type="submit" class="btn btn-primary pull-right">Submit</button>
-
-              </form>
+                    <button class="btn btn-success pull-right" type="submit">Finish!</button>
+                </div>
             </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
+          </form>
+
         </div>
         <!-- /.col -->
-
       </div>
       <!-- /.row -->
     </section>
@@ -474,7 +729,50 @@
 <script type="text/javascript">
   //Initialize Select2 Elements
     $('.select2').select2();
-    
+
+  //FORM WIZARD
+    $(document).ready(function () {
+
+    var navListItems = $('div.setup-panel div a'),
+        allWells = $('.setup-content'),
+        allNextBtn = $('.nextBtn');
+
+    allWells.hide();
+
+    navListItems.click(function (e) {
+        e.preventDefault();
+        var $target = $($(this).attr('href')),
+            $item = $(this);
+
+        if (!$item.hasClass('disabled')) {
+            navListItems.removeClass('btn-success').addClass('btn-default');
+            $item.addClass('btn-success');
+            allWells.hide();
+            $target.show();
+            $target.find('input:eq(0)').focus();
+        }
+    });
+
+    allNextBtn.click(function () {
+        var curStep = $(this).closest(".setup-content"),
+            curStepBtn = curStep.attr("id"),
+            nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+            curInputs = curStep.find("input[type='text'],input[type='url']"),
+            isValid = true;
+
+        $(".form-group").removeClass("has-error");
+        for (var i = 0; i < curInputs.length; i++) {
+            if (!curInputs[i].validity.valid) {
+                isValid = false;
+                $(curInputs[i]).closest(".form-group").addClass("has-error");
+            }
+        }
+
+        if (isValid) nextStepWizard.removeAttr('disabled').trigger('click');
+    });
+
+    $('div.setup-panel div a.btn-success').trigger('click');
+});
 </script>
 
 
