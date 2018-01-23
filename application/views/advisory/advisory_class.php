@@ -21,8 +21,6 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-  <!-- Loading -->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/loading.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -74,7 +72,7 @@
               </div> -->
             </div>
             <div class="box-body">
-              <div class="col-xs-12 col-lg-4">
+              <div class="col-xs-12 col-lg-6">
                   <div class="form-group">
                     <label>School Year</label>
                       <select class="subject-input form-control select2" disabled="" style="width: 100%;">
@@ -83,19 +81,12 @@
                       </select>
                   </div> 
               </div>
-              <div class="col-xs-12 col-lg-4">
-                  <div class="form-group">
-                    <label>Semester</label>
-                      <select class="subject-input form-control select2" style="width: 100%;">
-                        <option>1st Semester</option>
-                        <option>2nd Semester</option>
-                      </select>
-                  </div> 
-              </div>
-              <div class="col-xs-12 col-lg-4">
+              <div class="col-xs-12 col-lg-6">
                   <div class="form-group">
                     <label>Section</label>
-                      <input type="text" class="form-control" placeholder="STEM-11A" name="" disabled="">
+                      <select id="select-section" class="subject-input form-control select2" disabled="" style="width: 100%;">
+                        <option value="1">STEM 11A</option>
+                      </select>
                   </div> 
               </div>
             </div>
@@ -114,38 +105,12 @@
               <table id = "studentList1" class="table table-bordered">
                 <thead>
                   <tr>
-                    <th>LRN</th>
+                    <th style="width: 20%">LRN</th>
                     <th>Full Name</th>
-                    <th>Action</th>
+                    <th style="width: 10%">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>123112312</td>
-                    <td>Escaro, Adrielle Kristine Nicolette M.</td>
-                    <td>
-                      <button class='btn btn-default btn-xs'><span class='fa fa-fw fa-search text-primary' data-toggle='modal' data-target='#modal-view'></span></button>
-                      <button class='btn btn-default btn-xs'><span class='fa fa-fw fa-line-chart text-primary' data-toggle='modal' data-target='#modal-grades'></span></button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>144231231</td>
-                    <td>Polistico, Hakeem A.</td>
-                    <td>
-                      <button class='btn btn-default btn-xs'><span class='fa fa-fw fa-search text-primary'></span></button>
-                      <button class='btn btn-default btn-xs'><span class='fa fa-fw fa-line-chart text-primary'></span></button>
-                    </td>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>123123123</td>
-                    <td>Salva, Jasver Anlouise</td>
-                    <td>
-                      <button class='btn btn-default btn-xs'><span class='fa fa-fw fa-search text-primary'></span></button>
-                      <button class='btn btn-default btn-xs'><span class='fa fa-fw fa-line-chart text-primary'></span></button>
-                    </td>
-                    </td>
-                  </tr>
                 </tbody>
                 <tfoot>
                   
@@ -157,11 +122,10 @@
         </div>
         <!--/. col-md-12 -->
 
-        <!-- modal-->
-      <div class="modal" id="modal-view">
-        <div class="modal-dialog" style="width: 400px;">
-              <div class="box box-primary">
-                <div class="box-header with-border" style="cursor: move; margin: 0px;">
+        <div class="modal fade" id="modal-view">  
+          <div class="modal-dialog" style="width: 400px;">
+            <div class="box box-primary">
+              <div class="box-header with-border" style="cursor: move; margin: 0px;">
                 <i class="fa fa-search text-info"></i>
 
                 <h3 class="box-title text-info">View Student</h3>
@@ -172,50 +136,44 @@
                 </div>
                 <!-- /. tools -->
               </div>
-            <div class="box-body box-profile flat">
-              <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url('images/alt_picture.jpg');?>" alt="<?php echo base_url('images/alt_picture.jpg');?>"> <br>
-              <center><h4 id="full-name">Adrielle Escaro</h4></center>
-              
-              <table class="table table-striped table-bordered">
-                      <!-- <thead>
-                        <td></td>
-                        <td></td>
-                      </thead> -->
-                        <tr>
-                          <td style="width: 50%">Admission Date</td>
-                          <td id="admission-date">14-038-032<td>
-                        </tr>
-                        <tr>
-                          <td>LRN</td>
-                          <td id="lrn">123123123</td>
-                        </tr>                
-                        <tr>
-                          <td>Sex</td>
-                          <td id="sex">Female</td>                        
-                        </tr>
-                        <tr>
-                          <td>Birthdate</td>
-                          <td id="birthdate">june 24, 1998</td>
-                          </tr>
-                        <tr>
-                          <td>Contact Number</td>
-                          <td id="contact-no">9808123812</td>
-                        </tr>
-                        <tr>
-                          <td>Guardian</td>
-                          <td id="guardian">Nanay mo</td>
-                        </tr>
-                        <tr>
-                          <td>Guardian's Contact</td>
-                          <td id="guardian-contact">123123</td>
-                        </tr>
-                    </table>
+              <div class="box-body box-profile flat">
+                <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url('images/alt_picture.jpg');?>" alt="<?php echo base_url('images/alt_picture.jpg');?>">
+                <center><h4 id="full-name">Adrielle Escaro</h4></center>
+                
+                <table class="table table-striped table-bordered">
+                  <tr>
+                    <td style="width: 50%">Admission Date</td>
+                    <td id="admission-date">14-038-032</td>
+                  </tr>
+                  <tr>
+                    <td>LRN</td>
+                    <td id="lrn">123123123</td>
+                  </tr>                
+                  <tr>
+                    <td>Sex</td>
+                    <td id="sex">Female</td>                        
+                  </tr>
+                  <tr>
+                    <td>Birthdate</td>
+                    <td id="birthdate">june 24, 1998</td>
+                    </tr>
+                  <tr>
+                    <td>Contact Number</td>
+                    <td id="contact-no">9808123812</td>
+                  </tr>
+                  <tr>
+                    <td>Guardian</td>
+                    <td id="guardian">Nanay mo</td>
+                  </tr>
+                  <tr>
+                    <td>Guardian's Contact</td>
+                    <td id="guardian-contact">123123</td>
+                  </tr>
+                </table>
+              </div>
             </div>
-            <!-- /.box-body -->
           </div>
-          </div>
-          <!-- /.modal-dialog -->
-      </div>
+        </div>
 
       <!-- modal-->
       <div class="modal" id="modal-grades">
@@ -315,15 +273,76 @@
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
-<!-- page script -->
-<script src="<?php echo base_url(); ?>dist/js/enrollment/dashboard.js"></script>
 
 <script type="">
   $(function (){
+    $('#studentList1').DataTable();
 
-    $('#studentList1').DataTable( {
-             
-    } );
+    section_id = $('select-section').val();
+    var getAdvisoryClassUrl = '<?php echo base_url('advisory/advisory_class/getAdvisoryClass'); ?>';
+    var getStudentInfoUrl = '<?php echo base_url('student_info/student_details/getStudentInfo'); ?>';
+    var getGuardianInfoUrl = '<?php echo base_url('student_info/student_details/getGuardianInfo'); ?>';
+
+      $.ajax({
+        url: getAdvisoryClassUrl,
+        type: 'post',
+        dataType: 'json', 
+        data: {'section_id' : section_id}, 
+        success: function(result){  
+          //console.log(result)
+          if(result == ''){
+            //console.log('NO RECORDS');
+            $('#studentList1').find('tbody tr').remove();
+            $('#studentList1').find('tbody').append(
+          '<tr> <td colspan="5"><center> NO SCHEDULE SET <center></td> </tr>'
+          );
+          return;
+          }
+          else{
+            $('#studentList1').find('tbody tr').remove();
+            $.each(result, function( index, value ) {
+              $('#studentList1').find('tbody').append(
+                '<tr> <td>'+value[0]+'</td> <td>'+value[1]+'</td> <td>'+value[2]+'</td> </tr>'
+                )
+            });
+
+            
+      
+            $('.btn-view').on('click', function(){
+              lrn = $(this).parents('tr').find('td:first').html();
+
+              $.ajax({
+                url: getStudentInfoUrl,
+                type: 'post',
+                dataType: 'json', 
+                data: {'lrn' : lrn}, 
+                success: function(result){  
+                  console.log(result);
+                  $('#admission-date').html(result[0].date_registered);
+                  $('#full-name').html(result[0].first_name + ' ' + result[0].middle_name + ' ' + result[0].last_name);
+                  $('#lrn').html(lrn);
+                  $('#sex').html(result[0].sex);
+                  $('#birthdate').html(result[0].birth_date);
+                  $('#contact-no').html(result[0].contact_number);
+                }
+              });
+
+              $.ajax({
+                url: getGuardianInfoUrl,
+                type: 'post',
+                dataType: 'json', 
+                data: {'students_info_lrn' : lrn}, 
+                success: function(result){  
+                  console.log(result);
+                  $('#guardian').html(result[0].name);
+                  $('#guardian-contact').html(result[0].contact);
+
+                }
+              });
+            }) 
+          }
+        }
+      });
 
   })
 </script>

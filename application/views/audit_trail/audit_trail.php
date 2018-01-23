@@ -12,6 +12,10 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/Ionicons/css/ionicons.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/fixedHeader.dataTables.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/responsive.dataTables.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -71,57 +75,88 @@
       <!-- row -->
       <div class="row">
         <div class="col-md-12">
-          <!-- The time line -->
-          <ul class="timeline">
-            <!-- timeline time label -->
-            <!-- /.timeline-label -->
-            <!-- timeline item -->
-            <li>
-              <i class="fa fa-files-o bg-blue"></i>
 
-              <div class="timeline-item">
-                <span class="time"><i class="fa fa-clock-o"></i> Jan 16, 2018 - 12:05pm</span>
-
-                <h3 class="timeline-header"><a href="#">Hakeem Polistico</a> registered student LRN: 14038014</h3>
-
-                <div class="timeline-body">
-                  Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
-                  weebly ning heekya handango imeem plugg dopplr jibjab, movity
-                  jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
-                  quora plaxo ideeli hulu weebly balihoo...
-                </div>
-              </div>
-            </li>
-            <!-- END timeline item -->
-            <!-- timeline item -->
-            <li>
-              <i class="fa fa-files-o bg-blue"></i>
-
-              <div class="timeline-item">
-                <span class="time"><i class="fa fa-clock-o"></i>  Jan 16, 2018 - 1:00pm</span>
-
-                <h3 class="timeline-header no-border"><a href="#">Hakeem Polistico</a> Enrolled student LRN: 14038014</h3>
-              </div>
-            </li>
-            <!-- END timeline item -->
-            <li>
-              <i class="fa fa-file bg-purple"></i>
-
-              <div class="timeline-item">
-                <span class="time"><i class="fa fa-clock-o"></i> Jan 16, 2018 - 1:00pm</span>
-
-                <h3 class="timeline-header"><a href="#">Jasver Salva</a> updated STEM-11-A grades</h3>
-
-                <div class="timeline-body">
-                  First Semester, First Quarter grades updated for class STEM Grade 11 A.
-                </div>
-              </div>
-            </li>
-            <!-- END timeline item -->
-            <li>
-              <i class="fa fa-clock-o bg-gray"></i>
-            </li>
-          </ul>
+          <div class="box box-danger">
+            <div class="box-header">
+              <h3 class="box-title text-danger"><i class="fa fa-history"></i> Audit Trail</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="table-activity" class="table table-bordered table-striped  display nowrap" cellspacing="0" width="100%" style="font-size: 13px">
+                <thead>
+                <tr>
+                  <th style="width: 20%">User</th>    
+                  <th style="width: 10%">Module</th>              
+                  <th style="width: 15%">Sub-module</th>              
+                  <th style="width: 40%">Action</th>              
+                  <th style="width: 15%">Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Admin - Adrielle Escaro</td>
+                    <td>Enrollment</td>
+                    <td>Registered Student</td>
+                    <td>Registered student - Diether Francia</td>
+                    <td>Jan 16, 2018 - 1:00pm</td>
+                  </tr>
+                  <tr>
+                    <td>Admin - Hakeem Polistico</td>
+                    <td>Academics</td>
+                    <td>Teachers</td>
+                    <td>Added data - Marc Terrobias</td>
+                    <td>Jan 16, 2018 - 1:02pm</td>
+                  </tr>
+                  <tr>
+                    <td>Admin - Hakeem Polistico</td>
+                    <td>Academics</td>
+                    <td>Rooms</td>
+                    <td>Added data - Room 169</td>
+                    <td>Jan 17, 2018 - 1:03pm</td>
+                  </tr>
+                  <tr>
+                    <td>Admin - Hakeem Polistico</td>
+                    <td>Academics</td>
+                    <td>Subjects</td>
+                    <td>Added data - Fundamentals of Accountancy, Business and Management 1</td>
+                    <td>Jan 16, 2018 - 1:04pm</td>
+                  </tr>
+                  <tr>
+                    <td>Admin - Hakeem Polistico</td>
+                    <td>Academics</td>
+                    <td>Assign Advisory Class</td>
+                    <td>Assigned class -  STEM 11A to Diether Francia</td>
+                    <td>Jan 16, 2018 - 1:05pm</td>
+                  </tr>
+                  <tr>
+                    <td>Teacher - Jasver Salva</td>
+                    <td>Student Information</td>
+                    <td>Student Promotion</td>
+                    <td>Promoted class -  Class STEM 11A to Grade 12</td>
+                    <td>Jan 16, 2018 - 1:06pm</td>
+                  </tr>
+                  <tr>
+                    <td>Admin - Hakeem</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>Logged In</td>
+                    <td>Jan 16, 2018 - 1:06pm</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>User</th>    
+                  <th>Module</th>              
+                  <th>Sub-module</th>              
+                  <th>Action</th>                
+                  <th>Date</th>
+                </tr>  
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
         </div>
         <!-- /.col -->
       </div>
@@ -141,11 +176,19 @@
 <script src="<?php echo base_url(); ?>bower_components/Chart.js/Chart.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
+<!-- DataTables -->
+<script src="<?php echo base_url(); ?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.fixedHeader.min.js"></script>
+<script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.responsive.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
 <!-- page script -->
 <script src="<?php echo base_url(); ?>dist/js/enrollment/dashboard.js"></script>
+<script>
+  $('#table-activity').DataTable();
+</script>
 </body>
 </html>

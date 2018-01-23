@@ -167,7 +167,7 @@
       </div>
       <!-- modal-->
       <div class="modal" id="modal-sched">
-        <div class="modal-dialog" style="width: 850px;">
+        <div class="modal-dialog" style="width: 800px;">
               <div class="box box-primary">
                 <div class="box-header with-border" style="cursor: move; margin: 0px;">
                 <i class="fa fa-clock-o text-info"></i>
@@ -182,7 +182,7 @@
               </div>
             <div class="box-body box-profile flat">              
               <table id="table-sched" class="table table-striped">
-                <thead>
+                <thead class="bg-primary">
                   <td><b>Subject Code</b></td>
                   <td><b>Subject Name</b></td>
                   <td><b>Time</b></td>

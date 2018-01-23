@@ -362,11 +362,11 @@
             <div class="stepwizard-row setup-panel">
                 <div class="stepwizard-step col-xs-3"> 
                     <a href="#step-1" type="button" class="btn btn-success btn-circle">1</a>
-                    <p><small>Name</small></p>
+                    <p><small>Student Name</small></p>
                 </div>
                 <div class="stepwizard-step col-xs-3"> 
                     <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
-                    <p><small>Informtaion</small></p>
+                    <p><small>Student Info</small></p>
                 </div>
                 <div class="stepwizard-step col-xs-3"> 
                     <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
@@ -382,7 +382,7 @@
           <form role="form">
             <div class="panel panel-primary setup-content" id="step-1">
                 <div class="panel-heading">
-                     <h3 class="panel-title">Name</h3>
+                     <h3 class="panel-title">Student Name</h3>
                 </div>
                 <div class="panel-body">
                   <div class="row">
@@ -418,7 +418,7 @@
             
             <div class="panel panel-primary setup-content" id="step-2">
                 <div class="panel-heading">
-                     <h3 class="panel-title">Information</h3>
+                     <h3 class="panel-title">Student Info</h3>
                 </div>
                 <div class="panel-body">
                   <div class="row">
