@@ -256,7 +256,7 @@ function updateClassInfo(){
 function getSchedules(){
   sectionId = $('#select-section').val();
 
-  console.log(sectionId + ' : ' + semester);
+  //console.log(sectionId + ' : ' + semester);
   $("#select-room").val('').trigger('change');
 
   //POPULATE TABLE 
@@ -343,7 +343,7 @@ function getSchedules(){
         });*/
       });
 
-      console.log($('.col-time').length);
+      //console.log($('.col-time').length);
     }
   });
 }
@@ -486,13 +486,13 @@ $('#row-save').on('click',function(){
       dataType: 'json',
       data: {'section_id' : sectionId, 'semester' : semester},  
       success: function(res){ 
-        console.log('---');
+        //console.log('---');
 
         $('table').find('.object').each(function( index ) {
 
           var subject_code = $( this ).find('.val-subject').text();
           var room_id = $( this ).find('.val-room').text();
-          var time = $(this).parents('tr').find('.time').html();
+          var time = $(this).parents('tr').find('td:first').html();
           var timeSplit = time.split("-");
           var time_start = timeSplit[0];
           var time_end = timeSplit[1];
@@ -516,8 +516,8 @@ $('#row-save').on('click',function(){
               'row' : row
             },  
             success: function(res){ 
-              console.log(res);
-              console.log(semester);
+              //console.log(res);
+              //console.log(semester);
             }
           });
 

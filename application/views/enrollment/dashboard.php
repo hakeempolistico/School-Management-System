@@ -29,7 +29,7 @@
           <!-- Application buttons -->
           <div class="box box-danger">
             <div class="box-header">
-              <h3 class="box-title">Quick Access</h3>
+              <h3 class="box-title text-danger"><i class="fa fa-fw fa-cab"></i> Quick Access</h3>
             </div>
             <div class="box-body">
               <center>
@@ -184,7 +184,7 @@
 
           <div class="box box-danger">
             <div class="box-header with-border">
-              <h3 class="box-title">Latest Students Enrolled</h3>
+              <h3 class="box-title text-danger"><i class="fa fa-fw fa-graduation-cap"></i> Latest Students Enrolled</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -210,7 +210,7 @@
             </div>
             <!-- /.box-body -->
             <div class="box-footer clearfix">
-              <a href="<?php echo site_url('enrollment/register_student')?>" class="btn btn-sm btn-info btn-flat pull-left">Add Student</a>
+              <a href="<?php echo site_url('enrollment/register_student')?>" class="btn btn-sm btn-danger btn-flat pull-left">Add Student</a>
               <a href="<?php echo site_url('enrollment/student_list')?>" id="trial" class="btn btn-sm btn-default btn-flat pull-right">View All Students</a>
             </div>
           </div>
@@ -218,7 +218,7 @@
 
           <div class="box box-danger">
             <div class="box-header with-border">
-              <h3 class="box-title">Strand Status</h3>
+              <h3 class="box-title"><i class="fa fa-fw fa-bar-chart"></i> Strand Status</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

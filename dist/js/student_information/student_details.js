@@ -32,4 +32,33 @@ $(function () {
 	      }
 	    });
 	}) 
+
+	$('.btn-sched').on('click', function(){
+		lrn = $(this).parents('tr').find('td:first').html();
+	    $.ajax({
+	      url: getSchedUrl,
+	      type: 'post',
+	      dataType: 'json', 
+	      data: {'lrn' : lrn}, 
+	      success: function(result){  
+	      	if(result == ''){
+	      		//console.log('NO RECORDS');
+		      	$('#table-sched').find('tbody tr').remove();
+	      		$('#table-sched').find('tbody').append(
+			  	'<tr> <td colspan="5"><center> NO SCHEDULE SET <center></td> </tr>'
+			  	);
+			  	return;
+	      	}
+	      	else{
+		      	$('#table-sched').find('tbody tr').remove();
+		      	$.each(result, function( index, value ) {
+				  $('#table-sched').find('tbody').append(
+				  	'<tr> <td>'+value[0]+'</td> <td>'+value[1]+'</td> <td>'+value[2]+'</td> <td>'+value[3]+'</td> <td>'+value[4]+'</td> </tr>'
+				  	)
+				});
+	      	}
+	      }
+	    });
+
+	}) 
 })

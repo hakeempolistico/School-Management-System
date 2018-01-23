@@ -74,23 +74,25 @@
         <p>You have successfully registered <bold class="name"></bold>.</p>
       </div>
 
+  <div class="row">
+    <div class="col-md-12">
       <div class="box box-default">
         <div class="box-body box-profile" style=" padding: 20px;">
           <div class="row">
-            <div class="col-md-12"><center>
-              <img src="<?php echo base_url('images/alt_picture.jpg');?>" class="img-circle" alt="<?php echo base_url('images/alt_picture.jpg');?>" style="width: 15%; margin-bottom: 10px;"></center>
+            <div class="col-md-3"><center>
+              <img src="<?php echo base_url('images/alt_picture.jpg');?>" class="img-circle" alt="<?php echo base_url('images/alt_picture.jpg');?>" style="width: 50%; margin-bottom: 10px; border-width: 1px; border-style: solid; border-color: lightgray"></center>
               <h3 class="profile-username text-center name" style="padding: 0 20px;"></h3>
-              <center> 
-              </center>
-            </form>
+              <form method="post" action="<?php echo base_url('enrollment/enroll_student/enroll/'); ?>">
+                <input type="hidden" name="lrn" class="lrn">
+              <button type="submit" class="btn btn-sm btn-success" style="width:100%; margin-bottom: 5px;"><i class="fa fa-fw fa-check"></i> Enroll this student</button>
+              </form>
+              <button href="<?php echo site_url('enrollment/register_student'); ?>" class="btn btn-sm btn-primary" style="width:100%"><i class="fa fa-fw fa-arrow-left"></i> Register another student</button>
             </div>
-            <!-- /. col-->
-
-            <div class="col-md-12">
-              <table class="table table-striped table-bordered">
+            <div class="col-md-9">
+              <table class="table table-striped table-bordered" style="font-size: 13px">
                 <tr>
-                  <td><b>LRN</b></td>
-                  <td><a id="lrn">--</a></td>
+                  <td style="width: 40%"><b>LRN</b></td>
+                  <td style="width: 60%"><a id="lrn">--</a></td>
                 </tr>
                 <tr>
                   <td><b>Contact No.</b></td>
@@ -130,7 +132,7 @@
                 </tr>
                 <tr>
                   <td><b>Father's Contact No</b></td>
-                  <td><a id="father_contact">--
+                  <td><a id="father_contact">--</a></td>
                 <tr>
                   <td><b>Mother's Maiden Name</b></td>
                   <td><a id="mother_name">--</a></td>
@@ -156,11 +158,6 @@
                   <td><a id="guardian_address">--</a></td>
                 </tr>
               </table>
-                <form method="post" action="<?php echo base_url('enrollment/enroll_student/enroll/'); ?>">
-                  <input type="hidden" name="lrn" class="lrn">
-                <button type="submit" class="btn btn-success pull-right" style="width:20%; margin-bottom: 10px;"><i class="fa fa-fw fa-check"></i> Enroll this student</button>
-                </form>
-                <a href="<?php echo site_url('enrollment/register_student'); ?>" class="btn btn-primary" style="width:20%; margin-bottom: 10px;"><i class="fa fa-fw fa-arrow-left"></i> Register another student</a>
             </div>
             <!-- /.col -->
           </div>
@@ -169,8 +166,8 @@
         <!-- /.box-body -->
       </div>
       <!-- /. box -->
-
-
+    </div>
+  </div>
     </section>
     <!-- /.content -->
   </div>
