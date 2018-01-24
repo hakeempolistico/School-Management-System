@@ -37,8 +37,8 @@ class login extends CI_Controller
 					        'major' => $result->major,
 					        'logged_in' => TRUE
 					);
-
 					$this->session->set_userdata($userdata);
+					$this->audit_trail->set('-','-','login','-');
 					redirect('enrollment/dashboard');
 				}
 				else if($result==1) {
@@ -54,6 +54,7 @@ class login extends CI_Controller
 	}
 
 	public function logout(){
+			$this->audit_trail->set('-','-','logout','-');
 			session_destroy();
 			$this->load->view('login/login');
 		}

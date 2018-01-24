@@ -15,6 +15,7 @@ class audit_trail extends CI_Controller {
 
 		$data['active'] = 'audit_trail';
 		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
+		$data['records'] = $this->global_model->getRecords('audit_trail', 'desc', 'date');
 
     	$this->parser->parse('audit_trail/audit_trail', $data);
 	}

@@ -178,6 +178,7 @@
   var updateUrl = '<?php echo base_url('academics/strands/ajaxUpdate'); ?>';
   var countUrl = '<?php echo base_url('academics/strands/ajaxCountRow'); ?>';
   var deleteRowUrl = '<?php echo base_url('academics/strands/ajaxDeleteRow'); ?>';
+  var auditTrailUpdateUrl = '<?php echo base_url('academics/strands/auditTrailUpdate'); ?>';
   
 </script>
 </body>

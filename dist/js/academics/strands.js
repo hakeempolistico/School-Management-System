@@ -128,6 +128,15 @@ $(function () {
         success: function(result){
           populateTable();
         }
+      });
+      $.ajax({
+        url: auditTrailUpdateUrl,
+        type: 'post',
+        dataType: 'json', 
+        data: {'name' : name, 'newName' : newName, 'code': code, 'newCode': newCode}, 
+        success: function(result){
+          console.log(result);
+        }
       }); 
     }
        
@@ -153,8 +162,20 @@ $('#delete-confirm').click(function(){
     data: {'set': code, 'status' : setStat }, 
     success: function(result){
       console.log(result);
+
+      $.ajax({
+        url: auditTrailUpdateUrl,
+        type: 'post',
+        dataType: 'json', 
+        data: {'code': code, 'status' : setStat }, 
+        success: function(result){
+          console.log(result);
+        }
+      });
+
       populateTable();
         if(setStat=='inactive'){
+
           $.notify({
             title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
             message: "Strand: " + code + " set to inactive."
