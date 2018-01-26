@@ -87,9 +87,9 @@
                 <tr>
                   <th style="width: 20%">User</th>    
                   <th style="width: 10%">Module</th>              
-                  <th style="width: 12%">Sub-module</th>              
-                  <th style="width: 10%">Type</th>              
-                  <th style="width: 35%">Action</th>              
+                  <th style="width: 12%">Sub-module</th>
+                  <th style="width: 10%">Action</th>              
+                  <th style="width: 35%">Description</th>              
                   <th style="width: 13%">Date</th>
                 </tr>
                 </thead>
@@ -99,8 +99,8 @@
                       <td><?php echo $v->user; ?></td>
                       <td><?php echo $v->module; ?></td>
                       <td><?php echo $v->sub_module; ?></td>
-                      <td><?php echo $v->action_type; ?></td>
                       <td><?php echo $v->action; ?></td>
+                      <td><?php echo $v->description; ?></td>
                       <td><?php echo $v->date; ?></td>
                     </tr>
                   <?php } ?> 
@@ -109,9 +109,9 @@
                 <tr>
                   <th>User</th>    
                   <th>Module</th>              
-                  <th>Sub-module</th>              
-                  <th>Type</th>              
+                  <th>Sub-module</th>
                   <th>Action</th>              
+                  <th>Description</th>               
                   <th>Date</th>
                 </tr>
                   

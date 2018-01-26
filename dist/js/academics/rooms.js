@@ -106,8 +106,7 @@ $(function () {
                 });
               }
             }
-        });     
-
+        });
   })
 
   $('#edit-update').on('click', function(){ 
@@ -169,6 +168,17 @@ $('#delete-confirm').click(function(){
       'set': id }, 
     success: function(result){
       //console.log(result);
+      
+      $.ajax({
+        url: auditTrailUpdateUrl,
+        type: 'post',
+        dataType: 'json', 
+        data: {'room_id': id, 'status' : setStat }, 
+        success: function(result){
+          console.log(result);
+        }
+      });
+
       populateTable();
       if(setStat=='active'){
           $.notify({

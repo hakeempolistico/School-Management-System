@@ -61,16 +61,24 @@ class teachers extends CI_Controller {
             	$status=null;
             	if($value->status == 'active'){
             		$status = '<center><span class="badge bg-light-blue">'.$value->status.'</span></center>';
-					$action = "
+					/*$action = "
                     <button data-toggle='modal' id='view-btn' data-target='#modal-schedule' class='btn btn-default btn-xs view-btn'><span class='fa fa-fw fa-clock-o text-success'></span></button>
+                    <button data-toggle='modal' id='view-btn' data-target='#modal-view' class='btn btn-default btn-xs view-btn'><span class='fa fa-fw fa-search text-info'></span></button>                  
+                    <button data-toggle='modal' data-target='#modal-delete' class='btn btn-default btn-xs delete-btn'><span class='fa fa-fw fa-remove text-danger'></span></button>                
+                  ";*/	
+                  $action = "
                     <button data-toggle='modal' id='view-btn' data-target='#modal-view' class='btn btn-default btn-xs view-btn'><span class='fa fa-fw fa-search text-info'></span></button>                  
                     <button data-toggle='modal' data-target='#modal-delete' class='btn btn-default btn-xs delete-btn'><span class='fa fa-fw fa-remove text-danger'></span></button>                
                   ";
             	}
             	else if($value->status == 'inactive'){
             		$status = '<center><span class="badge bg-red">'.$value->status.'</span></center>';
-					$action = "
+					/*$action = "
                     <button data-toggle='modal' id='view-btn' data-target='#modal-schedule' class='btn btn-default btn-xs view-btn'><span class='fa fa-fw fa-clock-o text-success'></span></button>
+                    <button data-toggle='modal' id='view-btn' data-target='#modal-view' class='btn btn-default btn-xs view-btn'><span class='fa fa-fw fa-search text-info'></span></button>                  
+                    <button data-toggle='modal' data-target='#modal-delete' class='btn btn-default btn-xs delete-btn'><span class='fa fa-fw fa-check text-success'></span></button>                
+                  ";*/
+					$action = "
                     <button data-toggle='modal' id='view-btn' data-target='#modal-view' class='btn btn-default btn-xs view-btn'><span class='fa fa-fw fa-search text-info'></span></button>                  
                     <button data-toggle='modal' data-target='#modal-delete' class='btn btn-default btn-xs delete-btn'><span class='fa fa-fw fa-check text-success'></span></button>                
                   ";
@@ -87,6 +95,19 @@ class teachers extends CI_Controller {
                 $data['data'][] = $arr;
             }
 		echo json_encode($data);
+	}
+	public function auditTrailUpdate()
+	{
+		$data = $this->input->post();
+		$code = null;
+		$name = null;
+		
+		if(isset($data['status']) && $data['status'] == 'active'){
+			$this->audit_trail->set('Academic', 'Teachers', 'activate', 'EMPLOYEE ID - '.$data['employee_id'].' set to '.$data['status']);
+		}
+		if(isset($data['status']) && $data['status'] == 'inactive'){
+			$this->audit_trail->set('Academics', 'Teachers', 'deactivate', 'EMPLOYEE ID - '.$data['employee_id'].' set to '.$data['status']);
+		}
 	}
 
 }

@@ -27,12 +27,12 @@
       <div class="row">
         <div class="col-lg-12 col-xs-12">
 
-          <div class="box box-primary">
+          <!-- <div class="box box-primary">
             <div class="box-header">
               <h3 class="box-title text-primary"><i class="fa fa-tag"></i> Strand List</h3>
               <button data-toggle="modal" data-target="#modal-add" class="pull-right btn btn-primary btn-xs edit-btn"><span class="fa fa-fw fa-plus"></span></button>
             </div>
-            <!-- /.box-header -->
+
             <div class="box-body">
               <table id="strands-table" class="table table-bordered table-striped  display nowrap" cellspacing="0" width="100%">
                 <thead>
@@ -53,10 +53,43 @@
                 </tfoot>
               </table>
             </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
+          </div> -->
 
+          <style>
+            .panel .panel-heading button { 
+              color: white; font-size: 14px; margin-top: -2px;
+            }
+            .panel .panel-heading button:hover { 
+              color: lightblue;
+            }
+          </style>
+
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <button data-toggle="modal" data-target="#modal-add" class="pull-right btn btn-link btn-xs"><span class="fa fa-fw fa-plus" ></span></button>
+              <h3 class="panel-title"><i class="fa fa-tag"></i> Strand List</h3>
+            </div>
+            <div class="panel-body">
+              <table id="strands-table" class="table table-bordered table-striped  display nowrap" cellspacing="0" width="100%">
+                  <thead>
+                  <tr>
+                    <th>Code</th>    
+                    <th>Name</th>              
+                    <th>Strands</th>              
+                    <th>Action</th>
+                  </tr>
+                  </thead>
+                  <tfoot>
+                  <tr>
+                    <th>Code</th>    
+                    <th>Name</th>              
+                    <th>Strands</th>              
+                    <th>Action</th>
+                  </tr>                
+                  </tfoot>
+                </table>
+            </div>
+          </div>
         </div>
 
         <div class="modal fade" id="modal-edit">
@@ -95,11 +128,32 @@
 
         <div class="modal fade" id="modal-add">
           <div class="modal-dialog" style="max-width: 400px">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-plus"></i> Add Strands</h3>
+              </div>
+              <div class="panel-body">
+                <div class="form-group" style="margin-bottom: 5px">
+                  <label for="srtandCodeInput">Code</label>
+                  <label for="srtandCodeInput" class="text-danger">*</label>
+                  <input type="text" class="form-control" id="code-input" placeholder="Strand Code">
+                </div> 
+                <div class="form-group" style="margin-bottom: 7px">
+                  <label for="strandNameInput">Name</label>
+                  <input type="text" class="form-control" id="name-input" placeholder="Strand Name">
+                </div>               
+                <button type="button" id="add-btn" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-plus"></i> &nbsp; Add</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="modal fade" id="modal-add">
+          <div class="modal-dialog" style="max-width: 400px">
             <div class="box box-primary">
                 <div class="box-header">
                   <h3 class="box-title text-primary"><i class="fa fa-plus"></i> Add Strands</h3>
                 </div>
-                <!-- /.box-header -->
                 <div class="box-body">
                   <div class="form-group" style="margin-bottom: 5px">
                     <label for="srtandCodeInput">Code</label>
@@ -114,7 +168,7 @@
                 </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <div class="modal fade in" id="modal-delete">
           <div class="modal-dialog" style="max-width: 320px">

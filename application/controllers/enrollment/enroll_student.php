@@ -392,11 +392,11 @@ class enroll_student extends CI_Controller {
 	    	$data['arr'][$key][3] = implode(" / ",$try2);
 	    };
 
-	    
+	    /*
 	    echo '<pre>';
 	    print_r($data['arr']);
 	    echo '<pre>'; exit;
-	    
+	    */
 	    $data['active'] = 'enrollment/enroll_student';
 		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
 		$this->parser->parse('enrollment/after_enroll', $data);

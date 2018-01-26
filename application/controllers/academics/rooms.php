@@ -103,5 +103,18 @@ class rooms extends CI_Controller {
 
 		echo json_encode($data);
 	}
+	public function auditTrailUpdate()
+	{
+		$data = $this->input->post();
+		$code = null;
+		$name = null;
+		
+		if(isset($data['status']) && $data['status'] == 'active'){
+			$this->audit_trail->set('Academic', 'Rooms', 'activate', 'ROOM ID - '.$data['room_id'].' set to '.$data['status']);
+		}
+		if(isset($data['status']) && $data['status'] == 'inactive'){
+			$this->audit_trail->set('Academics', 'Rooms', 'deactivate', 'ROOM ID - '.$data['room_id'].' set to '.$data['status']);
+		}
+	}
 	
 }

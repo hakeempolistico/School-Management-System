@@ -72,7 +72,7 @@
               </div> -->
             </div>
             <div class="box-body">
-              <div class="col-xs-12 col-lg-6">
+              <div class="col-xs-12 col-lg-4">
                   <div class="form-group">
                     <label>School Year</label>
                       <select class="subject-input form-control select2" disabled="" style="width: 100%;">
@@ -81,11 +81,22 @@
                       </select>
                   </div> 
               </div>
-              <div class="col-xs-12 col-lg-6">
+              <div class="col-xs-12 col-lg-4">
                   <div class="form-group">
                     <label>Section</label>
                       <select id="select-section" class="subject-input form-control select2" disabled="" style="width: 100%;">
                         <option value="1">STEM 11A</option>
+                      </select>
+                  </div> 
+              </div>
+              <div class="col-xs-12 col-lg-4">
+                  <div class="form-group">
+                    <label>View By</label>
+                      <select id="select-section" class="subject-input form-control select2" style="width: 100%;">
+                        <option></option>
+                        <option>1st Semester</option>
+                        <option>2nd Semester</option>
+                        <option>School Year</option>
                       </select>
                   </div> 
               </div>

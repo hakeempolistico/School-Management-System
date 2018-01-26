@@ -11,29 +11,29 @@ class audit_trail {
 	        $this->CI->load->model('global_model');
 	    }
 
-        public function set($module, $sub, $type, $action)
+        public function set($module, $sub, $action, $description)
         {	
-        	switch ($type) {
+        	switch ($action) {
 			    case "add":
-			        $action_type =  "Added Data";
+			        $action =  "Added Data";
 			        break;
 			    case "edit":
-			        $action_type =  "Updated Data";
+			        $action =  "Updated Data";
 			        break;
 			    case "activate":
-			        $action_type =  "Activated Data";
+			        $action =  "Activated";
 			        break;
 			    case "deactivate":
-			        $action_type =  "Deactivated Data";
+			        $action =  "Deactivated";
 			        break;
 			    case "login":
-			        $action_type =  "Logged In";
+			        $action =  "Logged In";
 			        break;
 			    case "logout":
-			        $action_type =  "Logged Out";
+			        $action =  "Logged Out";
 			        break;
 			    default:
-			        $action_type = "-";
+			        $action = "-";
 			}
 
         	$user = $this->CI->session->position.' - '.$this->CI->session->first_name.' '.$this->CI->session->last_name;
@@ -41,8 +41,8 @@ class audit_trail {
         		'user' => $user,
         		'module' => $module,
         		'sub_module' => $sub,
-        		'action_type' => $action_type,
         		'action' => $action,
+        		'description' => $description,
         	);
         	$this->CI->global_model->insert('audit_trail', $data);
         }

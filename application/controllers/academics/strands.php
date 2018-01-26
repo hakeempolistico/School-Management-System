@@ -55,8 +55,11 @@ class strands extends CI_Controller {
 			$name = $data['name'].' to '.$data['newName'].'.';
 			$this->audit_trail->set('Academics', 'Strands', 'edit', 'NAME - '.$name);
 		}
-		if(isset($data['status'])){
-			$this->audit_trail->set('Academics', 'Strands', 'edit', 'CODE - '.$data['code'].' set to '.$data['status']);			
+		if(isset($data['status']) && $data['status'] == 'active'){
+			$this->audit_trail->set('Academics', 'Strands', 'activate', 'CODE - '.$data['code'].' set to '.$data['status']);
+		}
+		if(isset($data['status']) && $data['status'] == 'inactive'){
+			$this->audit_trail->set('Academics', 'Strands', 'deactivate', 'CODE - '.$data['code'].' set to '.$data['status']);
 		}
 	}
 	public function ajaxGetRow()
