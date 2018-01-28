@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 27, 2018 at 01:24 AM
+-- Generation Time: Jan 29, 2018 at 03:26 AM
 -- Server version: 5.7.11
 -- PHP Version: 7.0.4
 
@@ -130,7 +130,14 @@ INSERT INTO `audit_trail` (`id`, `user`, `module`, `sub_module`, `action`, `desc
 (43, 'Administrator - Hakeem Polistico', 'Academics', 'Strands', 'Activated', 'CODE - BSIS4 set to active', '2018-01-25 03:34:14'),
 (44, 'Administrator - Hakeem Polistico', 'Academics', 'Strands', 'Deactivated', 'CODE - BSIS4 set to inactive', '2018-01-25 03:34:19'),
 (45, 'Administrator - Hakeem Polistico', '-', '-', 'Logged Out', '-', '2018-01-25 03:45:57'),
-(46, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-01-26 13:44:00');
+(46, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-01-26 13:44:00'),
+(47, 'Administrator - Hakeem Polistico', 'Academics', 'Strands', 'Updated Data', 'NAME - BS Information System 4 to BS Information System 5.', '2018-01-26 17:25:53'),
+(48, 'Administrator - Hakeem Polistico', '-', '-', 'Logged Out', '-', '2018-01-26 17:35:26'),
+(49, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-01-27 13:35:24'),
+(50, 'Administrator - Hakeem Polistico', '-', '-', 'Logged Out', '-', '2018-01-27 16:14:15'),
+(51, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-01-27 16:17:22'),
+(52, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-01-28 04:47:29'),
+(53, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-01-28 14:24:33');
 
 -- --------------------------------------------------------
 
@@ -160,7 +167,15 @@ INSERT INTO `class_subjects` (`id`, `section_id`, `subject_id`, `teacher_id`, `s
 (5, 13, 'CS-7', '0003', 'First Semester', '2018-01-19 13:36:56', '0000-00-00 00:00:00'),
 (6, 13, 'SS-STEM-1', '0005', 'Second Semester', '2018-01-19 13:36:56', '0000-00-00 00:00:00'),
 (7, 13, 'SS-STEM-2', '0003', 'Second Semester', '2018-01-19 13:36:56', '0000-00-00 00:00:00'),
-(8, 13, 'CS-7', '0002', 'Second Semester', '2018-01-19 13:36:56', '0000-00-00 00:00:00');
+(8, 13, 'CS-7', '0002', 'Second Semester', '2018-01-19 13:36:56', '0000-00-00 00:00:00'),
+(9, 1, 'CS-4', '0002', 'First Semester', '2018-01-27 16:20:00', '0000-00-00 00:00:00'),
+(10, 1, 'CS-6', '0002', 'Second Semester', '2018-01-27 16:20:00', '0000-00-00 00:00:00'),
+(11, 1, 'CS-7', '0003', 'First Semester', '2018-01-27 16:20:00', '0000-00-00 00:00:00'),
+(12, 1, 'SS-HUMSS-1', '0004', 'First Semester', '2018-01-27 16:20:00', '0000-00-00 00:00:00'),
+(13, 1, 'CS-5', '0001', 'First Semester', '2018-01-27 16:20:00', '0000-00-00 00:00:00'),
+(14, 1, 'SS-STEM-1', '0001', 'Second Semester', '2018-01-27 16:20:00', '0000-00-00 00:00:00'),
+(15, 1, 'SS-STEM-2', '0003', 'Second Semester', '2018-01-27 16:20:00', '0000-00-00 00:00:00'),
+(16, 1, 'CS-7', '0004', 'Second Semester', '2018-01-27 16:20:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -190,7 +205,8 @@ INSERT INTO `curriculum` (`id`, `subject_code`, `strand_code`, `year_level_id`, 
 (6, 'SS-STEM-1', 'STEM', 1, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (7, 'CS-6', 'STEM', 1, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (8, 'SS-STEM-2', 'STEM', 1, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(9, 'CS-7', 'STEM', 1, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(9, 'CS-7', 'STEM', 1, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(42, 'CS-4', 'GAS', 1, 'First Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -223,6 +239,33 @@ INSERT INTO `enrolled_students` (`id`, `students_info_lrn`, `note`, `section_id`
 (8, 14038005, '', '1', 2, '2018-01-19 19:39:57', '0000-00-00 00:00:00'),
 (9, 14038096, '', '1', 2, '2018-01-22 13:47:23', '0000-00-00 00:00:00'),
 (10, 14038021, '', '6', 2, '2018-01-25 03:30:14', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grades`
+--
+
+CREATE TABLE `grades` (
+  `id` int(11) NOT NULL,
+  `lrn` varchar(20) NOT NULL,
+  `semester` enum('First Semester','Second Semester') NOT NULL,
+  `quarter` enum('First Quarter','Second Quarter') NOT NULL,
+  `subject_code` varchar(50) NOT NULL,
+  `grade` decimal(11,1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `grades`
+--
+
+INSERT INTO `grades` (`id`, `lrn`, `semester`, `quarter`, `subject_code`, `grade`) VALUES
+(1, '14038014', 'First Semester', 'First Quarter', 'CS-4', '87.0'),
+(2, '14038001', 'First Semester', 'First Quarter', 'CS-4', '76.0'),
+(3, '14038003', 'First Semester', 'First Quarter', 'CS-4', '74.0'),
+(4, '14038070', 'First Semester', 'First Quarter', 'CS-4', '75.0'),
+(6, '14038005', 'First Semester', 'First Quarter', 'CS-4', '90.1'),
+(7, '14038096', 'First Semester', 'First Quarter', 'CS-4', '95.1');
 
 -- --------------------------------------------------------
 
@@ -450,7 +493,7 @@ INSERT INTO `sections` (`id`, `strand_code`, `year_level_id`, `name`, `capacity`
 (17, 'TVL-AS', 1, 'B', 45, 'active'),
 (18, 'ABM', 1, 'B', 45, 'active'),
 (20, 'STEM', 1, 'C', 40, 'active'),
-(21, 'STEM', 1, 'D', 40, 'active');
+(21, 'STEM', 1, 'D', 45, 'active');
 
 -- --------------------------------------------------------
 
@@ -480,7 +523,7 @@ INSERT INTO `strands` (`id`, `code`, `name`, `status`, `date_created`) VALUES
 (17, 'asd', 'asd', 'inactive', '0000-00-00 00:00:00'),
 (18, '123', 'asd', 'inactive', '0000-00-00 00:00:00'),
 (19, '1231', 'asdasda', 'inactive', '0000-00-00 00:00:00'),
-(20, 'BSIS4', 'BS Information System 4', 'inactive', '0000-00-00 00:00:00');
+(20, 'BSIS4', 'BS Information System 5', 'inactive', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -590,7 +633,7 @@ INSERT INTO `subjects` (`id`, `code`, `name`, `type`, `description`, `status`, `
 (21, 'SS-GAS SS-ABM', 'Organization and Management', 'Specialized Subjects', '', 'active', NULL, NULL),
 (22, 'SS-ABM-1', 'Fundamentals of Accountancy, Business and Management 1', 'Specialized Subject', '', 'active', NULL, NULL),
 (23, 'SS-STEM-1', 'Precalculus', 'Specialized Subject', '', 'active', NULL, NULL),
-(24, 'SS-STEM-2', 'General Chemistry 1', 'Specialized Subject', '', 'active', NULL, NULL);
+(24, 'SS-STEM-2', 'General Chemistry 1', 'Specialized Subject', 'ASD', 'active', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -723,6 +766,12 @@ ALTER TABLE `enrolled_students`
   ADD UNIQUE KEY `registered_student_lrn` (`students_info_lrn`);
 
 --
+-- Indexes for table `grades`
+--
+ALTER TABLE `grades`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `guardians`
 --
 ALTER TABLE `guardians`
@@ -828,22 +877,27 @@ ALTER TABLE `addresses`
 -- AUTO_INCREMENT for table `audit_trail`
 --
 ALTER TABLE `audit_trail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 --
 -- AUTO_INCREMENT for table `class_subjects`
 --
 ALTER TABLE `class_subjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `curriculum`
 --
 ALTER TABLE `curriculum`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 --
 -- AUTO_INCREMENT for table `enrolled_students`
 --
 ALTER TABLE `enrolled_students`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT for table `grades`
+--
+ALTER TABLE `grades`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `guardians`
 --

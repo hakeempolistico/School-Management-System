@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -53,9 +53,7 @@
 /* Optional theme */
 
 /*@import url('//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css');*/
- body {
-    margin-top:30px;
-}
+
 .stepwizard-step p {
     margin-top: 0px;
     color:#666;
@@ -128,7 +126,7 @@
     <section class="content">
       <div class="row">
         <div class="col-md-12">
-          <div class="box box-info">
+          <!-- <div class="box box-info">
 
             <div class="box-header with-border">
               <h3 class="box-title">Student Information</h3>
@@ -357,7 +355,7 @@
               </form>
             </div>
           </div>
-
+ -->
           <div class="stepwizard">
             <div class="stepwizard-row setup-panel">
                 <div class="stepwizard-step col-xs-3"> 

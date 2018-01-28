@@ -23,8 +23,6 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-  <!-- Loading -->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/loading.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -61,7 +59,7 @@
     <section class="content-header">
       <h1>
         Manage Grades
-        <small>Student Grades</small>
+        <small>Input students grades per subject</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="enrollment/dashboard"><i class="fa fa-user"></i> Student Details</a></li>
@@ -75,7 +73,7 @@
         <div class="col-md-12">
           <div class="box box-primary">
               <div class="box-header">
-                <h3 class="box-title text-primary"></i> Select Options</h3>
+                <h3 class="box-title text-primary"><span class='fa fa-fw fa-search'></span> Select Options</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
@@ -84,8 +82,8 @@
                       <label>Semester</label>
                         <select id="select-semester" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Semester">
                           <option></option>
-                          <option>First Semester</option>
-                          <option>Second Semeerst</option>
+                          <option value="First Semester">First Semester</option>
+                          <option value="Second Semester">Second Semeerst</option>
                         </select>
                     </div> 
                 </div>
@@ -94,8 +92,8 @@
                       <label>Quarter</label>
                         <select id="select-quarter" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Quarter">
                           <option></option>
-                          <option>1st Quarter</option>
-                          <option>2nd Quarter</option>
+                          <option value="First Quarter">First Quarter</option>
+                          <option value="Second Quarter">Second Quarter</option>
                         </select>
                     </div> 
                 </div>
@@ -104,8 +102,9 @@
                       <label>Subject</label>
                         <select id="select-subject" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Subject">
                           <option></option>
-                          <option>Math 1</option>
-                          <option>Math 2</option>
+                          <?php foreach ($subjects as $val) { ?>
+                            <option value='<?php echo $val->code;?>'><?php echo $val->name; ?></option>
+                          <?php } ?>
                         </select>
                     </div> 
                 </div>
@@ -114,58 +113,49 @@
                       <label>Class</label>
                         <select id="select-class" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Class">
                           <option></option>
-                          <option>STEM-1A</option>
-                          <option>STEM-2A</option>
                         </select>
                     </div> 
                 </div> 
               </div>
           </div>
 
-          <div id="table-grades" class="box box-primary" hidden>
+          <div id="box-grades" class="box box-primary">
               <div class="box-header">
-                <h3 class="box-title text-primary">Enter Grade for: <b>1st Semester </b>| <b>1st QUARTER </b>| <b>MATH1 </b> | <b>STEM-1A</b></h3>
+                <h3 class="box-title text-primary"><span class='fa fa-fw fa-edit'></span> Input Grade</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
-                <table id = "studentList1" class="table table-bordered">
+                <table id = "table-grades" class="table table-bordered table-striped" style="font-size: 14px">
                 <thead>
                   <tr>
                     <th>LRN</th>
                     <th>Full Name</th>
-                    <th style="width: 25%">Grade</th>
-                    <th>Action</th>
+                    <th style="width: 5%">Grade</th>
+                    <th style="width: 10%">Status</th>
+                    <th style="width: 10%">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>123112312</td>
-                    <td>Escaro, Adrielle Kristine Nicolette M.</td>
-                    <td><input type="number"></td>
-                    <td>
-                      <center>
-                        <button class='btn btn-default btn-xs'><span class='fa fa-fw fa-check text-success'></span></button>
-                        <button class='btn btn-default btn-xs'><span class='fa fa-fw fa-edit text-info'></span></button>
-                      </center>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>144231231</td>
-                    <td>Polistico, Hakeem A.</td>
-                    <td><input type="number"></td>
-                    <td>
-                      <center>
-                        <button class='btn btn-default btn-xs'><span class='fa fa-fw fa-check text-success'></span></button>
-                        <button class='btn btn-default btn-xs'><span class='fa fa-fw fa-edit text-info'></span></button>
-                      </center>
-                    </td>
-                  </tr>
                 </tbody>
                 <tfoot>
                   
                 </tfoot>
               </table>
               </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="modal-confirm">
+        <div class="modal-dialog" style="max-width: 400px">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <h3 class="panel-title"><i class="fa fa-check"></i> Confirmation Message!</h3>
+            </div>
+            <div class="panel-body">
+              <p>Are you sure you want to input data? Once confirmed, data cannot be updated.</p>              
+              <button data-dismiss="modal" type="button" id="btn-confirm" style="width: 100px" class="btn btn-sm btn-block btn-success pull-right"><i class="fa fa-check"></i> &nbsp; Confirm</button>
+            </div>
           </div>
         </div>
       </div>
@@ -198,6 +188,11 @@
 <script src="<?php echo base_url(); ?>dist/js/grades/manage.js"></script>
 
 <script>
+
+  var getClassUrl = '<?php echo base_url('grades/manage/getClass'); ?>';
+  var addGradeUrl = '<?php echo base_url('grades/manage/addGrade'); ?>';
+  var getClassStudentsUrl = '<?php echo base_url('grades/manage/getClassStudents'); ?>';
+
   $(function () {
     $('#studentList1').DataTable() 
     $('.select2').select2();
