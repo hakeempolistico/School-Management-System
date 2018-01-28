@@ -222,7 +222,8 @@
   var updateUrl = '<?php echo base_url('academics/rooms/ajaxUpdate'); ?>';
   var countUrl = '<?php echo base_url('academics/strands/ajaxCountRow'); ?>';
   var deleteRowUrl = '<?php echo base_url('academics/rooms/ajaxDeleteRow'); ?>';  
-  var getScheduleUrl = '<?php echo base_url('academics/rooms/getSchedule'); ?>';  
+  var getScheduleUrl = '<?php echo base_url('academics/rooms/getSchedule'); ?>';
+  var auditTrailUpdateUrl = '<?php echo base_url('academics/rooms/auditTrailUpdate'); ?>';
  
   
 </script>

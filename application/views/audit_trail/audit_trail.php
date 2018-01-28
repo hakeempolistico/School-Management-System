@@ -82,75 +82,39 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="table-activity" class="table table-bordered table-striped  display nowrap" cellspacing="0" width="100%" style="font-size: 13px">
+              <table id="table-activity" class="table table-bordered table-striped " width="100%" style="font-size: 13px">
                 <thead>
                 <tr>
                   <th style="width: 20%">User</th>    
                   <th style="width: 10%">Module</th>              
-                  <th style="width: 15%">Sub-module</th>              
-                  <th style="width: 40%">Action</th>              
-                  <th style="width: 15%">Date</th>
+                  <th style="width: 12%">Sub-module</th>
+                  <th style="width: 10%">Action</th>              
+                  <th style="width: 35%">Description</th>              
+                  <th style="width: 13%">Date</th>
                 </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Admin - Adrielle Escaro</td>
-                    <td>Enrollment</td>
-                    <td>Registered Student</td>
-                    <td>Registered student - Diether Francia</td>
-                    <td>Jan 16, 2018 - 1:00pm</td>
-                  </tr>
-                  <tr>
-                    <td>Admin - Hakeem Polistico</td>
-                    <td>Academics</td>
-                    <td>Teachers</td>
-                    <td>Added data - Marc Terrobias</td>
-                    <td>Jan 16, 2018 - 1:02pm</td>
-                  </tr>
-                  <tr>
-                    <td>Admin - Hakeem Polistico</td>
-                    <td>Academics</td>
-                    <td>Rooms</td>
-                    <td>Added data - Room 169</td>
-                    <td>Jan 17, 2018 - 1:03pm</td>
-                  </tr>
-                  <tr>
-                    <td>Admin - Hakeem Polistico</td>
-                    <td>Academics</td>
-                    <td>Subjects</td>
-                    <td>Added data - Fundamentals of Accountancy, Business and Management 1</td>
-                    <td>Jan 16, 2018 - 1:04pm</td>
-                  </tr>
-                  <tr>
-                    <td>Admin - Hakeem Polistico</td>
-                    <td>Academics</td>
-                    <td>Assign Advisory Class</td>
-                    <td>Assigned class -  STEM 11A to Diether Francia</td>
-                    <td>Jan 16, 2018 - 1:05pm</td>
-                  </tr>
-                  <tr>
-                    <td>Teacher - Jasver Salva</td>
-                    <td>Student Information</td>
-                    <td>Student Promotion</td>
-                    <td>Promoted class -  Class STEM 11A to Grade 12</td>
-                    <td>Jan 16, 2018 - 1:06pm</td>
-                  </tr>
-                  <tr>
-                    <td>Admin - Hakeem</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>Logged In</td>
-                    <td>Jan 16, 2018 - 1:06pm</td>
-                  </tr>
+                  <?php foreach ($records as $key => $v) { ?>
+                    <tr>
+                      <td><?php echo $v->user; ?></td>
+                      <td><?php echo $v->module; ?></td>
+                      <td><?php echo $v->sub_module; ?></td>
+                      <td><?php echo $v->action; ?></td>
+                      <td><?php echo $v->description; ?></td>
+                      <td><?php echo $v->date; ?></td>
+                    </tr>
+                  <?php } ?> 
                 </tbody>
                 <tfoot>
                 <tr>
                   <th>User</th>    
                   <th>Module</th>              
-                  <th>Sub-module</th>              
-                  <th>Action</th>                
+                  <th>Sub-module</th>
+                  <th>Action</th>              
+                  <th>Description</th>               
                   <th>Date</th>
-                </tr>  
+                </tr>
+                  
                 </tfoot>
               </table>
             </div>

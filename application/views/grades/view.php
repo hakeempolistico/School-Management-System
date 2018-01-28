@@ -23,8 +23,6 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-  <!-- Loading -->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/loading.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -60,8 +58,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Manage Grades
-        <small>Student Grades</small>
+        View Grades
+        <small>View students grades</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="enrollment/dashboard"><i class="fa fa-user"></i> Student Details</a></li>
@@ -78,58 +76,59 @@
               <h3 class="box-title text-primary"></i> View Options</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
-              <div class="col-xs-6 col-lg-3">
+            <div id="box-view" class="box-body">
+              <div class="col-xs-12 col-lg-3">
                   <div class="form-group">
                     <label>View</label>
                       <select id="select-view" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select View">
                         <option></option>
-                        <option>Quarter</option>
-                        <option>Semester</option>
-                        <option>School Year</option>
+                        <option value="1">Quarter</option>
+                        <option value="2">Semester</option>
+                        <option value="3">School Year</option>
                       </select>
                   </div> 
+              </div>
+              <div id="col-sem" class="col-xs-12 col-lg-3">
+                <div class="form-group">
+                  <label>Semester</label>
+                    <select id="select-semester" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Semester">
+                      <option></option>
+                      <option value="First Semester">First Semester</option>
+                      <option value="Second Semester">Second Semester</option>
+                    </select>
+                </div> 
+              </div>
+              <div id="col-quarter" class="col-xs-12 col-lg-3">
+                <div class="form-group">
+                  <label>Quarter</label>
+                    <select id="select-quarter" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Quarter">
+                      <option></option>
+                      <option value="First Quarter">First Quarter</option>
+                      <option value="Second Quarter">Second Quarter</option>
+                    </select>
+                </div> 
               </div>
             </div>
           </div>
 
-          <div class="box box-primary">
+          <div id="box-select" class="box box-primary">
             <div class="box-header">
-              <h3 class="box-title text-primary"></i> Select Options</h3>
+              <h3 class="box-title text-primary"> Select Options</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <div class="col-xs-6 col-lg-3">
-                  <div class="form-group">
-                    <label>Semester</label>
-                      <select id="select-semester" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Semester">
-                        <option></option>
-                        <option>First Semester</option>
-                        <option>Second Semeerst</option>
-                      </select>
-                  </div> 
-              </div>
-              <div class="col-xs-6 col-lg-3">
-                  <div class="form-group">
-                    <label>Quarter</label>
-                      <select id="select-quarter" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Quarter">
-                        <option></option>
-                        <option>1st Quarter</option>
-                        <option>2nd Quarter</option>
-                      </select>
-                  </div> 
-              </div>
-              <div class="col-xs-6 col-lg-3">
+              <div class="col-xs-6 col-lg-6">
                   <div class="form-group">
                     <label>Subject</label>
                       <select id="select-subject" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Subject">
                         <option></option>
-                        <option>Math 1</option>
-                        <option>Math 2</option>
+                        <?php foreach ($subjects as $val) { ?>
+                        <option value="<?php echo $val->code?>"><?php echo $val->name?></option>
+                        <?php } ?>
                       </select>
                   </div> 
               </div>
-              <div class="col-xs-6 col-lg-3">
+              <div class="col-xs-6 col-lg-6">
                   <div class="form-group">
                     <label>Class</label>
                       <select id="select-class" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Class">
@@ -142,7 +141,7 @@
             </div>
           </div>
 
-          <div class="box box-primary">
+          <div id="box-quarter" class="box box-primary">
             <div class="box-header">
               <h3 class="box-title text-primary"></i> First Quarter Grades</h3>
             </div>
@@ -171,7 +170,7 @@
             </div>
           </div>
 
-          <div class="box box-primary">
+          <div id="box-semester" class="box box-primary">
             <div class="box-header">
               <h3 class="box-title text-primary"></i> First Semester Grades</h3>
             </div>
@@ -206,7 +205,7 @@
             </div>
           </div>
 
-          <div class="box box-primary">
+          <div id="box-sy" class="box box-primary">
             <div class="box-header">
               <h3 class="box-title text-primary"></i> School Year Grades</h3>
             </div>
@@ -274,14 +273,16 @@
 <script src="<?php echo base_url(); ?>bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
-<!-- page script -->
-<!--<script src="<?php echo base_url(); ?>dist/js/grades/manage.js"></script> -->
 
 <script>
+  var getClassUrl = '<?php echo base_url('grades/view/getClass'); ?>';
   $(function () {
     $('.dataTables').DataTable() 
     $('.select2').select2();
   })
 </script>
+
+<!-- page script -->
+<script src="<?php echo base_url(); ?>dist/js/grades/view.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-var i, new_empoyee_id, employee_id, first_name, middle_name, last_name, position, major, status, activeStatus;
+var i, new_empoyee_id, employee_id, first_name, middle_name, last_name, birthdate, sex, contact, email, position, major, status, activeStatus;
 
 
 $(function () {
@@ -63,9 +63,11 @@ $(function () {
                       'first_name': first_name, 
                       'middle_name': middle_name, 
                       'last_name': last_name, 
-                      'major': major, 
+                      'birthdate': birthdate, 
+                      'contact_no': contact, 
+                      'sex': sex, 
+                      'email': email, 
                       'position': position, 
-                      'status': status, 
                       'set': employee_id }, 
                       success: function(result){
                         console.log(result);
@@ -131,6 +133,10 @@ function populateTable(){
               $( "#view-firstname" ).val(result.first_name);
               $( "#view-middlename" ).val(result.middle_name);
               $( "#view-lastname" ).val(result.last_name);
+              $( "#view-birthdate" ).val(result.birthdate);
+              $( "#view-sex" ).select2().val(result.sex).trigger('change');
+              $( "#view-contact" ).val(result.contact_no);
+              $( "#view-email" ).val(result.email);
               $( "#view-major" ).val(result.major);
               $( "#view-position" ).val(result.position);
             }
@@ -166,6 +172,10 @@ $("#add-btn").click(function(){
     var first_name = $('#firstname-input').val();
     var middle_name = $('#middlename-input').val();
     var last_name = $('#lastname-input').val();
+    var birthdate = $('#birthdate-input').val();
+    var sex = $('#sex-input').val();
+    var contact = $('#contact-input').val();
+    var email = $('#email-input').val();
     var major = $('#major-input').val();
     var position = $('#position-input').val();
 
@@ -225,6 +235,10 @@ $("#add-btn").click(function(){
                     'first_name' : first_name, 
                     'middle_name' : middle_name, 
                     'last_name' : last_name, 
+                    'birthdate' : birthdate, 
+                    'sex' : sex, 
+                    'contact_no' : contact, 
+                    'email' : email, 
                     'major' : major, 
                     'position' : position 
                   }, 
@@ -235,6 +249,10 @@ $("#add-btn").click(function(){
                     $('#firstname-input').val('');
                     $('#middlename-input').val('');
                     $('#lastname-input').val('');
+                    $('#birthdate-input').val('');
+                    $('#sex-input').val('');
+                    $('#contact-input').val('');
+                    $('#email-input').val('');
                     $('#major-input').val('');
                     $('#position-input').val('');
                     
@@ -275,6 +293,10 @@ function show(){
   $( "#view-firstname" ).prop( "disabled", false );
   $( "#view-middlename" ).prop( "disabled", false );
   $( "#view-lastname" ).prop( "disabled", false );
+  $( "#view-birthdate" ).prop( "disabled", false );
+  $( "#view-sex" ).prop( "disabled", false );
+  $( "#view-contact" ).prop( "disabled", false );
+  $( "#view-email" ).prop( "disabled", false );
   $( "#view-major" ).prop( "disabled", false );
   $( "#view-position" ).prop( "disabled", false );
   $( "#view-update" ).show();
@@ -286,6 +308,10 @@ function hide(){
     $( "#view-firstname" ).prop( "disabled", true );
     $( "#view-middlename" ).prop( "disabled", true );
     $( "#view-lastname" ).prop( "disabled", true );
+    $( "#view-birthdate" ).prop( "disabled", true );
+    $( "#view-sex" ).prop( "disabled", true );
+    $( "#view-contact" ).prop( "disabled", true );
+    $( "#view-email" ).prop( "disabled", true );
     $( "#view-major" ).prop( "disabled", true );
     $( "#view-position" ).prop( "disabled", true );
     $( "#view-update" ).hide();
@@ -304,6 +330,10 @@ $('#view-update').click(function(){
   new_empoyee_id = $( "#view-id" ).val();
   first_name = $( "#view-firstname" ).val();
   middle_name = $( "#view-middlename" ).val();
+  birthdate = $('#view-birthdate').val();
+  sex = $('#view-sex').val();
+  contact = $('#view-contact').val();
+  email = $('#view-email').val();
   last_name = $( "#view-lastname" ).val();
   major = $( "#view-major" ).val();
   position = $( "#view-position" ).val();
@@ -330,6 +360,16 @@ $('#delete-confirm').click(function(){
     success: function(result){
       console.log(result);
       populateTable();
+
+      $.ajax({
+        url: auditTrailUpdateUrl,
+        type: 'post',
+        dataType: 'json', 
+        data: {'employee_id': employee_id, 'status' : setStat }, 
+        success: function(result){
+          console.log(result);
+        }
+      });
 
       if(setStat=='inactive'){
         $.notify({

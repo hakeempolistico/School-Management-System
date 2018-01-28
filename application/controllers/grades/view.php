@@ -13,16 +13,7 @@ class view extends CI_Controller {
 	public function index()
 	{	
 		$data = $this->parse->parsed();
-
-		// $data['teachersCount'] = $this->global_model->count('teachers');
-		// $data['roomsCount'] = $this->global_model->count('rooms');
-		// $data['subjectsCount'] = $this->global_model->count('subjects');
-		// $data['enrolledStudentsCount'] = $this->global_model->count('enrolled_students');
-		// $data['students_enrolled'] = $this->dashboard_model->getStudents();
-		// foreach ($data['students_enrolled'] as $key => $val) {
-		// 	$code = $this->dashboard_model->getStrand($val->section_id);
-		// 	$data['students_enrolled'][$key]->strand_name = $code;
-		// };
+		$data['subjects'] = $this->global_model->getActiveRecords('subjects');
 
 		$data['active'] = 'grades/view';
 		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
@@ -30,4 +21,20 @@ class view extends CI_Controller {
     	$this->parser->parse('grades/view', $data);
 	}
 
+	public function getClass()
+	{
+		$data = $this->input->post();
+		$result = $this->global_model->getRows('class_subjects', array('subject_id' => $data['subject_code'] ) );
+		foreach ($result as $val) {
+			$d = $this->global_model->getRow('sections', 'id', $val->section_id);
+			if($d->year_level_id=='1'){
+				$d->year_level_id = '11';
+			}
+			else{
+				$d->year_level_id = '12';
+			}
+			$val->class = $d->strand_code.'-'.$d->year_level_id.$d->name;
+		}
+		echo json_encode($result);
+	}
 }

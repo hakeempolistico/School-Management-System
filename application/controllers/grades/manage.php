@@ -14,20 +14,50 @@ class manage extends CI_Controller {
 	{	
 		$data = $this->parse->parsed();
 
-		// $data['teachersCount'] = $this->global_model->count('teachers');
-		// $data['roomsCount'] = $this->global_model->count('rooms');
-		// $data['subjectsCount'] = $this->global_model->count('subjects');
-		// $data['enrolledStudentsCount'] = $this->global_model->count('enrolled_students');
-		// $data['students_enrolled'] = $this->dashboard_model->getStudents();
-		// foreach ($data['students_enrolled'] as $key => $val) {
-		// 	$code = $this->dashboard_model->getStrand($val->section_id);
-		// 	$data['students_enrolled'][$key]->strand_name = $code;
-		// };
+		$data['subjects'] = $this->global_model->getActiveRecords('subjects');
 
 		$data['active'] = 'grades/manage';
 		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
 
     	$this->parser->parse('grades/manage', $data);
+	}
+
+	public function getClass()
+	{
+		$data = $this->input->post();
+		$result = $this->global_model->getRows('class_subjects', array('subject_id' => $data['subject_code'] ) );
+		foreach ($result as $val) {
+			$d = $this->global_model->getRow('sections', 'id', $val->section_id);
+			if($d->year_level_id=='1'){
+				$d->year_level_id = '11';
+			}
+			else{
+				$d->year_level_id = '12';
+			}
+			$val->class = $d->strand_code.'-'.$d->year_level_id.$d->name;
+		}
+		echo json_encode($result);
+	}
+	public function getClassStudents()
+	{
+		$data = $this->input->post();
+		$result = $this->global_model->getRows('enrolled_students', array('section_id' => $data['section_id'] ) );
+		foreach ($result as $val) {
+			$d = $this->global_model->getRow('students_info', 'lrn', $val->students_info_lrn);
+			$arr =  array('lrn' => $val->students_info_lrn, 'semester' => $data['semester'], 'quarter' => $data['quarter'], 'subject_code' => $data['subject_code']);
+			$grade = $this->global_model->getRows('grades', $arr);
+			if($grade){
+				$val->grade = $grade['0']->grade;
+			}
+			$val->full_name = $d->first_name.' '.$d->last_name;
+		}
+		echo json_encode($result);
+	}
+	public function addGrade()
+	{
+		$data = $this->input->post();
+		$result = $this->global_model->insert('grades', $data);
+		echo json_encode($result);
 	}
 
 }
