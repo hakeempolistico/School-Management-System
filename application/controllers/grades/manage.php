@@ -25,7 +25,7 @@ class manage extends CI_Controller {
 	public function getClass()
 	{
 		$data = $this->input->post();
-		$result = $this->global_model->getRows('class_subjects', array('subject_id' => $data['subject_code'] ) );
+		$result = $this->global_model->getRows('class_subjects', $data );
 		foreach ($result as $val) {
 			$d = $this->global_model->getRow('sections', 'id', $val->section_id);
 			if($d->year_level_id=='1'){
