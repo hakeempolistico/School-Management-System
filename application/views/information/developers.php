@@ -40,7 +40,7 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/googlefont.css">
 </head>
-<body class="hold-transition skin-blue sidebar-mini" style="background-color: white;">
+<body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 <div hidden class="loading">Loading&#8230;</div>
   
