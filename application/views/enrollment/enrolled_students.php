@@ -51,37 +51,41 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Enrolled Students
-        <!-- <small>Pick one to enroll</small> -->
+        Student List
+        <small>Enrolled student information.</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Enrollment</a></li>
-        <li class="active">Enroll Student</li>
+        <li class="active">Student List</li>
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
-      <div class="box">
+      <div class="box box-primary">
             <div class="box-header">
-              <h3 class="box-title">Enrolled Students</h3>
+              <h3 class="box-title text-primary"><i class="fa fa-fw fa-graduation-cap"></i>Enrolled Students</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="enrolledStudentstable" class="table table-bordered table-hover">
+              <table id="enrolledStudentstable" class="table table-bordered table-hover table-striped">
                 <thead>
-                <tr>                  
-                  <th>ID</th>
+                <tr> 
                   <th>LRN</th>
                   <th>Name</th>
+                  <th>Strand</th>
+                  <th>Year</th>
+                  <th>Section</th>
                   <th>Date Enrolled</th>
                 </tr>
                 </thead>
                 <tfoot>
                 <tr>
-                  <th>ID</th>
                   <th>LRN</th>
                   <th>Name</th>
+                  <th>Strand</th>
+                  <th>Year</th>
+                  <th>Section</th>
                   <th>Date Enrolled</th>
                 </tr>
                 </tfoot>
@@ -139,10 +143,12 @@
 
   $('#enrolledStudentstable').DataTable({
     "columns": [
-        { "width": "20%" },
+        { "width": "15%" },
         { "width": "30%" },
-        { "width": "25%" },
-        { "width": "25%" }
+        { "width": "15%" },
+        { "width": "15%" },
+        { "width": "10%" },
+        { "width": "15%" }
         ],
         "order": [] ,
         "ajax": getRecordsUrl

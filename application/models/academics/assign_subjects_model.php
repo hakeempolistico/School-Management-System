@@ -2,8 +2,9 @@
 
 class assign_subjects_model extends CI_Model{
 
-	public function getSections($data){	
+	public function getActiveSections($data){	
 	$this->db->where($data);
+	$this->db->where('status', 'active');
 	$query = $this->db->get('sections')->result();
 	return $query;
 	}

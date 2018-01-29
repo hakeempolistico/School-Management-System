@@ -39,7 +39,28 @@ class strands extends CI_Controller {
 	public function addStrand()
 	{
 		$data = $this->input->post();
+		$this->audit_trail->set('Academics', 'Strands', 'add', $data['name']);
 		echo $this->global_model->insert('strands', $data);
+	}
+	public function auditTrailUpdate()
+	{
+		$data = $this->input->post();
+		$code = null;
+		$name = null;
+		if($data['code'] != $data['newCode'] && isset($data['newCode'])){
+			$code = $data['code'].' to '.$data['newCode'].'.';
+			$this->audit_trail->set('Academics', 'Strands', 'edit', 'CODE - '.$code);
+		}
+		if($data['name'] != $data['newName']){
+			$name = $data['name'].' to '.$data['newName'].'.';
+			$this->audit_trail->set('Academics', 'Strands', 'edit', 'NAME - '.$name);
+		}
+		if(isset($data['status']) && $data['status'] == 'active'){
+			$this->audit_trail->set('Academics', 'Strands', 'activate', 'CODE - '.$data['code'].' set to '.$data['status']);
+		}
+		if(isset($data['status']) && $data['status'] == 'inactive'){
+			$this->audit_trail->set('Academics', 'Strands', 'deactivate', 'CODE - '.$data['code'].' set to '.$data['status']);
+		}
 	}
 	public function ajaxGetRow()
 	{
@@ -55,14 +76,14 @@ class strands extends CI_Controller {
             {	            	
             	$status=null;
             	if($value->status == 'active'){
-            		$status = '<span class="badge bg-light-blue">'.$value->status.'</span>';
-					$action = "<button data-toggle='modal' data-target='#modal-edit' class='btn btn-default btn-xs edit-btn'><span class='fa fa-fw fa-pencil text-info'></span></button>                    
-			                    <button data-toggle='modal' data-target='#modal-delete' class='btn btn-default btn-xs delete-btn'><span class='fa fa-fw fa-remove text-danger'></span></button>";
+            		$status = '<center><span class="badge bg-light-blue">'.$value->status.'</span></center>';
+					$action = "<center><button data-toggle='modal' data-target='#modal-edit' class='btn btn-default btn-xs edit-btn'><span class='fa fa-fw fa-pencil text-info'></span></button>                    
+			                    <button data-toggle='modal' data-target='#modal-delete' class='btn btn-default btn-xs delete-btn'><span class='fa fa-fw fa-remove text-danger'></span></button></center>";
             	}
             	else if($value->status == 'inactive'){
-            		$status = '<span class="badge bg-red">'.$value->status.'</span>';
-					$action = "<button data-toggle='modal' data-target='#modal-edit' class='btn btn-default btn-xs edit-btn'><span class='fa fa-fw fa-pencil text-info'></span></button>                    
-			                    <button data-toggle='modal' data-target='#modal-delete' class='btn btn-default btn-xs delete-btn'><span class='fa fa-fw fa-check text-success'></span></button>";
+            		$status = '<center><span class="badge bg-red status">'.$value->status.'</span></center>';
+					$action = "<center><button data-toggle='modal' data-target='#modal-edit' class='btn btn-default btn-xs edit-btn'><span class='fa fa-fw fa-pencil text-info'></span></button>                    
+			                    <button data-toggle='modal' data-target='#modal-delete' class='btn btn-default btn-xs delete-btn'><span class='fa fa-fw fa-check text-success'></span></button></center>";
             	}
                 $arr = array(
                     $value->code,
@@ -72,6 +93,7 @@ class strands extends CI_Controller {
                 );
                 $data['data'][] = $arr;
             }
+
 		echo json_encode($data);
 	}
 

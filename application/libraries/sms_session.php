@@ -20,4 +20,11 @@ class sms_session {
 				return;	
         }
 
+        public function debug($arr){
+			echo '<pre>';
+			print_r($arr);
+			echo '<pre>';
+			exit;
+        }
+
 }

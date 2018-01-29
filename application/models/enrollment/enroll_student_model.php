@@ -6,6 +6,7 @@ class enroll_student_model extends CI_Model{
 	{
 		$this->db->where($set1, $value1);
 		$this->db->where($set2, $value2);
+		$this->db->where('status', 'active');
 
 		$query = $this->db->get($table)->result();
 		return $query;

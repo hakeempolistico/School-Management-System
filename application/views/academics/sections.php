@@ -25,45 +25,11 @@
     <!-- Main content -->
     <section class="content">
       <div class="row">
-        <div class="col-lg-4 col-xs-12">
-          <div class="box box-primary">
-              <div class="box-header">
-                <h3 class="box-title text-primary"><i class="fa fa-plus"></i> Add Sections</h3>
-              </div>
-              <!-- /.box-header -->
-              <div class="box-body">
-                <div class="form-group" style="margin-bottom: 5px">
-                  <label for="select-strand">Strand</label>                  
-                  <label for="select-strand" class="text-danger">*</label>                  
-                  <select id="select-strand" data-placeholder="Section Strand" class="form-control" style="width: 100%">
-                    <option></option>
-                  </select>
-                </div>
-                <div class="form-group" style="margin-bottom: 5px">
-                  <label for="select-year">Year Level</label> 
-                  <label for="select-year" class="text-danger">*</label>                     
-                  <select id="select-year" data-placeholder="Section Year Level" class="form-control" style="width: 100%">
-                    <option></option>
-                  </select>
-                </div>
-                <div class="form-group" style="margin-bottom: 5px">
-                  <label for="input-name">Name</label>
-                  <label for="input-name" class="text-danger">*</label>    
-                  <input type="text" class="form-control" id="input-name" placeholder="Section Name">
-                </div> 
-                <div class="form-group" style="margin-bottom: 7px">
-                  <label for="input-capacity">Capacity</label>
-                  <input type="number" class="form-control" id="input-capacity" placeholder="Section Capacity">
-                </div>                
-                <button id="btn-add" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-plus"></i> &nbsp; Add</button>
-              </div>
-          </div>
-        </div>
-        <div class="col-lg-8 col-xs-12">
-
+        <div class="col-lg-12 col-xs-12">
           <div class="box box-primary">
             <div class="box-header">
-              <h3 class="box-title text-primary"><i class="fa fa-star"></i> Strand List</h3>
+              <h3 class="box-title text-primary"><i class="fa fa-star"></i> Section List</h3>
+              <button data-toggle="modal" data-target="#modal-add" class="pull-right btn btn-primary btn-xs edit-btn"><span class="fa fa-fw fa-plus"></span></button>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -74,10 +40,19 @@
                   <th>Year Level</th>
                   <th>Name</th>
                   <th>Capacity</th>
+                  <th>Status</th>
                   <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
+                <tr>
+                  <th>Strand Code</th>
+                  <th>Year Level</th>
+                  <th>Name</th>
+                  <th>Capacity</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
                 </tbody>
                 <tfoot>                
                 </tfoot>
@@ -141,21 +116,57 @@
         <!-- /.modal -->
         <div class="modal fade in" id="modal-delete">
           <div class="modal-dialog" style="max-width: 320px">
-            <div class="box box-danger">
+            <div id="box-delete" class="box box-danger">
               <div class="box-header with-border" style="cursor: move; margin: 0px;">
-                <i class="fa fa-warning text-danger"></i>
+                <i id="box-delete-icon" class="fa fa-warning text-danger"></i>
 
                 <h3 class="box-title text-danger">Warning</h3>
                 <!-- tools box -->
                 <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-box-tool" data-dismiss="modal"><i class="fa fa-times text-danger"></i></button>
+                  <button type="button" class="btn btn-box-tool" data-dismiss="modal"><i id="box-delete-btn" class="fa fa-times text-danger"></i></button>
                 </div>
                 <!-- /. tools -->
               </div>
               <div class="box-body box-profile flat" style="margin-top: -10px">
-                <h4>Are you sure you want to delete record?</h4>
-                <button id="delete-confirm" data-dismiss="modal" type="button" style="width: 75px" class="btn btn-block btn-danger btn-sm pull-right">Confirm</button>
+                <h4 id="text-status">Are you sure you want todelete record?</h4>
+                <button id="delete-confirm" data-dismiss="modal" type="button" style="width: 75px; margin: 10px;" class="btn btn-block btn-danger btn-sm pull-right">Confirm</button>
               </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade in" id="modal-add">
+          <div class="modal-dialog">   
+            <div class="box box-primary">
+                <div class="box-header">
+                  <h3 class="box-title text-primary"><i class="fa fa-plus"></i> Add Sections</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                  <div class="form-group" style="margin-bottom: 5px">
+                    <label for="select-strand">Strand</label>                  
+                    <label for="select-strand" class="text-danger">*</label>                  
+                    <select id="select-strand" data-placeholder="Section Strand" class="form-control" style="width: 100%">
+                      <option></option>
+                    </select>
+                  </div>
+                  <div class="form-group" style="margin-bottom: 5px">
+                    <label for="select-year">Year Level</label> 
+                    <label for="select-year" class="text-danger">*</label>                     
+                    <select id="select-year" data-placeholder="Section Year Level" class="form-control" style="width: 100%">
+                      <option></option>
+                    </select>
+                  </div>
+                  <div class="form-group" style="margin-bottom: 5px">
+                    <label for="input-name">Name</label>
+                    <label for="input-name" class="text-danger">*</label>    
+                    <input type="text" class="form-control" id="input-name" placeholder="Section Name">
+                  </div> 
+                  <div class="form-group" style="margin-bottom: 7px">
+                    <label for="input-capacity">Capacity</label>
+                    <input type="number" class="form-control" id="input-capacity" placeholder="Section Capacity">
+                  </div>                
+                  <button id="btn-add" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-plus"></i> &nbsp; Add</button>
+                </div>
             </div>
           </div>
         </div>

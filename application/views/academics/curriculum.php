@@ -49,12 +49,6 @@
                         <label>Strand</label>
                         <select id="select-strand" data-placeholder="Select Strand" class="form-control select2" style="width: 100%;">
                           <option></option>
-                          <option value="STEM">STEM</option>
-                          <option value="GAS">GAS</option>
-                          <option value="HUMSS">HUMSS</option>
-                          <option value="TVL-HE">TVL-HE</option>
-                          <option value="TVL-AS">TVL-AS</option>
-                          <option value="ABM">ABM</option>
                         </select>
                       </div>                   
                       <div class="form-group" style="margin-bottom: 5px">
@@ -288,6 +282,7 @@
 <script>
 
 var getSubjects = '<?php echo base_url('academics/curriculum/getSubjects'); ?>';
+var getStrands = '<?php echo base_url('academics/curriculum/getStrands'); ?>';
 var addUrl = '<?php echo base_url('academics/curriculum/addClassSubjects'); ?>';
 var deleteUrl = '<?php echo base_url('academics/curriculum/deleteCurrSubject'); ?>';
 var getClassSubjects = '<?php echo base_url('academics/curriculum/getClassSubjects'); ?>';

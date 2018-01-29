@@ -106,6 +106,10 @@ $(function () {
           data: {'strand_code': strand_code, 'year_level_id': year_id},
           success: function(result){
             //console.log(result);
+            $('#select-section').append($('<option>', { 
+                value: null,
+                text : null
+            })).select2();
 
             $.each(result, function( index, value ) {
               $('#select-section').append($('<option>', { 

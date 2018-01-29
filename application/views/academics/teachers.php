@@ -1,8 +1,17 @@
 <!DOCTYPE html>
 <html>
 
-  <?=$header?>
+<?=$header?>
 
+<style>
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button { 
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      margin: 0; 
+  }
+</style>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
   
@@ -26,7 +35,7 @@
     <section class="content-header">
       <h1>
         Teachers
-        <small>temporary message here</small>
+        <small>Manage teachers.</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="enrollment/dashboard"><i class="fa fa-mortar-board"></i> Academics</a></li>
@@ -37,46 +46,11 @@
     <!-- Main content -->
     <section class="content">
       <div class="row">
-        <div class="col-lg-4 col-xs-12">
-          <div class="box box-primary">
-              <div class="box-header">
-                <h3 class="box-title text-primary"><i class="fa fa-plus"></i> Add Teacher</h3>
-              </div>
-              <div class="box-body">
-                <div class="form-group" style="margin-bottom: 5px">
-                  <label for="id-input">Employee ID</label>
-                  <label for="name-input" class="text-danger">*</label>
-                  <input type="text" class="form-control" id="id-input" placeholder="Teacher Employee ID">
-                </div>
-                <div class="form-group" style="margin-bottom: 5px">
-                  <label for="firstname-input">First Name</label>
-                  <input type="text" class="form-control" id="firstname-input" placeholder="Teacher First Name">
-                </div>
-                <div class="form-group" style="margin-bottom: 5px">
-                  <label for="middlename-input">Middle Name</label>
-                  <input type="text" class="form-control" id="middlename-input" placeholder="Teacher Middle Name">
-                </div>
-                <div class="form-group" style="margin-bottom: 5px">
-                  <label for="lastname-input">Last Name</label>
-                  <input type="text" class="form-control" id="lastname-input" placeholder="Teacher Last Name">
-                </div>
-                <div class="form-group" style="margin-bottom: 5px">
-                  <label for="major-input">Major</label>
-                  <input type="text" class="form-control" id="major-input" placeholder="Teacher Major">
-                </div>
-                <div class="form-group" style="margin-bottom: 7px">
-                  <label for="position-input">Position</label>
-                  <input type="text" class="form-control" id="position-input" placeholder="Teacher Position">
-                </div>
-                <button id="add-btn" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-plus"></i> &nbsp; Add</button>
-              </div>
-          </div>
-        </div>
-        <div class="col-lg-8 col-xs-12">
-
+        <div class="col-lg-12 col-xs-12">
           <div class="box box-primary">
             <div class="box-header">
               <h3 class="box-title text-primary"><i class="fa fa-users"></i> Teacher List</h3>
+              <button data-toggle="modal" data-target="#modal-add" class="pull-right btn btn-primary btn-xs edit-btn"><span class="fa fa-fw fa-plus"></span></button>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -85,6 +59,8 @@
                 <tr>
                   <th>Employee ID</th>
                   <th>Name</th>
+                  <th>Position</th>
+                  <th>Major</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
@@ -93,6 +69,8 @@
                 <tr>
                   <th>Employee ID</th>
                   <th>Name</th>
+                  <th>Position</th>
+                  <th>Major</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
@@ -216,6 +194,26 @@
                   <label for="view-lastname">Last Name</label>
                   <input type="text" class="form-control" id="view-lastname">
                 </div>
+                  <div class="form-group" style="margin-bottom: 5px">
+                    <label>Birthdate</label>
+                      <input style="padding-left: 12px" id="view-birthdate" type="text" class="form-control pull-right datepicker" placeholder="Teacher Birthdate">
+                  </div>
+                  <div class="form-group">
+                    <label>Sex</label>
+                    <select id="view-sex" class="form-control select2" data-placeholder="Select Sex" style="width: 100%;">
+                      <option></option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                    </select>
+                  </div>
+                  <div class="form-group" style="margin-bottom: 5px">
+                    <label>Contact Number</label>
+                    <input id="view-contact" type="number" class="form-control" placeholder="Teacher Contact No">
+                  </div>
+                  <div class="form-group" style="margin-bottom: 5px">
+                    <label>Email</label>
+                    <input id="view-email" type="text" class="form-control" placeholder="Teacher Email">
+                  </div>  
                 <div class="form-group" style="margin-bottom: 5px;">
                   <label for="view-major">Major</label>
                   <input type="text" class="form-control" id="view-major">
@@ -223,10 +221,6 @@
                 <div class="form-group" style="margin-bottom: 5px;">
                   <label for="view-position">Position</label>
                   <input type="text" class="form-control" id="view-position">
-                </div>
-                <div class="form-group" style="margin-bottom: 5px;">
-                  <label for="view-status">Status</label>
-                  <input type="text" class="form-control" id="view-status">
                 </div>
                 <button id="view-update" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-save"></i> &nbsp; Save</button>
                  
@@ -239,6 +233,64 @@
           <!-- /.modal-dialog -->
         </div>
         <!-- /.modal -->
+
+      <div class="modal fade" id="modal-add">
+          <div class="modal-dialog" style="max-width: 400px">
+            <div class="box box-primary">
+                <div class="box-header">
+                  <h3 class="box-title text-primary"><i class="fa fa-plus"></i> Add Teacher</h3>
+                </div>
+                <div class="box-body">
+                  <div class="form-group" style="margin-bottom: 5px">
+                    <label>Employee ID</label>
+                    <label class="text-danger">*</label>
+                    <input id="id-input" type="text" class="form-control"  placeholder="Teacher Employee ID">
+                  </div>
+                  <div class="form-group" style="margin-bottom: 5px">
+                    <label>First Name</label>
+                    <input id="firstname-input" type="text" class="form-control" placeholder="Teacher First Name">
+                  </div>
+                  <div class="form-group" style="margin-bottom: 5px">
+                    <label>Middle Name</label>
+                    <input id="middlename-input" type="text" class="form-control" placeholder="Teacher Middle Name">
+                  </div>
+                  <div class="form-group" style="margin-bottom: 5px">
+                    <label>Last Name</label>
+                    <input id="lastname-input" type="text" class="form-control" placeholder="Teacher Last Name">
+                  </div>
+                  <div class="form-group" style="margin-bottom: 5px">
+                    <label>Birthdate</label>
+                      <input style="padding-left: 12px" id="birthdate-input" type="text" class="form-control pull-right datepicker" placeholder="Teacher Birthdate">
+                  </div>
+                  <div class="form-group">
+                    <label>Sex</label>
+                    <select id="sex-input" class="form-control select2" data-placeholder="Select Sex" style="width: 100%;">
+                      <option></option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                    </select>
+                  </div>
+                  <div class="form-group" style="margin-bottom: 5px">
+                    <label>Contact Number</label>
+                    <input id="contact-input" type="number" class="form-control" placeholder="Teacher Contact No">
+                  </div>
+                  <div class="form-group" style="margin-bottom: 5px">
+                    <label>Email</label>
+                    <input id="email-input" type="text" class="form-control" placeholder="Teacher Email">
+                  </div>
+                  <div class="form-group" style="margin-bottom: 5px">
+                    <label>Major</label>
+                    <input type="text" class="form-control" id="major-input" placeholder="Teacher Major">
+                  </div>
+                  <div class="form-group" style="margin-bottom: 7px">
+                    <label>Position</label>
+                    <input type="text" class="form-control" id="position-input" placeholder="Teacher Position">
+                  </div>
+                  <button id="add-btn" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-plus"></i> &nbsp; Add</button>
+                </div>
+            </div>
+          </div>
+        </div>
 
         <div class="modal fade in" id="modal-delete">
           <div class="modal-dialog" style="max-width: 320px">
@@ -273,6 +325,10 @@
 <script src="<?php echo base_url(); ?>bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo base_url(); ?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Select2 -->
+<script src="<?php echo base_url(); ?>bower_components/select2/dist/js/select2.full.min.js"></script>
+<!-- bootstrap datepicker -->
+<script src="<?php echo base_url(); ?>bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
 <!-- BOOTSTRAP NOTIF -->
@@ -303,6 +359,14 @@
   var updateUrl = '<?php echo base_url('academics/teachers/ajaxUpdate'); ?>';
   var getRowUrl = '<?php echo base_url('academics/teachers/ajaxGetRow'); ?>';
   var deleteRowUrl = '<?php echo base_url('academics/teachers/ajaxDeleteRow'); ?>';
+  var auditTrailUpdateUrl = '<?php echo base_url('academics/teachers/auditTrailUpdate'); ?>';
+
+    //Initialize Select2 Elements
+    $('.select2').select2()
+    //Date picker
+    $('.datepicker').datepicker({
+      autoclose: true
+    })
 
 </script>
 

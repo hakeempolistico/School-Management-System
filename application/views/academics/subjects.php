@@ -14,7 +14,7 @@
     <section class="content-header">
       <h1>
         Subjects
-        <small>temporary message here</small>
+        <small>Manage Subjects</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="enrollment/dashboard"><i class="fa fa-mortar-board"></i> Academics</a></li>
@@ -25,40 +25,11 @@
     <!-- Main content -->
     <section class="content">
       <div class="row">
-        <div class="col-lg-4 col-xs-12">
-          <div class="box box-primary">
-              <div class="box-header">
-                <h3 class="box-title text-primary"><i class="fa fa-plus"></i> Add Subjects</h3>
-              </div>
-              <!-- /.box-header -->
-              <div class="box-body">
-                  <div class="form-group"style="margin-bottom: 5px;">
-                    <label for="code-input">Code</label>
-                    <label for="name-input" class="text-danger">*</label>
-                    <input type="text" class="form-control" id="code-input" placeholder="Subject Code" required>
-                  </div>
-                  <div class="form-group" style="margin-bottom: 5px;">
-                    <label for="name-input">Name</label>
-                    <label for="name-input" class="text-danger">*</label>
-                    <input type="text" class="form-control" id="name-input" placeholder="Subject Name" required>
-                  </div>
-                  <div class="form-group" style="margin-bottom: 5px;">
-                    <label for="type-input">Type</label>
-                    <input type="text" class="form-control" id="type-input" placeholder="Subject Type">
-                  </div>
-                  <div class="form-group" style="margin-bottom: 7px;">
-                    <label for="description-input">Description</label>
-                    <input type="text" class="form-control" id="description-input" placeholder="Subject Description">
-                  </div>
-                  <button id="add-btn" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-plus"></i> &nbsp; Add</button>
-              </div>
-          </div>
-        </div>
-        <div class="col-lg-8 col-xs-12">
-
+        <div class="col-lg-12 col-xs-12">
           <div class="box box-primary">
             <div class="box-header">
               <h3 class="box-title text-primary"> <i class="fa fa-book"></i> Subject List</h3>
+              <button data-toggle="modal" data-target="#modal-add" class="pull-right btn btn-primary btn-xs edit-btn"><span class="fa fa-fw fa-plus"></span></button>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -68,15 +39,16 @@
                   <th>Code</th>
                   <th>Name</th>
                   <th>Type</th>
+                  <th>Status</th>
                   <th>Action</th>
                 </tr>
                 </thead>
-                
                 <tfoot>
                 <tr>
                   <th>Code</th>
                   <th>Name</th>
                   <th>Type</th>
+                  <th>Status</th>
                   <th>Action</th>
                 </tr>
                 </tfoot>
@@ -135,35 +107,62 @@
           </div>
           <!-- /.modal-dialog -->
         </div>
+        <div class="modal fade in" id="modal-add">
+          <div class="modal-dialog" style="max-width: 400px">
+            <div class="box box-primary">
+                <div class="box-header">
+                  <h3 class="box-title text-primary"><i class="fa fa-plus"></i> Add Subjects</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="form-group"style="margin-bottom: 5px;">
+                      <label for="code-input">Code</label>
+                      <label for="name-input" class="text-danger">*</label>
+                      <input type="text" class="form-control" id="code-input" placeholder="Subject Code" required>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 5px;">
+                      <label for="name-input">Name</label>
+                      <label for="name-input" class="text-danger">*</label>
+                      <input type="text" class="form-control" id="name-input" placeholder="Subject Name" required>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 5px;">
+                      <label for="type-input">Type</label>
+                      <input type="text" class="form-control" id="type-input" placeholder="Subject Type">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 7px;">
+                      <label for="description-input">Description</label>
+                      <input type="text" class="form-control" id="description-input" placeholder="Subject Description">
+                    </div>
+                    <button id="add-btn" type="button" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-plus"></i> &nbsp; Add</button>
+                </div>
+            </div>
+          </div>
+        </div>
 
         <div class="modal fade in" id="modal-delete">
           <div class="modal-dialog" style="max-width: 320px">
-            <div class="box box-danger">
+            <div id="box-delete" class="box box-danger">
               <div class="box-header with-border" style="cursor: move; margin: 0px;">
-                <i class="fa fa-warning text-danger"></i>
+                <i id="box-delete-icon" class="fa fa-warning text-danger"></i>
 
                 <h3 class="box-title text-danger">Warning</h3>
                 <!-- tools box -->
                 <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-box-tool" data-dismiss="modal"><i class="fa fa-times text-danger"></i></button>
+                  <button type="button" class="btn btn-box-tool" data-dismiss="modal"><i id="box-delete-btn" class="fa fa-times text-danger"></i></button>
                 </div>
                 <!-- /. tools -->
               </div>
               <div class="box-body box-profile flat" style="margin-top: -10px">
-                <h4>Are you sure you want to delete record?</h4>
-                <button id="delete-confirm" data-dismiss="modal" type="button" style="width: 75px" class="btn btn-block btn-danger btn-sm pull-right">Confirm</button>
+                <h4 id="text-status">Are you sure you want todelete record?</h4>
+                <button id="delete-confirm" data-dismiss="modal" type="button" style="width: 75px; margin: 10px;" class="btn btn-block btn-danger btn-sm pull-right">Confirm</button>
               </div>
             </div>
           </div>
         </div>
-              
-                 
-                </li>                
-              </ul>
-             
-            </div>
-            <!-- /.box-body -->
-          </div>
+      </li>                
+    </ul>
+  </div>
+</div>
           {footer}
           </div>
           <!-- /.modal-dialog -->

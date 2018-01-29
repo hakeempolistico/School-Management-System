@@ -128,6 +128,15 @@ $(function () {
         success: function(result){
           populateTable();
         }
+      });
+      $.ajax({
+        url: auditTrailUpdateUrl,
+        type: 'post',
+        dataType: 'json', 
+        data: {'name' : name, 'newName' : newName, 'code': code, 'newCode': newCode}, 
+        success: function(result){
+          console.log(result);
+        }
       }); 
     }
        
@@ -153,8 +162,20 @@ $('#delete-confirm').click(function(){
     data: {'set': code, 'status' : setStat }, 
     success: function(result){
       console.log(result);
+
+      $.ajax({
+        url: auditTrailUpdateUrl,
+        type: 'post',
+        dataType: 'json', 
+        data: {'code': code, 'status' : setStat }, 
+        success: function(result){
+          console.log(result);
+        }
+      });
+
       populateTable();
         if(setStat=='inactive'){
+
           $.notify({
             title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
             message: "Strand: " + code + " set to inactive."
@@ -205,9 +226,9 @@ function populateTable(){
 
   $('#strands-table').DataTable({
     "columns": [
-        { "width": "30%" },
-        { "width": "50%" },
-        { "width": "10%" },
+        { "width": "20%" },
+        { "width": "65%" },
+        { "width": "5%" },
         { "width": "10%" }
     ],
         "order": [] ,
@@ -237,7 +258,7 @@ function populateTable(){
   $("#strands-table").on("click", "tr td .delete-btn", function(){
       code = $(this).parents('tr').find('td:first').html();
       status = $(this).parents('tr').find('td:nth-child(3)').find('span').html();
-      console.log(status);
+      //console.log(status);
       if(status=='active'){
         $('#box-delete').removeClass('box-success').removeClass('box-danger').addClass('box-danger');
         $('#box-delete-icon').removeClass('text-success').removeClass('text-danger').addClass('text-danger');
@@ -253,5 +274,4 @@ function populateTable(){
         $('#text-status').html('Are you sure you want to activate record?');
       }
   });
-  
 }

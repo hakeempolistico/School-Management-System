@@ -4,6 +4,7 @@ var building;
 var newId;
 var newName;
 var newBuilding;
+var activeStatus;
 
 $(document).ready(function() {
     $('#table-schedule').DataTable( {
@@ -79,7 +80,7 @@ $(function () {
                     'room_name' : name, 
                     'building' : building},
                   success: function(result){
-                    console.log(result);
+                    //console.log(result);
                       $.notify({
                         title: '<strong><i class="icon fa fa-ban"></i>SUCCESS!</strong>',
                         message: "Room added."
@@ -105,8 +106,7 @@ $(function () {
                 });
               }
             }
-        });     
-
+        });
   })
 
   $('#edit-update').on('click', function(){ 
@@ -125,7 +125,7 @@ $(function () {
           'building': newBuilding, 
           'set': room_id }, 
         success: function(result){
-          console.log(result);
+          //console.log(result);
           populateTable();
           $.notify({
             title: '<strong><i class="icon fa fa-ban"></i>SUCCESS!</strong>',
@@ -152,31 +152,73 @@ $(function () {
 })
 
 $('#delete-confirm').click(function(){
+  if(activeStatus == 'active'){
+    var setStat = 'inactive';
+  }
+  else if(activeStatus == 'inactive'){
+    var setStat = 'active';
+  }
+  //console.log(id + ' : ' + activeStatus + ' : ' + setStat);
   $.ajax({
-    url: deleteRowUrl,
+    url: updateUrl,
     type: 'post',
     dataType: 'json', 
-    data: {'room_id': id }, 
+    data: {
+      'status': setStat, 
+      'set': id }, 
     success: function(result){
-      console.log(result);
-      populateTable();
-      $.notify({
-        title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
-        message: "Room ID : " + id + " delete."
-      },{
-        type: 'danger',
-        animate: {
-          enter: 'animated fadeInUp',
-          exit: 'animated fadeOutRight'
-        },
-        placement: {
-          from: "top",
-          align: "right"
-        },
-        offset: 20,
-        spacing: 10,
-        z_index: 1031,
+      //console.log(result);
+      
+      $.ajax({
+        url: auditTrailUpdateUrl,
+        type: 'post',
+        dataType: 'json', 
+        data: {'room_id': id, 'status' : setStat }, 
+        success: function(result){
+          console.log(result);
+        }
       });
+
+      populateTable();
+      if(setStat=='active'){
+          $.notify({
+          title: '<strong><i class="icon fa fa-check"></i>SUCCESS!</strong>',
+          message: "Room set to active."
+        },{
+          type: 'success',
+          animate: {
+            enter: 'animated fadeInUp',
+            exit: 'animated fadeOutRight'
+          },
+          placement: {
+            from: "top",
+            align: "right"
+          },
+          offset: 20,
+          spacing: 10,
+          z_index: 1031,
+        });
+      }
+      else if(setStat=='inactive'){
+          $.notify({
+          title: '<strong><i class="icon fa fa-ban"></i>WARNING!</strong>',
+          message: "Room set to active."
+        },{
+          type: 'danger',
+          animate: {
+            enter: 'animated fadeInUp',
+            exit: 'animated fadeOutRight'
+          },
+          placement: {
+            from: "top",
+            align: "right"
+          },
+          offset: 20,
+          spacing: 10,
+          z_index: 1031,
+        });
+      }
+      
     }
   }); 
 })
@@ -189,7 +231,8 @@ function populateTable(){
     "columns": [
         { "width": "10%" },
         { "width": "20%" },
-        { "width": "55%" },
+        { "width": "50%" },
+        { "width": "5%" },
         { "width": "15%" }
     ],
         "order": [] ,
@@ -215,7 +258,7 @@ function populateTable(){
         $( "#edit-id" ).val(result.room_id);
         $( "#edit-name" ).val(result.room_name);
         $( "#edit-building" ).val(result.building);
-        console.log(result);
+        //console.log(result);
       }
     });   
   });
@@ -223,18 +266,33 @@ function populateTable(){
 
   $("#rooms-table").on("click", "tr td .delete-btn", function(){
       id = $(this).parents('tr').find('td:first').html();
+      activeStatus = $(this).parents('tr').find('.status').html();
+      if(activeStatus=='active'){
+        $('#box-delete').removeClass('box-success').removeClass('box-danger').addClass('box-danger');
+        $('#box-delete-icon').removeClass('text-success').removeClass('text-danger').addClass('text-danger');
+        $('#box-delete-btn').removeClass('text-success').removeClass('text-danger').addClass('text-danger');
+        $('#delete-confirm').removeClass('btn-danger').removeClass('btn-success').addClass('btn-danger');
+        $('#text-status').html('Are you sure you want to inactivate record?');
+      }
+      else if(activeStatus=='inactive'){
+        $('#box-delete').removeClass('box-success').removeClass('box-danger').addClass('box-success');
+        $('#box-delete-icon').removeClass('text-success').removeClass('text-danger').addClass('text-success');
+        $('#box-delete-btn').removeClass('text-success').removeClass('text-danger').addClass('text-success');
+        $('#delete-confirm').removeClass('btn-danger').removeClass('btn-success').addClass('btn-success');
+        $('#text-status').html('Are you sure you want to activate record?');
+      }
   });
   
   $("#rooms-table").on("click", "tr td .schedule-btn", function(){
 
-      console.log($(this).parents('tr').find('td:first').html());
+      //console.log($(this).parents('tr').find('td:first').html());
       $.ajax({
         url: getScheduleUrl,
         type: 'post',
         dataType: 'json', 
         data: {'room_id' : $(this).parents('tr').find('td:first').html()}, 
         success: function(result){  
-          console.log(result);
+          //console.log(result);
           $('#table-sched tbody').html('');
           $.each(result, function( index, value ) {
             $('#table-sched tbody').append('<tr> <td>'+value.class +' </td> <td> '+value.subject_code +'</td> <td>'+value.day +' </td> <td>'+value.time +' </td> </tr>');

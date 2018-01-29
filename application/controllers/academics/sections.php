@@ -58,16 +58,24 @@ class sections extends CI_Controller {
 		$data = [];
         foreach ($result as $value)
             {	
-            	$action = "
-                    <button data-toggle='modal' data-target='#modal-edit' class='btn btn-default btn-xs edit-btn'><span class='fa fa-fw fa-pencil text-info'></span></button>                    
-                    <button data-toggle='modal' data-target='#modal-delete' data-id='".$value->id."' class='btn btn-default btn-xs delete-btn text-danger'><span class='fa fa-fw fa-remove'></span></button>                
-                  		";
+            	$status=null;
+            	if($value->status == 'active'){
+            		$status = '<center><span class="badge bg-light-blue">'.$value->status.'</span></center>';
+					$action = "<center><button data-toggle='modal' data-target='#modal-edit' class='btn btn-default btn-xs edit-btn'><span class='fa fa-fw fa-pencil text-info'></span></button>                    
+			                    <button data-toggle='modal' data-target='#modal-delete' class='btn btn-default btn-xs delete-btn'><span class='fa fa-fw fa-remove text-danger'></span></button></center>";
+            	}
+            	else if($value->status == 'inactive'){
+            		$status = '<center><span class="badge bg-red">'.$value->status.'</span></center>';
+					$action = "<center><button data-toggle='modal' data-target='#modal-edit' class='btn btn-default btn-xs edit-btn'><span class='fa fa-fw fa-pencil text-info'></span></button>                    
+			                    <button data-toggle='modal' data-target='#modal-delete' class='btn btn-default btn-xs delete-btn'><span class='fa fa-fw fa-check text-success'></span></button></center>";
+            	}
 
                 $arr = array(
                     $value->strand_code,
                     $value->a,
                     $value->name,
                     $value->capacity,
+                    $status,
                     $action
                 );
                 $data['data'][] = $arr;

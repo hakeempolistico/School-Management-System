@@ -31,7 +31,7 @@
 
     <div class="row">
       <div class="col-lg-3 col-xs-12">
-        <div class="form-group">
+        <div class="form-group ">
           <label>Strand</label>
           <select id="select-strand" class="form-control select2"  data-placeholder="Select Strand" style="width: 100%">
             <option></option>
@@ -42,7 +42,6 @@
             ?>
           </select> 
         </div>
-              
       </div>
 
       <div class="col-lg-3 col-xs-12">
@@ -123,7 +122,7 @@
                 <button style="width: 100px; margin-top: 3px" id="row-remove" class="btn btn-sm btn-danger custom">Remove</button> -->
                 <button style="width: 100px; margin-top: 3px" id="row-remove-all" class="btn btn-sm btn-warning custom">Remove All</button>
                 <button style="width: 100px; margin-top: 3px" id="row-print" class="btn btn-sm btn-primary custom">Print</button>
-                <button style="width: 100px; margin-top: 3px" id="row-save" class="btn btn-sm bg-purple custom">Save Sched</button>     
+                <button style="width: 100px; margin-top: 3px" id="row-save" class="btn btn-sm bg-purple custom">Save</button>     
                 <button style="width: 100px; margin-top: 3px" id="row-clear" class="btn btn-sm bg-purple custom">Clear</button>  
               </center>                                     
             </div>

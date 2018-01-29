@@ -149,6 +149,9 @@ function dropTrash(ev) {
 var table, set, sectionId = null, room_id, strand_code = null, year_level_id = null, semester = null; 
 
 $(".custom").prop('disabled', true);
+$('#select-year').prop('disabled', true);
+$('#select-section').prop('disabled', true);
+$('#select-semester').prop('disabled', true);
 
 function getSections() {
   strand_code = $('#select-strand').val();
@@ -181,19 +184,23 @@ function getSections() {
 
 $('#select-semester').on('change', function(){
   getCurrSubjects();
+  updateClassInfo();
 })
 $('#select-section').on('change', function(){
-  getCurrSubjects();
-  updateClassInfo();
+  $('#select-semester').prop('disabled', false);
 })
 //POPULATE SECTION SELECT 
 $('#select-year').on('change', function(){
   getSections();
-  getCurrSubjects();
+  $('#select-semester').prop('disabled', true);
+  $('#select-section').prop('disabled', false);
 })
 $('#select-strand').on('change', function(){
+  $('#select-year').prop('disabled', false);
+  $("#select-year").val('').trigger('change')
+  $('#select-section').prop('disabled', true);
+  $('#select-semester').prop('disabled', true);
   getSections();
-  getCurrSubjects();
 })
 
 function getCurrSubjects(){
@@ -249,7 +256,7 @@ function updateClassInfo(){
 function getSchedules(){
   sectionId = $('#select-section').val();
 
-  console.log(sectionId + ' : ' + semester);
+  //console.log(sectionId + ' : ' + semester);
   $("#select-room").val('').trigger('change');
 
   //POPULATE TABLE 
@@ -336,7 +343,7 @@ function getSchedules(){
         });*/
       });
 
-      console.log($('.col-time').length);
+      //console.log($('.col-time').length);
     }
   });
 }
@@ -479,13 +486,13 @@ $('#row-save').on('click',function(){
       dataType: 'json',
       data: {'section_id' : sectionId, 'semester' : semester},  
       success: function(res){ 
-        console.log('---');
+        //console.log('---');
 
         $('table').find('.object').each(function( index ) {
 
           var subject_code = $( this ).find('.val-subject').text();
           var room_id = $( this ).find('.val-room').text();
-          var time = $(this).parents('tr').find('.time').html();
+          var time = $(this).parents('tr').find('td:first').html();
           var timeSplit = time.split("-");
           var time_start = timeSplit[0];
           var time_end = timeSplit[1];
@@ -509,8 +516,8 @@ $('#row-save').on('click',function(){
               'row' : row
             },  
             success: function(res){ 
-              console.log(res);
-              console.log(semester);
+              //console.log(res);
+              //console.log(semester);
             }
           });
 
