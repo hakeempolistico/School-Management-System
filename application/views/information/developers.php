@@ -144,13 +144,20 @@
                         <li>
                           <a href="#" style="cursor: default;"><i class="fa fa-heart"></i>
                             <span class="pull-right text-red">
-                              <i class="fa fa-twitter" style="margin-right: 10px; cursor: pointer;"></i>
+                              <!-- <i class="fa fa-twitter" style="margin-right: 10px; cursor: pointer;"></i> -->
                               <i class="fa fa-facebook" style="margin-right: 10px; cursor: pointer;"></i>
-                              <i class="fa fa-instagram" style="margin-right: 10px; cursor: pointer;"></i>
+                              <!-- <i class="fa fa-instagram" style="margin-right: 10px; cursor: pointer;"></i> -->
                               <i class="fa fa-github" style="margin-right: 10px; cursor: pointer;"></i>
                             </span>
                           </a>
                         </li>
+                        <li><a href="#" style="cursor: default;"><i class="fa fa-pencil"></i><span class="pull-right text-red">
+                          <p>
+                            <span class="label label-danger">UI Design</span>
+                            <span class="label label-info">Javascript</span>
+                            <span class="label label-warning">PHP</span>
+                          </p>
+                        </span></a></li>
                       </ul>
                     </div>
                   </div>
@@ -172,17 +179,24 @@
                     <div class="box-footer">
                       <ul class="nav nav-stacked">
                         <li><a href="#" style="cursor: default;"><i class="fa fa-phone"></i><span class="pull-right text-purple">+63 912 114 5894</span></a></li>
-                        <li><a href="#" style="cursor: default;"><i class="fa fa-envelope"></i> <span class="pull-right text-purple">adrielleescaro@gmail.com</span></a></li>
+                        <li><a href="#" style="cursor: default;"><i class="fa fa-envelope"></i> <span class="pull-right text-purple">nicolettekagamine@gmail.com</span></a></li>
                         <li>
                           <a href="#" style="cursor: default;"> <i class="fa fa-heart"></i>
                             <span class="pull-right text-purple">
-                              <i class="fa fa-twitter" style="margin-right: 10px; cursor: pointer;"></i>
+                              <!-- <i class="fa fa-twitter" style="margin-right: 10px; cursor: pointer;"></i> -->
                               <i class="fa fa-facebook" style="margin-right: 10px; cursor: pointer;"></i>
-                              <i class="fa fa-instagram" style="margin-right: 10px; cursor: pointer;"></i>
+                              <!-- <i class="fa fa-instagram" style="margin-right: 10px; cursor: pointer;"></i> -->
                               <i class="fa fa-github" style="margin-right: 10px; cursor: pointer;"></i>
                             </span>
                           </a>
                         </li>
+                        <li><a href="#" style="cursor: default;"><i class="fa fa-pencil"></i><span class="pull-right text-red">
+                          <p>
+                            <span class="label label-danger">UI Design</span>
+                            <span class="label label-info">Javascript</span>
+                            <span class="label label-warning">PHP</span>
+                          </p>
+                        </span></a></li>
                       </ul>
                     </div>
                   </div>
@@ -208,13 +222,20 @@
                         <li>
                           <a href="#" style="cursor: default;"><i class="fa fa-heart"></i>
                             <span class="pull-right text-teal">
-                              <i class="fa fa-twitter" style="margin-right: 10px; cursor: pointer;"></i>
+                              <!-- <i class="fa fa-twitter" style="margin-right: 10px; cursor: pointer;"></i> -->
                               <i class="fa fa-facebook" style="margin-right: 10px; cursor: pointer;"></i>
-                              <i class="fa fa-instagram" style="margin-right: 10px; cursor: pointer;"></i>
+                              <!-- <i class="fa fa-instagram" style="margin-right: 10px; cursor: pointer;"></i> -->
                               <i class="fa fa-github" style="margin-right: 10px; cursor: pointer;"></i>
                             </span>
                           </a>
                         </li>
+                        <li><a href="#" style="cursor: default;"><i class="fa fa-pencil"></i><span class="pull-right text-red">
+                          <p>
+                            <span class="label label-danger">UI Design</span>
+                            <span class="label label-info">Javascript</span>
+                            <span class="label label-warning">PHP</span>
+                          </p>
+                        </span></a></li>
                       </ul>
                     </div>
                   </div>
@@ -224,107 +245,10 @@
               </div><br>  
               <div class="row">
                 <div class="col-md-12">
-                  <center>
-                  <p class="lead">The Araullo School Management System is developed and maintained by a team of three<br> <b>Bachelor of Science in Information System </b>students from <b>TUP Manila</b>.</p><hr>
-                  <img src="<?php echo base_url('images/bugbusters2.png')?>" alt="New York" style = "width: 50%" >
-                  </center>
-                  <hr>
-
-                  <div class="box box-danger">
-                    <div class="box-body">
-                      <div class="col-md-4">
-                      <center>
-                        <img class="img-circle" src="<?php echo base_url('images/hakeem.jpg');?>" alt="User Avatar">
-                      </center><br>
-                      <ul class="list-group list-group-unbordered">
-                        <li class="list-group-item">
-                          <i class="fa fa-fw fa-birthday-cake"></i> <span class="pull-right text-red">July 21, 1994</span>
-                        </li>
-                        <li class="list-group-item">
-                          <i class="fa fa-fw fa-home"></i> <span class="pull-right text-red">Bacoor, Cavite</span>
-                        </li>
-                        <li class="list-group-item">
-                          <i class="fa fa-fw fa-pencil"></i>
-                          <span class="pull-right">
-                          <span class="label label-danger">UI Design</span>
-                          <span class="label label-success">Coding</span>
-                          <span class="label label-info">Javascript</span>
-                          <span class="label label-warning">PHP</span>
-                          </span>
-                        </li>
-                      </ul>
-                      </div>
-                      <div class="col-md-8">
-                        <p class="lead" style="text-indent: 50px; line-height: 1.6;"><strong>Hakeem</strong>, a 23 year old graduating student, aspires to be a successful web developer in the future. A <i>strong-willed</i> and <i>determined</i> person with a passion in web-development, he is always up for a challenge.</p>
-                        <p class="lead"> He is proficient in PHP, CodeIgniter Framework, and uses Git.</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="box" style="border-top-color: #605ca8;">
-                    <div class="box-body">
-                      <div class="col-md-4"><center>
-                        <img class="img-circle" src="<?php echo base_url('images/adrii2.jpg');?>" alt="User Avatar">
-                      </center><br>
-                      <ul class="list-group list-group-unbordered">
-                        <li class="list-group-item">
-                          <i class="fa fa-fw fa-birthday-cake"></i> <span class="pull-right text-purple">July 23, 1998</span>
-                        </li>
-                        <li class="list-group-item">
-                          <i class="fa fa-fw fa-home"></i> <span class="pull-right text-purple">Imus, Cavite</span>
-                        </li>
-                        <li class="list-group-item">
-                          <i class="fa fa-fw fa-pencil"></i>
-                          <span class="pull-right">
-                          <span class="label label-danger">UI Design</span>
-                          <span class="label label-success">Coding</span>
-                          <span class="label label-info">Javascript</span>
-                          <span class="label label-warning">PHP</span>
-                          </span>
-                        </li>
-                      </ul>
-                      </div>
-                      <div class="col-md-8">
-                        <p class="lead" style="text-indent: 50px; line-height: 1.6;"><strong>Adrii</strong>, a 19 year old graduating student, aspires to have a successful career in the Web Development industry. She's a very helpful person to others. She also has a passion in gaming, particularly in LOL. She can code and also play at the same time, a proof that she has good multitasking skills! </p>
-                        <p class="lead"> She is proficient in PHP, CodeIgniter Framework, and uses Git.</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="box" style="border-top-color: #39cccc;">
-                    <div class="box-body">
-                      <div class="col-md-4"><center>
-                        <img class="img-circle" src="<?php echo base_url('images/jassy2.jpg');?>" alt="User Avatar">
-                      </center><br>
-                      <ul class="list-group list-group-unbordered">
-                        <li class="list-group-item">
-                          <i class="fa fa-fw fa-birthday-cake"></i> <span class="pull-right text-teal">February 11, 1999</span>
-                        </li>
-                        <li class="list-group-item">
-                          <i class="fa fa-fw fa-home"></i> <span class="pull-right text-teal">Imus, Cavite</span>
-                        </li>
-                        <li class="list-group-item">
-                          <i class="fa fa-fw fa-pencil"></i>
-                          <span class="pull-right">
-                          <span class="label label-danger">UI Design</span>
-                          <span class="label label-success">Coding</span>
-                          <span class="label label-info">Javascript</span>
-                          <span class="label label-warning">PHP</span>
-                          </span>
-                        </li>
-                      </ul>
-                      </div>
-                      <div class="col-md-8">
-                        <p class="lead" style="text-indent: 50px; line-height: 1.6;"><strong>Jasver</strong>, an 18 year old graduating student, aspires to have a successful career in the Web Development industry. Lazy, and undependable. hahahahahahahahhaha </p>
-                        <p class="lead"> She is proficient in PHP, CodeIgniter Framework, and uses Git.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-
-                <div class="col-md-12">
-                  <center>
-                  <img src="<?php echo base_url('images/bugbusters2.png')?>" alt="New York" style = "width: 50%" >
-                  </center>
+                  
+                  <p class="lead text-center">The Araullo School Management System is developed and maintained by a team of three<br> <b>Bachelor of Science in Information System </b>students from <b>TUP Manila</b>.</p><hr>
+                  <!-- <img src="<?php echo base_url('images/bugbusters2.png')?>" alt="New York" style = "width: 50%" > -->
+                    
                 </div>
               </div>
           </div>
