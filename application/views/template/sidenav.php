@@ -360,10 +360,10 @@
                 User Management
               </a>
             </li>         
-            <li>
+            <li class="<?php echo (isset($active) && $active =='settings/lock' ? 'active' : null) ; ?>">
               <a href="<?php echo site_url('settings/lock'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
-                lock
+                System Lock
               </a>
             </li>
           </ul>          

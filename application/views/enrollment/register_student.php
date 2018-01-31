@@ -423,7 +423,15 @@
                     <div class="col-lg-4 col-sm-12">
                       <div class="form-group">
                           <label class="control-label">Sex</label>
-                          <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Sex" />
+                <select class="form-control select2" style="width: 100%; border-color: red; border-width: 1px; border-style: solid;">
+                  <option selected="selected">Alabama</option>
+                  <option>Alaska</option>
+                  <option>California</option>
+                  <option>Delaware</option>
+                  <option>Tennessee</option>
+                  <option>Texas</option>
+                  <option>Washington</option>
+                </select>
                       </div>
                     </div>
                     <div class="col-lg-4 col-sm-12">
