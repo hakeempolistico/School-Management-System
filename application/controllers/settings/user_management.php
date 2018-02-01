@@ -13,7 +13,7 @@ class user_management extends CI_Controller {
 	{	
 		$data = $this->parse->parsed();
 
-		$data['active'] = 'user_management';
+		$data['active'] = 'settings/user_management';
 		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
 
     	$this->parser->parse('settings/user_management', $data);

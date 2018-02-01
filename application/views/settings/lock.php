@@ -55,7 +55,7 @@
      </div> -->
       
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    <section class="content-header" style="margin-bottom: -10px">
       <h1>
         System Lock
         <small>System Lock</small>
@@ -64,6 +64,10 @@
         <li><a href="enrollment/dashboard"><i class="fa fa-user"></i> Student Details</a></li>
         <li class="active">Student Details</li>
       </ol>
+      <br>
+      <h1>
+        <small><b>System Modules</b></small>
+      </h1>
     </section>
     <style type="text/css">
       th, td {
@@ -128,7 +132,6 @@
 
         </div> -->
 
-
             <div class="col-md-6 col-sm-6 col-xs-12">
               <div class="info-box">
                 <span class="info-box-icon bg-aqua"><i class="fa fa-file-text"></i></span>
@@ -163,7 +166,7 @@
 
                 <div class="info-box-content">
                   <span class="info-box-number pull-right"><input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
-                  <span class="info-box-number text-primary">Student Info</span>
+                  <span class="info-box-number text-primary">Student Promotion</span>
                   <span class="">Details here</span>
                 </div>
                 <!-- /.info-box-content -->
@@ -178,6 +181,138 @@
                 <div class="info-box-content">
                   <span class="info-box-number pull-right"><input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
                   <span class="info-box-number text-primary">Grades Management</span>
+                  <span class="">Details here</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+
+            <section class="content-header" style="margin-bottom: 5px">
+              <h1>
+                <small><b>Academics Sub-Module</b></small>
+              </h1>
+            </section>
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="info-box">
+                <span class="info-box-icon bg-aqua"><i class="fa fa-tag"></i></span>
+
+                <div class="info-box-content">
+                  <span class="info-box-number pull-right"><input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
+                  <span class="info-box-number text-primary">Strands</span>
+                  <span class="">Details here</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="info-box">
+                <span class="info-box-icon bg-navy"><i class="fa fa-university"></i></span>
+
+                <div class="info-box-content">
+                  <span class="info-box-number pull-right"><input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
+                  <span class="info-box-number text-primary">Rooms</span>
+                  <span class="">Details here</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="info-box">
+                <span class="info-box-icon bg-green"><i class="fa fa-star"></i></span>
+
+                <div class="info-box-content">
+                  <span class="info-box-number pull-right"><input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
+                  <span class="info-box-number text-primary">Sections</span>
+                  <span class="">Details here</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="info-box">
+                <span class="info-box-icon bg-olive"><i class="fa fa-book"></i></span>
+
+                <div class="info-box-content">
+                  <span class="info-box-number pull-right"><input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
+                  <span class="info-box-number text-primary">Subjects</span>
+                  <span class="">Details here</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="info-box">
+                <span class="info-box-icon bg-lime"><i class="fa fa-key"></i></span>
+
+                <div class="info-box-content">
+                  <span class="info-box-number pull-right"><input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
+                  <span class="info-box-number text-primary">Curriculum</span>
+                  <span class="">Details here</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="info-box">
+                <span class="info-box-icon bg-yellow"><i class="fa fa-check-square-o"></i></span>
+
+                <div class="info-box-content">
+                  <span class="info-box-number pull-right"><input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
+                  <span class="info-box-number text-primary">Assign Subjects</span>
+                  <span class="">Details here</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="info-box">
+                <span class="info-box-icon bg-maroon"><i class="fa fa-calendar"></i></span>
+
+                <div class="info-box-content">
+                  <span class="info-box-number pull-right"><input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
+                  <span class="info-box-number text-primary">Schedule</span>
+                  <span class="">Details here</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="info-box">
+                <span class="info-box-icon bg-purple"><i class="fa fa-th-large"></i></span>
+
+                <div class="info-box-content">
+                  <span class="info-box-number pull-right"><input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
+                  <span class="info-box-number text-primary">Assign Advisory</span>
+                  <span class="">Details here</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="info-box">
+                <span class="info-box-icon bg-orange"><i class="fa fa-star"></i></span>
+
+                <div class="info-box-content">
+                  <span class="info-box-number pull-right"><input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
+                  <span class="info-box-number text-primary">Teachers</span>
                   <span class="">Details here</span>
                 </div>
                 <!-- /.info-box-content -->
