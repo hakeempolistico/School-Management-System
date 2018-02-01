@@ -27,8 +27,8 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/bootstrap-daterangepicker/daterangepicker.css">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-  <!-- Loading -->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/loading.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -71,30 +71,56 @@
       <div class="row">
         <div class="col-lg-12 col-xs-12">
           <div class="box box-primary">
+            <!-- <div class="box-header">
+              <h3 class="box-title text-primary"><i class="fa fa-search"></i></h3>
+            </div> -->
+            <div class="box-body">
+              
+              <div class="col-md-6 no-padding">
+              <div class="form-group">
+                <label>Filter by:</label>
+                <select class="form-control select2 select2-hidden-accessible" style="width: 100%;">
+                  <option selected="selected">Student</option>
+                  <option>Teacher</option>
+                </select>
+
+              </div>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 col-xs-12">
+          <div class="box box-primary">
             <div class="box-header">
               <h3 class="box-title text-primary"><i class="fa fa-users"></i> Users List</h3>
              
             </div>
             <!-- /.box-header -->
             <div class="box-body">
+              <!-- <div class="col-lg-12 no-padding">
               <div class="col-md-6 no-padding">
               <div class="form-group">
                 <label>Filter by:</label>
-                <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" aria-hidden="true">
                   <option selected="selected">Student</option>
                   <option>Teacher</option>
                 </select>
 
               </div>
               </div>
+              </div><br> -->
               <table id="UsersTable" class="table table-bordered table-striped display nowrap" cellspacing="0" width="100%">
                 <thead>
                 <tr>
                   <th>User ID</th>
                   <th>Name</th>
                   <th>Position</th>
+                  <th>Role</th>
                   <th>Status</th>
-                  <th>Action</th>
+                  <th style="width: 10%">Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -102,15 +128,26 @@
                   <td>123</td>
                   <td>Havanahunana</td>
                   <td>Teacher</td>
+                  <td>SuperUser</td>
                   <td><span class="label label-success">Active</span></td>
-                  <td><button class="btn btn-xs btn-primary"><i class="fa fa-search "></i></button></td>
+                  <td>
+                    <button data-toggle="modal" data-target="#modal-confirm-add" class="btn btn-xs btn-primary"><i class="fa fa-user-plus"></i></button>
+                    <button data-toggle="modal" data-target="#modal-confirm-deac" class="btn btn-xs btn-warning"><i class="fa fa-user-times"></i></button>
+                    <button data-toggle="modal" data-target="#modal-confirm-reset" class="btn btn-xs btn-danger"><i class="fa fa-key"></i></button>
+                    <button data-toggle="modal" data-target="#modal-change-role" class="btn btn-xs btn-info"><i class="fa fa-gear"></i></button>
+                  </td>
                 </tr>
                 <tr>
                   <td>123</td>
                   <td>Havanahunana</td>
                   <td>Teacher</td>
+                  <td>SuperUser</td>
                   <td><span class="label label-success">Active</span></td>
-                  <td><button class="btn btn-xs btn-primary"><i class="fa fa-search "></i></button></td>
+                  <td>
+                  <button data-toggle="modal" data-target="#modal-confirm-add" class="btn btn-xs btn-primary"><i class="fa fa-user-plus"></i></button>
+                    <button data-toggle="modal" data-target="#modal-confirm-deac" class="btn btn-xs btn-warning"><i class="fa fa-user-times"></i></button>
+                    <button data-toggle="modal" data-target="#modal-confirm-reset" class="btn btn-xs btn-danger"><i class="fa fa-key"></i></button>
+                  </td>
                 </tr>
                 </tbody>
                 <tfoot>
@@ -118,6 +155,7 @@
                   <th>User ID</th>
                   <th>Name</th>
                   <th>Position</th>
+                  <th>Role</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
@@ -180,15 +218,70 @@
           <!-- /.modal-dialog -->
         </div>
         <!-- /.modal -->
-        <div class="modal fade" id="modal-confirm">
+        <div class="modal fade" id="modal-confirm-add">
         <div class="modal-dialog" style="max-width: 400px">
           <div class="panel panel-success">
             <div class="panel-heading">
               <h3 class="panel-title"><i class="fa fa-check"></i> Confirmation Message!</h3>
             </div>
             <div class="panel-body">
-              <p>Are you sure you want to activate user?</p>              
-              <button data-dismiss="modal" type="button" id="btn-confirm" style="width: 100px" class="btn btn-sm btn-block btn-success pull-right"><i class="fa fa-check"></i> &nbsp; Confirm</button>
+              <p>Are you sure you want to add user?</p>              
+              <button data-dismiss="modal" type="button" id="btn-confirm-add" style="width: 100px" class="btn btn-sm btn-block btn-success pull-right"><i class="fa fa-check"></i> &nbsp; Confirm</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="modal-confirm-deac">
+        <div class="modal-dialog" style="max-width: 400px">
+          <div class="panel panel-warning">
+            <div class="panel-heading">
+              <h3 class="panel-title"><i class="fa fa-check"></i> Confirmation Message!</h3>
+            </div>
+            <div class="panel-body">
+              <p>Are you sure you want to deactivate user?</p>              
+              <button data-dismiss="modal" type="button" id="btn-confirm-deac" style="width: 100px" class="btn btn-sm btn-block btn-warning pull-right"><i class="fa fa-check"></i> &nbsp; Confirm</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="modal-confirm-reset">
+        <div class="modal-dialog" style="max-width: 400px">
+          <div class="panel panel-danger">
+            <div class="panel-heading">
+              <h3 class="panel-title"><i class="fa fa-check"></i> Confirmation Message!</h3>
+            </div>
+            <div class="panel-body">
+              <p>Are you sure you want to reset password?</p>              
+              <button data-dismiss="modal" type="button" id="btn-confirm-reset" style="width: 100px" class="btn btn-sm btn-block btn-danger pull-right"><i class="fa fa-check"></i> &nbsp; Confirm</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="modal-change-role">
+        <div class="modal-dialog" style="max-width: 400px">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title"><i class="fa fa-user"></i> Change User Role</h3>
+            </div>
+            <div class="panel-body">
+              <p><b>USER ID:</b> 123 &nbsp; <b>NAME:</b> Havanahunana</p>
+              <br>
+              <div class="col-md-12 no-padding">
+              <div class="form-group">
+                <label>Select Role:</label>
+                <select class="form-control select2 select2-hidden-accessible" style="width: 100%;">
+                  <option selected="selected">Admin</option>
+                  <option>Super User</option>
+                  <option>User</option>
+                </select>
+
+              </div>
+              
+              </div>  
+              <button data-dismiss="modal" type="button" id="btn-confirm-reset" style="width: 100px" class="btn btn-sm btn-block btn-info pull-right"><i class="fa fa-check"></i> &nbsp; Confirm</button>
             </div>
           </div>
         </div>
@@ -206,6 +299,9 @@
 <script src="<?php echo base_url(); ?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- ChartJS -->
 <script src="<?php echo base_url(); ?>bower_components/Chart.js/Chart.js"></script>
+<!-- DataTables -->
+<script src="<?php echo base_url(); ?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->

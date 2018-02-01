@@ -341,19 +341,19 @@
         </li>
 
         
-        <li class="treeview <?php echo (isset($active) && substr($active,0,7) =='settings' ? 'active' : null); ?>">
+        <li class="treeview <?php echo (isset($active) && substr($active,0,8) =='settings' ? 'active' : null); ?>">
           <a href="#">
             <i class="fa fa-gear"></i>
             <span>Settings</span>
               <!-- <span class="pull-right-container">
                 <span class="label label-warning pull-right">soon</span>
-              </span> -->
+              </span> --> 
             <span class="pull-right-container">
               <span class="fa fa-angle-left pull-right"></span>
             </span>
           </a>
 
-          <ul class="treeview-menu">
+          <ul class="treeview-menu ">
             <li class="<?php echo (isset($active) && $active =='settings/user_management' ? 'active' : null) ; ?>">
               <a href="<?php echo site_url('settings/user_management'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
