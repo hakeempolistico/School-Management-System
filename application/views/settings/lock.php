@@ -64,10 +64,6 @@
         <li><a href="enrollment/dashboard"><i class="fa fa-user"></i> Student Details</a></li>
         <li class="active">Student Details</li>
       </ol>
-      <br>
-      <h1>
-        <small><b>System Modules</b></small>
-      </h1>
     </section>
     <style type="text/css">
       th, td {
@@ -80,123 +76,69 @@
     <!-- Main content -->
     <section class="content">
       <div class="row">
-        <!-- <div class="col-md-12">
-          <div class="box box-primary">
-            <div class="box-header">
-              <h3 class="box-title text-primary"><i class="icon fa fa-search"></i> Options</h3>
-            </div>
-            <div id="box-view" class="box-body">
-              <div class="col-xs-12 col-lg-12">
-                <table class="table">
-                <tbody>
-                <tr>
-                  <td>Enrollment</td>
-                  <td width="10%">
-                <input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="small" ></td>
-                </tr>
-                <tr>
-                  <td style="padding-left: 30px">Strands </td>
-                  <td width="10%">
-                <input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="small" ></td>
-                </tr>
-                <tr>
-                  <td style="padding-left: 30px">Teachers </td>
-                  <td width="10%">
-                <input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="small" ></td>
-                </tr>
-                <tr>
-                  <td style="padding-left: 30px">Rooms </td>
-                  <td width="10%">
-                <input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="small" ></td>
-                </tr>
-                <tr>
-                  <td>Academics</td>
-                  <td>
-                <input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="small"></td>
-                </tr>
-                <tr>
-                  <td>Student Info</td>
-                  <td>
-                <input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="small"></td>
-                </tr>
-                <tr>
-                  <td>Student Info</td>
-                  <td>
-                <input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="small"></td>
-                </tr>
-              </tbody></table>
-              </div>
-            </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <h1 style="font-size: 23px">
+            <small><b>Academics Sub-Module</b></small>
+          </h1>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-aqua"><i class="fa fa-file-text"></i></span>
 
+            <div class="info-box-content">
+              <span class="info-box-number pull-right"><input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
+              <span class="info-box-number text-primary" >Enrollment</span>
+              <span class="">Details here</span>
+            </div>
           </div>
+        </div>
 
-        </div> -->
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-red"><i class="fa fa-mortar-board"></i></span>
 
-            <div class="col-md-6 col-sm-6 col-xs-12">
-              <div class="info-box">
-                <span class="info-box-icon bg-aqua"><i class="fa fa-file-text"></i></span>
-
-                <div class="info-box-content">
-                  <span class="info-box-number pull-right"><input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
-                  <span class="info-box-number text-primary" >Enrollment</span>
-                  <span class="">Details here</span>
-                </div>
-                <!-- /.info-box-content -->
-              </div>
-              <!-- /.info-box -->
+            <div class="info-box-content">
+              <span class="info-box-number pull-right"><input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
+              <span class="info-box-number text-primary">Academics</span>
+              <span class="">Details here</span>
             </div>
+          </div>
+        </div>
 
-            <div class="col-md-6 col-sm-6 col-xs-12">
-              <div class="info-box">
-                <span class="info-box-icon bg-red"><i class="fa fa-mortar-board"></i></span>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-blue"><i class="fa fa-id-card"></i></span>
 
-                <div class="info-box-content">
-                  <span class="info-box-number pull-right"><input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
-                  <span class="info-box-number text-primary">Academics</span>
-                  <span class="">Details here</span>
-                </div>
-                <!-- /.info-box-content -->
-              </div>
-              <!-- /.info-box -->
+            <div class="info-box-content">
+              <span class="info-box-number pull-right"><input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
+              <span class="info-box-number text-primary">Student Promotion</span>
+              <span class="">Details here</span>
             </div>
+          </div>
+        </div>
 
-            <div class="col-md-6 col-sm-6 col-xs-12">
-              <div class="info-box">
-                <span class="info-box-icon bg-blue"><i class="fa fa-id-card"></i></span>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-teal"><i class="fa fa-star"></i></span>
 
-                <div class="info-box-content">
-                  <span class="info-box-number pull-right"><input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
-                  <span class="info-box-number text-primary">Student Promotion</span>
-                  <span class="">Details here</span>
-                </div>
-                <!-- /.info-box-content -->
-              </div>
-              <!-- /.info-box -->
+            <div class="info-box-content">
+              <span class="info-box-number pull-right"><input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
+              <span class="info-box-number text-primary">Grades Management</span>
+              <span class="">Details here</span>
             </div>
+          </div>
+        </div>
+   
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <h1 style="font-size: 23px">
+            <small><b>Academics Sub-Module</b></small>
+          </h1>
+        </div>
+
 
             <div class="col-md-6 col-sm-6 col-xs-12">
               <div class="info-box">
-                <span class="info-box-icon bg-teal"><i class="fa fa-star"></i></span>
-
-                <div class="info-box-content">
-                  <span class="info-box-number pull-right"><input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
-                  <span class="info-box-number text-primary">Grades Management</span>
-                  <span class="">Details here</span>
-                </div>
-                <!-- /.info-box-content -->
-              </div>
-              <!-- /.info-box -->
-            </div>
-
-            <section class="content-header" style="margin-bottom: 5px">
-              <h1>
-                <small><b>Academics Sub-Module</b></small>
-              </h1>
-            </section>
-
-            <div class="col-md-6 col-sm-6 col-xs-12">
-              <div class="info-box">
-                <span class="info-box-icon bg-aqua"><i class="fa fa-tag"></i></span>
+                <span class="info-box-icon bg-aqua-active"><i class="fa fa-tag"></i></span>
 
                 <div class="info-box-content">
                   <span class="info-box-number pull-right"><input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
@@ -210,7 +152,7 @@
 
             <div class="col-md-6 col-sm-6 col-xs-12">
               <div class="info-box">
-                <span class="info-box-icon bg-navy"><i class="fa fa-university"></i></span>
+                <span class="info-box-icon bg-olive-active "><i class="fa fa-university"></i></span>
 
                 <div class="info-box-content">
                   <span class="info-box-number pull-right"><input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
@@ -238,7 +180,7 @@
 
             <div class="col-md-6 col-sm-6 col-xs-12">
               <div class="info-box">
-                <span class="info-box-icon bg-olive"><i class="fa fa-book"></i></span>
+                <span class="info-box-icon bg-red-active"><i class="fa fa-book"></i></span>
 
                 <div class="info-box-content">
                   <span class="info-box-number pull-right"><input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
