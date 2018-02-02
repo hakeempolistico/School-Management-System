@@ -377,13 +377,25 @@
           <a href="<?php echo site_url('information/developers'); ?>">
             <i class="fa  fa-bug"></i> <span>Developers</span>
           </a>
+        </li>    
+      </ul>
+
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">STUDENT VIEW</li>
+        <li class="<?php echo (isset($active) && $active =='my_grades' ? 'active' : null) ; ?>">
+          <a href="<?php echo site_url('student/my_grades'); ?>">
+            <i class="fa  fa-files-o"></i> <span>My Grades</span>
+          </a>
         </li> 
         <li class="">
-          <a href="<?php echo site_url('/'); ?>">
-            <i class="fa  fa-info-circle"></i> <span>About</span>
+          <a href="<?php echo site_url('student/my_schedule'); ?>">
+            <i class="fa  fa-calendar"></i> <span>My Schedule</span>
           </a>
         </li>     
       </ul>
+    </section>
+    <!-- /.sidebar -->
     </section>
     <!-- /.sidebar -->
   </aside>

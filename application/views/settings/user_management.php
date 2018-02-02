@@ -271,7 +271,7 @@
               <br>
               <div class="col-md-12 no-padding">
               <div class="form-group">
-                <label>Select Role:</label>
+                <label>Select modal-change-role:</label>
                 <select class="form-control select2 select2-hidden-accessible" style="width: 100%;">
                   <option selected="selected">Admin</option>
                   <option>Super User</option>
