@@ -7,17 +7,22 @@ class lock extends CI_Controller {
 	{
 	    parent::__construct();
 	    $this->sms_session->checkSession();
-	    // $this->load->model('dashboard_model');
 	}
 
-	public function index()
-	{	
+	public function index(){	
 		$data = $this->parse->parsed();
-		$data['subjects'] = $this->global_model->getActiveRecords('subjects');
+		$data['modules'] = $this->global_model->getActiveRecords('modules');
 
 		$data['active'] = 'settings/lock';
 		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
 
     	$this->parser->parse('settings/lock', $data);
+	}
+	public function ajaxUpdate(){
+		$data = $this->input->post();
+		$where = array('module_name' => $data['module'] );
+		$set = array('status' => $data['status'] );
+		$res = $this->global_model->updateRecord('modules', $set, $where);
+		echo json_encode($res);
 	}
 }
