@@ -55,6 +55,8 @@ class register_student extends CI_Controller {
 				
 		if ($this->form_validation->run() == FALSE)
 		{
+			echo "peke";
+			exit;
 			$data = $this->parse->parsed();
 			$data['active'] = 'enrollment/register_student';
 			$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
@@ -62,7 +64,6 @@ class register_student extends CI_Controller {
 		}
 		else
 		{
-			
 			if($this->input->post()) {
 
 				$from = new DateTime($this->input->post('birth_date'));
