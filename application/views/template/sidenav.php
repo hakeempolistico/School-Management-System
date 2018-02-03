@@ -345,25 +345,25 @@
           <a href="#">
             <i class="fa fa-gear"></i>
             <span>Settings</span>
-              <span class="pull-right-container">
+              <!-- <span class="pull-right-container">
                 <span class="label label-warning pull-right">soon</span>
-              </span>
+              </span> --> 
             <span class="pull-right-container">
               <span class="fa fa-angle-left pull-right"></span>
             </span>
           </a>
 
-          <ul class="treeview-menu">
+          <ul class="treeview-menu ">
             <li class="<?php echo (isset($active) && $active =='settings/user_management' ? 'active' : null) ; ?>">
-              <a href="<?php echo site_url('student_info/student_details'); ?>">
+              <a href="<?php echo site_url('settings/user_management'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 User Management
               </a>
             </li>         
-            <li>
+            <li class="<?php echo (isset($active) && $active =='settings/lock' ? 'active' : null) ; ?>">
               <a href="<?php echo site_url('settings/lock'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
-                lock
+                System Lock
               </a>
             </li>
           </ul>          
@@ -377,13 +377,25 @@
           <a href="<?php echo site_url('information/developers'); ?>">
             <i class="fa  fa-bug"></i> <span>Developers</span>
           </a>
+        </li>    
+      </ul>
+
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">STUDENT VIEW</li>
+        <li class="<?php echo (isset($active) && $active =='my_grades' ? 'active' : null) ; ?>">
+          <a href="<?php echo site_url('student/my_grades'); ?>">
+            <i class="fa  fa-files-o"></i> <span>My Grades</span>
+          </a>
         </li> 
         <li class="">
-          <a href="<?php echo site_url('/'); ?>">
-            <i class="fa  fa-info-circle"></i> <span>About</span>
+          <a href="<?php echo site_url('student/my_schedule'); ?>">
+            <i class="fa  fa-calendar"></i> <span>My Schedule</span>
           </a>
         </li>     
       </ul>
+    </section>
+    <!-- /.sidebar -->
     </section>
     <!-- /.sidebar -->
   </aside>

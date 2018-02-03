@@ -64,7 +64,7 @@
             }
           </style>
 
-          <div class="panel panel-primary">
+          <div class="panel panel-danger">
             <div class="panel-heading">
               <button data-toggle="modal" data-target="#modal-add" class="pull-right btn btn-link btn-xs"><span class="fa fa-fw fa-plus" ></span></button>
               <h3 class="panel-title"><i class="fa fa-tag"></i> Strand List</h3>

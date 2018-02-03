@@ -8,6 +8,8 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Pace style -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/pace/pace.min.css">
   <!-- Select2 -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/select2/dist/css/select2.min.css"> 
   <!-- Font Awesome -->
@@ -83,7 +85,7 @@
                         <select id="select-semester" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Semester">
                           <option></option>
                           <option value="First Semester">First Semester</option>
-                          <option value="Second Semester">Second Semeerst</option>
+                          <option value="Second Semester">Second Semester</option>
                         </select>
                     </div> 
                 </div>
@@ -178,6 +180,8 @@
 <script src="<?php echo base_url(); ?>bower_components/Chart.js/Chart.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
+<!-- PACE -->
+<script src="<?php echo base_url(); ?>bower_components/PACE/pace.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
 <!-- Select2 -->
@@ -189,6 +193,10 @@
 
 <script>
 
+  $(document).ajaxStart(function () {
+    Pace.restart()
+  })
+  
   var getClassUrl = '<?php echo base_url('grades/manage/getClass'); ?>';
   var addGradeUrl = '<?php echo base_url('grades/manage/addGrade'); ?>';
   var getClassStudentsUrl = '<?php echo base_url('grades/manage/getClassStudents'); ?>';

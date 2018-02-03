@@ -8,6 +8,8 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Pace style -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/pace/pace.min.css">
   <!-- Select2 -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/select2/dist/css/select2.min.css"> 
   <!-- Font Awesome -->
@@ -73,7 +75,7 @@
         <div class="col-md-12">
           <div class="box box-primary">
             <div class="box-header">
-              <h3 class="box-title text-primary"></i> View Options</h3>
+              <h3 class="box-title text-primary"><i class="icon fa fa-search"></i> View Options</h3>
             </div>
             <!-- /.box-header -->
             <div id="box-view" class="box-body">
@@ -82,9 +84,9 @@
                     <label>View</label>
                       <select id="select-view" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select View">
                         <option></option>
-                        <option value="1">Quarter</option>
+                        <!-- <option value="1">Quarter</option> -->
                         <option value="2">Semester</option>
-                        <option value="3">School Year</option>
+                        <!-- <option value="3">School Year</option> -->
                       </select>
                   </div> 
               </div>
@@ -113,7 +115,7 @@
 
           <div id="box-select" class="box box-primary">
             <div class="box-header">
-              <h3 class="box-title text-primary"> Select Options</h3>
+              <h3 class="box-title text-primary"><i class="icon fa fa-search"></i> Select Options</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -146,7 +148,7 @@
               <h3 class="box-title text-primary"></i> First Quarter Grades</h3>
             </div>
             <div class="box-body">
-              <table id = "studentList1" class="table table-bordered dataTables">
+              <table id = "table-quarter" class="table table-bordered dataTables">
                 <thead>
                   <tr>
                     <th>LRN</th>
@@ -172,34 +174,24 @@
 
           <div id="box-semester" class="box box-primary">
             <div class="box-header">
-              <h3 class="box-title text-primary"></i> First Semester Grades</h3>
+              <h3 class="box-title text-primary"></i><i class="icon fa fa-edit"></i> Semester Grades</h3>
             </div>
             <div class="box-body">
-              <table id = "studentList1" class="table table-bordered dataTables">
+              <table id = "table-sem" class="table table-bordered dataTables">
                 <thead>
                   <tr>
                     <th rowspan="2">LRN</th>
                     <th rowspan="2">Full Name</th>
-                    <th colspan="2" class="text-center">1st Semester Grades</th>
+                    <th colspan="4" class="text-center"><div id="title-sem"></div></th>
                   </tr>
                   <tr>
                     <th>1st Quarter</th>
                     <th>2nd Quarter</th>
+                    <th>Gen Ave.</th>
+                    <th>Status</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>123112312</td>
-                    <td>Escaro, Adrielle Kristine Nicolette M.</td>
-                    <td>90</td>
-                    <td>90</td>
-                  </tr>
-                  <tr>
-                    <td>144231231</td>
-                    <td>Polistico, Hakeem A.</td>
-                    <td>85</td>
-                    <td>86</td>
-                  </tr>
                 </tbody>
               </table>
             </div>
@@ -210,7 +202,7 @@
               <h3 class="box-title text-primary"></i> School Year Grades</h3>
             </div>
             <div class="box-body">
-              <table id = "studentList1" class="table table-bordered dataTables">
+              <table id = "table-sy" class="table table-bordered dataTables">
                 <thead>
                   <tr>
                     <th rowspan="2">LRN</th>
@@ -233,14 +225,6 @@
                     <td>90</td>
                     <td>90</td>
                     <td>90</td>
-                  </tr>
-                  <tr>
-                    <td>144231231</td>
-                    <td>Polistico, Hakeem A.</td>
-                    <td>85</td>
-                    <td>86</td>
-                    <td>85</td>
-                    <td>86</td>
                   </tr>
                 </tbody>
               </table>
@@ -267,6 +251,8 @@
 <script src="<?php echo base_url(); ?>bower_components/Chart.js/Chart.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
+<!-- PACE -->
+<script src="<?php echo base_url(); ?>bower_components/PACE/pace.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
 <!-- Select2 -->
@@ -275,7 +261,13 @@
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
 
 <script>
+
+  $(document).ajaxStart(function () {
+    Pace.restart()
+  })
+  
   var getClassUrl = '<?php echo base_url('grades/view/getClass'); ?>';
+  var getClassStudentsUrl = '<?php echo base_url('grades/view/getClassStudents'); ?>';
   $(function () {
     $('.dataTables').DataTable() 
     $('.select2').select2();
