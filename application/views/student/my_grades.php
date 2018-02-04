@@ -69,15 +69,51 @@
       <div class="row">
         <div class="col-lg-12 col-xs-12">
           <div class="box box-primary">
-            <!-- <div class="box-header">
-              <h3 class="box-title text-primary"></h3>
-            </div> -->
+            <div class="box-header">
+              <h3 class="box-title text-primary">Select Criteria</h3>
+            </div>
             <div class="box-body">
+              <div class="col-xs-12 col-lg-3">
+                  <div class="form-group">
+                    <label>School Year</label>
+                      <select class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Semester">
+                        <option></option>
+                        <!-- <option value="1">Quarter</option> -->
+                        <option>2017-2018</option>
+                        <option>2018-2019</option>
+                        <!-- <option value="3">School Year</option> -->
+                      </select>
+                  </div> 
+              </div>
+              <div class="col-xs-12 col-lg-3">
+                  <div class="form-group">
+                    <label>Semester</label>
+                      <select class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Semester">
+                        <option></option>
+                        <!-- <option value="1">Quarter</option> -->
+                        <option>1st Semester</option>
+                        <option>2nd Semester</option>
+                        <!-- <option value="3">School Year</option> -->
+                      </select>
+                  </div> 
+              </div>
+              <div class="col-xs-12 col-lg-3">
+                  <div class="form-group">
+                    <label>Quarter</label>
+                      <select class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Semester">
+                        <option></option>
+                        <!-- <option value="1">Quarter</option> -->
+                        <option>1st Quarter</option>
+                        <option>2nd Quarter</option>
+                        <!-- <option value="3">School Year</option> -->
+                      </select>
+                  </div> 
+              </div>
               <!-- <b>My Recent Report of Grades</b>
               <ul>
                 <li><a href="#"><u>1st Quarter, 1st Semestem, SY 2017-2018</u></a></li>
               </ul> -->
-              <table class="table table-striped">
+              <!-- <table class="table table-striped">
                 <thead>
                   <th>School Year</th>
                   <th>Semester</th>
@@ -109,11 +145,60 @@
                   <th>Quarter</th>
                   <th>Action</th>
                 </tfoot>
-              </table>
-            </div>
+              </table> -->
+            </div>            
           </div>
         </div>
-      </div>  
+      </div> 
+      <div class="row">
+        <div class="col-lg-12 col-xs-12">
+          <div class="box box-primary">
+              <!-- <div class="box-header with-border">
+                <h3 class="box-title text-primary">Grades</h3>
+              </div> -->
+              <div class="box-body">
+                
+                <div>
+                  <table class="table table-striped">                
+                    <thead>
+                      <th>Subject Code</th>
+                      <th>Subject Description</th>
+                      <th class="text-center">Grades</th>
+                      <th class="text-center">Status</th>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>SS-GAS-1</td>
+                        <td>Organization and Management</td>
+                        <td class="text-center"><span class="badge bg-green active">90</span></td>
+                        <td class="text-center"><span class="badge bg-green active">passed</span></td>
+                      </tr>
+                      <tr>
+                        <td>CS-1</td>
+                        <td>Oral Communication</td>
+                        <td class="text-center"><span class="badge bg-green active">94</span></td>
+                        <td class="text-center"><span class="badge bg-green active">passed</span></td>
+                      </tr>
+                      <tr>
+                        <td>SS-HE-1</td>
+                        <td>Food and Beverages Services 1 and 2</td>
+                        <td class="text-center"><span class="badge active">-</span></td>
+                        <td class="text-center"><span class="badge active">-</span></td>
+                      </tr>
+                      <tr>
+                        <td>CS-3</td>
+                        <td>Introduction to Philosophy of the Human Person</td>
+                        <td class="text-center"><span class="badge bg-red active">70</span></td>
+                        <td class="text-center"><span class="badge bg-red active">failed</span></td>
+                      </tr>
+                    </tbody>
+                  </table><hr>
+                  <button class="btn btn-sm btn-default pull-right"><i class="fa fa-print"></i> Print</button>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div> 
     </section>
     <!-- /.content -->
   </div>
