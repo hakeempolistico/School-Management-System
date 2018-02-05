@@ -109,9 +109,9 @@
               </ul> -->
               <table class="table">
                 <thead>
-                  <th>School Year</th>
-                  <th>Semester</th>
-                  <th class="text-center" style="width: 10%">Action</th>
+                  <th class="text-primary">School Year</th>
+                  <th class="text-primary">Semester</th>
+                  <th class="text-primary text-center" style="width: 10%">Action</th>
                 </thead>
                 <tbody>
                   <tr>
@@ -152,10 +152,10 @@
                   <table class="table">
                     <thead>
                       <tr role="row">
-                        <th colspan="5" class="text-center">SY 2017-2018</th>
+                        <th colspan="5" class="text-center text-primary">SY 2017-2018</th>
                       </tr>
                       <tr role="row">
-                        <th colspan="5" class="text-center">FIRST SEMESTER</th>
+                        <th colspan="5" class="text-center text-primary">FIRST SEMESTER</th>
                       </tr>
                       <tr role="row">
                       <th>Subject Code</th>
