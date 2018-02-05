@@ -171,7 +171,7 @@
         </div> -->
 
         <div class="modal fade in" id="modal-delete">
-          <div class="modal-dialog" style="max-width: 320px">
+          <div class="modal-dialog" style="max-width: 360px">
             <div id="box-delete" class="box box-danger">
               <div class="box-header with-border" style="cursor: move; margin: 0px;">
                 <i id="box-delete-icon" class="fa fa-warning text-danger"></i>
@@ -190,6 +190,7 @@
             </div>
           </div>
         </div>
+        
       </div>
     </section>
     <!-- /.content -->

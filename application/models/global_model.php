@@ -94,7 +94,8 @@ class global_model extends CI_Model{
 	public function updateRecord($table, $set, $where){
 		$this->db->set($set);
 		$this->db->where($where);
-		$this->db->update($table);
+		return $res = $this->db->update($table);
+		//return $this->db->last_query();
 	}
 
 }

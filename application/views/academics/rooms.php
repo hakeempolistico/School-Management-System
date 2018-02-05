@@ -83,12 +83,7 @@
                   <td><b>Day</b></td>
                   <td><b>Time</b></td>
                 </thead>
-                <tbody>
-                  <td class="temp">STEM Grade 11-A</td>
-                  <td class="temp">Math/Sci/Eng</td>
-                  <td class="temp">Wed/Thur/Fri</td>
-                  <td class="temp">9-10/11-1/10-1</td>
-                </tbody>
+                <tbody></tbody>
               </table>
             </div>
             </div>
@@ -222,7 +217,7 @@
   var updateUrl = '<?php echo base_url('academics/rooms/ajaxUpdate'); ?>';
   var countUrl = '<?php echo base_url('academics/strands/ajaxCountRow'); ?>';
   var deleteRowUrl = '<?php echo base_url('academics/rooms/ajaxDeleteRow'); ?>';  
-  var getScheduleUrl = '<?php echo base_url('academics/rooms/getSchedule'); ?>';
+  var getScheduleUrl = '<?php echo base_url('academics/rooms/getRoomSchedule'); ?>';
   var auditTrailUpdateUrl = '<?php echo base_url('academics/rooms/auditTrailUpdate'); ?>';
  
   
