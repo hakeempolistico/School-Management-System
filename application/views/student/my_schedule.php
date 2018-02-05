@@ -69,11 +69,134 @@
       <div class="row">
         <div class="col-lg-12 col-xs-12">
           <div class="box box-primary">
-            <div class="box-header">
+            <!-- <div class="box-header">
               <h3 class="box-title text-primary"></h3>
-            </div>
+            </div> -->
             <div class="box-body">
-              
+              <table  id="schedule" class="table table-bordered table-hover table-schedule">
+                <thead>
+                <tr>
+                  <th id="tbl-title" colspan="6" class="text-success text-center"> <i class="fa fa-fw fa-calendar"></i> SCHEDULE <span class="pull-right"><a href="" data-toggle="tooltip" title="Print"><i class="fa fa-print"></i></a></span></th>
+                </tr>
+                <tr>
+                  <th>Time</th>
+                  <th>Monday</th>
+                  <th>Tuesday</th>
+                  <th>Wednesday</th>
+                  <th>Thursday</th> 
+                  <th>Friday</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <div id="tbody">
+                <tr class="tr-height">
+                  <td class='time'>6:00 - 7:00</td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                </tr>
+                <tr class="tr-height">
+                  <td class='time'>7:00 - 8:00 </td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                </tr>
+                <tr class="tr-height">
+                  <td class='time'>8:00 - 9:00 </td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                </tr>
+                <tr class="tr-height">
+                  <td class='time'>9:00 - 10:00 </td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                </tr>
+                <tr class="tr-height">
+                  <td class='time'>10:00 - 11:00 </td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                </tr>
+                <tr class="tr-height">
+                  <td class='time'>11:00 - 12:00 </td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                </tr>
+                <tr class="tr-height">
+                  <td class='time'>12:00 - 1:00 </td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                </tr>
+                <tr class="tr-height">
+                  <td class='time'>1:00 - 2:00</td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                </tr>
+                <tr class="tr-height">
+                  <td class='time'>2:00 - 3:00 </td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                </tr>
+                <tr class="tr-height">
+                  <td class='time'>3:00 - 4:00 </td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                </tr>
+                <tr class="tr-height">
+                  <td class='time'>4:00 - 5:00 </td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                </tr>
+                <tr class="tr-height">
+                  <td class='time'>5:00 - 6:00 </td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                </tr>
+                <tr class="tr-height">
+                  <td class='time'>6:00 - 7:00 </td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                  <td id="td-padding"></td>
+                </tr>
+              </div>
+              </tbody>
+              </table>
             </div>
           </div>
         </div>
