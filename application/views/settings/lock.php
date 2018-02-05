@@ -78,6 +78,17 @@
     <!-- Main content -->
     <section class="content">
       <div class="row">
+        <div class="col-lg-4 col-sm-12 col-xs-12">
+          <h1 style="font-size: 23px">
+            <small><b>User  </b></small>
+          </h1>
+          <select id="select-user" data-placeholder="Select User" class="form-control select2" style="width: 100%;">
+            <option></option>
+            <option value="admin">Admin</option>
+            <option value="super_user">Super User</option>
+            <option value="user">User</option>
+          </select>
+        </div>
         <div class="col-md-12 col-sm-12 col-xs-12">
           <h1 style="font-size: 23px">
             <small><b>System Modules  </b></small>
@@ -88,7 +99,7 @@
             <span class="info-box-icon bg-aqua"><i class="fa fa-file-text"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-number pull-right"><input type="checkbox" class="toggle" data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>" <?php foreach ($modules as $val) {echo ($val->module_name =='Enrollment' ? 'checked' : null); };?> ></span>
+              <span class="info-box-number pull-right"><input type="checkbox" class="toggle Enrollment-toggle" data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
               <span class="info-box-number text-primary" >Enrollment</span>
               <span class="">Details here</span>
             </div>
@@ -100,7 +111,7 @@
             <span class="info-box-icon bg-red"><i class="fa fa-mortar-board"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-number pull-right"><input type="checkbox" class="toggle" data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>" <?php foreach ($modules as $val) {echo ($val->module_name =='Academics' ? 'checked' : null); };?> ></span>
+              <span class="info-box-number pull-right"><input type="checkbox" class="toggle Academics-toggle toggle-academics" data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
               <span class="info-box-number text-primary">Academics</span>
               <span class="">Details here</span>
             </div>
@@ -112,7 +123,7 @@
             <span class="info-box-icon bg-blue"><i class="fa fa-id-card"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-number pull-right"><input type="checkbox" class="toggle" data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"<?php foreach ($modules as $val) {echo ($val->module_name =='Student Promotion' ? 'checked' : null); };?>></span>
+              <span class="info-box-number pull-right"><input type="checkbox" class="toggle Student-Promotion-toggle" data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
               <span class="info-box-number text-primary">Student Promotion</span>
               <span class="">Details here</span>
             </div>
@@ -124,8 +135,44 @@
             <span class="info-box-icon bg-teal"><i class="fa fa-star"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-number pull-right"><input type="checkbox" class="toggle" data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"<?php foreach ($modules as $val) {echo ($val->module_name =='Grades Management' ? 'checked' : null); };?>></span>
+              <span class="info-box-number pull-right"><input type="checkbox" class="toggle Grades-Management-toggle" data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
               <span class="info-box-number text-primary">Grades Management</span>
+              <span class="">Details here</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-teal"><i class="fa fa-star"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-number pull-right"><input type="checkbox" class="toggle Advisory-Class-toggle" data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
+              <span class="info-box-number text-primary">Advisory Class</span>
+              <span class="">Details here</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-teal"><i class="fa fa-star"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-number pull-right"><input type="checkbox" class="toggle Audit-Trail-toggle" data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
+              <span class="info-box-number text-primary">Audit Trail</span>
+              <span class="">Details here</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-teal"><i class="fa fa-star"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-number pull-right"><input type="checkbox" class="toggle Reports-toggle" data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
+              <span class="info-box-number text-primary">Reports</span>
               <span class="">Details here</span>
             </div>
           </div>
@@ -143,7 +190,7 @@
                 <span class="info-box-icon bg-aqua-active"><i class="fa fa-tag"></i></span>
 
                 <div class="info-box-content">
-                  <span class="info-box-number pull-right"><input type="checkbox" class="toggle" data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>" <?php foreach ($modules as $val) {echo ($val->module_name =='Strands' ? 'checked' : null); };?>></span>
+                  <span class="info-box-number pull-right"><input type="checkbox" class="toggle Strands-toggle toggle-acad" data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
                   <span class="info-box-number text-primary">Strands</span>
                   <span class="">Details here</span>
                 </div>
@@ -157,7 +204,7 @@
                 <span class="info-box-icon bg-olive-active "><i class="fa fa-university"></i></span>
 
                 <div class="info-box-content">
-                  <span class="info-box-number pull-right"><input type="checkbox" class="toggle" data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>" <?php foreach ($modules as $val) {echo ($val->module_name =='Rooms' ? 'checked' : null); };?>></span>
+                  <span class="info-box-number pull-right"><input type="checkbox" class="toggle Rooms-toggle toggle-acad" data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
                   <span class="info-box-number text-primary">Rooms</span>
                   <span class="">Details here</span>
                 </div>
@@ -171,7 +218,7 @@
                 <span class="info-box-icon bg-green"><i class="fa fa-star"></i></span>
 
                 <div class="info-box-content">
-                  <span class="info-box-number pull-right"><input type="checkbox" class="toggle" data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>" <?php foreach ($modules as $val) {echo ($val->module_name =='Sections' ? 'checked' : null); };?>></span>
+                  <span class="info-box-number pull-right"><input type="checkbox" class="toggle Sections-toggle toggle-acad" data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
                   <span class="info-box-number text-primary">Sections</span>
                   <span class="">Details here</span>
                 </div>
@@ -185,7 +232,7 @@
                 <span class="info-box-icon bg-red-active"><i class="fa fa-book"></i></span>
 
                 <div class="info-box-content">
-                  <span class="info-box-number pull-right"><input type="checkbox" class="toggle" data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>" <?php foreach ($modules as $val) {echo ($val->module_name =='Subjects' ? 'checked' : null); };?>></span>
+                  <span class="info-box-number pull-right"><input type="checkbox" class="toggle Subjects-toggle toggle-acad" data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
                   <span class="info-box-number text-primary">Subjects</span>
                   <span class="">Details here</span>
                 </div>
@@ -199,7 +246,7 @@
                 <span class="info-box-icon bg-lime"><i class="fa fa-key"></i></span>
 
                 <div class="info-box-content">
-                  <span class="info-box-number pull-right"><input type="checkbox" class="toggle" data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>" <?php foreach ($modules as $val) {echo ($val->module_name =='Curriculum' ? 'checked' : null); };?>></span>
+                  <span class="info-box-number pull-right"><input type="checkbox" class="toggle Curriculum-toggle toggle-acad" data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
                   <span class="info-box-number text-primary">Curriculum</span>
                   <span class="">Details here</span>
                 </div>
@@ -213,7 +260,7 @@
                 <span class="info-box-icon bg-yellow"><i class="fa fa-check-square-o"></i></span>
 
                 <div class="info-box-content">
-                  <span class="info-box-number pull-right"><input type="checkbox" class="toggle" data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>" <?php foreach ($modules as $val) {echo ($val->module_name =='Assign Subjects' ? 'checked' : null); };?>></span>
+                  <span class="info-box-number pull-right"><input type="checkbox" class="toggle Assign-Subjects-toggle toggle-acad" data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
                   <span class="info-box-number text-primary">Assign Subjects</span>
                   <span class="">Details here</span>
                 </div>
@@ -227,7 +274,7 @@
                 <span class="info-box-icon bg-maroon"><i class="fa fa-calendar"></i></span>
 
                 <div class="info-box-content">
-                  <span class="info-box-number pull-right"><input type="checkbox" class="toggle" data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>" <?php foreach ($modules as $val) {echo ($val->module_name =='Schedule' ? 'checked' : null); };?>></span>
+                  <span class="info-box-number pull-right"><input type="checkbox" class="toggle Schedule-toggle toggle-acad" data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
                   <span class="info-box-number text-primary">Schedule</span>
                   <span class="">Details here</span>
                 </div>
@@ -241,7 +288,7 @@
                 <span class="info-box-icon bg-purple"><i class="fa fa-th-large"></i></span>
 
                 <div class="info-box-content">
-                  <span class="info-box-number pull-right"><input type="checkbox" class="toggle" data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>" <?php foreach ($modules as $val) {echo ($val->module_name =='Assign Advisory' ? 'checked' : null); };?>></span>
+                  <span class="info-box-number pull-right"><input type="checkbox" class="toggle Assign-Advisory-toggle toggle-acad" data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
                   <span class="info-box-number text-primary">Assign Advisory</span>
                   <span class="">Details here</span>
                 </div>
@@ -255,7 +302,7 @@
                 <span class="info-box-icon bg-orange"><i class="fa fa-star"></i></span>
 
                 <div class="info-box-content">
-                  <span class="info-box-number pull-right"><input type="checkbox" class="toggle" data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>" <?php foreach ($modules as $val) {echo ($val->module_name =='Teachers' ? 'checked' : null); };?>></span>
+                  <span class="info-box-number pull-right"><input type="checkbox" class="toggle Teachers-toggle toggle-acad" data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
                   <span class="info-box-number text-primary">Teachers</span>
                   <span class="">Details here</span>
                 </div>
@@ -300,7 +347,10 @@
 <script>
 
   var updateUrl = '<?php echo base_url('settings/lock/ajaxUpdate'); ?>';
+  var updateRecordUrl = '<?php echo base_url('settings/lock/ajaxUpdateRecord'); ?>';
+  var ajaxGetPermissionUrl = '<?php echo base_url('settings/lock/ajaxGetPermission'); ?>';
 
+  $('.select2').select2();
   $(document).ajaxStart(function () {
     Pace.restart()
   })

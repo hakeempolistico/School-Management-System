@@ -20,6 +20,9 @@ class login extends CI_Controller
 				$username = $this->input->post('username');
 				$password = $this->input->post('password');
 				$result = $this->users_model->checkUserPassword($username, $password);
+				if(isset($result->user_role)){
+					$u_permission = $this->users_model->getPermissions($result->user_role);
+				}
 
 				if(is_object($result)){
 					//print_r($result);
@@ -35,8 +38,19 @@ class login extends CI_Controller
 					        'email' => $result->email,
 					        'employee_id' => $result->employee_id,
 					        'major' => $result->major,
+					        'user_role' => $result->user_role,
 					        'logged_in' => TRUE
 					);
+
+
+				foreach ($u_permission as $key => $value) {
+					$userdata[$value->module_name] = $value->status;
+				}
+				
+				/*echo '<pre>';
+				print_r($userdata);
+				echo '<pre>'; exit;
+*/
 					$this->session->set_userdata($userdata);
 					$this->audit_trail->set('-','-','login','-');
 					redirect('enrollment/dashboard');

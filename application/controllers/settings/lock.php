@@ -25,4 +25,15 @@ class lock extends CI_Controller {
 		$res = $this->global_model->updateRecord('modules', $set, $where);
 		echo json_encode($res);
 	}
+	public function ajaxUpdateRecord(){
+		$data = $this->input->post();
+		$where = array('module_name' => $data['module'] );
+		$set = array($data['user'] => $data['status'] );
+		$res = $this->global_model->updateRecord('user_permission', $set, $where);
+		echo json_encode($res);
+	}
+	public function ajaxGetPermission(){
+		$res = $this->global_model->getRecords('user_permission');
+		echo json_encode($res);
+	}
 }
