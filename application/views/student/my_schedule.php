@@ -80,11 +80,11 @@
                 </tr>
                 <tr>
                   <th>Time</th>
-                  <th>Monday</th>
-                  <th>Tuesday</th>
-                  <th>Wednesday</th>
-                  <th>Thursday</th> 
-                  <th>Friday</th>
+                  <th class="text-center">Monday</th>
+                  <th class="text-center">Tuesday</th>
+                  <th class="text-center">Wednesday</th>
+                  <th class="text-center">Thursday</th> 
+                  <th class="text-center">Friday</th>
                 </tr>
                 </thead>
 
