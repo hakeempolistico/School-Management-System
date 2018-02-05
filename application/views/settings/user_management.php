@@ -68,7 +68,7 @@
 
     <!-- Main content -->
     <section class="content">
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-md-12">
           <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
@@ -168,9 +168,9 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- /.row -->
-      <div class="modal fade" id="add-role">
+      <!-- <div class="modal fade" id="add-role">
         <div class="modal-dialog" style="width: 400px;">
           <div class="box box-primary">
             <div class="box-header">
@@ -256,9 +256,9 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       
-     <!--  <div class="row">        
+      <div class="row">        
         <div class="col-lg-12 col-xs-12">
           <div class="box box-primary">
             <div class="box-header">
@@ -267,7 +267,7 @@
             </div>
             
             <div class="box-body">
-              <div class="col-lg-12 no-padding">
+              <!-- <div class="col-lg-12 no-padding">
               <div class="col-md-6 no-padding">
               <div class="form-group">
                 <label>Filter by:</label>
@@ -278,9 +278,9 @@
 
               </div>
               </div>
-              </div><br>
+              </div><br> -->
               <div class="row">
-              <div class="col-lg-4">
+              <div class="col-lg-3">
                 <div class="form-group">
                 <label>Filter by:</label>
                 <select class="form-control select2 select2-hidden-accessible" style="width: 100%;">
@@ -346,7 +346,7 @@
             </div>
             </div>
           </div>
-        </div> -->
+        </div>
         <!-- /.row-->
         <div class="modal fade" id="modal-add">
           <div class="modal-dialog" style="max-width: 900px">
