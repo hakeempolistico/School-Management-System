@@ -29,6 +29,33 @@ class enroll_student extends CI_Controller {
 		$this->parser->parse('enrollment/strand_selection', $data);
 	}
 
+	public function getStrands()
+	{
+		$grade_requirement = $this->input->post('grade_requirement');
+		$status = $this->input->post('status');
+
+		$records = $this->enroll_student_model->getStrands('strands', 'grade_requirement', $grade_requirement, 'status', $status);
+
+		$data = [];
+		// print_r($records);
+		// exit;
+		foreach ($records as $record) 
+		{
+			$strand_code = $record->code;  
+			$strand_name = $record->name;
+
+			$arr = array(
+				'strand_code' => $strand_code,
+				'strand_name' => $strand_name
+			);
+
+			$data[] = $arr;
+
+		}
+
+		echo json_encode($data);
+	}
+
 	public function getSectionTable()
 	{
 		$strand = $this->input->post('strand');

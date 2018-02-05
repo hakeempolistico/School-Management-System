@@ -2,6 +2,16 @@
 
 class enroll_student_model extends CI_Model{
 
+	public function getStrands($table, $set1, $value1, $set2, $value2)
+	{
+		$this->db->where('grade_requirement <=', $value1);
+		$this->db->where($set2, $value2);
+		// $this->db->where('status', 'active');
+
+		$query = $this->db->get($table)->result();
+		return $query;
+	}
+
 	public function getSections($table, $set1, $value1, $set2, $value2)
 	{
 		$this->db->where($set1, $value1);
