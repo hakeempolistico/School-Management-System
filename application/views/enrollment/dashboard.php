@@ -24,6 +24,8 @@
     <!-- Main content -->
     <section class="content">
             <!-- Small boxes (Stat box) -->
+
+      <?php if(isset($this->session->user_role) && $this->session->user_role=='admin') { ?>
       <div class="row">
         <div class="col-md-12">
           <!-- Application buttons -->
@@ -74,6 +76,7 @@
         </div>
       </div>
       <!-- /.row -->
+      <?php } ?>
 
       <div class="row">
 
@@ -209,10 +212,13 @@
               </table>
             </div>
             <!-- /.box-body -->
-            <div class="box-footer clearfix">
-              <a href="<?php echo site_url('enrollment/register_student')?>" class="btn btn-sm btn-danger btn-flat pull-left">Add Student</a>
-              <a href="<?php echo site_url('enrollment/student_list')?>" id="trial" class="btn btn-sm btn-default btn-flat pull-right">View All Students</a>
-            </div>
+
+            <?php if(isset($this->session->Enrollment) && $this->session->Enrollment=='active') { ?>
+              <div class="box-footer clearfix">
+                <a href="<?php echo site_url('enrollment/register_student')?>" class="btn btn-sm btn-danger btn-flat pull-left">Add Student</a>
+                <a href="<?php echo site_url('enrollment/student_list')?>" id="trial" class="btn btn-sm btn-default btn-flat pull-right">View All Students</a>
+              </div>
+            <?php } ?>
           </div>
           <!-- /.box -->
 

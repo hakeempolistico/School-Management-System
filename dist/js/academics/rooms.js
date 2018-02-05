@@ -284,7 +284,6 @@ function populateTable(){
   });
   
   $("#rooms-table").on("click", "tr td .schedule-btn", function(){
-
       //console.log($(this).parents('tr').find('td:first').html());
       $.ajax({
         url: getScheduleUrl,
@@ -292,14 +291,18 @@ function populateTable(){
         dataType: 'json', 
         data: {'room_id' : $(this).parents('tr').find('td:first').html()}, 
         success: function(result){  
-          //console.log(result);
-          $('#table-sched tbody').html('');
+          console.log(result);
+          
           $.each(result, function( index, value ) {
-            $('#table-sched tbody').append('<tr> <td>'+value.class +' </td> <td> '+value.subject_code +'</td> <td>'+value.day +' </td> <td>'+value.time +' </td> </tr>');
+          $('#table-sched').find('tbody').append(
+            '<tr> <td>'+value.strand+value.year+value.section+'</td> <td>'+value.subject_code+'</td> <td>'+value.day+'</td> <td>'+value.time_start+' - '+value.time_end+'</td> </tr>' )
           });
         }
       }); 
 
+
   });
+
+
 
   

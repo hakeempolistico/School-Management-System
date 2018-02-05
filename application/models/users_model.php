@@ -87,6 +87,12 @@ class users_model extends CI_Model{
 		return $data[0]->name;
 	}
 
+	public function getPermissions($user_role){
+		$this->db->select('module_name, '.$user_role.' as status');
+		$data = $this->db->get('user_permission')->result();
+		return $data;
+	}
+
 }
 
 ?>

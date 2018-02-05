@@ -12,82 +12,7 @@
 
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">                                    
-          <!-- User Account: style can be found in dropdown.less --><li class="dropdown messages-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-              <i class="fa fa-envelope-o"></i>
-              <span class="label label-success">4</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 4 messages</li>
-              <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                  <li><!-- start message -->
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="http://sms.local/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Support Team
-                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                  <!-- end message -->
-                  <li>
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="http://sms.local/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        AdminLTE Design Team
-                        <small><i class="fa fa-clock-o"></i> 2 hours</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="http://sms.local/dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Developers
-                        <small><i class="fa fa-clock-o"></i> Today</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="http://sms.local/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Sales Department
-                        <small><i class="fa fa-clock-o"></i> Yesterday</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="http://sms.local/dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Reviewers
-                        <small><i class="fa fa-clock-o"></i> 2 days</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="footer"><a href="#">See All Messages</a></li>
-            </ul>
-          </li>
+          <!-- User Account: style can be found in dropdown.less -->  
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="<?php echo base_url('images/alt_picture.jpg');?>" class="user-image" alt="<?php echo base_url('images/alt_picture.jpg');?>">
@@ -123,16 +48,6 @@
   <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
-      <!-- Sidebar user panel -->
-      <div class="user-panel">
-        <div class="pull-left image">
-          <img src="<?php echo base_url('images/alt_picture.jpg');?>" class="img-circle" alt="<?php echo base_url('images/alt_picture.jpg');?>">
-        </div>
-        <div class="pull-left info">
-          <p><?php echo $this->session->first_name." ".$this->session->last_name ?></p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-        </div>
-      </div>
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
@@ -141,6 +56,7 @@
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
+        <?php if(isset($this->session->Enrollment) && $this->session->Enrollment=='active') { ?>
         <li class="treeview <?php echo (isset($active) && substr($active,0,10) == 'enrollment' ? 'active' : null); ?>">
           <a href="#">
             <i class="fa fa-files-o"></i>
@@ -173,7 +89,10 @@
             </li>
           </ul>          
         </li>
+        <?php } ?>
 
+
+        <?php if(isset($this->session->Academics) && $this->session->Academics=='active') { ?>
         <li class="treeview <?php echo (isset($active) && substr($active,0,9) =='academics' ? 'active' : null); ?>">
           <a href="#">
             <i class="fa fa-mortar-board"></i>
@@ -184,163 +103,197 @@
           </a>
 
           <ul class="treeview-menu">
+
+          <?php if(isset($this->session->Strands) && $this->session->Strands=='active') { ?>
             <li class="<?php echo (isset($active) && $active =='academics/strands' ? 'active' : null) ; ?>">
               <a href="<?php echo site_url('academics/strands'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Strands
               </a>
             </li>
+          <?php } ?>
+          <?php if(isset($this->session->Teachers) && $this->session->Teachers=='active') { ?>
             <li class="<?php echo (isset($active) && $active =='academics/teachers' ? 'active' : null) ; ?>">
               <a href="<?php echo site_url('academics/teachers'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Teachers
               </a>
             </li>
+          <?php } ?>
+          <?php if(isset($this->session->Rooms) && $this->session->Rooms=='active') { ?>
             <li class="<?php echo (isset($active) && $active =='academics/rooms' ? 'active' : null) ; ?>">
               <a href="<?php echo site_url('academics/rooms'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Rooms
               </a>
             </li>
+          <?php } ?>
+          <?php if(isset($this->session->Sections) && $this->session->Sections=='active') { ?>
             <li class="<?php echo (isset($active) && $active =='academics/sections' ? 'active' : null) ; ?>">
               <a href="<?php echo site_url('academics/sections'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Sections
               </a>
-            </li>          
+            </li> 
+          <?php } ?>     
+          <?php if(isset($this->session->Subjects) && $this->session->Subjects=='active') { ?>    
             <li class="<?php echo (isset($active) && $active =='academics/subjects' ? 'active' : null) ; ?>">
               <a href="<?php echo site_url('academics/subjects'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   Subjects
               </a>
-            </li>          
+            </li>  
+          <?php } ?>   
+          <?php if(isset($this->session->Curriculum) && $this->session->Curriculum=='active') { ?>     
             <li class="<?php echo (isset($active) && $active =='academics/curriculum' ? 'active' : null) ; ?>">
               <a href="<?php echo site_url('academics/curriculum'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   Curriculum
               </a>
             </li>
+          <?php } ?>
+          <?php if(isset($this->session->{'Assign Subjects'}) && $this->session->{'Assign Subjects'}=='active') { ?>
             <li class="<?php echo (isset($active) && $active =='academics/assign_subjects' ? 'active' : null) ; ?>">
               <a href="<?php echo site_url('academics/assign_subjects'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 Assign Subjects
               </a>
             </li>
+          <?php } ?>
+          <?php if(isset($this->session->Schedule) && $this->session->Schedule=='active') { ?>
             <li class="<?php echo (isset($active) && $active =='academics/schedule' ? 'active' : null) ; ?>">
               <a href="<?php echo site_url('academics/schedule'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   Schedule
               </a>
             </li>
-
+          <?php } ?>
+          <?php if(isset($this->session->{'Assign Advisory'}) && $this->session->{'Assign Advisory'}=='active') { ?>
             <li class="<?php echo (isset($active) && $active =='academics/assign_advisory_class' ? 'active' : null) ; ?>">
               <a href="<?php echo site_url('academics/assign_advisory_class'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                   Assign Advisory Class
               </a>
             </li>
+          <?php } ?>
           </ul>          
         </li>
+        <?php } ?>
 
-        <li class="treeview <?php echo (isset($active) && substr($active,0,12) =='student_info' ? 'active' : null); ?>">
-          <a href="#">
-            <i class="fa fa-id-card"></i>
-            <span>Student Information</span>
-            <span class="pull-right-container">
-              <span class="fa fa-angle-left pull-right"></span>
-            </span>
-          </a>
 
-          <ul class="treeview-menu">
-            <li class="<?php echo (isset($active) && $active =='student_info/student_details' ? 'active' : null) ; ?>">
-              <a href="<?php echo site_url('student_info/student_details'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Student Details
-              </a>
-            </li>         
-            <!-- <li>
-              <a href="<?php echo site_url('enrollment/register_student'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Student Grades
-              </a>
-            </li> -->
-            <li>
-              <a href="#">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Student Promotion
+        <?php if(isset($this->session->{'Student Promotion'}) && $this->session->{'Student Promotion'}=='active') { ?>
+          <li class="treeview <?php echo (isset($active) && substr($active,0,12) =='student_info' ? 'active' : null); ?>">
+            <a href="#">
+              <i class="fa fa-id-card"></i>
+              <span>Student Information</span>
               <span class="pull-right-container">
-                <span class="label label-warning pull-right">soon</span>
+                <span class="fa fa-angle-left pull-right"></span>
               </span>
-              </a>
-            </li>
-          </ul>          
-        </li>
+            </a>
 
-        <li class="<?php echo (isset($active) && $active =='advisory/advisory_class' ? 'active' : null); ?>">
-          <a href="<?php echo site_url('advisory/advisory_class'); ?>">
-            <i class="fa fa-star"></i>
-            <span>Advisory Class</span>
-          </a>
-        </li>
+            <ul class="treeview-menu">
+              <li class="<?php echo (isset($active) && $active =='student_info/student_details' ? 'active' : null) ; ?>">
+                <a href="<?php echo site_url('student_info/student_details'); ?>">
+                  <i class="fa fa-circle-o text-aqua"></i>
+                  Student Details
+                </a>
+              </li>         
+              <!-- <li>
+                <a href="<?php echo site_url('enrollment/register_student'); ?>">
+                  <i class="fa fa-circle-o text-aqua"></i>
+                  Student Grades
+                </a>
+              </li> -->
+              <li>
+                <a href="#">
+                  <i class="fa fa-circle-o text-aqua"></i>
+                  Student Promotion
+                <span class="pull-right-container">
+                  <span class="label label-warning pull-right">soon</span>
+                </span>
+                </a>
+              </li>
+            </ul>          
+          </li>
+        <?php } ?>
 
-        <li class="treeview <?php echo (isset($active) && substr($active,0,6) =='grades' ? 'active' : null); ?>">
-          <a href="">
-            <i class="fa fa-file"></i>
-            <span>Grades Management</span>
-            <span class="pull-right-container">
-              <span class="fa fa-angle-left pull-right"></span>
-            </span>
-          </a>
 
-          <ul class="treeview-menu">
-            <li class="<?php echo (isset($active) && $active =='grades/view' ? 'active' : null); ?>">
-              <a href="<?php echo site_url('grades/view'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                View
-              </a>
-            </li>         
-            <li class="<?php echo (isset($active) && $active =='grades/manage' ? 'active' : null); ?>">
-              <a href="<?php echo site_url('grades/manage'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Manage
-              </a>
-            </li>
-          </ul> 
-        </li>     
+        <?php if(isset($this->session->{'Advisory Class'}) && $this->session->{'Advisory Class'}=='active') { ?>
+          <li class="<?php echo (isset($active) && $active =='advisory/advisory_class' ? 'active' : null); ?>">
+            <a href="<?php echo site_url('advisory/advisory_class'); ?>">
+              <i class="fa fa-star"></i>
+              <span>Advisory Class</span>
+            </a>
+          </li>
+        <?php } ?>
 
-        <li class="<?php echo (isset($active) && $active =='audit_trail' ? 'active' : null); ?>">
-          <a href="<?php echo site_url('audit_trail'); ?>">
-            <i class="fa fa-history"></i>
-            <span>Audit Trail</span>
-          </a>
-        </li>
 
-        <li class="treeview <?php echo (isset($active) && substr($active,0,7) =='reports' ? 'active' : null); ?>">
-          <a href="#">
-            <i class="fa fa-bar-chart"></i>
-            <span>Reports</span>
-          </a>
-
-          <ul class="treeview-menu">
-            <li class="<?php echo (isset($active) && $active =='reports/student_reports' ? 'active' : null) ; ?>">
-              <a href="<?php echo site_url('reports/student_reports'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Student Reports
-              </a>
-            </li>         
-            <li>
-              <a href="<?php echo site_url('enrollment/register_student'); ?>">
-                <i class="fa fa-circle-o text-aqua"></i>
-                Grade Reports
+        <?php if(isset($this->session->{'Grades Management'}) && $this->session->{'Grades Management'}=='active') { ?>
+          <li class="treeview <?php echo (isset($active) && substr($active,0,6) =='grades' ? 'active' : null); ?>">
+            <a href="">
+              <i class="fa fa-file"></i>
+              <span>Grades Management</span>
               <span class="pull-right-container">
-                <span class="label label-warning pull-right">soon</span>
+                <span class="fa fa-angle-left pull-right"></span>
               </span>
-              </a>
-            </li>            
-          </ul>          
-        </li>
+            </a>
+
+            <ul class="treeview-menu">
+              <li class="<?php echo (isset($active) && $active =='grades/view' ? 'active' : null); ?>">
+                <a href="<?php echo site_url('grades/view'); ?>">
+                  <i class="fa fa-circle-o text-aqua"></i>
+                  View
+                </a>
+              </li>         
+              <li class="<?php echo (isset($active) && $active =='grades/manage' ? 'active' : null); ?>">
+                <a href="<?php echo site_url('grades/manage'); ?>">
+                  <i class="fa fa-circle-o text-aqua"></i>
+                  Manage
+                </a>
+              </li>
+            </ul> 
+          </li>
+        <?php } ?>  
+
+        <?php if(isset($this->session->{'Audit Trail'}) && $this->session->{'Audit Trail'}=='active') { ?>
+          <li class="<?php echo (isset($active) && $active =='audit_trail' ? 'active' : null); ?>">
+            <a href="<?php echo site_url('audit_trail'); ?>">
+              <i class="fa fa-history"></i>
+              <span>Audit Trail</span>
+            </a>
+          </li>
+        <?php } ?>  
+
+
+        <?php if(isset($this->session->Reports) && $this->session->Reports=='active') { ?>
+          <li class="treeview <?php echo (isset($active) && substr($active,0,7) =='reports' ? 'active' : null); ?>">
+            <a href="#">
+              <i class="fa fa-bar-chart"></i>
+              <span>Reports</span>
+            </a>
+
+            <ul class="treeview-menu">
+              <li class="<?php echo (isset($active) && $active =='reports/student_reports' ? 'active' : null) ; ?>">
+                <a href="<?php echo site_url('reports/student_reports'); ?>">
+                  <i class="fa fa-circle-o text-aqua"></i>
+                  Student Reports
+                </a>
+              </li>         
+              <li>
+                <a href="<?php echo site_url('enrollment/register_student'); ?>">
+                  <i class="fa fa-circle-o text-aqua"></i>
+                  Grade Reports
+                <span class="pull-right-container">
+                  <span class="label label-warning pull-right">soon</span>
+                </span>
+                </a>
+              </li>            
+            </ul>          
+          </li>
+        <?php } ?>
 
         
+        <?php if(isset($this->session->user_role) && $this->session->user_role=='admin') { ?>
         <li class="treeview <?php echo (isset($active) && substr($active,0,8) =='settings' ? 'active' : null); ?>">
           <a href="#">
             <i class="fa fa-gear"></i>
@@ -368,8 +321,10 @@
             </li>
           </ul>          
         </li>
+        <?php } ?>
 
       </ul>
+
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">INFORMATION NAVIGATION</li>
@@ -379,21 +334,23 @@
           </a>
         </li>    
       </ul>
-
-      <!-- sidebar menu: : style can be found in sidebar.less -->
-      <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">STUDENT VIEW</li>
-        <li class="<?php echo (isset($active) && $active =='my_grades' ? 'active' : null) ; ?>">
-          <a href="<?php echo site_url('student/my_grades'); ?>">
-            <i class="fa  fa-files-o"></i> <span>My Grades</span>
-          </a>
-        </li> 
-        <li class="">
-          <a href="<?php echo site_url('student/my_schedule'); ?>">
-            <i class="fa  fa-calendar"></i> <span>My Schedule</span>
-          </a>
-        </li>     
-      </ul>
+      
+      <?php if(isset($this->session->user_role) && $this->session->user_role=='user') { ?>
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu" data-widget="tree">
+          <li class="header">STUDENT VIEW</li>
+          <li class="<?php echo (isset($active) && $active =='my_grades' ? 'active' : null) ; ?>">
+            <a href="<?php echo site_url('student/my_grades'); ?>">
+              <i class="fa  fa-files-o"></i> <span>My Grades</span>
+            </a>
+          </li> 
+          <li class="">
+            <a href="<?php echo site_url('student/my_schedule'); ?>">
+              <i class="fa  fa-calendar"></i> <span>My Schedule</span>
+            </a>
+          </li>     
+        </ul>
+      <?php } ?>
     </section>
     <!-- /.sidebar -->
     </section>

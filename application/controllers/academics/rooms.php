@@ -116,5 +116,50 @@ class rooms extends CI_Controller {
 			$this->audit_trail->set('Academics', 'Rooms', 'deactivate', 'ROOM ID - '.$data['room_id'].' set to '.$data['status']);
 		}
 	}
+
+	public function getRoomSchedule() {
+			$data = $this->input->post();
+			//$id= $data['room_id'];
+			$class = $this->rooms_model->getDistinctClass('Lab101');
+			$sub = $this->rooms_model->getDistnctSubject('Lab101');
+			$time = $this->rooms_model->getDistnctTime('Lab101');
+			/*foreach ($res as $key => $val) {
+				$val->strand = $this->global_model->getRow('sections', 'id', $val->section_id)->strand_code;
+				if($this->global_model->getRow('sections', 'id', $val->section_id)->year_level_id == '1'){
+					$val->year = 'Grade 11';
+				}
+				else{
+					$val->year = 'Grade 12';
+				};
+				$val->section = $this->global_model->getRow('sections', 'id', $val->section_id)->name;
+			}*/
+
+			echo '<pre>';
+			print_r($class);
+			echo '<pre>';
+
+			echo '<pre>';
+			print_r($time);
+			echo '<pre>';
+
+			echo '<pre>';
+			print_r($sub);
+			echo '<pre>'; exit;
+
+			echo json_encode($res);
+	}
 	
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
