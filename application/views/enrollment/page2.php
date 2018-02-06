@@ -234,6 +234,7 @@
                   <th>Status</th>
                 </tr>
                 </thead>
+                <tbody></tbody>
               </table>
               <br>
                 <form id="enrollStudent" method="post" action=<?php echo base_url('enrollment/enroll_student/submit/'); ?>>
@@ -255,6 +256,9 @@
         <!-- /.modal-dialog -->
       </div>
       <!-- /.modal -->
+
+      <input type="hidden" name="year_level_id" id="year">
+      <input type="hidden" name="strand_code" id="strand">
 
 
     </section>
@@ -421,7 +425,7 @@
                     data: {'grade_requirement': '85', 'status': 'active'}, 
                     success: function(result){
 
-                    alert(result);
+                    console.log(result);
 
                     $('#available').empty();
 
@@ -430,12 +434,84 @@
 
                       $('#available').append('<div class="col-md-6"><div class="small-box bg-olive" data-toggle="modal" data-target="#strand_selection" style="cursor: pointer;"><div class="inner text-white" style="color: white; min-height: 130px;"><h3 style="color: white;">'+value.strand_code+'</h3><p style="color: white;">'+value.strand_name+'</p></div><div class="icon"><i class="fa fa-cogs"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div></div>');
 
-                      $('#chosenStrand').text(value.strand_code);
-                      console.log($('#chosenStrand'));
+
+                     });
+
+                    $('.small-box').on('click', function(){
+                      var s_code = $(this).find('h3').text();
+
+                      $('.chosenStrand').html(s_code);
+                      $('#strand').val(s_code);
+
+                      // console.log($('#year').val());
+                      // console.log($('#strand').val());
+
+                      var getSectionsUrl = "<?php echo base_url("enrollment/enroll_student/getSectionTable"); ?>"
+                      var year = $('#year').val();
+
+                      $.ajax({
+                                url: getSectionsUrl,
+                                type: 'post',
+                                dataType: 'json', 
+                                data: {'year_level_id': year, 'strand': s_code}, 
+                                success: function(result){
+
+                                  console.log(result);
+
+                                  $('#sectionsTable').DataTable().destroy();
+
+                                  var table = $('#sectionsTable').DataTable({
+                                    data: result,
+                                    columnDefs: [{
+                                      orderable: false,
+                                      className: 'select-checkbox',
+                                      targets: 0
+                                    }],
+                                    select: {
+                                      style: 'os',
+                                      selector: 'td:first-child'
+                                    },
+                                    order: [[ 1, 'asc' ]],
+                                    "searchable": false,
+                                    "bPaginate": false,
+                                    "bLengthChange": false,
+                                    "bFilter": false,
+                                    "bInfo": false,
+                                    "bAutoWidth": false
+
+                                  });
+
+                                  $('#enroll').on('click', function()
+                                  {
+                                    var selected = table.rows({ selected: true }).data();
+                                    console.log(selected);
+
+                                    var silrn = <?php echo $lrn ?>;
+                                    var id = selected[0][1];
+
+                                    $('#s_i_lrn').val(silrn);
+                                    $('#noteHidden').val($('#note').val());
+                                    $('#section_id').val(id);
+                                    
+
+                                    $('#enrollStudent').submit();
+
+                                  })
 
 
+
+                                
+                                
+                                  
+                                }
+                      });
+
+                      
                     });
 
+
+
+                    
                     
                       
                       }
