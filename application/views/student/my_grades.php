@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>School Management | My Grades</title>
+  <title>My Grades</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -109,9 +109,9 @@
               </ul> -->
               <table class="table">
                 <thead>
-                  <th>School Year</th>
-                  <th>Semester</th>
-                  <th class="text-center" style="width: 10%">Action</th>
+                  <th class="text-primary">School Year</th>
+                  <th class="text-primary">Semester</th>
+                  <th class="text-primary text-center" style="width: 10%">Action</th>
                 </thead>
                 <tbody>
                   <tr>
@@ -152,10 +152,10 @@
                   <table class="table">
                     <thead>
                       <tr role="row">
-                        <th colspan="5" class="text-center">SY 2017-2018</th>
+                        <th colspan="5" class="text-center text-primary">SY 2017-2018</th>
                       </tr>
                       <tr role="row">
-                        <th colspan="5" class="text-center">FIRST SEMESTER</th>
+                        <th colspan="5" class="text-center text-primary">FIRST SEMESTER</th>
                       </tr>
                       <tr role="row">
                       <th>Subject Code</th>
