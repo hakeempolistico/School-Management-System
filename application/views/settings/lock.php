@@ -132,7 +132,7 @@
 
         <div class="col-md-6 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-teal"><i class="fa fa-star"></i></span>
+            <span class="info-box-icon bg-teal"><i class="fa fa-file"></i></span>
 
             <div class="info-box-content">
               <span class="info-box-number pull-right"><input type="checkbox" class="toggle Grades-Management-toggle" data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
@@ -144,7 +144,7 @@
 
         <div class="col-md-6 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-teal"><i class="fa fa-star"></i></span>
+            <span class="info-box-icon bg-yellow"><i class="fa fa-star"></i></span>
 
             <div class="info-box-content">
               <span class="info-box-number pull-right"><input type="checkbox" class="toggle Advisory-Class-toggle" data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
@@ -156,7 +156,7 @@
 
         <div class="col-md-6 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-teal"><i class="fa fa-star"></i></span>
+            <span class="info-box-icon bg-green"><i class="fa fa-history"></i></span>
 
             <div class="info-box-content">
               <span class="info-box-number pull-right"><input type="checkbox" class="toggle Audit-Trail-toggle" data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
@@ -168,7 +168,7 @@
 
         <div class="col-md-6 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-teal"><i class="fa fa-star"></i></span>
+            <span class="info-box-icon bg-purple"><i class="fa fa-bar-chart"></i></span>
 
             <div class="info-box-content">
               <span class="info-box-number pull-right"><input type="checkbox" class="toggle Reports-toggle" data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-size="mini" data-on="<i class='fa fa-check'></i>" data-off="<i class='fa fa-close'></i>"></span>
