@@ -199,114 +199,20 @@
         <!-- /.col -->
 
         <div class="col-md-8" id= "aStrands" style="display: none;">
-        <div>
-        <h4>Available Strands:</h4>
-        </div>
 
-      <div class="row">
-
-        <div class="col-md-6" id="tvlasdiv">
-          <div class="small-box bg-yellow-active" data-toggle="modal" data-target="#strand_selection" style="cursor: pointer;">
-            <div class="inner">
-              <h3>TVL-AS</h3>
-
-              <p>Technogy-Vocational<br>Livelihood: Automotive Services</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-cogs"></i>
-            </div>
-            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
+          <div>
+          <h4>Available Strands:</h4>
           </div>
+
+          <div id="available"></div>
+
         </div>
-        <!-- ./col -->
-
-        <div class="col-md-6" id="gasdiv">
-          <div class="small-box bg-maroon" data-toggle="modal" data-target="#strand_selection" style="cursor: pointer;">
-            <div class="inner">
-              <h3>GAS</h3>
-
-              <p>General<br>Academic Strand</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-book"></i>
-            </div>
-            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-
-        <div class="col-md-6" id="tvlhediv">
-          <div class="small-box bg-blue" data-toggle="modal" data-target="#strand_selection" style="cursor: pointer;">
-            <div class="inner">
-              <h3>TVL-HE</h3>
-
-              <p>Technology-Vocational<br>Livelihood: Home Economics</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-home"></i>
-            </div>
-            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-
-        <div class="col-md-6" id="humssdiv">
-          <div class="small-box bg-gray humssbox" data-toggle="modal" data-target="#humss" style="pointer-events: none;">
-            <div class="inner">
-              <h3>HUMSS</h3>
-
-              <p>Humanities<br>and Social Sciences</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-users"></i>
-            </div>
-            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-
-        <div class="col-md-6" id="abmdiv">
-          <div class="small-box bg-gray abmbox" data-toggle="modal" data-target="#abm" style="pointer-events: none;">
-            <div class="inner">
-              <h3>ABM</h3>
-
-              <p>Accountancy<br>and Business Management</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-briefcase"></i>
-            </div>
-            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-
-        <div class="col-md-6" id="stemdiv">
-          <div class="small-box bg-gray stembox" data-toggle="modal" data-target="#stem" style="pointer-events: none;">
-            <div class="inner">
-              <h3>STEM</h3>
-
-              <p>Science, Technology,<br> Engineering, and Mathematics</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-flask"></i>
-            </div>
-            <a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->        
-
-      </div>
-      <!-- /.row -->
-      </div>
-      <!-- /.col-md-8 -->
+        <!-- /.col-md-8 -->
 
       </div>
       <!-- /.row -->
 
-    </section>
-    <!-- /.content -->
-
-    <!-- MODALS -->
+      <!-- MODALS -->
 
       <div class="modal fade" id="strand_selection">
         <div class="modal-dialog">
@@ -350,14 +256,9 @@
       </div>
       <!-- /.modal -->
 
-      
 
-
-
-
-      <!-- ######################## HIDDEN INPUTS ########################### -->
-        <input type="hidden" id="strand" name="strand">
-        <input type="hidden" id="year" name="year">
+    </section>
+    <!-- /.content -->
 
   </div>
   <!-- /.content-wrapper -->
@@ -428,21 +329,26 @@
 
   $('#f138').on('ifChecked', function (event) {
     $('#f138Hidden').val('form 138');
+    $('.subject11').prop('disabled', false);
+    $('#grades11').removeClass('text-muted'); //pampatanggal ng mute
+  });
+  $('#f138').on('ifUnchecked', function (event) {
+    $('#f138Hidden').val('form 138');
+    $('.subject11').prop('disabled', true);
   });
 
 
   $('.checkAll11').on('ifChecked', function (event) {
-      $('.check11').iCheck('check');
-      $('#grades11').removeClass('text-muted');
+      $('.check11').iCheck('check'); //checks lahat if checkall is checked
+      $('#grades11').removeClass('text-muted'); //pampatanggal ng mute
       triggeredByChild = false;
   });
 
   $('.checkAll11').on('ifUnchecked', function (event) {
       if (!triggeredByChild) {
-          $('.check11').iCheck('uncheck');
+          $('.check11').iCheck('uncheck'); //unchecks other checkboxes pag naka uncheck yung checkall
       }
-      $('#grades11').addClass('text-muted');
-      $('#aStrands').css('display', 'none');
+      $('#grades11').addClass('text-muted'); //mutes text
       triggeredByChild = false;
   });
 
@@ -451,14 +357,15 @@
       $('.checkAll11').iCheck('uncheck');
   });
 
-   $('.check11').on('ifChanged', function (event) {
-      if ($('.check11').filter(':checked').length > 0) {
-        $('.subject11').prop('disabled', false);
 
-      } else {
-        $('.subject11').prop('disabled', true);
-      }
-  });
+  //  $('.check11').on('ifChanged', function (event) {
+  //     if ($('.check11').filter(':checked').length > 0) {
+  //       $('.subject11').prop('disabled', false);
+
+  //     } else {
+  //       $('.subject11').prop('disabled', true);
+  //     }
+  // });
 
   $('.check11').on('ifChecked', function(event){
       if ($('.check11').filter(':checked').length == $('.check11').length) {
@@ -500,165 +407,45 @@
       $('#error').text('');
 
         ave = (input1 + input2 + input3 + input4 + input5 + input6 + input7 +input8) / 8;
-        console.log(input1+' '+ input2+' '+input3+input4+' '+input5+input6+' '+input7+input8+' '+ave);
         $('#avera').text('General Average : ' + ave);
 
-        if (ave > 85){
-          $('.stembox').hide();
-          $('.abmbox').hide();
-          $('.humssbox').hide();
+        if (ave >= 85){
+          // alert("ulol pakyu");
 
-          $('#humssdiv').append('<div class="small-box bg-red-active color-palette humssbox" data-toggle="modal" data-target="#strand_selection" style="curor: pointer;"><div class="inner"><h3>HUMSS</h3><p>Humanities and<br> Social Sciences</p></div><div class="icon"><i class="fa fa-users"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
+          var getStrandsUrl = "<?php echo base_url("enrollment/enroll_student/getStrands"); ?>"
 
-          $('#abmdiv').append('<div class="small-box bg-green-active color-palette abmbox" data-toggle="modal" data-target="#strand_selection" style="cursor: pointer;"><div class="inner"><h3>ABM</h3><p>Accountancy and Business<br> Management</p></div><div class="icon"><i class="fa fa-briefcase"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
+          $.ajax({
+                    url: getStrandsUrl,
+                    type: 'post',
+                    dataType: 'json', 
+                    data: {'grade_requirement': '85', 'status': 'active'}, 
+                    success: function(result){
 
-          $('#stemdiv').append('<div class="small-box bg-purple-active color-palette stembox" data-toggle="modal" data-target="#strand_selection" style="cursor: pointer;"><div class="inner"><h3>STEM</h3><p>Science, Technology,<br> Engineering, and Mathematics</p></div><div class="icon"><i class="fa fa-flask"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
+                    alert(result);
+
+                    $('#available').empty();
+
+                    $.each(result, function( index, value ) {
+
+
+                      $('#available').append('<div class="col-md-6"><div class="small-box bg-olive" data-toggle="modal" data-target="#strand_selection" style="cursor: pointer;"><div class="inner text-white" style="color: white; min-height: 130px;"><h3 style="color: white;">'+value.strand_code+'</h3><p style="color: white;">'+value.strand_name+'</p></div><div class="icon"><i class="fa fa-cogs"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div></div>');
+
+                      $('#chosenStrand').text(value.strand_code);
+                      console.log($('#chosenStrand'));
+
+
+                    });
+
+                    
+                      
+                      }
+          });   
+
         } else{
-          $('.stembox').hide();
-          $('.abmbox').hide();
-          $('.humssbox').hide();
-
-          $('#humssdiv').append('<div class="small-box bg-gray color-palette humssbox" data-toggle="modal" data-target="#humss" style="curor: pointer;"><div class="inner"><h3>HUMSS</h3><p>Humanities and<br> Social Sciences</p></div><div class="icon"><i class="fa fa-users"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
-
-          $('#abmdiv').append('<div class="small-box bg-gray color-palette abmbox" data-toggle="modal" data-target="#abm" style="cursor: pointer;"><div class="inner"><h3>ABM</h3><p>Accountancy and Business<br> Management</p></div><div class="icon"><i class="fa fa-briefcase"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
-
-          $('#stemdiv').append('<div class="small-box bg-gray color-palette stembox" data-toggle="modal" data-target="#stem" style="cursor: pointer;"><div class="inner"><h3>STEM</h3><p>Science, Technology,<br> Engineering, and Mathematics</p></div><div class="icon"><i class="fa fa-flask"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div>');
-        }
+          alert("bobo ka");
+          }
       }
   });
-
-
-  $('#tvlasdiv').click(function()
-  {
-    $('#strand').val('');
-    $('.modal-header').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
-    $('.modal-header').addClass('bg-yellow-active');
-    $('.chosenStrand').html('TVL-AS');
-    $('#enroll').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
-    $('#enroll').addClass('bg-yellow-active');
-    $('#strand').val('tvl-as');
-    ajax();
-  });
-
-  $('#gasdiv').click(function()
-  {
-    $('#strand').val('');
-    $('.modal-header').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
-    $('.modal-header').addClass('bg-maroon');
-    $('.chosenStrand').html('GAS');
-    $('#enroll').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
-    $('#enroll').addClass('bg-maroon');
-    $('#strand').val('gas');
-    ajax();
-  });
-
-  $('#tvlhediv').on('click',function()
-  {
-    $('#strand').val('');
-    $('.modal-header').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
-    $('.modal-header').addClass('bg-blue');
-    $('.chosenStrand').html('TVL-HE');
-    $('#enroll').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
-    $('#enroll').addClass('bg-blue');
-    $('#strand').val('tvl-he');
-    ajax();
-  });
-
-  $('#humssdiv').on('click',function()
-  {
-    $('#strand').val('');
-    $('.modal-header').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
-    $('.modal-header').addClass('bg-red-active');
-    $('.chosenStrand').html('HUMSS');
-    $('#enroll').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
-    $('#enroll').addClass('bg-red-active');
-    $('#strand').val('humss');
-    ajax();
-  });
-
-  $('#abmdiv').on('click',function()
-  {
-    $('#strand').val('');
-    $('.modal-header').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
-    $('.modal-header').addClass('bg-green');
-    $('.chosenStrand').html('ABM');
-    $('#enroll').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
-    $('#enroll').addClass('bg-green');
-    $('#strand').val('abm');
-    ajax();
-  });
-
-  $('#stemdiv').on('click',function()
-  {
-    $('#strand').val('');
-    $('.modal-header').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
-    $('.modal-header').addClass('bg-purple-active');
-    $('.chosenStrand').html('STEM');
-    $('#enroll').removeClass('bg-green bg-maroon bg-gray bg-blue bg-yellow-active bg-purple-active bg-red-active');
-    $('#enroll').addClass('bg-purple-active');
-    $('#strand').val('stem');
-    ajax();
-  });
-
- function ajax(){
-  var ajaxUrl = "<?php echo base_url("enrollment/enroll_student/getSectionTable"); ?>"
-  var strand = $('#strand').val();
-  var year = $('#year').val(); 
-  //alert('stand : '+strand+' year : '+year);
-  $.ajax({
-            url: ajaxUrl,
-            type: 'post',
-            dataType: 'json', 
-            data: {'strand': strand, 'year_level_id': year}, 
-            success: function(result){
-
-            //alert(result);
-
-            $('#sectionsTable').DataTable().destroy();
-
-            var table = $('#sectionsTable').DataTable({
-              "data": result,
-              columnDefs: [ {
-                orderable: false,
-                className: 'select-checkbox',
-                targets:   0
-              } ],
-              select: {
-                style:    'os',
-                selector: 'td:first-child'
-              },
-              order: [[ 1, 'asc' ]],
-              "searchable": false,
-              "bPaginate": false,
-              "bLengthChange": false,
-              "bFilter": false,
-              "bInfo": false,
-              "bAutoWidth": false
-            });
-
-            //$('#enroll').val(table.rows( { selected: true } ).data());
-
-            $('#enroll').on('click',function()
-            {
-              var selected = table.rows( { selected: true } ).data();
-
-              selected.destroy();
-              console.log(selected);
-              var id = selected[0][1];
-              var silrn = "<?php echo $lrn ?>";
-
-              $('#s_i_lrn').val(silrn);
-              $('#section_id').val(id);
-              $('#noteHidden').val($('#note').val());
-
-              console.log('registered_student_lrn: '+ $('#r_s_lrn').val() + ' section_id: ' +$('#section_id').val() + ' note: ' + $('#noteHidden').val());
-
-              $('#enrollStudent').submit();
-            });   
-              
-              }
-  });   
- }
  
 </script>
 

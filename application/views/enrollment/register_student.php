@@ -15,7 +15,7 @@
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/Ionicons/css/ionicons.min.css">
   <!-- Select2 -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/select2/dist/css/select2.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/select2-4.0/dist/css/select2.min.css">
   <!-- iCheck for checkboxes and radio inputs -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/iCheck/all.css">
   <!-- Theme style -->
@@ -98,6 +98,14 @@
     line-height: 1.428571429;
     border-radius: 15px;
 }
+/* Styling for Select2 with error */
+.has-errora {
+  border-color: rgb(185, 74, 72) !important;
+}
+.has-error .select2-selection {
+    border-color: rgb(185, 74, 72) !important;
+}
+
 </style>
   <!-- Google Font -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/googlefont.css">
@@ -126,236 +134,7 @@
     <section class="content">
       <div class="row">
         <div class="col-md-12">
-          <!-- <div class="box box-info">
-
-            <div class="box-header with-border">
-              <h3 class="box-title">Student Information</h3>
-            </div>
-            <div class="box-body" style="padding-bottom: 20px;">
-              <form method="POST" action="<?php echo base_url('enrollment/register_student/register/'); ?>">
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="form-group">
-                        <label>LRN<span class="text-red">*</span></label>
-                        <input type="text" class="form-control" name="lrn" id="inputLRN" value="<?php echo set_value('lrn'); ?>" placeholder="Learner Reference Number">
-                        <?php echo form_error('lrn'); ?>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label>Name<span class="text-red">*</span></label>
-                    <div class="row">
-                      <div class="col-md-4">
-                        <input type="text" class="form-control" name="first_name" id="inputFNAME" value="<?php echo set_value('first_name'); ?>" placeholder="First Name">
-                        <?php echo form_error('first_name'); ?>
-                      </div>
-                      <div class="col-md-4">
-                        <input type="text" class="form-control" name="middle_name" id="inputMNAME" value="<?php echo set_value('middle_name'); ?>" placeholder="Middle Name">
-                        <?php echo form_error('middle_name'); ?>
-                      </div>
-                      <div class="col-md-4">
-                        <input type="text" class="form-control" name="last_name" id="inputLNAME" value="<?php echo set_value('last_name'); ?>" placeholder="Last Name">
-                        <?php echo form_error('last_name'); ?>
-                      </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label>Sex<span class="text-red">*</span></label>
-                      <select class="form-control" id="inputSEX" name="sex" value="<?php echo set_select('sex'); ?>" placeholder="Sex">
-                        <option value="" disabled selected>Sex</option>
-                        <option value="Female" <?php echo  set_select('sex', 'Female'); ?> >Female</option>
-                        <option value="Male" <?php echo  set_select('sex', 'Male'); ?> >Male</option>
-                      </select>
-                      <?php echo form_error('sex'); ?>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label>Contact Number<span class="text-red">*</span></label>
-                      <input type="text" class="form-control" name="contact_number" id="inputCONTACT" value="<?php echo set_value('contact_number'); ?>" placeholder="Contact Number">
-                      <?php echo form_error('contact_number'); ?>
-                    </div>
-                  </div>
-                </div>
-                <hr>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label>Birth Date<span class="text-red">*</span></label>
-                      <div class="input-group date">
-                        <div class="input-group-addon">
-                          <i class="fa fa-calendar"></i>
-                        </div>
-                        <input type="text" class="form-control" id="datepicker" name="birth_date" value="<?php echo set_value('birth_date'); ?>" placeholder="yyyy/mm/dd">
-                      </div>
-                      <?php echo form_error('birth_date'); ?>
-                    </div>
-                  </div>
-
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label>Birth Place<span class="text-red">*</span></label>
-                      <input type="text" class="form-control" id="inputBIRTHPLACE" name="birth_place" value="<?php echo set_value('birth_place'); ?>" placeholder="Birth Place">
-                      <?php echo form_error('birth_place'); ?>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label>Address<span class="text-red">*</span></label>
-                  <div class="row">
-                    <div class="col-md-3">
-                      <input type="text" class="form-control address" id="inputSTREET" value="<?php echo set_value('street'); ?>" placeholder="House #, Street" name="street">
-                        <?php echo form_error('street'); ?>
-                    </div>
-                    <div class="col-md-3">
-                      <input type="text" class="form-control address" id="inputBARANGAY" value="<?php echo set_value('barangay'); ?>" placeholder="Barangay" name="barangay">
-                        <?php echo form_error('barangay'); ?>
-                    </div>
-                    <div class="col-md-3">
-                      <input type="text" class="form-control address" id="inputCITY" value="<?php echo set_value('city'); ?>" placeholder="City" name="city">
-                        <?php echo form_error('city'); ?>
-                    </div>
-                    <div class="col-md-3">
-                      <input type="text" class="form-control address" id="inputPROVINCE" value="<?php echo set_value('province'); ?>" placeholder="Province" name="province">
-                        <?php echo form_error('province'); ?>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label>Mother Tongue<span class="text-red">*</span></label>
-                      <input type="text" class="form-control" id="inputMOTHERTONGUE" value="<?php echo set_value('mother_tongue'); ?>" placeholder="Mother Tongue" name="mother_tongue">
-                      <?php echo form_error('mother_tongue'); ?>
-                    </div>
-                  </div>
-
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label>Religion<span class="text-red">*</span></label>
-                      <input type="text" class="form-control" id="inputRELIGION" value="<?php echo set_value('religion'); ?>" placeholder="Religion" name="religion">
-                      <?php echo form_error('religion'); ?>
-                    </div>
-                  </div>
-                </div>
-
-                <hr>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label>Father's Name<span class="text-red">*</span></label>
-                      <input type="text" class="form-control" id="inputFATHER" value="<?php echo set_value('father_name'); ?>" placeholder="Father's Name" name="father_name">
-                      <?php echo form_error('father_name'); ?>
-                    </div>
-                  </div>
-
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label>Mother's Maiden Name<span class="text-red">*</span></label>
-                      <input type="text" class="form-control" id="inputMOTHER" value="<?php echo set_value('mother_name'); ?>" placeholder="Mother's Maiden Name" name="mother_name">
-                      <?php echo form_error('mother_name'); ?>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label>Father's Contact No.<span class="text-red">*</span></label>
-                      <input type="text" class="form-control" id="inputFATHERCONTACT" value="<?php echo set_value('father_contact'); ?>" placeholder="Father's Contact No." name="father_contact">
-                      <?php echo form_error('father_contact'); ?>
-                    </div>
-                  </div>
-
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label>Mother's Contact No.<span class="text-red">*</span></label>
-                      <input type="text" class="form-control" id="inputMOTHERCONTACT" value="<?php echo set_value('mother_contact'); ?>" placeholder="Mother's Contact No." name="mother_contact">
-                      <?php echo form_error('mother_contact'); ?>
-                    </div>
-                  </div>
-                </div>
-
-                <hr>
-                <div class="row" style="margin-bottom: -10px;">
-                  <div class="col-md-3">
-                    <label>If Guardian is<span class="text-red">*</span></label>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="form-group">
-                        <input type="radio" name="r3" class="flat-red pipol parent" value="Father" <?php echo  set_radio('r3', 'Father'); ?> >   Father
-                    </div>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="form-group">
-                        <input type="radio" name="r3" class="flat-red pipol parent" value="Mother" <?php echo  set_radio('r3', 'Mother'); ?> >   Mother
-                    </div>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="form-group">
-                        <input type="radio" name="r3" class="flat-red pipol other" value="Other" <?php echo  set_radio('r3', 'Other'); ?> >   Other
-                    </div>
-                  </div>
-                </div>
-
-                <div hidden id="guardianInput" class="row">
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label>Name<span class="text-red">*</span></label>
-                      <input type="text" class="form-control" id="inputGUARDIAN" value="<?php echo set_value('guardian'); ?>" placeholder="Guardian's Name" name="guardian">
-                      <?php echo form_error('guardian'); ?>
-                    </div>
-                  </div>
-
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label>Relationship<span class="text-red">*</span></label>
-                      <input type="text" class="form-control" id="inputRELATIONSHIP" value="<?php echo set_value('relationship'); ?>" placeholder="Relationship with Guardian" name="relationship">
-                      <?php echo form_error('relationship'); ?>
-                    </div>
-                  </div>
-
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label>Contact No.<span class="text-red">*</span></label>
-                      <input type="text" class="form-control" id="inputGUARDIANCONTACT" value="<?php echo set_value('guardian_contact'); ?>" placeholder="Guradian's Contact No." name="guardian_contact">
-                      <?php echo form_error('guardian_contact'); ?>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row" style="margin-bottom: -10px;">
-                  <div class="col-md-3">
-                    <label>Guardian Address<span class="text-red">*</span></label>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="form-group">
-                        <input type="radio" name="r4" class="flat-red stuadd" value="StudentAddress" <?php echo  set_radio('r4', 'StudentAddress'); ?> >   Student address
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                        <input type="radio" name="r4" class="flat-red stuadd" value="Other2" <?php echo  set_radio('r4', 'Other2'); ?> >
-                        <input type="text" id="inputGUARDIANADDRESS" value="<?php echo set_value('guardian_address'); ?>" placeholder="Other" name="guardian_address" >
-                        <?php echo form_error('guardian_address'); ?>
-                    </div>
-                  </div>                  
-                </div>
-
-                <hr>
-                
-                <button type="submit" class="btn btn-primary pull-right">Submit</button>
-
-              </form>
-            </div>
-          </div>
- -->
+          
           <div class="stepwizard">
             <div class="stepwizard-row setup-panel">
                 <div class="stepwizard-step col-xs-3"> 
@@ -377,7 +156,7 @@
             </div>
           </div>
           
-          <form role="form">
+          <form role="form" method="POST" action="<?php echo base_url('enrollment/register_student/register/'); ?>" >
             <div class="panel panel-primary setup-content" id="step-1">
                 <div class="panel-heading">
                      <h3 class="panel-title">Student Name</h3>
@@ -387,26 +166,26 @@
                     <div class="col-lg-12 col-sm-12">
                       <div class="form-group">
                           <label class="control-label">LRN</label>
-                          <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Learner Reference Number" />
+                          <input maxlength="100" required="required" type="text" id="inputLRN" class="form-control" placeholder="Enter Learner Reference Number" name="lrn" value="<?php echo set_value('lrn'); ?>"/>
                       </div>
                     </div>
 
                     <div class="col-lg-4 col-sm-12">
                       <div class="form-group">
                           <label class="control-label">First Name</label>
-                          <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter First Name" />
+                          <input maxlength="100" type="text" required="required" class="form-control" id="inputFNAME" placeholder="Enter First Name" name="first_name" value="<?php echo set_value('first_name'); ?>" />
                       </div>
                     </div>
                     <div class="col-lg-4 col-sm-12">
                       <div class="form-group">
                           <label class="control-label">Middle Name</label>
-                          <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Middle Name" />
+                          <input maxlength="100" type="text" required="required" class="form-control" id="inputMNAME" placeholder="Enter Middle Name" name="middle_name" value="<?php echo set_value('middle_name'); ?>" />
                       </div>
                     </div>
                     <div class="col-lg-4 col-sm-12">
                       <div class="form-group">
                           <label class="control-label">Last Name</label>
-                          <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Last Name" />
+                          <input maxlength="100" type="text" required="required" class="form-control" id="inputLNAME" placeholder="Enter Last Name" name="last_name" value="<?php echo set_value('last_name'); ?>"/>
                       </div>
                     </div>
                   </div>
@@ -421,51 +200,47 @@
                 <div class="panel-body">
                   <div class="row">
                     <div class="col-lg-4 col-sm-12">
-                      <div class="form-group">
+                      <div class="form-group" id="epalSelect">
                           <label class="control-label">Sex</label>
-                <select class="form-control select2" style="width: 100%; border-color: red; border-width: 1px; border-style: solid;">
-                  <option selected="selected">Alabama</option>
-                  <option>Alaska</option>
-                  <option>California</option>
-                  <option>Delaware</option>
-                  <option>Tennessee</option>
-                  <option>Texas</option>
-                  <option>Washington</option>
-                </select>
+                          <select class="form-control select2 has-error" required="required" id="inputSEX" name="sex" value="<?php echo set_select('sex'); ?>" data-placeholder="Sex">
+                            <option></option>
+                            <option value="Female" <?php echo  set_select('sex', 'Female'); ?> >Female</option>
+                            <option value="Male" <?php echo  set_select('sex', 'Male'); ?> >Male</option>
+                          </select>
                       </div>
                     </div>
                     <div class="col-lg-4 col-sm-12">
                       <div class="form-group">
                           <label class="control-label">Contact No</label>
-                          <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Contact Number" />
+                          <input maxlength="200" type="text" required="required" class="form-control" id="inputCONTACT" placeholder="Enter Contact Number" name="contact_number" value="<?php echo set_value('contact_number'); ?>" />
                       </div>
                     </div>
                     <div class="col-lg-4 col-sm-12">
                       <div class="form-group">
                           <label class="control-label">Birth Date</label>
-                          <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Birth Date" />
+                          <input maxlength="200" type="text" required="required" class="form-control" id="datepicker" placeholder="Enter Birth Date" name="birth_date" value="<?php echo set_value('birth_date'); ?>" />
                       </div>
                     </div>
                     <div class="col-lg-4 col-sm-12">
                       <div class="form-group">
                           <label class="control-label">Birth Place</label>
-                          <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Birth Place" />
+                          <input maxlength="200" type="text" required="required" class="form-control" id="inputBIRTHPLACE" placeholder="Enter Birth Place" name="birth_place" value="<?php echo set_value('birth_place'); ?>" />
                       </div>
                     </div>
                     <div class="col-lg-4 col-sm-12">
                       <div class="form-group">
                           <label class="control-label">Mother Tongue</label>
-                          <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Mother Tongue" />
+                          <input maxlength="200" type="text" required="required" class="form-control" id="inputMOTHERTONGUE" placeholder="Enter Mother Tongue" name="mother_tongue" value="<?php echo set_value('mother_tongue'); ?>" />
                       </div>
                     </div>
                     <div class="col-lg-4 col-sm-12">
                       <div class="form-group">
                           <label class="control-label">Religion</label>
-                          <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Religion" />
+                          <input maxlength="200" type="text" required="required" class="form-control" id="inputRELIGION" placeholder="Enter Religion" name="religion" value="<?php echo set_value('religion'); ?>"/>
                       </div>
                     </div>
                   </div>
-                    <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
+                    <button class="btn btn-primary nextBtn pull-right btn-2" type="button">Next</button>
                 </div>
             </div>
             
@@ -478,25 +253,25 @@
                     <div class="col-lg-12 col-sm-12">
                       <div class="form-group">
                           <label class="control-label">Street No.</label>
-                          <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Street Number" />
+                          <input maxlength="100" type="text" required="required" class="form-control" id="inputSTREET" placeholder="Enter Street Number" name="street" value="<?php echo set_value('street'); ?>"/>
                       </div>
                     </div>
                     <div class="col-lg-4 col-sm-12">
                       <div class="form-group">
                           <label class="control-label">Barangay</label>
-                          <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Barangay" />
+                          <input maxlength="100" type="text" required="required" class="form-control" id="inputBARANGAY" placeholder="Enter Barangay" name="barangay" value="<?php echo set_value('barangay'); ?>"/>
                       </div>
                     </div>
                     <div class="col-lg-4 col-sm-12">
                       <div class="form-group">
                           <label class="control-label">City</label>
-                          <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter City" />
+                          <input maxlength="100" type="text" required="required" class="form-control" id="inputCITY" placeholder="Enter City" name="city" value="<?php echo set_value('city'); ?>" />
                       </div>
                     </div>
                     <div class="col-lg-4 col-sm-12">
                       <div class="form-group">
                           <label class="control-label">Province</label>
-                          <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Province" />
+                          <input maxlength="100" type="text" required="required" class="form-control" id="inputPROVINCE" placeholder="Enter Province" name="province" value="<?php echo set_value('province'); ?>" />
                       </div>
                     </div>
                   </div>
@@ -513,25 +288,25 @@
                     <div class="col-lg-6 col-sm-12">
                       <div class="form-group">
                           <label class="control-label">Father's Name</label>
-                          <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Father's Name" />
+                          <input maxlength="100" type="text" required="required" class="form-control" id="inputFATHER" placeholder="Enter Father's Name" name="father_name" value="<?php echo set_value('father_name'); ?>"/>
                       </div>
                     </div>
                     <div class="col-lg-6 col-sm-12">
                       <div class="form-group">
                           <label class="control-label">Father's Contact</label>
-                          <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Father's Contact" />
+                          <input maxlength="100" type="text" required="required" class="form-control" id="inputFATHERCONTACT" placeholder="Enter Father's Contact" name="father_contact" value="<?php echo set_value('father_contact'); ?>"/>
                       </div>
                     </div>
                     <div class="col-lg-6 col-sm-12">
                       <div class="form-group">
                           <label class="control-label">Mother's Maiden Name</label>
-                          <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Mother's Maiden Name" />
+                          <input maxlength="100" type="text" required="required" class="form-control" id="inputMOTHER" placeholder="Enter Mother's Maiden Name" name="mother_name" value="<?php echo set_value('mother_name'); ?>" />
                       </div>
                     </div>
                     <div class="col-lg-6 col-sm-12">
                       <div class="form-group">
                           <label class="control-label">Mother's Contact</label>
-                          <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Mother's Contact" />
+                          <input maxlength="100" type="text" required="required" class="form-control" id="inputMOTHERCONTACT"placeholder="Enter Mother's Contact" name="mother_contact" value="<?php echo set_value('mother_contact'); ?>"/>
                       </div>
                     </div>
                   </div>
@@ -631,7 +406,7 @@
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo base_url(); ?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Select2 -->
-<script src="<?php echo base_url(); ?>bower_components/select2/dist/js/select2.full.min.js"></script>
+<script src="<?php echo base_url(); ?>bower_components/select2-4.0/dist/js/select2.full.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
@@ -670,6 +445,7 @@
 
     $('.pipol').on('ifChecked', function(event){
       var radioInput = $(this).val(); 
+      console.log(radioInput);
       
 
       if(radioInput == "Father"){
@@ -734,7 +510,9 @@
 </script>
 <script type="text/javascript">
   //Initialize Select2 Elements
-    $('.select2').select2();
+    $('.select2').select2({
+      placeholder: 'Sex'
+    });
 
   //FORM WIZARD
     $(document).ready(function () {
@@ -764,13 +542,45 @@
             curStepBtn = curStep.attr("id"),
             nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
             curInputs = curStep.find("input[type='text'],input[type='url']"),
+            curSelect = curStep.find("input[type='select']"),
             isValid = true;
 
         $(".form-group").removeClass("has-error");
+        
         for (var i = 0; i < curInputs.length; i++) {
             if (!curInputs[i].validity.valid) {
                 isValid = false;
                 $(curInputs[i]).closest(".form-group").addClass("has-error");
+            }
+            /*if (!$(this).parent('.setup-content').find('#inputSEX').val()) {
+              isValid = false;
+              $('#epalSelect').addClass("has-error");
+              console.log($('#inputSEX').val());
+            }*/
+        }
+
+        if (isValid) nextStepWizard.removeAttr('disabled').trigger('click');
+    });
+
+    $('.btn-2').click(function () {
+        var curStep = $(this).closest(".setup-content"),
+            curStepBtn = curStep.attr("id"),
+            nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+            curInputs = curStep.find("input[type='text'],input[type='url']"),
+            curSelect = curStep.find("input[type='select']"),
+            isValid = true;
+
+        $(".form-group").removeClass("has-error");
+        
+        for (var i = 0; i < curInputs.length; i++) {
+            if (!curInputs[i].validity.valid) {
+                isValid = false;
+                $(curInputs[i]).closest(".form-group").addClass("has-error");
+            }
+            if (!$('#inputSEX').val()) {
+              isValid = false;
+              $('#epalSelect').addClass("has-error");
+              console.log($('#inputSEX').val());
             }
         }
 
@@ -779,7 +589,11 @@
 
     $('div.setup-panel div a.btn-success').trigger('click');
 });
-</script>
+</script><!-- 
+<script type="text/javascript">
+  if($('#inputSEX').val().length == 0)
+      $('#epalSelect').addClass("has-error");
+</script> -->
 
 
 </body>
