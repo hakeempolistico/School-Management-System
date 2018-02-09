@@ -71,20 +71,23 @@ class dashboard extends CI_Controller {
 			if($val->code == 'STEM'){
 				$val->color='green';
 			}
-			if($val->code == 'ABM'){
+			else if($val->code == 'ABM'){
 				$val->color='teal';
 			}
-			if($val->code == 'HUMSS'){
+			else if($val->code == 'HUMSS'){
 				$val->color='maroon';
 			}
-			if($val->code == 'GAS'){
+			else if($val->code == 'GAS'){
 				$val->color='aqua';
 			}
-			if($val->code == 'TVL-AS'){
+			else if($val->code == 'TVL-AS'){
 				$val->color='purple';
 			}
-			if($val->code == 'TVL-HE'){
+			else if($val->code == 'TVL-HE'){
 				$val->color='orange';
+			}
+			else{
+				$val->color='red';
 			}
 		}
 		$data['strandStatus'] = $activeStrands;

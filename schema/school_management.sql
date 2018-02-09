@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 05, 2018 at 10:26 PM
+-- Generation Time: Feb 10, 2018 at 02:17 AM
 -- Server version: 5.7.11
 -- PHP Version: 7.0.4
 
@@ -73,7 +73,9 @@ INSERT INTO `addresses` (`id`, `students_info_lrn`, `street`, `barangay`, `city`
 (9, 14038059, '221', 'Brgy', 'Pasig', 'Province'),
 (10, 14038005, '212', 'Brgy', 'Obando', 'Bulacan'),
 (11, 14038096, 'Street', 'Brgy', 'Taguig', 'Province'),
-(12, 14038021, '213', 'Brgy. 125', 'Caloocan City', 'Manila');
+(12, 14038021, '213', 'Brgy. 125', 'Caloocan City', 'Manila'),
+(13, 2147483647, '#211 Barietto st.', 'Talaba I', 'Bacoor City', 'Cavite'),
+(14, 897489232, 'fskdfhsdkj', 'hkjfdshkfj', 'kfskjdfh', 'kfsjkdhf');
 
 -- --------------------------------------------------------
 
@@ -197,7 +199,35 @@ INSERT INTO `audit_trail` (`id`, `user`, `module`, `sub_module`, `action`, `desc
 (110, 'Administrator - Hakeem Polistico', '-', '-', 'Logged Out', '-', '2018-02-05 13:47:06'),
 (111, 'Teacher - Adrielle Escaro', '-', '-', 'Logged In', '-', '2018-02-05 13:47:13'),
 (112, 'Teacher - Adrielle Escaro', '-', '-', 'Logged Out', '-', '2018-02-05 13:57:45'),
-(113, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-05 13:57:52');
+(113, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-05 13:57:52'),
+(114, 'Administrator - Hakeem Polistico', '-', '-', 'Logged Out', '-', '2018-02-05 15:59:14'),
+(115, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-05 15:59:20'),
+(116, 'Administrator - Hakeem Polistico', '-', '-', 'Logged Out', '-', '2018-02-05 16:22:23'),
+(117, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-05 16:22:26'),
+(118, 'Administrator - Hakeem Polistico', '-', '-', 'Logged Out', '-', '2018-02-05 16:22:48'),
+(119, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-05 16:22:50'),
+(120, 'Administrator - Hakeem Polistico', '-', '-', 'Logged Out', '-', '2018-02-05 16:23:04'),
+(121, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-05 16:23:06'),
+(122, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-06 01:31:26'),
+(123, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-06 05:19:27'),
+(124, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-06 12:52:47'),
+(125, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-06 18:33:32'),
+(126, 'Administrator - Hakeem Polistico', '-', '-', 'Logged Out', '-', '2018-02-06 18:33:54'),
+(127, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-08 11:11:38'),
+(128, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-08 11:17:37'),
+(129, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-08 11:19:17'),
+(130, 'Administrator - Hakeem Polistico', 'Academics', 'Strands', 'Added Data', 'Information Technology', '2018-02-08 11:24:21'),
+(131, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-09 15:05:18'),
+(132, 'Administrator - Hakeem Polistico', '-', '-', 'Logged Out', '-', '2018-02-09 17:53:15'),
+(133, 'Teacher - Adrielle Escaro', '-', '-', 'Logged In', '-', '2018-02-09 17:53:34'),
+(134, 'Teacher - Adrielle Escaro', '-', '-', 'Logged Out', '-', '2018-02-09 17:56:38'),
+(135, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-09 17:56:40'),
+(136, 'Administrator - Hakeem Polistico', '-', '-', 'Logged Out', '-', '2018-02-09 18:10:46'),
+(137, 'Teacher - Adrielle Escaro', '-', '-', 'Logged In', '-', '2018-02-09 18:10:54'),
+(138, 'Teacher - Adrielle Escaro', '-', '-', 'Logged Out', '-', '2018-02-09 18:11:23'),
+(139, 'Teacher - Adrielle Escaro', '-', '-', 'Logged In', '-', '2018-02-09 18:11:26'),
+(140, 'Teacher - Adrielle Escaro', '-', '-', 'Logged Out', '-', '2018-02-09 18:11:33'),
+(141, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-09 18:11:38');
 
 -- --------------------------------------------------------
 
@@ -298,7 +328,8 @@ INSERT INTO `enrolled_students` (`id`, `students_info_lrn`, `note`, `section_id`
 (7, 14038059, 'No shoes', '6', 2, '2018-01-19 18:46:26', '0000-00-00 00:00:00'),
 (8, 14038005, '', '1', 2, '2018-01-19 19:39:57', '0000-00-00 00:00:00'),
 (9, 14038096, '', '1', 2, '2018-01-22 13:47:23', '0000-00-00 00:00:00'),
-(10, 14038021, '', '6', 2, '2018-01-25 03:30:14', '0000-00-00 00:00:00');
+(10, 14038021, '', '6', 2, '2018-01-25 03:30:14', '0000-00-00 00:00:00'),
+(11, 2147483647, 'Kalbo', '3', 2, '2018-02-06 12:53:29', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -371,7 +402,9 @@ INSERT INTO `guardians` (`id`, `students_info_lrn`, `name`, `contact`, `relation
 (7, 14038059, 'Mother Alcantara', '0955-887-4822', 'Mother', '221, Brgy, Pasig, Province'),
 (8, 14038005, 'Father Capistrano', '0955-887-4822', 'Father', 'Bacoor, Cavite'),
 (9, 14038096, 'Mother Lazaro', '0955-887-4822', 'Mother', 'Street, Brgy, Taguig, Province'),
-(10, 14038021, 'Anne Curtis', '0955-887-4822', 'Mother', '213, Brgy. 125, Caloocan City, Manila');
+(10, 14038021, 'Anne Curtis', '0955-887-4822', 'Mother', '213, Brgy. 125, Caloocan City, Manila'),
+(11, 2147483647, 'Father Name', '3246238427', 'Father', 'Somewhere over the rainbow'),
+(12, 897489232, 'afkjhsdjk', '0979687689', 'Father', 'fskdfhsdkj, hkjfdshkfj, kfskjdfh, kfsjkdhf');
 
 -- --------------------------------------------------------
 
@@ -435,7 +468,9 @@ INSERT INTO `parents` (`id`, `students_info_lrn`, `mother_name`, `mother_contact
 (9, 14038059, 'Mother Alcantara', '0955-887-4822', 'Father Alcantara', '0955-887-4822'),
 (10, 14038005, 'Mother Capistrano', '0955-887-4822', 'Father Capistrano', '0955-887-4822'),
 (11, 14038096, 'Mother Lazaro', '0955-887-4822', 'Father Lazaro', '0955-887-4822'),
-(12, 14038021, 'Anne Curtis', '0955-887-4822', 'Tom Cruise', '0955-887-4822');
+(12, 14038021, 'Anne Curtis', '0955-887-4822', 'Tom Cruise', '0955-887-4822'),
+(13, 2147483647, 'Mother Name', '8953875634', 'Father Name', '3246238427'),
+(14, 897489232, 'jkgjh', '8796756', 'afkjhsdjk', '0979687689');
 
 -- --------------------------------------------------------
 
@@ -448,6 +483,13 @@ CREATE TABLE `registered_students` (
   `students_info_lrn` varchar(15) NOT NULL,
   `date_registered` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `registered_students`
+--
+
+INSERT INTO `registered_students` (`id`, `students_info_lrn`, `date_registered`) VALUES
+(12, '897489232', '2018-02-06 12:54:41');
 
 -- --------------------------------------------------------
 
@@ -496,7 +538,10 @@ INSERT INTO `requirements` (`id`, `enrolled_student_lrn`, `requirement`, `date_g
 (27, '14038096', 'form 138', '2018-01-22 13:47:23'),
 (28, '14038021', 'NSO Birth Certificate', '2018-01-25 03:30:14'),
 (29, '14038021', 'Form 137', '2018-01-25 03:30:14'),
-(30, '14038021', 'form 138', '2018-01-25 03:30:14');
+(30, '14038021', 'form 138', '2018-01-25 03:30:14'),
+(31, '2147483647', 'NSO Birth Certificate', '2018-02-06 12:53:29'),
+(32, '2147483647', 'Form 137', '2018-02-06 12:53:29'),
+(33, '2147483647', 'form 138', '2018-02-06 12:53:29');
 
 -- --------------------------------------------------------
 
@@ -617,24 +662,26 @@ CREATE TABLE `strands` (
   `code` varchar(45) NOT NULL,
   `name` varchar(60) NOT NULL,
   `status` enum('active','inactive') NOT NULL DEFAULT 'active',
-  `date_created` timestamp NOT NULL
+  `date_created` timestamp NOT NULL,
+  `grade_requirement` int(4) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `strands`
 --
 
-INSERT INTO `strands` (`id`, `code`, `name`, `status`, `date_created`) VALUES
-(1, 'STEM', 'Science, Technology, Engineering and Mathematics', 'active', '2018-01-17 14:54:40'),
-(2, 'GAS', 'General Academic Strand', 'active', '0000-00-00 00:00:00'),
-(3, 'HUMSS', 'Humanities and Social Sciences', 'active', '0000-00-00 00:00:00'),
-(4, 'TVL-HE', 'Technical Vocational and Livelihood - Home Economics', 'active', '0000-00-00 00:00:00'),
-(5, 'TVL-AS', 'Technical Vocational and Livelihood - Automative Services', 'active', '0000-00-00 00:00:00'),
-(6, 'ABM', 'Accounting and Business Management', 'active', '0000-00-00 00:00:00'),
-(17, 'asd', 'asd', 'inactive', '0000-00-00 00:00:00'),
-(18, '123', 'asd', 'inactive', '0000-00-00 00:00:00'),
-(19, '1231', 'asdasda', 'inactive', '0000-00-00 00:00:00'),
-(20, 'BSIS4', 'BS Information System 5', 'inactive', '0000-00-00 00:00:00');
+INSERT INTO `strands` (`id`, `code`, `name`, `status`, `date_created`, `grade_requirement`) VALUES
+(1, 'STEM', 'Science, Technology, Engineering and Mathematics', 'active', '2018-02-06 05:30:57', 85),
+(2, 'GAS', 'General Academic Strand', 'active', '2018-02-06 05:30:57', 65),
+(3, 'HUMSS', 'Humanities and Social Sciences', 'active', '2018-02-06 05:30:57', 85),
+(4, 'TVL-HE', 'Technical Vocational and Livelihood - Home Economics', 'active', '2018-02-06 05:30:57', 65),
+(5, 'TVL-AS', 'Technical Vocational and Livelihood - Automative Services', 'active', '2018-02-06 05:30:57', 65),
+(6, 'ABM', 'Accounting and Business Management', 'active', '2018-02-06 05:30:57', 85),
+(17, 'asd', 'asd', 'inactive', '2018-02-06 05:30:57', 65),
+(18, '123', 'asd', 'inactive', '2018-02-06 05:30:57', 65),
+(19, '1231', 'asdasda', 'inactive', '2018-02-06 05:30:57', 65),
+(20, 'BSIS4', 'BS Information System 5', 'inactive', '2018-02-06 05:30:57', 65),
+(21, 'BSIT', 'Information Technology', 'active', '0000-00-00 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -676,7 +723,9 @@ INSERT INTO `students_info` (`id`, `lrn`, `first_name`, `middle_name`, `last_nam
 (9, 14038059, 'Aaron James', '', 'Alcantara', 'Male', '0955-887-4822', '1995-03-03', 'Pasig', 22, 'Filipino', 'Roman Catholic', b'0', '2018-01-19 18:24:51', '2018-01-19 18:24:51'),
 (10, 14038005, 'John Robert', '', 'Capistrano', 'Male', '0955-887-4822', '1997-04-13', 'Bulacan', 20, 'Filipino', 'Roman Catholic', b'0', '2018-01-19 19:29:58', '2018-01-19 19:29:58'),
 (11, 14038096, 'Meliton', '', 'Lazaro', 'Male', '0955-887-4822', '1997-02-23', 'Taguig', 20, 'Filipino', 'Roman Catholic', b'0', '2018-01-22 09:57:31', '2018-01-22 09:57:31'),
-(12, 14038021, 'Christine', '', 'Canimo', 'Female', '0955-887-4822', '2018-01-25', 'Antipolo', 0, 'Filipino', 'Roman Catholic', b'0', '2018-01-25 03:27:50', '2018-01-25 03:27:50');
+(12, 14038021, 'Christine', '', 'Canimo', 'Female', '0955-887-4822', '2018-01-25', 'Antipolo', 0, 'Filipino', 'Roman Catholic', b'0', '2018-01-25 03:27:50', '2018-01-25 03:27:50'),
+(13, 2147483647, 'Fernando', 'kalbo', 'Renegado', 'Male', '479382424', '1998-10-27', 'Quezon City', 19, 'Tagalog', 'Catholic', b'0', '2018-02-06 05:31:48', '2018-02-06 05:31:48'),
+(14, 897489232, 'dhjkdf', 'jhjkhk', 'jhkhjkh', 'Male', '75675765', '1994-07-20', 'dsjfkhfj', 23, 'jhjfdkshfkj', 'jhfkshskjdfh', b'0', '2018-02-06 12:54:41', '2018-02-06 12:54:41');
 
 -- --------------------------------------------------------
 
@@ -705,7 +754,9 @@ INSERT INTO `student_contacts` (`id`, `students_info_lrn`, `parents_id`, `guardi
 (7, '14038059', 9, 7),
 (8, '14038005', 10, 8),
 (9, '14038096', 11, 9),
-(10, '14038021', 12, 10);
+(10, '14038021', 12, 10),
+(11, '2147483647', 13, 11),
+(12, '897489232', 14, 12);
 
 -- --------------------------------------------------------
 
@@ -815,7 +866,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `employee_id`, `username`, `password`, `first_name`, `middle_name`, `last_name`, `position`, `sex`, `birthdate`, `contact_no`, `email`, `major`, `advisory_class`, `user_role`, `status`, `date_created`, `date_modified`) VALUES
 (1, '14038014', 'admin', 'admin', 'Hakeem', '', 'Polistico', 'Administrator', 'Male', '1994/07/22', '0955-887-4822', 'hakeem.polistico@tup.edu.ph', 'Mathematics', 0, 'admin', 'active', '2017-10-12 04:21:44', '2018-02-05 06:11:19'),
-(2, '0001', '0001', 'password', 'Adrielle', '', 'Escaro', 'Teacher', 'Female', '1998/06/24', '09355156653', 'adrielle.escaro@tup.edu.ph', 'English', 0, 'super_user', 'active', '2017-10-12 04:21:44', '2018-02-05 06:11:19');
+(12, '0001', '0001', 'P@ssword123', 'Adrielle', 'Mestiola', 'Escaro', 'Teacher', 'male', '', '', '', 'Computer', 1, 'admin', 'active', '2018-02-09 17:48:22', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -1032,12 +1083,12 @@ ALTER TABLE `academic_years`
 -- AUTO_INCREMENT for table `addresses`
 --
 ALTER TABLE `addresses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `audit_trail`
 --
 ALTER TABLE `audit_trail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
 --
 -- AUTO_INCREMENT for table `class_subjects`
 --
@@ -1052,7 +1103,7 @@ ALTER TABLE `curriculum`
 -- AUTO_INCREMENT for table `enrolled_students`
 --
 ALTER TABLE `enrolled_students`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `grades`
 --
@@ -1062,7 +1113,7 @@ ALTER TABLE `grades`
 -- AUTO_INCREMENT for table `guardians`
 --
 ALTER TABLE `guardians`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `modules`
 --
@@ -1072,17 +1123,17 @@ ALTER TABLE `modules`
 -- AUTO_INCREMENT for table `parents`
 --
 ALTER TABLE `parents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `registered_students`
 --
 ALTER TABLE `registered_students`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `requirements`
 --
 ALTER TABLE `requirements`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 --
 -- AUTO_INCREMENT for table `rooms`
 --
@@ -1102,17 +1153,17 @@ ALTER TABLE `sections`
 -- AUTO_INCREMENT for table `strands`
 --
 ALTER TABLE `strands`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `students_info`
 --
 ALTER TABLE `students_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `student_contacts`
 --
 ALTER TABLE `student_contacts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `subjects`
 --
@@ -1127,7 +1178,7 @@ ALTER TABLE `teachers`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `user_permission`
 --
