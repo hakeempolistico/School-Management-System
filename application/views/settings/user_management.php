@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/Ionicons/css/ionicons.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/select2/dist/css/select2.min.css"> 
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -68,231 +70,30 @@
 
     <!-- Main content -->
     <section class="content">
-      <!-- <div class="row">
-        <div class="col-md-12">
-          <div class="nav-tabs-custom">
-            <ul class="nav nav-tabs">
-              <li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-users"></i> Users</a></li>
-              <li><a href="#tab_2" data-toggle="tab"><i class="fa fa-user-secret"></i> Roles</a></li>
-            </ul>
-            <div class="tab-content">
-              <div class="tab-pane active" id="tab_1">
-                <div class="row">
-              <div class="col-lg-3">
-                <div class="form-group">
-                <label>Filter by:</label>
-                <select class="form-control select2 select2-hidden-accessible" style="width: 100%;">
-                  <option selected="selected">Student</option>
-                  <option>Teacher</option>
-                </select>
-                </div>
-              </div>
-              </div>
-                <table id="UsersTable" class="table table-striped display nowrap" cellspacing="0" width="100%">
-                <thead>
-                <tr>
-                  <th>User ID</th>
-                  <th>Name</th>
-                  <th>Position</th>
-                  <th>Role</th>
-                  <th>Status</th>
-                  <th style="width: 10%">Action</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td>123</td>
-                  <td>Havanahunana</td>
-                  <td>Teacher</td>
-                  <td>SuperUser</td>
-                  <td><span class="label label-success">Active</span></td>
-                  <td>
-                    <button data-toggle="modal" data-target="#modal-confirm-add" class="btn btn-xs btn-primary"><i class="fa fa-user-plus"></i></button>
-                    <button data-toggle="modal" data-target="#modal-confirm-deac" class="btn btn-xs btn-warning"><i class="fa fa-user-times"></i></button>
-                    <button data-toggle="modal" data-target="#modal-confirm-reset" class="btn btn-xs btn-danger"><i class="fa fa-key"></i></button>
-                    <button data-toggle="modal" data-target="#modal-change-role" class="btn btn-xs btn-info"><i class="fa fa-gear"></i></button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>123</td>
-                  <td>Havanahunana</td>
-                  <td>Teacher</td>
-                  <td>SuperUser</td>
-                  <td><span class="label label-success">Active</span></td>
-                  <td>
-                  <button data-toggle="modal" data-target="#modal-confirm-add" class="btn btn-xs btn-primary"><i class="fa fa-user-plus"></i></button>
-                    <button data-toggle="modal" data-target="#modal-confirm-deac" class="btn btn-xs btn-warning"><i class="fa fa-user-times"></i></button>
-                    <button data-toggle="modal" data-target="#modal-confirm-reset" class="btn btn-xs btn-danger"><i class="fa fa-key"></i></button>
-                  </td>
-                </tr>
-                </tbody>
-                <tfoot>
-                <tr>
-                  <th>User ID</th>
-                  <th>Name</th>
-                  <th>Position</th>
-                  <th>Role</th>
-                  <th>Status</th>
-                  <th>Action</th>
-                </tr>
-                </tfoot>
-              </table>
-              </div>
-              <div class="tab-pane" id="tab_2">
-                <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#add-role"><i class="fa fa-plus"></i> Add</button>
-                <table class="table table-striped"> 
-                  <thead>
-                    <th>Roles</th>
-                    <th>Access</th>
-                    <th>Action</th>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Admin</td>
-                      <td>All</td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td>Super User</td>
-                      <td>Advisory Class, Grades Management</td>
-                      <td><button class="btn btn-xs btn-info" data-toggle="modal" data-target="#edit-role"><i class="fa fa-gear"></i></button></td>
-                    </tr>
-                    <tr>
-                      <td>User</td>
-                      <td>My Schedule, My Grades</td>
-                      <td><button class="btn btn-xs btn-info"><i class="fa fa-gear"></i></button></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-      <!-- /.row -->
-      <!-- <div class="modal fade" id="add-role">
-        <div class="modal-dialog" style="width: 400px;">
-          <div class="box box-primary">
-            <div class="box-header">
-              <h3 class="box-title text-primary"><i class="fa fa-plus"></i> Add New Role</h3>
-            </div>
-            <div class="box-body">
-              <label>Name:</label>
-              <input type="text" name="" class="form-control"><br>
-              <label>Access:</label>
-              <table class="table">
-                <thead>
-                  <th><input type="checkbox" name="">Grant</th>
-                  <th>Modules</th>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><input type="checkbox" name=""></td>
-                    <td>Enrollment</td>
-                  </tr>
-                  <tr>
-                    <td><input type="checkbox" name=""></td>
-                    <td>Academics</td>
-                  </tr>
-                  <tr>
-                    <td><input type="checkbox" name=""></td>
-                    <td>SIS</td>
-                  </tr>
-                  <tr>
-                    <td><input type="checkbox" name=""></td>
-                    <td>Advisory</td>
-                  </tr>
-                  <tr>
-                    <td><input type="checkbox" name=""></td>
-                    <td>Grades Management</td>
-                  </tr>
-                </tbody>
-              </table><br>
-              <button style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-plus"></i>&nbsp; Add</button>
-            </div>
-          </div>
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="form-group" style="margin-bottom: 7px">
+            <label>Filter by:</label>
+            <select id="select-sem" data-placeholder="Select filter" class="form-control select2" style="width: 100%;">
+              <option></option>
+              <option id="First Semester">Teachers</option>
+              <option id="Second Semester">Students</option>
+            </select>
+          </div> 
         </div>
       </div>
 
-      <div class="modal fade" id="edit-role">
-        <div class="modal-dialog" style="width: 400px;">
-          <div class="box box-primary">
-            <div class="box-header">
-              <h3 class="box-title text-primary"><i class="fa fa-pencil"></i> Edit Role</h3>
-            </div>
-            <div class="box-body">
-              <label>Name:</label>
-              <input type="text" name="" class="form-control" placeholder="SuperUser"><br>
-              <label>Access:</label>
-              <table class="table">
-                <thead>
-                  <th><input type="checkbox" name="">Grant</th>
-                  <th>Modules</th>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><input type="checkbox" name=""></td>
-                    <td>Enrollment</td>
-                  </tr>
-                  <tr>
-                    <td><input type="checkbox" name=""></td>
-                    <td>Academics</td>
-                  </tr>
-                  <tr>
-                    <td><input type="checkbox" name=""></td>
-                    <td>SIS</td>
-                  </tr>
-                  <tr>
-                    <td><input type="checkbox" name=""></td>
-                    <td>Advisory</td>
-                  </tr>
-                  <tr>
-                    <td><input type="checkbox" name=""></td>
-                    <td>Grades Management</td>
-                  </tr>
-                </tbody>
-              </table><br>
-              <button style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-save"></i>&nbsp; Save</button>
-            </div>
-          </div>
-        </div>
-      </div> -->
-      
       <div class="row">        
         <div class="col-lg-12 col-xs-12">
           <div class="box box-primary">
             <div class="box-header">
               <h3 class="box-title text-primary"><i class="fa fa-users"></i> Users List</h3>
-             
             </div>
             
             <div class="box-body">
-              <!-- <div class="col-lg-12 no-padding">
-              <div class="col-md-6 no-padding">
-              <div class="form-group">
-                <label>Filter by:</label>
-                <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" aria-hidden="true">
-                  <option selected="selected">Student</option>
-                  <option>Teacher</option>
-                </select>
-
-              </div>
-              </div>
-              </div><br> -->
-              <div class="row">
-              <div class="col-lg-3">
-                <div class="form-group">
-                <label>Filter by:</label>
-                <select class="form-control select2 select2-hidden-accessible" style="width: 100%;">
-                  <option selected="selected">Student</option>
-                  <option>Teacher</option>
-                </select>
-                </div>
-              </div>
-              </div>
               <div class="row">
               <div class="col-lg-12">
-              <table id="UsersTable" class="table table-bordered table-striped display nowrap" cellspacing="0" width="100%">
+              <table id="users-table" class="table table-bordered table-striped display nowrap" cellspacing="0" width="100%">
                 <thead>
                 <tr>
                   <th>User ID</th>
@@ -304,31 +105,6 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>123</td>
-                  <td>Havanahunana</td>
-                  <td>Teacher</td>
-                  <td>SuperUser</td>
-                  <td><span class="label label-success">Active</span></td>
-                  <td>
-                    <button data-toggle="modal" data-target="#modal-confirm-add" class="btn btn-xs btn-primary"><i class="fa fa-user-plus"></i></button>
-                    <button data-toggle="modal" data-target="#modal-confirm-deac" class="btn btn-xs btn-warning"><i class="fa fa-user-times"></i></button>
-                    <button data-toggle="modal" data-target="#modal-confirm-reset" class="btn btn-xs btn-danger"><i class="fa fa-key"></i></button>
-                    <button data-toggle="modal" data-target="#modal-change-role" class="btn btn-xs btn-info"><i class="fa fa-gear"></i></button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>123</td>
-                  <td>Havanahunana</td>
-                  <td>Teacher</td>
-                  <td>SuperUser</td>
-                  <td><span class="label label-success">Active</span></td>
-                  <td>
-                  <button data-toggle="modal" data-target="#modal-confirm-add" class="btn btn-xs btn-primary"><i class="fa fa-user-plus"></i></button>
-                    <button data-toggle="modal" data-target="#modal-confirm-deac" class="btn btn-xs btn-warning"><i class="fa fa-user-times"></i></button>
-                    <button data-toggle="modal" data-target="#modal-confirm-reset" class="btn btn-xs btn-danger"><i class="fa fa-key"></i></button>
-                  </td>
-                </tr>
                 </tbody>
                 <tfoot>
                 <tr>
@@ -347,59 +123,7 @@
             </div>
           </div>
         </div>
-        <!-- /.row-->
-        <div class="modal fade" id="modal-add">
-          <div class="modal-dialog" style="max-width: 900px">
-              <div class="box box-primary">
-                <div class="box-header with-border" style="cursor: move; margin: 0px;">
-                <i class="fa fa-user text-primary"></i>
 
-                <h3 class="box-title text-primary">Add Users</h3>
-                <!-- tools box -->
-                <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-box-tool" data-dismiss="modal"><i class="fa fa-times text-danger"></i></button>
-                </div>
-                <!-- /. tools -->
-              </div>
-            <div class="box-body box-profile flat">
-              <div class="table-responsive">
-              <table id="teacher-table" class="table table-bordered table-striped display nowrap" cellspacing="0" width="100%" >
-                <thead>
-                <tr>
-                  <th>Employee ID</th>
-                  <th>Name</th>
-                  <th>Position</th>
-                  <th>Status</th>
-                  <th>Action</th>
-                </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>123</td>
-                    <td>OneTwoThree</td>
-                    <td>Department Head</td>
-                    <td><span class="label label-success">Active</span></td>
-                    <td><button data-toggle="modal" data-target="#modal-confirm" class="btn btn-primary btn-xs">Activate User</button></td>
-                  </tr>
-                </tbody>
-                <tfoot>
-                <tr>
-                  <th>Employee ID</th>
-                  <th>Name</th>
-                  <th>Position</th>
-                  <th>Status</th>
-                  <th>Action</th>
-                </tr>
-                </tfoot>
-              </table>
-            </div>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          </div>
-          <!-- /.modal-dialog -->
-        </div>
-        <!-- /.modal -->
         <div class="modal fade" id="modal-confirm-add">
         <div class="modal-dialog" style="max-width: 400px">
           <div class="panel panel-success">
@@ -452,29 +176,29 @@
               <div class="col-md-6" style="padding-left: 0px;">
               <div class="form-group" style="margin-bottom: 5px">
                 <label>USER ID:</label>
-                <input id="email-input" type="text" class="form-control" disabled="" placeholder="123">
+                <input id="input-id" type="text" class="form-control" disabled="" placeholder="-">
               </div>
               </div>
               <div class="col-md-6" style="padding-right: 0px;">
               <div class="form-group" style="margin-bottom: 5px">
                 <label>Name:</label>
-                <input id="email-input" type="text" class="form-control" disabled="" placeholder="Havanahunana">
+                <input id="input-name" type="text" class="form-control" disabled="" placeholder="-">
               </div>
               </div>
               <br>
               <div class="col-md-12 no-padding">
               <div class="form-group">
                 <label>Select Role:</label>
-                <select class="form-control select2 select2-hidden-accessible" style="width: 100%;">
-                  <option selected="selected">Admin</option>
-                  <option>Super User</option>
-                  <option>User</option>
+                <select id="select-role" class="form-control select2 select2-hidden-accessible" data-placeholder="Select role" style="width: 100%;">
+                  <option></option>
+                  <option value="admin">Admin</option>
+                  <option value="super_user">Super User</option>
                 </select>
 
               </div>
               
               </div>  
-              <button data-dismiss="modal" type="button" id="btn-confirm-reset" style="width: 100px" class="btn btn-sm btn-block btn-info pull-right"><i class="fa fa-check"></i> &nbsp; Save</button>
+              <button data-dismiss="modal" type="button" id="btn-confirm-change" style="width: 100px" class="btn btn-sm btn-block btn-info pull-right"><i class="fa fa-check"></i> &nbsp; Save</button>
             </div>
           </div>
         </div>
@@ -490,6 +214,8 @@
 <script src="<?php echo base_url(); ?>bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo base_url(); ?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Select2 -->
+<script src="<?php echo base_url(); ?>bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- ChartJS -->
 <script src="<?php echo base_url(); ?>bower_components/Chart.js/Chart.js"></script>
 <!-- DataTables -->
@@ -502,7 +228,15 @@
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
 <!-- page script -->
-<script src="<?php echo base_url(); ?>dist/js/enrollment/dashboard.js"></script>
 <script src="<?php echo base_url(); ?>dist/js/settings/user_management.js"></script>
+
+<script>
+  var getTeacherRecordsUrl = '<?php echo base_url('settings/user_management/ajaxGetTeacherRecords'); ?>';
+  var addUserUrl = '<?php echo base_url('settings/user_management/ajaxAddUser'); ?>';
+  var resetUrl = '<?php echo base_url('settings/user_management/ajaxResetPass'); ?>';
+  var deacUrl = '<?php echo base_url('settings/user_management/ajaxDeac'); ?>';
+  var changeUrl = '<?php echo base_url('settings/user_management/ajaxChange'); ?>';
+</script>
+
 </body>
 </html>
