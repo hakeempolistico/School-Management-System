@@ -298,6 +298,8 @@
 
 <script>
 
+  var selected;
+
   $('#grade11').on('click',function()
   {
     $('#yearLevel').remove();
@@ -483,11 +485,11 @@
 
                                   $('#enroll').on('click', function()
                                   {
-                                    var selected = table.rows({ selected: true }).data();
+                                    selected = $('#sectionsTable').find('.selected').find('td:nth-child(2)').text();
                                     console.log(selected);
 
                                     var silrn = <?php echo $lrn ?>;
-                                    var id = selected[0][1];
+                                    var id = selected;
 
                                     $('#s_i_lrn').val(silrn);
                                     $('#noteHidden').val($('#note').val());
