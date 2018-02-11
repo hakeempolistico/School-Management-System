@@ -58,7 +58,6 @@ class sections extends CI_Controller {
 			$year = '12';
 		}
 
-
 		$this->audit_trail->set('Academics', 'Sections', 'add', $data['strand_code'].'-'.$year.$data['name']);
 		echo json_encode($result);
 	}

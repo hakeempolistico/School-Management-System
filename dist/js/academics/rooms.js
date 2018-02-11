@@ -126,6 +126,17 @@ $(function () {
           'set': room_id }, 
         success: function(result){
           //console.log(result);
+
+          $.ajax({
+            url: auditTrailUpdateUrl,
+            type: 'post',
+            dataType: 'json', 
+            data: {'newId' : newId, 'newName' : newName, 'newBuilding' : newBuilding, 'room_id' : room_id, 'name': name, 'building' : building}, 
+            success: function(result){
+              console.log(result);
+            }
+          });
+          
           populateTable();
           $.notify({
             title: '<strong><i class="icon fa fa-ban"></i>SUCCESS!</strong>',
@@ -253,12 +264,13 @@ function populateTable(){
       data: {'table' : 'rooms', 'set': 'room_id', 'value': room_id}, 
       success: function(result){  
         id = result.id;
-        name = result.name;
+        room_number = result.room_number;
+        name = result.room_name;
         building = result.building;
         $( "#edit-id" ).val(result.room_id);
         $( "#edit-name" ).val(result.room_name);
         $( "#edit-building" ).val(result.building);
-        //console.log(result);
+        console.log(result);
       }
     });   
   });

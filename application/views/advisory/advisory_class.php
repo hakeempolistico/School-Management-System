@@ -72,7 +72,7 @@
               </div> -->
             </div>
             <div class="box-body">
-              <div class="col-xs-12 col-lg-4">
+              <!-- <div class="col-xs-12 col-lg-4">
                   <div class="form-group">
                     <label>School Year</label>
                       <select class="subject-input form-control select2" disabled="" style="width: 100%;">
@@ -80,23 +80,22 @@
                         <option>2018-2019</option>
                       </select>
                   </div> 
-              </div>
+              </div> -->
               <div class="col-xs-12 col-lg-4">
                   <div class="form-group">
-                    <label>Section</label>
+                    <label>Class</label>
                       <select id="select-section" class="subject-input form-control select2" disabled="" style="width: 100%;">
-                        <option value="1">STEM 11A</option>
+                        <option value="<?php echo $this->session->advisory_class; ?>"><?php echo $class; ?></option>
                       </select>
                   </div> 
               </div>
               <div class="col-xs-12 col-lg-4">
                   <div class="form-group">
                     <label>View By</label>
-                      <select id="select-section" class="subject-input form-control select2" style="width: 100%;">
+                      <select id="select-semester" class="subject-input form-control select2" style="width: 100%;">
                         <option></option>
-                        <option>1st Semester</option>
-                        <option>2nd Semester</option>
-                        <option>School Year</option>
+                        <option value="First Semester">First Semester</option>
+                        <option value="Second Semester">Second Semester</option>
                       </select>
                   </div> 
               </div>
@@ -113,7 +112,7 @@
               </div>
             </div> -->
             <div class="box-body">          
-              <table id = "studentList1" class="table table-bordered">
+              <table id = "table-students" class="table table-bordered">
                 <thead>
                   <tr>
                     <th style="width: 20%">LRN</th>
@@ -202,56 +201,23 @@
                 <!-- /. tools -->
               </div>
             <div class="box-body box-profile flat">
-              <h4><b>Name: </b> Adrielle Escaro</h4>
+              <h4 id="g-fullname">-</h4>
               
-              <table class="table table-striped table-bordered">
+              <table id="table-grades" class="table table-striped table-bordered">
                       <thead>
                         <td style="width: 50%"><b>Subject</b></td>
                         <td><b>1st Quarter</b></td>
                         <td><b>2nd Quarter</b></td>
                         <td><b>Final Grade</b></td>
                       </thead>
-                        <tr>
-                          <td>PHYSICS</td>
-                          <td>89<td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <td>ENGLISH</td>
-                          <td>81<td>
-                          <td></td>
-                        </tr>            
-                       <tr>
-                          <td>CHEMISTRY</td>
-                          <td>83<td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <td>P.E</td>
-                          <td>84<td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <td>HISTORY</td>
-                          <td>89<td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <td>FILIPINO</td>
-                          <td>90<td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <td>BIOLOGY</td>
-                          <td>95<td>
-                          <td></td>
-                        </tr>
-                        <tfoot>
-                          <td><b>Average</b></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                        </tfoot>
+                      <tbody>                  
+                      </tbody>
+                      <tfoot>
+                        <td><b>Average</b></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tfoot>
                     </table>
             </div>
             <!-- /.box-body -->
@@ -284,78 +250,16 @@
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
+<!-- Page script -->
+<script src="<?php echo base_url(); ?>dist/js/advisory_class/advisory_class.js"></script>
 
 <script type="">
-  $(function (){
-    $('#studentList1').DataTable();
-
-    section_id = $('select-section').val();
+  
+    section_id = '<?php echo $this->session->advisory_class; ?> ';
     var getAdvisoryClassUrl = '<?php echo base_url('advisory/advisory_class/getAdvisoryClass'); ?>';
     var getStudentInfoUrl = '<?php echo base_url('student_info/student_details/getStudentInfo'); ?>';
     var getGuardianInfoUrl = '<?php echo base_url('student_info/student_details/getGuardianInfo'); ?>';
-
-      $.ajax({
-        url: getAdvisoryClassUrl,
-        type: 'post',
-        dataType: 'json', 
-        data: {'section_id' : section_id}, 
-        success: function(result){  
-          //console.log(result)
-          if(result == ''){
-            //console.log('NO RECORDS');
-            $('#studentList1').find('tbody tr').remove();
-            $('#studentList1').find('tbody').append(
-          '<tr> <td colspan="5"><center> NO SCHEDULE SET <center></td> </tr>'
-          );
-          return;
-          }
-          else{
-            $('#studentList1').find('tbody tr').remove();
-            $.each(result, function( index, value ) {
-              $('#studentList1').find('tbody').append(
-                '<tr> <td>'+value[0]+'</td> <td>'+value[1]+'</td> <td>'+value[2]+'</td> </tr>'
-                )
-            });
-
-            
-      
-            $('.btn-view').on('click', function(){
-              lrn = $(this).parents('tr').find('td:first').html();
-
-              $.ajax({
-                url: getStudentInfoUrl,
-                type: 'post',
-                dataType: 'json', 
-                data: {'lrn' : lrn}, 
-                success: function(result){  
-                  console.log(result);
-                  $('#admission-date').html(result[0].date_registered);
-                  $('#full-name').html(result[0].first_name + ' ' + result[0].middle_name + ' ' + result[0].last_name);
-                  $('#lrn').html(lrn);
-                  $('#sex').html(result[0].sex);
-                  $('#birthdate').html(result[0].birth_date);
-                  $('#contact-no').html(result[0].contact_number);
-                }
-              });
-
-              $.ajax({
-                url: getGuardianInfoUrl,
-                type: 'post',
-                dataType: 'json', 
-                data: {'students_info_lrn' : lrn}, 
-                success: function(result){  
-                  console.log(result);
-                  $('#guardian').html(result[0].name);
-                  $('#guardian-contact').html(result[0].contact);
-
-                }
-              });
-            }) 
-          }
-        }
-      });
-
-  })
+    var getGradesUrl = '<?php echo base_url('advisory/advisory_class/getGrades'); ?>';
 </script>
 </body>
 </html>
