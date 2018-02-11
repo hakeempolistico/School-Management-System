@@ -215,6 +215,7 @@
   var countUrl = '<?php echo base_url('academics/sections/ajaxCountRow'); ?>';
   var updateUrl = '<?php echo base_url('academics/sections/ajaxUpdate'); ?>';
   var deleteRowUrl = '<?php echo base_url('academics/sections/ajaxDeleteRow'); ?>';
+  var auditTrailUpdateUrl = '<?php echo base_url('academics/sections/auditTrailUpdate'); ?>';
 </script>
 </body>
 </html>

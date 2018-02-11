@@ -305,6 +305,17 @@ $(function () {
                     'set3': name
                   }, 
                   success: function(result){
+
+                    $.ajax({
+                      url: auditTrailUpdateUrl,
+                      type: 'post',
+                      dataType: 'json', 
+                      data: {'strand_code' : strand_code, 'newStrand' : newStrand, 'year_level' : year_level, 'newYear' : newYear, 'name': name, 'newName' : newName, 'capacity' : capacity, 'newCapacity' : newCapacity}, 
+                      success: function(result){
+                        console.log(result);
+                      }
+                    });
+                    
                     populateTable();
                     strand_code = newStrand;
                     year_level = newYear;
@@ -327,6 +338,9 @@ $(function () {
                       spacing: 10,
                       z_index: 1031,
                     });
+
+                    
+
                   }
                 });  
               }
@@ -363,6 +377,17 @@ $(function () {
       }, 
       success: function(result){
         console.log(result);
+
+        $.ajax({
+          url: auditTrailUpdateUrl,
+          type: 'post',
+          dataType: 'json', 
+          data: {'name': name, 'set' : strand_code, 'set2' : year_level_id, 'status' : setStat }, 
+          success: function(result){
+            console.log(result);
+          }
+        });
+
         populateTable();
           if(setStat=='inactive'){
             $.notify({

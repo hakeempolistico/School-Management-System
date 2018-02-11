@@ -143,6 +143,7 @@ class register_student extends CI_Controller {
 
 				$this->global_model->insert('registered_students', $regStudent);
 
+				$this->audit_trail->set('Enrollment', 'Register Student', 'registered', 'LRN: '.$lrn);
 				redirect('enrollment/register_student/after_register');
 
 			}

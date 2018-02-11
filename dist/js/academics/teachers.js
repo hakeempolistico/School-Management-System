@@ -1,4 +1,5 @@
 var i, new_empoyee_id, employee_id, first_name, middle_name, last_name, birthdate, sex, contact, email, position, major, status, activeStatus;
+var oldMajor, oldBirthdate, oldSex, oldEmail, oldPosition, oldFirstName, oldMiddleName, oldLastName, oldContactNo;
 
 
 $(function () {
@@ -67,10 +68,22 @@ $(function () {
                       'contact_no': contact, 
                       'sex': sex, 
                       'email': email, 
+                      'major': major,
                       'position': position, 
                       'set': employee_id }, 
                       success: function(result){
                         console.log(result);
+
+                        $.ajax({
+                          url: auditTrailUpdateUrl,
+                          type: 'post',
+                          dataType: 'json', 
+                          data: {'oldFirstName' : oldFirstName, 'first_name' : first_name, 'oldMiddleName' : oldMiddleName, 'middle_name' : middle_name, 'oldLastName': oldLastName, 'last_name' : last_name, 'oldBirthdate' : oldBirthdate, 'birthdate' : birthdate, 'oldContactNo' : oldContactNo, 'contact_no' : contact, 'oldSex' : oldSex, 'sex' : sex, 'oldEmail' : oldEmail, 'email' : email, 'oldMajor' : oldMajor, 'major': major, 'oldPosition' : oldPosition, 'position' : position, 'employee_id' : employee_id, 'new_empoyee_id' : new_empoyee_id}, 
+                          success: function(result){
+                            console.log(result);
+                          }
+                        });
+
                         hide();
                         populateTable();
                         $.notify({
@@ -139,6 +152,16 @@ function populateTable(){
               $( "#view-email" ).val(result.email);
               $( "#view-major" ).val(result.major);
               $( "#view-position" ).val(result.position);
+              
+              oldFirstName = result.first_name;
+              oldMiddleName = result.middle_name;
+              oldLastName = result.last_name;
+              oldBirthdate = result.birthdate;
+              oldSex = result.sex;
+              oldContactNo = result.contact_no;
+              oldEmail = result.email;
+              oldMajor = result.major;
+              oldPosition = result.position;
             }
           });   
   });

@@ -241,6 +241,7 @@
                   <input type="hidden" id="s_i_lrn" name="students_info_lrn">
                   <input type="hidden" id="noteHidden" name="note">
                   <input type="hidden" id="section_id" name="section_id">
+                  <input type="hidden" id="strand" name="strand">
                   <input type="hidden" id="nsoHidden" name="requirements[]">
                   <input type="hidden" id="f137Hidden" name="requirements[]">
                   <input type="hidden" id="f138Hidden" name="requirements[]">
@@ -299,6 +300,7 @@
 <script>
 
   var selected;
+  var s_code;
 
   $('#grade11').on('click',function()
   {
@@ -440,7 +442,7 @@
                      });
 
                     $('.small-box').on('click', function(){
-                      var s_code = $(this).find('h3').text();
+                      s_code = $(this).find('h3').text();
 
                       $('.chosenStrand').html(s_code);
                       $('#strand').val(s_code);
@@ -494,6 +496,7 @@
                                     $('#s_i_lrn').val(silrn);
                                     $('#noteHidden').val($('#note').val());
                                     $('#section_id').val(id);
+                                    $('#strand').val(s_code);
                                     
 
                                     $('#enrollStudent').submit();

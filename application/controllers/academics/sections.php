@@ -50,6 +50,16 @@ class sections extends CI_Controller {
 		$data = $this->input->post();
 		unset($data['table']);
 		$result = $this->global_model->insert($table,$data);
+		$input_year = $data['year_level_id'];
+
+		if($input_year == '1'){
+			$year = '11';
+		}else{
+			$year = '12';
+		}
+
+
+		$this->audit_trail->set('Academics', 'Sections', 'add', $data['strand_code'].'-'.$year.$data['name']);
 		echo json_encode($result);
 	}
 	public function ajaxGetRecords(){
@@ -81,6 +91,38 @@ class sections extends CI_Controller {
                 $data['data'][] = $arr;
             }
 		echo json_encode($data);
+	}
+
+	public function auditTrailUpdate()
+	{
+		$data = $this->input->post();
+		$strand_code = null;
+		$year_level = null;
+		$name = null;
+		$capacity = null;
+
+		if($data['strand_code'] != $data['newStrand'] && isset($data['newStrand'])){
+			$strand_code = $data['strand_code'].' to '.$data['newStrand'];
+			$this->audit_trail->set('Academics', 'Sections', 'edit', 'CODE - '.$strand_code);
+		}
+		if($data['year_level'] != $data['newYear'] && isset($data['newYear'])){
+			$year_level = $data['year_level'].' to '.$data['newYear'];
+			$this->audit_trail->set('Academics', 'Sections', 'edit', 'YEAR LEVEL - '.$year_level);
+		}
+		if($data['name'] != $data['newName'] && isset($data['newName'])){
+			$name = $data['name'].' to '.$data['newName'];
+			$this->audit_trail->set('Academics', 'Sections', 'edit', 'NAME - '.$name);
+		}
+		if($data['capacity'] != $data['newCapacity'] && isset($data['newCapacity'])){
+			$capacity = $data['capacity'].' to '.$data['newCapacity'];
+			$this->audit_trail->set('Academics', 'Sections', 'edit', 'CAPACITY - '.$capacity);
+		}
+		if(isset($data['status']) && $data['status'] == 'active'){
+			$this->audit_trail->set('Academics', 'Sections', 'activate', 'SECTION : '.$data['set'].'-'.$data['set2'].$data['name'].' set to '.$data['status']);
+		}
+		if(isset($data['status']) && $data['status'] == 'inactive'){
+			$this->audit_trail->set('Academics', 'Sections', 'deactivate', 'SECTION : '.$data['set'].'-'.$data['set2'].$data['name'].' set to '.$data['status']);
+		}
 	}
 
 }
