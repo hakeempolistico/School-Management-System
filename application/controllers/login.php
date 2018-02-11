@@ -35,6 +35,7 @@ class login extends CI_Controller
 					        'sex' => $result->sex,
 					        'birthdate' => $result->birthdate,
 					        'contact_no' => $result->contact_no,
+					        'advisory_class' => $result->advisory_class,	
 					        'email' => $result->email,
 					        'employee_id' => $result->employee_id,
 					        'major' => $result->major,

@@ -107,8 +107,23 @@ class rooms extends CI_Controller {
 	public function auditTrailUpdate()
 	{
 		$data = $this->input->post();
-		$code = null;
-		$name = null;
+		$room_id = null;
+		$room_name = null;
+		$building = null;
+
+		if($data['room_id'] != $data['newId'] && isset($data['newId'])){
+			$room_id = $data['room_id'].' to '.$data['newId'];
+			$this->audit_trail->set('Academics', 'Rooms', 'edit', 'ROOM NUMBER - '.$room_id);
+		}
+		if($data['name'] != $data['newName'] && isset($data['newName'])){
+			$room_name = $data['name'].' to '.$data['newName'];
+			$this->audit_trail->set('Academics', 'Rooms', 'edit', 'ROOM NAME - '.$room_name);
+		}
+		if($data['building'] != $data['newBuilding'] && isset($data['newBuilding'])){
+			$building = $data['building'].' to '.$data['newBuilding'];
+			$this->audit_trail->set('Academics', 'Rooms', 'edit', 'BUILDING - '.$building);
+		}
+		
 		
 		if(isset($data['status']) && $data['status'] == 'active'){
 			$this->audit_trail->set('Academic', 'Rooms', 'activate', 'ROOM ID - '.$data['room_id'].' set to '.$data['status']);

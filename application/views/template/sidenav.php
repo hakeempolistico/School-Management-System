@@ -218,7 +218,7 @@
         <?php } ?>
 
 
-        <?php if(isset($this->session->{'Advisory Class'}) && $this->session->{'Advisory Class'}=='active') { ?>
+        <?php if(isset($this->session->{'Advisory Class'}) && $this->session->{'Advisory Class'}=='active' && $this->session->advisory_class > 0) { ?>
           <li class="<?php echo (isset($active) && $active =='advisory/advisory_class' ? 'active' : null); ?>">
             <a href="<?php echo site_url('advisory/advisory_class'); ?>">
               <i class="fa fa-star"></i>

@@ -24,6 +24,7 @@ class subjects extends CI_Controller {
 	public function ajaxInsert(){
 		$data = $this->input->post();
 		$result = $this->global_model->insert('subjects',$data);
+		$this->audit_trail->set('Academics', 'Subjects', 'add', $data['set'].'-'.$data['value']);
 		echo json_encode($result);
 	}
 	public function ajaxUpdate(){
@@ -76,6 +77,38 @@ class subjects extends CI_Controller {
                 $data['data'][] = $arr;
             }
 		echo json_encode($data);
+	}
+
+	public function auditTrailUpdate()
+	{
+		$data = $this->input->post();
+		$code = null;
+		$name = null;
+		$type = null;
+		$description = null;
+
+		if($data['code'] != $data['newCode'] && isset($data['newCode'])){
+			$code = $data['code'].' to '.$data['newCode'];
+			$this->audit_trail->set('Academics', 'Subjects', 'edit', 'CODE - '.$code);
+		}
+		if($data['name'] != $data['newName'] && isset($data['newName'])){
+			$name = $data['name'].' to '.$data['newName'];
+			$this->audit_trail->set('Academics', 'Subjects', 'edit', 'NAME - '.$name);
+		}
+		if($data['type'] != $data['newType'] && isset($data['newType'])){
+			$type = $data['type'].' to '.$data['newType'];
+			$this->audit_trail->set('Academics', 'Subjects', 'edit', 'TYPE - '.$type);
+		}
+		if($data['description'] != $data['newDescription'] && isset($data['newDescription'])){
+			$description = $data['description'].' to '.$data['newDescription'];
+			$this->audit_trail->set('Academics', 'Subjects', 'edit', 'DESCRIPTION - '.$description);
+		}
+		if(isset($data['status']) && $data['status'] == 'active'){
+			$this->audit_trail->set('Academics', 'Subjects', 'activate', 'SUBJECT : '.$data['set'].' set to '.$data['status']);
+		}
+		if(isset($data['status']) && $data['status'] == 'inactive'){
+			$this->audit_trail->set('Academics', 'Subjects', 'deactivate', 'SUBJECT : '.$data['set'].' set to '.$data['status']);
+		}
 	}
 
 }

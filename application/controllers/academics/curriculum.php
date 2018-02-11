@@ -50,8 +50,17 @@ class curriculum extends CI_Controller {
 
 	public function addClassSubjects(){
 		$data = $this->input->post();
-
+		$year_id = $this->input->post('year_level_id');
 		$this->global_model->insert('curriculum',$data);
+
+		if ($year_id == '1'){
+			$year = '11';
+		}else {
+			$year = '12';
+		}
+		
+		$this->audit_trail->set('Academics', 'Curriculum', 'add', $data['subject_code'].' to '.$data['strand_code'].$year.' '.$data['semester']);
+		
 	}
 
 }

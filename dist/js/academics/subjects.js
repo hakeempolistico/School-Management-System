@@ -4,6 +4,9 @@ var code;
 var type;
 var description;
 var newCode;
+var oldName;
+var oldType;
+var oldDescription;
 
 
   var getRecordsUrl = 'subjects/ajaxGetRecords';
@@ -12,6 +15,7 @@ var newCode;
   var getRowUrl = "subjects/ajaxGetRow";
   var deleteRowUrl = "subjects/ajaxDeleteRow";
   var countUrl = "subjects/ajaxCountRow";
+  var auditTrailUpdateUrl = "subjects/auditTrailUpdate";
 
 function show(){
   i=1;
@@ -103,6 +107,17 @@ function updateRow(){
           data: {'name' : name, 'code': newCode, 'type': type, 'description': description, 'set': subjectCode }, 
           success: function(result){
             //console.log(result);
+
+            $.ajax({
+              url: auditTrailUpdateUrl,
+              type: 'post',
+              dataType: 'json', 
+              data: {'code' : code, 'newCode' : newCode, 'name' : oldName, 'newName' : name, 'type': oldType, 'newType' : type, 'description' : oldDescription, 'newDescription' : description}, 
+              success: function(result){
+                console.log(result);
+              }
+            });
+
             hide();
             populateTable();
               $.notify({
@@ -164,6 +179,17 @@ $('#delete-confirm').click(function(){
     data: {'status' : setStat, 'set': subjectCode }, 
     success: function(result){
       console.log(result);
+
+      $.ajax({
+        url: auditTrailUpdateUrl,
+        type: 'post',
+        dataType: 'json', 
+        data: {'set': subjectCode, 'status' : setStat }, 
+        success: function(result){
+          console.log(result);
+        }
+      });
+
       populateTable();
         if(setStat=='inactive'){
           $.notify({
@@ -244,6 +270,9 @@ function populateTable(){
       data: {'table' : 'subjects', 'set': 'code', 'value': subjectCode}, 
       success: function(result){          
         code = result.code;
+        oldName = result.name;
+        oldType = result.type;
+        oldDescription = result.description;
         $( "#view-name" ).val(result.name);
         $( "#view-code" ).val(result.code);
         $( "#view-type" ).val(result.type);
