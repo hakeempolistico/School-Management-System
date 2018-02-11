@@ -199,6 +199,7 @@ class enroll_student extends CI_Controller {
 	{
 		$year = date('Y');
 		$academic_year = $this->enroll_student_model->getAcademicYearId('academic_years', 'year_start', $year, 'id');
+		$strand_code = $this->input->post('strand');
 
 		foreach ($academic_year as $val) {
 			$academic_year_id = $val->id;
@@ -231,6 +232,7 @@ class enroll_student extends CI_Controller {
 
 		}
 
+		$this->audit_trail->set('Enrollment', 'Enroll Student', 'enrolled', 'Enrolled '.$students_info_lrn.' to '.$strand_code);
 		redirect('enrollment/enroll_student/after_enroll');
 	}
 

@@ -50,6 +50,7 @@ class rooms extends CI_Controller {
 	public function addRoom()
 	{
 		$data = $this->input->post();
+		$this->audit_trail->set('Academics', 'Rooms', 'add', $data['room_name']);
 		echo $this->global_model->insert('rooms', $data);
 	}
 	public function ajaxCountRow()

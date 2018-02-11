@@ -32,6 +32,12 @@ class audit_trail {
 			    case "logout":
 			        $action =  "Logged Out";
 			        break;
+			    case "registered":
+			        $action =  "Registered Student";
+			        break;
+			    case "enrolled":
+			        $action =  "Enrolled Student";
+			        break;
 			    default:
 			        $action = "-";
 			}

@@ -50,6 +50,7 @@ class teachers extends CI_Controller {
 		$data = $this->input->post();
 		unset($data['table']);
 		$result = $this->global_model->insert($table,$data);
+		$this->audit_trail->set('Academics', 'Teachers', 'add', $data['first_name'].' '.$data['last_name']);
 		echo json_encode($result);
 	}
 	public function ajaxGetRecords(){
@@ -99,8 +100,57 @@ class teachers extends CI_Controller {
 	public function auditTrailUpdate()
 	{
 		$data = $this->input->post();
-		$code = null;
-		$name = null;
+		$employee_id = null;
+		$first_name = null;
+		$middle_name = null;
+		$last_name = null;
+		$birthdate = null;
+		$sex = null;
+		$contact_number = null;
+		$email = null;
+		$major = null;
+		$position = null;
+
+		if($data['employee_id'] != $data['new_empoyee_id'] && isset($data['new_empoyee_id'])){
+			$employee_id = $data['employee_id'].' to '.$data['new_empoyee_id'];
+			$this->audit_trail->set('Academics', 'Teachers', 'edit', 'EMPLOYEE ID - '.$employee_id);
+		}
+		if($data['oldFirstName'] != $data['first_name'] && isset($data['first_name'])){
+			$first_name = $data['oldFirstName'].' to '.$data['first_name'];
+			$this->audit_trail->set('Academics', 'Teachers', 'edit', 'FIRST NAME - '.$first_name);
+		}
+		if($data['oldMiddleName'] != $data['middle_name'] && isset($data['middle_name'])){
+			$middle_name = $data['oldMiddleName'].' to '.$data['middle_name'];
+			$this->audit_trail->set('Academics', 'Teachers', 'edit', 'MIDDLE NAME - '.$middle_name);
+		}
+		if($data['oldLastName'] != $data['last_name'] && isset($data['last_name'])){
+			$last_name = $data['oldLastName'].' to '.$data['last_name'];
+			$this->audit_trail->set('Academics', 'Teachers', 'edit', 'LAST NAME - '.$last_name);
+		}
+		if($data['oldBirthdate'] != $data['birthdate'] && isset($data['birthdate'])){
+			$birthdate = $data['oldBirthdate'].' to '.$data['birthdate'];
+			$this->audit_trail->set('Academics', 'Teachers', 'edit', 'BIRTHDATE - '.$birthdate);
+		}
+		if($data['oldSex'] != $data['sex'] && isset($data['sex'])){
+			$sex = $data['oldSex'].' to '.$data['sex'];
+			$this->audit_trail->set('Academics', 'Teachers', 'edit', 'SEX - '.$sex);
+		}
+		if($data['oldContactNo'] != $data['contact_no'] && isset($data['contact_no'])){
+			$contact_no = $data['oldContactNo'].' to '.$data['contact_no'];
+			$this->audit_trail->set('Academics', 'Teachers', 'edit', 'CONTACT - '.$contact_no);
+		}
+		if($data['oldEmail'] != $data['email'] && isset($data['email'])){
+			$email = $data['oldEmail'].' to '.$data['email'];
+			$this->audit_trail->set('Academics', 'Teachers', 'edit', 'EMAIL - '.$email);
+		}
+		if($data['oldMajor'] != $data['major'] && isset($data['major'])){
+			$major = $data['oldMajor'].' to '.$data['major'];
+			$this->audit_trail->set('Academics', 'Teachers', 'edit', 'MAJOR - '.$major);
+		}
+		if($data['oldPosition'] != $data['position'] && isset($data['position'])){
+			$position = $data['oldPosition'].' to '.$data['position'];
+			$this->audit_trail->set('Academics', 'Teachers', 'edit', 'POSITION - '.$position);
+		}
 		
 		if(isset($data['status']) && $data['status'] == 'active'){
 			$this->audit_trail->set('Academic', 'Teachers', 'activate', 'EMPLOYEE ID - '.$data['employee_id'].' set to '.$data['status']);
