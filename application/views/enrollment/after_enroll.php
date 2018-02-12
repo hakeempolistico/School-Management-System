@@ -118,13 +118,13 @@
             </tr>
             </thead>
             <tbody>
-            <?php foreach($arr as $td): ?>
+            <?php foreach($schedules as $td): ?>
               <tr>    
-                <td><?php echo $td[0]; ?></td>
-                <td><?php echo $td[1]; ?></td>
-                <td><?php echo $td[2]; ?></td>
-                <td><?php echo $td[3]; ?></td>
-                <td><?php echo $td[4]; ?></td>
+                <td><?php echo $td['subject_code']; ?></td>
+                <td><?php echo $td['subject_name']; ?></td>
+                <td><?php echo $td['time']; ?></td>
+                <td><?php echo $td['day']; ?></td>
+                <td><?php echo $td['room_id']; ?></td>
               </tr>
           <?php endforeach; ?>
             </tbody>

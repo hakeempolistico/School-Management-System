@@ -286,146 +286,39 @@ class enroll_student extends CI_Controller {
 	    $academicYearRow = $this->global_model->getRow('academic_years', 'id', $academic_year_id);
 	    $data['academic_year'] = $academicYearRow->year_start.'-'.$academicYearRow->year_end;  //ACADEMIC_YEAR
 
+
+	    //SCHEDULE
 	    $schedulesTable = $this->enroll_student_model->getMultRows('schedules', 'section_id', $section_id); 
 
+	    $arr = array();
+	    foreach ($schedulesTable as $key => $val) {
+	    	if(!isset($arr[$val->subject_code]['time'])){
+	    		$arr[$val->subject_code]['time'] = $val->time_start.'-'.$val->time_end; 
+	    	}else{
+	    		$arr[$val->subject_code]['time'] = $arr[$val->subject_code]['time'].'/'.$val->time_start.'-'.$val->time_end; 
+	    	}
 
-	    $data['arr'] =[];
+	    	if(!isset($arr[$val->subject_code]['day'])){
+	    		$arr[$val->subject_code]['day'] = $val->day; 
+	    	}else{
+	    		$arr[$val->subject_code]['day'] = $arr[$val->subject_code]['day'].'/'.$val->day; 
+	    	}
 
-		$ttt = [];
-	    foreach ($schedulesTable as $row) 
-	    {
-	    	$subject_code = $row->subject_code; //SUBJECT_CODE
-	    	$subject_name = '';
+	    	if(!isset($arr[$val->subject_code]['room_id'])){
+	    		$arr[$val->subject_code]['room_id'] = $val->room_id; 
+	    	}else{
+	    		$arr[$val->subject_code]['room_id'] = $arr[$val->subject_code]['room_id'].'/'.$val->room_id; 
+	    	}
 
-	    	$subjectRow =$this->global_model->getRow('subjects', 'code', $subject_code);
-
-			if($subjectRow){
-				
-	    		$subject_name = $subjectRow->name; //SUBJECT_NAME
-			}
-			if(substr($row->time_start,3,2)=='00'){
-				$row->time_start = substr($row->time_start,0,2);
-				if(substr($row->time_start,0,1)=='0'){
-					$row->time_start = substr($row->time_start,1,1);
-				}
-			};
-			if(substr($row->time_end,3,2)=='00'){
-				$row->time_end = substr($row->time_end,0,2);
-				if(substr($row->time_end,0,1)=='0'){
-					$row->time_end = substr($row->time_end,1,1);
-				}
-			};
-
-	    	$time = $row->time_start.'-'.$row->time_end; //TIME
-	    	$room = $row->room_id; //ROOM
-	    	$day = $row->day;
-
-	    	if($subject_code == 'BREAK' || $subject_code == 'VACANT' ){	
-
-	          } 
-	        else{
-	        	if ($day == 'Monday'){
-	              $sched_day = 'M';  //SCHED_DAY M
-	            } else if($day == 'Tuesday'){
-	              $sched_day = 'T';  //SCHED_DAY T
-	            } else if($day == 'Wednesday'){
-	              $sched_day = 'W';  //SCHED_DAY W
-	            } else if($day == 'Thursday'){
-	              $sched_day = 'Th';  //SCHED_DAY TH
-	            } else if($day == 'Friday'){
-	              $sched_day = 'F';  //SCHED_DAY F
-	            }
-		    	$sched = array(
-		    		$subject_code,
-		    		$subject_name,
-		    		$time,
-		    		$sched_day,
-		    		$room
-		    	);
-		    	/*echo '<pre>';
-		    	print_r($sched);
-		    	echo '<pre>';*/
-
-		    	if($data['arr']){
-		    		foreach ($data['arr'] as $key => $value) {
-			    		if($subject_code == $value[0]){
-			    			$data['arr'][$key][3] = $sched_day.' / '.$value[3];
-			    			$data['arr'][$key][2] = $time.' / '.$value[2];
-			    			$data['arr'][$key][4] = $room.' / '.$value[4];
-
-			    			$ttt[] = $subject_code;			    			
-			    			break;
-			    		}
-			    		else {
-			    			$data['arr'][] = $sched;	
-			    		}
-		    		}
-		    	}
-		    	else{
-		    		$data['arr'][] = $sched;	
-		    	}
-	        }
+	    	
+	    	$arr[$val->subject_code]['subject_code'] = $val->subject_code;
+	    	$arr[$val->subject_code]['subject_name'] = $this->global_model->getRow('subjects', 'code', $val->subject_code)->name;
+	    	
 	    }
 
-	    foreach ($data['arr'] as $key => $value) {
-	    	$allTime = explode(" / ",$value[2]);
-	    	$allRoom = explode(" / ",$value[4]);
-	    	$allDay = explode(" / ",$value[3]);
-	    	/*if(count(array_unique($allTime) == 1)){
-	    		$data['arr'][$key][2] = $allTime[0];
-	    	};*/
-	    	if(count(array_unique($allRoom) == 1)){
-	    		$data['arr'][$key][4] = $allRoom[0];
-	    	}
-	    	if(count($allDay)==1){
-	    		unset($data['arr'][$key]);
-	    	}
-	    };
+	    $data['schedules'] = $arr;
 
-	    foreach ($data['arr'] as $key => $value) {
-	    	$allTime = explode(" / ",$value[2]);
-	    	$allDay = explode(" / ",$value[3]);
-	    	$try = array();
-	    	$try2 = array();
-	    	foreach ($allDay as $k => $val) {
-	    		if($val == 'F'){
-					array_unshift($try2, $val);
-					array_unshift($try, $allTime[$k]);
-	    		}
-	    	}
-	    	foreach ($allDay as $k => $val) {
-	    		if($val == 'Th'){
-					array_unshift($try2, $val);
-					array_unshift($try, $allTime[$k]);
-	    		}
-	    	}
-	    	foreach ($allDay as $k => $val) {
-	    		if($val == 'W'){
-					array_unshift($try2, $val);
-					array_unshift($try, $allTime[$k]);
-	    		}
-	    	}
-	    	foreach ($allDay as $k => $val) {
-	    		if($val == 'T'){
-					array_unshift($try2, $val);
-					array_unshift($try, $allTime[$k]);
-	    		}
-	    	}
-	    	foreach ($allDay as $k => $val) {
-	    		if($val == 'M'){
-					array_unshift($try2, $val);
-					array_unshift($try, $allTime[$k]);
-	    		}
-	    	}
-	    	$data['arr'][$key][2] = implode(" / ",$try);
-	    	$data['arr'][$key][3] = implode(" / ",$try2);
-	    };
-
-	    /*
-	    echo '<pre>';
-	    print_r($data['arr']);
-	    echo '<pre>'; exit;
-	    */
+	   
 	    $data['active'] = 'enrollment/enroll_student';
 		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
 		$this->parser->parse('enrollment/after_enroll', $data);

@@ -55,7 +55,7 @@ class register_student extends CI_Controller {
 				
 		if ($this->form_validation->run() == FALSE)
 		{
-			echo "peke";
+			echo validation_errors();
 			exit;
 			$data = $this->parse->parsed();
 			$data['active'] = 'enrollment/register_student';
