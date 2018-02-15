@@ -316,6 +316,17 @@ class enroll_student extends CI_Controller {
 	    	
 	    }
 
+	    foreach ($arr as $key => $val) {
+	    	$arr_time = explode("/",$val['time']);
+	    	$arr_room = explode("/",$val['room_id']);
+	    	if (count(array_unique($arr_time)) <= 1) {
+	    		$arr[$key]['time'] = $arr_time[0];
+	    	}	
+	    	if (count(array_unique($arr_room)) <= 1) {
+	    		$arr[$key]['room_id'] = $arr_room[0];
+	    	}	
+		}
+
 	    $data['schedules'] = $arr;
 
 	   
