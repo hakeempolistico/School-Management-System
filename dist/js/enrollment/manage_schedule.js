@@ -523,6 +523,16 @@ $('#row-save').on('click',function(){
 
         });
 
+        $.ajax({
+            url: auditTrailSaveUrl,
+            type: 'post',
+            dataType: 'json', 
+            data: {'section_id' : sectionId}, 
+            success: function(result){
+              console.log(result);
+            }
+          });
+
         $.notify({
           title: '<strong><i class="icon fa fa-check"></i>SUCCESS!</strong>',
           message: "Schedule saved."

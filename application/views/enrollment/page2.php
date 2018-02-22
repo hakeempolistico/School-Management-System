@@ -417,114 +417,104 @@
         ave = (input1 + input2 + input3 + input4 + input5 + input6 + input7 +input8) / 8;
         $('#avera').text('General Average : ' + ave);
 
-        if (ave >= 85){
           // alert("ulol pakyu");
 
           var getStrandsUrl = "<?php echo base_url("enrollment/enroll_student/getStrands"); ?>"
 
           $.ajax({
-                    url: getStrandsUrl,
-                    type: 'post',
-                    dataType: 'json', 
-                    data: {'grade_requirement': '85', 'status': 'active'}, 
-                    success: function(result){
+            url: getStrandsUrl,
+            type: 'post',
+            dataType: 'json', 
+            data: {'grade_requirement': ave, 'status': 'active'}, 
+            success: function(result){
 
-                    console.log(result);
+            console.log(result);
 
-                    $('#available').empty();
+            $('#available').empty();
 
-                    $.each(result, function( index, value ) {
-
-
-                      $('#available').append('<div class="col-md-6"><div class="small-box bg-olive" data-toggle="modal" data-target="#strand_selection" style="cursor: pointer;"><div class="inner text-white" style="color: white; min-height: 130px;"><h3 style="color: white;">'+value.strand_code+'</h3><p style="color: white;">'+value.strand_name+'</p></div><div class="icon"><i class="fa fa-cogs"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div></div>');
+            $.each(result, function( index, value ) {
 
 
-                     });
-
-                    $('.small-box').on('click', function(){
-                      s_code = $(this).find('h3').text();
-
-                      $('.chosenStrand').html(s_code);
-                      $('#strand').val(s_code);
-
-                      // console.log($('#year').val());
-                      // console.log($('#strand').val());
-
-                      var getSectionsUrl = "<?php echo base_url("enrollment/enroll_student/getSectionTable"); ?>"
-                      var year = $('#year').val();
-
-                      $.ajax({
-                                url: getSectionsUrl,
-                                type: 'post',
-                                dataType: 'json', 
-                                data: {'year_level_id': year, 'strand': s_code}, 
-                                success: function(result){
-
-                                  console.log(result);
-
-                                  $('#sectionsTable').DataTable().destroy();
-
-                                  var table = $('#sectionsTable').DataTable({
-                                    data: result,
-                                    columnDefs: [{
-                                      orderable: false,
-                                      className: 'select-checkbox',
-                                      targets: 0
-                                    }],
-                                    select: {
-                                      style: 'os',
-                                      selector: 'td:first-child'
-                                    },
-                                    order: [[ 1, 'asc' ]],
-                                    "searchable": false,
-                                    "bPaginate": false,
-                                    "bLengthChange": false,
-                                    "bFilter": false,
-                                    "bInfo": false,
-                                    "bAutoWidth": false
-
-                                  });
-
-                                  $('#enroll').on('click', function()
-                                  {
-                                    selected = $('#sectionsTable').find('.selected').find('td:nth-child(2)').text();
-                                    console.log(selected);
-
-                                    var silrn = <?php echo $lrn ?>;
-                                    var id = selected;
-
-                                    $('#s_i_lrn').val(silrn);
-                                    $('#noteHidden').val($('#note').val());
-                                    $('#section_id').val(id);
-                                    $('#strand').val(s_code);
-                                    
-
-                                    $('#enrollStudent').submit();
-
-                                  })
+              $('#available').append('<div class="col-md-6"><div class="small-box bg-olive" data-toggle="modal" data-target="#strand_selection" style="cursor: pointer;"><div class="inner text-white" style="color: white; min-height: 130px;"><h3 style="color: white;">'+value.strand_code+'</h3><p style="color: white;">'+value.strand_name+'</p></div><div class="icon"><i class="fa fa-cogs"></i></div><a href="#" class="small-box-footer">Enroll <i class="fa fa-arrow-circle-right"></i></a></div></div>');
 
 
+             });
 
-                                
-                                
-                                  
-                                }
-                      });
+            $('.small-box').on('click', function(){
+              s_code = $(this).find('h3').text();
 
-                      
-                    });
+              $('.chosenStrand').html(s_code);
+              $('#strand').val(s_code);
+
+              // console.log($('#year').val());
+              // console.log($('#strand').val());
+
+              var getSectionsUrl = "<?php echo base_url("enrollment/enroll_student/getSectionTable"); ?>"
+              var year = $('#year').val();
+
+              $.ajax({
+                        url: getSectionsUrl,
+                        type: 'post',
+                        dataType: 'json', 
+                        data: {'year_level_id': year, 'strand': s_code}, 
+                        success: function(result){
+
+                          console.log(result);
+
+                          $('#sectionsTable').DataTable().destroy();
+
+                          var table = $('#sectionsTable').DataTable({
+                            data: result,
+                            columnDefs: [{
+                              orderable: false,
+                              className: 'select-checkbox',
+                              targets: 0
+                            }],
+                            select: {
+                              style: 'os',
+                              selector: 'td:first-child'
+                            },
+                            order: [[ 1, 'asc' ]],
+                            "searchable": false,
+                            "bPaginate": false,
+                            "bLengthChange": false,
+                            "bFilter": false,
+                            "bInfo": false,
+                            "bAutoWidth": false
+
+                          });
+
+                          $('#enroll').on('click', function()
+                          {
+                            selected = $('#sectionsTable').find('.selected').find('td:nth-child(2)').text();
+                            console.log(selected);
+
+                            var silrn = <?php echo $lrn ?>;
+                            var id = selected;
+
+                            $('#s_i_lrn').val(silrn);
+                            $('#noteHidden').val($('#note').val());
+                            $('#section_id').val(id);
+                            $('#strand').val(s_code);
+                            
+
+                            $('#enrollStudent').submit();
+
+                          })
 
 
 
-                    
-                    
-                      
-                      }
+                        
+                        
+                          
+                        }
+              });
+
+              
+            });
+              
+              }
           });   
-
-        } else{
-          alert("bobo ka");
-          }
       }
   });
  

@@ -179,7 +179,7 @@
                     <div class="col-lg-4 col-sm-12">
                       <div class="form-group">
                           <label class="control-label">Middle Name</label>
-                          <input maxlength="100" type="text" required="required" class="form-control" id="inputMNAME" placeholder="Enter Middle Name" name="middle_name" value="<?php echo set_value('middle_name'); ?>" />
+                          <input maxlength="100" type="text" class="form-control" id="inputMNAME" placeholder="Enter Middle Name" name="middle_name" value="<?php echo set_value('middle_name'); ?>" />
                       </div>
                     </div>
                     <div class="col-lg-4 col-sm-12">

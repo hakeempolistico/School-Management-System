@@ -11,6 +11,7 @@ $(function () {
 	}) 
 	$('#select-quarter').on('change', function(){
 		quarter = $(this).val();
+		populateSubjects()
 		$('#select-class').val(null).trigger("change");
 		$('#select-subject').val(null).trigger("change");
 		$('#select-class').find('option').remove();
@@ -23,6 +24,37 @@ $(function () {
 	}) 
 	$('#select-class').on('change', function(){
 		active_class = $(this).val();
+		populateTable();
+		showTable();
+	}) 
+
+	//TEACHERS
+	$('#t-select-semester').on('change', function(){
+		semester = $(this).val();
+		$('#h-semester').val(semester);
+		populateTClass();
+		populateTable();
+		showTable();
+
+	}) 
+	$('#t-select-quarter').on('change', function(){
+		quarter = $(this).val();
+		$('#h-quarter').val(quarter);
+		$('#t-select-class').val(null).trigger("change");
+		$('#t-select-subject').val(null).trigger("change");
+		$('#t-select-class').find('option').remove();
+		populateTSubjects()
+		showTable();
+	}) 
+	$('#t-select-subject').on('change', function(){
+		subject = $(this).val();
+		$('#h-subject').val(subject);
+		populateTClass();
+		showTable();
+	}) 
+	$('#t-select-class').on('change', function(){
+		active_class = $(this).val();
+		$('#h-class').val(active_class);
 		populateTable();
 		showTable();
 	}) 
@@ -40,9 +72,9 @@ $(function () {
           url: getClassUrl,
           type: 'post',
           dataType: 'json',  
-          data: {'subject_id' :  $('#select-subject').val(), 'semester' : semester},
+          data: {'subject_id' :  subject, 'semester' : semester},
           success: function(res){
-            //console.log(res);
+            console.log(res);
 	        $('#select-class').append($('<option>', {value: null,text : null})).select2();
             $.each(res, function( index, value ) {
 		        $('#select-class').append($('<option>', { 
@@ -53,6 +85,70 @@ $(function () {
           }
         });
 	}
+
+	function populateSubjects(){
+		$('#select-subject').val(null).trigger("change");
+		$('#select-subject').find('option').remove();
+        $.ajax({
+          url: getSubjectsUrl,
+          type: 'post',
+          dataType: 'json',  
+          data: {'semester' : semester},
+          success: function(res){
+            //console.log(res);
+	        $('#select-subject').append($('<option>', {value: null,text : null})).select2();
+            $.each(res, function( index, value ) {
+		        $('#select-subject').append($('<option>', { 
+		            value: value,
+		            text : value
+		        })).select2();
+			});
+          }
+        });
+	}
+
+	function populateTClass(){
+		$('#t-select-class').val(null).trigger("change");
+		$('#t-select-class').find('option').remove();
+        $.ajax({
+          url: getClassUrl,
+          type: 'post',
+          dataType: 'json',  
+          data: {'subject_id' :  subject, 'semester' : semester, 'teacher_id' :  e_id,},
+          success: function(res){
+            console.log(res);
+	        $('#t-select-class').append($('<option>', {value: null,text : null})).select2();
+            $.each(res, function( index, value ) {
+		        $('#t-select-class').append($('<option>', { 
+		            value: value.section_id,
+		            text : value.class
+		        })).select2();
+			});
+          }
+        });
+	}
+
+	function populateTSubjects(){
+		$('#t-select-subject').val(null).trigger("change");
+		$('#t-select-subject').find('option').remove();
+        $.ajax({
+          url: getSubjectsUrl,
+          type: 'post',
+          dataType: 'json',  
+          data: {'teacher_id' :  e_id, 'semester' : semester},
+          success: function(res){
+            //console.log(res);
+	        $('#t-select-subject').append($('<option>', {value: null,text : null})).select2();
+            $.each(res, function( index, value ) {
+		        $('#t-select-subject').append($('<option>', { 
+		            value: value,
+		            text : value
+		        })).select2();
+			});
+          }
+        });
+	}
+
 	function populateTable(){
 	  
 	    $.ajax({
@@ -61,10 +157,9 @@ $(function () {
 	      dataType: 'json',  
 	      data: {'section_id' :  active_class, 'semester' : semester, 'quarter' : quarter, 'subject_code' : subject},
 	      success: function(res){
-	        console.log(res);
+	        //console.log(res);
 		    $('#table-grades').find('tbody').find('tr').remove();
 	        $.each(res, function( index, val ) {
-			  //alert( index + ": " + value );
 			  if(val.grade){
 			  	if(val.grade < 75){
 			  		var gradeInput = '<center><span class="badge bg-red">'+val.grade+'</span></center>';
@@ -111,7 +206,7 @@ $(function () {
 	      dataType: 'json',  
 	      data: {'lrn' : lrn, 'semester' : semester, 'quarter' : quarter, 'subject_code' : subject, 'grade' :  grade},
 	      success: function(res){
-	        console.log(res);
+	        //console.log(res);
 	      }
 	    });
 	    populateTable();

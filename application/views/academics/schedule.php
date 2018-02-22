@@ -416,6 +416,7 @@
   var addScheduleUrl = "<?php echo base_url("academics/schedule/addSchedule"); ?>"
   var deleteScheduleUrl = "<?php echo base_url("academics/schedule/deleteSchedule"); ?>"
   var getScheduleUrl = "<?php echo base_url("academics/schedule/getSchedule"); ?>"
+  var auditTrailSaveUrl = "<?php echo base_url('academics/schedule/auditTrailSave'); ?>"
 </script>
 </body>
 </html>

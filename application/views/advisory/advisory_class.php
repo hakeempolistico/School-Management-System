@@ -236,8 +236,6 @@
     Pace.restart()
   })
   $('.select2').select2()
-
-
   section_id = '<?php echo $this->session->advisory_class; ?> ';
   var getAdvisoryClassUrl = '<?php echo base_url('advisory/advisory_class/getAdvisoryClass'); ?>';
   var getStudentInfoUrl = '<?php echo base_url('student_info/student_details/getStudentInfo'); ?>';
