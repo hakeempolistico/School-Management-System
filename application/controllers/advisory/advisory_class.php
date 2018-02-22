@@ -7,6 +7,7 @@ class advisory_class extends CI_Controller {
 	{
 	    parent::__construct();
 	    $this->sms_session->checkSession();
+      $this->load->model('advisory_class/advisory_class_model');
 	}
 
 	public function index()
@@ -39,7 +40,6 @@ class advisory_class extends CI_Controller {
               $action = "
                       <center>
                         <button class='btn btn-default btn-xs btn-view'><span class='fa fa-fw fa-search text-primary' data-toggle='modal' data-target='#modal-view'></span></button>
-                        <button class='btn btn-default btn-xs btn-grades'><span class='fa fa-fw fa-line-chart text-primary' data-toggle='modal' data-target='#modal-grades'></span></button>
                       </center>";
               $lrn = $value->students_info_lrn;
               $student_info = $this->global_model->getRow('students_info', 'lrn', $lrn );
@@ -55,19 +55,36 @@ class advisory_class extends CI_Controller {
     echo json_encode($data);
   }
 
-	public function getGrades(){
+  public function getGrades(){
 
-		$data = $this->input->post();
-    $res = $this->global_model->getRows('grades', $data);
+    $data = $this->input->post();
+    $res = $this->advisory_class_model->getGrades('grades', $data);
     $arr = array();
-    foreach ($res as $key => $value) {
-      if($value->quarter == 'First Quarter'){
+    foreach ($res as $val) {
+      $info = $this->global_model->getRow('students_info', 'lrn', $val->lrn);
+      $full_name = $info->first_name.' '.$info->last_name;
+      /*if($value->quarter == 'First Quarter'){
         $arr[$value->subject_code]['first_quarter'] = $value->grade;  
       }
       else if($value->quarter == 'Second Quarter'){
         $arr[$value->subject_code]['second_quarter'] = $value->grade;  
-      }
-      
+      }*/
+      $arr[$full_name][$val->subject_code] = $val->grade;
+    }
+  
+    echo json_encode($arr);
+  }
+	public function getSubjects(){
+
+		$data = $this->input->post();
+    $section_id = $data['section_id'];
+    $semester = $data['semester'];
+    $strand_code = $this->global_model->getRow('sections', 'id', $section_id)->strand_code;
+    $year_level = $this->global_model->getRow('sections', 'id', $section_id)->year_level_id;
+    $res = $this->global_model->getRows('curriculum', array('strand_code' => $strand_code, 'year_level_id' => $year_level));
+    $arr = array();
+    foreach ($res as $val) {
+      array_push($arr,$val->subject_code);
     }
 	
 		echo json_encode($arr);
