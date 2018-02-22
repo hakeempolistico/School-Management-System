@@ -10,6 +10,10 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/select2/dist/css/select2.min.css">
+  <!-- Pace style -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/pace/pace.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/Ionicons/css/ionicons.min.css">
   <!-- Theme style -->
@@ -62,18 +66,13 @@
     <section class="content">
       <div class="row">
         <div class="col-md-12">
-          <!-- /.box -->
-          <div class="box box-primary">
-            <!-- <div class="box-header">
-              <h3 class="box-title"></h3>
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                  <i class="fa fa-minus"></i>
-                </button>
-              </div>
-            </div> -->
-            <div class="box-body">          
-              <table id = "table-students" class="table table-bordered">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <button data-toggle="modal" data-target="#modal-add" class="pull-right btn btn-link btn-xs"><span class="fa fa-fw fa-plus" ></span></button>
+              <h3 class="panel-title"><i class="fa fa-tag"></i> Student List</h3>
+            </div>
+            <div class="panel-body">
+              <table id = "table-students" class="table table-bordered datatables">
                 <thead>
                   <tr>
                     <th style="width: 20%">LRN</th>
@@ -89,25 +88,13 @@
               </table>
             </div>
           </div>
-          <div class="box box-primary">
-            <div class="box-header with-border">
-              <h4 class="box-title">Select Criteria</h4>
-              <!-- <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                  <i class="fa fa-minus"></i>
-                </button>
-              </div> -->
+
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <button data-toggle="modal" data-target="#modal-add" class="pull-right btn btn-link btn-xs"><span class="fa fa-fw fa-plus" ></span></button>
+              <h3 class="panel-title"><i class="fa fa-tag"></i> Select Criteria for Grade Sheet</h3>
             </div>
-            <div class="box-body">
-              <!-- <div class="col-xs-12 col-lg-4">
-                  <div class="form-group">
-                    <label>School Year</label>
-                      <select class="subject-input form-control select2" disabled="" style="width: 100%;">
-                        <option>2017-2018</option>
-                        <option>2018-2019</option>
-                      </select>
-                  </div> 
-              </div> -->
+            <div class="panel-body" >
               <div class="col-xs-12 col-lg-4">
                   <div class="form-group">
                     <label>Class</label>
@@ -118,80 +105,45 @@
               </div>
               <div class="col-xs-12 col-lg-4">
                   <div class="form-group">
-                    <label>View By</label>
-                      <select id="select-semester" class="subject-input form-control select2" style="width: 100%;">
+                    <label>Semester</label>
+                      <select id="select-semester" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Semester">
                         <option></option>
                         <option value="First Semester">First Semester</option>
                         <option value="Second Semester">Second Semester</option>
                       </select>
                   </div> 
               </div>
+              <div class="col-xs-12 col-lg-4">
+                  <div class="form-group">
+                    <label>Quarter</label>
+                      <select id="select-quarter" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Quarter">
+                        <option></option>
+                        <option value="First Quarter">First Quarter</option>
+                        <option value="Second Quarter">Second Quarter</option>
+                      </select>
+                  </div> 
+              </div>
             </div>
           </div>
-          <!-- /.box -->
-          <div class="box box-primary">
-            <!-- <div class="box-header">
-              <h3 class="box-title"></h3>
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                  <i class="fa fa-minus"></i>
-                </button>
-              </div>
-            </div> -->
-            <div class="box-body">          
-                       
-              <table id = "table-students" class="table table-bordered" style="font-size: 13px">
+
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <button data-toggle="modal" data-target="#modal-add" class="pull-right btn btn-link btn-xs"><span class="fa fa-fw fa-plus" ></span></button>
+              <h3 class="panel-title"><i class="fa fa-tag"></i>  Grade Sheet</h3>
+            </div>
+            <div class="panel-body">
+              <table id = "t-grades" class="table table-bordered " style="font-size: 13px">
                 <thead>
                   <tr>
-                    <th style="width: 20%;">Full Name</th>
-                    <th>CS-4</th>
-                    <th>SS-HUMSS-1</th>
-                    <th>SS-ABM-1</th>
-                    <th>SS-ABM-1</th>
-                    <th>SS-ABM-1</th>
-                    <th>SS-ABM-1</th>
-                    <th>SS-ABM-1</th>
-                    <th>SS-ABM-1</th>
-                    <th>SS-ABM-1</th>
-                    <th>SS-ABM-1</th>
-                    <th>SS-ABM-1</th>
-                    <th>Gen Ave</th>
                   </tr>
                 </thead>
                 <tbody>
-                    <td>Adrii Escaro</td>
-                    <td>90</td>
-                    <td>92</td>
-                    <td>89</td>
-                    <td>89</td>
-                    <td>89</td>
-                    <td>89</td>
-                    <td>89</td>
-                    <td>89</td>
-                    <td>89</td>
-                    <td>89</td>
-                    <td>89</td>
-                    <td>90</td>
                 </tbody>
-                <tfoot>
-                  <th> Ave </th>
-                  <th> 87 </th>
-                  <th> 87 </th>
-                  <th> 87 </th>
-                  <th> 87 </th>
-                  <th> 87 </th>
-                  <th> 87 </th>
-                  <th> 87 </th>
-                  <th> 87 </th>
-                  <th> 87 </th>
-                  <th> 87 </th>
-                  <th> 87 </th>
-                  <th> - </th>
-                </tfoot>
               </table>
             </div>
           </div>
-          <!-- /.box -->
+
+
         </div>
         <!--/. col-md-12 -->
 
@@ -248,46 +200,6 @@
           </div>
         </div>
 
-      <!-- modal-->
-      <div class="modal" id="modal-grades">
-        <div class="modal-dialog" style="width: 600px;">
-              <div class="box box-primary">
-                <div class="box-header with-border" style="cursor: move; margin: 0px;">
-                <i class="fa fa-line-chart text-info"></i>
-
-                <h3 class="box-title text-info">Grades</h3>
-                <!-- tools box -->
-                <div class="box-tools pull-right">
-                  
-                  <button type="button" class="btn btn-box-tool" data-dismiss="modal"><i class="fa fa-times text-danger"></i></button>
-                </div>
-                <!-- /. tools -->
-              </div>
-            <div class="box-body box-profile flat">
-              <h4 id="g-fullname">-</h4>
-              
-              <table id="table-grades" class="table table-striped table-bordered">
-                <thead>
-                  <td style="width: 50%"><b>Subject</b></td>
-                  <td><b>1st Quarter</b></td>
-                  <td><b>2nd Quarter</b></td>
-                  <td><b>Final Grade</b></td>
-                </thead>
-                <tbody>                  
-                </tbody>
-                <tfoot>
-                  <td><b>Average</b></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tfoot>
-              </table>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          </div>
-          <!-- /.modal-dialog -->
-      </div>
 
       </div>
       <!-- /.row -->
@@ -305,8 +217,10 @@
 <!-- DataTables -->
 <script src="<?php echo base_url(); ?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<!-- ChartJS -->
-<script src="<?php echo base_url(); ?>bower_components/Chart.js/Chart.js"></script>
+<!-- Select2 -->
+<script src="<?php echo base_url(); ?>bower_components/select2/dist/js/select2.full.min.js"></script>
+<!-- PACE -->
+<script src="<?php echo base_url(); ?>bower_components/PACE/pace.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
@@ -317,12 +231,17 @@
 <script src="<?php echo base_url(); ?>dist/js/advisory_class/advisory_class.js"></script>
 
 <script type="">
-  
-    section_id = '<?php echo $this->session->advisory_class; ?> ';
-    var getAdvisoryClassUrl = '<?php echo base_url('advisory/advisory_class/getAdvisoryClass'); ?>';
-    var getStudentInfoUrl = '<?php echo base_url('student_info/student_details/getStudentInfo'); ?>';
-    var getGuardianInfoUrl = '<?php echo base_url('student_info/student_details/getGuardianInfo'); ?>';
-    var getGradesUrl = '<?php echo base_url('advisory/advisory_class/getGrades'); ?>';
+    
+  $(document).ajaxStart(function () {
+    Pace.restart()
+  })
+  $('.select2').select2()
+  section_id = '<?php echo $this->session->advisory_class; ?> ';
+  var getAdvisoryClassUrl = '<?php echo base_url('advisory/advisory_class/getAdvisoryClass'); ?>';
+  var getStudentInfoUrl = '<?php echo base_url('student_info/student_details/getStudentInfo'); ?>';
+  var getGuardianInfoUrl = '<?php echo base_url('student_info/student_details/getGuardianInfo'); ?>';
+  var getGradesUrl = '<?php echo base_url('advisory/advisory_class/getGrades'); ?>';
+  var getSubjectsUrl = '<?php echo base_url('advisory/advisory_class/getSubjects'); ?>';
 </script>
 </body>
 </html>
