@@ -73,9 +73,10 @@
     <section class="content">
       <div class="row">
         <div class="col-md-12">
+          <?php if($this->session->username=='admin'){ ?>
           <div class="box box-primary">
               <div class="box-header">
-                <h3 class="box-title text-primary"><span class='fa fa-fw fa-search'></span> Select Options</h3>
+                <h3 class="box-title text-primary"><span class='fa fa-fw fa-search'></span> (Admin) Select Options</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
@@ -104,9 +105,6 @@
                       <label>Subject</label>
                         <select id="select-subject" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Subject">
                           <option></option>
-                          <?php foreach ($subjects as $val) { ?>
-                            <option value='<?php echo $val->code;?>'><?php echo $val->name; ?></option>
-                          <?php } ?>
                         </select>
                     </div> 
                 </div>
@@ -118,6 +116,62 @@
                         </select>
                     </div> 
                 </div> 
+              </div>
+          </div>
+          <?php }?>
+
+          <div class="box box-primary">
+              <div class="box-header">
+                <h3 class="box-title text-primary"><span class='fa fa-fw fa-search'></span> (Teachers) Select Options</h3>
+              </div>
+              <!-- /.box-header -->
+              <div class="box-body">
+                <div class="col-xs-6 col-lg-3">
+                    <div class="form-group">
+                      <label>Semester</label>
+                        <select id="t-select-semester" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Semester">
+                          <option></option>
+                          <option value="First Semester">First Semester</option>
+                          <option value="Second Semester">Second Semester</option>
+                        </select>
+                    </div> 
+                </div>
+                <div class="col-xs-6 col-lg-3">
+                    <div class="form-group">
+                      <label>Quarter</label>
+                        <select id="t-select-quarter" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Quarter">
+                          <option></option>
+                          <option value="First Quarter">First Quarter</option>
+                          <option value="Second Quarter">Second Quarter</option>
+                        </select>
+                    </div> 
+                </div>
+                <div class="col-xs-6 col-lg-3">
+                    <div class="form-group">
+                      <label>Subject</label>
+                        <select id="t-select-subject" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Subject">
+                          <option></option>
+                        </select>
+                    </div> 
+                </div>
+                <div class="col-xs-6 col-lg-3">
+                    <div class="form-group">
+                      <label>Class</label>
+                        <select id="t-select-class" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Class">
+                          <option></option>
+                        </select>
+                    </div> 
+                </div> 
+
+                <div class="col-md-12">
+                  <form method="post" action="<?php echo base_url('grades/manage/class_subject')?>">
+                    <input id="h-semester" type="hidden" name="semester" value="">
+                    <input id="h-quarter" type="hidden" name="quarter" value="">
+                    <input id="h-subject" type="hidden" name="subject" value="">
+                    <input id="h-class" type="hidden" name="class" value="">
+                    <button type="submit" class="btn btn-block btn-info btn-sm pull-right" style="width: 50px">Go</button>
+                  </form>
+                </div>
               </div>
           </div>
 
@@ -197,7 +251,9 @@
     Pace.restart()
   })
   
+  var e_id = '<?php echo $this->session->employee_id; ?>';
   var getClassUrl = '<?php echo base_url('grades/manage/getClass'); ?>';
+  var getSubjectsUrl = '<?php echo base_url('grades/manage/getSubjects'); ?>';
   var addGradeUrl = '<?php echo base_url('grades/manage/addGrade'); ?>';
   var getClassStudentsUrl = '<?php echo base_url('grades/manage/getClassStudents'); ?>';
 

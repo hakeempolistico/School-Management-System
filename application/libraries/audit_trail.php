@@ -38,6 +38,9 @@ class audit_trail {
 			    case "enrolled":
 			        $action =  "Enrolled Student";
 			        break;
+			    case "save":
+			        $action =  "Saved Data";
+			        break;
 			    default:
 			        $action = "-";
 			}

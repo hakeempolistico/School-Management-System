@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Assign Advisory Class</title>
+  <title>Advisory Class</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -62,6 +62,33 @@
     <section class="content">
       <div class="row">
         <div class="col-md-12">
+          <!-- /.box -->
+          <div class="box box-primary">
+            <!-- <div class="box-header">
+              <h3 class="box-title"></h3>
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                  <i class="fa fa-minus"></i>
+                </button>
+              </div>
+            </div> -->
+            <div class="box-body">          
+              <table id = "table-students" class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th style="width: 20%">LRN</th>
+                    <th>Full Name</th>
+                    <th style="width: 10%">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+                <tfoot>
+                  
+                </tfoot>
+              </table>
+            </div>
+          </div>
           <div class="box box-primary">
             <div class="box-header with-border">
               <h4 class="box-title">Select Criteria</h4>
@@ -112,18 +139,54 @@
               </div>
             </div> -->
             <div class="box-body">          
-              <table id = "table-students" class="table table-bordered">
+                       
+              <table id = "table-students" class="table table-bordered" style="font-size: 13px">
                 <thead>
                   <tr>
-                    <th style="width: 20%">LRN</th>
-                    <th>Full Name</th>
-                    <th style="width: 10%">Action</th>
+                    <th style="width: 20%;">Full Name</th>
+                    <th>CS-4</th>
+                    <th>SS-HUMSS-1</th>
+                    <th>SS-ABM-1</th>
+                    <th>SS-ABM-1</th>
+                    <th>SS-ABM-1</th>
+                    <th>SS-ABM-1</th>
+                    <th>SS-ABM-1</th>
+                    <th>SS-ABM-1</th>
+                    <th>SS-ABM-1</th>
+                    <th>SS-ABM-1</th>
+                    <th>SS-ABM-1</th>
+                    <th>Gen Ave</th>
                   </tr>
                 </thead>
                 <tbody>
+                    <td>Adrii Escaro</td>
+                    <td>90</td>
+                    <td>92</td>
+                    <td>89</td>
+                    <td>89</td>
+                    <td>89</td>
+                    <td>89</td>
+                    <td>89</td>
+                    <td>89</td>
+                    <td>89</td>
+                    <td>89</td>
+                    <td>89</td>
+                    <td>90</td>
                 </tbody>
                 <tfoot>
-                  
+                  <th> Ave </th>
+                  <th> 87 </th>
+                  <th> 87 </th>
+                  <th> 87 </th>
+                  <th> 87 </th>
+                  <th> 87 </th>
+                  <th> 87 </th>
+                  <th> 87 </th>
+                  <th> 87 </th>
+                  <th> 87 </th>
+                  <th> 87 </th>
+                  <th> 87 </th>
+                  <th> - </th>
                 </tfoot>
               </table>
             </div>
@@ -148,36 +211,36 @@
               </div>
               <div class="box-body box-profile flat">
                 <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url('images/alt_picture.jpg');?>" alt="<?php echo base_url('images/alt_picture.jpg');?>">
-                <center><h4 id="full-name">Adrielle Escaro</h4></center>
+                <center><h4 id="full-name">-</h4></center>
                 
                 <table class="table table-striped table-bordered">
                   <tr>
                     <td style="width: 50%">Admission Date</td>
-                    <td id="admission-date">14-038-032</td>
+                    <td id="admission-date">-</td>
                   </tr>
                   <tr>
                     <td>LRN</td>
-                    <td id="lrn">123123123</td>
+                    <td id="lrn">-</td>
                   </tr>                
                   <tr>
                     <td>Sex</td>
-                    <td id="sex">Female</td>                        
+                    <td id="sex">-</td>                        
                   </tr>
                   <tr>
                     <td>Birthdate</td>
-                    <td id="birthdate">june 24, 1998</td>
+                    <td id="birthdate">-</td>
                     </tr>
                   <tr>
                     <td>Contact Number</td>
-                    <td id="contact-no">9808123812</td>
+                    <td id="contact-no">-</td>
                   </tr>
                   <tr>
                     <td>Guardian</td>
-                    <td id="guardian">Nanay mo</td>
+                    <td id="guardian">-</td>
                   </tr>
                   <tr>
                     <td>Guardian's Contact</td>
-                    <td id="guardian-contact">123123</td>
+                    <td id="guardian-contact">-</td>
                   </tr>
                 </table>
               </div>
@@ -204,21 +267,21 @@
               <h4 id="g-fullname">-</h4>
               
               <table id="table-grades" class="table table-striped table-bordered">
-                      <thead>
-                        <td style="width: 50%"><b>Subject</b></td>
-                        <td><b>1st Quarter</b></td>
-                        <td><b>2nd Quarter</b></td>
-                        <td><b>Final Grade</b></td>
-                      </thead>
-                      <tbody>                  
-                      </tbody>
-                      <tfoot>
-                        <td><b>Average</b></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tfoot>
-                    </table>
+                <thead>
+                  <td style="width: 50%"><b>Subject</b></td>
+                  <td><b>1st Quarter</b></td>
+                  <td><b>2nd Quarter</b></td>
+                  <td><b>Final Grade</b></td>
+                </thead>
+                <tbody>                  
+                </tbody>
+                <tfoot>
+                  <td><b>Average</b></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tfoot>
+              </table>
             </div>
             <!-- /.box-body -->
           </div>

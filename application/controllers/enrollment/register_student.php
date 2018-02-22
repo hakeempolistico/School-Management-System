@@ -88,9 +88,8 @@ class register_student extends CI_Controller {
 					'religion' => $this->input->post('religion') ,
 					'online_applicant' => 0 
 				);		
-				
-
-				$lrn = $this->register_student_model->insert('students_info', $studentInfo);
+				$lrn = $this->input->post('lrn');
+				$this->register_student_model->insert('students_info', $studentInfo);
 
 
 				$addressInfo = array(

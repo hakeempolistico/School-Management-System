@@ -61,6 +61,25 @@ class schedule extends CI_Controller {
 		echo json_encode($row);
 	}
 
+	public function auditTrailSave()
+	{
+		$data = $this->input->post();
+
+		$record = $this->global_model->getRecord('sections', array('id' => $data['section_id'] ));
+
+		$strand_code = $record->strand_code;
+		$year_level_id = $record->year_level_id;
+		$name = $record->name;
+
+		if ($year_level_id == '1'){
+			$year = '11';
+		} else {
+			$year = '12';
+		}
+
+		$this->audit_trail->set('Academics', 'Schedule', 'save', 'Saved schedule for '.$strand_code.'-'.$year.$name);
+	}
+
 	public function deleteSchedule()
 	{
 		$row = $this->global_model->deleteRows('schedules', $this->input->post());
