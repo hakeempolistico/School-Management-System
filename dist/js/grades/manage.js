@@ -6,8 +6,6 @@ $(function () {
 		semester = $(this).val();
 		$('#i-semester').val(semester);
 		populateClass();
-		showTable();
-
 	}) 
 	$('#select-quarter').on('change', function(){
 		quarter = $(this).val();
@@ -16,26 +14,23 @@ $(function () {
 		$('#select-class').val(null).trigger("change");
 		$('#select-subject').val(null).trigger("change");
 		$('#select-class').find('option').remove();
-		showTable();
 	}) 
 	$('#select-subject').on('change', function(){
 		subject = $(this).val();
 		$('#i-subject').val(subject);
 		populateClass();
-		showTable();
 	}) 
 	$('#select-class').on('change', function(){
 		active_class = $(this).val();
 		$('#i-class').val(active_class);
-		showTable();
 	}) 
 
 	//TEACHERS
 	$('#t-select-semester').on('change', function(){
 		semester = $(this).val();
 		$('#h-semester').val(semester);
+		populateTSubjects();
 		populateTClass();
-		showTable();
 
 	}) 
 	$('#t-select-quarter').on('change', function(){
@@ -44,25 +39,16 @@ $(function () {
 		$('#t-select-class').val(null).trigger("change");
 		$('#t-select-subject').val(null).trigger("change");
 		$('#t-select-class').find('option').remove();
-		showTable();
 	}) 
 	$('#t-select-subject').on('change', function(){
 		subject = $(this).val();
 		$('#h-subject').val(subject);
 		populateTClass();
-		showTable();
 	}) 
 	$('#t-select-class').on('change', function(){
 		active_class = $(this).val();
 		$('#h-class').val(active_class);
-		showTable();
 	}) 
-
-	function showTable(){
-		if(semester && quarter && subject && active_class){
-			$('#box-grades').show();
-		}
-	}
 
 	function populateClass(){
 		$('#select-class').val(null).trigger("change");
@@ -115,7 +101,7 @@ $(function () {
           dataType: 'json',  
           data: {'subject_id' :  subject, 'semester' : semester, 'teacher_id' :  e_id,},
           success: function(res){
-            console.log(res);
+            //console.log(res);
 	        $('#t-select-class').append($('<option>', {value: null,text : null})).select2();
             $.each(res, function( index, value ) {
 		        $('#t-select-class').append($('<option>', { 
@@ -136,7 +122,7 @@ $(function () {
           dataType: 'json',  
           data: {'teacher_id' :  e_id, 'semester' : semester},
           success: function(res){
-            //console.log(res);
+            console.log(res);
 	        $('#t-select-subject').append($('<option>', {value: null,text : null})).select2();
             $.each(res, function( index, value ) {
 		        $('#t-select-subject').append($('<option>', { 
