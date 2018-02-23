@@ -60,12 +60,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Manage Grades
-        <small>Input students grades per subject</small>
+        View Grades
+        <small>View students grades per subject</small>
       </h1>
       <ol class="breadcrumb">
         <li><i class="fa fa-file"></i> Grades Management</li>
-        <li><a href="<?php echo base_url('grades/manage');?>">Manage</a></li>
+        <li><a href="<?php echo base_url('grades/view');?>">View</a></li>
         <li class="active">Class Subject</li>
       </ol>
     </section>
@@ -80,15 +80,11 @@
             </div>
             <div class="panel-body">
               <div class="col-md-12" style="margin: -5px 0px -5px 0px;">
-                <a href="<?php echo base_url('grades/manage');?>"><h5>Choose another class </h5></a>
+                <a href="<?php echo base_url('grades/view');?>"><h5>Choose another class </h5></a>
               </div>
               <div class="col-md-3 col-xs-12">
                 <h5><b> Semester:</b></h5>
                 <h5><?php echo $data['semester'];?></h5>
-              </div>
-              <div class="col-md-3 col-xs-12">
-                <h5><b> Quarter:</b></h5>
-                <h5><?php echo $data['quarter'];?></h5>
               </div>
               <div class="col-md-3 col-xs-12">
                 <h5><b> Subject Code:</b></h5>
@@ -105,27 +101,30 @@
               <h3 class="panel-title"><i class="fa fa-line-chart"></i> Student Grades</h3>
             </div>
             <div class="panel-body">
-              <table id = "table-grades" class="table table-bordered table-striped" style="font-size: 14px">
+              <table id = "table-sem" class="table table-bordered dataTables">
                 <thead>
                   <tr>
-                    <th style="width: 15%">LRN</th>
-                    <th>Full Name</th>
-                    <th style="width: 10%">Grade</th>
-                    <th style="width: 10%">Status</th>
+                    <th rowspan="2">LRN</th>
+                    <th rowspan="2">Full Name</th>
+                    <th colspan="4" class="text-center"><?php echo $data['semester'];?></th>
+                  </tr>
+                  <tr>
+                    <th>1st Quarter</th>
+                    <th>2nd Quarter</th>
+                    <th>Gen Ave</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php foreach ($grades as $v) { ?> 
+                  <?php foreach ($grades as $v) {?>
                   <tr>
-                    <td><?php echo $v->students_info_lrn;?></td>
-                    <td><?php echo $v->full_name;?></td>
-                    <td><?php echo (isset($v->grade) ? $v->grade : '<input type="text"> </input>'); ?></td>
-                    <td><?php echo $v->action;?></td>
+                    <td><?php echo $v->students_info_lrn; ?></td>
+                    <td><?php echo $v->full_name; ?></td>
+                    <td><?php echo $v->grade1q; ?></td>
+                    <td><?php echo $v->grade2q; ?></td>
+                    <td><?php echo $v->ave; ?></td>
                   </tr>
                   <?php } ?>
                 </tbody>
-                <tfoot>
-                </tfoot>
               </table>
             </div>
           </div>

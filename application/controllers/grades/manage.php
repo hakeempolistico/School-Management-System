@@ -47,11 +47,9 @@ class manage extends CI_Controller {
 
 				if($int > 74.0 ){
 					$val->grade = '<center><span class="badge bg-green">'.$grade['0']->grade.'</span></center>';
-					$val->status = '<center><span class="badge bg-green">passed</span></center>';
 				}
 				else if($int < 75.0 ){
 					$val->grade = '<center><span class="badge bg-red">'.$grade['0']->grade.'</span></center>';
-					$val->status = '<center><span class="badge bg-red">failed</span></center>';
 				}
 			}
 			else{
