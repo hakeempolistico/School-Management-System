@@ -28,32 +28,50 @@ class manage extends CI_Controller {
 		print_r($this->input->post());
 		echo '<pre>';*/
 
-		$data = $this->input->post();
-		$result = $this->global_model->getRows('enrolled_students', array('section_id' => $data['class'] ) );
+		$post = $this->input->post();
+		$s_info = $this->global_model->getRow('sections', 'id', $post['class']);
+		if($s_info->year_level_id == '1'){
+			$s_info->year_level_id = '11';
+		} else{
+			$s_info->year_level_id = '12';
+		}
+		$post['section_info'] = $s_info->strand_code.'-'.$s_info->year_level_id.' '.$s_info->name;
+		$result = $this->global_model->getRows('enrolled_students', array('section_id' => $post['class'] ) );
 		foreach ($result as $val) {
 			$d = $this->global_model->getRow('students_info', 'lrn', $val->students_info_lrn);
-			$arr =  array('lrn' => $val->students_info_lrn, 'semester' => $data['semester'], 'quarter' => $data['quarter'], 'subject_code' => $data['subject']);
+			$arr =  array('lrn' => $val->students_info_lrn, 'semester' => $post['semester'], 'quarter' => $post['quarter'], 'subject_code' => $post['subject']);
 			$grade = $this->global_model->getRows('grades', $arr);
-			$int = $grade['0']->grade;
 			if($grade){
-				$val->grade = $grade['0']->grade;
-				$val->button = '<button class="btn btn-default btn-xs"><span class="fa fa-fw fa-ban text-danger" disabled></span></button>';
+				$int = $grade['0']->grade;
+				$val->action = '<center><button class="btn btn-default btn-xs"><span class="fa fa-fw fa-ban text-danger" disabled></span></button></center>';
+
+				if($int > 74.0 ){
+					$val->grade = '<center><span class="badge bg-green">'.$grade['0']->grade.'</span></center>';
+					$val->status = '<center><span class="badge bg-green">passed</span></center>';
+				}
+				else if($int < 75.0 ){
+					$val->grade = '<center><span class="badge bg-red">'.$grade['0']->grade.'</span></center>';
+					$val->status = '<center><span class="badge bg-red">failed</span></center>';
+				}
 			}
 			else{
-				$val->button = '<center><button class="btn btn-default btn-xs btn-input"><span class="fa fa-fw fa-check text-success"></span></button></center>';
-			}
-			if($grade && $int > 74.0 ){
-				$val->status = '<center><span class="badge bg-green">passed</span></center>';
-			}
-			else{
-				$val->status = '<center><span class="badge bg-red">failed</span></center>';
+				$val->action = '<center><button class="btn btn-default btn-xs btn-input"><span class="fa fa-fw fa-check text-success"></span></button></center>';
 			}
 
 			$val->full_name = $d->first_name.' '.$d->last_name;
 		}
-		echo '<pre>';
+		/*echo '<pre>';
 		print_r($result);
-		echo '<pre>';
+		echo '<pre>'; exit;*/
+
+		$data = $this->parse->parsed();
+
+		$data['grades'] = $result;
+		$data['data'] = $post;
+		$data['active'] = 'grades/manage';
+		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
+
+    	$this->parser->parse('grades/class_subject', $data);
 	}
 
 	public function getClass()

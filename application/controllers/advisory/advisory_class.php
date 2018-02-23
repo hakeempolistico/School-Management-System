@@ -1,19 +1,15 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 class advisory_class extends CI_Controller {
-
-	public function __construct()
-	{
-	    parent::__construct();
-	    $this->sms_session->checkSession();
+  public function __construct()
+  {
+      parent::__construct();
+      $this->sms_session->checkSession();
       $this->load->model('advisory_class/advisory_class_model');
-	}
-
-	public function index()
-	{	
-		$data = $this->parse->parsed();
-
+  }
+  public function index()
+  { 
+    $data = $this->parse->parsed();
     $section_info = $this->global_model->getRow('sections', 'id', $this->session->advisory_class);
     if($section_info->year_level_id == 1){
       $section_info->class = $section_info->strand_code.' 11'.$section_info->name;
@@ -22,18 +18,12 @@ class advisory_class extends CI_Controller {
       $section_info->class = $section_info->strand_code.' 12'.$section_info->name;      
     }
     $data['class'] = $section_info->class;
-
-		$data['active'] = 'advisory/advisory_class';
-		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
-
-
-    	$this->parser->parse('advisory/advisory_class', $data);
-	}
-
+    $data['active'] = 'advisory/advisory_class';
+    $data['template'] = $this->load->view('template/sidenav', $data, TRUE);
+      $this->parser->parse('advisory/advisory_class', $data);
+  }
   public function getAdvisoryClass(){
-
     $result = $this->global_model->getRows('enrolled_students', array('section_id' => $this->session->advisory_class));
-
     $data = [];
         foreach ($result as $value)
             {               
@@ -51,12 +41,9 @@ class advisory_class extends CI_Controller {
                 );
                 $data['data'][] = $arr;
             }
-
     echo json_encode($data);
   }
-
   public function getGrades(){
-
     $data = $this->input->post();
     $res = $this->advisory_class_model->getGrades('grades', $data);
     $arr = array();
@@ -74,9 +61,8 @@ class advisory_class extends CI_Controller {
   
     echo json_encode($arr);
   }
-	public function getSubjects(){
-
-		$data = $this->input->post();
+  public function getSubjects(){
+    $data = $this->input->post();
     $section_id = $data['section_id'];
     $semester = $data['semester'];
     $strand_code = $this->global_model->getRow('sections', 'id', $section_id)->strand_code;
@@ -86,8 +72,7 @@ class advisory_class extends CI_Controller {
     foreach ($res as $val) {
       array_push($arr,$val->subject_code);
     }
-	
-		echo json_encode($arr);
-	}
-
+  
+    echo json_encode($arr);
+  }
 }
