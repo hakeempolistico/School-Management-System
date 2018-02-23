@@ -4,13 +4,14 @@ $(function () {
 	$('#box-grades').hide();
 	$('#select-semester').on('change', function(){
 		semester = $(this).val();
+		$('#i-semester').val(semester);
 		populateClass();
-		populateTable();
 		showTable();
 
 	}) 
 	$('#select-quarter').on('change', function(){
 		quarter = $(this).val();
+		$('#i-quarter').val(quarter);
 		populateSubjects()
 		$('#select-class').val(null).trigger("change");
 		$('#select-subject').val(null).trigger("change");
@@ -19,12 +20,13 @@ $(function () {
 	}) 
 	$('#select-subject').on('change', function(){
 		subject = $(this).val();
+		$('#i-subject').val(subject);
 		populateClass();
 		showTable();
 	}) 
 	$('#select-class').on('change', function(){
 		active_class = $(this).val();
-		populateTable();
+		$('#i-class').val(active_class);
 		showTable();
 	}) 
 
@@ -33,7 +35,6 @@ $(function () {
 		semester = $(this).val();
 		$('#h-semester').val(semester);
 		populateTClass();
-		populateTable();
 		showTable();
 
 	}) 
@@ -43,7 +44,6 @@ $(function () {
 		$('#t-select-class').val(null).trigger("change");
 		$('#t-select-subject').val(null).trigger("change");
 		$('#t-select-class').find('option').remove();
-		populateTSubjects()
 		showTable();
 	}) 
 	$('#t-select-subject').on('change', function(){
@@ -55,7 +55,6 @@ $(function () {
 	$('#t-select-class').on('change', function(){
 		active_class = $(this).val();
 		$('#h-class').val(active_class);
-		populateTable();
 		showTable();
 	}) 
 
@@ -149,68 +148,6 @@ $(function () {
         });
 	}
 
-	function populateTable(){
-	  
-	    $.ajax({
-	      url: getClassStudentsUrl,
-	      type: 'post',
-	      dataType: 'json',  
-	      data: {'section_id' :  active_class, 'semester' : semester, 'quarter' : quarter, 'subject_code' : subject},
-	      success: function(res){
-	        //console.log(res);
-		    $('#table-grades').find('tbody').find('tr').remove();
-	        $.each(res, function( index, val ) {
-			  if(val.grade){
-			  	if(val.grade < 75){
-			  		var gradeInput = '<center><span class="badge bg-red">'+val.grade+'</span></center>';
-			  		var status = '<center><span class="badge bg-red">failed</span></center>';
-			  	}
-			  	else{
-			  		var gradeInput = '<center><span class="badge bg-green">'+val.grade+'</span></center>';
-			  		var status = '<center><span class="badge bg-green">passed</span></center>';
-			  	}
-			  		var btn = '<td><center><button class="btn btn-default btn-xs"><span class="fa fa-fw fa-ban text-danger" disabled></span></button></center></td></tr>'
-			  	
-			  }
-			  else{
-			  	var gradeInput = '<input type="number" style="width: 50px"></td>';
-			  	var status = '<center><span class="badge bg-aqua">pending</span></center>';
-			  	var btn = '<td><center><button class="btn btn-default btn-xs btn-input"><span class="fa fa-fw fa-check text-success"></span></button></center></td></tr>';
-			  }
-			  $('#table-grades').find('tbody').append(
-			  	'<tr><td>'+val.students_info_lrn+'</td>'+
-			  	'<td>'+val.full_name+'</td><td>'+
-			  	gradeInput+
-			  	'<td>'+status+'</td>'+
-			  	btn
-			  	)
-			});
-	      }
-	    });
-
-	    $('#table-grades').on('click', ".btn-input", function(){
-	    	grade = $(this).parents('tr').find('input').val();
-	    	lrn = $(this).parents('tr').find('td:first').text();
-	    	if(grade || grade != ''){
-				$('#modal-confirm').modal('show');
-	    	}
-	    })
-
-	}
-
-	$('#btn-confirm').on('click',function(){
-		//console.log(grade+' : '+lrn+' : '+semester+' : '+quarter);
-	    $.ajax({
-	      url: addGradeUrl,
-	      type: 'post',
-	      dataType: 'json',  
-	      data: {'lrn' : lrn, 'semester' : semester, 'quarter' : quarter, 'subject_code' : subject, 'grade' :  grade},
-	      success: function(res){
-	        //console.log(res);
-	      }
-	    });
-	    populateTable();
-	})
 
 
 });

@@ -72,8 +72,8 @@
     <!-- Main content -->
     <section class="content">
       <div class="row">
+        <?php if($this->session->username=='admin'){ ?>
         <div class="col-md-12">
-          <?php if($this->session->username=='admin'){ ?>
           <div class="box box-primary">
               <div class="box-header">
                 <h3 class="box-title text-primary"><span class='fa fa-fw fa-search'></span> (Admin) Select Options</h3>
@@ -116,10 +116,21 @@
                         </select>
                     </div> 
                 </div> 
+                <div class="col-md-12">
+                  <form method="post" action="<?php echo base_url('grades/manage/class_subject')?>">
+                    <input id="i-semester" type="hidden" name="semester" value="">
+                    <input id="i-quarter" type="hidden" name="quarter" value="">
+                    <input id="i-subject" type="hidden" name="subject" value="">
+                    <input id="i-class" type="hidden" name="class" value="">
+                    <button type="submit" class="btn btn-block btn-info btn-sm pull-right" style="width: 50px">Go</button>
+                  </form>
+                </div>
               </div>
-          </div>
-          <?php }?>
+              </div>
 
+          <?php } else{ ?>
+
+          </div>
           <div class="box box-primary">
               <div class="box-header">
                 <h3 class="box-title text-primary"><span class='fa fa-fw fa-search'></span> (Teachers) Select Options</h3>
@@ -163,7 +174,7 @@
                     </div> 
                 </div> 
 
-                <div class="col-md-12">
+                <div class="col-xs-12 col-md-12">
                   <form method="post" action="<?php echo base_url('grades/manage/class_subject')?>">
                     <input id="h-semester" type="hidden" name="semester" value="">
                     <input id="h-quarter" type="hidden" name="quarter" value="">
@@ -174,31 +185,7 @@
                 </div>
               </div>
           </div>
-
-          <div id="box-grades" class="box box-primary">
-              <div class="box-header">
-                <h3 class="box-title text-primary"><span class='fa fa-fw fa-edit'></span> Input Grade</h3>
-              </div>
-              <!-- /.box-header -->
-              <div class="box-body">
-                <table id = "table-grades" class="table table-bordered table-striped" style="font-size: 14px">
-                <thead>
-                  <tr>
-                    <th>LRN</th>
-                    <th>Full Name</th>
-                    <th style="width: 5%">Grade</th>
-                    <th style="width: 10%">Status</th>
-                    <th style="width: 10%">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                </tbody>
-                <tfoot>
-                  
-                </tfoot>
-              </table>
-              </div>
-          </div>
+          <?php } ?>
         </div>
       </div>
 
