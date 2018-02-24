@@ -183,15 +183,21 @@ function getSections() {
 }
 
 $('#select-semester').on('change', function(){
-  getCurrSubjects();
-  updateClassInfo();
+  semester = $('#select-semester').val()
+  getCurrSubjects()
+  updateClassInfo()
+  getSchedules()
 })
 $('#select-section').on('change', function(){
-  $('#select-semester').prop('disabled', false);
+  $('#select-semester').prop('disabled', false)
+  sectionId = $('#select-section').val()
+  getSchedules()
 })
 //POPULATE SECTION SELECT 
 $('#select-year').on('change', function(){
-  getSections();
+  year_level_id = $('#select-year').val();
+  getSections()
+  getSchedules()
   $('#select-semester').prop('disabled', true);
   $('#select-section').prop('disabled', false);
 })
@@ -200,14 +206,12 @@ $('#select-strand').on('change', function(){
   $("#select-year").val('').trigger('change')
   $('#select-section').prop('disabled', true);
   $('#select-semester').prop('disabled', true);
+  strand_code = $('#select-strand').val();
   getSections();
+  getSchedules()
 })
 
 function getCurrSubjects(){
-  strand_code = $('#select-strand').val();
-  year_level_id = $('#select-year').val();
-  semester = $('#select-semester').val();
-  sectionId = $('#select-section').val();
   if(sectionId && strand_code && year_level_id && semester){
     $(".custom").prop('disabled', false);
     $.ajax({
@@ -254,8 +258,9 @@ function updateClassInfo(){
 }
 
 function getSchedules(){
-  sectionId = $('#select-section').val();
-
+  if(!sectionId || !strand_code || !year_level_id || !semester){
+    return
+  }
   //console.log(sectionId + ' : ' + semester);
   $("#select-room").val('').trigger('change');
 

@@ -66,73 +66,60 @@
     <section class="content">
       <div class="row">
         <div class="col-md-12">
+
+          
           <div class="panel panel-primary">
             <div class="panel-heading">
-              <button data-toggle="modal" data-target="#modal-add" class="pull-right btn btn-link btn-xs"><span class="fa fa-fw fa-plus" ></span></button>
-              <h3 class="panel-title"><i class="fa fa-tag"></i> Student List</h3>
+              <h3 class="panel-title"><i class="fa fa-line-chart"></i> Class Subjects Info</h3>
             </div>
             <div class="panel-body">
-              <table id = "table-students" class="table table-bordered datatables">
-                <thead>
-                  <tr>
-                    <th style="width: 20%">LRN</th>
-                    <th>Full Name</th>
-                    <th style="width: 10%">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                </tbody>
-                <tfoot>
-                  
-                </tfoot>
-              </table>
+              <div class="col-md-12" style="margin: -5px 0px -5px 0px;">
+                <a href="<?php echo base_url('advisory/advisory_class');?>"><h5>Choose another semester </h5></a>
+              </div>
+              <div class="col-md-3 col-xs-12">
+                <h5><b> Class:</b></h5>
+                <h5><?php echo $class;?></h5>
+              </div>
+              <div class="col-md-3 col-xs-12">
+                <h5><b> Semester:</b></h5>
+                <h5><?php echo $semester;?></h5>
+              </div>
+              <div class="col-md-3 col-xs-12">
+                <h5><b> Quarter:</b></h5>
+                <h5><?php echo $quarter;?></h5>
+              </div>
             </div>
           </div>
 
           <div class="panel panel-primary">
             <div class="panel-heading">
               <button data-toggle="modal" data-target="#modal-add" class="pull-right btn btn-link btn-xs"><span class="fa fa-fw fa-plus" ></span></button>
-              <h3 class="panel-title"><i class="fa fa-tag"></i> Select Criteria for Grade Sheet</h3>
+              <h3 class="panel-title"><i class="fa fa-tag"></i>  Grade Sheet</h3>
             </div>
-            <div class="panel-body" >
-              <div class="col-xs-12 col-lg-4">
-                  <div class="form-group">
-                    <label>Class</label>
-                      <select id="select-section" class="subject-input form-control select2" disabled="" style="width: 100%;">
-                        <option value="<?php echo $this->session->advisory_class; ?>"><?php echo $class; ?></option>
-                      </select>
-                  </div> 
-              </div>
-              <div class="col-xs-12 col-lg-4">
-                  <div class="form-group">
-                    <label>Semester</label>
-                      <select id="select-semester" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Semester">
-                        <option></option>
-                        <option value="First Semester">First Semester</option>
-                        <option value="Second Semester">Second Semester</option>
-                      </select>
-                  </div> 
-              </div>
-              <div class="col-xs-12 col-lg-4">
-                  <div class="form-group">
-                    <label>Quarter</label>
-                      <select id="select-quarter" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Quarter">
-                        <option></option>
-                        <option value="First Quarter">First Quarter</option>
-                        <option value="Second Quarter">Second Quarter</option>
-                      </select>
-                  </div> 
-              </div>
-              <div class="col-md-12">
-                <form method="post" action="<?php echo base_url('advisory/advisory_class/grades')?>">
-                  <input id="i-section" type="hidden" name="section_id" value="<?php echo $this->session->advisory_class; ?>">
-                  <input id="i-semester" type="hidden" name="semester" value="">
-                  <input id="i-quarter" type="hidden" name="quarter" value="">
-                  <button type="submit" class="btn btn-block btn-info btn-sm pull-right" style="width: 50px">Go</button>
-                </form>
-              </div>
+            <div class="panel-body">
+              <table id = "t-grades" class="table table-bordered " style="font-size: 13px">
+                <thead>
+                  <tr>
+                    <th style="width: 15%">Full Name</th>
+                    <?php foreach ($subjects as $v) {?>
+                    <th><?php echo $v; ?></th>
+                    <?php } ?>
+                  </tr>
+                </thead>
+                  <?php foreach ($grades as $key => $v) { ?>
+                  <tr>
+                    <td><?php echo $key; ?></td>
+                    <?php foreach ($v as $key => $val) { ?>
+                    <td><?php echo $val; ?></td>
+                    <?php } ?>                 
+                  </tr>
+                  <?php } ?>
+                <tbody>
+                </tbody>
+              </table>
             </div>
           </div>
+
 
         </div>
         <!--/. col-md-12 -->
@@ -217,8 +204,6 @@
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
-<!-- Page script -->
-<script src="<?php echo base_url(); ?>dist/js/advisory_class/advisory_class.js"></script>
 
 <script type="">
     
@@ -226,12 +211,6 @@
     Pace.restart()
   })
   $('.select2').select2()
-  section_id = '<?php echo $this->session->advisory_class; ?> ';
-  var getAdvisoryClassUrl = '<?php echo base_url('advisory/advisory_class/getAdvisoryClass'); ?>';
-  var getStudentInfoUrl = '<?php echo base_url('student_info/student_details/getStudentInfo'); ?>';
-  var getGuardianInfoUrl = '<?php echo base_url('student_info/student_details/getGuardianInfo'); ?>';
-  var getGradesUrl = '<?php echo base_url('advisory/advisory_class/getGrades'); ?>';
-  var getSubjectsUrl = '<?php echo base_url('advisory/advisory_class/getSubjects'); ?>';
 </script>
 </body>
 </html>
