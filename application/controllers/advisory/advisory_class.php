@@ -29,7 +29,7 @@ class advisory_class extends CI_Controller {
             {               
               $action = "
                       <center>
-                        <button class='btn btn-default btn-xs btn-view'><span class='fa fa-fw fa-search text-primary' data-toggle='modal' data-target='#modal-view'></span></button>
+                        <button class='btn btn-default btn-xs btn-view' data-toggle='modal' data-target='#modal-view'><span class='fa fa-fw fa-search text-primary' ></span></button>
                       </center>";
               $lrn = $value->students_info_lrn;
               $student_info = $this->global_model->getRow('students_info', 'lrn', $lrn );
@@ -74,5 +74,72 @@ class advisory_class extends CI_Controller {
     }
   
     echo json_encode($arr);
+  }
+  public function grades(){
+    $data = $this->parse->parsed();
+    $d = $this->input->post();
+    $s_info = $this->global_model->getRow('sections', 'id', $d['section_id']);
+    $curriculum = $this->global_model->getRows('curriculum', array('semester' => $d['semester'],'strand_code' => $s_info->strand_code, 'year_level_id' => $s_info->year_level_id));
+
+    $subjects = array();
+    foreach ($curriculum as $v) {
+      array_push($subjects, $v->subject_code);
+    }
+
+    $e_students = $this->global_model->getRows('enrolled_students', array('section_id' => $d['section_id']));
+
+    $stud = array();
+    foreach ($e_students as $v) {
+      array_push($stud, $v->students_info_lrn);
+    }
+
+    $a_grades = array();
+    foreach ($stud as $v) {
+      foreach ($subjects as $value) {
+        $grades = $this->global_model->getRows('grades', array('lrn' => $v, 'semester' => $d['semester'], 'quarter' => $d['quarter'], 'subject_code' => $value));
+        if($grades && $grades[0]->grade > 74){
+          $a_grades[$v][$value] = '<center><span class="badge bg-green">'.$grades[0]->grade.'</span></center>';
+        }
+        else if($grades && $grades[0]->grade < 75){
+          $a_grades[$v][$value] = '<center><span class="badge bg-red">'.$grades[0]->grade.'</span></center>';
+        }
+        else{
+          $a_grades[$v][$value] = '<center>--</center>';          
+        }
+      }
+      $subs = array();
+      /*foreach ($grades as $key => $val) {
+        $a_grades[$val->lrn][$val->subject_code] = $val->grade;
+        array_push($subs, $val->subject_code);
+      }*/
+    }
+
+    /*echo 'subjects';
+    echo '<pre>';
+    print_r($subjects);
+    echo '<pre>';
+    echo 'grades';
+    echo '<pre>';
+    print_r($a_grades);
+    echo '<pre>';
+    exit;*/
+
+    
+    $section_info = $this->global_model->getRow('sections', 'id', $this->session->advisory_class);
+    if($section_info->year_level_id == 1){
+      $section_info->class = $section_info->strand_code.' 11'.$section_info->name;
+    }
+    else{
+      $section_info->class = $section_info->strand_code.' 12'.$section_info->name;      
+    }
+    $data['semester'] = $d['semester'];
+    $data['quarter'] = $d['quarter'];
+
+    $data['subjects'] = $subjects;
+    $data['grades'] = $a_grades;
+    $data['class'] = $section_info->class;
+    $data['active'] = 'advisory/advisory_class';
+    $data['template'] = $this->load->view('template/sidenav', $data, TRUE);
+    $this->parser->parse('advisory/grades', $data);
   }
 }
