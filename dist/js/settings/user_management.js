@@ -96,6 +96,12 @@ function populateTeachersTable(){
   $("#users-table").on("click", "tr td .btn-change", function(){
     employeeID = $(this).parents('tr').find('td:first').text();
     name = $(this).parents('tr').find('td:nth-child(2)').text();
+    user_role = $(this).parents('tr').find('td:nth-child(4)').text();
+    if(user_role != '-'){
+      $('#select-role').val(user_role).trigger('change');;
+    }else{
+      $('#select-role').val(null).trigger('change');;      
+    }
     $('#input-id').attr('placeholder', employeeID);
     $('#input-name').attr('placeholder', name);
     //console.log(employeeID+' : '+name);
