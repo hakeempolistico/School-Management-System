@@ -179,6 +179,7 @@ var getSection = '<?php echo base_url('academics/assign_advisory_class/getSectio
 var updateUrl = '<?php echo base_url('academics/assign_advisory_class/update'); ?>';
 var getRecordsUrl = '<?php echo base_url('academics/assign_advisory_class/ajaxGetRecords'); ?>';
 var checkSectionUrl = '<?php echo base_url('academics/assign_advisory_class/checkSection'); ?>';
+var auditTrailAssignUrl = '<?php echo base_url('academics/assign_advisory_class/auditTrailAssign'); ?>';
 
   $(function (){
     $('input[type="checkbox"].minimal').iCheck({

@@ -41,6 +41,9 @@ class audit_trail {
 			    case "save":
 			        $action =  "Saved Data";
 			        break;
+			    case "assign":
+			        $action =  "Assigned Class";
+			        break;
 			    default:
 			        $action = "-";
 			}

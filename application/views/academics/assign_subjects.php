@@ -172,6 +172,7 @@ var addUrl = '<?php echo base_url('academics/assign_subjects/addClassSubjects');
 var getClassSubjects = '<?php echo base_url('academics/assign_subjects/getClassSubjects'); ?>';
 var getCurrSubjects = '<?php echo base_url('academics/assign_subjects/getCurrSubjects'); ?>';
 var deleteUrl = '<?php echo base_url('academics/assign_subjects/deleteClassSubject'); ?>';
+var auditTrailSaveUrl = '<?php echo base_url('academics/assign_subjects/auditTrailSave'); ?>';
 </script>
 </body>
 </html>
