@@ -82,6 +82,17 @@ $('#btn-save').prop('disabled', true).on('click',function(){
             success: function(result){
               populateTable();
 
+              $.ajax({
+                url: auditTrailAssignUrl,
+                type: 'post',
+                dataType: 'json', 
+                data: {'employee_id' : employee_id, 'section' : $('#select-section').val()}, 
+                success: function(result){
+                  console.log(result);
+                }
+              });
+              
+
               $.notify({
                 title: '<strong><i class="icon fa fa-check"></i>SUCCESS!</strong>',
                 message: "Class assigned."

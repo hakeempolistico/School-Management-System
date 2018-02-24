@@ -82,4 +82,30 @@ class assign_advisory_class extends CI_Controller {
 		echo json_encode($data);
 	}
 
+	public function auditTrailAssign()
+	{
+		$data = $this->input->post();
+
+		$record = $this->global_model->getRecord('teachers', array('id' => $data['employee_id'] ));
+
+		$first_name = $record->first_name;
+		$middle_name = $record->middle_name;
+		$last_name = $record->last_name;
+
+		$section = $this->global_model->getRecord('sections', array('id' => $data['section'] ));
+
+		$strand_code = $section->strand_code;
+		$year_level_id = $section->year_level_id;
+		$name = $section->name;
+
+
+		if ($year_level_id == '1'){
+			$year = '11';
+		} else {
+			$year = '12';
+		}
+
+		$this->audit_trail->set('Academics', 'Assign Advisory Class', 'assign', $first_name.' '.$middle_name.' '.$last_name.' assigned to '.$strand_code.'-'.$year.$name);
+	}
+
 }
