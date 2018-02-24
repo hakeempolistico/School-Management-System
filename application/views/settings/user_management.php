@@ -70,7 +70,7 @@
 
     <!-- Main content -->
     <section class="content">
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-lg-3">
           <div class="form-group" style="margin-bottom: 7px">
             <label>Filter by:</label>
@@ -81,7 +81,7 @@
             </select>
           </div> 
         </div>
-      </div>
+      </div> -->
 
       <div class="row">        
         <div class="col-lg-12 col-xs-12">
@@ -167,19 +167,19 @@
       </div>
 
       <div class="modal fade" id="modal-change-role">
-        <div class="modal-dialog" style="max-width: 400px">
+        <div class="modal-dialog" style="max-width: 500px">
           <div class="panel panel-info">
             <div class="panel-heading">
               <h3 class="panel-title"><i class="fa fa-user"></i> Change User Role</h3>
             </div>
             <div class="panel-body">
-              <div class="col-md-6" style="padding-left: 0px;">
+              <div class="col-md-4" style="padding-left: 0px;">
               <div class="form-group" style="margin-bottom: 5px">
                 <label>USER ID:</label>
                 <input id="input-id" type="text" class="form-control" disabled="" placeholder="-">
               </div>
               </div>
-              <div class="col-md-6" style="padding-right: 0px;">
+              <div class="col-md-8" style="padding-right: 0px;">
               <div class="form-group" style="margin-bottom: 5px">
                 <label>Name:</label>
                 <input id="input-name" type="text" class="form-control" disabled="" placeholder="-">
@@ -192,7 +192,7 @@
                 <select id="select-role" class="form-control select2 select2-hidden-accessible" data-placeholder="Select role" style="width: 100%;">
                   <option></option>
                   <option value="admin">Admin</option>
-                  <option value="super_user">Super User</option>
+                  <option value="teacher">Teacher</option>
                 </select>
 
               </div>

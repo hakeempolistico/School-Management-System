@@ -29,28 +29,28 @@ $('#select-user').on('change', function(){
             console.log('val.admin :  '+ val.admin);
           }
         }
-        else if(user == 'super_user'){
-          if(val.super_user == 'active'){
+        else if(user == 'teacher'){
+          if(val.teacher == 'active'){
             $(n).bootstrapToggle('on');
             console.log('User :  '+u);
-            console.log('val.super_user :  '+ val.super_user);
+            console.log('val.teacher :  '+ val.teacher);
           }
           else{
             $(n).bootstrapToggle('off');
             console.log('User :  '+u);
-            console.log('val.super_user :  '+ val.super_user);
+            console.log('val.teacher :  '+ val.teacher);
           }
         }
-        else if(user == 'user'){
-          if(val.user == 'active'){
+        else if(user == 'student'){
+          if(val.student == 'active'){
             $(n).bootstrapToggle('on');
             console.log('User :  '+u);
-            console.log('val.user :  '+ val.user);
+            console.log('val.student :  '+ val.student);
           }
           else{
             $(n).bootstrapToggle('off');
             console.log('User :  '+u);
-            console.log('val.user :  '+ val.user);
+            console.log('val.student :  '+ val.student);
           }
         }
         

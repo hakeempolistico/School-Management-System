@@ -85,8 +85,8 @@
           <select id="select-user" data-placeholder="Select User" class="form-control select2" style="width: 100%;">
             <option></option>
             <option value="admin">Admin</option>
-            <option value="super_user">Super User</option>
-            <option value="user">User</option>
+            <option value="teacher">Teacher</option>
+            <option value="student">Student</option>
           </select>
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12">
