@@ -146,7 +146,7 @@ function dropTrash(ev) {
 
   
 
-var table, set, sectionId = null, room_id, strand_code = null, year_level_id = null, semester = null; 
+var table, set, sectionId = null, room_id, strand_code = null, year_level_id = null, semester = null, conflict = true; 
 
 $(".custom").prop('disabled', true);
 $('#select-year').prop('disabled', true);
@@ -270,8 +270,8 @@ function getSchedules(){
       $('tbody tr').remove();
       
       if(res){
-        console.log(res);
-        console.log(res.length);
+        //console.log(res);
+        //console.log(res.length);
       }
       $.each(res, function( index, value ) {
         //console.log(res);
@@ -367,10 +367,8 @@ $('#row-remove-all').click(function(){
        var hasClass=$("table tr:eq("+row_index+")").hasClass('selectedRow');
        if(hasClass==true){
           $("table tr:eq("+row_index+")").removeClass('selectedRow');
-          stopPropagation();
        }else{
           $("table tr:eq("+row_index+")").addClass('selectedRow');
-          stopPropagation();
        }
       });
     }
@@ -480,78 +478,129 @@ $('#row-save').on('click',function(){
     return;
   }
 
-  $.ajax({
-      url: deleteScheduleUrl,
-      type: 'post',
-      dataType: 'json',
-      data: {'section_id' : sectionId, 'semester' : semester},  
-      success: function(res){ 
-        //console.log('---');
+  validate()
+  function validate(){
+    $("#modal-confirm").modal("show")
+    $('#text-status').text('Schedule has no conflict')
+    $('#text-conflicts').text(null)
+    $('#btn-confirm').show()
+    $('table').find('.object').each(function( index ) {
 
-        $('table').find('.object').each(function( index ) {
+      var room_id = $( this ).find('.val-room').text();
+      var time = $(this).parents('tr').find('td:first').html();
+      var timeSplit = time.split("-");
+      var time_start = timeSplit[0];
+      var time_end = timeSplit[1];
+      var day = $(this).closest('table').find('th').eq($(this).parents('td').index()+1).html();
 
-          var subject_code = $( this ).find('.val-subject').text();
-          var room_id = $( this ).find('.val-room').text();
-          var time = $(this).parents('tr').find('td:first').html();
-          var timeSplit = time.split("-");
-          var time_start = timeSplit[0];
-          var time_end = timeSplit[1];
-          var day = $(this).closest('table').find('th').eq($(this).parents('td').index()+1).html();
-          var color = $(this).css("background-color");
-          var row = $(this).parents('tr').index();
-
-          $.ajax({
-            url: addScheduleUrl,
-            type: 'post',
-            dataType: 'json',
-            data: {
-              'section_id' : sectionId,
-              'semester' : semester,
-              'subject_code' : subject_code,
-              'room_id' : room_id,
-              'time_start' : time_start,
-              'time_end' : time_end,
-              'day' : day,
-              'color' : color,
-              'row' : row
-            },  
-            success: function(res){ 
-              //console.log(res);
-              //console.log(semester);
-            }
-          });
-
-        });
-
-        $.ajax({
-            url: auditTrailSaveUrl,
-            type: 'post',
-            dataType: 'json', 
-            data: {'section_id' : sectionId}, 
-            success: function(result){
-              console.log(result);
-            }
-          });
-
-        $.notify({
-          title: '<strong><i class="icon fa fa-check"></i>SUCCESS!</strong>',
-          message: "Schedule saved."
-        },{
-          type: 'success',
-          animate: {
-            enter: 'animated fadeInUp',
-            exit: 'animated fadeOutRight'
-          },
-          placement: {
-            from: "top",
-            align: "right"
-          },
-          offset: 20,
-          spacing: 10,
-          z_index: 1031,
-        });
-      }
+      $.ajax({
+        url: validationUrl,
+        type: 'post',
+        dataType: 'json',
+        data: {
+          'section_id' : sectionId,
+          'semester' : semester,
+          'room_id' : room_id,
+          'time_start' : time_start,
+          'time_end' : time_end,
+          'day' : day
+        },  
+        success: function(res){ 
+          //console.log(res);          
+          if(res != '1'){
+            conflict = false
+            console.log(res.day)
+            $('#text-status').text('Schedule has conflict')
+            $('#text-conflicts').append('<div>'+res.day+' : '+res.time_start+'-'+res.time_end+' : '+res.room_id+'</div>')
+            $('#btn-confirm').hide()
+          }
+        }
+      });
     });
+  }
 
   
-});
+})
+
+$('#btn-confirm').on('click', function(){
+  addSched()
+  function addSched(){
+   
+    $.ajax({
+        url: deleteScheduleUrl,
+        type: 'post',
+        dataType: 'json',
+        data: {'section_id' : sectionId, 'semester' : semester},  
+        success: function(res){ 
+          //console.log('---');
+
+          $('table').find('.object').each(function( index ) {
+
+            var subject_code = $( this ).find('.val-subject').text();
+            var room_id = $( this ).find('.val-room').text();
+            var time = $(this).parents('tr').find('td:first').html();
+            var timeSplit = time.split("-");
+            var time_start = timeSplit[0];
+            var time_end = timeSplit[1];
+            var day = $(this).closest('table').find('th').eq($(this).parents('td').index()+1).html();
+            var color = $(this).css("background-color");
+            var row = $(this).parents('tr').index();
+
+            $.ajax({
+              url: addScheduleUrl,
+              type: 'post',
+              dataType: 'json',
+              data: {
+                'section_id' : sectionId,
+                'semester' : semester,
+                'subject_code' : subject_code,
+                'room_id' : room_id,
+                'time_start' : time_start,
+                'time_end' : time_end,
+                'day' : day,
+                'color' : color,
+                'row' : row
+              },  
+              success: function(res){ 
+                //console.log(res);
+                //console.log(semester);
+              }
+            });
+
+          });
+
+          $.ajax({
+              url: auditTrailSaveUrl,
+              type: 'post',
+              dataType: 'json', 
+              data: {'section_id' : sectionId}, 
+              success: function(result){
+                console.log(result);
+              }
+            });
+
+          $.notify({
+            title: '<strong><i class="icon fa fa-check"></i>SUCCESS!</strong>',
+            message: "Schedule saved."
+          },{
+            type: 'success',
+            animate: {
+              enter: 'animated fadeInUp',
+              exit: 'animated fadeOutRight'
+            },
+            placement: {
+              from: "top",
+              align: "right"
+            },
+            offset: 20,
+            spacing: 10,
+            z_index: 1031,
+          });
+        }
+      });
+  }
+})
+  
+    
+
+  

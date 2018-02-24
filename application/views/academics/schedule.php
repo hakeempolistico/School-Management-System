@@ -354,6 +354,27 @@
           <!-- /. box -->
         </div>
         <!-- /.col -->
+        <div class="modal fade in" id="modal-confirm">
+          <div class="modal-dialog" style="max-width: 360px">
+            <div id="box-delete" class="box box-primary">
+              <div class="box-header with-border" style="cursor: move; margin: 0px;">
+                <i id="box-delete-icon" class="fa fa-warning text-primary"></i>
+
+                <h3 class="box-title text-primary">Confirm Save</h3>
+                <!-- tools box -->
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-dismiss="modal"><i id="box-delete-btn" class="fa fa-times text-primary"></i></button>
+                </div>
+                <!-- /. tools -->
+              </div>
+              <div class="box-body box-profile flat" style="margin-top: -10px">
+                <h4 id="text-status">Are you sure you want todelete record?</h4>
+                <h5 id='text-conflicts'></h5>
+                <button id="btn-confirm" data-dismiss="modal" type="button" style="width: 75px; margin: 10px;" class="btn btn-block btn-primary btn-sm pull-right">Confirm</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <!-- /.row -->
     </section>
@@ -417,6 +438,7 @@
   var deleteScheduleUrl = "<?php echo base_url("academics/schedule/deleteSchedule"); ?>"
   var getScheduleUrl = "<?php echo base_url("academics/schedule/getSchedule"); ?>"
   var auditTrailSaveUrl = "<?php echo base_url('academics/schedule/auditTrailSave'); ?>"
+  var validationUrl = "<?php echo base_url('academics/schedule/validation'); ?>"
 </script>
 </body>
 </html>

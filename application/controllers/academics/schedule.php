@@ -106,5 +106,24 @@ class schedule extends CI_Controller {
 		echo json_encode($timeslot);
 	}
 
+	public function validation()
+	{
+		$arr = array(
+			'section_id !=' => $this->input->post('section_id'),
+			'semester' => $this->input->post('semester'),
+			'room_id' => $this->input->post('room_id'),
+			'time_start' => $this->input->post('time_start'),
+			'time_end' => $this->input->post('time_end'),
+			'day' => $this->input->post('day') 
+		);
+		$data = $this->global_model->getRows('schedules', $arr);		
+		if($data){
+			echo json_encode($arr);
+		}else{
+			echo json_encode(1);
+		}
+
+	}
+
 
 }
