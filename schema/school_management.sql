@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 10, 2018 at 02:17 AM
+-- Generation Time: Feb 24, 2018 at 03:40 PM
 -- Server version: 5.7.11
--- PHP Version: 7.0.4
+-- PHP Version: 5.6.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -75,7 +75,27 @@ INSERT INTO `addresses` (`id`, `students_info_lrn`, `street`, `barangay`, `city`
 (11, 14038096, 'Street', 'Brgy', 'Taguig', 'Province'),
 (12, 14038021, '213', 'Brgy. 125', 'Caloocan City', 'Manila'),
 (13, 2147483647, '#211 Barietto st.', 'Talaba I', 'Bacoor City', 'Cavite'),
-(14, 897489232, 'fskdfhsdkj', 'hkjfdshkfj', 'kfskjdfh', 'kfsjkdhf');
+(14, 897489232, 'fskdfhsdkj', 'hkjfdshkfj', 'kfskjdfh', 'kfsjkdhf'),
+(15, 1231132333, '13123', 'Barangay', 'City', 'Province'),
+(16, 2147483647, '226-b', 'Talaba I', 'Bacoor City', 'Cavite'),
+(17, 78423973, '#211ehjf', 'sdmfbds', 'fshkdjfsh', 'kjfkjg'),
+(18, 1233332123, '123', 'Brgy', 'City', 'Province'),
+(19, 1228399495, '123', 'Brgy', 'City', 'Province'),
+(20, 2147483647, '121231b', 'Brgy', 'City', 'Province'),
+(21, 2147483647, '1231231', 'Barangay', 'City', 'Province'),
+(22, 2147483647, '1231231231231', 'Barangay', 'City', 'Province'),
+(23, 2147483647, '12312312', 'Barangay', 'City', 'Province'),
+(24, 2147483647, '1231231', 'Barangay', 'City', 'Province'),
+(25, 1231231235, '226-b', 'Brgy', 'City', 'Province'),
+(26, 2147483647, '226-b', 'Brgy', 'City', 'Province'),
+(27, 2147483647, '#211ehjf', 'Barangay', 'CItyyy', 'Provincee'),
+(28, 0, 'Philippines', 'Philippines', 'Philippines', 'Philippines'),
+(29, 2147483647, '2214C', 'Barangay', 'City', 'Province'),
+(30, 981237122, '121231C', 'Barangay', 'City', 'Province'),
+(31, 2147483647, '12312313', 'Barangay', 'City', 'Province'),
+(32, 123122, '1231', 'Barangay', 'City', 'Province'),
+(33, 4321, '2131231', 'Barangay', 'City', 'Province'),
+(34, 54321, '9812', 'Barangay', 'City', 'Province');
 
 -- --------------------------------------------------------
 
@@ -227,7 +247,167 @@ INSERT INTO `audit_trail` (`id`, `user`, `module`, `sub_module`, `action`, `desc
 (138, 'Teacher - Adrielle Escaro', '-', '-', 'Logged Out', '-', '2018-02-09 18:11:23'),
 (139, 'Teacher - Adrielle Escaro', '-', '-', 'Logged In', '-', '2018-02-09 18:11:26'),
 (140, 'Teacher - Adrielle Escaro', '-', '-', 'Logged Out', '-', '2018-02-09 18:11:33'),
-(141, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-09 18:11:38');
+(141, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-09 18:11:38'),
+(142, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-19 02:12:54'),
+(143, 'Administrator - Hakeem Polistico', '-', '-', 'Logged Out', '-', '2018-02-19 02:14:13'),
+(144, 'Teacher - Adrielle Escaro', '-', '-', 'Logged In', '-', '2018-02-19 02:14:20'),
+(145, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-19 14:40:06'),
+(146, 'Administrator - Hakeem Polistico', '-', '-', 'Logged Out', '-', '2018-02-19 14:42:32'),
+(147, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-19 14:42:35'),
+(148, 'Administrator - Hakeem Polistico', '-', '-', 'Logged Out', '-', '2018-02-19 14:42:43'),
+(149, 'Teacher - Adrielle Escaro', '-', '-', 'Logged In', '-', '2018-02-19 14:45:17'),
+(150, 'Teacher - Adrielle Escaro', '-', '-', 'Logged Out', '-', '2018-02-19 18:05:30'),
+(151, 'Teacher - May Garcia', '-', '-', 'Logged In', '-', '2018-02-19 18:05:39'),
+(152, 'Teacher - May Garcia', '-', '-', 'Logged Out', '-', '2018-02-19 18:14:22'),
+(153, 'Teacher - Adrielle Escaro', '-', '-', 'Logged In', '-', '2018-02-19 18:14:31'),
+(154, 'Teacher - Adrielle Escaro', '-', '-', 'Logged Out', '-', '2018-02-19 18:15:47'),
+(155, 'Teacher - May Garcia', '-', '-', 'Logged In', '-', '2018-02-19 18:15:55'),
+(156, 'Teacher - May Garcia', '-', '-', 'Logged Out', '-', '2018-02-19 18:19:21'),
+(157, 'Teacher - Adrielle Escaro', '-', '-', 'Logged In', '-', '2018-02-19 18:19:27'),
+(158, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-21 14:15:29'),
+(159, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-22 02:55:03'),
+(160, 'Administrator - Hakeem Polistico', '-', '-', 'Logged Out', '-', '2018-02-22 02:55:14'),
+(161, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-22 02:55:26'),
+(162, 'Administrator - Hakeem Polistico', '-', '-', 'Logged Out', '-', '2018-02-22 03:05:01'),
+(163, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-22 03:13:13'),
+(164, 'Administrator - Hakeem Polistico', '-', '-', 'Logged Out', '-', '2018-02-22 03:14:56'),
+(165, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-22 03:37:42'),
+(166, 'Teacher - Adrielle Escaro', '-', '-', 'Logged In', '-', '2018-02-22 03:42:54'),
+(167, 'Teacher - Adrielle Escaro', '-', '-', 'Logged Out', '-', '2018-02-22 03:44:21'),
+(168, 'Teacher - Adrielle Escaro', '-', '-', 'Logged In', '-', '2018-02-22 03:46:38'),
+(169, 'Administrator - Hakeem Polistico', 'Enrollment', 'Register Student', 'Registered Student', 'LRN: 1231132333', '2018-02-22 03:52:14'),
+(170, 'Administrator - Hakeem Polistico', 'Enrollment', 'Enroll Student', 'Enrolled Student', 'Enrolled 1231132333 to STEM', '2018-02-22 03:53:30'),
+(171, 'Teacher - Adrielle Escaro', '-', '-', 'Logged Out', '-', '2018-02-22 03:57:32'),
+(172, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-22 03:57:53'),
+(173, 'Administrator - Hakeem Polistico', '-', '-', 'Logged Out', '-', '2018-02-22 04:34:35'),
+(174, 'Teacher - Adrielle Escaro', '-', '-', 'Logged In', '-', '2018-02-22 04:34:45'),
+(175, 'Teacher - Adrielle Escaro', '-', '-', 'Logged Out', '-', '2018-02-22 04:37:05'),
+(176, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-22 04:37:29'),
+(177, 'Administrator - Hakeem Polistico', 'Academics', 'Strands', 'Added Data', 'fjhjf', '2018-02-22 04:38:40'),
+(178, 'Administrator - Hakeem Polistico', 'Academics', 'Teachers', 'Updated Data', 'EMPLOYEE ID - 0008 to 0009', '2018-02-22 04:39:27'),
+(179, 'Administrator - Hakeem Polistico', 'Academics', 'Teachers', 'Deactivated', 'EMPLOYEE ID - 0007 set to inactive', '2018-02-22 04:39:44'),
+(180, 'Administrator - Hakeem Polistico', 'Enrollment', 'Register Student', 'Registered Student', 'LRN: 2147483647', '2018-02-22 04:47:40'),
+(181, 'Administrator - Hakeem Polistico', 'Enrollment', 'Enroll Student', 'Enrolled Student', 'Enrolled 897489232 to STEM', '2018-02-22 04:51:47'),
+(182, 'Administrator - Hakeem Polistico', '-', '-', 'Logged Out', '-', '2018-02-22 04:56:15'),
+(183, 'Teacher - Adrielle Escaro', '-', '-', 'Logged In', '-', '2018-02-22 04:56:24'),
+(184, 'Teacher - Adrielle Escaro', '-', '-', 'Logged Out', '-', '2018-02-22 04:57:37'),
+(185, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-22 05:10:55'),
+(186, 'Administrator - Hakeem Polistico', 'Enrollment', 'Register Student', 'Registered Student', 'LRN: 78423973', '2018-02-22 05:32:31'),
+(187, 'Administrator - Hakeem Polistico', 'Enrollment', 'Enroll Student', 'Enrolled Student', 'Enrolled 78423973 to STEM', '2018-02-22 05:33:19'),
+(188, 'Administrator - Hakeem Polistico', 'Academics', 'Strands', 'Deactivated', 'CODE - 323 set to inactive', '2018-02-22 05:50:58'),
+(189, 'Administrator - Hakeem Polistico', '-', '-', 'Logged Out', '-', '2018-02-22 05:56:54'),
+(190, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-22 05:57:02'),
+(191, 'Administrator - Hakeem Polistico', '-', '-', 'Logged Out', '-', '2018-02-22 06:03:20'),
+(192, 'Teacher - Adrielle Escaro', '-', '-', 'Logged In', '-', '2018-02-22 06:03:39'),
+(193, 'Administrator - Hakeem Polistico', '-', '-', 'Logged Out', '-', '2018-02-22 06:12:06'),
+(194, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-22 06:12:30'),
+(195, 'Administrator - Hakeem Polistico', '-', '-', 'Logged Out', '-', '2018-02-22 06:15:05'),
+(196, 'Teacher - Adrielle Escaro', '-', '-', 'Logged In', '-', '2018-02-22 06:15:17'),
+(197, 'Teacher - Adrielle Escaro', '-', '-', 'Logged Out', '-', '2018-02-22 06:15:26'),
+(198, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-22 06:15:39'),
+(199, 'Administrator - Hakeem Polistico', 'Academics', 'Strands', 'Added Data', 'Information Technology', '2018-02-22 06:24:20'),
+(200, 'Administrator - Hakeem Polistico', 'Academics', 'Teachers', 'Deactivated', 'EMPLOYEE ID - 0009 set to inactive', '2018-02-22 06:25:05'),
+(201, 'Administrator - Hakeem Polistico', 'Enrollment', 'Register Student', 'Registered Student', 'LRN: 1233332123', '2018-02-22 06:32:14'),
+(202, 'Administrator - Hakeem Polistico', 'Enrollment', 'Enroll Student', 'Enrolled Student', 'Enrolled 1233332123 to STEM', '2018-02-22 06:34:00'),
+(203, 'Administrator - Hakeem Polistico', '-', '-', 'Logged Out', '-', '2018-02-22 06:40:33'),
+(204, 'Teacher - Adrielle Escaro', '-', '-', 'Logged In', '-', '2018-02-22 06:40:54'),
+(205, 'Teacher - Adrielle Escaro', '-', '-', 'Logged Out', '-', '2018-02-22 06:41:00'),
+(206, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-22 06:41:05'),
+(207, 'Administrator - Hakeem Polistico', 'Academics', 'Strands', 'Added Data', 'Information System', '2018-02-22 06:49:48'),
+(208, 'Administrator - Hakeem Polistico', 'Academics', 'Strands', 'Deactivated', 'CODE - IS set to inactive', '2018-02-22 06:50:10'),
+(209, 'Administrator - Hakeem Polistico', 'Academics', 'Curriculum', 'Added Data', 'CS-7 to STEM11 First Semester', '2018-02-22 06:51:11'),
+(210, 'Administrator - Hakeem Polistico', 'Academics', 'Curriculum', 'Added Data', 'CS-5 to STEM11 First Semester', '2018-02-22 06:51:11'),
+(211, 'Administrator - Hakeem Polistico', 'Academics', 'Curriculum', 'Added Data', 'CS-5 to STEM11 First Semester', '2018-02-22 06:51:11'),
+(212, 'Administrator - Hakeem Polistico', 'Academics', 'Curriculum', 'Added Data', 'CS-4 to STEM11 First Semester', '2018-02-22 06:51:11'),
+(213, 'Administrator - Hakeem Polistico', 'Academics', 'Curriculum', 'Added Data', 'SS-HUMSS-1 to STEM11 First Semester', '2018-02-22 06:51:11'),
+(214, 'Administrator - Hakeem Polistico', 'Enrollment', 'Register Student', 'Registered Student', 'LRN: 1228399495', '2018-02-22 07:01:39'),
+(215, 'Administrator - Hakeem Polistico', 'Enrollment', 'Enroll Student', 'Enrolled Student', 'Enrolled 1228399495 to GAS', '2018-02-22 07:04:17'),
+(216, 'Administrator - Hakeem Polistico', '-', '-', 'Logged Out', '-', '2018-02-22 07:11:27'),
+(217, 'Teacher - Adrielle Escaro', '-', '-', 'Logged In', '-', '2018-02-22 07:11:41'),
+(218, 'Teacher - Adrielle Escaro', '-', '-', 'Logged Out', '-', '2018-02-22 07:12:14'),
+(219, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-22 07:12:25'),
+(220, 'Administrator - Hakeem Polistico', 'Enrollment', 'Register Student', 'Registered Student', 'LRN: 2147483647', '2018-02-22 07:23:34'),
+(221, 'Administrator - Hakeem Polistico', 'Enrollment', 'Register Student', 'Registered Student', 'LRN: 2147483647', '2018-02-22 07:25:13'),
+(222, 'Administrator - Hakeem Polistico', 'Enrollment', 'Register Student', 'Registered Student', 'LRN: 2147483647', '2018-02-22 07:27:48'),
+(223, 'Teacher - Adrielle Escaro', '-', '-', 'Logged Out', '-', '2018-02-22 07:31:39'),
+(224, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-22 07:33:23'),
+(225, 'Administrator - Hakeem Polistico', 'Enrollment', 'Register Student', 'Registered Student', 'LRN: 2147483647', '2018-02-22 07:34:27'),
+(226, 'Administrator - Hakeem Polistico', 'Enrollment', 'Register Student', 'Registered Student', 'LRN: 2147483647', '2018-02-22 07:41:32'),
+(227, 'Administrator - Hakeem Polistico', 'Enrollment', 'Register Student', 'Registered Student', 'LRN: 2147483647', '2018-02-22 07:44:14'),
+(228, 'Administrator - Hakeem Polistico', 'Enrollment', 'Register Student', 'Registered Student', 'LRN: 2147483647', '2018-02-22 07:57:37'),
+(229, 'Administrator - Hakeem Polistico', 'Enrollment', 'Register Student', 'Registered Student', 'LRN: 0', '2018-02-22 08:01:36'),
+(230, 'Administrator - Hakeem Polistico', 'Academics', 'Strands', 'Added Data', 'Computer Science', '2018-02-22 08:23:42'),
+(231, 'Administrator - Hakeem Polistico', 'Academics', 'Strands', 'Deactivated', 'CODE - CS set to inactive', '2018-02-22 08:23:52'),
+(232, 'Administrator - Hakeem Polistico', 'Academics', 'Strands', 'Activated', 'CODE - CS set to active', '2018-02-22 08:23:57'),
+(233, 'Teacher - Adrielle Escaro', '-', '-', 'Logged In', '-', '2018-02-22 08:33:09'),
+(234, 'Teacher - Adrielle Escaro', '-', '-', 'Logged Out', '-', '2018-02-22 08:33:24'),
+(235, 'Teacher - Adrielle Escaro', '-', '-', 'Logged In', '-', '2018-02-22 08:33:35'),
+(236, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-22 12:44:06'),
+(237, 'Administrator - Hakeem Polistico', 'Enrollment', 'Register Student', 'Registered Student', 'LRN: 2147483647', '2018-02-22 12:46:07'),
+(238, 'Administrator - Hakeem Polistico', 'Enrollment', 'Register Student', 'Registered Student', 'LRN: 981237122', '2018-02-22 12:53:32'),
+(239, 'Administrator - Hakeem Polistico', 'Enrollment', 'Register Student', 'Registered Student', 'LRN: 12131312314123', '2018-02-22 12:58:45'),
+(240, 'Administrator - Hakeem Polistico', 'Enrollment', 'Register Student', 'Registered Student', 'LRN: 123122', '2018-02-22 13:11:17'),
+(241, 'Administrator - Hakeem Polistico', 'Enrollment', 'Register Student', 'Registered Student', 'LRN: 4321', '2018-02-22 13:13:22'),
+(242, 'Administrator - Hakeem Polistico', 'Enrollment', 'Register Student', 'Registered Student', 'LRN: 54321', '2018-02-22 13:21:53'),
+(243, 'Administrator - Hakeem Polistico', 'Academics', 'Schedule', 'Saved Data', 'Saved schedule for GAS-11A', '2018-02-22 13:27:24'),
+(244, 'Administrator - Hakeem Polistico', 'Academics', 'Schedule', 'Saved Data', 'Saved schedule for STEM-11A', '2018-02-22 13:27:55'),
+(245, 'Administrator - Hakeem Polistico', 'Academics', 'Schedule', 'Saved Data', 'Saved schedule for STEM-11A', '2018-02-22 13:28:57'),
+(246, 'Administrator - Hakeem Polistico', 'Academics', 'Schedule', 'Saved Data', 'Saved schedule for STEM-11A', '2018-02-22 13:29:36'),
+(247, 'Administrator - Hakeem Polistico', 'Academics', 'Schedule', 'Saved Data', 'Saved schedule for STEM-11A', '2018-02-22 13:30:17'),
+(248, 'Administrator - Hakeem Polistico', 'Academics', 'Schedule', 'Saved Data', 'Saved schedule for STEM-11A', '2018-02-22 13:31:28'),
+(249, 'Administrator - Hakeem Polistico', 'Academics', 'Schedule', 'Saved Data', 'Saved schedule for STEM-11A', '2018-02-22 13:32:14'),
+(250, 'Administrator - Hakeem Polistico', 'Academics', 'Schedule', 'Saved Data', 'Saved schedule for STEM-11A', '2018-02-22 13:32:45'),
+(251, 'Administrator - Hakeem Polistico', '-', '-', 'Logged Out', '-', '2018-02-22 13:47:24'),
+(252, 'Teacher - Adrielle Escaro', '-', '-', 'Logged In', '-', '2018-02-22 13:47:31'),
+(253, 'Teacher - Adrielle Escaro', '-', '-', 'Logged Out', '-', '2018-02-22 15:06:01'),
+(254, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-22 15:06:04'),
+(255, 'Administrator - Hakeem Polistico', '-', '-', 'Logged Out', '-', '2018-02-22 15:06:42'),
+(256, 'Teacher - Adrielle Escaro', '-', '-', 'Logged In', '-', '2018-02-22 15:06:49'),
+(257, 'Teacher - Adrielle Escaro', '-', '-', 'Logged Out', '-', '2018-02-22 15:07:20'),
+(258, 'Teacher - Adrielle Escaro', '-', '-', 'Logged In', '-', '2018-02-22 15:07:28'),
+(259, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-23 15:47:49'),
+(260, 'Administrator - Hakeem Polistico', '-', '-', 'Logged Out', '-', '2018-02-23 18:52:15'),
+(261, 'Teacher - Adrielle Escaro', '-', '-', 'Logged In', '-', '2018-02-23 18:52:58'),
+(262, 'Teacher - Adrielle Escaro', '-', '-', 'Logged Out', '-', '2018-02-23 18:53:07'),
+(263, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-23 18:53:10'),
+(264, 'Administrator - Hakeem Polistico', '-', '-', 'Logged Out', '-', '2018-02-23 18:53:15'),
+(265, 'Teacher - Adrielle Escaro', '-', '-', 'Logged In', '-', '2018-02-23 18:53:27'),
+(266, 'Teacher - Adrielle Escaro', '-', '-', 'Logged Out', '-', '2018-02-23 19:53:21'),
+(267, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-23 19:53:23'),
+(268, 'Administrator - Hakeem Polistico', 'Academics', 'Schedule', 'Saved Data', 'Saved schedule for STEM-11B', '2018-02-23 20:07:35'),
+(269, 'Administrator - Hakeem Polistico', 'Academics', 'Schedule', 'Saved Data', 'Saved schedule for STEM-11B', '2018-02-23 20:08:34'),
+(270, 'Administrator - Hakeem Polistico', 'Academics', 'Schedule', 'Saved Data', 'Saved schedule for STEM-11B', '2018-02-23 20:14:10'),
+(271, 'Administrator - Hakeem Polistico', 'Academics', 'Schedule', 'Saved Data', 'Saved schedule for STEM-11B', '2018-02-23 20:15:27'),
+(272, 'Administrator - Hakeem Polistico', 'Academics', 'Schedule', 'Saved Data', 'Saved schedule for STEM-11B', '2018-02-23 20:16:28'),
+(273, 'Administrator - Hakeem Polistico', 'Academics', 'Schedule', 'Saved Data', 'Saved schedule for STEM-11B', '2018-02-23 20:17:14'),
+(274, 'Administrator - Hakeem Polistico', 'Academics', 'Schedule', 'Saved Data', 'Saved schedule for STEM-11B', '2018-02-23 20:18:04'),
+(275, 'Administrator - Hakeem Polistico', 'Academics', 'Schedule', 'Saved Data', 'Saved schedule for STEM-11B', '2018-02-24 00:08:36'),
+(276, 'Administrator - Hakeem Polistico', 'Academics', 'Schedule', 'Saved Data', 'Saved schedule for STEM-11B', '2018-02-24 00:22:42'),
+(277, 'Administrator - Hakeem Polistico', 'Academics', 'Schedule', 'Saved Data', 'Saved schedule for STEM-11B', '2018-02-24 01:12:12'),
+(278, 'Administrator - Hakeem Polistico', 'Academics', 'Schedule', 'Saved Data', 'Saved schedule for STEM-11B', '2018-02-24 01:12:40'),
+(279, ' -  ', '-', '-', 'Logged Out', '-', '2018-02-24 08:23:23'),
+(280, 'Teacher - Adrielle Escaro', '-', '-', 'Logged In', '-', '2018-02-24 08:23:37'),
+(281, 'Teacher - Adrielle Escaro', '-', '-', 'Logged In', '-', '2018-02-24 11:56:11'),
+(282, 'Teacher - Adrielle Escaro', '-', '-', 'Logged Out', '-', '2018-02-24 12:14:30'),
+(283, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-24 12:14:33'),
+(284, 'Administrator - Hakeem Polistico', 'Academics', 'Curriculum', 'Added Data', 'CS-7 to STEM11 First Semester', '2018-02-24 12:14:44'),
+(285, 'Administrator - Hakeem Polistico', 'Academics', 'Curriculum', 'Added Data', 'CS-4 to STEM11 First Semester', '2018-02-24 12:14:44'),
+(286, 'Administrator - Hakeem Polistico', 'Academics', 'Curriculum', 'Added Data', 'CS-5 to STEM11 First Semester', '2018-02-24 12:14:44'),
+(287, 'Administrator - Hakeem Polistico', 'Academics', 'Curriculum', 'Added Data', 'SS-HUMSS-1 to STEM11 First Semester', '2018-02-24 12:14:44'),
+(288, 'Administrator - Hakeem Polistico', '-', '-', 'Logged Out', '-', '2018-02-24 12:14:46'),
+(289, 'Teacher - Adrielle Escaro', '-', '-', 'Logged In', '-', '2018-02-24 12:14:55'),
+(290, 'Teacher - Adrielle Escaro', '-', '-', 'Logged Out', '-', '2018-02-24 14:30:11'),
+(291, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-24 14:30:16'),
+(292, 'Administrator - Hakeem Polistico', '-', '-', 'Logged Out', '-', '2018-02-24 14:41:46'),
+(293, 'Teacher - Adrielle Escaro', '-', '-', 'Logged In', '-', '2018-02-24 14:41:52'),
+(294, 'Teacher - Adrielle Escaro', '-', '-', 'Logged Out', '-', '2018-02-24 14:48:27'),
+(295, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-24 14:48:31'),
+(296, 'Administrator - Hakeem Polistico', '-', '-', 'Logged Out', '-', '2018-02-24 15:00:31'),
+(297, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-24 15:00:41'),
+(298, 'Administrator - Hakeem Polistico', '-', '-', 'Logged Out', '-', '2018-02-24 15:10:08'),
+(299, 'Teacher - Adrielle Escaro', '-', '-', 'Logged In', '-', '2018-02-24 15:11:11'),
+(300, 'Teacher - Adrielle Escaro', '-', '-', 'Logged Out', '-', '2018-02-24 15:14:46'),
+(301, 'Administrator - Hakeem Polistico', '-', '-', 'Logged In', '-', '2018-02-24 15:14:49');
 
 -- --------------------------------------------------------
 
@@ -258,14 +438,14 @@ INSERT INTO `class_subjects` (`id`, `section_id`, `subject_id`, `teacher_id`, `s
 (6, 13, 'SS-STEM-1', '0005', 'Second Semester', '2018-01-19 13:36:56', '0000-00-00 00:00:00'),
 (7, 13, 'SS-STEM-2', '0003', 'Second Semester', '2018-01-19 13:36:56', '0000-00-00 00:00:00'),
 (8, 13, 'CS-7', '0002', 'Second Semester', '2018-01-19 13:36:56', '0000-00-00 00:00:00'),
-(9, 1, 'CS-4', '0002', 'First Semester', '2018-01-27 16:20:00', '0000-00-00 00:00:00'),
-(10, 1, 'CS-6', '0002', 'Second Semester', '2018-01-27 16:20:00', '0000-00-00 00:00:00'),
-(11, 1, 'CS-7', '0003', 'First Semester', '2018-01-27 16:20:00', '0000-00-00 00:00:00'),
-(12, 1, 'SS-HUMSS-1', '0004', 'First Semester', '2018-01-27 16:20:00', '0000-00-00 00:00:00'),
-(13, 1, 'CS-5', '0001', 'First Semester', '2018-01-27 16:20:00', '0000-00-00 00:00:00'),
-(14, 1, 'SS-STEM-1', '0001', 'Second Semester', '2018-01-27 16:20:00', '0000-00-00 00:00:00'),
-(15, 1, 'SS-STEM-2', '0003', 'Second Semester', '2018-01-27 16:20:00', '0000-00-00 00:00:00'),
-(16, 1, 'CS-7', '0004', 'Second Semester', '2018-01-27 16:20:00', '0000-00-00 00:00:00');
+(30, 1, 'CS-6', '0002', 'Second Semester', '2018-02-22 06:27:44', '0000-00-00 00:00:00'),
+(31, 1, 'SS-STEM-1', '0001', 'Second Semester', '2018-02-22 06:27:44', '0000-00-00 00:00:00'),
+(29, 1, 'CS-5', '0001', 'First Semester', '2018-02-22 06:27:44', '0000-00-00 00:00:00'),
+(28, 1, 'SS-STEM-2', '0003', 'Second Semester', '2018-02-22 06:27:44', '0000-00-00 00:00:00'),
+(27, 1, 'CS-7', '0003', 'First Semester', '2018-02-22 06:27:44', '0000-00-00 00:00:00'),
+(26, 1, 'CS-4', '0001', 'First Semester', '2018-02-22 06:27:44', '0000-00-00 00:00:00'),
+(25, 1, 'SS-HUMSS-1', '0004', 'First Semester', '2018-02-22 06:27:44', '0000-00-00 00:00:00'),
+(32, 1, 'CS-7', '0004', 'Second Semester', '2018-02-22 06:27:44', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -288,15 +468,15 @@ CREATE TABLE `curriculum` (
 --
 
 INSERT INTO `curriculum` (`id`, `subject_code`, `strand_code`, `year_level_id`, `semester`, `date_created`, `date_modified`) VALUES
-(41, 'CS-5', 'STEM', 1, 'First Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(40, 'CS-4', 'STEM', 1, 'First Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(39, 'CS-7', 'STEM', 1, 'First Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(38, 'SS-HUMSS-1', 'STEM', 1, 'First Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(51, 'SS-HUMSS-1', 'STEM', 1, 'First Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(50, 'CS-5', 'STEM', 1, 'First Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(49, 'CS-4', 'STEM', 1, 'First Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (6, 'SS-STEM-1', 'STEM', 1, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (7, 'CS-6', 'STEM', 1, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (8, 'SS-STEM-2', 'STEM', 1, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (9, 'CS-7', 'STEM', 1, 'Second Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(42, 'CS-4', 'GAS', 1, 'First Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(42, 'CS-4', 'GAS', 1, 'First Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(48, 'CS-7', 'STEM', 1, 'First Semester', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -329,7 +509,12 @@ INSERT INTO `enrolled_students` (`id`, `students_info_lrn`, `note`, `section_id`
 (8, 14038005, '', '1', 2, '2018-01-19 19:39:57', '0000-00-00 00:00:00'),
 (9, 14038096, '', '1', 2, '2018-01-22 13:47:23', '0000-00-00 00:00:00'),
 (10, 14038021, '', '6', 2, '2018-01-25 03:30:14', '0000-00-00 00:00:00'),
-(11, 2147483647, 'Kalbo', '3', 2, '2018-02-06 12:53:29', '0000-00-00 00:00:00');
+(11, 2147483647, 'Kalbo', '3', 2, '2018-02-06 12:53:29', '0000-00-00 00:00:00'),
+(12, 1231132333, '', '1', 2, '2018-02-22 03:53:30', '0000-00-00 00:00:00'),
+(13, 897489232, '', '1', 2, '2018-02-22 04:51:47', '0000-00-00 00:00:00'),
+(14, 78423973, '', '1', 2, '2018-02-22 05:33:19', '0000-00-00 00:00:00'),
+(15, 1233332123, '', '13', 2, '2018-02-22 06:34:00', '0000-00-00 00:00:00'),
+(16, 1228399495, '', '2', 2, '2018-02-22 07:04:17', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -371,7 +556,38 @@ INSERT INTO `grades` (`id`, `lrn`, `semester`, `quarter`, `subject_code`, `grade
 (19, '14038096', 'Second Semester', 'First Quarter', 'SS-STEM-2', '76.0'),
 (20, '14038014', 'First Semester', 'First Quarter', 'SS-HUMSS-1', '87.0'),
 (21, '14038001', 'First Semester', 'First Quarter', 'SS-HUMSS-1', '74.0'),
-(22, '14038003', 'First Semester', 'First Quarter', 'SS-HUMSS-1', '70.0');
+(22, '14038003', 'First Semester', 'First Quarter', 'SS-HUMSS-1', '70.0'),
+(23, '14038070', 'First Semester', 'First Quarter', 'SS-HUMSS-1', '89.0'),
+(24, '14038005', 'First Semester', 'First Quarter', 'SS-HUMSS-1', '87.0'),
+(25, '14038096', 'First Semester', 'First Quarter', 'SS-HUMSS-1', '90.0'),
+(26, '14038014', 'First Semester', 'First Quarter', 'CS-5', '90.0'),
+(27, '14038001', 'First Semester', 'First Quarter', 'CS-5', '89.0'),
+(28, '14038003', 'First Semester', 'First Quarter', 'CS-5', '90.0'),
+(29, '14038070', 'First Semester', 'First Quarter', 'CS-5', '89.0'),
+(30, '14038005', 'First Semester', 'First Quarter', 'CS-5', '70.0'),
+(31, '14038096', 'First Semester', 'First Quarter', 'CS-5', '90.0'),
+(32, '14038014', 'First Semester', 'First Quarter', 'CS-7', '86.0'),
+(33, '14038001', 'First Semester', 'First Quarter', 'CS-7', '85.0'),
+(34, '14038003', 'First Semester', 'First Quarter', 'CS-7', '87.0'),
+(35, '14038070', 'First Semester', 'First Quarter', 'CS-7', '96.0'),
+(36, '14038070', 'First Semester', 'First Quarter', 'CS-7', '86.0'),
+(37, '14038005', 'First Semester', 'First Quarter', 'CS-7', '85.0'),
+(38, '14038096', 'First Semester', 'First Quarter', 'CS-7', '76.0'),
+(39, '14038096', 'First Semester', 'First Quarter', 'CS-7', '87.0'),
+(40, '1231132333', 'First Semester', 'First Quarter', 'CS-4', '89.0'),
+(41, '897489232', 'First Semester', 'First Quarter', 'CS-4', '89.0'),
+(42, '78423973', 'First Semester', 'First Quarter', 'CS-4', '88.0'),
+(43, '1233332123', 'First Semester', 'First Quarter', 'CS-4', '89.0'),
+(44, '1231132333', 'First Semester', 'First Quarter', 'CS-5', '89.0'),
+(45, '78423973', 'First Semester', 'First Quarter', 'CS-5', '89.0'),
+(46, '897489232', 'First Semester', 'First Quarter', 'CS-5', '89.0'),
+(47, '1231132333', 'First Semester', 'First Quarter', 'SS-HUMSS-1', '89.0'),
+(48, '78423973', 'First Semester', 'First Quarter', 'SS-HUMSS-1', '89.0'),
+(49, '897489232', 'First Semester', 'First Quarter', 'SS-HUMSS-1', '80.0'),
+(50, '1231132333', 'First Semester', 'First Quarter', 'CS-7', '80.0'),
+(51, '897489232', 'First Semester', 'First Quarter', 'CS-7', '74.0'),
+(52, '78423973', 'First Semester', 'First Quarter', 'CS-7', '74.0'),
+(53, '14038014', 'First Semester', 'Second Quarter', 'CS-7', '83.0');
 
 -- --------------------------------------------------------
 
@@ -404,7 +620,27 @@ INSERT INTO `guardians` (`id`, `students_info_lrn`, `name`, `contact`, `relation
 (9, 14038096, 'Mother Lazaro', '0955-887-4822', 'Mother', 'Street, Brgy, Taguig, Province'),
 (10, 14038021, 'Anne Curtis', '0955-887-4822', 'Mother', '213, Brgy. 125, Caloocan City, Manila'),
 (11, 2147483647, 'Father Name', '3246238427', 'Father', 'Somewhere over the rainbow'),
-(12, 897489232, 'afkjhsdjk', '0979687689', 'Father', 'fskdfhsdkj, hkjfdshkfj, kfskjdfh, kfsjkdhf');
+(12, 897489232, 'afkjhsdjk', '0979687689', 'Father', 'fskdfhsdkj, hkjfdshkfj, kfskjdfh, kfsjkdhf'),
+(13, 1231132333, 'Father Brila', '0979687689', 'Father', '13123, Barangay, City, Province'),
+(14, 2147483647, 'Father Brila', '0955-887-4822', 'Father', '226-b, Talaba I, Bacoor City, Cavite'),
+(15, 78423973, 'dfndskjf', '389242', 'Father', '#211ehjf, sdmfbds, fshkdjfsh, kjfkjg'),
+(16, 1233332123, 'Father Brila', '0955-887-4822', 'Father', '12, Brgy, City, Province'),
+(17, 1228399495, 'N/A', '0901122344', 'Father', '123, Brgy, City, Province'),
+(18, 2147483647, 'Father Brila', '09111111111', 'Father', '12, Brgy, City, Province'),
+(19, 2147483647, 'Father Brila', '09111111111', 'Father', '1231231, Barangay, City, Province'),
+(20, 2147483647, 'Father Brila', '09111111111', 'Father', '1231231231231, Barangay, City, Province'),
+(21, 2147483647, 'Father Brila', '09111111111', 'Father', '12312312, Barangay, City, Province'),
+(22, 2147483647, 'Father Brila', '09111111111', 'Father', '1231231, Barangay, City, Province'),
+(23, 1231231235, 'Father Brila', '09111111111', 'Father', '226-b, Brgy, City, Province'),
+(24, 2147483647, 'Father Brila', '09111111111', 'Father', '226-b, Brgy, City, Province'),
+(25, 2147483647, 'Father Brila', '3242424', 'Father', '#211ehjf, Barangay, CItyyy, Provincee'),
+(26, 0, 'Mother Capistrano', '0111111111', 'Mother', 'Philippines'),
+(27, 2147483647, 'Father Brila', '09111111111', 'Father', '2214C, Barangay, City, Province'),
+(28, 981237122, 'Father Polistico', '09111111111', 'Father', '121231C, Barangay, City, Province'),
+(29, 2147483647, 'Father Polistico', '09111111111', 'Father', '12312313, Barangay, City, Province'),
+(30, 123122, 'Father Polistico', '09111111111', 'Father', '1231, Barangay, City, Province'),
+(31, 4321, 'Father Polistico', '09111111111', 'Father', '2131231, Barangay, City, Province'),
+(32, 54321, 'Father Polistico', '09111111111', 'Father', '9812, Barangay, City, Province');
 
 -- --------------------------------------------------------
 
@@ -470,7 +706,27 @@ INSERT INTO `parents` (`id`, `students_info_lrn`, `mother_name`, `mother_contact
 (11, 14038096, 'Mother Lazaro', '0955-887-4822', 'Father Lazaro', '0955-887-4822'),
 (12, 14038021, 'Anne Curtis', '0955-887-4822', 'Tom Cruise', '0955-887-4822'),
 (13, 2147483647, 'Mother Name', '8953875634', 'Father Name', '3246238427'),
-(14, 897489232, 'jkgjh', '8796756', 'afkjhsdjk', '0979687689');
+(14, 897489232, 'jkgjh', '8796756', 'afkjhsdjk', '0979687689'),
+(15, 1231132333, 'Mother Brila', '0955-887-4822', 'Father Brila', '0979687689'),
+(16, 2147483647, 'Mother Brila', '09111111112', 'Father Brila', '0955-887-4822'),
+(17, 78423973, 'hfdsfsdfs', '432876', 'dfndskjf', '389242'),
+(18, 1233332123, 'Marissa Tomei', '09111111112', 'Father Brila', '0955-887-4822'),
+(19, 1228399495, 'Marissa Tomei', '0955-887-4822', 'N/A', '0901122344'),
+(20, 2147483647, 'Marissa Tomei', '09111111112', 'Father Brila', '09111111111'),
+(21, 2147483647, 'Mother Brila', '09111111112', 'Father Brila', '09111111111'),
+(22, 2147483647, 'Mother Brila', '09111111112', 'Father Brila', '09111111111'),
+(23, 2147483647, 'Mother Brila', '09111111112', 'Father Brila', '09111111111'),
+(24, 2147483647, 'Mother Brila', '09111111112', 'Father Brila', '09111111111'),
+(25, 1231231235, 'Marissa Tomei', '09111111112', 'Father Brila', '09111111111'),
+(26, 2147483647, 'Marissa Tomei', '09111111112', 'Father Brila', '09111111111'),
+(27, 2147483647, 'Motherrrr', '55424234', 'Father Brila', '3242424'),
+(28, 0, 'Mother Capistrano', '0111111111', 'Father Capistrano', '099999999'),
+(29, 2147483647, 'Mother Brila', '09111111112', 'Father Brila', '09111111111'),
+(30, 981237122, 'Mother Polistico', '09111111112', 'Father Polistico', '09111111111'),
+(31, 2147483647, 'Mother Polistico', '09111111112', 'Father Polistico', '09111111111'),
+(32, 123122, 'Mother Polistico', '09111111112', 'Father Polistico', '09111111111'),
+(33, 4321, 'Mother Polistico', '09111111112', 'Father Polistico', '09111111111'),
+(34, 54321, 'Mother Polistico', '09111111112', 'Father Polistico', '09111111111');
 
 -- --------------------------------------------------------
 
@@ -489,7 +745,9 @@ CREATE TABLE `registered_students` (
 --
 
 INSERT INTO `registered_students` (`id`, `students_info_lrn`, `date_registered`) VALUES
-(12, '897489232', '2018-02-06 12:54:41');
+(31, '54321', '2018-02-22 13:21:53'),
+(30, '4321', '2018-02-22 13:13:22'),
+(29, '123122', '2018-02-22 13:11:17');
 
 -- --------------------------------------------------------
 
@@ -541,7 +799,22 @@ INSERT INTO `requirements` (`id`, `enrolled_student_lrn`, `requirement`, `date_g
 (30, '14038021', 'form 138', '2018-01-25 03:30:14'),
 (31, '2147483647', 'NSO Birth Certificate', '2018-02-06 12:53:29'),
 (32, '2147483647', 'Form 137', '2018-02-06 12:53:29'),
-(33, '2147483647', 'form 138', '2018-02-06 12:53:29');
+(33, '2147483647', 'form 138', '2018-02-06 12:53:29'),
+(34, '1231132333', 'NSO Birth Certificate', '2018-02-22 03:53:30'),
+(35, '1231132333', 'Form 137', '2018-02-22 03:53:30'),
+(36, '1231132333', 'form 138', '2018-02-22 03:53:30'),
+(37, '897489232', 'NSO Birth Certificate', '2018-02-22 04:51:47'),
+(38, '897489232', 'Form 137', '2018-02-22 04:51:47'),
+(39, '897489232', 'form 138', '2018-02-22 04:51:47'),
+(40, '78423973', 'NSO Birth Certificate', '2018-02-22 05:33:19'),
+(41, '78423973', 'Form 137', '2018-02-22 05:33:19'),
+(42, '78423973', 'form 138', '2018-02-22 05:33:19'),
+(43, '1233332123', 'NSO Birth Certificate', '2018-02-22 06:34:00'),
+(44, '1233332123', 'Form 137', '2018-02-22 06:34:00'),
+(45, '1233332123', 'form 138', '2018-02-22 06:34:00'),
+(46, '1228399495', 'NSO Birth Certificate', '2018-02-22 07:04:17'),
+(47, '1228399495', 'Form 137', '2018-02-22 07:04:17'),
+(48, '1228399495', 'form 138', '2018-02-22 07:04:17');
 
 -- --------------------------------------------------------
 
@@ -593,22 +866,31 @@ CREATE TABLE `schedules` (
 --
 
 INSERT INTO `schedules` (`id`, `section_id`, `semester`, `subject_code`, `room_id`, `time_start`, `time_end`, `day`, `color`, `row`) VALUES
-(181, 1, 'First Semester', 'CS-7', 'Lab101', '09:00', '10:00', 'Friday', 'rgb(216, 27, 96)', 2),
-(180, 1, 'First Semester', 'CS-7', 'Lab101', '09:00', '10:00', 'Thursday', 'rgb(216, 27, 96)', 2),
-(179, 1, 'First Semester', 'CS-7', 'Lab101', '09:00', '10:00', 'Wednesday', 'rgb(216, 27, 96)', 2),
-(178, 1, 'First Semester', 'CS-4', 'Lab101', '08:00', '09:00', 'Friday', 'rgb(96, 92, 168)', 1),
-(177, 1, 'First Semester', 'CS-7', 'Lab101', '09:00', '10:00', 'Tuesday', 'rgb(216, 27, 96)', 2),
-(176, 1, 'First Semester', 'CS-7', 'Lab101', '09:00', '10:00', 'Monday', 'rgb(216, 27, 96)', 2),
-(175, 1, 'First Semester', 'CS-4', 'Lab101', '08:00', '09:00', 'Thursday', 'rgb(96, 92, 168)', 1),
-(174, 1, 'First Semester', 'CS-4', 'Lab101', '08:00', '09:00', 'Wednesday', 'rgb(96, 92, 168)', 1),
-(173, 1, 'First Semester', 'CS-4', 'Lab101', '08:00', '09:00', 'Tuesday', 'rgb(96, 92, 168)', 1),
-(172, 1, 'First Semester', 'CS-4', 'Lab101', '08:00', '09:00', 'Monday', 'rgb(96, 92, 168)', 1),
-(101, 1, 'Second Semester', 'CS-5', 'Lab101', '07:00', '08:00', 'Monday', 'rgb(0, 192, 239)', 0),
-(171, 1, 'First Semester', 'CS-5', 'Lab101', '07:00', '08:00', 'Friday', 'rgb(0, 192, 239)', 0),
-(169, 1, 'First Semester', 'CS-5', 'Lab101', '07:00', '08:00', 'Monday', 'rgb(0, 192, 239)', 0),
-(170, 1, 'First Semester', 'CS-5', 'Lab101', '07:00', '08:00', 'Tuesday', 'rgb(0, 192, 239)', 0),
-(168, 1, 'First Semester', 'CS-5', 'Lab101', '07:00', '08:00', 'Thursday', 'rgb(0, 192, 239)', 0),
-(167, 1, 'First Semester', 'CS-5', 'Lab101', '07:00', '08:00', 'Wednesday', 'rgb(0, 192, 239)', 0);
+(406, 13, 'First Semester', 'CS-7', 'Lab102', '08:00', '09:00', 'Monday', 'rgb(60, 141, 188)', 0),
+(405, 13, 'First Semester', 'CS-7', 'Lab102', '08:00', '09:00', 'Friday', 'rgb(60, 141, 188)', 0),
+(404, 13, 'First Semester', 'CS-7', 'Lab102', '08:00', '09:00', 'Thursday', 'rgb(60, 141, 188)', 0),
+(403, 13, 'First Semester', 'CS-7', 'Lab102', '08:00', '09:00', 'Wednesday', 'rgb(60, 141, 188)', 0),
+(402, 13, 'First Semester', 'CS-7', 'Lab102', '08:00', '09:00', 'Tuesday', 'rgb(60, 141, 188)', 0),
+(349, 1, 'First Semester', 'SS-HUMSS-1', 'Lab101', '11:00', '12:00', 'Wednesday', 'rgb(132, 53, 52)', 3),
+(350, 1, 'First Semester', 'SS-HUMSS-1', 'Lab101', '11:00', '12:00', 'Thursday', 'rgb(132, 53, 52)', 3),
+(351, 1, 'First Semester', 'SS-HUMSS-1', 'Lab101', '11:00', '12:00', 'Friday', 'rgb(132, 53, 52)', 3),
+(344, 1, 'First Semester', 'CS-7', 'Lab101', '09:00', '10:00', 'Thursday', 'rgb(216, 27, 96)', 2),
+(345, 1, 'First Semester', 'CS-7', 'Lab101', '09:00', '10:00', 'Wednesday', 'rgb(216, 27, 96)', 2),
+(346, 1, 'First Semester', 'SS-HUMSS-1', 'Lab101', '11:00', '12:00', 'Monday', 'rgb(132, 53, 52)', 3),
+(347, 1, 'First Semester', 'CS-7', 'Lab101', '09:00', '10:00', 'Friday', 'rgb(216, 27, 96)', 2),
+(348, 1, 'First Semester', 'SS-HUMSS-1', 'Lab101', '11:00', '12:00', 'Tuesday', 'rgb(132, 53, 52)', 3),
+(338, 1, 'First Semester', 'CS-4', 'Lab101', '08:00', '09:00', 'Tuesday', 'rgb(96, 92, 168)', 1),
+(339, 1, 'First Semester', 'CS-4', 'Lab101', '08:00', '09:00', 'Wednesday', 'rgb(96, 92, 168)', 1),
+(340, 1, 'First Semester', 'CS-4', 'Lab101', '08:00', '09:00', 'Thursday', 'rgb(96, 92, 168)', 1),
+(341, 1, 'First Semester', 'CS-4', 'Lab101', '08:00', '09:00', 'Friday', 'rgb(96, 92, 168)', 1),
+(343, 1, 'First Semester', 'CS-7', 'Lab101', '09:00', '10:00', 'Tuesday', 'rgb(216, 27, 96)', 2),
+(342, 1, 'First Semester', 'CS-7', 'Lab101', '09:00', '10:00', 'Monday', 'rgb(216, 27, 96)', 2),
+(337, 1, 'First Semester', 'CS-4', 'Lab101', '08:00', '09:00', 'Monday', 'rgb(96, 92, 168)', 1),
+(336, 1, 'First Semester', 'CS-5', 'Lab101', '07:00', '08:00', 'Monday', 'rgb(0, 192, 239)', 0),
+(334, 1, 'First Semester', 'CS-5', 'Lab101', '07:00', '08:00', 'Thursday', 'rgb(0, 192, 239)', 0),
+(335, 1, 'First Semester', 'CS-5', 'Lab101', '07:00', '08:00', 'Wednesday', 'rgb(0, 192, 239)', 0),
+(333, 1, 'First Semester', 'CS-5', 'Lab101', '07:00', '08:00', 'Friday', 'rgb(0, 192, 239)', 0),
+(332, 1, 'First Semester', 'CS-5', 'Lab101', '07:00', '08:00', 'Tuesday', 'rgb(0, 192, 239)', 0);
 
 -- --------------------------------------------------------
 
@@ -677,11 +959,9 @@ INSERT INTO `strands` (`id`, `code`, `name`, `status`, `date_created`, `grade_re
 (4, 'TVL-HE', 'Technical Vocational and Livelihood - Home Economics', 'active', '2018-02-06 05:30:57', 65),
 (5, 'TVL-AS', 'Technical Vocational and Livelihood - Automative Services', 'active', '2018-02-06 05:30:57', 65),
 (6, 'ABM', 'Accounting and Business Management', 'active', '2018-02-06 05:30:57', 85),
-(17, 'asd', 'asd', 'inactive', '2018-02-06 05:30:57', 65),
-(18, '123', 'asd', 'inactive', '2018-02-06 05:30:57', 65),
-(19, '1231', 'asdasda', 'inactive', '2018-02-06 05:30:57', 65),
-(20, 'BSIS4', 'BS Information System 5', 'inactive', '2018-02-06 05:30:57', 65),
-(21, 'BSIT', 'Information Technology', 'active', '0000-00-00 00:00:00', NULL);
+(25, 'CS', 'Computer Science', 'active', '0000-00-00 00:00:00', NULL),
+(24, 'IS', 'Information System', 'inactive', '0000-00-00 00:00:00', NULL),
+(23, 'IT', 'Information Technology', 'active', '0000-00-00 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -724,8 +1004,29 @@ INSERT INTO `students_info` (`id`, `lrn`, `first_name`, `middle_name`, `last_nam
 (10, 14038005, 'John Robert', '', 'Capistrano', 'Male', '0955-887-4822', '1997-04-13', 'Bulacan', 20, 'Filipino', 'Roman Catholic', b'0', '2018-01-19 19:29:58', '2018-01-19 19:29:58'),
 (11, 14038096, 'Meliton', '', 'Lazaro', 'Male', '0955-887-4822', '1997-02-23', 'Taguig', 20, 'Filipino', 'Roman Catholic', b'0', '2018-01-22 09:57:31', '2018-01-22 09:57:31'),
 (12, 14038021, 'Christine', '', 'Canimo', 'Female', '0955-887-4822', '2018-01-25', 'Antipolo', 0, 'Filipino', 'Roman Catholic', b'0', '2018-01-25 03:27:50', '2018-01-25 03:27:50'),
-(13, 2147483647, 'Fernando', 'kalbo', 'Renegado', 'Male', '479382424', '1998-10-27', 'Quezon City', 19, 'Tagalog', 'Catholic', b'0', '2018-02-06 05:31:48', '2018-02-06 05:31:48'),
-(14, 897489232, 'dhjkdf', 'jhjkhk', 'jhkhjkh', 'Male', '75675765', '1994-07-20', 'dsjfkhfj', 23, 'jhjfdkshfkj', 'jhfkshskjdfh', b'0', '2018-02-06 12:54:41', '2018-02-06 12:54:41');
+(13, 2147483647, 'Fernando', '', 'Renegado', 'Male', '479382424', '1998-10-27', 'Quezon City', 19, 'Tagalog', 'Catholic', b'0', '2018-02-22 06:22:04', '2018-02-22 06:22:04'),
+(14, 897489232, 'dhjkdf', 'jhjkhk', 'jhkhjkh', 'Male', '75675765', '1994-07-20', 'dsjfkhfj', 23, 'jhjfdkshfkj', 'jhfkshskjdfh', b'0', '2018-02-06 12:54:41', '2018-02-06 12:54:41'),
+(15, 1231132333, 'Jasver', 'Anlouise', 'Salva', 'Female', '0955-887-4822', '1998-02-06', 'daasdda', 20, 'Filipino', 'Catholic', b'0', '2018-02-22 03:52:14', '2018-02-22 03:52:14'),
+(16, 2147483647, 'jasver', 'andaya', 'salva', 'Female', '09222222222', '1998-10-12', 'Muntinlupa', 19, 'Filipino', 'Roman Catholic', b'0', '2018-02-22 04:47:40', '2018-02-22 04:47:40'),
+(17, 78423973, 'Stay', 'Woke', 'Cake', 'Female', '43242342', '1994-07-22', 'Quezon City', 23, 'Tagalog', 'Catholic', b'0', '2018-02-22 05:32:31', '2018-02-22 05:32:31'),
+(18, 1233332123, 'Justin', 'Andaya', 'Salva', 'Female', '0955-887-4822', '1998-02-07', 'Imus', 20, 'Filipino', 'Catholic', b'0', '2018-02-22 06:32:14', '2018-02-22 06:32:14'),
+(19, 1228399495, 'Jasver', 'Anlouise', 'Salva', 'Female', '09162658478', '1999-02-11', 'Imus', 19, 'Filipino', 'Catholic', b'0', '2018-02-22 07:01:39', '2018-02-22 07:01:39'),
+(20, 2147483647, 'Hello', 'Monday', 'Tuesday', 'Male', '09222222222', '1998-02-05', 'Mandaluyong City', 20, 'Filipino', 'Roman Catholic', b'0', '2018-02-22 07:23:34', '2018-02-22 07:23:34'),
+(21, 2147483647, 'Hello', 'Tuesday', 'Monday', 'Male', '09222222222', '1997-01-16', 'Mandaluyong City', 21, 'Filipino', 'Roman Catholic', b'0', '2018-02-22 07:25:13', '2018-02-22 07:25:13'),
+(22, 2147483647, 'Hello', 'Monday', 'Friday', 'Male', '09222222222', '2018-02-05', 'Monumento City', 0, 'Filipino', 'Roman Catholic', b'0', '2018-02-22 07:27:48', '2018-02-22 07:27:48'),
+(23, 2147483647, 'hakeem', 'polistico', 'andaya', 'Male', '09222222222', '1998-02-08', 'Mandaluyong City', 20, 'Filipino', 'Roman Catholic', b'0', '2018-02-22 07:34:27', '2018-02-22 07:34:27'),
+(24, 2147483647, 'hakem', 'asdfsa', 'ASDAS', 'Male', '09222222222', '1979-02-22', 'Mandaluyong City', 39, 'Filipino', 'Roman Catholic', b'0', '2018-02-22 07:41:32', '2018-02-22 07:41:32'),
+(25, 1231231235, 'Hakeem', 'Andaya', 'POlisticod', 'Male', '09222222222', '2018-02-14', 'Mandaluyong City', 0, 'Filipino', 'Roman Catholic', b'0', '2018-02-22 07:43:39', '2018-02-22 07:43:39'),
+(26, 2147483647, 'Hakeem', 'Andaya', 'POlisticod', 'Male', '09222222222', '2018-02-14', 'Mandaluyong City', 0, 'Filipino', 'Roman Catholic', b'0', '2018-02-22 07:44:14', '2018-02-22 07:44:14'),
+(27, 2147483647, 'Ivann', 'Marc', 'Biblanias', 'Male', '4234234', '1998-02-22', 'Hospital Bed', 20, 'Mother Tonguw', 'Catholic', b'0', '2018-02-22 07:57:37', '2018-02-22 07:57:37'),
+(28, 0, 'John', 'Robert', 'Capistrano', 'Male', '092222654456', '1997-08-24', 'PGHospital', 20, 'Tagalog', 'Catholic', b'0', '2018-02-22 08:01:36', '2018-02-22 08:01:36'),
+(29, 2147483647, 'Daniel', 'Andaya', 'Polistico', 'Male', '09222222222', '1998-02-14', 'Mandaluyong City', 20, 'Filipino', 'Roman Catholic', b'0', '2018-02-22 12:46:07', '2018-02-22 12:46:07'),
+(30, 98123712, 'Joseph', 'Andaya', 'Polistico', 'Male', '09222222222', '1993-01-29', 'Mandaluyong City', 25, 'Filipino', 'Roman Catholic', b'0', '2018-02-22 12:52:35', '2018-02-22 12:52:35'),
+(31, 981237122, 'Joseph', 'Andaya', 'Polistico', 'Male', '09222222222', '1993-01-29', 'Mandaluyong City', 25, 'Filipino', 'Roman Catholic', b'0', '2018-02-22 12:53:32', '2018-02-22 12:53:32'),
+(32, 2147483647, 'Gayle', 'Andaya', 'Polistico', 'Female', '09222222222', '1992-03-26', 'Monumento City', 25, 'Filipino', 'Roman Catholic', b'0', '2018-02-22 12:58:45', '2018-02-22 12:58:45'),
+(33, 123122, 'Jerry', 'Andaya', 'Polistico', 'Male', '09222222222', '1994-02-05', 'Muntinlupa', 24, 'Filipino', 'Roman Catholic', b'0', '2018-02-22 13:11:17', '2018-02-22 13:11:17'),
+(34, 4321, 'Jerome', 'Andaya', 'Polistio', 'Male', '09222222222', '1994-02-15', 'Muntinlupa', 24, 'Filipino', 'Roman Catholic', b'0', '2018-02-22 13:13:22', '2018-02-22 13:13:22'),
+(35, 54321, 'Jeremy', 'Andaya', 'Polistico', 'Male', '09222222222', '1997-02-22', 'Muntinlupa', 21, 'Filipino', 'Roman Catholic', b'0', '2018-02-22 13:21:53', '2018-02-22 13:21:53');
 
 -- --------------------------------------------------------
 
@@ -756,7 +1057,27 @@ INSERT INTO `student_contacts` (`id`, `students_info_lrn`, `parents_id`, `guardi
 (9, '14038096', 11, 9),
 (10, '14038021', 12, 10),
 (11, '2147483647', 13, 11),
-(12, '897489232', 14, 12);
+(12, '897489232', 14, 12),
+(13, '1231132333', 15, 13),
+(14, '2147483647', 16, 14),
+(15, '78423973', 17, 15),
+(16, '1233332123', 18, 16),
+(17, '1228399495', 19, 17),
+(18, '2147483647', 20, 18),
+(19, '2147483647', 21, 19),
+(20, '2147483647', 22, 20),
+(21, '2147483647', 23, 21),
+(22, '2147483647', 24, 22),
+(23, '1231231235', 25, 23),
+(24, '2147483647', 26, 24),
+(25, '2147483647', 27, 25),
+(26, '0', 28, 26),
+(27, '2147483647', 29, 27),
+(28, '981237122', 30, 28),
+(29, '12131312314123', 31, 29),
+(30, '123122', 32, 30),
+(31, '4321', 33, 31),
+(32, '54321', 34, 32);
 
 -- --------------------------------------------------------
 
@@ -830,8 +1151,8 @@ INSERT INTO `teachers` (`id`, `employee_id`, `first_name`, `middle_name`, `last_
 (4, '0004', 'Aljohn', '', 'Pangilinan', '', '', '', 'male', 'Science', 'Teacher', '11', 'active'),
 (5, '0005', 'May', '', 'Garcia', '', '', '', 'male', 'SAD', 'Teacher', '13', 'active'),
 (9, '0006', 'Jasver', '', 'Salva', '', '', '', 'male', 'Computer Science', 'Teacher 1', '', 'inactive'),
-(10, '0007', 'Aaron James', '', 'Alcantara', '', '', '', 'male', 'English', 'Teacher 1', '', 'active'),
-(11, '0008', 'Jeru', '', 'Valenzuela', '01/10/2018', '09558874822', 'jeru_valenzuela@tup.edu.ph', 'female', 'English', 'Teacher 2', '', 'active');
+(10, '0007', 'Aaron James', '', 'Alcantara', '', '', '', 'male', 'English', 'Teacher 1', '', 'inactive'),
+(11, '0009', 'Jeru', '', 'Valenzuela', '01/10/2018', '09558874822', 'jeru_valenzuela@tup.edu.ph', 'female', 'English', 'Teacher 2', '', 'inactive');
 
 -- --------------------------------------------------------
 
@@ -866,7 +1187,14 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `employee_id`, `username`, `password`, `first_name`, `middle_name`, `last_name`, `position`, `sex`, `birthdate`, `contact_no`, `email`, `major`, `advisory_class`, `user_role`, `status`, `date_created`, `date_modified`) VALUES
 (1, '14038014', 'admin', 'admin', 'Hakeem', '', 'Polistico', 'Administrator', 'Male', '1994/07/22', '0955-887-4822', 'hakeem.polistico@tup.edu.ph', 'Mathematics', 0, 'admin', 'active', '2017-10-12 04:21:44', '2018-02-05 06:11:19'),
-(12, '0001', '0001', 'P@ssword123', 'Adrielle', 'Mestiola', 'Escaro', 'Teacher', 'male', '', '', '', 'Computer', 1, 'admin', 'active', '2018-02-09 17:48:22', '0000-00-00 00:00:00');
+(12, '0001', '0001', 'password', 'Adrielle', 'Mestiola', 'Escaro', 'Teacher', 'male', '', '', '', 'Computer', 1, 'teacher', 'active', '2018-02-09 17:48:22', '0000-00-00 00:00:00'),
+(16, '0005', '0005', 'P@ssword123', 'May', '', 'Garcia', 'Teacher', 'male', '', '', '', 'SAD', 13, 'teacher', 'active', '2018-02-19 18:05:22', '0000-00-00 00:00:00'),
+(17, '0008', '0008', 'P@ssword123', 'Jeru', '', 'Valenzuela', 'Teacher 2', 'female', '01/10/2018', '09558874822', 'jeru_valenzuela@tup.edu.ph', 'English', 0, 'super_user', 'active', '2018-02-22 03:43:29', '0000-00-00 00:00:00'),
+(22, '0009', '0009', 'P@ssword123', 'Jeru', '', 'Valenzuela', 'Teacher 2', 'female', '01/10/2018', '09558874822', 'jeru_valenzuela@tup.edu.ph', 'English', 0, 'teacher', 'inactive', '2018-02-24 15:08:16', '0000-00-00 00:00:00'),
+(19, '0007', '0007', 'P@ssword123', 'Aaron James', '', 'Alcantara', 'Teacher 1', 'male', '', '', '', 'English', 0, 'teacher', 'inactive', '2018-02-22 06:38:56', '0000-00-00 00:00:00'),
+(20, '0006', '0006', 'P@ssword123', 'Jasver', '', 'Salva', 'Teacher 1', 'male', '', '', '', 'Computer Science', 0, 'teacher', 'inactive', '2018-02-22 06:39:05', '0000-00-00 00:00:00'),
+(21, '0002', '0002', 'P@ssword123', 'John', 'Patrick', 'Guzman', 'Teacher', 'male', '', '', '', 'Social Science', 20, 'teacher', 'active', '2018-02-22 08:34:34', '0000-00-00 00:00:00'),
+(23, '0004', '0004', 'P@ssword123', 'Aljohn', '', 'Pangilinan', 'Teacher', 'male', '', '', '', 'Science', 11, 'teacher', 'active', '2018-02-24 15:08:53', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -878,15 +1206,15 @@ CREATE TABLE `user_permission` (
   `id` int(11) NOT NULL,
   `module_name` varchar(500) NOT NULL,
   `admin` enum('active','inactive') NOT NULL,
-  `super_user` enum('active','inactive') NOT NULL,
-  `user` enum('active','inactive') NOT NULL
+  `teacher` enum('active','inactive') NOT NULL,
+  `student` enum('active','inactive') NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user_permission`
 --
 
-INSERT INTO `user_permission` (`id`, `module_name`, `admin`, `super_user`, `user`) VALUES
+INSERT INTO `user_permission` (`id`, `module_name`, `admin`, `teacher`, `student`) VALUES
 (2, 'Enrollment', 'active', 'inactive', 'inactive'),
 (3, 'Academics', 'active', 'inactive', 'inactive'),
 (4, 'Student Promotion', 'active', 'inactive', 'inactive'),
@@ -1083,37 +1411,37 @@ ALTER TABLE `academic_years`
 -- AUTO_INCREMENT for table `addresses`
 --
 ALTER TABLE `addresses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 --
 -- AUTO_INCREMENT for table `audit_trail`
 --
 ALTER TABLE `audit_trail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=302;
 --
 -- AUTO_INCREMENT for table `class_subjects`
 --
 ALTER TABLE `class_subjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT for table `curriculum`
 --
 ALTER TABLE `curriculum`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 --
 -- AUTO_INCREMENT for table `enrolled_students`
 --
 ALTER TABLE `enrolled_students`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `grades`
 --
 ALTER TABLE `grades`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 --
 -- AUTO_INCREMENT for table `guardians`
 --
 ALTER TABLE `guardians`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT for table `modules`
 --
@@ -1123,17 +1451,17 @@ ALTER TABLE `modules`
 -- AUTO_INCREMENT for table `parents`
 --
 ALTER TABLE `parents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 --
 -- AUTO_INCREMENT for table `registered_students`
 --
 ALTER TABLE `registered_students`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 --
 -- AUTO_INCREMENT for table `requirements`
 --
 ALTER TABLE `requirements`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 --
 -- AUTO_INCREMENT for table `rooms`
 --
@@ -1143,7 +1471,7 @@ ALTER TABLE `rooms`
 -- AUTO_INCREMENT for table `schedules`
 --
 ALTER TABLE `schedules`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=182;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=407;
 --
 -- AUTO_INCREMENT for table `sections`
 --
@@ -1153,17 +1481,17 @@ ALTER TABLE `sections`
 -- AUTO_INCREMENT for table `strands`
 --
 ALTER TABLE `strands`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `students_info`
 --
 ALTER TABLE `students_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 --
 -- AUTO_INCREMENT for table `student_contacts`
 --
 ALTER TABLE `student_contacts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT for table `subjects`
 --
@@ -1178,7 +1506,7 @@ ALTER TABLE `teachers`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `user_permission`
 --
