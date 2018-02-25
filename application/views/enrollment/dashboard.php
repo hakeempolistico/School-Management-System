@@ -85,28 +85,13 @@
             <div class="box-body">
               <div class="media">
                 <div class="media-left">
-                  <img src="<?php echo base_url('images/adrii.jpg');?>" alt="<?php echo base_url('images/alt_picture.jpg');?>" width="100px" style="border-width: 1px; border-style: solid; border-color: gainsboro;">
-                </div>
-                <div class="media-body" style="padding: 5px">
-                  <h4 class="media-heading" style="font-family: Century Gothic;">Admin Adrielle</h4>
-                  <p style="margin-bottom: 5px;"><i class="fa fa-fw fa-phone text-danger"></i> 0955-887-4822</p>
-                  <p style="margin-bottom: 5px;"><i class="fa fa-fw fa-envelope text-warning"></i> niconicolette@gmail.com</p>
-                  <p style="margin-bottom: -3px;"><i class="fa fa-fw fa-comment text-primary"></i> <a href="#">Quick Message</a> </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="box box-widget"  style="border-width: 1px; border-style: solid; border-color: darkgrey;">
-            <div class="box-body">
-              <div class="media">
-                <div class="media-left">
                   <img src="<?php echo base_url('images/hakeem.jpg');?>" alt="<?php echo base_url('images/alt_picture.jpg');?>" width="100px" style="border-width: 1px; border-style: solid; border-color: gainsboro;">
                 </div>
                 <div class="media-body" style="padding: 5px">
                   <h4 class="media-heading" style="font-family: Century Gothic;">Admin Hakeem</h4>
                   <p style="margin-bottom: 5px;"><i class="fa fa-fw fa-phone text-danger"></i> 0955-887-4822</p>
                   <p style="margin-bottom: 5px;"><i class="fa fa-fw fa-envelope text-warning"></i> hjpolistico@gmail.com</p>
-                  <p style="margin-bottom: -3px;"><i class="fa fa-fw fa-comment text-primary"></i> <a hpref="#">Quick Message</a> </p>
+                  <p style="margin-bottom: -3px;"><i class="fa fa-fw fa-facebook text-primary"></i> <a hpref="#"> hakeem.polistico</a> </p>
                 </div>
               </div>
             </div>
