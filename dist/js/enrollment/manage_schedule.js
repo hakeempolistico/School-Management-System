@@ -269,7 +269,7 @@ function getSchedules(){
     url: getScheduleUrl,
     type: 'post',
     dataType: 'json',
-    data: {'section_id' : sectionId, 'semester' : semester}, 
+    data: {'section_id' : sectionId, 'semester' : semester, 'academic_year' : aYear}, 
     success: function(res){ 
       var i = 0;
       $('tbody tr').remove();
@@ -505,6 +505,7 @@ $('#row-save').on('click',function(){
         data: {
           'section_id' : sectionId,
           'semester' : semester,
+          'academic_year' : aYear,
           'room_id' : room_id,
           'time_start' : time_start,
           'time_end' : time_end,
@@ -558,6 +559,7 @@ $('#btn-confirm').on('click', function(){
               data: {
                 'section_id' : sectionId,
                 'semester' : semester,
+                'academic_year' : aYear,
                 'subject_code' : subject_code,
                 'room_id' : room_id,
                 'time_start' : time_start,

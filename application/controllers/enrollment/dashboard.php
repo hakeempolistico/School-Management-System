@@ -13,7 +13,6 @@ class dashboard extends CI_Controller {
 	public function index()
 	{	
 		$data = $this->parse->parsed();
-
 		$data['teachersCount'] = $this->global_model->count('teachers');
 		$data['roomsCount'] = $this->global_model->count('rooms');
 		$data['subjectsCount'] = $this->global_model->count('subjects');

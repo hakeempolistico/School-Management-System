@@ -179,8 +179,9 @@
     Pace.restart()
   })
 
-
+  var aYear = '<?php echo $this->session->academic_year; ?>';
   var addGradeUrl = '<?php echo base_url('grades/manage/addGrade'); ?>';
+
   $(function () {
     $('#studentList1').DataTable() 
     $('.select2').select2();
@@ -201,7 +202,7 @@
         url: addGradeUrl,
         type: 'post',
         dataType: 'json',  
-        data: {'lrn' : lrn, 'semester' : semester, 'quarter' : quarter, 'subject_code' : subject, 'grade' :  grade},
+        data: {'lrn' : lrn, 'semester' : semester, 'quarter' : quarter, 'subject_code' : subject, 'grade' :  grade, 'academic_year' : aYear},
         success: function(res){
           location.reload()
         }

@@ -161,7 +161,7 @@
   $(document).ajaxStart(function () {
     Pace.restart()
   })
-
+var a_year = '<?php echo $this->session->academic_year; ?>';
 var getStrands = '<?php echo base_url('academics/assign_subjects/getStrands'); ?>';
 var getYears = '<?php echo base_url('academics/assign_subjects/getYears'); ?>';
 var getSection = '<?php echo base_url('academics/assign_subjects/getSection'); ?>';

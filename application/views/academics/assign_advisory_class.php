@@ -175,6 +175,12 @@
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
 
 <script>
+var aYear = '<?php echo $this->session->academic_year; ?>';
+var validateUrl = '<?php echo base_url('academics/assign_advisory_class/validate'); ?>';
+var addUrl = '<?php echo base_url('academics/assign_advisory_class/add'); ?>';
+var updateAdvisoryUrl = '<?php echo base_url('academics/assign_advisory_class/updateAdvisory'); ?>';
+
+var addAdvisoryUrl = '<?php echo base_url('academics/assign_advisory_class/addAdvisory'); ?>';
 var getSection = '<?php echo base_url('academics/assign_advisory_class/getSection'); ?>';
 var updateUrl = '<?php echo base_url('academics/assign_advisory_class/update'); ?>';
 var getRecordsUrl = '<?php echo base_url('academics/assign_advisory_class/ajaxGetRecords'); ?>';

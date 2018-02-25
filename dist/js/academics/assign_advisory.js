@@ -47,83 +47,59 @@ $('#select-section').on('change',function(){
 
 $('#btn-save').prop('disabled', true).on('click',function(){
   $.ajax({
-    url: checkSectionUrl,
+    url: validateUrl,
     type: 'post',
     dataType: 'json',  
-    data: {'section_id': section},
+    data: {'employee_id': employee_id, 'academic_year': aYear},
     success: function(result){
-        if(result){
-          //console.log(result);
-          $.notify({
-            title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
-            message: "Class is already assigned to another teacher."
-          },{
-            type: 'danger',
-            animate: {
-              enter: 'animated fadeInUp',
-              exit: 'animated fadeOutRight'
-            },
-            placement: {
-              from: "top",
-              align: "right"
-            },
-            offset: 20,
-            delay: 2000,
-            spacing: 10,
-            z_index: 1031,
-          });
-        }
-        else{
-          $.ajax({
-            url: updateUrl,
-            type: 'post',
-            dataType: 'json',  
-            data: {'employee_id': employee_id, 'advisory_class': $('#select-section').val()},
-            success: function(result){
-              populateTable();
+      if(result == ''){
+        $.ajax({
+          url: addUrl,
+          type: 'post',
+          dataType: 'json',  
+          data: {'employee_id': employee_id, 'section_id' : $('#select-section').val(), 'academic_year': aYear},
+          success: function(result){  
+            populateTable() 
+          }
+        });
+      }else{
+        $.ajax({
+          url: updateAdvisoryUrl,
+          type: 'post',
+          dataType: 'json',  
+          data: {'employee_id': employee_id, 'section_id' : $('#select-section').val(), 'academic_year': aYear},
+          success: function(result){   
+            populateTable()
+          }
+        });
+      }  
 
-              $.ajax({
-                url: auditTrailAssignUrl,
-                type: 'post',
-                dataType: 'json', 
-                data: {'employee_id' : employee_id, 'section' : $('#select-section').val()}, 
-                success: function(result){
-                  console.log(result);
-                }
-              });
-              
+      /*$.notify({
+        title: '<strong><i class="icon fa fa-check"></i>SUCCESS!</strong>',
+        message: "Class assigned."
+      },{
+        type: 'success',
+        animate: {
+          enter: 'animated fadeInUp',
+          exit: 'animated fadeOutRight'
+        },
+        placement: {
+          from: "top",
+          align: "right"
+        },
+        offset: 20,
+        delay: 2000,
+        spacing: 10,
+        z_index: 1031,
+      });*/
 
-              $.notify({
-                title: '<strong><i class="icon fa fa-check"></i>SUCCESS!</strong>',
-                message: "Class assigned."
-              },{
-                type: 'success',
-                animate: {
-                  enter: 'animated fadeInUp',
-                  exit: 'animated fadeOutRight'
-                },
-                placement: {
-                  from: "top",
-                  align: "right"
-                },
-                offset: 20,
-                delay: 2000,
-                spacing: 10,
-                z_index: 1031,
-              });
-
-              $("#select-strand").val("").trigger("change");
-              $("#select-year").val("").trigger("change");
-              $("#select-section").val("").trigger("change");
-              $('#select-year').prop('disabled', true);
-              $('#select-section').prop('disabled', true);
-            }
-          }); 
-        }
+      $("#select-strand").val("").trigger("change");
+      $("#select-year").val("").trigger("change");
+      $("#select-section").val("").trigger("change");
+      $('#select-year').prop('disabled', true);
+      $('#select-section').prop('disabled', true);
     }
-  }); 
-
-
+  });
 })
 
 function populateTable(){

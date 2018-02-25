@@ -23,7 +23,8 @@ class login extends CI_Controller
 				if(isset($result->user_role)){
 					$u_permission = $this->users_model->getPermissions($result->user_role);
 				}
-
+				$a_year = $this->global_model->getRow('academic_years', 'status', 'active');
+				$active_year = $a_year->id;
 				if(is_object($result)){
 					//print_r($result);
 					$userdata = array(
@@ -40,6 +41,7 @@ class login extends CI_Controller
 					        'employee_id' => $result->employee_id,
 					        'major' => $result->major,
 					        'user_role' => $result->user_role,
+					        'academic_year' => $active_year,
 					        'logged_in' => TRUE
 					);
 
@@ -69,10 +71,47 @@ class login extends CI_Controller
 	}
 
 	public function logout(){
-			$this->audit_trail->set('-','-','logout','-');
-			session_destroy();
-			$this->load->view('login/login');
-		}
+		$this->audit_trail->set('-','-','logout','-');
+		session_destroy();
+		$this->load->view('login/login');
+	}
+
+	public function optimize_db(){
+		$this->load->dbutil();
+		$result = $this->dbutil->optimize_database();
+
+			if ($result !== FALSE)
+			{
+			        echo '<pre>'; print_r($result); echo '<pre>';
+			}
+	}
+
+	public function backup(){
+		// Load the DB utility class
+		$this->load->dbutil();
+		/*$prefs = array(
+        'tables'        => array('academic_years', 'addresses'),   // Array of tables to backup.
+        'ignore'        => array(),                     // List of tables to omit from the backup
+        'format'        => 'zip',                       // gzip, zip, txt
+        'filename'      => 'mybackup.sql',              // File name - NEEDED ONLY WITH ZIP FILES
+        'add_drop'      => TRUE,                        // Whether to add DROP TABLE statements to backup file
+        'add_insert'    => TRUE,                        // Whether to add INSERT data to backup file
+        'newline'       => "\n"                         // Newline character used in backup file
+		);
+
+		$this->dbutil->backup($prefs);*/
+
+		// Backup your entire database and assign it to a variable
+		$backup = $this->dbutil->backup();
+
+		// Load the file helper and write the file to your server
+		$this->load->helper('file');
+		write_file('/path/to/mybackup.gz', $backup);
+
+		// Load the download helper and send the file to your desktop
+		$this->load->helper('download');
+		force_download('mybackup.gz', $backup);
+	}
 }
 
 ?>

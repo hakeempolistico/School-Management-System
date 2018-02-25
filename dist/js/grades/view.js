@@ -26,7 +26,7 @@ $(function () {
           url: getSubjectsUrl,
           type: 'post',
           dataType: 'json',  
-          data: {'teacher_id' :  e_id, 'semester' : semester},
+          data: {'teacher_id' :  e_id, 'semester' : semester, 'academic_year' : aYear},
           success: function(res){
             //console.log(res);
 	        $('#t-select-subject').append($('<option>', {value: null,text : null})).select2();
@@ -47,7 +47,7 @@ $(function () {
           url: getClassUrl,
           type: 'post',
           dataType: 'json',  
-          data: {'subject_id' :  subject, 'semester' : semester, 'teacher_id' :  e_id,},
+          data: {'subject_id' :  subject, 'semester' : semester, 'teacher_id' :  e_id, 'academic_year' : aYear},
           success: function(res){
             console.log(res);
 	        $('#t-select-class').append($('<option>', {value: null,text : null})).select2();
@@ -86,7 +86,7 @@ $(function () {
           url: getSubjectsUrl,
           type: 'post',
           dataType: 'json',  
-          data: {'semester' : semester},
+          data: {'semester' : semester, 'academic_year' : aYear},
           success: function(res){
             //console.log(res);
 	        $('#select-subject').append($('<option>', {value: null,text : null})).select2();
@@ -107,7 +107,7 @@ $(function () {
           url: getClassUrl,
           type: 'post',
           dataType: 'json',  
-          data: {'subject_id' :  subject, 'semester' : semester},
+          data: {'subject_id' :  subject, 'semester' : semester, 'academic_year' : aYear},
           success: function(res){
             console.log(res);
 	        $('#select-class').append($('<option>', {value: null,text : null})).select2();

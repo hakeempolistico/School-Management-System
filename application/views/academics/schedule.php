@@ -429,7 +429,7 @@
   $(document).ajaxStart(function () {
     Pace.restart()
   })
-
+  var aYear = "<?php echo $this->session->academic_year; ?>"
   var getSectionUrl = "<?php echo base_url("academics/schedule/getSectionsDetails"); ?>"
   var getSectionsUrl = "<?php echo base_url("academics/schedule/getSections"); ?>"
   var getSubjectsUrl = "<?php echo base_url("academics/schedule/getSubjects"); ?>"

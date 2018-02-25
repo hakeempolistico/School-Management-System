@@ -63,34 +63,31 @@
 
     <!-- Main content -->
     <section class="content">
-      <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">Registered Students</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <table id="registeredStudentstable" class="table table-bordered table-hover">
-                <thead>
-                <tr>
-                  <th>LRN</th>
-                  <th>Name</th>
-                  <th>Date Registered</th>
-                  <th>Action</th>
-                </tr>
-                </thead>
-                <tfoot>
-                <tr>
-                  <th>LRN</th>
-                  <th>Name</th>
-                  <th>Date Registered</th>
-                  <th>Action</th>
-                </tr>
-                </tfoot>
-              </table>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><i class="fa fa-graduation-cap"></i> Registered Students</h3>
+        </div>
+        <div class="panel-body">
+          <table id="registeredStudentstable" class="table table-bordered table-hover">
+            <thead>
+            <tr>
+              <th>LRN</th>
+              <th>Name</th>
+              <th>Date Registered</th>
+              <th>Action</th>
+            </tr>
+            </thead>
+            <tfoot>
+            <tr>
+              <th>LRN</th>
+              <th>Name</th>
+              <th>Date Registered</th>
+              <th>Action</th>
+            </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
     </section>
     <!-- /.content -->
   </div>

@@ -20,7 +20,7 @@ class advisory_class extends CI_Controller {
     $data['class'] = $section_info->class;
     $data['active'] = 'advisory/advisory_class';
     $data['template'] = $this->load->view('template/sidenav', $data, TRUE);
-      $this->parser->parse('advisory/advisory_class', $data);
+    $this->parser->parse('advisory/advisory_class', $data);
   }
   public function getAdvisoryClass(){
     $result = $this->global_model->getRows('enrolled_students', array('section_id' => $this->session->advisory_class));

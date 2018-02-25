@@ -260,17 +260,9 @@ function populateTable(){
       status = $(this).parents('tr').find('td:nth-child(3)').find('span').html();
       //console.log(status);
       if(status=='active'){
-        $('#box-delete').removeClass('box-success').removeClass('box-danger').addClass('box-danger');
-        $('#box-delete-icon').removeClass('text-success').removeClass('text-danger').addClass('text-danger');
-        $('#box-delete-btn').removeClass('text-success').removeClass('text-danger').addClass('text-danger');
-        $('#delete-confirm').removeClass('btn-danger').removeClass('btn-success').addClass('btn-danger');
-        $('#text-status').html('Are you sure you want to inactivate record?');
+        $('#text-status').html('Are you sure you want to deactivate record?');
       }
       else if(status=='inactive'){
-        $('#box-delete').removeClass('box-success').removeClass('box-danger').addClass('box-success');
-        $('#box-delete-icon').removeClass('text-success').removeClass('text-danger').addClass('text-success');
-        $('#box-delete-btn').removeClass('text-success').removeClass('text-danger').addClass('text-success');
-        $('#delete-confirm').removeClass('btn-danger').removeClass('btn-success').addClass('btn-success');
         $('#text-status').html('Are you sure you want to activate record?');
       }
   });

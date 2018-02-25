@@ -45,18 +45,18 @@ class assign_subjects extends CI_Controller {
 	}
 
 	public function deleteClassSubject(){	
-		$this->global_model->deleteRow('class_subjects', $this->input->post());
+		$this->global_model->deleteMultiple('class_subjects', $this->input->post());
 	}
 
-	public function getClassSubjects(){	
+	public function getClassSubjects(){
 		echo json_encode($this->assign_subjects_model->getClassSubjects($this->input->post()));
 	}
 
-	public function getCurrSubjects(){	
+	public function getCurrSubjects(){
 		echo json_encode($this->assign_subjects_model->getCurrSubjects($this->input->post()));
 	}
 
-	public function getSubjectName(){	
+	public function getSubjectName(){
 		echo json_encode($this->global_model->getRecord('subjects', $this->input->post()));
 	}
 
