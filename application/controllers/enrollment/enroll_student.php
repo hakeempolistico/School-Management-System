@@ -148,7 +148,7 @@ class enroll_student extends CI_Controller {
 
 	public function populateTable2()
 	{
-		$enrolledStudents = $this->global_model->getRecords('enrolled_students');
+		$enrolledStudents = $this->global_model->getRows('enrolled_students', array('academic_year_id' => $this->session->academic_year));
 
 		$data = [];
 		foreach ($enrolledStudents as $enrolledStudents) 

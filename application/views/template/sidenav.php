@@ -312,11 +312,17 @@
                 <i class="fa fa-circle-o text-aqua"></i>
                 User Management
               </a>
-            </li>         
+            </li>
             <li class="<?php echo (isset($active) && $active =='settings/lock' ? 'active' : null) ; ?>">
               <a href="<?php echo site_url('settings/lock'); ?>">
                 <i class="fa fa-circle-o text-aqua"></i>
                 System Lock
+              </a>
+            </li>
+            <li class="<?php echo (isset($active) && $active =='settings/academic_year' ? 'active' : null) ; ?>">
+              <a href="<?php echo site_url('settings/academic_year'); ?>">
+                <i class="fa fa-circle-o text-aqua"></i>
+                Academic Year
               </a>
             </li>
           </ul>          
