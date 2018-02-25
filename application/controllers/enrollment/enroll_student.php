@@ -198,12 +198,7 @@ class enroll_student extends CI_Controller {
 	public function submit()
 	{
 		$year = date('Y');
-		$academic_year = $this->enroll_student_model->getAcademicYearId('academic_years', 'year_start', $year, 'id');
 		$strand_code = $this->input->post('strand');
-
-		foreach ($academic_year as $val) {
-			$academic_year_id = $val->id;
-		}
 
 		$students_info_lrn = $this->input->post('students_info_lrn');
 		$enrollInfo = array(
@@ -211,7 +206,7 @@ class enroll_student extends CI_Controller {
 			'students_info_lrn' => $students_info_lrn,
 			'note' => $this->input->post('note'),
 			'section_id' => $this->input->post('section_id'),
-			'academic_year_id' => $academic_year_id
+			'academic_year_id' => $this->session->academic_year
 			);
 
 
