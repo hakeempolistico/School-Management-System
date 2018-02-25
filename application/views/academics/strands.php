@@ -56,17 +56,24 @@
           </div> -->
 
           <style>
-            .panel .panel-heading button { 
+            .panel[id='p-strands'] .panel-heading button { 
               color: white; font-size: 14px; margin-top: -2px;
             }
-            .panel .panel-heading button:hover { 
-              color: lightblue;
+            .panel[id='p-strands'] .panel-heading button:hover { 
+              color: pink;
+            }
+            .panel[id='p-strands'] .panel-heading { 
+              background-color: darkslategray;
+              color: white;
+            }
+            .panel[id='p-strands'] {
+              border-color: darkslategray;
             }
           </style>
 
-          <div class="panel panel-danger">
+          <div id="p-strands" class="panel panel-primary">
             <div class="panel-heading">
-              <button data-toggle="modal" data-target="#modal-add" class="pull-right btn btn-link btn-xs"><span class="fa fa-fw fa-plus" ></span></button>
+              <button data-toggle="modal" data-target="#modal-add" class="pull-right btn btn-link btn-xs" style="color: white;"><span class="fa fa-fw fa-plus" ></span></button>
               <h3 class="panel-title"><i class="fa fa-tag"></i> Strand List</h3>
             </div>
             <div class="panel-body">
@@ -94,19 +101,12 @@
 
         <div class="modal fade" id="modal-edit">
           <div class="modal-dialog" style="max-width: 400px">
-            <div class="box box-primary">
-              <div class="box-header with-border" style="cursor: move; margin: 0px;">
-                <i class="fa fa-pencil"></i>
-
-                <h3 class="box-title">Edit Strand</h3>
-                <!-- tools box -->
-                <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-box-tool" data-dismiss="modal"><i class="fa fa-times text-danger"></i></button>
-                </div>
-                <!-- /. tools -->
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <button type="button" class="pull-right btn btn-link btn-xs" data-dismiss="modal"><i class="fa fa-times" style="color: white"></i></button>
+                <h3 class="panel-title"><i class="fa fa-pencil"></i> Edit Strand</h3>
               </div>
-
-              <div class="box-body box-profile flat">
+              <div class="panel-body">
                 <ul class="list-group list-group-unbordered" style="list-style: none;">
                   <li>
                     <div class="form-group" style="margin-bottom: 5px;">
@@ -118,11 +118,11 @@
                       <label for="edit-status">Name</label>
                       <input type="text" class="form-control" id="edit-name">
                     </div>             
-                    <button id="edit-update" type="button" style="width: 100px; margin: 10px;" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-save"></i> &nbsp; Save</button>                 
+                    <button id="edit-update" type="button" style="width: 100px; margin-top: 10px;" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-save"></i> &nbsp; Save</button>                 
                   </li>   
                 </ul>
               </div>
-          </div>
+            </div>
           </div>
         </div>
 
@@ -130,6 +130,7 @@
           <div class="modal-dialog" style="max-width: 400px">
             <div class="panel panel-primary">
               <div class="panel-heading">
+                <button type="button" class="pull-right btn btn-link btn-xs" data-dismiss="modal"><i class="fa fa-times" style="color: white"></i></button>
                 <h3 class="panel-title"><i class="fa fa-plus"></i> Add Strands</h3>
               </div>
               <div class="panel-body">
@@ -172,20 +173,14 @@
 
         <div class="modal fade in" id="modal-delete">
           <div class="modal-dialog" style="max-width: 360px">
-            <div id="box-delete" class="box box-danger">
-              <div class="box-header with-border" style="cursor: move; margin: 0px;">
-                <i id="box-delete-icon" class="fa fa-warning text-danger"></i>
-
-                <h3 class="box-title text-danger">Warning</h3>
-                <!-- tools box -->
-                <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-box-tool" data-dismiss="modal"><i id="box-delete-btn" class="fa fa-times text-danger"></i></button>
-                </div>
-                <!-- /. tools -->
+            <div class="panel panel-danger">
+              <div class="panel-heading">
+                <button type="button" class="pull-right btn btn-link btn-xs" data-dismiss="modal"><i class="fa fa-times text-danger"></i></button>
+                <h3 class="panel-title"><i class="fa fa-ban"></i> Warning</h3>
               </div>
-              <div class="box-body box-profile flat" style="margin-top: -10px">
-                <h4 id="text-status">Are you sure you want todelete record?</h4>
-                <button id="delete-confirm" data-dismiss="modal" type="button" style="width: 75px; margin: 10px;" class="btn btn-block btn-danger btn-sm pull-right">Confirm</button>
+              <div class="panel-body">
+                <h4 id="text-status" class="panel-title">Are you sure you want todelete record?</h4>
+                <button id="delete-confirm" data-dismiss="modal" type="button" style="width: 75px;  margin-top: 10px;" class="btn btn-block btn-danger btn-sm pull-right">Confirm</button>
               </div>
             </div>
           </div>

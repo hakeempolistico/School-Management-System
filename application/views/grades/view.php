@@ -74,94 +74,92 @@
       <div class="row">
         <div class="col-md-12">
           <?php if($this->session->username=='admin'){ ?>
-          <div class="box box-primary">
-              <div class="box-header">
-                <h3 class="box-title text-primary"><span class='fa fa-fw fa-search'></span> (Admin) Select Options</h3>
+
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title"><span class='fa fa-fw fa-search'></span> (Admin) Select Options</h3>
+            </div>
+            <div class="panel-body">
+              <div class="col-xs-6 col-lg-4">
+                  <div class="form-group">
+                    <label>Semester</label>
+                      <select id="select-semester" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Semester">
+                        <option></option>
+                        <option value="First Semester">First Semester</option>
+                        <option value="Second Semester">Second Semester</option>
+                      </select>
+                  </div> 
               </div>
-              <!-- /.box-header -->
-              <div class="box-body">
-                <div class="col-xs-6 col-lg-4">
-                    <div class="form-group">
-                      <label>Semester</label>
-                        <select id="select-semester" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Semester">
-                          <option></option>
-                          <option value="First Semester">First Semester</option>
-                          <option value="Second Semester">Second Semester</option>
-                        </select>
-                    </div> 
-                </div>
-                <div class="col-xs-6 col-lg-4">
-                    <div class="form-group">
-                      <label>Subject</label>
-                        <select id="select-subject" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Subject">
-                          <option></option>
-                        </select>
-                    </div> 
-                </div>
-                <div class="col-xs-6 col-lg-4">
-                    <div class="form-group">
-                      <label>Class</label>
-                        <select id="select-class" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Class">
-                          <option></option>
-                        </select>
-                    </div> 
-                </div> 
-                <div class="col-md-12">
-                  <form method="post" action="<?php echo base_url('grades/view/class_subject')?>">
-                    <input id="i-semester" type="hidden" name="semester" value="">
-                    <input id="i-subject" type="hidden" name="subject" value="">
-                    <input id="i-class" type="hidden" name="class" value="">
-                    <button type="submit" class="btn btn-block btn-info btn-sm pull-right" style="width: 50px">Go</button>
-                  </form>
-                </div>
+              <div class="col-xs-6 col-lg-4">
+                  <div class="form-group">
+                    <label>Subject</label>
+                      <select id="select-subject" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Subject">
+                        <option></option>
+                      </select>
+                  </div> 
+              </div>
+              <div class="col-xs-6 col-lg-4">
+                  <div class="form-group">
+                    <label>Class</label>
+                      <select id="select-class" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Class">
+                        <option></option>
+                      </select>
+                  </div> 
+              </div> 
+              <div class="col-md-12">
+                <form method="post" action="<?php echo base_url('grades/view/class_subject')?>">
+                  <input id="i-semester" type="hidden" name="semester" value="">
+                  <input id="i-subject" type="hidden" name="subject" value="">
+                  <input id="i-class" type="hidden" name="class" value="">
+                  <button type="submit" class="btn btn-block btn-info btn-sm pull-right" style="width: 50px">Go</button>
+                </form>
               </div>
             </div>
-
+          </div>
           <?php } else{ ?>
 
 
-          <div class="box box-primary">
-              <div class="box-header">
-                <h3 class="box-title text-primary"><span class='fa fa-fw fa-search'></span> (Teachers) Select Options</h3>
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title"><span class='fa fa-fw fa-search'></span> (Teachers) Select Options</h3>
+            </div>
+            <div class="panel-body">
+              <div class="col-xs-6 col-lg-4">
+                  <div class="form-group">
+                    <label>Semester</label>
+                      <select id="t-select-semester" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Semester">
+                        <option></option>
+                        <option value="First Semester">First Semester</option>
+                        <option value="Second Semester">Second Semester</option>
+                      </select>
+                  </div> 
               </div>
-              <!-- /.box-header -->
-              <div class="box-body">
-                <div class="col-xs-6 col-lg-4">
-                    <div class="form-group">
-                      <label>Semester</label>
-                        <select id="t-select-semester" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Semester">
-                          <option></option>
-                          <option value="First Semester">First Semester</option>
-                          <option value="Second Semester">Second Semester</option>
-                        </select>
-                    </div> 
-                </div>
-                <div class="col-xs-6 col-lg-4">
-                    <div class="form-group">
-                      <label>Subject</label>
-                        <select id="t-select-subject" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Subject">
-                          <option></option>
-                        </select>
-                    </div> 
-                </div>
-                <div class="col-xs-6 col-lg-4">
-                    <div class="form-group">
-                      <label>Class</label>
-                        <select id="t-select-class" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Class">
-                          <option></option>
-                        </select>
-                    </div> 
-                </div> 
+              <div class="col-xs-6 col-lg-4">
+                  <div class="form-group">
+                    <label>Subject</label>
+                      <select id="t-select-subject" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Subject">
+                        <option></option>
+                      </select>
+                  </div> 
+              </div>
+              <div class="col-xs-6 col-lg-4">
+                  <div class="form-group">
+                    <label>Class</label>
+                      <select id="t-select-class" class="subject-input form-control select2" style="width: 100%;" data-placeholder="Select Class">
+                        <option></option>
+                      </select>
+                  </div> 
+              </div> 
 
-                <div class="col-xs-12 col-md-12">
-                  <form method="post" action="<?php echo base_url('grades/view/class_subject')?>">
-                    <input id="h-semester" type="hidden" name="semester" value="">
-                    <input id="h-subject" type="hidden" name="subject" value="">
-                    <input id="h-class" type="hidden" name="class" value="">
-                    <button type="submit" class="btn btn-block btn-info btn-sm pull-right" style="width: 50px">Go</button>
-                  </form>
-                </div>
+              <div class="col-xs-12 col-md-12">
+                <form method="post" action="<?php echo base_url('grades/view/class_subject')?>">
+                  <input id="h-semester" type="hidden" name="semester" value="">
+                  <input id="h-subject" type="hidden" name="subject" value="">
+                  <input id="h-class" type="hidden" name="class" value="">
+                  <button type="submit" class="btn btn-block btn-info btn-sm pull-right" style="width: 50px">Go</button>
+                </form>
               </div>
+            </div>
           </div>
           <?php } ?>
         </div>

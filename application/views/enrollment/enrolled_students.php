@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Search for Online Applications</title>
+  <title>Enrolled Students</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -62,38 +62,35 @@
 
     <!-- Main content -->
     <section class="content">
-      <div class="box box-primary">
-            <div class="box-header">
-              <h3 class="box-title text-primary"><i class="fa fa-fw fa-graduation-cap"></i>Enrolled Students</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <table id="enrolledStudentstable" class="table table-bordered table-hover table-striped">
-                <thead>
-                <tr> 
-                  <th>LRN</th>
-                  <th>Name</th>
-                  <th>Strand</th>
-                  <th>Year</th>
-                  <th>Section</th>
-                  <th>Date Enrolled</th>
-                </tr>
-                </thead>
-                <tfoot>
-                <tr>
-                  <th>LRN</th>
-                  <th>Name</th>
-                  <th>Strand</th>
-                  <th>Year</th>
-                  <th>Section</th>
-                  <th>Date Enrolled</th>
-                </tr>
-                </tfoot>
-              </table>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><i class="fa fa-plus"></i> Enrolled Students</h3>
+        </div>
+        <div class="panel-body">
+          <table id="enrolledStudentstable" class="table table-bordered table-hover table-striped">
+            <thead>
+            <tr> 
+              <th>LRN</th>
+              <th>Name</th>
+              <th>Strand</th>
+              <th>Year</th>
+              <th>Section</th>
+              <th>Date Enrolled</th>
+            </tr>
+            </thead>
+            <tfoot>
+            <tr>
+              <th>LRN</th>
+              <th>Name</th>
+              <th>Strand</th>
+              <th>Year</th>
+              <th>Section</th>
+              <th>Date Enrolled</th>
+            </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
     </section>
     <!-- /.content -->
   </div>
