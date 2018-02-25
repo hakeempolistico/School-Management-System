@@ -23,7 +23,8 @@ class login extends CI_Controller
 				if(isset($result->user_role)){
 					$u_permission = $this->users_model->getPermissions($result->user_role);
 				}
-
+				$a_year = $this->global_model->getRow('academic_years', 'status', 'active');
+				$active_year = $a_year->id;
 				if(is_object($result)){
 					//print_r($result);
 					$userdata = array(
@@ -40,6 +41,7 @@ class login extends CI_Controller
 					        'employee_id' => $result->employee_id,
 					        'major' => $result->major,
 					        'user_role' => $result->user_role,
+					        'academic_year' => $active_year,
 					        'logged_in' => TRUE
 					);
 

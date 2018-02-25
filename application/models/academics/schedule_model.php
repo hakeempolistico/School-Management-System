@@ -32,6 +32,7 @@ class schedule_model extends CI_Model{
 		$this->db->select('b.code as section_code');
 		$this->db->select('b.name as section_name');
 		$this->db->where('a.section_id', $section_id);
+		$this->db->where('academic_year', $this->session->academic_year);
 	    $this->db->from('class_subjects as a');
 	    $this->db->join('subjects as b', 'a.subject_id = b.code') ;
 		return $this->db->get()->result();

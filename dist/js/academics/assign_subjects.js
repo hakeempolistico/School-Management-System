@@ -140,7 +140,7 @@ $(function () {
         url: getClassSubjects,
         type: 'post',
         dataType: 'json',  
-        data: {'section_id' : section_id},
+        data: {'section_id' : section_id, 'academic_year' : a_year},
         success: function(result){
           if(result.length!=0){
             //console.log(result);
@@ -149,7 +149,7 @@ $(function () {
               url: getClassSubjects,
               type: 'post',
               dataType: 'json',  
-              data: {'section_id' : section_id, 'semester' : 'First Semester'},
+              data: {'section_id' : section_id, 'semester' : 'First Semester', 'academic_year' : a_year},
               success: function(res){
                 console.log(res);
                 var x = res.length;
@@ -168,7 +168,7 @@ $(function () {
               url: getClassSubjects,
               type: 'post',
               dataType: 'json',  
-              data: {'section_id' : section_id, 'semester' : 'Second Semester'},
+              data: {'section_id' : section_id, 'semester' : 'Second Semester', 'academic_year' : a_year},
               success: function(res){
                 console.log(res);
                 var x = res.length;
@@ -273,7 +273,7 @@ $(function () {
       $.ajax({
             url: deleteUrl,
             type: 'post', 
-            data: {'section_id' :  section_id}, 
+            data: {'section_id' :  section_id, 'academic_year' : a_year}, 
             success: function(result){
               //console.log(result);
               for(var i=0; i<x; i++){
@@ -328,7 +328,7 @@ $(function () {
                 $.ajax({
                   url: addUrl,
                   type: 'post', 
-                  data: {'teacher_id' : teachers_1[i], 'subject_id' : subjects_1[i], 'section_id' :  section_id, 'semester' : 'First Semester'}, 
+                  data: {'teacher_id' : teachers_1[i], 'subject_id' : subjects_1[i], 'section_id' :  section_id, 'semester' : 'First Semester', 'academic_year' : a_year}, 
                   success: function(result){
                     //console.log(result);
                   }
@@ -340,7 +340,7 @@ $(function () {
                 $.ajax({
                   url: addUrl,
                   type: 'post', 
-                  data: {'teacher_id' : teachers_2[i], 'subject_id' : subjects_2[i], 'section_id' :  section_id, 'semester' : 'Second Semester'}, 
+                  data: {'teacher_id' : teachers_2[i], 'subject_id' : subjects_2[i], 'section_id' :  section_id, 'semester' : 'Second Semester', 'academic_year' : a_year}, 
                   success: function(result){
                     //console.log(result);
                   }

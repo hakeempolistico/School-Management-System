@@ -18,7 +18,7 @@ class student_details extends CI_Controller {
 		$data['active'] = 'student_info/student_details';
 		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
 
-		$arr = $this->student_details_model->getStudentDetails();
+		$arr = $this->global_model->getRows('enrolled_students', array('academic_year_id'=> $this->session->academic_year));
 
 		foreach ($arr as $val) {
 		    $val->full_name = $this->student_details_model->getStudentInfo($val->students_info_lrn)[0]->first_name.' '.
@@ -90,7 +90,7 @@ class student_details extends CI_Controller {
 	    $academicYearRow = $this->global_model->getRow('academic_years', 'id', $academic_year_id);
 	    $data['academic_year'] = $academicYearRow->year_start.'-'.$academicYearRow->year_end;  //ACADEMIC_YEAR
 
-	    $schedulesTable = $this->enroll_student_model->getMultRows('schedules', 'section_id', $section_id); 
+	    $schedulesTable = $this->global_model->getRows('schedules', array('section_id' => $section_id, 'academic_year' => $this->session->academic_year)); 
 
 
 	    $data['arr'] =[];

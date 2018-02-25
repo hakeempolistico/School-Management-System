@@ -199,6 +199,7 @@
   
 
   var e_id = '<?php echo $this->session->employee_id; ?>';
+  var aYear = '<?php echo $this->session->academic_year; ?>';
   var getClassUrl = '<?php echo base_url('grades/view/getClass'); ?>';
   var getSubjectsUrl = '<?php echo base_url('grades/manage/getSubjects'); ?>';
   var getClassUrl = '<?php echo base_url('grades/manage/getClass'); ?>';

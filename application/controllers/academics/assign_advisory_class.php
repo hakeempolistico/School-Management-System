@@ -36,6 +36,20 @@ class assign_advisory_class extends CI_Controller {
 		echo json_encode($this->assign_subjects_model->getActiveSections($this->input->post()));
 	}
 
+	public function validate(){			
+		echo json_encode($this->global_model->getRows('advisory_class', $this->input->post()));
+	}
+
+	public function add(){			
+		echo json_encode($this->global_model->insert('advisory_class', $this->input->post()));
+	}
+
+	public function updateAdvisory(){		
+		$set = array('section_id' => $this->input->post('section_id'));
+		$where = array('employee_id' => $this->input->post('employee_id'), 'academic_year' => $this->input->post('academic_year'));	
+		echo json_encode($this->global_model->updateRecord('advisory_class', $set, $where));
+	}
+
 	public function update(){
 		$set = array('advisory_class' => $this->input->post('advisory_class'));
 		$where = array('employee_id' => $this->input->post('employee_id'));
@@ -55,9 +69,11 @@ class assign_advisory_class extends CI_Controller {
             	$status=null;
             	$action='<center><button data-toggle="modal" data-target="#modal-view" class="btn btn-default btn-xs btn-assign"><span class="fa fa-fw fa-pencil text-info"></span></button></center>';
 
-				if($value->advisory_class){
+            	$a_info = $this->global_model->getRows('advisory_class', array('employee_id' => $value->employee_id, 'academic_year' => $this->session->academic_year));
+
+				if(!$a_info == null){
 					$value->advisory_status = '<span class="badge bg-green status">assigned</span>';
-            		$class = $this->global_model->getRow('sections', 'id', $value->advisory_class);
+            		$class = $this->global_model->getRow('sections', 'id', $a_info[0]->section_id);
             		if($class->year_level_id=='1'){
             			$class->year_level_id='11';
             		}
@@ -70,10 +86,11 @@ class assign_advisory_class extends CI_Controller {
 					$value->advisory_status = '<span class="badge bg-red status">unassigned</span>';
 					$value->class = '-';
 				}
+
                 $arr = array(
                     $value->employee_id,
                     $value->first_name.' '.$value->middle_name.' '.$value->last_name,
-                    '<div class="class-name">'.$value->class.'</div><div class="section-id" hidden>'.$value->advisory_class.'</div>',
+                    '<div class="class-name">'.$value->class.'</div><div class="section-id" hidden>'.$value->class.'</div>',
                     $value->advisory_status,
                     $action
                 );

@@ -36,10 +36,10 @@ class manage extends CI_Controller {
 			$s_info->year_level_id = '12';
 		}
 		$post['section_info'] = $s_info->strand_code.'-'.$s_info->year_level_id.' '.$s_info->name;
-		$result = $this->global_model->getRows('enrolled_students', array('section_id' => $post['class'] ) );
+		$result = $this->global_model->getRows('enrolled_students', array('section_id' => $post['class'], 'academic_year_id' => $this->session->academic_year));
 		foreach ($result as $val) {
 			$d = $this->global_model->getRow('students_info', 'lrn', $val->students_info_lrn);
-			$arr =  array('lrn' => $val->students_info_lrn, 'semester' => $post['semester'], 'quarter' => $post['quarter'], 'subject_code' => $post['subject']);
+			$arr =  array('lrn' => $val->students_info_lrn, 'semester' => $post['semester'], 'quarter' => $post['quarter'], 'subject_code' => $post['subject'], 'academic_year' => $this->session->academic_year);
 			$grade = $this->global_model->getRows('grades', $arr);
 			if($grade){
 				$int = $grade['0']->grade;

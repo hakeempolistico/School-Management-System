@@ -70,11 +70,11 @@ class view extends CI_Controller {
 			$s_info->year_level_id = '12';
 		}
 		$post['section_info'] = $s_info->strand_code.'-'.$s_info->year_level_id.' '.$s_info->name;
-		$result = $this->global_model->getRows('enrolled_students', array('section_id' => $post['class'] ) );
+		$result = $this->global_model->getRows('enrolled_students', array('section_id' => $post['class'], 'academic_year_id' => $this->session->academic_year ) );
 		foreach ($result as $val) {
 			$d = $this->global_model->getRow('students_info', 'lrn', $val->students_info_lrn);
-			$arr =  array('lrn' => $val->students_info_lrn, 'semester' => $post['semester'], 'quarter' => 'First Quarter', 'subject_code' => $post['subject']);
-			$arr2 =  array('lrn' => $val->students_info_lrn, 'semester' => $post['semester'], 'quarter' => 'Second Quarter', 'subject_code' => $post['subject']);
+			$arr =  array('lrn' => $val->students_info_lrn, 'semester' => $post['semester'], 'quarter' => 'First Quarter', 'subject_code' => $post['subject'], 'academic_year' => $this->session->academic_year);
+			$arr2 =  array('lrn' => $val->students_info_lrn, 'semester' => $post['semester'], 'quarter' => 'Second Quarter', 'subject_code' => $post['subject'], 'academic_year' => $this->session->academic_year);
 			$grade1q = $this->global_model->getRows('grades', $arr);
 			$grade2q = $this->global_model->getRows('grades', $arr2);
 
