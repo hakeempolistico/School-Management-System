@@ -204,13 +204,10 @@
                   Student Grades
                 </a>
               </li> -->
-              <li>
-                <a href="#">
+              <li class="<?php echo (isset($active) && $active =='student_info/student_promotion' ? 'active' : null) ; ?>">
+                <a href="<?php echo site_url('student_info/student_promotion'); ?>">
                   <i class="fa fa-circle-o text-aqua"></i>
                   Student Promotion
-                <span class="pull-right-container">
-                  <span class="label label-warning pull-right">soon</span>
-                </span>
                 </a>
               </li>
             </ul>          
@@ -218,7 +215,7 @@
         <?php } ?>
 
 
-        <?php if(isset($this->session->{'Advisory Class'}) && $this->session->{'Advisory Class'}=='active' && $this->session->advisory_class > 0) { ?>
+        <?php if(isset($this->session->{'Advisory Class'}) && $this->session->{'Advisory Class'}=='active') { ?>
           <li class="<?php echo (isset($active) && $active =='advisory/advisory_class' ? 'active' : null); ?>">
             <a href="<?php echo site_url('advisory/advisory_class'); ?>">
               <i class="fa fa-star"></i>
