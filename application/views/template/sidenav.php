@@ -270,16 +270,19 @@
             <a href="#">
               <i class="fa fa-bar-chart"></i>
               <span>Reports</span>
+              <span class="pull-right-container">
+                <span class="fa fa-angle-left pull-right"></span>
+              </span>
             </a>
 
             <ul class="treeview-menu">
-              <li class="<?php echo (isset($active) && $active =='reports/student_reports' ? 'active' : null) ; ?>">
-                <a href="<?php echo site_url('reports/student_reports'); ?>">
+              <li class="<?php echo (isset($active) && $active =='reports/form137' ? 'active' : null) ; ?>">
+                <a href="<?php echo site_url('reports/form137'); ?>">
                   <i class="fa fa-circle-o text-aqua"></i>
-                  Student Reports
+                  Form 137
                 </a>
               </li>         
-              <li>
+              <!-- <li>
                 <a href="<?php echo site_url('enrollment/register_student'); ?>">
                   <i class="fa fa-circle-o text-aqua"></i>
                   Grade Reports
@@ -287,7 +290,7 @@
                   <span class="label label-warning pull-right">soon</span>
                 </span>
                 </a>
-              </li>            
+              </li> -->            
             </ul>          
           </li>
         <?php } ?>
