@@ -1,10 +1,4 @@
-var id;
-var name;
-var building;
-var newId;
-var newName;
-var newBuilding;
-var activeStatus;
+var id, name, building, type, newType, newId, newName, newBuilding, activeStatus;
 
 $(document).ready(function() {
     $('#table-schedule').DataTable( {
@@ -33,15 +27,16 @@ $(function () {
 
   $('#add-btn').on('click', function(){ 
 
-    var id = $('#number-input').val();
-    var name = $('#name-input').val();
-    var building = $('#building-input').val();
+    var id = $('#number-input').val()
+    var name = $('#name-input').val()
+    var building = $('#building-input').val()
+    var type = $('#type-select').val()
 
     $.ajax({
             url: countUrl,
             type: 'post',
             dataType: 'json', 
-            data: {'table' : 'rooms', 'set' : 'room_id', 'value' : id  }, 
+            data: {'table' : 'rooms', 'set' : 'room_id', 'value' : id}, 
             success: function(result){
               roomCount = result;
 
@@ -64,12 +59,25 @@ $(function () {
                   z_index: 1031,
                 });
               }
-    //           else if(strandCount > 0){
-    //             $('#alert-box').slideDown(1000);
-    //             $('#alert-title').html('<i id="alert-message-icon" class="icon fa fa-warning"></i> ERROR MESSAGE!');
-    //             $('#alert-message').html('Strand code is already used. Please use another one.');
-    //             $('#alert-box').delay( 1500 ).slideUp(1000);
-    //           }
+              else if(type == null || type.trim() === ''){
+                $.notify({
+                  title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',
+                  message: "Please select room type."
+                },{
+                  type: 'danger',
+                  animate: {
+                    enter: 'animated fadeInUp',
+                    exit: 'animated fadeOutRight'
+                  },
+                  placement: {
+                    from: "top",
+                    align: "right"
+                  },
+                  offset: 20,
+                  spacing: 10,
+                  z_index: 1031,
+                });
+              }
               else{
                 $.ajax({
                   url: addRoom,
@@ -78,7 +86,9 @@ $(function () {
                   data: {
                     'room_id': id, 
                     'room_name' : name, 
-                    'building' : building},
+                    'building' : building,
+                    'type': type
+                  },
                   success: function(result){
                     //console.log(result);
                       $.notify({
@@ -111,10 +121,10 @@ $(function () {
 
   $('#edit-update').on('click', function(){ 
 
-    newId = $('#edit-id').val();
-    newName = $('#edit-name').val();
-    newBuilding = $('#edit-building').val();
-
+    newId = $('#edit-id').val()
+    newName = $('#edit-name').val()
+    newBuilding = $('#edit-building').val()
+    newType = $('#edit-type').val()
       $.ajax({
         url: updateUrl,
         type: 'post',
@@ -123,7 +133,9 @@ $(function () {
           'room_id' : newId, 
           'room_name': newName, 
           'building': newBuilding, 
-          'set': room_id }, 
+          'type': newType, 
+          'set': room_id 
+        }, 
         success: function(result){
           //console.log(result);
 
@@ -163,20 +175,13 @@ $(function () {
 })
 
 $('#delete-confirm').click(function(){
-  if(activeStatus == 'active'){
-    var setStat = 'inactive';
-  }
-  else if(activeStatus == 'inactive'){
-    var setStat = 'active';
-  }
-  //console.log(id + ' : ' + activeStatus + ' : ' + setStat);
+
   $.ajax({
-    url: updateUrl,
+    url: deleteRowUrl,
     type: 'post',
     dataType: 'json', 
     data: {
-      'status': setStat, 
-      'set': id }, 
+      'room_id': id }, 
     success: function(result){
       //console.log(result);
       
@@ -184,51 +189,32 @@ $('#delete-confirm').click(function(){
         url: auditTrailUpdateUrl,
         type: 'post',
         dataType: 'json', 
-        data: {'room_id': id, 'status' : setStat }, 
+        data: {'room_id': id}, 
         success: function(result){
           console.log(result);
         }
       });
 
       populateTable();
-      if(setStat=='active'){
-          $.notify({
-          title: '<strong><i class="icon fa fa-check"></i>SUCCESS!</strong>',
-          message: "Room set to active."
-        },{
-          type: 'success',
-          animate: {
-            enter: 'animated fadeInUp',
-            exit: 'animated fadeOutRight'
-          },
-          placement: {
-            from: "top",
-            align: "right"
-          },
-          offset: 20,
-          spacing: 10,
-          z_index: 1031,
-        });
-      }
-      else if(setStat=='inactive'){
-          $.notify({
-          title: '<strong><i class="icon fa fa-ban"></i>WARNING!</strong>',
-          message: "Room set to active."
-        },{
-          type: 'danger',
-          animate: {
-            enter: 'animated fadeInUp',
-            exit: 'animated fadeOutRight'
-          },
-          placement: {
-            from: "top",
-            align: "right"
-          },
-          offset: 20,
-          spacing: 10,
-          z_index: 1031,
-        });
-      }
+
+      $.notify({
+        title: '<strong><i class="icon fa fa-times"></i>SUCCESS!</strong>',
+        message: "Room deleted."
+      },{
+        type: 'danger',
+        animate: {
+          enter: 'animated fadeInUp',
+          exit: 'animated fadeOutRight'
+        },
+        placement: {
+          from: "top",
+          align: "right"
+        },
+        offset: 20,
+        spacing: 10,
+        z_index: 1031,
+      });
+      
       
     }
   }); 
@@ -263,14 +249,15 @@ function populateTable(){
       dataType: 'json', 
       data: {'table' : 'rooms', 'set': 'room_id', 'value': room_id}, 
       success: function(result){  
-        id = result.id;
-        room_number = result.room_number;
-        name = result.room_name;
-        building = result.building;
-        $( "#edit-id" ).val(result.room_id);
-        $( "#edit-name" ).val(result.room_name);
-        $( "#edit-building" ).val(result.building);
-        console.log(result);
+        id = result.id
+        room_number = result.room_number
+        name = result.room_name
+        building = result.building
+        $( "#edit-id" ).val(result.room_id)
+        $( "#edit-name" ).val(result.room_name)
+        $( "#edit-type" ).val(result.type).trigger('change')
+        $( "#edit-building" ).val(result.building)
+        //console.log(result);
       }
     });   
   });

@@ -86,7 +86,7 @@ class advisory_class extends CI_Controller {
       array_push($subjects, $v->subject_code);
     }
 
-    $e_students = $this->global_model->getRows('enrolled_students', array('section_id' => $d['section_id']));
+    $e_students = $this->global_model->getRows('enrolled_students', array('section_id' => $d['section_id'], 'academic_year_id' => $this->session->academic_year));
 
     $stud = array();
     foreach ($e_students as $v) {
@@ -96,7 +96,7 @@ class advisory_class extends CI_Controller {
     $a_grades = array();
     foreach ($stud as $v) {
       foreach ($subjects as $value) {
-        $grades = $this->global_model->getRows('grades', array('lrn' => $v, 'semester' => $d['semester'], 'quarter' => $d['quarter'], 'subject_code' => $value));
+        $grades = $this->global_model->getRows('grades', array('lrn' => $v, 'semester' => $d['semester'], 'quarter' => $d['quarter'], 'subject_code' => $value, 'academic_year' => $this->session->academic_year) );
         if($grades && $grades[0]->grade > 74){
           $a_grades[$v][$value] = '<center><span class="badge bg-green">'.$grades[0]->grade.'</span></center>';
         }

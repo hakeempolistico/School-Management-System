@@ -86,7 +86,7 @@
                 <input type="hidden" name="lrn" class="lrn">
               <button type="submit" class="btn btn-sm btn-success" style="width:100%; margin-bottom: 5px;"><i class="fa fa-fw fa-check"></i> Enroll this student</button>
               </form>
-              <button href="<?php echo site_url('enrollment/register_student'); ?>" class="btn btn-sm btn-primary" style="width:100%"><i class="fa fa-fw fa-arrow-left"></i> Register another student</button>
+              <a href="<?php echo site_url('enrollment/register_student'); ?>" class="btn btn-sm btn-primary" style="width:100%"><i class="fa fa-fw fa-arrow-left"></i> Register another student</a>
             </div>
             <div class="col-md-9">
               <table class="table table-striped table-bordered" style="font-size: 13px">

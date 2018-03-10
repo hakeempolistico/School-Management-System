@@ -116,12 +116,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <hr class="filter-advanced" style="margin: 10px" hidden>
                 <div class="row filter-advanced" hidden>
                   <div class="col-lg-12 col-xs-12">
-                    <h5><b> Student Information </b></h5>
+                    <h5><b> Adviser </b></h5>
                     <div class="checkbox">
                       <label style="margin-right: 15px;">
+                        <input id="cb-adviser" class="advanced" type="checkbox">
+                        Teacher
+                      </label>
+                  </div>
+                </div>
+              </div>
+                <hr class="filter-advanced" style="margin: 10px" hidden>
+                <div class="row filter-advanced" hidden>
+                  <div class="col-lg-12 col-xs-12">
+                    <h5><b> Student Information </b></h5>
+                    <div class="checkbox">
+                      <!-- <label style="margin-right: 15px;">
                         <input id="cb-lrn" class="advanced" type="checkbox">
                         LRN
-                      </label>
+                      </label> -->
                       <label style="margin-right: 15px;">
                         <input id="cb-date" class="advanced" type="checkbox">
                         Date Enrolled
@@ -190,6 +202,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                           <option selected="selected"></option>
                         </select>
                       </div>  
+                    </div>
+                  </div>
+                  <hr>
+                </div>      
+
+                <div id="row-adviser" hidden>
+                  <div class="row">
+                    <div id="group-strand" class="col-lg-4 col-xs-12">
+                      <div class="form-group" style="margin-bottom: 5px">
+                        <label>Teacher</label>
+                        <select id="select-teacher" name="adviser" class="form-control select2" style="width: 100%;" data-placeholder="Select Strand">
+                          <option selected="selected"></option>
+                          <?php foreach ($teachers as $key => $val) { ?>
+                            <option value="<?php echo $val->employee_id ?>"><?php echo $val->first_name.' '.$val->last_name;?></option>
+                          <?php } ?>
+                        </select>
+                      </div> 
                     </div>
                   </div>
                   <hr>
@@ -441,6 +470,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       }
       $('#select-year').val('').trigger('change');
       $('#group-year').hide();
+    }
+  });
+
+  $("#cb-adviser").change(function() {
+    if(this.checked) {
+      $('#row-adviser').show();
+    }
+    else{
+      $('#select-teacher').val('').trigger('change');
+      $('#row-adviser').hide();
     }
   });
 

@@ -119,7 +119,7 @@
                   <tr>
                     <td><?php echo $v->students_info_lrn;?></td>
                     <td><?php echo $v->full_name;?></td>
-                    <td><?php echo (isset($v->grade) ? $v->grade : '<input type="text"> </input>'); ?></td>
+                    <td><?php echo (isset($v->grade) ? $v->grade : '<input type="number" min="65" max="100"> </input>'); ?></td>
                     <td><?php echo $v->action;?></td>
                   </tr>
                   <?php } ?>

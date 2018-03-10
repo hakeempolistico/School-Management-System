@@ -137,18 +137,22 @@
             <div class="box-body" style="padding: 14px 10px" >
               <!-- time Picker -->
               <div class="bootstrap-timepicker" style="margin-bottom: -12px">
-                <div class="form-group">
-                  <div class="input-group">
-                    <input id="time-start" type="text" class="form-control" placeholder="Time Start (hh:mm)">
-                    <input id="time-end" type="text" class="form-control" placeholder="Time End (hh:mm)">
-                    <div class="input-group-btn" >
-                      <button id="row-add" style="height: 68px" type="button" class="btn btn-info btn-flat"><i class="fa fa-fw fa-plus"></i></button>
+                  <!-- time Picker -->
+                <div class="bootstrap-timepicker">
+                  <div class="form-group">
+
+                    <div class="input-group">
+                      <input id="time-start" type="text" class="form-control timepicker">
+                      <input id="time-end" type="text" class="form-control timepicker">
+
+                      <div class="input-group-addon no-padding">
+                        <button id="row-add" type="button" class="btn btn-info btn-flat" style="height: 67px"><i class="fa fa-fw fa-plus"></i></button>
+                      </div>
                     </div>
+                    <!-- /.input group -->
                   </div>
-                  <!-- /.input group -->
-                </div>
-                <!-- /.form group -->
-              </div>                                    
+                  <!-- /.form group -->
+                </div>                                  
             </div>
           </div>
         </div>
@@ -226,7 +230,7 @@
               <table  id="schedule" class="table table-bordered table-hover table-schedule">
                 <thead>
                 <tr>
-                  <th id="tbl-title" colspan="6" class="text-success"> <i class="fa fa-fw fa-calendar"></i> Schedule</th>
+                  <td id="tbl-title" colspan="6" class="text-success"> <i class="fa fa-fw fa-calendar"></i> Schedule</td>
                 </tr>
                 <tr>
                   <th>Time</th>
@@ -422,10 +426,6 @@
   //Initialize Select2 Elements
     $('.select2').select2()
     //Timepicker
-    $('.timepicker').timepicker({
-      showInputs: false,
-    })
-
   $(document).ajaxStart(function () {
     Pace.restart()
   })

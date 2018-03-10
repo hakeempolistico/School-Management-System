@@ -236,6 +236,13 @@ function getCurrSubjects(){
       } 
     });
     getSchedules();
+
+    $('.timepicker').timepicker({
+      showInputs: false,
+      defaultTime: false,
+      showMeridian: false,
+    })
+
   }
 }
 
@@ -272,7 +279,7 @@ function getSchedules(){
     data: {'section_id' : sectionId, 'semester' : semester, 'academic_year' : aYear}, 
     success: function(res){ 
       var i = 0;
-      $('tbody tr').remove();
+      $('#schedule tbody tr').remove();
       
       if(res){
         //console.log(res);

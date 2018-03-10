@@ -281,7 +281,13 @@
                   <i class="fa fa-circle-o text-aqua"></i>
                   Form 137
                 </a>
-              </li>         
+              </li> 
+              <li class="<?php echo (isset($active) && $active =='reports/student_reports' ? 'active' : null) ; ?>">
+                <a href="<?php echo site_url('reports/student_reports'); ?>">
+                  <i class="fa fa-circle-o text-aqua"></i>
+                  Student Reports
+                </a>
+              </li>
               <!-- <li>
                 <a href="<?php echo site_url('enrollment/register_student'); ?>">
                   <i class="fa fa-circle-o text-aqua"></i>

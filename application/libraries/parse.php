@@ -17,7 +17,7 @@ class parse {
         	<span class="logo-mini"><b>S</b>M</span>
         	<!-- logo for regular state and mobile devices -->
         	<span class="logo-lg">School Management</span>',
-        	'footer' => '<footer class="main-footer">
+        	'footer' => '<footer class="main-footer hidden-print">
     						<div class="pull-right hidden-xs">
       						<b>Version</b> 1.0
     						</div>

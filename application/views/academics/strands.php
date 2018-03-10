@@ -55,7 +55,7 @@
             </div>
           </div> -->
 
-          <style>
+          <!-- <style>
             .panel[id='p-strands'] .panel-heading button { 
               color: white; font-size: 14px; margin-top: -2px;
             }
@@ -69,7 +69,7 @@
             .panel[id='p-strands'] {
               border-color: darkslategray;
             }
-          </style>
+          </style> -->
 
           <div id="p-strands" class="panel panel-primary">
             <div class="panel-heading">
@@ -142,6 +142,10 @@
                 <div class="form-group" style="margin-bottom: 7px">
                   <label for="strandNameInput">Name</label>
                   <input type="text" class="form-control" id="name-input" placeholder="Strand Name">
+                </div>                
+                <div class="form-group" style="margin-bottom: 7px">
+                  <label for="strandNameInput">Grade Requirement</label>
+                  <input type="text" class="form-control" id="name-gr" placeholder="Strand Name">
                 </div>               
                 <button type="button" id="add-btn" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-plus"></i> &nbsp; Add</button>
               </div>

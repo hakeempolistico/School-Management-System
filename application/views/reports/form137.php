@@ -55,7 +55,7 @@
      </div> -->
       
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    <section class="content-header hidden-print">
       <h1>
         Form 137
         <small>print form</small>
@@ -70,24 +70,43 @@
     <section class="content">      
       <div class="row">
         <div class="col-md-12">
-          <div class="panel panel-primary">
-            <div class="panel-heading">
-              <h3 class="panel-title">Form 137</h3>
-            </div>
-            <div class="panel-body">
+          <div class="panel panel-primary" style="border-color: #d2d6de;">
+            <div class="panel-body no-padding">
               <table class="table table-bordered">
                 <thead style="background-color:#d2d6de">
-                  <!-- <tr>
-                    <th colspan="6" class="text-center"><b>SCHOLASTIC RECORD</b></th>
-                  </tr> -->
+                  <tr>
+                    <th colspan="13" class="text-center"><b>LEARNER'S INFORMATION</b></th>
+                  </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td></td>
+                    <th colspan="1"><b>Last Name</b></th>
+                    <td colspan="2"><?php echo $last_name;?></td>
+                    <th colspan="1"><b>First Name</b></th>
+                    <td colspan="5"><?php echo $first_name;?></td>
+                    <th colspan="1"><b>Middle Name</b></th>
+                    <td colspan="2"><?php echo $middle_name;?></td>
                   </tr>
                   <tr>
-                    <th colspan="6" class="text-center"><b>SCHOLASTIC RECORD</b></th>
+                    <th colspan="1"><b>LRN</b></th>
+                    <td colspan="1"><?php echo $lrn;?></td>
+                    <th colspan="2"><b>Date of Birth</b></th>
+                    <td colspan="3"><?php echo $birth_date;?></td>
+                    <th colspan="1"><b>Sex</b></th>
+                    <td colspan="2"><?php echo $sex;?></td>
+                    <th colspan="1"><b>Date of Admission</b></th>
+                    <td colspan="2"><?php echo $admission;?></td>
                   </tr>
+                </tbody>
+              </table>
+
+              <table class="table table-bordered">
+                <thead style="background-color:#d2d6de">
+                  <tr>
+                    <th colspan="10" class="text-center"><b>SCHOLASTIC RECORD</b></th>
+                  </tr>
+                </thead>
+                <tbody>
                   <tr>
                     <!-- <td style="width: 10%"><b>SCHOOL:</b></td>
                     <td style="width: 15%">MANUEL ARAULLO HIGH SCHOOL</td>
@@ -101,13 +120,22 @@
                     <td style="width: 5%">1ST</td> -->
                   </tr>
                   <tr>
-                    <td></td>
+                    <td style="width: 10%"><b>School:</b></td>
+                    <td style="width: 20%">MANUEL ARAULLO HIGH SCHOOL</td>
+                    <td style="width: 10%"><b>School ID</b></td>
+                    <td style="width: 10%">305309</td>
+                    <td style="width: 10%"><b>Grade Level</b></td>
+                    <td style="width: 5%"><?php echo $s_record['grade_level'] ?></td>
+                    <td style="width: 5%"><b>SY:</b></td>
+                    <td style="width: 10%"><?php echo $s_record['sy'] ?></td>
+                    <td style="width: 10%"><b>Sem:</b></td>
+                    <td style="width: 10%"><?php echo $s_record['sem'] ?></td>
                   </tr>
                   <tr>
-                    <td style="width: 15%"><b>TRACK/STRAND:</b></td>
-                    <td style="width: 45%">HUMANITIES AND SOCIAL SCIENCES</td>
-                    <td style="width: 5%" align="right"><b>SECTION:</b></td>
-                    <td style="width: 35%">HUMANITIES AND SOCIAL SCIENCES</td>
+                    <td style="width: 15%" colspan="2"><b>TRACK/STRAND:</b></td>
+                    <td style="width: 45%" colspan="5">HUMANITIES AND SOCIAL SCIENCES</td>
+                    <td style="width: 5%" colspan="1"><b>SECTION:</b></td>
+                    <td style="width: 35%" colspan="2"><?php echo $s_record['section'] ?></td>
                   </tr>
                 </tbody>
               </table>
@@ -125,9 +153,23 @@
                     <th style="width: 10%">2nd Quarter</th>
                   </tr>
                 </thead>
+                <tbody>
+                  <?php foreach ($sub_info as $v) { ?>
+                  <tr>
+                    <td><?php echo $v->subject_type; ?></td>
+                    <td><?php echo $v->subject_name; ?></td>
+                    <td><?php echo $v->q1; ?></td>
+                    <td><?php echo $v->q2; ?></td>
+                    <td><?php echo $v->ave; ?></td>
+                    <td><?php echo $v->action_taken; ?></td>
+                  </tr>
+                  <?php } ?>
+                </tbody>
               </table>
             </div>
           </div>
+
+          <button style="width: 100px; margin-top: -10px" id="row-print" class="hidden-print btn btn-sm btn-primary pull-right">Print</button>
         </div>
       </div>
     </section>
@@ -155,6 +197,12 @@
 <!-- DataTables -->
 <script src="<?php echo base_url(); ?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script>
+  
+$('#row-print').on('click',function(){
+  window.print(); 
+});
 
+</script>
 </body>
 </html>

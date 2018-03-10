@@ -28,21 +28,21 @@ class login extends CI_Controller
 				if(is_object($result)){
 					//print_r($result);
 					$userdata = array(
-					        'username'  => $result->username,
-					        'first_name'     =>  $result->first_name,
-					        'last_name'     =>  $result->last_name,
-					        'position'     =>  $result->position,
-					        'date_created' => $result->date_created,
-					        'sex' => $result->sex,
-					        'birthdate' => $result->birthdate,
-					        'contact_no' => $result->contact_no,
-					        'advisory_class' => $result->advisory_class,	
-					        'email' => $result->email,
-					        'employee_id' => $result->employee_id,
-					        'major' => $result->major,
-					        'user_role' => $result->user_role,
-					        'academic_year' => $active_year,
-					        'logged_in' => TRUE
+				        'username'  => $result->username,
+				        'first_name'     =>  $result->first_name,
+				        'last_name'     =>  $result->last_name,
+				        'position'     =>  $result->position,
+				        'date_created' => $result->date_created,
+				        'sex' => $result->sex,
+				        'birthdate' => $result->birthdate,
+				        'contact_no' => $result->contact_no,
+				        'advisory_class' => $result->advisory_class,	
+				        'email' => $result->email,
+				        'employee_id' => $result->employee_id,
+				        'major' => $result->major,
+				        'user_role' => $result->user_role,
+				        'academic_year' => $active_year,
+				        'logged_in' => TRUE
 					);
 
 
