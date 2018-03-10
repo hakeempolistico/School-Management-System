@@ -16,6 +16,7 @@ class student_reports extends CI_Controller {
 		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
 		$data['strands'] = $this->global_model->getRecords('strands');
 		$data['years'] = $this->global_model->getRecords('year_levels');
+		$data['teachers'] = $this->global_model->getRecords('teachers');
         $this->parser->parse('reports/student_reports', $data);
 	}
 
@@ -24,15 +25,26 @@ class student_reports extends CI_Controller {
 		$data = $this->input->post();
 		$arr = array();
 		$criteria = array();
+
 		foreach ($data as $key => $val) {
 			if($val){
 				if($key == 'lrn'){
 					$arr['enrolled_students.students_info_lrn'] = $val;
 				}
-				else
+				else{
 					$arr[$key] = $val;
+				}
 			}
 		};
+
+		foreach ($arr as $key => $val) {
+			if($key == 'adviser'){
+				$a_info = $this->global_model->getRows('advisory_class', array('employee_id' => $val));
+				$arr['section_id'] = $a_info[0]->section_id;
+				unset($arr['adviser']);
+			}
+		};
+
 		foreach ($data as $key => $val) {
 			if($val){
 				if($key == 'lrn'){
@@ -46,6 +58,9 @@ class student_reports extends CI_Controller {
 				}
 				if($key == 'strand_code'){
 					$criteria['Strand'] = $val;
+				}
+				if($key == 'adviser'){
+					$criteria['adviser'] = $val;
 				}
 				if($key == 'date_enrolled'){
 					$criteria['Date Enrolled'] = $val;

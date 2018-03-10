@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Student Reports</title>
+  <title>Student Reports</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -122,6 +122,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <h5><b><?php echo $criteria['Age'];?></b></h5>
                       </div>
                     <?php } ?>
+                  </div>
+                <hr style="margin: 0px">
+                <?php } ?>
+
+                <?php if(isset($criteria['adviser'])) { ?>
+                  <div class="row">
+                      <div class="col-lg-3 col-xs-12">
+                        <h5 style="color: darkgrey"><b>Adviser</b></h5>
+                        <h5><b><?php echo $criteria['adviser'];?></b></h5>
+                      </div>
                   </div>
                 <hr style="margin: 0px">
                 <?php } ?>
@@ -346,6 +356,7 @@ $('#example2').DataTable({
   'ordering'    : true,
   'info'        : true,
   'autoWidth'   : false,
+  'pageLength'  : 50,
   dom: 'Bfrtip',
   buttons: [
         'copy', 'csv', 'excel', 'pdf', 'print'
