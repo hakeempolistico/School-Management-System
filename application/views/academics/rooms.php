@@ -40,7 +40,7 @@
                   <th>Number</th>    
                   <th>Name</th>
                   <th>Building</th>              
-                  <th>Status</th>              
+                  <th>Type</th>              
                   <th>Action</th>
                 </tr>
                 </thead>
@@ -49,7 +49,7 @@
                   <th>Number</th>    
                   <th>Name</th>
                   <th>Building</th>              
-                  <th>Status</th>              
+                  <th>Type</th>              
                   <th>Action</th>
                 </tr>                
                 </tfoot>
@@ -116,6 +116,14 @@
                       <label for="edit-status">Name</label>
                       <input type="text" class="form-control" id="edit-name">
                     </div>
+                  <div class="form-group" style="margin-bottom: 7px">
+                    <label>Type</label>
+                    <select id="edit-type" data-placeholder="Room Type" class="form-control select2" style="width:100%;">
+                      <option></option>
+                      <option value="Lecture">Lecture</option>
+                      <option value="Laboratory">Laboratory</option>
+                    </select>
+                  </div> 
                     <div class="form-group" style="margin-bottom: 5px;">
                       <label for="edit-status">Building</label>
                       <input type="text" class="form-control" id="edit-building">
@@ -144,6 +152,14 @@
                   <div class="form-group" style="margin-bottom: 7px">
                     <label for="roomNameInput">Name</label>
                     <input type="text" class="form-control" id="name-input" placeholder="Room Name">
+                  </div>
+                  <div class="form-group" style="margin-bottom: 7px">
+                    <label>Type</label>
+                    <select id="type-select" data-placeholder="Room Type" class="form-control select2" style="width:100%;">
+                      <option></option>
+                      <option value="Lecture">Lecture</option>
+                      <option value="Laboratory">Laboratory</option>
+                    </select>
                   </div> 
                   <div class="form-group" style="margin-bottom: 7px">
                     <label for="buildingNameInput">Building</label>
@@ -191,6 +207,8 @@
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
 <!-- BOOTSTRAP NOTIF -->
 <script src="<?php echo base_url(); ?>bower_components/bootstrap-notify-3.1.3/dist/bootstrap-notify.js"></script>
+<!-- Select2 -->
+<script src="<?php echo base_url(); ?>bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
 <!-- PACE -->
@@ -209,6 +227,7 @@
 
   $(document).ajaxStart(function () {
     Pace.restart()
+    $('.select2').select2();
   })
 
   var addRoom = '<?php echo base_url('academics/rooms/addRoom'); ?>';
