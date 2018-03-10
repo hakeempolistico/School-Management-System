@@ -8,8 +8,9 @@ $(function () {
 
   $('#add-btn').on('click', function(){ 
 
-    var code = $('#code-input').val();
-    var name = $('#name-input').val();
+    var code = $('#code-input').val()
+    var name = $('#name-input').val()
+    var gr = $('#name-gr').val()
 
     $.ajax({
             url: countUrl,
@@ -64,7 +65,7 @@ $(function () {
                   url: addStrand,
                   type: 'post',
                   dataType: 'json',  
-                  data: {'code': code, 'name' : name},
+                  data: {'code': code, 'name' : name, 'grade_requirement' : gr},
                   success: function(result){
                     //console.log(result);
                     populateTable();
