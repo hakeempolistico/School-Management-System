@@ -78,129 +78,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </div>
               <!-- /.box-header -->
               <div class="box-body">
-                <?php if(isset($criteria['Strand']) || isset($criteria['Year Level']) || isset($criteria['Section'])) { ?>
+                <?php if(isset($criteria['semester']) || isset($criteria['quarter']) || isset($criteria['section_id'])) { ?>
                   <div class="row">
-                    <?php if(isset($criteria['Strand'])) { ?>
+                    <?php if(isset($criteria['semester'])) { ?>
                       <div class="col-lg-3 col-xs-12">
-                        <h5 style="color: darkgrey"><b>Strand</b></h5>
-                        <h5><b><?php echo $criteria['Strand'];?></b></h5>
+                        <h5 style="color: darkgrey"><b>Semester</b></h5>
+                        <h5><b><?php echo $criteria['semester'];?></b></h5>
                       </div>
                     <?php } ?>
-                    <?php if(isset($criteria['Year Level'])) { ?>
+                    <?php if(isset($criteria['quarter'])) { ?>
                       <div class="col-lg-3 col-xs-12">
-                        <h5 style="color: darkgrey"><b>Year</b></h5>
-                        <h5><b><?php echo $criteria['Year Level'];?></b></h5>
+                        <h5 style="color: darkgrey"><b>Quarter</b></h5>
+                        <h5><b><?php echo $criteria['quarter'];?></b></h5>
                       </div>
                     <?php } ?>
-                    <?php if(isset($criteria['Section'])) { ?>
+                    <?php if(isset($criteria['section_id'])) { ?>
                       <div class="col-lg-3 col-xs-12">
                         <h5 style="color: darkgrey"><b>Section</b></h5>
-                        <h5><b><?php echo $criteria['Section'];?></b></h5>
+                        <h5><b><?php echo $criteria['section_id'];?></b></h5>
                       </div>
                     <?php } ?>
                   </div>
                   <hr style="margin: 0px">
                 <?php } ?>
-
-                <?php if(isset($criteria['adviser'])) { ?>
-                  <div class="row">
-                      <div class="col-lg-3 col-xs-12">
-                        <h5 style="color: darkgrey"><b>Adviser</b></h5>
-                        <h5><b><?php echo $criteria['adviser'];?></b></h5>
-                      </div>
-                  </div>
-                <hr style="margin: 0px">
-                <?php } ?>
-
-                <?php if(isset($criteria['LRN']) || isset($criteria['Date Enrolled']) || isset($criteria['Age'])) { ?>
-                  <div class="row">
-                    <?php if(isset($criteria['LRN'])) { ?>
-                      <div class="col-lg-3 col-xs-12">
-                        <h5 style="color: darkgrey"><b>LRN</b></h5>
-                        <h5><b><?php echo $criteria['LRN'];?></b></h5>
-                      </div>
-                    <?php } ?>
-                    <?php if(isset($criteria['Date Enrolled'])) { ?>
-                      <div class="col-lg-3 col-xs-12">
-                        <h5 style="color: darkgrey"><b>Date Enrolled</b></h5>
-                        <h5><b><?php echo $criteria['Date Enrolled'];?></b></h5>
-                      </div>
-                    <?php } ?>
-                    <?php if(isset($criteria['Age'])) { ?>
-                      <div class="col-lg-3 col-xs-12">
-                        <h5 style="color: darkgrey"><b>Age</b></h5>
-                        <h5><b><?php echo $criteria['Age'];?></b></h5>
-                      </div>
-                    <?php } ?>
-                  </div>
-                <hr style="margin: 0px">
-                <?php } ?>
-
-                <?php if(isset($criteria['First Name']) || isset($criteria['Middle Name']) || isset($criteria['Last Name'])) { ?>
-                  <div class="row">
-                    <?php if(isset($criteria['First Name'])) { ?>
-                      <div class="col-lg-3 col-xs-12">
-                        <h5 style="color: darkgrey"><b>First Name</b></h5>
-                        <h5><b><?php echo $criteria['First Name'];?></b></h5>
-                      </div>
-                    <?php } ?>
-                    <?php if(isset($criteria['Middle Name'])) { ?>
-                      <div class="col-lg-3 col-xs-12">
-                        <h5 style="color: darkgrey"><b>Middle Name</b></h5>
-                        <h5><b><?php echo $criteria['Middle Name'];?></b></h5>
-                      </div>
-                    <?php } ?>
-                    <?php if(isset($criteria['Last Name'])) { ?>
-                      <div class="col-lg-3 col-xs-12">
-                        <h5 style="color: darkgrey"><b>Last Name</b></h5>
-                        <h5><b><?php echo $criteria['Last Name'];?></b></h5>
-                      </div>
-                    <?php } ?>
-                  </div>
-                  <hr style="margin: 0px">
-                <?php } ?>
-
-                <?php if(isset($criteria['Street']) || isset($criteria['Barangay']) || isset($criteria['City']) || isset($criteria['Province'])) { ?>
-                  <div class="row">
-                    <?php if(isset($criteria['Street'])) { ?>
-                      <div class="col-lg-3 col-xs-12">
-                        <h5 style="color: darkgrey"><b>Street</b></h5>
-                        <h5><b><?php echo $criteria['Street'];?></b></h5>
-                      </div>
-                    <?php } ?>
-                    <?php if(isset($criteria['Barangay'])) { ?>
-                      <div class="col-lg-3 col-xs-12">
-                        <h5 style="color: darkgrey"><b>Barangay</b></h5>
-                        <h5><b><?php echo $criteria['Barangay'];?></b></h5>
-                      </div>
-                    <?php } ?>
-                    <?php if(isset($criteria['City'])) { ?>
-                      <div class="col-lg-3 col-xs-12">
-                        <h5 style="color: darkgrey"><b>City</b></h5>
-                        <h5><b><?php echo $criteria['City'];?></b></h5>
-                      </div>
-                    <?php } ?>
-                    <?php if(isset($criteria['Province'])) { ?>
-                      <div class="col-lg-3 col-xs-12">
-                        <h5 style="color: darkgrey"><b>Province</b></h5>
-                        <h5><b><?php echo $criteria['Province'];?></b></h5>
-                      </div>
-                    <?php } ?>
-                  </div>
-                  <hr style="margin: 0px">
-                <?php } ?>
-
-                <?php if(isset($criteria['Religion'])) { ?>
-                  <div class="row">
-                    <?php if(isset($criteria['Religion'])) { ?>
-                      <div class="col-lg-3 col-xs-12">
-                        <h5 style="color: darkgrey"><b>Religion</b></h5>
-                        <h5><b><?php echo $criteria['Religion'];?></b></h5>
-                      </div>
-                    <?php } ?>
-                  </div>
-                <?php } ?>
-
               </div>
           </div>
         </div>
@@ -281,34 +181,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th>LRN</th>
+                  <th>Rank</th>
                   <th>Name</th>
-                  <th>Sex</th>
-                  <th>Contact</th>
-                  <th>Birthdate</th>
-                  <th>Address</th>
+                  <th>Gen. Ave</th>
                 </tr>
                 </thead>
                 <tbody>
-                <?php foreach ($result as $key => $val) { ?>
-                <tr>
-                  <td><?php echo $val['lrn']; ?></td>
-                  <td><?php echo $val['first_name'].' '.$val['middle_name'].' '.$val['last_name']; ?></td>
-                  <td><?php echo $val['sex']; ?></td>
-                  <td><?php echo $val['contact_number']; ?></td>
-                  <td><?php echo $val['birth_date']; ?></td>
-                  <td><?php echo $val['street'].', '.$val['barangay'].', '.$val['city'].', '.$val['province']; ?></td>
-                </tr>
-                <?php } ?>
+                  <?php foreach ($stud_grades as $v) {?>
+                  <tr>
+                    <td>-</td>
+                    <td><?php echo $v['full_name']; ?></td>
+                    <td><?php echo $v['ave']; ?> </td>
+                  </tr>
+                  <?php } ?>
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>LRN</th>
+                  <th>Rank</th>
                   <th>Name</th>
-                  <th>Sex</th>
-                  <th>Contact</th>
-                  <th>Birthdate</th>
-                  <th>Address</th>
+                  <th>Gen. Ave</th>
                 </tr>
                 </tfoot>
               </table>                
@@ -349,19 +240,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 <script>
-$('#example2').DataTable({
+var t = $('#example2').DataTable({
   'paging'      : true,
   'lengthChange': false,
   'searching'   : false,
   'ordering'    : true,
   'info'        : true,
   'autoWidth'   : false,
-  'pageLength'  : 50,
+  'pageLength'  : 50, 
+  "order": [[ 2, "desc" ]],
   dom: 'Bfrtip',
   buttons: [
         'copy', 'csv', 'excel', 'pdf', 'print'
     ]
 })
+
+t.on( 'order.dt search.dt', function () {
+    t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+        cell.innerHTML = i+1;
+    } );
+} ).draw();
 
 $("#cb-lrn").change(function() {
   if(this.checked) {

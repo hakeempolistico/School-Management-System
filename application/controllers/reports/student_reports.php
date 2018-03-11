@@ -60,7 +60,8 @@ class student_reports extends CI_Controller {
 					$criteria['Strand'] = $val;
 				}
 				if($key == 'adviser'){
-					$criteria['adviser'] = $val;
+					$a_info = $this->global_model->getRows('teachers', array('employee_id' => $val));
+					$criteria['adviser'] = $a_info[0]->first_name.' '.$a_info[0]->last_name;
 				}
 				if($key == 'date_enrolled'){
 					$criteria['Date Enrolled'] = $val;
@@ -125,6 +126,95 @@ class student_reports extends CI_Controller {
 		$data['criteria'] = $criteria;
 		$data['result'] = $rep_arr;
 		$this->parser->parse('reports/student_search', $data);
+	}
+
+	public function top_students(){
+
+	$data = $this->parse->parsed();
+    $d = array('section_id' => '1', 'semester' => 'First Semester', 'quarter' => 'First Quarter');
+    $s_info = $this->global_model->getRow('sections', 'id', $d['section_id']);
+    $curriculum = $this->global_model->getRows('curriculum', array('semester' => $d['semester'],'strand_code' => $s_info->strand_code, 'year_level_id' => $s_info->year_level_id));
+
+    $subjects = array();
+    foreach ($curriculum as $v) {
+      array_push($subjects, $v->subject_code);
+    }
+
+    $e_students = $this->global_model->getRows('enrolled_students', array('section_id' => $d['section_id'], 'academic_year_id' => $this->session->academic_year));
+
+    $stud = array();
+    foreach ($e_students as $v) {
+      array_push($stud, $v->students_info_lrn);
+    }
+
+    $a_grades = array();
+    foreach ($stud as $v) {
+      foreach ($subjects as $value) {
+        $grades = $this->global_model->getRows('grades', array('lrn' => $v, 'semester' => $d['semester'], 'quarter' => $d['quarter'], 'subject_code' => $value, 'academic_year' => $this->session->academic_year) );
+        if($grades && $grades[0]->grade > 74){
+          $a_grades[$v][$value] = $grades[0]->grade;
+        }
+        else if($grades && $grades[0]->grade < 75){
+          $a_grades[$v][$value] = $grades[0]->grade;
+        }
+        else{
+          $a_grades[$v][$value] = null;          
+        }
+      }
+      $subs = array();
+      /*foreach ($grades as $key => $val) {
+        $a_grades[$val->lrn][$val->subject_code] = $val->grade;
+        array_push($subs, $val->subject_code);
+      }*/
+    }
+
+    foreach ($a_grades as $k => $v) {
+    	$ave = 0;
+    	foreach ($v as $key => $val) {	
+    		if($val){
+    			$f = (float)$val;
+    		}
+    		else{
+    			$f = (float)0;
+    		}
+    		$ave = ($ave + $f);
+    	}
+    	$stud_info = $this->global_model->getRow('students_info', 'lrn', $k);
+    	$a_grades[$k]['full_name'] = $stud_info->first_name.' '.$stud_info->last_name;
+	    $ave = $ave / count($v);
+	   	$ave = number_format($ave,2);
+	   	$a_grades[$k]['ave'] = $ave;
+    }
+
+    /*echo 'subjects';
+    echo '<pre>';
+    print_r($subjects);
+    echo '<pre>';
+    echo 'grades';
+    echo '<pre>';
+    print_r($a_grades);
+    echo '<pre>';
+    exit;*/
+
+    
+    /*$section_info = $this->global_model->getRow('sections', 'id', $this->session->advisory_class);
+    if($section_info->year_level_id == 1){
+      $section_info->class = $section_info->strand_code.' 11'.$section_info->name;
+    }
+    else{
+      $section_info->class = $section_info->strand_code.' 12'.$section_info->name;      
+    }*/
+
+    $data['semester'] = $d['semester'];
+    $data['quarter'] = $d['quarter'];
+
+		$data = $this->parse->parsed();
+		$data['active'] = 'reports/top_stuents';
+		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
+		$data['stud_grades'] = $a_grades;
+		$data['criteria'] = $d;
+		//$data['result'] = $rep_arr;
+		$this->parser->parse('reports/top_students', $data);
 	}
 
 }
