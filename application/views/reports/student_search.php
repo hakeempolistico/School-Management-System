@@ -102,6 +102,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <hr style="margin: 0px">
                 <?php } ?>
 
+                <?php if(isset($criteria['adviser'])) { ?>
+                  <div class="row">
+                      <div class="col-lg-3 col-xs-12">
+                        <h5 style="color: darkgrey"><b>Adviser</b></h5>
+                        <h5><b><?php echo $criteria['adviser'];?></b></h5>
+                      </div>
+                  </div>
+                <hr style="margin: 0px">
+                <?php } ?>
+
                 <?php if(isset($criteria['LRN']) || isset($criteria['Date Enrolled']) || isset($criteria['Age'])) { ?>
                   <div class="row">
                     <?php if(isset($criteria['LRN'])) { ?>
@@ -122,16 +132,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <h5><b><?php echo $criteria['Age'];?></b></h5>
                       </div>
                     <?php } ?>
-                  </div>
-                <hr style="margin: 0px">
-                <?php } ?>
-
-                <?php if(isset($criteria['adviser'])) { ?>
-                  <div class="row">
-                      <div class="col-lg-3 col-xs-12">
-                        <h5 style="color: darkgrey"><b>Adviser</b></h5>
-                        <h5><b><?php echo $criteria['adviser'];?></b></h5>
-                      </div>
                   </div>
                 <hr style="margin: 0px">
                 <?php } ?>

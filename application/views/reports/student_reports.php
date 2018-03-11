@@ -329,6 +329,82 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
       </div>
 
+
+      <div class="row">
+        <div class="col-lg-12 col-xs-12">
+          <div class="box box-primary">
+              <div class="box-header">
+                <h3 class="box-title">Top Students Per Class Filter Criteria</h3>
+              </div>
+              <!-- /.box-header -->
+              <div class="box-body">
+                <form method="post" action="<?php echo base_url('reports/student_reports/top_students');?>">
+                  <div id="row-tclass" >
+                  <div class="row">
+                    <div id="group-tstrand" class="col-lg-4 col-xs-12" >
+                      <div class="form-group" style="margin-bottom: 5px">
+                        <label>Strand</label>
+                        <select id="select-tstrand" name="strand_code" class="form-control select2" style="width: 100%;" data-placeholder="Select Strand">
+                          <option selected="selected"></option>
+                          <?php foreach ($strands as $key => $val) { ?>
+                            <option value="<?php echo $val->code ?>"><?php echo $val->name ?></option>
+                          <?php } ?>
+                        </select>
+                      </div> 
+                    </div>
+                    <div id="group-tyear" class="col-lg-4 col-xs-12" >
+                      <div class="form-group" style="margin-bottom: 5px">
+                        <label>Year</label>
+                        <select id="select-tyear" name="year_level_id" class="form-control select2" style="width: 100%;" data-placeholder="Select Year">
+                          <option selected="selected"></option>
+                          <?php foreach ($years as $key => $val) { ?>
+                            <option value="<?php echo $val->id ?>"><?php echo $val->name ?></option>
+                          <?php } ?>
+                        </select>
+                      </div>  
+                    </div>
+                    <div id="group-tsection" class="col-lg-4 col-xs-12" >
+                      <div class="form-group" style="margin-bottom: 5px">
+                        <label>Section</label>
+                        <select id="select-tsection" name="section_id" class="form-control select2" style="width: 100%;" data-placeholder="Select Section">
+                          <option selected="selected"></option>
+                        </select>
+                      </div>  
+                    </div>
+                    <div id="group-tsemester" class="col-lg-4 col-xs-12" >
+                      <div class="form-group" style="margin-bottom: 5px">
+                        <label>Semester</label>
+                        <select id="select-tsemester" name="semester" class="form-control select2" style="width: 100%;" data-placeholder="Select Section">
+                          <option></option>
+                          <option value="First Semester">First Semester</option>
+                          <option value="Second Semester">Second Semester</option>
+                        </select>
+                      </div>  
+                    </div>
+                    <div id="group-tquarter" class="col-lg-4 col-xs-12" >
+                      <div class="form-group" style="margin-bottom: 5px">
+                        <label>Quarter</label>
+                        <select id="select-tquarter" name="quarter" class="form-control select2" style="width: 100%;" data-placeholder="Select Section">
+                          <option></option>
+                          <option value="First Quarter">First Quarter</option>
+                          <option value="Second Quarter">Second Quarter</option>
+                        </select>
+                      </div>  
+                    </div>
+                  </div>
+                  <hr>
+                </div>
+                
+                      
+                <button type="submit" id="add-btn" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right">Search</button>
+                </form>
+                
+              </div>
+          </div>
+        </div>
+      </div>
+
+
     </section>
     <!-- /.content -->
     <div class="clearfix"></div>
@@ -403,6 +479,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     }
   });
 
+  $('#select-tfilter').on('change',function(){
+    if($(this).val() == 1){
+      $('.filter-standard').hide();
+      $('.filter-advanced').hide();
+      $(':checkbox').prop('checked', false); 
+
+      $('#row-tclass').hide();
+    }
+    else if($(this).val() == 2){
+      $('.filter-tstandard').show();
+      $('.filter-tadvanced').hide();
+      $('.advanced:checkbox').prop('checked', false); 
+    }
+  });
+
   $('#select-year').on('change',function(){
    year_id = $('#select-year').val();
    strand_code = $('#select-strand').val();
@@ -423,6 +514,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         $.each(result, function( index, value ) {
           $('#select-section').append($('<option>', { 
+              value: value.id,
+              text : value.name
+          })).select2();
+        });
+      }
+    });
+  }); 
+
+  $('#select-tyear').on('change',function(){
+   tyear_id = $('#select-tyear').val();
+   tstrand_code = $('#select-tstrand').val();
+
+   $('#select-tsection').find('option').remove();
+
+   $.ajax({
+      url: getSection,
+      type: 'post',
+      dataType: 'json',  
+      data: {'strand_code': tstrand_code, 'year_level_id': tyear_id},
+      success: function(result){
+        //console.log(result);
+          $('#select-tsection').append($('<option>', { 
+              value: null,
+              text : null
+          })).select2();
+
+        $.each(result, function( index, value ) {
+          $('#select-tsection').append($('<option>', { 
               value: value.id,
               text : value.name
           })).select2();
@@ -470,6 +589,70 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       }
       $('#select-year').val('').trigger('change');
       $('#group-year').hide();
+    }
+  });
+
+  $("#cb-tstrand").change(function() {
+    if(this.checked) {
+      $('#group-tstrand').show();
+      $('#row-tclass').show();
+    }
+    else{
+      if(this.checked == false && $('#cb-section').is(':checked') == false && $('#cb-year').is(':checked') == false) {
+        $('#row-tclass').hide();
+      }
+      $('#select-tstrand').val('').trigger('change');
+      $('#group-tstrand').hide();
+    }
+  });
+
+  $("#cb-tsection").change(function() {
+    if(this.checked) {
+      $('#group-tsection').show();
+      $('#row-tclass').show();
+    }
+    else{
+      if(this.checked == false && $('#cb-strand').is(':checked') == false && $('#cb-year').is(':checked') == false) {
+        $('#row-tclass').hide();
+      }
+      $('#select-tsection').val('').trigger('change');
+      $('#group-tsection').hide();
+    }
+  });
+
+  $("#cb-tsemester").change(function() {
+    if(this.checked) {
+      $('#group-tsemester').show();
+      $('#row-tclass').show();
+    }
+    else{
+      $('#select-tsemester').val('').trigger('change');
+      $('#group-tsemester').hide();
+    }
+  });
+
+  $("#cb-tquarter").change(function() {
+    if(this.checked) {
+      $('#group-tquarter').show();
+      $('#row-tclass').show();
+    }
+    else{
+      $('#select-tquarter').val('').trigger('change');
+      $('#group-tquarter').hide();
+    }
+  });
+
+  $("#cb-tyear").change(function() {
+    if(this.checked) {
+      $('#group-tyear').show();
+      $('#row-tclass').show();
+    }
+    else{
+      if(this.checked == false && $('#cb-section').is(':checked') == false && $('#cb-strand').is(':checked') == false) {
+        $('#row-tclass').hide();
+      }
+      $('#select-tyear').val('').trigger('change');
+      $('#group-tyear').hide();
     }
   });
 
