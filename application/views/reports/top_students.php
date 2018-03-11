@@ -110,70 +110,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="col-lg-12 col-xs-12">
           <div class="box box-primary">
               <div class="box-header">
-                <div class="box-title">Column Display</div>
-                <div class="box-title text-gray" style="font-size: 15px">(max of 5)</div>
-              </div>
-              <!-- /.box-header -->
-              <div class="box-body">
-                <div class="row">
-                  <div class="col-lg-2 col-xs-12">
-                    <div class="checkbox">
-                      <label style="margin-right: 15px;">
-                        <input id="cb-lrn" type="checkbox" checked>
-                        LRN
-                      </label>
-                    </div>
-                  </div>
-                  <div class="col-lg-2 col-xs-12">
-                    <div class="checkbox">
-                      <label style="margin-right: 15px;">
-                        <input id="cb-name" type="checkbox" checked>
-                        Name
-                      </label>
-                    </div>
-                  </div>
-                  <div class="col-lg-2 col-xs-12">
-                    <div class="checkbox">
-                      <label style="margin-right: 15px;">
-                        <input id="cb-sex" type="checkbox" checked>
-                        Sex
-                      </label>
-                    </div>
-                  </div>
-                  <div class="col-lg-2 col-xs-12">
-                    <div class="checkbox">
-                      <label style="margin-right: 15px;">
-                        <input id="cb-contact" type="checkbox" checked>
-                        Contact
-                      </label>
-                    </div>
-                  </div>
-                  <div class="col-lg-2 col-xs-12">
-                    <div class="checkbox">
-                      <label style="margin-right: 15px;">
-                        <input id="cb-birthdate" type="checkbox" checked>
-                        Birthdate
-                      </label>
-                    </div>
-                  </div>
-                  <div class="col-lg-2 col-xs-12">
-                    <div class="checkbox">
-                      <label style="margin-right: 15px;">
-                        <input id="cb-address" type="checkbox" checked>
-                        Address
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-12 col-xs-12">
-          <div class="box box-primary">
-              <div class="box-header">
                 <h3 class="box-title">Search Results</h3>
               </div>
               <!-- /.box-header -->
@@ -241,6 +177,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <script>
 var t = $('#example2').DataTable({
+  "columns": [
+      { "width": "15%" },
+      { "width": "70%" },
+      { "width": "15%" },
+  ],
   'paging'      : true,
   'lengthChange': false,
   'searching'   : false,
@@ -261,59 +202,7 @@ t.on( 'order.dt search.dt', function () {
     } );
 } ).draw();
 
-$("#cb-lrn").change(function() {
-  if(this.checked) {
-    $('#example2').DataTable().column( 0 ).visible( true );
-  }
-  else if(!this.checked) {
-    $('#example2').DataTable().column( 0 ).visible( false );
-  }
-});
 
-$("#cb-name").change(function() {
-  if(this.checked) {
-    $('#example2').DataTable().column( 1 ).visible( true );
-  }
-  else if(!this.checked) {
-    $('#example2').DataTable().column( 1 ).visible( false );
-  }
-});
-
-$("#cb-sex").change(function() {
-  if(this.checked) {
-    $('#example2').DataTable().column( 2 ).visible( true );
-  }
-  else if(!this.checked) {
-    $('#example2').DataTable().column( 2 ).visible( false );
-  }
-});
-
-$("#cb-contact").change(function() {
-  if(this.checked) {
-    $('#example2').DataTable().column( 3 ).visible( true );
-  }
-  else if(!this.checked) {
-    $('#example2').DataTable().column( 3 ).visible( false );
-  }
-});
-
-$("#cb-birthdate").change(function() {
-  if(this.checked) {
-    $('#example2').DataTable().column( 4 ).visible( true );
-  }
-  else if(!this.checked) {
-    $('#example2').DataTable().column( 4 ).visible( false );
-  }
-});
-
-$("#cb-address").change(function() {
-  if(this.checked) {
-    $('#example2').DataTable().column( 4 ).visible( true );
-  }
-  else if(!this.checked) {
-    $('#example2').DataTable().column( 4 ).visible( false );
-  }
-});
 </script>
 </body>
 </html>

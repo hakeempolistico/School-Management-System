@@ -131,7 +131,8 @@ class student_reports extends CI_Controller {
 	public function top_students(){
 
 	$data = $this->parse->parsed();
-    $d = array('section_id' => '1', 'semester' => 'First Semester', 'quarter' => 'First Quarter');
+	$d = $this->input->post();
+    //$d = array('section_id' => '1', 'semester' => 'First Semester', 'quarter' => 'First Quarter');
     $s_info = $this->global_model->getRow('sections', 'id', $d['section_id']);
     $curriculum = $this->global_model->getRows('curriculum', array('semester' => $d['semester'],'strand_code' => $s_info->strand_code, 'year_level_id' => $s_info->year_level_id));
 
