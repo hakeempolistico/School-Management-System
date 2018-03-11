@@ -228,9 +228,18 @@
                       </div>
                     </div>
                     <div class="col-lg-4 col-sm-12">
-                      <div class="form-group">
+                      <!-- <div class="form-group">
                           <label class="control-label">Mother Tongue</label>
-                          <input maxlength="200" type="text" required="required" class="form-control" id="inputMOTHERTONGUE" placeholder="Enter Mother Tongue" name="mother_tongue" value="<?php echo set_value('mother_tongue'); ?>" />
+                          <input maxlength="200" type="text" required="required"  pattern="[a-zA-Z]+" class="form-control" id="inputMOTHERTONGUE" placeholder="Enter Mother Tongue" name="mother_tongue" value="<?php echo set_value('mother_tongue'); ?>" />
+                      </div> -->
+                      <div class="form-group" id="epalMother">
+                          <label class="control-label">Mother Tongue</label>
+                          <select class="form-control select2 has-error" required="required" id="inputMOTHERTONGUE" name="mother_tongue" value="<?php echo set_select('mother_tongue'); ?>" data-placeholder="Mother Tongue">
+                            <option></option>
+                            <?php foreach ($mother_tongue as  $value) { ?>
+                            <option value="<?php echo $value->name ?>"><?php echo $value->name ?> </option>
+                            <?php } ?>
+                          </select>
                       </div>
                     </div>
                     <div class="col-lg-4 col-sm-12">
@@ -581,6 +590,11 @@
               isValid = false;
               $('#epalSelect').addClass("has-error");
               console.log($('#inputSEX').val());
+            }
+            if (!$('#inputMOTHERTONGUE').val()) {
+              isValid = false;
+              $('#epalMother').addClass("has-error");
+              console.log($('#inputMOTHERTONGUE').val());
             }
         }
 
