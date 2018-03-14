@@ -105,7 +105,7 @@
               <h3 class="panel-title"><i class="fa fa-line-chart"></i> Student Grades</h3>
             </div>
             <div class="panel-body">
-              <table id = "table-grades" class="table table-bordered table-striped" style="font-size: 14px">
+              <table id = "table-grades" class="table table-bordered table-striped" style="font-size: 14px;">
                 <thead>
                   <tr>
                     <th style="width: 15%">LRN</th>
@@ -114,12 +114,56 @@
                     <th style="width: 10%">Status</th>
                   </tr>
                 </thead>
+                <style>
+                  table.dataTable tbody td {
+                    vertical-align: middle;
+                  }
+                </style>
                 <tbody>
                   <?php foreach ($grades as $v) { ?> 
                   <tr>
                     <td><?php echo $v->students_info_lrn;?></td>
                     <td><?php echo $v->full_name;?></td>
-                    <td><?php echo (isset($v->grade) ? $v->grade : '<input type="number" min="65" max="100"> </input>'); ?></td>
+                    <td><?php echo (isset($v->grade) ? $v->grade : 
+                    '<select id="select-subject" data-placeholder="" class="subject-input form-control select2" style="width:100%;">
+                        <option></option>
+                        <option>65</option>
+                        <option>66</option>
+                        <option>67</option>
+                        <option>68</option>
+                        <option>69</option>
+                        <option>70</option>
+                        <option>71</option>
+                        <option>72</option>
+                        <option>73</option>
+                        <option>74</option>
+                        <option>75</option>
+                        <option>76</option>
+                        <option>77</option>
+                        <option>78</option>
+                        <option>79</option>
+                        <option>80</option>
+                        <option>81</option>
+                        <option>82</option>
+                        <option>83</option>
+                        <option>84</option>
+                        <option>85</option>
+                        <option>86</option>
+                        <option>87</option>
+                        <option>88</option>
+                        <option>89</option>
+                        <option>90</option>
+                        <option>91</option>
+                        <option>92</option>
+                        <option>93</option>
+                        <option>94</option>
+                        <option>95</option>
+                        <option>96</option>
+                        <option>97</option>
+                        <option>98</option>
+                        <option>99</option>
+                      </select>'
+                    ); ?></td>
                     <td><?php echo $v->action;?></td>
                   </tr>
                   <?php } ?>
@@ -189,8 +233,9 @@
     var semester = '<?php echo $data['semester'];?>';
     var quarter = '<?php echo $data['quarter'];?>';
     var subject = '<?php echo $data['subject'];?>';
+
     $('#table-grades').on('click', ".btn-input", function(){
-      grade = $(this).parents('tr').find('input').val();
+      grade = $(this).parents('tr').find('select').val();
       lrn = $(this).parents('tr').find('td:first').text();
       if(grade || grade != ''){
       $('#modal-confirm').modal('show');
