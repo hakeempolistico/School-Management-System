@@ -10,8 +10,12 @@ class register_student extends CI_Controller {
 	}
 
 	public function index()
-	{
+	{	
+		$mother_tongue = array();
+		$records = $this->global_model->getRecords('mother_tongue');
+
 		$data = $this->parse->parsed();
+		$data['mother_tongue'] = $records;
 		$data['active'] = 'enrollment/register_student';
 		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
 		$this->parser->parse('enrollment/register_student', $data);

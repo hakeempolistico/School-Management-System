@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/select2/dist/css/select2.min.css">
   <!-- iCheck for checkboxes and radio inputs -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/iCheck/all.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/select2-4.0/dist/css/select2.min.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- DataTable Select -->
@@ -76,7 +78,7 @@
       </div>
       <!-- /.row -->
       <div class="row" id="req" style="display: none;">
-      <div class="col-md-4">
+      <div class="col-md-5">
           <div class="box" style="width: 100%;">
             <div class="box-header with-border">
             <button class="btn btn-flat btn-primary btn-lg" id="grade" style="height: 60px; width: 100%;"></button>
@@ -84,7 +86,7 @@
           <div class="box-body">
             <label>Requirements:</label>
                 <!-- checkbox -->
-                <div class="form-group" style="padding: 3px 20px;">
+                <div class="form-group" style="padding: 3px 10px;">
                   <label>
                     <input type="checkbox" class="minimal-red checkAll11">
                     Check All
@@ -108,7 +110,7 @@
                 </div>
                 <label>Note:</label>
                 <!-- /.form-group -->
-                <div class="form-group" style="padding: 0 20px;">
+                <div class="form-group" style="padding: 0 10px;">
                   <textarea id="note" style="width: 100%;"></textarea>
                 </div>
                 <!-- /.form-group -->
@@ -118,35 +120,43 @@
 
               <div class="box-footer with-border text-muted" id="grades11">
                 <label>Grades:</label>
-                <div class="inner" style="padding: 10px 20px;">
+                <div class="inner" style="padding: 10px 10px;">
 
                   <div class="row">
 
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                       <div class="form-group">
                         <label>MATH</label>
-                        <input type="text" class="form-control subject11" name="subj[]" id="math" style="margin-bottom: -10px;" disabled>
+                        <select class="form-control select2 has-error subject11" id="math" name="subj[]" style="margin-bottom: -10px;" disabled>
+                            <option></option>
+                            <?php for ($i=65; $i < 100; $i++) { ?>
+                            <option value="<?php echo $i ?>"> <?php echo $i ?> </option>
+                            <?php } ?>
+                          </select>
                       </div>
                     </div>
 
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                       <div class="form-group">
                         <label>ENG</label>
-                        <input type="text" class="form-control subject11" name="subj[]" id="eng"  style="margin-bottom: -10px;" disabled>
+                        <select class="form-control select2 has-error subject11" id="eng" name="subj[]" style="margin-bottom: -10px;" disabled>
+                            <option></option>
+                            <?php for ($i=65; $i < 100; $i++) { ?>
+                            <option value="<?php echo $i ?>"> <?php echo $i ?> </option>
+                            <?php } ?>
+                          </select>
                       </div>
                     </div>
 
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                       <div class="form-group">
                         <label>SCI</label>
-                        <input type="text" class="form-control subject11" name="subj[]" id="sci"  style="margin-bottom: -10px;" disabled>
-                      </div>
-                    </div>
-
-                    <div class="col-md-3">
-                      <div class="form-group">
-                        <label>AP</label>
-                        <input type="text" class="form-control subject11" name="subj[]" id="ap"  style="margin-bottom: -10px;" disabled>
+                        <select class="form-control select2 has-error subject11" id="sci" name="subj[]" style="margin-bottom: -10px;" disabled>
+                            <option></option>
+                            <?php for ($i=65; $i < 100; $i++) { ?>
+                            <option value="<?php echo $i ?>"> <?php echo $i ?> </option>
+                            <?php } ?>
+                          </select>
                       </div>
                     </div>
 
@@ -156,31 +166,68 @@
 
                   <div class="row">
 
-                    <div class="col-md-3">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label>AP</label>
+                        <select class="form-control select2 has-error subject11" id="ap" name="subj[]" style="margin-bottom: -10px;" disabled>
+                            <option></option>
+                            <?php for ($i=65; $i < 100; $i++) { ?>
+                            <option value="<?php echo $i ?>"> <?php echo $i ?> </option>
+                            <?php } ?>
+                          </select>
+                      </div>
+                    </div>
+
+                    <div class="col-md-4">
                       <div class="form-group">
                         <label>MAPEH</label>
-                        <input type="text" class="form-control subject11" name="subj[]" id="mapeh" style="margin-bottom: -10px;" disabled>
+                        <select class="form-control select2 has-error subject11" id="mapeh" name="subj[]" style="margin-bottom: -10px;" disabled>
+                            <option></option>
+                            <?php for ($i=65; $i < 100; $i++) { ?>
+                            <option value="<?php echo $i ?>"> <?php echo $i ?> </option>
+                            <?php } ?>
+                          </select>
                       </div>
                     </div>
 
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                       <div class="form-group">
                         <label>VALUES</label>
-                        <input type="text" class="form-control subject11" name="subj[]" id="values" style="margin-bottom: -10px;" disabled>
+                        <select class="form-control select2 has-error subject11" id="values" name="subj[]" style="margin-bottom: -10px;" disabled>
+                            <option></option>
+                            <?php for ($i=65; $i < 100; $i++) { ?>
+                            <option value="<?php echo $i ?>"> <?php echo $i ?> </option>
+                            <?php } ?>
+                          </select>
                       </div>
                     </div>
 
-                    <div class="col-md-3">
+                  </div>
+                  <!-- /.row -->
+
+                  <div class="row">
+
+                    <div class="col-md-4">
                       <div class="form-group">
                         <label>FIL</label>
-                        <input type="text" class="form-control subject11" name="subj[]" id="fil" style="margin-bottom: -10px;" disabled>
+                        <select class="form-control select2 has-error subject11" id="fil" name="subj[]" style="margin-bottom: -10px;" disabled>
+                            <option></option>
+                            <?php for ($i=65; $i < 100; $i++) { ?>
+                            <option value="<?php echo $i ?>"> <?php echo $i ?> </option>
+                            <?php } ?>
+                          </select>
                       </div>
                     </div>
 
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                       <div class="form-group">
                         <label>TLE</label>
-                        <input type="text" class="form-control subject11" name="subj[]" id="tle" style="margin-bottom: -10px;" disabled>
+                        <select class="form-control select2 has-error subject11" id="tle" name="subj[]" style="margin-bottom: -10px;" disabled>
+                            <option></option>
+                            <?php for ($i=65; $i < 100; $i++) { ?>
+                            <option value="<?php echo $i ?>"> <?php echo $i ?> </option>
+                            <?php } ?>
+                          </select>
                       </div>
                     </div>
 
@@ -198,7 +245,7 @@
         </div>
         <!-- /.col -->
 
-        <div class="col-md-8" id= "aStrands" style="display: none;">
+        <div class="col-md-7" id= "aStrands" style="display: none;">
 
           <div>
           <h4>Available Strands:</h4>
@@ -290,6 +337,8 @@
 <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.select.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
+<!-- Select2 -->
+<script src="<?php echo base_url(); ?>bower_components/select2-4.0/dist/js/select2.full.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>dist/js/adminlte.min.js"></script>
 <!-- iCheck 1.0.1 -->
@@ -298,6 +347,8 @@
 <script src="<?php echo base_url(); ?>bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 
 <script>
+
+  $('.select2').select2();
 
   var selected;
   var s_code;
@@ -385,32 +436,32 @@
   
 
   $("#ave11").click(function(){
-    $('#avera').text('');
-    var input1 = parseFloat(parseFloat($('#math').val()).toFixed(2));
+    // $('#avera').text('');
+    var input1 = parseFloat($('#math').val());
     console.log(input1);
-    var input2 = parseFloat(parseFloat($('#eng').val()).toFixed(2));
-    var input3 = parseFloat(parseFloat($('#sci').val()).toFixed(2));
-    var input4 = parseFloat(parseFloat($('#ap').val()).toFixed(2));
-    var input5 = parseFloat(parseFloat($('#mapeh').val()).toFixed(2));
-    var input6 = parseFloat(parseFloat($('#values').val()).toFixed(2));
-    var input7 = parseFloat(parseFloat($('#fil').val()).toFixed(2));
-    var input8 = parseFloat(parseFloat($('#tle').val()).toFixed(2));
+    var input2 = parseFloat($('#eng').val());
+    var input3 = parseFloat($('#sci').val());
+    var input4 = parseFloat($('#ap').val());
+    var input5 = parseFloat($('#mapeh').val());
+    var input6 = parseFloat($('#values').val());
+    var input7 = parseFloat($('#fil').val());
+    var input8 = parseFloat($('#tle').val());
 
-    if(!input1 || !input2 || !input3 || !input4 || !input5 || !input6 || !input7 || !input8){
-      $('#error').text('Input blank spaces');
-    }
-    else if (isNaN(input1) || isNaN(input2) || isNaN(input3) || isNaN(input4) || isNaN(input5) || isNaN(input6) || isNaN(input7) || isNaN(input8)) {
-      $('#error').text('Inputs must be numbers');
-    } 
-    else if (input1 > 100 || input2 > 100 || input3 > 100 || input4 > 100 || input5 > 100 || input6 > 100 || input7 > 100 || input8 > 100) 
-    {
-      $('#error').text('Inputs should be less than 100');
-    }
-    else if (input1<=64 || input2<=64 || input3<=64 || input4<=64 || input5<=64 || input6<=64 || input7<=64 || input8<=64) 
-    {
-      $('#error').text('Inputs should not be less than 65');
-    }
-    else {
+    // if(!input1 || !input2 || !input3 || !input4 || !input5 || !input6 || !input7 || !input8){
+    //   $('#error').text('Input blank spaces');
+    // }
+    // else if (isNaN(input1) || isNaN(input2) || isNaN(input3) || isNaN(input4) || isNaN(input5) || isNaN(input6) || isNaN(input7) || isNaN(input8)) {
+    //   $('#error').text('Inputs must be numbers');
+    // } 
+    // else if (input1 > 100 || input2 > 100 || input3 > 100 || input4 > 100 || input5 > 100 || input6 > 100 || input7 > 100 || input8 > 100) 
+    // {
+    //   $('#error').text('Inputs should be less than 100');
+    // }
+    // else if (input1<=64 || input2<=64 || input3<=64 || input4<=64 || input5<=64 || input6<=64 || input7<=64 || input8<=64) 
+    // {
+    //   $('#error').text('Inputs should not be less than 65');
+    // }
+    // else {
       $('#aStrands').css('display', 'block');
       $('#error').text('');
 
@@ -509,14 +560,17 @@
                           
                         }
               });
+              //end ng ajax
 
               
             });
+            //end ng small box
               
               }
+              //end ng success
           });   
-      }
-  });
+          //end ng ajax
+      });
  
 </script>
 
