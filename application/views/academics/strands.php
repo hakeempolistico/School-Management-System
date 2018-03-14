@@ -55,21 +55,25 @@
             </div>
           </div> -->
 
-          <!-- <style>
-            .panel[id='p-strands'] .panel-heading button { 
+          <style>
+            .panel .panel-heading button { 
               color: white; font-size: 14px; margin-top: -2px;
             }
-            .panel[id='p-strands'] .panel-heading button:hover { 
+            .panel .panel-heading button:hover { 
               color: pink;
             }
-            .panel[id='p-strands'] .panel-heading { 
-              background-color: darkslategray;
+            .panel .panel-heading { 
+              background-color: #972e2e;
               color: white;
             }
-            .panel[id='p-strands'] {
-              border-color: darkslategray;
+            .panel {
+              border-color: #972e2e;
             }
-          </style> -->
+            .pagination>.active>a{
+              background-color: #972e2e;
+              border-color: #972e2e;              
+            }
+          </style>
 
           <div id="p-strands" class="panel panel-primary">
             <div class="panel-heading">
@@ -118,7 +122,7 @@
                       <label for="edit-status">Name</label>
                       <input type="text" class="form-control" id="edit-name">
                     </div>             
-                    <button id="edit-update" type="button" style="width: 100px; margin-top: 10px;" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-save"></i> &nbsp; Save</button>                 
+                    <button id="edit-update" type="button" style="width: 100px; margin-top: 10px; background-color: #972e2e;" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-save"></i> &nbsp; Save</button>                 
                   </li>   
                 </ul>
               </div>
@@ -147,7 +151,7 @@
                   <label for="strandNameInput">Grade Requirement</label>
                   <input type="text" class="form-control" id="name-gr" placeholder="Strand Name">
                 </div>               
-                <button type="button" id="add-btn" style="width: 100px" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-plus"></i> &nbsp; Add</button>
+                <button type="button" id="add-btn" style="width: 100px; background-color: #972e2e;" class="btn btn-sm btn-block btn-primary pull-right"><i class="fa fa-plus"></i> &nbsp; Add</button>
               </div>
             </div>
           </div>
