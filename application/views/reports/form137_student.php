@@ -84,16 +84,6 @@
                   </select>
                 </div>
               </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label>Semester</label>
-                  <select id="s-sem" class="form-control select2" data-placeholder="Select Semester" style="width: 100%;">
-                    <option></option>
-                    <option value="First Semester">First Semester</option>
-                    <option value="Second Semester">Second Semester</option>
-                  </select>
-                </div>  
-              </div>
               <div class="col-md-12">
                 <form method="post" action="<?php echo base_url('reports/form137/form') ?>">
                   <input id="h-lrn" type="hidden" name="lrn">

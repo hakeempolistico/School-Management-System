@@ -137,7 +137,7 @@
                     <td style="padding: 3px 10px"><b>School ID : </b> 305309</td>
                     <td style="padding: 3px 10px"><b>Grade Level : </b> <?php echo $s_record['grade_level'] ?></td>
                     <td style="padding: 3px 10px"><b>SY : </b> <?php echo $s_record['sy'] ?></td>
-                    <td style="padding: 3px 10px"><b>Sem : </b> <?php echo $s_record['sem'] ?></td>
+                    <td style="padding: 3px 10px"><b>Sem : </b> First Semester</td>
                   </tr>
                   <tr>
                     <td colspan="3" style="padding: 3px 10px"><b>TRACK/STRAND : </b>HUMANITIES AND SOCIAL SCIENCES</td>
@@ -162,6 +162,148 @@
                 </thead>
                 <tbody>
                   <?php foreach ($sub_info as $v) { ?>
+                  <tr>
+                    <td><?php echo $v->subject_type; ?></td>
+                    <td><?php echo $v->subject_name; ?></td>
+                    <td><?php echo $v->q1; ?></td>
+                    <td><?php echo $v->q2; ?></td>
+                    <td><?php echo $v->ave; ?></td>
+                    <td><?php echo $v->action_taken; ?></td>
+                  </tr>
+                  <?php } ?>
+                </tbody>
+              </table>
+
+              <table class="table">
+                <tbody>
+                  <tr style="border: none;  font-size: 10px ">
+                    <td  style="border: none;" colspan="6"><b class="pull-left">REMARKS: ________________________________________________________________________</b></td>
+                  </tr>
+                  <tr style="border: none; font-size: 10px ">
+                    <td  style="border: none; width: 30%;"><b class="pull-left">Prepared by:</b></td>
+                    <td  style="border: none; width: 45%;"><b class="pull-left">Certified True and Correct:</b></td>
+                    <td  style="border: none; width: 25%;"><b class="pull-left">Date Checked(MM/DD/YYYY):</b></td>
+                  </tr>
+                  <tr style="border: none;">
+                    <td  style="border: none;" colspan="6"></td>  
+                    <td  style="border: none;" colspan="6"></td>  
+                    <td  style="border: none;" colspan="6"></td>  
+                  </tr>
+                  <tr style="border: none; font-size: 10px " class="text-center">
+                    <td  style="border: none; text-decoration-line: overline">Signature of Adviser over Printed Name</td>
+                    <td  style="border: none; text-decoration-line: overline">Signature of Authorized Person over Printed Name, Designation</td>
+                    <td  style="border: none; text-decoration-line: overline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <table class="table table-bordered " style="font-size: 10px">
+                <tbody>
+                  <tr>
+                    <td colspan="1" style="width: 20%;padding: 3px 10px">REMEDIAL CLASSES</td>
+                    <td colspan="1" style="width: 50%;padding: 3px 10px">Conducted from (MM/DD/YYYY): ___________</td>
+                    <td colspan="1" style="width: 30%;padding: 3px 10px">to (MM/DD/YYYY): ________</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" style="padding: 3px 10px">SCHOOL: __________________________________________________________________</td>
+                    <td colspan="1" style="padding: 3px 10px">SCHOOL ID: ___________</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <table class="table table-bordered text-center" style="font-size: 12px;  margin-top: -15px">
+                <thead style="background-color: #d2d6de">
+                  <tr>
+                    <th style="width: 15%">Indicate if Subject is CORE, APPLIED, or SPECIALIZED</th>
+                    <th>SUBJECTS</th>
+                    <th style="width: 10%">SEM FINAL GRADE</th>
+                    <th style="width: 10%">REMEDIAL CLASS MARK</th>
+                    <th style="width: 10%">RECOMPUTED FINAL GRADE</th>
+                    <th style="width: 10%">ACTION TAKEN</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <table class="table" style="font-size: 10px; margin-top: -15px">
+                <tbody>
+                  <tr>
+                    <td style="width: 70%;border: none;padding: 3px 10px">Name of Teacher/Adviser: __________________________________________________________________</td>
+                    <td style="width: 30%;border: none;padding: 3px 10px">Signature: ___________</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <table class="table table-bordered " style="font-size: 10px">
+                <thead style="background-color:#d2d6de">
+                  <tr>
+                    <th colspan="10" class="text-center" style="border: none;padding: 3px 10px"><b>SCHOLASTIC RECORD</b></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="padding: 3px 10px"><b>School : </b> MANUEL ARAULLO HIGH SCHOOL</td>
+                    <td style="padding: 3px 10px"><b>School ID : </b> 305309</td>
+                    <td style="padding: 3px 10px"><b>Grade Level : </b> <?php echo $s_record['grade_level'] ?></td>
+                    <td style="padding: 3px 10px"><b>SY : </b> <?php echo $s_record['sy'] ?></td>
+                    <td style="padding: 3px 10px"><b>Sem : </b> Second Semester</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" style="padding: 3px 10px"><b>TRACK/STRAND : </b>HUMANITIES AND SOCIAL SCIENCES</td>
+                    <td colspan="2" style="padding: 3px 10px"><b>SECTION :</b> <?php echo $s_record['section'] ?></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <table class="table table-bordered text-center" style="font-size: 12px">
+                <thead style="background-color: #d2d6de">
+                  <tr>
+                    <th rowspan="2">TYPE</th>
+                    <th rowspan="2">SUBJECTS</th>
+                    <th colspan="2">Quarter</th>
+                    <th rowspan="2" style="width: 10%">SEM FINAL GRADE</th>
+                    <th rowspan="2" style="width: 15%">ACTION TAKEN</th>
+                  </tr>
+                  <tr>
+                    <th style="width: 10%">1st Quarter</th>
+                    <th style="width: 10%">2nd Quarter</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php foreach ($sub_info2 as $v) { ?>
                   <tr>
                     <td><?php echo $v->subject_type; ?></td>
                     <td><?php echo $v->subject_name; ?></td>

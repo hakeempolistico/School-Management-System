@@ -42,7 +42,6 @@ class form137 extends CI_Controller {
 		$arr['grade_level'] = substr($yl_info->name,6,8);
 
 		//SECTION
-		$arr['sem'] = $this->input->post('sem');
 		$arr['section'] = $gl->name;
 
 		//STUDENT NAME
@@ -50,13 +49,13 @@ class form137 extends CI_Controller {
 		$s_fullname = $info->first_name.' '.$info->last_name;
 
 		//SUBJECT INFO
-		$sub_info = $this->global_model->getRows('class_subjects', array('section_id' => $s_info->section_id, 'semester' => $this->input->post('sem')));
+		$sub_info = $this->global_model->getRows('class_subjects', array('section_id' => $s_info->section_id, 'semester' => 'First Semester'));
 		foreach ($sub_info as $v) {
 			$i = $this->global_model->getRow('subjects', 'code', $v->subject_id);
 			$v->subject_name = $i->name;
 			$v->subject_type = $i->type;
 
-			$g = $this->global_model->getRows('grades', array('lrn'=>$lrn, 'subject_code' => $v->subject_id, 'semester' => $this->input->post('sem'), 'quarter' => 'First Quarter', 'academic_year' => $this->session->academic_year));
+			$g = $this->global_model->getRows('grades', array('lrn'=>$lrn, 'subject_code' => $v->subject_id, 'semester' =>'First Semester', 'quarter' => 'First Quarter', 'academic_year' => $this->session->academic_year));
 			if($g){
 				foreach ($g as $val) {
 					if($g){
@@ -69,7 +68,53 @@ class form137 extends CI_Controller {
 			}
 			
 
-			$g2 = $this->global_model->getRows('grades', array('lrn'=>$lrn, 'subject_code' => $v->subject_id, 'semester' => $this->input->post('sem'), 'quarter' => 'Second Quarter', 'academic_year' => $this->session->academic_year));
+			$g2 = $this->global_model->getRows('grades', array('lrn'=>$lrn, 'subject_code' => $v->subject_id, 'semester' => 'First Semester', 'quarter' => 'Second Quarter', 'academic_year' => $this->session->academic_year));
+			if($g2){
+				foreach ($g2 as $val) {
+					if($g2){
+						$v->q2 = $val->grade;
+					}
+				}
+			}
+			else{
+				$v->q2 = '-';
+			}
+
+			if($g && $g2){
+				$v->ave = ($v->q1 + $v->q2) / 2;
+				if($v->ave > 74){
+					$v->action_taken = 'PASSED';
+				}else{
+					$v->action_taken = 'FAILED';
+				}
+			}else{
+				$v->ave = '-';
+				$v->action_taken = null;
+			}
+			
+		}
+
+		//SUBJECT INFO 2
+		$sub_info2 = $this->global_model->getRows('class_subjects', array('section_id' => $s_info->section_id, 'semester' => 'Second Semester'));
+		foreach ($sub_info2 as $v) {
+			$i = $this->global_model->getRow('subjects', 'code', $v->subject_id);
+			$v->subject_name = $i->name;
+			$v->subject_type = $i->type;
+
+			$g = $this->global_model->getRows('grades', array('lrn'=>$lrn, 'subject_code' => $v->subject_id, 'semester' => 'Second Semester', 'quarter' => 'First Quarter', 'academic_year' => $this->session->academic_year));
+			if($g){
+				foreach ($g as $val) {
+					if($g){
+						$v->q1 = $val->grade;
+					}
+				}
+			}
+			else{
+				$v->q1 = '-';
+			}
+			
+
+			$g2 = $this->global_model->getRows('grades', array('lrn'=>$lrn, 'subject_code' => $v->subject_id, 'semester' => 'Second Semester', 'quarter' => 'Second Quarter', 'academic_year' => $this->session->academic_year));
 			if($g2){
 				foreach ($g2 as $val) {
 					if($g2){
@@ -104,6 +149,7 @@ class form137 extends CI_Controller {
 
 		$data['s_record'] = $arr;
 		$data['sub_info'] = $sub_info;
+		$data['sub_info2'] = $sub_info2;
 
 		//LEARNERS INFO
 		$data['last_name'] = $info->last_name;
