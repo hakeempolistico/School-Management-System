@@ -10,7 +10,7 @@ class schedule extends CI_Controller {
 	    $this->load->model('academics/schedule_model');
 	}
 
-	public function index()
+	public function lec()
 	{
 		$data = $this->parse->parsed();
 		$data['classesCount'] = $this->global_model->count('sections');
@@ -28,6 +28,31 @@ class schedule extends CI_Controller {
 		$data['header'] = $this->load->view('template/header', $data, TRUE);
 
 		$this->parser->parse('academics/schedule', $data);
+	}
+
+	public function index(){
+		$data = $this->parse->parsed();
+		$data['active'] = 'academics/schedule';
+		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
+		$data['title'] = 'Schedule';
+		$data['header'] = $this->load->view('template/header', $data, TRUE);
+
+		$this->parser->parse('academics/pick_sched', $data);
+	}
+
+	public function pickSched(){
+		$data = $this->input->post();
+		if($data['sched'] != null){
+			if($data['sched'] == 'lec'){
+				$this->lec();
+			}
+			else if($data['sched'] == 'lab'){
+				$this->lab();
+			}
+		}
+		else{
+			$this->index();
+		}
 	}
 
 	public function getSectionsDetails()

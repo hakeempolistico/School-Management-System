@@ -158,6 +158,7 @@
         </div>
       
     </div>
+  </div>
 
       <div class="row disabled">
         <!-- /.col -->
