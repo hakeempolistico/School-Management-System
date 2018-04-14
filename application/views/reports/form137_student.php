@@ -65,31 +65,47 @@
     </section>
 
     <!-- Main content -->
-    <section class="content">      
+    <section class="content">
       <div class="row">
         <div class="col-md-12">
           <div class="panel panel-primary">
             <div class="panel-heading">
-              <h3 class="panel-title">Form 137</h3>
+              <h3 class="panel-title">List of Students</h3>
             </div>
             <div class="panel-body">
-              <div class="col-md-6">
-                <label>Student</label>
-                <div class="form-group">
-                  <select id="s-student" class="form-control select2" data-placeholder="Select Student" style="width: 100%;">
-                    <option></option>
-                    <?php foreach ($students as $v) { ?>
-                    <option value="<?php echo $v->students_info_lrn; ?>"><?php echo $v->full_name.' - '.$v->students_info_lrn;?></option>
-                    <?php } ?>
-                  </select>
-                </div>
-              </div>
               <div class="col-md-12">
-                <form method="post" action="<?php echo base_url('reports/form137/form') ?>">
-                  <input id="h-lrn" type="hidden" name="lrn">
-                  <input id="h-sem" type="hidden" name="sem">
-                  <button type="submit" class="btn btn-block btn-primary btn-sm pull-right" style="width: 100px">Proceed</button>
-                </form>
+                <table class="table table-bordered table-striped  display nowrap" cellspacing="0" width="100%">
+                  <thead>
+                    <tr>
+                      <th style="width: 15%"">LRN</th>    
+                      <th>Full Name</th>
+                      <th style="width: 10%">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php foreach ($students as $v) {?>
+                    <tr>
+                      <td><?php echo $v->students_info_lrn; ?></td>
+                      <td><?php echo $v->full_name; ?></td>
+                      <td>
+                        <center>
+                          <form method="post" action="<?php echo base_url('reports/form137/form') ?>">
+                            <input type="hidden" name="lrn" value="<?php echo $v->students_info_lrn; ?>">
+                            <button type="submit" class='btn btn-default btn-xs'><span class='fa fa-fw fa-arrow-right text-info'></span></button>
+                          </form>
+                        </center>
+                      </td>
+                    </tr>
+                    <?php } ?>
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <th>LRN</th>
+                      <th>Full Name</th>
+                      <th>Action</th>
+                    </tr>                
+                  </tfoot>
+                </table>
               </div>
             </div>
           </div>
@@ -122,6 +138,7 @@
 <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
 <script>
+  $('.table').DataTable()
   $('.select2').select2()
   $('#s-student').on('change', function(){
     $('#h-lrn').val($(this).val())

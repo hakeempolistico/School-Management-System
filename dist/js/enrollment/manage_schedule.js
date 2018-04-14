@@ -86,7 +86,7 @@
       //Create events
       var event = $('<div />')
       event.addClass('external-event flat')
-      event.html('<div class="val-subject ">'+val1+'</div><div class="text-gray val-room"></div>')
+      event.html('<div class="val-subject ">'+val1+'</div><div class="text-gray val-room">.</div>')
       
 
       event.attr('id', i )
@@ -107,7 +107,7 @@
       //Create events
       var event = $('<div />')
       event.addClass('external-event flat')
-      event.html('<div class="val-subject">'+val1+'</div><div class="text-gray val-room"></div>')
+      event.html('<div class="val-subject">'+val1+'</div><div class="text-gray val-room">.</div>')
 
       event.attr('id', i )
       event.attr('class','count object')
@@ -464,11 +464,11 @@ printData();
 });
 
 $('#row-save').on('click',function(){
-  var object_length = $('table').find('.object').length;
-  var row_length = $('table').find('tr').length;
+  var object_length = $('#schedule').find('.object').length;
+  var row_length = $('#schedule').find('tr').length;
   var row_calculate = (row_length - 2) * 5;
-  //console.log('Object Length : '+row_length);
-  //console.log('Row Length : '+object_length);
+  //console.log('Object Length : '+object_length);
+  //console.log('Row Length : '+ row_calculate);
   if(object_length != row_calculate){
     $.notify({
       title: '<strong><i class="icon fa fa-ban"></i>ALERT!</strong>',

@@ -112,6 +112,10 @@ class login extends CI_Controller
 		$this->load->helper('download');
 		force_download('mybackup.gz', $backup);
 	}
+
+	public function fakeLogin(){
+		$this->load->view('login/fake');
+	}
 }
 
 ?>
