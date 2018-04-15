@@ -77,6 +77,20 @@
         </select>
         </div>
       </div>
+
+      <div class="col-lg-3 col-xs-12">
+        <div class="form-group">
+          <label>Room</label>
+          <select id="select-room" class="form-control select2"  data-placeholder="Select Room" style="width: 100%">
+          <option></option>
+          <?php foreach ($rooms as $val) 
+            {
+              echo "<option value='".$val->room_id."'>".$val->room_name."</option>";
+            }
+          ?>
+        </select>
+        </div>
+      </div>
     </div>
 
     <hr class="hidden-print" style="margin-top: 3px; border-color: lightgrey;" >
@@ -192,17 +206,9 @@
                 <select id="select-subject" class="form-control select2 custom"  data-placeholder="Select Subjects" style="width: 100%">
                   <option></option>
                 </select>
-                <select id="select-room" class="form-control select2 custom"  data-placeholder="Select Room" style="width: 100%">
-                  <option></option>
-                  <?php foreach ($rooms as $val) 
-                    {
-                      echo "<option value='".$val->room_id."'>".$val->room_name."</option>";
-                    }
-                  ?>   
-                </select>
 
                 <div class="input-group-btn ">
-                  <button id="add-new-event" type="button" class="btn btn-primary btn-flat custom" style="height: 68px">Add</button>
+                  <button id="add-new-event" type="button" class="btn btn-primary btn-flat custom" >Add</button>
                 </div>
                 <!-- /btn-group -->
               </div>
