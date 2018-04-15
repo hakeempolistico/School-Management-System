@@ -42,7 +42,9 @@
     $('#add-new-event').click(function (e) {
       e.preventDefault()
       //Get value and make sure it is not null
-      var val2 = $('#select-room').val()
+      var classInfo = $('#select-class').select2('data')
+
+      var val2 = classInfo[0].text
       var val1 = $('#select-subject').val()
       
       if (val1.length == 0) {
@@ -61,9 +63,9 @@
         return
       }
       
-
       event.attr('id', i )
       event.attr('class','count object')
+      event.attr('section_id', $('#select-class').val())
       event.attr('draggable','true')
       event.attr('ondragstart','drag(event)')
       event.attr('style','resize: vertical; overflow: auto; color: white; background-color:'+currColor)
@@ -146,104 +148,68 @@ function dropTrash(ev) {
 
   
 
-var table, set, sectionId = null, room_id, strand_code = null, year_level_id = null, semester = null, conflict = true; 
+var table, set, sectionId = null, room_id, strand_code = null, year_level_id = null, semester = null, conflict = true, room = null
 
 $(".custom").prop('disabled', true);
-$('#select-year').prop('disabled', true);
-$('#select-section').prop('disabled', true);
-$('#select-semester').prop('disabled', true);
 
-function getSections() {
-  strand_code = $('#select-strand').val();
-  year_level_id = $('#select-year').val();
-  sectionId = null;
-  if(strand_code && year_level_id){
-    $.ajax({
-      url: getSectionsUrl,
-      type: 'post',
-      dataType: 'JSON',  
-      data: {'year_level_id': year_level_id, 'strand_code' : strand_code},
-      success: function(result){  
-        //console.log(result);
-        $('#select-section').find('option').remove();
-        $('#select-section').append($('<option>', { 
+$('#select-lab').on('change', function(){
+  room = $('#select-lab').val()
+  $.ajax({
+    url: getRoomInfoUrl,
+    type: 'post',
+    dataType: 'JSON',  
+    data: {'room_id': room},
+    success: function(result){  
+      //console.log(result)
+      $('#room-id').text(result.room_id)
+      $('#room-name').text(result.room_name)
+      $('#room-building').text(result.building)
+    } 
+  });
+  getLabSubjects()
+})
+
+$('#select-sem').on('change', function(){
+  semester = $('#select-sem').val()
+  getLabSubjects()
+})
+
+function getLabSubjects(){
+
+  if(!room || !semester){
+    return
+  }
+
+  $(".custom").prop('disabled', false)
+
+  $.ajax({
+    url: getLabSubjectsUrl,
+    type: 'post',
+    dataType: 'JSON',
+    success: function(result){  
+      console.log(result);
+      $('#select-subject').find('option').remove();
+      $('#select-subject').append($('<option>', { 
             value: null,
             text : null
         })).select2();
-        $.each(result, function( index, value ) {
-          //console.log(index + ' : ' + value);
-          $('#select-section').append($('<option>', { 
-              value: value.id,
-              text : value.name
-          })).select2();
-        });
-      } 
-    });
-  }
-}
-
-$('#select-semester').on('change', function(){
-  semester = $('#select-semester').val()
-  getCurrSubjects()
-  updateClassInfo()
-  getSchedules()
-})
-$('#select-section').on('change', function(){
-  $('#select-semester').prop('disabled', false)
-  sectionId = $('#select-section').val()
-  getSchedules()
-})
-//POPULATE SECTION SELECT 
-$('#select-year').on('change', function(){
-  year_level_id = $('#select-year').val();
-  getSections()
-  getSchedules()
-  $('#select-semester').prop('disabled', true);
-  $('#select-section').prop('disabled', false);
-})
-$('#select-strand').on('change', function(){
-  $('#select-year').prop('disabled', false);
-  $("#select-year").val('').trigger('change')
-  $('#select-section').prop('disabled', true);
-  $('#select-semester').prop('disabled', true);
-  strand_code = $('#select-strand').val();
-  getSections();
-  getSchedules()
-})
-
-function getCurrSubjects(){
-  if(sectionId && strand_code && year_level_id && semester){
-    $(".custom").prop('disabled', false);
-    $.ajax({
-      url: getSubjects,
-      type: 'post',
-      dataType: 'JSON',  
-      data: {'year_level_id': year_level_id, 'strand_code' : strand_code, 'semester' : semester},
-      success: function(result){  
-        //console.log(result);
-        $('#select-subject').find('option').remove();
+      $.each(result, function( index, value ) {
+            //console.log(index + ' : ' + value);
         $('#select-subject').append($('<option>', { 
-              value: null,
-              text : null
-          })).select2();
-        $.each(result, function( index, value ) {
-              //console.log(index + ' : ' + value);
-          $('#select-subject').append($('<option>', { 
-              value: value.subject_code,
-              text : value.subject_code
-          })).select2();
-        });
-      } 
-    });
-    getSchedules();
+            value: value.code,
+            text : value.code
+        })).select2();
+      });
+    } 
+  });
 
-    $('.timepicker').timepicker({
-      showInputs: false,
-      defaultTime: false,
-      showMeridian: false,
-    })
+  getSchedules()
 
-  }
+  $('.timepicker').timepicker({
+    showInputs: false,
+    defaultTime: false,
+    showMeridian: false,
+  })
 }
 
 function updateClassInfo(){
@@ -265,7 +231,7 @@ function updateClassInfo(){
 }
 
 function getSchedules(){
-  if(!sectionId || !strand_code || !year_level_id || !semester){
+  if(!room){
     return
   }
   //console.log(sectionId + ' : ' + semester);
@@ -276,7 +242,7 @@ function getSchedules(){
     url: getScheduleUrl,
     type: 'post',
     dataType: 'json',
-    data: {'section_id' : sectionId, 'semester' : semester, 'academic_year' : aYear}, 
+    data: {'room_id' : room, 'semester' : semester}, 
     success: function(res){ 
       var i = 0;
       $('#schedule tbody tr').remove();
@@ -500,24 +466,24 @@ $('#row-save').on('click',function(){
     $('#text-status').text('Schedule has no conflict')
     $('#text-conflicts').text(null)
     $('#btn-confirm').show()
-    $('table').find('.object').each(function( index ) {
 
-      var room_id = $( this ).find('.val-room').text();
-      var time = $(this).parents('tr').find('td:first').html();
-      var timeSplit = time.split("-");
-      var time_start = timeSplit[0];
-      var time_end = timeSplit[1];
-      var day = $(this).closest('table').find('th').eq($(this).parents('td').index()+1).html();
+    $('table').find('.object').each(function( index ) {
+      var time = $(this).parents('tr').find('td:first').html()
+      var timeSplit = time.split("-")
+      var time_start = timeSplit[0]
+      var time_end = timeSplit[1]
+      var day = $(this).closest('table').find('th').eq($(this).parents('td').index()+1).html()
+      var sec_id = $(this).attr('section_id')
 
       $.ajax({
         url: validationUrl,
         type: 'post',
         dataType: 'json',
         data: {
-          'section_id' : sectionId,
+          'section_id' : sec_id,
           'semester' : semester,
           'academic_year' : aYear,
-          'room_id' : room_id,
+          'room_id' : room,
           'time_start' : time_start,
           'time_end' : time_end,
           'day' : day
@@ -553,28 +519,27 @@ $('#btn-confirm').on('click', function(){
 
           $('table').find('.object').each(function( index ) {
 
-            var subject_code = $( this ).find('.val-subject').text();
-            var room_id = $( this ).find('.val-room').text();
-            var time = $(this).parents('tr').find('td:first').html();
-            var timeSplit = time.split("-");
-            var time_start = timeSplit[0];
-            var time_end = timeSplit[1];
-            var day = $(this).closest('table').find('th').eq($(this).parents('td').index()).text();
-            var color = $(this).css("background-color");
-            var row = $(this).parents('tr').index();
-
-            console.log(day);
+            var subject_code = $( this ).find('.val-subject').text()
+            var room_id = $( this ).find('.val-room').text()
+            var time = $(this).parents('tr').find('td:first').html()
+            var timeSplit = time.split("-")
+            var time_start = timeSplit[0]
+            var time_end = timeSplit[1]
+            var day = $(this).closest('table').find('th').eq($(this).parents('td').index()).text()
+            var color = $(this).css("background-color")
+            var row = $(this).parents('tr').index()
+            var sec_id = $(this).attr('section_id')
 
             $.ajax({
               url: addScheduleUrl,
               type: 'post',
               dataType: 'json',
               data: {
-                'section_id' : sectionId,
+                'section_id' : sec_id,
                 'semester' : semester,
                 'academic_year' : aYear,
                 'subject_code' : subject_code,
-                'room_id' : room_id,
+                'room_id' : room,
                 'time_start' : time_start,
                 'time_end' : time_end,
                 'day' : day,

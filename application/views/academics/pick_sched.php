@@ -31,7 +31,7 @@
 
     <div class="row">
       <div class="col-lg-12 col-xs-12">
-        <div class="panel panel-primary">
+        <div class="panel panel-danger">
             <div class="panel-heading">
               <h3 class="panel-title"><span class='fa fa-fw fa-search'></span> Select Options</h3>
             </div>
@@ -48,7 +48,7 @@
                     </div> 
                 </div>
                 <div class="col-md-12">
-                    <button type="submit" class="btn btn-block btn-info btn-sm pull-right" style="width: 100px">Proceed</button>
+                    <button type="submit" class="btn btn-block btn-danger btn-sm pull-right" style="width: 100px">Proceed</button>
                 </div>
               </form>
             </div>

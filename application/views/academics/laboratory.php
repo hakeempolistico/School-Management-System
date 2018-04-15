@@ -43,6 +43,16 @@
           </select> 
         </div>
       </div>
+      <div class="col-lg-3 col-xs-12">
+        <div class="form-group ">
+          <label>Semester</label>
+          <select id="select-sem" class="form-control select2"  data-placeholder="Select Semester" style="width: 100%">
+            <option></option>
+            <option value='First Semester'>First Semester</option>
+            <option value='Second Semester'>Second Semester</option>
+          </select> 
+        </div>
+      </div>
     </div>
 
     <hr class="hidden-print" style="margin-top: 3px; border-color: lightgrey;" >
@@ -56,9 +66,9 @@
               <h3 id="trash" class="box-title text-success" style="font-size: 15px;"><i class="fa fa-fw fa-info"></i> Room Information</h3>
           </div>
           <div class="box-body" style="padding: 0px 10px 0px 10px">
-            <h5 style="margin: 14px 0px 13px 0px"> <b> Room ID  </b> <a id="room-id" class="pull-right"> --- </a></h5>
-            <h5 style="margin: 14px 0px 13px 0px"> <b> Room Name  </b> <a id="room-name" class="pull-right"> --- </a></h5>
-            <h5 style="margin: 14px 0px 13px 0px"> <b> Building  </b> <a id="room-building" class="pull-right"> --- </a></h5>
+            <h6 style="margin: 14px 0px 13px 0px"> <b> Room ID  </b> <a id="room-id" class="pull-right"> --- </a></h6>
+            <h6 style="margin: 14px 0px 13px 0px"> <b> Room Name  </b> <a id="room-name" class="pull-right"> --- </a></h6>
+            <h6 style="margin: 14px 0px 13px 0px"> <b> Building  </b> <a id="room-building" class="pull-right"> --- </a></h6>
           </div>
         </div>
       </div>
@@ -158,9 +168,15 @@
                 <select id="select-subject" class="form-control select2 custom"  data-placeholder="Select Subjects" style="width: 100%">
                   <option></option>
                 </select>
+                <select id="select-class" class="form-control select2 custom"  data-placeholder="Select Class" style="width: 100%">
+                  <option></option>
+                  <?php foreach ($classes as $v) {
+                    echo "<option value='".$v->id."'>".$v->strand_code.' '.substr($v->year_level,6,8).$v->section_name."</option>";
+                  } ?>
+                </select>
 
                 <div class="input-group-btn ">
-                  <button id="add-new-event" type="button" class="btn btn-primary btn-flat custom">Add</button>
+                  <button id="add-new-event" type="button" class="btn btn-primary btn-flat custom" style="height: 68px">Add</button>
                 </div>
                 <!-- /btn-group -->
               </div>
@@ -398,6 +414,8 @@
   var getScheduleUrl = "<?php echo base_url("academics/schedule/getSchedule"); ?>"
   var auditTrailSaveUrl = "<?php echo base_url('academics/schedule/auditTrailSave'); ?>"
   var validationUrl = "<?php echo base_url('academics/schedule/validation'); ?>"
+  var getRoomInfoUrl = "<?php echo base_url('academics/schedule/getRoomInfo'); ?>"
+  var getLabSubjectsUrl = "<?php echo base_url('academics/schedule/getLabSubjects'); ?>"
 </script>
 </body>
 </html>

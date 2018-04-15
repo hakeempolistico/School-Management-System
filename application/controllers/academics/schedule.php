@@ -35,8 +35,7 @@ class schedule extends CI_Controller {
 		}
 	}
 
-	public function lec()
-	{
+	public function lec(){
 		$data = $this->parse->parsed();
 		$data['classesCount'] = $this->global_model->count('sections');
 		$data['classes'] = $this->global_model->getRecords('sections');		
@@ -55,8 +54,7 @@ class schedule extends CI_Controller {
 		$this->parser->parse('academics/schedule', $data);
 	}
 
-	public function lab()
-	{
+	public function lab(){
 		$data = $this->parse->parsed();
 		$data['classesCount'] = $this->global_model->count('sections');
 		$data['classes'] = $this->global_model->getRecords('sections');		
@@ -75,10 +73,15 @@ class schedule extends CI_Controller {
 		$this->parser->parse('academics/laboratory', $data);
 	}
 
-	public function getSectionsDetails()
-	{
+	public function getSectionsDetails(){
 		$data = $this->input->post();
 		$row = $this->schedule_model->getSectionDetails($data);
+		echo json_encode($row);
+	}
+
+	public function getRoomInfo(){
+		$data = $this->input->post();
+		$row = $this->global_model->getRow('rooms', 'room_id', $data['room_id']);
 		echo json_encode($row);
 	}
 
@@ -88,6 +91,13 @@ class schedule extends CI_Controller {
 		$row = $this->schedule_model->getSubjects($section_id);
 		echo json_encode($row);
 	}
+
+	public function getLabSubjects()
+	{
+		$row = $this->global_model->getActiveRecords('subjects');
+		echo json_encode($row);
+	}
+
 	public function getSubjectsDetails()
 	{
 		$row = $this->schedule_model->getSubjectsDetails($this->input->post());
