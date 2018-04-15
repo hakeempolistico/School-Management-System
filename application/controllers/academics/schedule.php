@@ -161,6 +161,30 @@ class schedule extends CI_Controller {
 		echo json_encode($timeslot);
 	}
 
+	public function getLabSchedule()
+	{
+		$data = $this->schedule_model->getRecords('schedules', $this->input->post());		
+		$timeslot = array();
+		$schedule_row;
+
+		foreach($data as $key=>$val) {
+			$time = $val->time_start.'-'.$val->time_end ;
+			$day = $val->day;
+			$class_info = $this->schedule_model->getClassInfo($val->section_id);
+			$class = $class_info[0]->strand_code.' '.substr($class_info[0]->year_level,6,8).$class_info[0]->section_name;
+
+			if(!in_array($time, $timeslot, true)){
+		        $timeslot[$time][$day]['subject'] = $val->subject_code;
+			    $timeslot[$time][$day]['room'] = $val->room_id;
+			    $timeslot[$time][$day]['color'] = $val->color;
+			    $timeslot[$time][$day]['class'] = $class;
+			    $timeslot[$time][$day]['section_id'] = $class_info[0]->id;
+		    }
+		};
+
+		echo json_encode($timeslot);
+	}
+
 	public function validation()
 	{
 		$arr = array(

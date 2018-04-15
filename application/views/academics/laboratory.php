@@ -411,7 +411,7 @@
   var getSubjects = "<?php echo base_url("academics/schedule/getSubjectsDetails"); ?>"
   var addScheduleUrl = "<?php echo base_url("academics/schedule/addSchedule"); ?>"
   var deleteScheduleUrl = "<?php echo base_url("academics/schedule/deleteSchedule"); ?>"
-  var getScheduleUrl = "<?php echo base_url("academics/schedule/getSchedule"); ?>"
+  var getScheduleUrl = "<?php echo base_url("academics/schedule/getLabSchedule"); ?>"
   var auditTrailSaveUrl = "<?php echo base_url('academics/schedule/auditTrailSave'); ?>"
   var validationUrl = "<?php echo base_url('academics/schedule/validation'); ?>"
   var getRoomInfoUrl = "<?php echo base_url('academics/schedule/getRoomInfo'); ?>"

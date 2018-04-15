@@ -252,7 +252,7 @@ function getSchedules(){
         //console.log(res.length);
       }
       $.each(res, function( index, value ) {
-        //console.log(res);
+        console.log(res);
         var mon_obj = null;
         var tue_obj = null;
         var wed_obj = null;
@@ -260,41 +260,41 @@ function getSchedules(){
         var fri_obj = null;
         if(value['Monday']['color']){
           //console.log('Monday Not Null')
-          mon_obj = '<div class="count object" id="'+i+'" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:'+value['Monday']['color']+'">'+
+          mon_obj = '<div class="count object" id="'+i+'" section_id="'+value['Monday']['section_id']+'" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:'+value['Monday']['color']+'">'+
           '<div class="val-subject">'+value['Monday']['subject']+'</div>'+
-          '<div class="text-gray val-room">'+value['Monday']['room']+'</div>'+
+          '<div class="text-gray val-room">'+value['Monday']['class']+'</div>'+
           '</div>';
           i++; 
         }
         if(value['Tuesday']['color']){
           //console.log('Tuesday Not Null')
-          tue_obj = '<div class="count object" id="'+i+'" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:'+value['Tuesday']['color']+'">'+
+          tue_obj = '<div class="count object" id="'+i+'" section_id="'+value['Tuesday']['section_id']+'" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:'+value['Tuesday']['color']+'">'+
           '<div class="val-subject">'+value['Tuesday']['subject']+'</div>'+
-          '<div class="text-gray val-room">'+value['Tuesday']['room']+'</div>'+
+          '<div class="text-gray val-room">'+value['Tuesday']['class']+'</div>'+
           '</div>';
           i++; 
         }
         if(value['Wednesday']['color']){
           //console.log('Wednesday Not Null')
-          wed_obj = '<div class="count object" id="'+i+'" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:'+value['Wednesday']['color']+'">'+
+          wed_obj = '<div class="count object" id="'+i+'" section_id="'+value['Wednesday']['section_id']+'" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:'+value['Wednesday']['color']+'">'+
           '<div class="val-subject">'+value['Wednesday']['subject']+'</div>'+
-          '<div class="text-gray val-room">'+value['Wednesday']['room']+'</div>'+
+          '<div class="text-gray val-room">'+value['Wednesday']['class']+'</div>'+
           '</div>';
           i++; 
         }
         if(value['Thursday']['color']){
           //console.log('Thursday Not Null')
-          thur_obj = '<div class="count object" id="'+i+'" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:'+value['Thursday']['color']+'">'+
+          thur_obj = '<div class="count object" id="'+i+'" section_id="'+value['Thursday']['section_id']+'" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:'+value['Thursday']['color']+'">'+
           '<div class="val-subject">'+value['Thursday']['subject']+'</div>'+
-          '<div class="text-gray val-room">'+value['Thursday']['room']+'</div>'+
+          '<div class="text-gray val-room">'+value['Thursday']['class']+'</div>'+
           '</div>';
           i++; 
         }
         if(value['Friday']['color']){
           //console.log('Friday Not Null')
-          fri_obj = '<div class="count object" id="'+i+'" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:'+value['Friday']['color']+'">'+
+          fri_obj = '<div class="count object" id="'+i+'" section_id="'+value['Friday']['section_id']+'" draggable="true" ondragstart="drag(event)" style="resize: vertical; overflow: auto; color: white; background-color:'+value['Friday']['color']+'">'+
           '<div class="val-subject">'+value['Friday']['subject']+'</div>'+
-          '<div class="text-gray val-room">'+value['Friday']['room']+'</div>'+
+          '<div class="text-gray val-room">'+value['Friday']['class']+'</div>'+
           '</div>';
           i++; 
         }    
