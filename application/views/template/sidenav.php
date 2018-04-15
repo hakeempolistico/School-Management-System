@@ -51,7 +51,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">SYSTEM TIME/DATE</li>
-        <li class="<?php echo (isset($active) && $active =='dashboard' ? 'active' : null); ?>">
+        <li>
           <a href="#" style="cursor: context-menu;">
             <i class="fa fa-clock-o"></i> <span>10:20 PM / 14 Apr 2018</span>
           </a>

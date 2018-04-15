@@ -17,8 +17,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Lecture Schedule
-        <small>Create a lecture schedule for school year 2017-2018</small>
+        Laboratory Schedule
+        <small>Create a laboratory schedule for school year 2017-2018</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="enrollment/dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
@@ -32,49 +32,25 @@
     <div class="row hidden-print">
       <div class="col-lg-3 col-xs-12">
         <div class="form-group ">
-          <label>Strand</label>
-          <select id="select-strand" class="form-control select2"  data-placeholder="Select Strand" style="width: 100%">
+          <label>Laboratory Room</label>
+          <select id="select-lab" class="form-control select2"  data-placeholder="Select Laboratory" style="width: 100%">
             <option></option>
-            <?php foreach ($strands as $val) 
+            <?php foreach ($rooms as $val) 
               {
-                echo "<option value='".$val->code."'>".$val->name."</option>";
+                echo "<option value='".$val->room_id."'>".$val->room_name."</option>";
               }
             ?>
           </select> 
         </div>
       </div>
-
       <div class="col-lg-3 col-xs-12">
-        <div class="form-group">
-          <label>Year</label>
-          <select id="select-year" class="form-control select2"  data-placeholder="Select Year" style="width: 100%">
-            <option></option>
-            <?php foreach ($year_levels as $val) 
-              {
-                echo "<option value='".$val->id."'>".$val->name."</option>";
-              }
-            ?>
-          </select>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-xs-12">
-        <div class="form-group">
-          <label>Section</label>
-          <select id="select-section" class="form-control select2"  data-placeholder="Select Section" style="width: 100%">
-          <option></option>
-        </select>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-xs-12">
-        <div class="form-group">
+        <div class="form-group ">
           <label>Semester</label>
-          <select id="select-semester" class="form-control select2"  data-placeholder="Select Section" style="width: 100%">
-          <option></option>
-          <option value="First Semester">First Semester</option>
-          <option value="Second Semester">Second Semester</option>
-        </select>
+          <select id="select-sem" class="form-control select2"  data-placeholder="Select Semester" style="width: 100%">
+            <option></option>
+            <option value='First Semester'>First Semester</option>
+            <option value='Second Semester'>Second Semester</option>
+          </select> 
         </div>
       </div>
     </div>
@@ -87,12 +63,12 @@
       <div class="col-lg-3 col-xs-12">
         <div class="box box-solid">
           <div class="box-header with-border">
-              <h3 id="trash" class="box-title text-success" style="font-size: 15px;"><i class="fa fa-fw fa-info"></i> Class Information</h3>
+              <h3 id="trash" class="box-title text-success" style="font-size: 15px;"><i class="fa fa-fw fa-info"></i> Room Information</h3>
           </div>
           <div class="box-body" style="padding: 0px 10px 0px 10px">
-            <h5 style="margin: 14px 0px 13px 0px"> <b> Strand  </b> <a id="class-strand" class="pull-right"> --- </a></h5>
-            <h5 style="margin: 14px 0px 13px 0px"> <b> Year & Section  </b> <a id="class-year-section" class="pull-right"> --- </a></h5>
-            <h5 style="margin: 14px 0px 13px 0px"> <b> Capacity  </b> <a id="class-capacity" class="pull-right"> --- </a></h5>
+            <h6 style="margin: 14px 0px 13px 0px"> <b> Room ID  </b> <a id="room-id" class="pull-right"> --- </a></h6>
+            <h6 style="margin: 14px 0px 13px 0px"> <b> Room Name  </b> <a id="room-name" class="pull-right"> --- </a></h6>
+            <h6 style="margin: 14px 0px 13px 0px"> <b> Building  </b> <a id="room-building" class="pull-right"> --- </a></h6>
           </div>
         </div>
       </div>
@@ -192,13 +168,11 @@
                 <select id="select-subject" class="form-control select2 custom"  data-placeholder="Select Subjects" style="width: 100%">
                   <option></option>
                 </select>
-                <select id="select-room" class="form-control select2 custom"  data-placeholder="Select Room" style="width: 100%">
+                <select id="select-class" class="form-control select2 custom"  data-placeholder="Select Class" style="width: 100%">
                   <option></option>
-                  <?php foreach ($rooms as $val) 
-                    {
-                      echo "<option value='".$val->room_id."'>".$val->room_name."</option>";
-                    }
-                  ?>   
+                  <?php foreach ($classes as $v) {
+                    echo "<option value='".$v->id."'>".$v->strand_code.' '.substr($v->year_level,6,8).$v->section_name."</option>";
+                  } ?>
                 </select>
 
                 <div class="input-group-btn ">
@@ -421,7 +395,7 @@
 <script src="<?php echo base_url(); ?>bower_components/moment/moment.js"></script>
 <script src="<?php echo base_url(); ?>bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
 <!-- Page specific script -->
-<script src="<?php echo base_url(); ?>dist/js/enrollment/manage_schedule.js"></script>
+<script src="<?php echo base_url(); ?>dist/js/academics/manage_laboratory.js"></script>
 
 <script type="text/javascript">
   //Initialize Select2 Elements
@@ -437,9 +411,11 @@
   var getSubjects = "<?php echo base_url("academics/schedule/getSubjectsDetails"); ?>"
   var addScheduleUrl = "<?php echo base_url("academics/schedule/addSchedule"); ?>"
   var deleteScheduleUrl = "<?php echo base_url("academics/schedule/deleteSchedule"); ?>"
-  var getScheduleUrl = "<?php echo base_url("academics/schedule/getSchedule"); ?>"
+  var getScheduleUrl = "<?php echo base_url("academics/schedule/getLabSchedule"); ?>"
   var auditTrailSaveUrl = "<?php echo base_url('academics/schedule/auditTrailSave'); ?>"
   var validationUrl = "<?php echo base_url('academics/schedule/validation'); ?>"
+  var getRoomInfoUrl = "<?php echo base_url('academics/schedule/getRoomInfo'); ?>"
+  var getLabSubjectsUrl = "<?php echo base_url('academics/schedule/getLabSubjects'); ?>"
 </script>
 </body>
 </html>

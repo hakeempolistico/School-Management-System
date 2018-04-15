@@ -10,26 +10,6 @@ class schedule extends CI_Controller {
 	    $this->load->model('academics/schedule_model');
 	}
 
-	public function lec()
-	{
-		$data = $this->parse->parsed();
-		$data['classesCount'] = $this->global_model->count('sections');
-		$data['classes'] = $this->global_model->getRecords('sections');		
-		$data['teachers'] = $this->global_model->getActiveRecords('teachers');		
-		$data['rooms'] = $this->global_model->getActiveRecords('rooms');			
-		$data['subjects'] = $this->global_model->getRecords('subjects');		
-		$data['year_levels'] = $this->global_model->getRecords('year_levels');		
-		$data['strands'] = $this->global_model->getActiveRecords('strands');		
-		$data['classes'] = $this->schedule_model->getClass();		
-
-		$data['active'] = 'academics/schedule';
-		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
-		$data['title'] = 'Schedule';
-		$data['header'] = $this->load->view('template/header', $data, TRUE);
-
-		$this->parser->parse('academics/schedule', $data);
-	}
-
 	public function index(){
 		$data = $this->parse->parsed();
 		$data['active'] = 'academics/schedule';
@@ -44,10 +24,10 @@ class schedule extends CI_Controller {
 		$data = $this->input->post();
 		if($data['sched'] != null){
 			if($data['sched'] == 'lec'){
-				$this->lec();
+				 redirect('/academics/schedule/lec');
 			}
 			else if($data['sched'] == 'lab'){
-				$this->lab();
+				redirect('/academics/schedule/lab');
 			}
 		}
 		else{
@@ -55,10 +35,53 @@ class schedule extends CI_Controller {
 		}
 	}
 
-	public function getSectionsDetails()
-	{
+	public function lec(){
+		$data = $this->parse->parsed();
+		$data['classesCount'] = $this->global_model->count('sections');
+		$data['classes'] = $this->global_model->getRecords('sections');		
+		$data['teachers'] = $this->global_model->getActiveRecords('teachers');		
+		$data['rooms'] = $this->global_model->getRows('rooms', array('type' => 'Lecture'));			
+		$data['subjects'] = $this->global_model->getRecords('subjects');		
+		$data['year_levels'] = $this->global_model->getRecords('year_levels');		
+		$data['strands'] = $this->global_model->getActiveRecords('strands');		
+		$data['classes'] = $this->schedule_model->getClass();		
+
+		$data['active'] = 'academics/schedule';
+		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
+		$data['title'] = 'Schedule';
+		$data['header'] = $this->load->view('template/header', $data, TRUE);
+
+		$this->parser->parse('academics/schedule', $data);
+	}
+
+	public function lab(){
+		$data = $this->parse->parsed();
+		$data['classesCount'] = $this->global_model->count('sections');
+		$data['classes'] = $this->global_model->getRecords('sections');		
+		$data['teachers'] = $this->global_model->getActiveRecords('teachers');		
+		$data['rooms'] = $this->global_model->getRows('rooms', array('type' => 'Laboratory'));			
+		$data['subjects'] = $this->global_model->getRecords('subjects');		
+		$data['year_levels'] = $this->global_model->getRecords('year_levels');		
+		$data['strands'] = $this->global_model->getActiveRecords('strands');		
+		$data['classes'] = $this->schedule_model->getClass();		
+
+		$data['active'] = 'academics/schedule';
+		$data['template'] = $this->load->view('template/sidenav', $data, TRUE);
+		$data['title'] = 'Schedule';
+		$data['header'] = $this->load->view('template/header', $data, TRUE);
+
+		$this->parser->parse('academics/laboratory', $data);
+	}
+
+	public function getSectionsDetails(){
 		$data = $this->input->post();
 		$row = $this->schedule_model->getSectionDetails($data);
+		echo json_encode($row);
+	}
+
+	public function getRoomInfo(){
+		$data = $this->input->post();
+		$row = $this->global_model->getRow('rooms', 'room_id', $data['room_id']);
 		echo json_encode($row);
 	}
 
@@ -68,6 +91,13 @@ class schedule extends CI_Controller {
 		$row = $this->schedule_model->getSubjects($section_id);
 		echo json_encode($row);
 	}
+
+	public function getLabSubjects()
+	{
+		$row = $this->global_model->getActiveRecords('subjects');
+		echo json_encode($row);
+	}
+
 	public function getSubjectsDetails()
 	{
 		$row = $this->schedule_model->getSubjectsDetails($this->input->post());
@@ -125,6 +155,30 @@ class schedule extends CI_Controller {
 		        $timeslot[$time][$day]['subject'] = $val->subject_code;
 			    $timeslot[$time][$day]['room'] = $val->room_id;
 			    $timeslot[$time][$day]['color'] = $val->color;
+		    }
+		};
+
+		echo json_encode($timeslot);
+	}
+
+	public function getLabSchedule()
+	{
+		$data = $this->schedule_model->getRecords('schedules', $this->input->post());		
+		$timeslot = array();
+		$schedule_row;
+
+		foreach($data as $key=>$val) {
+			$time = $val->time_start.'-'.$val->time_end ;
+			$day = $val->day;
+			$class_info = $this->schedule_model->getClassInfo($val->section_id);
+			$class = $class_info[0]->strand_code.' '.substr($class_info[0]->year_level,6,8).$class_info[0]->section_name;
+
+			if(!in_array($time, $timeslot, true)){
+		        $timeslot[$time][$day]['subject'] = $val->subject_code;
+			    $timeslot[$time][$day]['room'] = $val->room_id;
+			    $timeslot[$time][$day]['color'] = $val->color;
+			    $timeslot[$time][$day]['class'] = $class;
+			    $timeslot[$time][$day]['section_id'] = $class_info[0]->id;
 		    }
 		};
 
