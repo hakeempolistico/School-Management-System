@@ -146,7 +146,7 @@ function dropTrash(ev) {
 
   
 
-var table, set, sectionId = null, room_id, strand_code = null, year_level_id = null, semester = null, conflict = true; 
+var table, set, sectionId = null, room_id, strand_code = null, year_level_id = null, semester = null, conflict = true, room = null; 
 
 $(".custom").prop('disabled', true);
 $('#select-year').prop('disabled', true);
@@ -186,18 +186,22 @@ $('#select-semester').on('change', function(){
   semester = $('#select-semester').val()
   getCurrSubjects()
   updateClassInfo()
-  getSchedules()
+})
+$('#select-room').on('change', function(){
+  room = $('#select-room').val()
+  getCurrSubjects()
 })
 $('#select-section').on('change', function(){
   $('#select-semester').prop('disabled', false)
   sectionId = $('#select-section').val()
-  getSchedules()
+  getCurrSubjects()
+  updateClassInfo()
 })
 //POPULATE SECTION SELECT 
 $('#select-year').on('change', function(){
   year_level_id = $('#select-year').val();
   getSections()
-  getSchedules()
+  getCurrSubjects()
   $('#select-semester').prop('disabled', true);
   $('#select-section').prop('disabled', false);
 })
@@ -207,12 +211,12 @@ $('#select-strand').on('change', function(){
   $('#select-section').prop('disabled', true);
   $('#select-semester').prop('disabled', true);
   strand_code = $('#select-strand').val();
-  getSections();
-  getSchedules()
+  getSections()
+  getCurrSubjects()
 })
 
 function getCurrSubjects(){
-  if(sectionId && strand_code && year_level_id && semester){
+  if(sectionId && strand_code && year_level_id && semester && room){
     $(".custom").prop('disabled', false);
     $.ajax({
       url: getSubjects,
@@ -269,14 +273,13 @@ function getSchedules(){
     return
   }
   //console.log(sectionId + ' : ' + semester);
-  $("#select-room").val('').trigger('change');
 
   //POPULATE TABLE 
   $.ajax({
     url: getScheduleUrl,
     type: 'post',
     dataType: 'json',
-    data: {'section_id' : sectionId, 'semester' : semester, 'academic_year' : aYear}, 
+    data: {'section_id' : sectionId, 'semester' : semester, 'academic_year' : aYear, 'room_id' : room}, 
     success: function(res){ 
       var i = 0;
       $('#schedule tbody tr').remove();
